@@ -1,0 +1,16 @@
+{
+  "updated": "2026-10-10",
+  "current_sop_count": 525,
+  "current_ai_prompt_count": 215,
+  "overview_booklet_version": "1.8",
+  "overview_booklet_pages": 8,
+  "registration_public_download_exception": "Gravity System Customer Overview Booklet only",
+  "start_here_version": "2.6",
+  "start_here_pages": 6,
+  "assist_workspace_count": 8,
+  "reader_book_count": 15,
+  "founding_year_through": "2027-10-01",
+  "foundry_manager_storage": "local working copy",
+  "foundry_employee_access": "hosted published employee library",
+  "work_study_types": 11
+}
