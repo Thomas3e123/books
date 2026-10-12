@@ -1,0 +1,4295 @@
+Hiring, Interviewing & Employee
+Retention Tracker
+A Practical Restaurant Manager’s Workbook for Hiring People Who Care and Keeping
+the Right Employees
+
+COMPLETE PRACTICAL WORKBOOK
+
+THOMAS BUTLER
+Thomas Monroe Books
+
+Copyright, Use, and Important Limits
+Copyright © 2026 Thomas Butler. Published by Thomas Monroe Books. First workbook edition, September
+2026. All rights reserved except for blank forms reproduced for internal use by the purchasing or authorized
+restaurant operation.
+Important This workbook is educational management guidance, not legal, tax, medical, safety, or human-resources
+advice. Federal guidance is only a baseline. State, local, industry, union, contract, licensing, and company
+requirements may add or change obligations. Route uncertain or high-risk decisions to authorized HR counsel or
+qualified legal review.
+
+Do not use this workbook as a personality test, diagnostic instrument, automated selection system, or substitute
+for individual review. Do not ask AI to make final decisions about hiring, discipline, pay, scheduling,
+accommodation, investigation, or termination. A manager remains responsible for job-related evidence,
+consistent process, policy, lawful review, and humane treatment.
+Care in this workbook means observable responsibility toward guests, coworkers, cleanliness, safety, honesty,
+learning, and team impact. It does not mean familiarity, charisma, appearance, similarity to the interviewer, or a
+vague idea of “culture fit.”
+
+How to Use This Workbook
+This workbook builds manager judgment and guided practice. It does not replace the controlled GRV-HR
+system. Use the linked GRV-HR form named in each tool section for an official operating record. A manager or
+owner must make final hiring, discipline, pay, scheduling, accommodation, and termination decisions; AI may
+support preparation, never make those decisions.
+ Start with a verified workforce need—not an empty slot alone.
+ Use the same core questions and job-related criteria for comparable candidates.
+ Write evidence before discussing preference.
+ Make the job preview honest enough that a candidate can decline intelligently.
+ Treat the first 90 days as part of hiring, not as somebody else’s problem.
+ Escalate accommodation, background, discrimination, retaliation, discipline, and separation questions through
+authorized channels.
+
+The working cycle
+Stage Manager output Control
+
+Need Verified role, coverage, budget, authority GRV-HR01 / GRV-C
+Standard Position success profile and criteria GRV-HR02
+Evidence Comparable interview notes and score GRV-HR06 and approved scorecard
+Decision Reasoned approval and honest offer GRV-HR controlled record
+Start Prepared first shift and training handoff GRV-HR / GRV-T
+Check-ins, coaching, concerns, pattern
+Stay GRV-HR / GRV-M / GRV-IV
+review
+
+Contents
+Part I: Face the Hiring Truth .... 2
+Chapter 1 The Cost of Desperation Hiring .... 3
+Chapter 2 Hire Care First .... 7
+Chapter 3 Experience Is Evidence but Not the Whole Answer .... 11
+Chapter 4 Stop Hiring from Memory .... 15
+
+Part II: Build the Hiring Standard .... 19
+Chapter 5 Confirm the Real Staffing Need .... 20
+Chapter 6 Define the Real Job .... 24
+Chapter 7 Set Fair Selection Criteria .... 28
+Chapter 8 Tell the Truth in the Job Posting .... 32
+Chapter 9 Review Applications Consistently .... 36
+
+Part III: Interview for Evidence .... 40
+Chapter 10 Prepare the Interview .... 41
+Chapter 11 Open with Respect and Clarity .... 45
+Chapter 12 Questions That Reveal Care .... 49
+Chapter 13 Questions That Reveal Reliability .... 53
+Chapter 14 Questions That Reveal Coachability .... 57
+Chapter 15 Questions That Reveal Honesty and Judgment .... 61
+Chapter 16 Give a Realistic Job Preview .... 65
+Chapter 17 Stay Inside Lawful and Ethical Boundaries .... 69
+Chapter 18 Check References and Background Information Carefully .... 73
+
+Part IV: Make and Document the Decision .... 77
+Chapter 19 Score Evidence Before Discussing Preference .... 78
+Chapter 20 Use a Second Look When Evidence Is Thin .... 82
+Chapter 21 Remove Favoritism from the Decision .... 86
+Chapter 22 Make the Offer Honestly .... 90
+Chapter 23 Document the Hiring Decision .... 94
+
+Part V: Protect the First 90 Days .... 98
+Chapter 24 Protect the Time Before Day One .... 99
+Chapter 25 Make the First Shift Match the Promise .... 103
+Chapter 26 Use 7 Day 14 Day 30 Day 60 Day and 90 Day Check Ins .... 107
+Chapter 27 Separate Fit Problems from Training Problems .... 111
+Chapter 28 Coach Early and Fairly .... 115
+
+Part VI: Keep the Right Employees .... 119
+Chapter 29 Why Good Employees Stay .... 120
+Chapter 30 Use Stay Conversations Before Exit Interviews .... 124
+Chapter 31 Handle Concerns without Gossip or Retaliation .... 128
+
+Part VII: Coach Problems and Learn from Loss .... 132
+Chapter 32 Separate Coaching Corrective Action and Separation .... 133
+Chapter 33 Learn from Every Departure .... 137
+Chapter 34 Measure Turnover without Hiding the Story .... 141
+
+Part VIII: Install and Hold the System .... 145
+Chapter 35 Review Hiring and Retention Every Week .... 146
+Chapter 36 Install the System in 30 or 60 Days .... 150
+
+Introduction: Hiring Is an Operating Decision
+A vacancy is loud. The costs created by a weak decision are quieter: a trainer pulled from position, overtime,
+missed cleaning, guest recovery, schedule swaps, manager attention, and the next resignation. Pressure
+explains why shortcuts happen. It does not make them safe.
+This workbook replaces the loose sequence—post, talk, guess, hope—with a visible management cycle. The
+restaurant defines the need, tells the truth about the work, gathers comparable evidence, records the decision,
+supports the start, listens early, and learns from patterns. The signature principle is simple: Hire care first. Train
+skill second. The practice is more demanding: managers must translate care into job-related behavior and
+refuse to confuse it with charm.
+Experience matters when it shows usable knowledge, safe habits, sound judgment, or faster learning. It is not a
+waiver from standards. A less experienced candidate may offer stronger evidence of preparation, responsibility,
+honest learning, and response to feedback. The decision is not “experience or care.” It is whether the evidence
+supports success in the real role and whether trainable gaps can be closed responsibly.
+Promise Use this workbook to make hiring more structured, interviews more comparable, first-90-day support more
+deliberate, and retention decisions more honest. No system eliminates uncertainty; a good system makes the
+reasoning visible and correctable.
+
+
+Part I
+Face the Hiring Truth
+Move the reader from vacancy panic and informal judgment to evidence, role clarity, and accountable
+ownership.
+Part standard Replace urgency and instinct with a defined decision standard.
+
+
+Chapter 1
+The Cost of Desperation Hiring
+Show how vacancy pressure shifts cost into training, service, morale, overtime, safety, and repeated
+turnover.
+The manager’s question What does a fast but weak hire really cost?
+
+Why this chapter matters
+In restaurant operations, pressure and judgment becomes unreliable when the decision lives only in memory or
+urgency. Replace urgency and instinct with a defined decision standard. The objective here is not extra
+paperwork; it is a decision another authorized leader can understand, test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “The Cost of Desperation Hiring,” the
+written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Notice whether urgency is driving the standard down. Protect the schedule by defining the gap before naming a
+person.
+
+Manager warning
+Do not let one uncovered shift become permission to hire someone the role evidence does not support.
+
+
+Chapter 1 Field Guide .... 3
+Use this sequence
+Step Working instruction
+
+1. Name the decision What does a fast but weak hire really cost?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Show how vacancy pressure shifts cost into training,
+3. Apply the standard
+service, morale, overtime, safety, and repeated turnover.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Friday Night Vacancy
+A manager wants to hire the first available applicant without a role-success profile.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+1. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 1 Action Record .... 3
+Complete this page for one real decision involving “The Cost of Desperation Hiring.” Use initials or an approved case
+identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 2
+Hire Care First
+Define care as observable job-related behavior and establish the book’s signature principle.
+The manager’s question What does “care” mean in a fair hiring process?
+
+Why this chapter matters
+In restaurant operations, pressure and judgment becomes unreliable when the decision lives only in memory or
+urgency. Replace urgency and instinct with a defined decision standard. The objective here is not extra
+paperwork; it is a decision another authorized leader can understand, test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Hire Care First,” the written record should
+make those five points visible without exaggeration or labels.
+
+Care-first lens
+Look for a pattern of taking responsibility for guests, coworkers, standards, and mistakes.
+
+Manager warning
+Do not confuse warmth, charm, or familiarity with dependable care.
+
+
+Chapter 2 Field Guide .... 7
+Use this sequence
+Step Working instruction
+
+1. Name the decision What does “care” mean in a fair hiring process?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Define care as observable job-related behavior and
+3. Apply the standard
+establish the book’s signature principle.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Experienced Candidate
+Strong experience is paired with blame, disrespect, or resistance to standards.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+2. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 2 Action Record .... 7
+Complete this page for one real decision involving “Hire Care First.” Use initials or an approved case identifier when
+privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 3
+Experience Is Evidence but Not the Whole Answer
+Separate useful experience from reliability, learning, standards, and team impact.
+The manager’s question When should experience matter, and when does it mislead?
+
+Why this chapter matters
+In restaurant operations, pressure and judgment becomes unreliable when the decision lives only in memory or
+urgency. Replace urgency and instinct with a defined decision standard. The objective here is not extra
+paperwork; it is a decision another authorized leader can understand, test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Experience Is Evidence but Not the Whole
+Answer,” the written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Use past work to ask better follow-up questions about actions, results, and learning.
+
+Manager warning
+Do not treat a recognizable employer or years served as proof of present capability.
+
+
+Chapter 3 Field Guide .... 11
+Use this sequence
+Step Working instruction
+
+1. Name the decision When should experience matter, and when does it mislead?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Separate useful experience from reliability, learning,
+3. Apply the standard
+standards, and team impact.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Quiet Candidate
+A reserved candidate provides strong evidence but does not perform socially like the manager
+expects.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+3. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 3 Action Record .... 11
+Complete this page for one real decision involving “Experience Is Evidence but Not the Whole Answer.” Use initials or
+an approved case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 4
+Stop Hiring from Memory
+Establish structure, ownership, records, comparable questions, and decision accountability.
+The manager’s question Why do informal interviews produce inconsistent decisions?
+
+Why this chapter matters
+In restaurant operations, pressure and judgment becomes unreliable when the decision lives only in memory or
+urgency. Replace urgency and instinct with a defined decision standard. The objective here is not extra
+paperwork; it is a decision another authorized leader can understand, test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Stop Hiring from Memory,” the written
+record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Write down the job standard and the evidence before discussing an applicant.
+
+Manager warning
+Do not allow the loudest recollection to replace a comparable record.
+
+
+Chapter 4 Field Guide .... 15
+Use this sequence
+Step Working instruction
+
+1. Name the decision Why do informal interviews produce inconsistent decisions?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Establish structure, ownership, records, comparable
+3. Apply the standard
+questions, and decision accountability.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Employee Referral
+A respected employee recommends a friend and the manager wants to skip the normal process.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+4. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 4 Action Record .... 15
+Complete this page for one real decision involving “Stop Hiring from Memory.” Use initials or an approved case
+identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Part II
+Build the Hiring Standard
+Define the need, the role, the success evidence, the process, and the boundaries before recruiting.
+Part standard Write the job-related standard before evaluating a person.
+
+
+Chapter 5
+Confirm the Real Staffing Need
+Require evidence of volume, coverage, skill mix, availability, turnover, and budget before opening a
+position.
+The manager’s question Do we need another person, different coverage, or better deployment?
+
+Why this chapter matters
+In restaurant operations, role and process design becomes unreliable when the decision lives only in memory or
+urgency. Write the job-related standard before evaluating a person. The objective here is not extra paperwork; it
+is a decision another authorized leader can understand, test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Confirm the Real Staffing Need,” the
+written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Test whether the need is a true headcount gap, a coverage problem, or a training and deployment problem.
+
+Manager warning
+Do not open a requisition before the schedule and workload explain why it is needed.
+
+
+Chapter 5 Field Guide .... 20
+Use this sequence
+Step Working instruction
+
+Do we need another person, different coverage, or better
+1. Name the decision
+deployment?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Require evidence of volume, coverage, skill mix, availability,
+3. Apply the standard
+turnover, and budget before opening a position.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Schedule Mismatch
+The candidate is capable, but the available hours do not match the restaurant’s verified need.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+5. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 5 Action Record .... 20
+Complete this page for one real decision involving “Confirm the Real Staffing Need.” Use initials or an approved case
+identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 6
+Define the Real Job
+Build a position success profile from actual duties, conditions, schedule, physical demands,
+standards, and training reality.
+The manager’s question What must the person actually be able and willing to do?
+
+Why this chapter matters
+In restaurant operations, role and process design becomes unreliable when the decision lives only in memory or
+urgency. Write the job-related standard before evaluating a person. The objective here is not extra paperwork; it
+is a decision another authorized leader can understand, test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Define the Real Job,” the written record
+should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Name the actual conditions, key tasks, pace, and standards of the job as it is worked.
+
+Manager warning
+Do not sell a simplified role and then judge a new employee against hidden expectations.
+
+
+Chapter 6 Field Guide .... 24
+Use this sequence
+Step Working instruction
+
+1. Name the decision What must the person actually be able and willing to do?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Build a position success profile from actual duties,
+3. Apply the standard conditions, schedule, physical demands, standards, and
+training reality.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Perfect Interview
+Answers sound polished but contain few concrete examples or verifiable detail.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+6. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 6 Action Record .... 24
+Complete this page for one real decision involving “Define the Real Job.” Use initials or an approved case identifier
+when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 7
+Set Fair Selection Criteria
+Separate required, preferred, trainable, and irrelevant criteria.
+The manager’s question Which standards are necessary and consistently defensible?
+
+Why this chapter matters
+In restaurant operations, role and process design becomes unreliable when the decision lives only in memory or
+urgency. Write the job-related standard before evaluating a person. The objective here is not extra paperwork; it
+is a decision another authorized leader can understand, test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Set Fair Selection Criteria,” the written
+record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Choose observable job-related criteria before reviewing candidates.
+
+Manager warning
+Do not add or change criteria after a preferred candidate appears.
+
+
+Chapter 7 Field Guide .... 28
+Use this sequence
+Step Working instruction
+
+Which standards are necessary and consistently
+1. Name the decision
+defensible?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Separate required, preferred, trainable, and irrelevant
+3. Apply the standard
+criteria.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Second Chance
+A candidate owns a prior failure and explains specific correction and learning.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+7. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 7 Action Record .... 28
+Complete this page for one real decision involving “Set Fair Selection Criteria.” Use initials or an approved case
+identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 8
+Tell the Truth in the Job Posting
+Write a realistic invitation that does not hide workload, schedule, expectations, pay process, or
+working conditions.
+The manager’s question How do we attract the right applicants without overselling the job?
+
+Why this chapter matters
+In restaurant operations, role and process design becomes unreliable when the decision lives only in memory or
+urgency. Write the job-related standard before evaluating a person. The objective here is not extra paperwork; it
+is a decision another authorized leader can understand, test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Tell the Truth in the Job Posting,” the
+written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Describe the schedule, physical requirements, pay process, and working conditions honestly.
+
+Manager warning
+Do not use vague promises to solve a recruiting shortage.
+
+
+Chapter 8 Field Guide .... 32
+Use this sequence
+Step Working instruction
+
+How do we attract the right applicants without overselling
+1. Name the decision
+the job?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Write a realistic invitation that does not hide workload,
+3. Apply the standard
+schedule, expectations, pay process, or working conditions.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Background Concern
+Information appears that may be inaccurate, irrelevant, outdated, or legally restricted.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+8. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 8 Action Record .... 32
+Complete this page for one real decision involving “Tell the Truth in the Job Posting.” Use initials or an approved case
+identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 9
+Review Applications Consistently
+Use the same job-related screening standard and document unresolved questions.
+The manager’s question How do we decide who receives an interview?
+
+Why this chapter matters
+In restaurant operations, role and process design becomes unreliable when the decision lives only in memory or
+urgency. Write the job-related standard before evaluating a person. The objective here is not extra paperwork; it
+is a decision another authorized leader can understand, test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Review Applications Consistently,” the
+written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Use the same initial review standard for every applicant to the same role.
+
+Manager warning
+Do not advance or reject someone on a name, photo, gap, or hunch without job-related evidence.
+
+
+Chapter 9 Field Guide .... 36
+Use this sequence
+Step Working instruction
+
+1. Name the decision How do we decide who receives an interview?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Use the same job-related screening standard and document
+3. Apply the standard
+unresolved questions.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The First Week Silence
+A new hire says everything is fine while training records show missed practice and unclear
+expectations.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+9. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 9 Action Record .... 36
+Complete this page for one real decision involving “Review Applications Consistently.” Use initials or an approved
+case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Part III
+Interview for Evidence
+Teach one structured, respectful interview process that looks for job-related evidence of care,
+reliability, coachability, honesty, and judgment.
+Part standard Ask comparable questions, probe for facts, and record evidence without diagnosing personality.
+
+
+Chapter 10
+Prepare the Interview
+Set the interviewer, questions, scoring anchors, time, privacy, accommodations route, and evidence
+standard.
+The manager’s question What must be ready before the candidate arrives?
+
+Why this chapter matters
+In restaurant operations, interview evidence becomes unreliable when the decision lives only in memory or
+urgency. Ask comparable questions, probe for facts, and record evidence without diagnosing personality. The
+objective here is not extra paperwork; it is a decision another authorized leader can understand, test, and
+improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Prepare the Interview,” the written record
+should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Prepare role-specific questions, an evidence sheet, and a realistic interview order.
+
+Manager warning
+Do not improvise the process differently for people you already know or prefer.
+
+
+Chapter 10 Field Guide .... 41
+Use this sequence
+Step Working instruction
+
+1. Name the decision What must be ready before the candidate arrives?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Set the interviewer, questions, scoring anchors, time,
+3. Apply the standard
+privacy, accommodations route, and evidence standard.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Trainer Problem
+The new hire is blamed for slow progress, but the assigned trainer changes the standard each shift.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+10. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 10 Action Record .... 41
+Complete this page for one real decision involving “Prepare the Interview.” Use initials or an approved case identifier
+when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 11
+Open with Respect and Clarity
+Explain the process, reduce avoidable anxiety, and establish an honest two-way conversation.
+The manager’s question How should a professional restaurant interview begin?
+
+Why this chapter matters
+In restaurant operations, interview evidence becomes unreliable when the decision lives only in memory or
+urgency. Ask comparable questions, probe for facts, and record evidence without diagnosing personality. The
+objective here is not extra paperwork; it is a decision another authorized leader can understand, test, and
+improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Open with Respect and Clarity,” the written
+record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Explain the role, the interview purpose, and the next step so the candidate can respond fairly.
+
+Manager warning
+Do not create pressure or confusion to see whether someone can guess what you want.
+
+
+Chapter 11 Field Guide .... 45
+Use this sequence
+Step Working instruction
+
+1. Name the decision How should a professional restaurant interview begin?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Explain the process, reduce avoidable anxiety, and establish
+3. Apply the standard
+an honest two-way conversation.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Reliable Employee at Risk
+A dependable employee is quietly considering leaving because of scheduling and manager behavior.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+11. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 11 Action Record .... 45
+Complete this page for one real decision involving “Open with Respect and Clarity.” Use initials or an approved case
+identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 12
+Questions That Reveal Care
+Use past-behavior and scenario questions tied to guests, coworkers, cleanliness, safety, and follow-
+through.
+The manager’s question What evidence shows that a candidate notices and responds to impact?
+
+Why this chapter matters
+In restaurant operations, interview evidence becomes unreliable when the decision lives only in memory or
+urgency. Ask comparable questions, probe for facts, and record evidence without diagnosing personality. The
+objective here is not extra paperwork; it is a decision another authorized leader can understand, test, and
+improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Questions That Reveal Care,” the written
+record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Ask for concrete examples of protecting a guest, coworker, product, safety practice, or standard.
+
+Manager warning
+Do not accept a general claim of caring without a situation, action, and result.
+
+
+Chapter 12 Field Guide .... 49
+Use this sequence
+Step Working instruction
+
+What evidence shows that a candidate notices and
+1. Name the decision
+responds to impact?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Use past-behavior and scenario questions tied to guests,
+3. Apply the standard
+coworkers, cleanliness, safety, and follow-through.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Exit Pattern
+Three recent employees cite different immediate reasons but share one operational condition.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+12. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 12 Action Record .... 49
+Complete this page for one real decision involving “Questions That Reveal Care.” Use initials or an approved case
+identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 13
+Questions That Reveal Reliability
+Examine commitments, attendance reasoning, preparation, communication, and recovery after a
+miss.
+The manager’s question What evidence suggests the person can be counted on?
+
+Why this chapter matters
+In restaurant operations, interview evidence becomes unreliable when the decision lives only in memory or
+urgency. Ask comparable questions, probe for facts, and record evidence without diagnosing personality. The
+objective here is not extra paperwork; it is a decision another authorized leader can understand, test, and
+improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Questions That Reveal Reliability,” the
+written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Ask how the candidate planned, communicated, and recovered when attendance or commitments were at risk.
+
+Manager warning
+Do not treat confidence about reliability as evidence of reliability.
+
+
+Chapter 13 Field Guide .... 53
+Use this sequence
+Step Working instruction
+
+1. Name the decision What evidence suggests the person can be counted on?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Examine commitments, attendance reasoning, preparation,
+3. Apply the standard
+communication, and recovery after a miss.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Favorite Candidate
+One interviewer says the candidate “felt right” while the scorecard evidence is weaker.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+13. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 13 Action Record .... 53
+Complete this page for one real decision involving “Questions That Reveal Reliability.” Use initials or an approved
+case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 14
+Questions That Reveal Coachability
+Examine feedback, learning, correction, questions, practice, and response to standards.
+The manager’s question How does the candidate react when they do not know or get something wrong?
+
+Why this chapter matters
+In restaurant operations, interview evidence becomes unreliable when the decision lives only in memory or
+urgency. Ask comparable questions, probe for facts, and record evidence without diagnosing personality. The
+objective here is not extra paperwork; it is a decision another authorized leader can understand, test, and
+improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Questions That Reveal Coachability,” the
+written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Ask for a real correction, how it was received, and what changed afterward.
+
+Manager warning
+Do not mistake agreement in the interview for willingness to improve at work.
+
+
+Chapter 14 Field Guide .... 57
+Use this sequence
+Step Working instruction
+
+How does the candidate react when they do not know or get
+1. Name the decision
+something wrong?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Examine feedback, learning, correction, questions, practice,
+3. Apply the standard
+and response to standards.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Concern about Retaliation
+An employee reports a problem but fears reduced hours or worse assignments.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+14. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 14 Action Record .... 57
+Complete this page for one real decision involving “Questions That Reveal Coachability.” Use initials or an approved
+case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 15
+Questions That Reveal Honesty and Judgment
+Explore ownership, difficult choices, mistakes, pressure, and speaking up without demanding
+rehearsed perfection.
+The manager’s question Will the person tell the truth and use judgment under pressure?
+
+Why this chapter matters
+In restaurant operations, interview evidence becomes unreliable when the decision lives only in memory or
+urgency. Ask comparable questions, probe for facts, and record evidence without diagnosing personality. The
+objective here is not extra paperwork; it is a decision another authorized leader can understand, test, and
+improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Questions That Reveal Honesty and
+Judgment,” the written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Ask how the candidate handled an error, conflict, or choice with competing responsibilities.
+
+Manager warning
+Do not reward an answer that protects image while avoiding responsibility.
+
+
+Chapter 15 Field Guide .... 61
+Use this sequence
+Step Working instruction
+
+Will the person tell the truth and use judgment under
+1. Name the decision
+pressure?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Explore ownership, difficult choices, mistakes, pressure, and
+3. Apply the standard
+speaking up without demanding rehearsed perfection.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Good Person in the Wrong Role
+The employee demonstrates care and effort but may not match the role’s actual conditions or
+schedule.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+15. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 15 Action Record .... 61
+Complete this page for one real decision involving “Questions That Reveal Honesty and Judgment.” Use initials or an
+approved case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 16
+Give a Realistic Job Preview
+Let the candidate evaluate the restaurant, schedule, pace, expectations, and support before
+accepting.
+The manager’s question Does the candidate understand what they are joining?
+
+Why this chapter matters
+In restaurant operations, interview evidence becomes unreliable when the decision lives only in memory or
+urgency. Ask comparable questions, probe for facts, and record evidence without diagnosing personality. The
+objective here is not extra paperwork; it is a decision another authorized leader can understand, test, and
+improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Give a Realistic Job Preview,” the written
+record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Show the pace, standards, schedule realities, and difficult parts before the offer.
+
+Manager warning
+Do not postpone the hard truth until the first shift.
+
+
+Chapter 16 Field Guide .... 65
+Use this sequence
+Step Working instruction
+
+1. Name the decision Does the candidate understand what they are joining?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Let the candidate evaluate the restaurant, schedule, pace,
+3. Apply the standard
+expectations, and support before accepting.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Manager Who Skips Check Ins
+New-hire meetings are marked complete without meaningful notes or follow-through.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+16. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 16 Action Record .... 65
+Complete this page for one real decision involving “Give a Realistic Job Preview.” Use initials or an approved case
+identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 17
+Stay Inside Lawful and Ethical Boundaries
+Teach prohibited shortcuts, job-related questioning, consistency, privacy, accommodations routing,
+and escalation.
+The manager’s question Which questions and decision methods create unnecessary risk or unfairness?
+
+Why this chapter matters
+Hiring discipline begins before the interview. Use only job-related standards, apply them consistently, protect
+applicant information, and route legal questions to the person authorized to handle them. A candidate can be
+evaluated on documented ability to perform the stated role, availability when it is genuinely required, and
+observable work-related evidence. They must not be evaluated through assumptions about a protected
+characteristic, medical condition, family situation, accent, appearance, or personal similarity to the interviewer.
+
+Federal guardrails to apply
+Federal equal-employment rules prohibit discrimination and retaliation in recruiting, advertising, applications,
+hiring, terms of employment, and training. Keep questions focused on the job and its essential requirements. Do
+not ask pre-offer disability or medical questions. Route a request for an accommodation promptly for authorized
+review. If a consumer-reporting company provides a background report, use the required notice, written
+permission, and applicable Fair Credit Reporting Act process before relying on it.
+
+Local authority still matters
+This workbook is not legal or HR advice. State, local, company, union, licensing, and industry requirements may
+add duties or stricter rules. When a question involves an accommodation, protected leave, wage and hour,
+background information, immigration documentation, safety certification, harassment, retaliation, or a possible
+legal claim, stop and route it to the owner, HR, qualified counsel, or the designated compliance authority.
+
+Care-first lens
+Use job-related questions, consistent standards, and prompt escalation for protected or regulated issues.
+
+Manager warning
+Do not let operational urgency turn a legal or accommodation question into a manager guess.
+
+
+Chapter 17 Field Guide .... 69
+Use this sequence
+Step Working instruction
+
+Which questions and decision methods create unnecessary
+1. Name the decision
+risk or unfairness?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Teach prohibited shortcuts, job-related questioning,
+3. Apply the standard consistency, privacy, accommodations routing, and
+escalation.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Friday Night Vacancy
+A manager wants to hire the first available applicant without a role-success profile.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+17. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 17 Action Record .... 69
+Complete this page for one real decision involving “Stay Inside Lawful and Ethical Boundaries.” Use initials or an
+approved case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 18
+Check References and Background Information Carefully
+Use authorization, relevance, consistency, documentation, and qualified review.
+The manager’s question How do we verify information without turning suspicion into proof?
+
+Why this chapter matters
+In restaurant operations, interview evidence becomes unreliable when the decision lives only in memory or
+urgency. Ask comparable questions, probe for facts, and record evidence without diagnosing personality. The
+objective here is not extra paperwork; it is a decision another authorized leader can understand, test, and
+improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Check References and Background
+Information Carefully,” the written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Use an approved, consistent process and connect information to legitimate job requirements.
+
+Manager warning
+Do not make a background result or informal reference a shortcut around fair, authorized review.
+
+
+Chapter 18 Field Guide .... 73
+Use this sequence
+Step Working instruction
+
+How do we verify information without turning suspicion into
+1. Name the decision
+proof?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Use authorization, relevance, consistency, documentation,
+3. Apply the standard
+and qualified review.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Experienced Candidate
+Strong experience is paired with blame, disrespect, or resistance to standards.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+18. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 18 Action Record .... 73
+Complete this page for one real decision involving “Check References and Background Information Carefully.” Use
+initials or an approved case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Part IV
+Make and Document the Decision
+Compare evidence consistently, test concerns fairly, communicate decisions, and preserve an
+auditable record.
+Part standard Separate evidence from preference and preserve accountable human judgment.
+
+
+Chapter 19
+Score Evidence Before Discussing Preference
+Require independent scoring against anchored criteria before group discussion.
+The manager’s question What did the candidate actually demonstrate?
+
+Why this chapter matters
+In restaurant operations, selection and records becomes unreliable when the decision lives only in memory or
+urgency. Separate evidence from preference and preserve accountable human judgment. The objective here is
+not extra paperwork; it is a decision another authorized leader can understand, test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Score Evidence Before Discussing
+Preference,” the written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Record evidence independently before the team discusses who it likes best.
+
+Manager warning
+Do not let group discussion rewrite a weak record into a strong one.
+
+
+Chapter 19 Field Guide .... 78
+Use this sequence
+Step Working instruction
+
+1. Name the decision What did the candidate actually demonstrate?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Require independent scoring against anchored criteria
+3. Apply the standard
+before group discussion.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Quiet Candidate
+A reserved candidate provides strong evidence but does not perform socially like the manager
+expects.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+19. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 19 Action Record .... 78
+Complete this page for one real decision involving “Score Evidence Before Discussing Preference.” Use initials or an
+approved case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 20
+Use a Second Look When Evidence Is Thin
+Use a second interview, lawful work sample, or clarified reference rather than filling gaps with
+assumptions.
+The manager’s question What should we do when the answer is still uncertain?
+
+Why this chapter matters
+In restaurant operations, selection and records becomes unreliable when the decision lives only in memory or
+urgency. Separate evidence from preference and preserve accountable human judgment. The objective here is
+not extra paperwork; it is a decision another authorized leader can understand, test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Use a Second Look When Evidence Is
+Thin,” the written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Identify the exact missing evidence and use one fair, approved way to obtain it.
+
+Manager warning
+Do not fill evidence gaps with assumptions or extend the process only for favorites.
+
+
+Chapter 20 Field Guide .... 82
+Use this sequence
+Step Working instruction
+
+1. Name the decision What should we do when the answer is still uncertain?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Use a second interview, lawful work sample, or clarified
+3. Apply the standard
+reference rather than filling gaps with assumptions.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Employee Referral
+A respected employee recommends a friend and the manager wants to skip the normal process.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+20. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 20 Action Record .... 82
+Complete this page for one real decision involving “Use a Second Look When Evidence Is Thin.” Use initials or an
+approved case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 21
+Remove Favoritism from the Decision
+Expose affinity, urgency, halo effects, reputation, and manager pressure as risks to evidence.
+The manager’s question Are we choosing the strongest evidence or the most familiar person?
+
+Why this chapter matters
+In restaurant operations, selection and records becomes unreliable when the decision lives only in memory or
+urgency. Separate evidence from preference and preserve accountable human judgment. The objective here is
+not extra paperwork; it is a decision another authorized leader can understand, test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Remove Favoritism from the Decision,” the
+written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Compare each candidate to the same role standard and record the reason for the choice.
+
+Manager warning
+Do not give referrals, friends, or familiar applicants an unrecorded advantage.
+
+
+Chapter 21 Field Guide .... 86
+Use this sequence
+Step Working instruction
+
+Are we choosing the strongest evidence or the most familiar
+1. Name the decision
+person?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Expose affinity, urgency, halo effects, reputation, and
+3. Apply the standard
+manager pressure as risks to evidence.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Schedule Mismatch
+The candidate is capable, but the available hours do not match the restaurant’s verified need.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+21. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 21 Action Record .... 86
+Complete this page for one real decision involving “Remove Favoritism from the Decision.” Use initials or an approved
+case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 22
+Make the Offer Honestly
+Confirm role, pay, scheduling expectations, conditions, start process, and who will support the
+employee.
+The manager’s question What must be clear before the candidate says yes?
+
+Why this chapter matters
+In restaurant operations, selection and records becomes unreliable when the decision lives only in memory or
+urgency. Separate evidence from preference and preserve accountable human judgment. The objective here is
+not extra paperwork; it is a decision another authorized leader can understand, test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Make the Offer Honestly,” the written
+record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Confirm the actual role, schedule, pay process, conditions, and next steps before the candidate accepts.
+
+Manager warning
+Do not make promises a manager cannot authorize or keep.
+
+
+Chapter 22 Field Guide .... 90
+Use this sequence
+Step Working instruction
+
+1. Name the decision What must be clear before the candidate says yes?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Confirm role, pay, scheduling expectations, conditions, start
+3. Apply the standard
+process, and who will support the employee.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Perfect Interview
+Answers sound polished but contain few concrete examples or verifiable detail.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+22. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 22 Action Record .... 90
+Complete this page for one real decision involving “Make the Offer Honestly.” Use initials or an approved case
+identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 23
+Document the Hiring Decision
+Record the criteria, evidence, decision, approvals, conditions, and retained records.
+The manager’s question Could another authorized leader understand why this decision was made?
+
+Why this chapter matters
+In restaurant operations, selection and records becomes unreliable when the decision lives only in memory or
+urgency. Separate evidence from preference and preserve accountable human judgment. The objective here is
+not extra paperwork; it is a decision another authorized leader can understand, test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Document the Hiring Decision,” the written
+record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Create a concise record of criteria, evidence, authority, decision, and next step.
+
+Manager warning
+Do not write labels that cannot be supported by facts or may create unnecessary risk.
+
+
+Chapter 23 Field Guide .... 94
+Use this sequence
+Step Working instruction
+
+Could another authorized leader understand why this
+1. Name the decision
+decision was made?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Record the criteria, evidence, decision, approvals,
+3. Apply the standard
+conditions, and retained records.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Second Chance
+A candidate owns a prior failure and explains specific correction and learning.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+23. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 23 Action Record .... 94
+Complete this page for one real decision involving “Document the Hiring Decision.” Use initials or an approved case
+identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Part V
+Protect the First 90 Days
+Connect selection to preboarding, training, support, check-ins, early correction, and verified role
+readiness.
+Part standard Test clarity, training, opportunity, tools, schedule, and conduct before assigning blame.
+
+
+Chapter 24
+Protect the Time Before Day One
+Control communication, documents, schedule, uniform, trainer, arrival, and avoidable uncertainty.
+The manager’s question What causes good candidates to disappear before their first shift?
+
+Why this chapter matters
+In restaurant operations, first-90-day support becomes unreliable when the decision lives only in memory or
+urgency. Test clarity, training, opportunity, tools, schedule, and conduct before assigning blame. The objective
+here is not extra paperwork; it is a decision another authorized leader can understand, test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Protect the Time Before Day One,” the
+written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Make sure the new employee receives confirmed details, required paperwork, and a prepared first-day contact.
+
+Manager warning
+Do not let silence after acceptance create a preventable no-show.
+
+
+Chapter 24 Field Guide .... 99
+Use this sequence
+Step Working instruction
+
+What causes good candidates to disappear before their first
+1. Name the decision
+shift?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Control communication, documents, schedule, uniform,
+3. Apply the standard
+trainer, arrival, and avoidable uncertainty.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Background Concern
+Information appears that may be inaccurate, irrelevant, outdated, or legally restricted.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+24. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 24 Action Record .... 99
+Complete this page for one real decision involving “Protect the Time Before Day One.” Use initials or an approved
+case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 25
+Make the First Shift Match the Promise
+Connect welcome, job reality, safety, standards, training, and manager attention.
+The manager’s question Does the first shift confirm or contradict the interview?
+
+Why this chapter matters
+In restaurant operations, first-90-day support becomes unreliable when the decision lives only in memory or
+urgency. Test clarity, training, opportunity, tools, schedule, and conduct before assigning blame. The objective
+here is not extra paperwork; it is a decision another authorized leader can understand, test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Make the First Shift Match the Promise,”
+the written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Assign an informed trainer, a clear start point, and enough structure to make the first shift useful.
+
+Manager warning
+Do not treat orientation as complete because the employee was handed paperwork.
+
+
+Chapter 25 Field Guide .... 103
+Use this sequence
+Step Working instruction
+
+1. Name the decision Does the first shift confirm or contradict the interview?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Connect welcome, job reality, safety, standards, training,
+3. Apply the standard
+and manager attention.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The First Week Silence
+A new hire says everything is fine while training records show missed practice and unclear
+expectations.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+25. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 25 Action Record .... 103
+Complete this page for one real decision involving “Make the First Shift Match the Promise.” Use initials or an
+approved case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 26
+Use 7 Day 14 Day 30 Day 60 Day and 90 Day Check Ins
+Create a listening and verification rhythm that catches preventable loss early.
+The manager’s question What should managers learn before silence becomes resignation?
+
+Why this chapter matters
+In restaurant operations, first-90-day support becomes unreliable when the decision lives only in memory or
+urgency. Test clarity, training, opportunity, tools, schedule, and conduct before assigning blame. The objective
+here is not extra paperwork; it is a decision another authorized leader can understand, test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Use 7 Day 14 Day 30 Day 60 Day and 90
+Day Check Ins,” the written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Use scheduled conversations to surface confusion, support needs, evidence of progress, and retention risk.
+
+Manager warning
+Do not wait for a performance problem or resignation to ask how the job is going.
+
+
+Chapter 26 Field Guide .... 107
+Use this sequence
+Step Working instruction
+
+What should managers learn before silence becomes
+1. Name the decision
+resignation?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Create a listening and verification rhythm that catches
+3. Apply the standard
+preventable loss early.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Trainer Problem
+The new hire is blamed for slow progress, but the assigned trainer changes the standard each shift.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+26. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 26 Action Record .... 107
+Complete this page for one real decision involving “Use 7 Day 14 Day 30 Day 60 Day and 90 Day Check Ins.” Use
+initials or an approved case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 27
+Separate Fit Problems from Training Problems
+Determine whether the issue is clarity, opportunity, skill, support, conduct, schedule, or role
+mismatch.
+The manager’s question Is the employee failing, or is the system failing the employee?
+
+Why this chapter matters
+In restaurant operations, first-90-day support becomes unreliable when the decision lives only in memory or
+urgency. Test clarity, training, opportunity, tools, schedule, and conduct before assigning blame. The objective
+here is not extra paperwork; it is a decision another authorized leader can understand, test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Separate Fit Problems from Training
+Problems,” the written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Test whether expectations, tools, practice, supervision, or role conditions caused the miss before judging fit.
+
+Manager warning
+Do not call someone a poor fit when the restaurant did not provide a fair learning path.
+
+
+Chapter 27 Field Guide .... 111
+Use this sequence
+Step Working instruction
+
+Is the employee failing, or is the system failing the
+1. Name the decision
+employee?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Determine whether the issue is clarity, opportunity, skill,
+3. Apply the standard
+support, conduct, schedule, or role mismatch.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Reliable Employee at Risk
+A dependable employee is quietly considering leaving because of scheduling and manager behavior.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+27. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 27 Action Record .... 111
+Complete this page for one real decision involving “Separate Fit Problems from Training Problems.” Use initials or an
+approved case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 28
+Coach Early and Fairly
+Use facts, expectations, support, practice, deadlines, verification, and documented follow-through.
+The manager’s question How can a manager correct a problem before it hardens?
+
+Why this chapter matters
+In restaurant operations, first-90-day support becomes unreliable when the decision lives only in memory or
+urgency. Test clarity, training, opportunity, tools, schedule, and conduct before assigning blame. The objective
+here is not extra paperwork; it is a decision another authorized leader can understand, test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Coach Early and Fairly,” the written record
+should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Name the observed gap, the expected standard, the support offered, and the follow-up date.
+
+Manager warning
+Do not coach through vague warnings, public embarrassment, or changing expectations.
+
+
+Chapter 28 Field Guide .... 115
+Use this sequence
+Step Working instruction
+
+1. Name the decision How can a manager correct a problem before it hardens?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Use facts, expectations, support, practice, deadlines,
+3. Apply the standard
+verification, and documented follow-through.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Exit Pattern
+Three recent employees cite different immediate reasons but share one operational condition.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+28. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 28 Action Record .... 115
+Complete this page for one real decision involving “Coach Early and Fairly.” Use initials or an approved case identifier
+when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Part VI
+Keep the Right Employees
+Show managers how fairness, scheduling, recognition, workload, growth, trust, and leadership
+behavior influence retention.
+Part standard Address controllable working conditions without promising that every departure can or should be
+prevented.
+
+
+Chapter 29
+Why Good Employees Stay
+Examine fairness, competent leadership, workable schedules, tools, staffing, safety, respect, growth,
+recognition, and trust.
+The manager’s question What does the restaurant control about retention?
+
+Why this chapter matters
+In restaurant operations, retention and trust becomes unreliable when the decision lives only in memory or
+urgency. Address controllable working conditions without promising that every departure can or should be
+prevented. The objective here is not extra paperwork; it is a decision another authorized leader can understand,
+test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Why Good Employees Stay,” the written
+record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Look for conditions managers control: respect, clarity, fair treatment, learning, recognition, and workable
+leadership.
+
+Manager warning
+Do not reduce retention to pay alone or assume good employees will tolerate preventable disorder.
+
+
+Chapter 29 Field Guide .... 120
+Use this sequence
+Step Working instruction
+
+1. Name the decision What does the restaurant control about retention?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Examine fairness, competent leadership, workable
+3. Apply the standard schedules, tools, staffing, safety, respect, growth,
+recognition, and trust.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Favorite Candidate
+One interviewer says the candidate “felt right” while the scorecard evidence is weaker.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+29. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 29 Action Record .... 120
+Complete this page for one real decision involving “Why Good Employees Stay.” Use initials or an approved case
+identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 30
+Use Stay Conversations Before Exit Interviews
+Ask useful questions while the restaurant can still act.
+The manager’s question What would make this employee’s work more sustainable and successful?
+
+Why this chapter matters
+In restaurant operations, retention and trust becomes unreliable when the decision lives only in memory or
+urgency. Address controllable working conditions without promising that every departure can or should be
+prevented. The objective here is not extra paperwork; it is a decision another authorized leader can understand,
+test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Use Stay Conversations Before Exit
+Interviews,” the written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Ask current employees what helps, what makes work harder, and what would cause them to leave.
+
+Manager warning
+Do not promise changes you will not own, track, or communicate back on.
+
+
+Chapter 30 Field Guide .... 124
+Use this sequence
+Step Working instruction
+
+What would make this employee’s work more sustainable
+1. Name the decision
+and successful?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+3. Apply the standard Ask useful questions while the restaurant can still act.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Concern about Retaliation
+An employee reports a problem but fears reduced hours or worse assignments.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+30. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 30 Action Record .... 124
+Complete this page for one real decision involving “Use Stay Conversations Before Exit Interviews.” Use initials or an
+approved case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 31
+Handle Concerns without Gossip or Retaliation
+Provide safe routing, documented listening, impartial review, confidentiality limits, and protection
+against retaliation.
+The manager’s question Where can employees take concerns, and what happens next?
+
+Why this chapter matters
+In restaurant operations, retention and trust becomes unreliable when the decision lives only in memory or
+urgency. Address controllable working conditions without promising that every departure can or should be
+prevented. The objective here is not extra paperwork; it is a decision another authorized leader can understand,
+test, and improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Handle Concerns without Gossip or
+Retaliation,” the written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Receive concerns privately, document the facts, protect against retaliation, and route them correctly.
+
+Manager warning
+Do not investigate through rumors or discuss a concern with people who do not need to know.
+
+
+Chapter 31 Field Guide .... 128
+Use this sequence
+Step Working instruction
+
+Where can employees take concerns, and what happens
+1. Name the decision
+next?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Provide safe routing, documented listening, impartial review,
+3. Apply the standard
+confidentiality limits, and protection against retaliation.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Good Person in the Wrong Role
+The employee demonstrates care and effort but may not match the role’s actual conditions or
+schedule.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+31. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 31 Action Record .... 128
+Complete this page for one real decision involving “Handle Concerns without Gossip or Retaliation.” Use initials or an
+approved case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Part VII
+Coach Problems and Learn from Loss
+Separate coaching, policy, corrective action, resignation, termination, and organizational learning.
+Part standard Keep facts, policy, privacy, authority, consistency, and employee voice in the same review.
+
+
+Chapter 32
+Separate Coaching Corrective Action and Separation
+Clarify purpose, authority, evidence, policy, consistency, escalation, and documentation.
+The manager’s question Which process actually applies to the current problem?
+
+Why this chapter matters
+In restaurant operations, fair response and learning becomes unreliable when the decision lives only in memory
+or urgency. Keep facts, policy, privacy, authority, consistency, and employee voice in the same review. The
+objective here is not extra paperwork; it is a decision another authorized leader can understand, test, and
+improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Separate Coaching Corrective Action and
+Separation,” the written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Choose the response that matches the evidence, policy, seriousness, prior support, and authorized process.
+
+Manager warning
+Do not pre-decide the outcome before the facts and required review are complete.
+
+
+Chapter 32 Field Guide .... 133
+Use this sequence
+Step Working instruction
+
+1. Name the decision Which process actually applies to the current problem?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Clarify purpose, authority, evidence, policy, consistency,
+3. Apply the standard
+escalation, and documentation.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Manager Who Skips Check Ins
+New-hire meetings are marked complete without meaningful notes or follow-through.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+32. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 32 Action Record .... 133
+Complete this page for one real decision involving “Separate Coaching Corrective Action and Separation.” Use initials
+or an approved case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 33
+Learn from Every Departure
+Use respectful exit information without treating one account as the whole truth.
+The manager’s question What can the organization learn without arguing with the person leaving?
+
+Why this chapter matters
+In restaurant operations, fair response and learning becomes unreliable when the decision lives only in memory
+or urgency. Keep facts, policy, privacy, authority, consistency, and employee voice in the same review. The
+objective here is not extra paperwork; it is a decision another authorized leader can understand, test, and
+improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Learn from Every Departure,” the written
+record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Capture what the departure reveals about the job, supervision, training, schedule, or system.
+
+Manager warning
+Do not use an exit conversation to defend the restaurant or pressure the person to soften the truth.
+
+
+Chapter 33 Field Guide .... 137
+Use this sequence
+Step Working instruction
+
+What can the organization learn without arguing with the
+1. Name the decision
+person leaving?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Use respectful exit information without treating one account
+3. Apply the standard
+as the whole truth.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Friday Night Vacancy
+A manager wants to hire the first available applicant without a role-success profile.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+33. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 33 Action Record .... 137
+Complete this page for one real decision involving “Learn from Every Departure.” Use initials or an approved case
+identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 34
+Measure Turnover without Hiding the Story
+Track early turnover, regrettable loss, vacancy days, source quality, first-90-day retention, and pattern
+evidence.
+The manager’s question Which numbers reveal a fixable operating problem?
+
+Why this chapter matters
+In restaurant operations, fair response and learning becomes unreliable when the decision lives only in memory
+or urgency. Keep facts, policy, privacy, authority, consistency, and employee voice in the same review. The
+objective here is not extra paperwork; it is a decision another authorized leader can understand, test, and
+improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Measure Turnover without Hiding the
+Story,” the written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Track departures by role, timing, reason pattern, and operating condition so leadership can see the cause.
+
+Manager warning
+Do not celebrate a lower number if the record hides transfers, short-tenure loss, or avoidable patterns.
+
+
+Chapter 34 Field Guide .... 141
+Use this sequence
+Step Working instruction
+
+1. Name the decision Which numbers reveal a fixable operating problem?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Track early turnover, regrettable loss, vacancy days, source
+3. Apply the standard
+quality, first-90-day retention, and pattern evidence.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Experienced Candidate
+Strong experience is paired with blame, disrespect, or resistance to standards.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+34. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 34 Action Record .... 141
+Complete this page for one real decision involving “Measure Turnover without Hiding the Story.” Use initials or an
+approved case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Part VIII
+Install and Hold the System
+Use measures, review rhythms, manager sign-off, 30-day or 60-day installation, and controlled forms
+to make the process repeatable.
+Part standard Use a small tool set, a named owner, weekly evidence, correction, and a decision gate.
+
+
+Chapter 35
+Review Hiring and Retention Every Week
+Create a short management rhythm for vacancies, candidates, starts, check-ins, risks, ownership,
+and deadlines.
+The manager’s question What must leaders review before another week passes?
+
+Why this chapter matters
+In restaurant operations, installation and sustainment becomes unreliable when the decision lives only in
+memory or urgency. Use a small tool set, a named owner, weekly evidence, correction, and a decision gate.
+The objective here is not extra paperwork; it is a decision another authorized leader can understand, test, and
+improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Review Hiring and Retention Every Week,”
+the written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Review pipeline, open roles, early-tenure risk, concerns, coaching, and ownership in one short meeting.
+
+Manager warning
+Do not turn the weekly review into a status ritual without decisions, owners, and verification.
+
+
+Chapter 35 Field Guide .... 146
+Use this sequence
+Step Working instruction
+
+1. Name the decision What must leaders review before another week passes?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Create a short management rhythm for vacancies,
+3. Apply the standard candidates, starts, check-ins, risks, ownership, and
+deadlines.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Quiet Candidate
+A reserved candidate provides strong evidence but does not perform socially like the manager
+expects.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+35. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 35 Action Record .... 146
+Complete this page for one real decision involving “Review Hiring and Retention Every Week.” Use initials or an
+approved case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Chapter 36
+Install the System in 30 or 60 Days
+Begin with one problem, one owner, three to five tools, evidence, training, review, correction, and a
+final decision gate.
+The manager’s question How do we make this process hold after launch?
+
+Why this chapter matters
+In restaurant operations, installation and sustainment becomes unreliable when the decision lives only in
+memory or urgency. Use a small tool set, a named owner, weekly evidence, correction, and a decision gate.
+The objective here is not extra paperwork; it is a decision another authorized leader can understand, test, and
+improve.
+The practical test is whether the manager can explain what was known, what was missing, which job standard
+applied, who had authority, and what would verify the next step. For “Install the System in 30 or 60 Days,” the
+written record should make those five points visible without exaggeration or labels.
+
+Care-first lens
+Install the smallest workable routine first, then expand only after it is being used and verified.
+
+Manager warning
+Do not call the system installed because forms were distributed or a meeting was held.
+
+
+Chapter 36 Field Guide .... 150
+Use this sequence
+Step Working instruction
+
+1. Name the decision How do we make this process hold after launch?
+List direct observations, records, and candidate or employee
+2. Separate facts
+statements. Do not mix inference into the fact column.
+Begin with one problem, one owner, three to five tools,
+3. Apply the standard evidence, training, review, correction, and a final decision
+gate.
+Ask only job-related follow-up questions or use an approved
+4. Identify missing evidence
+verification step.
+Record the owner, authority, due date, communication, and
+5. Choose the next step
+verification method.
+Decide whether the process worked, needs correction, or
+6. Review the result
+requires escalation.
+
+Evidence quality
+Strong evidence Weak substitute
+
+Specific behavior, setting, action, result, and learning A label such as “hard worker” or “bad attitude”
+Comparable job-related response or approved work sample Confidence, charm, familiarity, or personal similarity
+Record that can be checked and put in context Rumor, social-media assumption, or unexplained gap
+Acknowledged miss plus concrete correction Perfect-sounding answer with no detail
+
+
+Applied Scenario: The Employee Referral
+A respected employee recommends a friend and the manager wants to skip the normal process.
+
+Your decision
+WHAT FACTS ARE PRESENT?
+WHAT ARE YOU ASSUMING?
+WHICH JOB-RELATED STANDARD APPLIES?
+WHAT EVIDENCE IS MISSING?
+WHAT IS THE FAIREST AUTHORIZED NEXT STEP?
+WHO OWNS IT, BY WHEN, AND HOW WILL IT BE VERIFIED?
+Answer guidance A defensible response slows the decision long enough to apply the written standard from Chapter
+36. It distinguishes evidence from preference, asks only relevant follow-up questions, documents the reasoning, and
+escalates anything outside the manager’s authority. A weak response fills gaps with confidence, urgency, reputation,
+or punishment.
+
+
+Chapter 36 Action Record .... 150
+Complete this page for one real decision involving “Install the System in 30 or 60 Days.” Use initials or an approved
+case identifier when privacy requires it.
+Field Entry
+
+Role or case ID
+Decision owner
+Date opened
+Required decision date
+Applicable policy / tool
+Authorized reviewer
+DECISION TO MAKE
+VERIFIED FACTS
+MISSING EVIDENCE AND APPROVED WAY TO OBTAIN IT
+STANDARD APPLIED
+NEXT ACTION, OWNER, DEADLINE, AND VERIFICATION
+WHAT THIS CASE TEACHES THE SYSTEM
+Manager sign-off: ____________________ Reviewer: ____________________ Date: __________
+
+
+Forms Directory
+These are workbook practice templates and cross-references. Where a GRV-HR ID is shown, use the current
+controlled GRV-HR form for live records. Where an ID is not shown, verify the current forms register rather than
+inventing or reusing an ID.
+Workbook tool Use point Control
+
+Staffing Need and Role Request Before recruiting Use existing GRV-HR01.
+Position Success Profile Before recruiting Use existing GRV-HR02.
+Job Posting Truth Check Before posting Map to current GRV-HR register.
+Applicant Screening Worksheet Application review Map to current GRV-HR register.
+Structured Interview Guide Interview Use existing GRV-HR06.
+Workbook teaching tool; cross-reference GRV-
+Care Evidence Question Bank Interview
+HR06.
+Candidate Evidence Scorecard Selection Map to current GRV-HR register.
+Realistic Job Preview Checklist Interview or second look Map to current GRV-HR register.
+Reference and Verification Record Pre-offer or authorized stage Map to current GRV-HR register.
+Hiring Decision Record Selection Map to current GRV-HR register.
+Preboarding Readiness Checklist Before Day One Map to current GRV-HR register.
+First Week Fit and Support Check First week Use existing GRV-HR12.
+New Hire Check In Record Days 7 14 30 60 and 90 Map to current GRV-HR register.
+Early Retention Risk Review First 90 days Map to current GRV-HR register.
+New Hire Coaching Record As needed Map to current GRV-HR register.
+Stay Conversation Guide Quarterly or at risk Map to current GRV-HR register.
+Employee Concern Intake As needed Map to current GRV-HR register.
+Corrective Action Review Checklist Before corrective action Use existing GRV-HR23.
+Exit Conversation Record At separation Map to current GRV-HR register.
+Turnover Pattern Analysis Monthly and quarterly Use existing GRV-HR tool title; verify exact ID.
+Weekly Hiring and Retention Review Weekly Map to current GRV-HR register.
+Connect to GRV-IV; do not duplicate
+30 Day or 60 Day Installation Tracker During rollout
+installation IDs.
+
+
+Guided Practice Tool 1: Staffing Need and Role Request
+Confirm demand, coverage, skill, availability, wage authorization, owner, and deadline.
+Use point Before recruiting
+
+ID control Use existing GRV-HR01.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+Staffing Need and Role Request: Guided Practice Copy |
+Controlled operating record: GRV-HR01 Staffing Need & Role
+Request
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 2: Position Success Profile
+Define duties, conditions, nonnegotiable standards, trainable skills, schedule, and success evidence.
+Use point Before recruiting
+
+ID control Use existing GRV-HR02.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+Position Success Profile: Guided Practice Copy | Controlled
+operating record: GRV-HR02 Position Success Profile
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 3: Job Posting Truth Check
+Verify accurate role, schedule, conditions, requirements, access, and claims.
+Use point Before posting
+
+ID control Map to current GRV-HR register.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+Job Posting Truth Check: Guided Practice Copy | Controlled
+operating record: GRV-HR05 Applicant Communication
+Standard
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 4: Applicant Screening Worksheet
+Apply the same required and preferred criteria to each applicant.
+Use point Application review
+
+ID control Map to current GRV-HR register.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+Applicant Screening Worksheet: Guided Practice Copy |
+Controlled operating record: GRV-HR03 Hiring Priority &
+Pipeline Tracker; GRV-HR07 Work Availability & Scheduling Fit
+Check
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 5: Structured Interview Guide
+Provide consistent core questions, probes, notes, and lawful boundaries.
+Use point Interview
+
+ID control Use existing GRV-HR06.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+Structured Interview Guide: Guided Practice Copy | Controlled
+operating record: GRV-HR06 Structured Interview Guide
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 6: Care Evidence Question Bank
+Evaluate job-related evidence involving guests, coworkers, cleanliness, safety, honesty, and follow-
+through.
+Use point Interview
+
+ID control Workbook teaching tool; cross-reference GRV-HR06.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+Care Evidence Question Bank: Guided Practice Copy |
+Controlled operating record: GRV-HR08 Restaurant Values &
+Team-Fit Evidence Page
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 7: Candidate Evidence Scorecard
+Use anchored criteria and evidence notes before preference discussion.
+Use point Selection
+
+ID control Map to current GRV-HR register.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+Candidate Evidence Scorecard: Guided Practice Copy |
+Controlled operating record: GRV-HR10 Selection Decision &
+Offer Approval
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 8: Realistic Job Preview Checklist
+Confirm the candidate understands schedule, pace, duties, environment, expectations, and support.
+Use point Interview or second look
+
+ID control Map to current GRV-HR register.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+Realistic Job Preview Checklist: Guided Practice Copy |
+Controlled operating record: GRV-HR02 Position Success
+Profile
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 9: Reference and Verification Record
+Record authorization, source, job-related questions, responses, inconsistencies, and review.
+Use point Pre-offer or authorized stage
+
+ID control Map to current GRV-HR register.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+Reference and Verification Record: Guided Practice Copy |
+Controlled operating record: GRV-HR09 Reference / Prior
+Experience Review Record
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 10: Hiring Decision Record
+Record criteria, evidence, decision, approval, conditions, communication, and retention requirement.
+Use point Selection
+
+ID control Map to current GRV-HR register.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+Hiring Decision Record: Guided Practice Copy | Controlled
+operating record: GRV-HR10 Selection Decision & Offer
+Approval
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 11: Preboarding Readiness Checklist
+Verify paperwork route, schedule, trainer, uniform, access, arrival, and communication.
+Use point Before Day One
+
+ID control Map to current GRV-HR register.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+Preboarding Readiness Checklist: Guided Practice Copy |
+Controlled operating record: GRV-HR11 Preboarding
+Readiness Checklist
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 12: First Week Fit and Support Check
+Ask what is clear, unclear, missing, harder than expected, and requiring support.
+Use point First week
+
+ID control Use existing GRV-HR12.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+First Week Fit and Support Check: Guided Practice Copy |
+Controlled operating record: GRV-HR12 First Week Fit &
+Support Check
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 13: New Hire Check In Record
+Track support, training, fit, attendance communication, concerns, commitments, and follow-up.
+Use point Days 7 14 30 60 and 90
+
+ID control Map to current GRV-HR register.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+New Hire Check In Record: Guided Practice Copy | Controlled
+operating record: GRV-HR13 30-Day Retention Conversation
+Guide; GRV-HR14 60-Day Retention & Development Check;
+GRV-HR15 90-Day Employment Fit Review
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 14: Early Retention Risk Review
+Separate schedule, training, workload, team, manager, transportation, role, and conduct risks.
+Use point First 90 days
+
+ID control Map to current GRV-HR register.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+Early Retention Risk Review: Guided Practice Copy |
+Controlled operating record: GRV-HR27 Retention Risk
+Register
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 15: New Hire Coaching Record
+Record facts, standard, employee perspective, support, action, deadline, and verification.
+Use point As needed
+
+ID control Map to current GRV-HR register.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+New Hire Coaching Record: Guided Practice Copy | Controlled
+operating record: GRV-HR21 Coaching Route Decision; GRV-
+HR22 Performance Documentation Standard
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 16: Stay Conversation Guide
+Identify controllable reasons to stay, pressure points, support, growth, and commitments.
+Use point Quarterly or at risk
+
+ID control Map to current GRV-HR register.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+Stay Conversation Guide: Guided Practice Copy | Controlled
+operating record: GRV-HR13 30-Day Retention Conversation
+Guide
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 17: Employee Concern Intake
+Provide a direct, factual route for concerns and protect against gossip, retaliation, and casual
+disclosure.
+Use point As needed
+
+ID control Map to current GRV-HR register.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+Employee Concern Intake: Guided Practice Copy | Controlled
+operating record: GRV-HR16 Employee Concern Intake Record
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 18: Corrective Action Review Checklist
+Verify facts, policy, consistency, prior guidance, authority, employee response, and review route.
+Use point Before corrective action
+
+ID control Use existing GRV-HR23.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+Corrective Action Review Checklist: Guided Practice Copy |
+Controlled operating record: GRV-HR23 Corrective-Action
+Review Checklist
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 19: Exit Conversation Record
+Capture reason, employee perspective, operational lessons, property, access, and required routing.
+Use point At separation
+
+ID control Map to current GRV-HR register.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+Exit Conversation Record: Guided Practice Copy | Controlled
+operating record: GRV-HR25 Separation / Exit Learning Record
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 20: Turnover Pattern Analysis
+Analyze early loss, regrettable loss, source, role, manager, schedule, reason, and corrective action.
+Use point Monthly and quarterly
+
+ID control Use existing GRV-HR tool title; verify exact ID.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+Turnover Pattern Analysis: Guided Practice Copy | Controlled
+operating record: GRV-HR26 Turnover Pattern Analysis
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 21: Weekly Hiring and Retention Review
+Review openings, candidates, offers, starts, check-ins, risks, actions, owners, and deadlines.
+Use point Weekly
+
+ID control Map to current GRV-HR register.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+Weekly Hiring and Retention Review: Guided Practice Copy |
+Controlled operating record: GRV-HR29 Monthly Workforce
+Health Scorecard
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+Guided Practice Tool 22: 30 Day or 60 Day Installation Tracker
+Track ownership, training, evidence, review, correction, adoption, and final decision.
+Use point During rollout
+
+ID control Connect to GRV-IV; do not duplicate installation IDs.
+
+Control question Working entry
+
+What decision does this support?
+Who is authorized to complete it?
+Which evidence belongs here?
+Which policy or controlled tool applies?
+When is review due?
+How will completion be verified?
+MANAGER NOTES
+Prepared by: ____________________ Date: __________ Reviewed by: ____________________
+
+
+30 Day or 60 Day Installation Tracker: Guided Practice Copy |
+Controlled operating record: GRV-HR30 90-Day Retention
+Improvement Plan
+Record field Entry
+
+Role / employee / case ID
+Date and time
+Manager / owner
+Relevant standard
+Source or record checked
+VERIFIED FACTS AND DIRECT STATEMENTS
+ANALYSIS: FACTS VERSUS ASSUMPTIONS
+ACTION, RESPONSIBLE OWNER, AND DUE DATE
+EMPLOYEE OR CANDIDATE COMMUNICATION
+VERIFICATION RESULT AND FOLLOW-UP DATE
+Signature: ____________________ Review date: __________ Status: ☐ Open ☐ Verified ☐ Escalated
+
+
+30-Day Quick Start
+Begin with one visible problem, one accountable owner, and three to five controlled tools. Do not launch all
+forms at once.
+Week Focus Evidence
+
+Verify workforce need and position Approved GRV-HR01 and GRV-HR02;
+success profile owner named
+Use one structured interview and Comparable questions; notes; decision
+evidence score record
+Protect one start and conduct the first Trainer, schedule, access, GRV-HR12,
+support check issues routed
+Vacancies, starts, risks, actions, owner,
+4 Review results and correct the process
+due dates
+THE ONE PROBLEM WE ARE SOLVING
+OWNER AND WEEKLY REVIEW TIME
+DAY-30 DECISION: ADOPT, CORRECT, EXPAND, OR PAUSE
+
+
+Federal Compliance Verification Notes
+Checked September 9, 2026. These sources establish federal starting points only. Verify the current page,
+current forms and instructions, and applicable state/local/company requirements before action.
+Authority Use Official page
+
+U.S. Equal Employment Opportunity Prohibited Employment Policies/Practices and https://www.eeoc.gov/prohibited-employment-
+Commission applicant guidance policiespractices
+U.S. Citizenship and Immigration Services I-9 Central and current Form I-9 instructions https://www.uscis.gov/i-9-central
+Background checks and Fair Credit Reporting https://www.ftc.gov/legal-library/browse/
+Federal Trade Commission
+Act employer/consumer guidance statutes/fair-credit-reporting-act
+U.S. Department of Labor, Wage and Hour Restaurant and fast-food establishment fact https://www.dol.gov/agencies/whd/fact-
+Division sheets, including youth-employment limits sheets/2-flsa-restaurants
+ Use job-related, consistently applied criteria and preserve an accommodation route.
+ Complete employment-eligibility verification only through the current authorized process and timing.
+ For third-party consumer reports, obtain required authorization and follow pre-adverse and adverse-action
+procedures; route decisions through qualified review.
+ Confirm age-based hours and hazardous-duty restrictions before assigning youth work.
+ Never treat an arrest, rumor, protected characteristic, complaint, accommodation request, or other legally
+sensitive fact as automatic proof of job failure.
+
+
+Plain-Language Glossary
+Care. Observable responsibility toward guests, coworkers, cleanliness, safety, honesty, learning, and team impact.
+Candidate evidence. Job-related facts from answers, records, approved work samples, or verification steps.
+Coachability. A demonstrated ability to receive feedback, ask useful questions, practice, correct, and verify
+improvement.
+Comparable question. A core question asked consistently of candidates for the same role.
+Essential function. A fundamental duty of a position; confirm the authorized job description and accommodation
+process.
+First 90 days. The early employment period in which selection, training, support, fit, and preventable risks should be
+reviewed deliberately.
+Job related. Connected to duties, conditions, schedule, safety, conduct, or success evidence that the role genuinely
+requires.
+Realistic job preview. A truthful description of the work, pace, schedule, conditions, standards, support, and
+tradeoffs.
+Regrettable turnover. Loss of an employee the restaurant reasonably wanted and was able to retain.
+Stay conversation. A structured conversation about what helps an employee stay, what creates pressure, and what
+the restaurant can responsibly change.
+Structured interview. An interview using prepared job-related questions, consistent scoring anchors, notes, and
+accountable review.
+Turnover rate. Separations during a defined period divided by an approved average-headcount measure; document
+the formula and period used.
+Work sample. An authorized, accessible, job-related task used consistently and lawfully to gather evidence; confirm
+pay and policy requirements before use.
+
+
+Workforce bench. A current view of internal employees who may be developed for greater responsibility, based
+on observable readiness and approved development needs rather than favoritism.
+
+Preboarding. The work completed after acceptance and before the first shift to prepare the employee, manager,
+trainer, schedule, paperwork, and first-day contact.
+
+Selection criterion. A pre-established, job-related standard used consistently to compare applicants for the
+same role.
+
+Retaliation. Harmful treatment because someone raised a concern, requested a protected process, reported
+conduct, or participated in a review. Route any possible retaliation concern immediately.
+
+Retention risk. A visible condition that could lead a capable employee to disengage or leave, such as unclear
+expectations, inconsistent treatment, inadequate support, or avoidable schedule pressure.
+
+Protected characteristic. A personal characteristic protected by applicable law. It is not a selection criterion and
+must not be used to make employment decisions.
+
+Corrective action. A formal response to a documented issue after required review. It is different from ordinary
+coaching and should follow company policy and authorized review.
+
+Background report. Information supplied by an outside reporting company about an applicant or employee. Its
+use can trigger federal, state, and local requirements; use only the authorized process.
+
+Applicant communication standard. The approved way the restaurant acknowledges, updates, schedules,
+declines, or closes applicant communication consistently and respectfully.
+
+Accommodation. A change or adjustment considered through the employer’s authorized process so a qualified
+applicant or employee can apply for or perform a job. Managers route requests; they do not decide them alone.
+
+Final Manager Commitment
+A fair hiring process is not slow by definition. It is prepared. A useful retention process is not sentimental. It is
+honest about working conditions, standards, support, and behavior. The manager’s obligation is to make the
+next decision more visible than the last one.
+THE SHORTCUT I WILL STOP
+THE STANDARD I WILL WRITE BEFORE THE NEXT INTERVIEW
+THE QUESTION I WILL ASK EVERY COMPARABLE CANDIDATE
+THE FIRST-90-DAY CHECK-IN I WILL PROTECT
+
+
+THE RETENTION PATTERN OUR LEADERSHIP TEAM WILL REVIEW WEEKLY
+Signature principle Hire care first. Train skill second. Prove both through job-related evidence, capable training, fair
+follow-through, and accountable human judgment.
+
+Manager: ____________________ Restaurant: ____________________ Date: __________

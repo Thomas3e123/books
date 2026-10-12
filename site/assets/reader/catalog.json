@@ -1,0 +1,110 @@
+{
+  "updated": "2026-10-10",
+  "books": [
+    {
+      "id": "quiet-gravity",
+      "title": "Quiet Gravity",
+      "text": "/assets/reader/quiet-gravity.txt",
+      "pdf": "/assets/downloads/quiet-gravity-gravity-elite-2026-09-11-155-pages.pdf",
+      "characters": 375229
+    },
+    {
+      "id": "owners-chair",
+      "title": "The Owner’s Chair",
+      "text": "/assets/reader/owners-chair.txt",
+      "pdf": "/assets/downloads/the-owners-chair-gravity-elite-2026-09-11-212-pages.pdf",
+      "characters": 296838
+    },
+    {
+      "id": "systems-of-service",
+      "title": "Systems of Service",
+      "text": "/assets/reader/systems-of-service.txt",
+      "pdf": "/assets/downloads/systems-of-service-gravity-elite-v2-2026-09-11-253-pages.pdf",
+      "characters": 512298
+    },
+    {
+      "id": "employee-training-sop-tracker",
+      "title": "Employee Training & SOP Tracker",
+      "text": "/assets/reader/employee-training-sop-tracker.txt",
+      "pdf": "/assets/downloads/employee-training-sop-tracker-gravity-elite-v2-2026-09-12-257-interior-pages.pdf",
+      "characters": 263507
+    },
+    {
+      "id": "labor-control-scheduling-planner",
+      "title": "Labor Control & Scheduling Planner",
+      "text": "/assets/reader/labor-control-scheduling-planner.txt",
+      "pdf": "/assets/downloads/labor-control-scheduling-planner-gravity-elite-v2-2026-09-12-371-interior-372-digital-pages.pdf",
+      "characters": 424801
+    },
+    {
+      "id": "sop-station-operations-builder",
+      "title": "Restaurant SOP & Station Operations Builder",
+      "text": "/assets/reader/sop-station-operations-builder.txt",
+      "pdf": "/assets/downloads/restaurant-sop-station-operations-builder-gravity-elite-v3-2026-09-13-258-pages.pdf",
+      "characters": 336866
+    },
+    {
+      "id": "food-cost-waste-inventory",
+      "title": "Food Cost, Waste & Inventory Control",
+      "text": "/assets/reader/food-cost-waste-inventory.txt",
+      "pdf": "/assets/downloads/food-cost-waste-inventory-control-318-pages.pdf",
+      "characters": 402216
+    },
+    {
+      "id": "hiring-retention",
+      "title": "Hiring, Interviewing & Employee Retention Tracker",
+      "text": "/assets/reader/hiring-retention.txt",
+      "pdf": "/assets/downloads/hiring-interviewing-employee-retention-tracker-gravity-elite-208-pages.pdf",
+      "characters": 177964
+    },
+    {
+      "id": "guest-recovery",
+      "title": "Guest Service, Complaints & Recovery Workbook",
+      "text": "/assets/reader/guest-recovery.txt",
+      "pdf": "/assets/downloads/guest-service-complaints-recovery-workbook-gravity-elite-2026-09-13-191-pages.pdf",
+      "characters": 131467
+    },
+    {
+      "id": "ai-prompts",
+      "title": "Restaurant AI Prompts & Systems Workbook — 215 Prompts",
+      "text": "/assets/reader/ai-prompts.txt",
+      "pdf": "/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_215_PROMPTS_2026-09-16.pdf",
+      "characters": 152806
+    },
+    {
+      "id": "sop-library-v1",
+      "title": "Gravity Restaurant SOP Library — Volume 1",
+      "text": "/assets/reader/sop-library-v1.txt",
+      "pdf": "/assets/downloads/gravity-restaurant-sop-library-volume-1-gravity-elite-v2-2026-09-13-369-pages.pdf",
+      "characters": 702569
+    },
+    {
+      "id": "sop-library-v2",
+      "title": "Gravity Restaurant SOP Library — Volume 2",
+      "text": "/assets/reader/sop-library-v2.txt",
+      "pdf": "/assets/downloads/gravity-restaurant-sop-library-volume-2-gravity-elite-v2-2026-09-13-370-pages.pdf",
+      "characters": 699870
+    },
+    {
+      "id": "sop-library-v3",
+      "title": "Gravity Restaurant SOP Library — Volume 3",
+      "text": "/assets/reader/sop-library-v3.txt",
+      "pdf": "/assets/downloads/gravity-restaurant-sop-library-volume-3-specialty-advanced-hard-to-find-sops.pdf",
+      "characters": 853112
+    },
+    {
+      "id": "bar-pour-cost",
+      "title": "Restaurant Bar & Beverage Pour Cost Control",
+      "text": "/assets/reader/bar-pour-cost.txt",
+      "pdf": "/assets/downloads/GRAVITY_Restaurant_Bar_Beverage_Pour_Cost_Control_v1.0.pdf",
+      "characters": 344492
+    },
+    {
+      "id": "bar-inventory",
+      "title": "Restaurant Bar & Beverage Inventory & Ordering",
+      "text": "/assets/reader/bar-inventory.txt",
+      "pdf": "/assets/downloads/GRAVITY_Restaurant_Bar_Beverage_Inventory_Ordering_v1.0.pdf",
+      "characters": 100731
+    }
+  ]
+}

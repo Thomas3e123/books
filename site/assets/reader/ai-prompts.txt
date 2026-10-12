@@ -1,0 +1,2644 @@
+GRAVITY
+THE RESTAURANT LEADERSHIP SYSTEM
+
+Restaurant AI Prompts &
+Systems Workbook
+
+215 practical copy-and-paste prompts for restaurant leadership, service
+planning, beverage control, training, facilities, controls, specialty operations,
+connected Gravity workspace workflows, guest recovery, and verified
+management follow-through.
+
+THE GRAVITY SYSTEM AI COMPANION
+
+Use AI to organize the work. Keep management judgment, real records, and verified
+standards in control.
+
+THOMAS BUTLER | THOMAS MONROE BOOKS
+Copyright 2026 Thomas Butler. All rights reserved.
+Use rights: You may use and adapt these prompts for personal use or internal restaurant operations. Do not resell, redistribute, publicly post, or
+incorporate this workbook into another product without written permission.
+Responsible use: AI output may be inaccurate. Managers remain responsible for verifying high-stakes information and decisions against current authoritative
+sources and restaurant policies.
+
+UPDATED DIGITAL EDITION • SEPTEMBER 2026
+
+    START HERE
+
+    How to get useful answers from AI
+    The quality of an AI answer depends heavily on the quality of the information you give it. These prompts
+    are written to make you supply the context, evidence, goal, limits, and output format that a real manager
+    needs.
+
+         GRAVITY AI
+         PROMPT
+         FORMULA
+
+1        CONTEXT             What restaurant, role, station, shift, or problem are we dealing with?
+
+2        EVIDENCE            What numbers, records, observations, or verified facts do you actually have?
+
+3        GOAL                What decision, plan, checklist, conversation, or analysis do you need?
+
+4        LIMITS              What must the answer not assume, change, disclose, or decide?
+
+5        OUTPUT              What format would make the answer immediately usable?
+
+    BEFORE YOU PASTE ANYTHING INTO AI
+       Do not paste passwords, payment-card data, banking information, confidential login credentials, or
+        other secrets.
+       Remove unnecessary guest and employee personal information. Use roles or initials when the identity
+        is not needed.
+       AI can make confident mistakes. Verify calculations, policies, schedules, food-safety requirements,
+        employment requirements, and other high-stakes information against the real source.
+       Use AI to organize, analyze, draft, compare, and prepare. The restaurant leader remains responsible for
+        the decision and the standard.
+
+    FASTEST WAY TO USE THIS GUIDE
+    Choose the prompt closest to the problem. Replace every [bracketed field] with real information. Delete any
+    section you do not need. Then review the answer against your actual records and standards before using it.
+
+SHIFT LEADERSHIP
+
+PROMPT 01 • PRE-SHIFT PRIORITY PLAN
+
+ Act as an experienced full-service restaurant manager. Help me build a focused pre-shift plan for today.
+
+ Restaurant context: [type of restaurant / service style]
+ Expected sales or covers: [amount]
+ Staffing: [FOH / BOH staffing and any call-outs]
+ Known risks today: [large parties, weather, events, equipment, new employees, low inventory, etc.]
+ Yesterday's problems that may repeat: [list]
+
+ Create a concise pre-shift plan with: 1) the 3 most important outcomes for the shift, 2) the top risks to prevent, 3) what each
+ manager or key position must verify before opening, 4) 3 talking points for pre-shift, and 5) what evidence I should review
+ after the shift to know whether the plan worked. Keep it practical enough to use in a 5-minute manager huddle.
+
+Manager check: Use the result to lead the shift - not to create more paperwork.
+
+PROMPT 02 • OPENING READINESS CHECK
+
+ Using the information below, create an opening-readiness check for a full-service restaurant. Do not make it generic;
+ prioritize the items most likely to affect today's service.
+
+ Known issues: [list]
+ Staffing concerns: [list]
+ Reservations / events: [list]
+ Equipment or facility concerns: [list]
+ Product shortages / prep concerns: [list]
+
+ Organize the check into FOH, BOH, people, product, equipment/facilities, cash/POS, and manager verification. Mark each
+ item as Critical, Important, or Nice to Verify. Keep the final checklist to one page if possible.
+
+Manager check: Replace the brackets with real evidence and verify the answer before using it.
+
+PROMPT 03 • END-OF-SHIFT DEBRIEF
+
+ Help me turn this shift into useful management information instead of a memory dump.
+
+ Shift facts: [sales, labor, covers, ticket times, comps/voids, complaints, call-outs, shortages, equipment issues]
+ What went well: [notes]
+ What went wrong: [notes]
+ Unfinished issues: [notes]
+
+ Create a debrief with: 1) facts that matter, 2) repeated patterns, 3) one-time exceptions, 4) corrective actions with an owner
+ and due date, 5) what tomorrow's manager must know, and 6) what should be added to a recurring checklist or SOP if this
+ problem is likely to happen again.
+
+Manager check: Replace the brackets with real evidence and verify the answer before using it.
+
+MANAGEMENT REVIEW
+
+PROMPT 04 • WEEKLY BUSINESS REVIEW
+
+ Act as a restaurant operations analyst. Review the weekly information I provide and help me prepare a manager business
+ review.
+
+ Sales: [data]
+ Labor: [data]
+ Food cost / purchases / waste: [data]
+ Guest feedback: [data]
+ Staffing / turnover / training: [data]
+ Operational problems: [data]
+
+ Separate facts from assumptions. Identify the 5 most important findings, the likely causes that need verification, the 3
+ decisions management should make this week, and the measures we should watch next week. Do not invent missing
+ numbers. Clearly label any conclusion that cannot be supported by the information I supplied.
+
+Manager check: If the input data is incomplete, require the AI to say so.
+
+HIRING
+
+PROMPT 05 • INTERVIEW QUESTIONS FOR CARE AND ACCOUNTABILITY
+
+ Create an interview guide for a [position] in a full-service restaurant. I want to hire for care, reliability, teamwork,
+ coachability, and accountability - not just experience.
+
+ Role: [position]
+ Most important behaviors: [list]
+ Problems we have had with past hires: [list]
+ Non-negotiables: [availability, certifications, schedule, etc.]
+
+ Give me 10 behavior-based questions, what a strong answer may demonstrate, warning signs to listen for, and 3 follow-up
+ questions that help reveal whether the candidate takes responsibility or blames others. Avoid questions that would be
+ inappropriate or unlawful in an employment interview.
+
+Manager check: Use only job-related criteria and your current hiring policy.
+
+PROMPT 06 • CANDIDATE EVALUATION SUMMARY
+
+ Help me evaluate a restaurant job candidate based only on job-related evidence.
+
+ Role: [position]
+ Job requirements: [requirements]
+ Interview notes: [paste notes without unnecessary sensitive personal information]
+ Work-history facts relevant to the role: [facts]
+
+ Create a neutral evaluation under: reliability evidence, teamwork evidence, guest/service mindset, coachability, technical
+ readiness, schedule fit, concerns that need follow-up, and final recommendation: advance / hold / do not advance. Explain
+ the evidence behind the recommendation and do not infer protected personal characteristics.
+
+Manager check: Replace the brackets with real evidence and verify the answer before using it.
+
+TRAINING
+
+PROMPT 07 • 7-DAY NEW-HIRE ONBOARDING PLAN
+
+ Build a realistic 7-day onboarding plan for a new [position] at a full-service restaurant.
+
+ Experience level: [new / some experience / experienced]
+ Station or role: [role]
+ Required tasks and standards: [list]
+ Trainer availability: [list]
+ Common early mistakes: [list]
+
+ For each day, give me the training focus, what the trainer demonstrates, what the employee practices, what must be verified
+ before moving on, and what should be documented. Include a final day-7 readiness decision and identify anything that
+ should require additional training rather than automatic certification.
+
+Manager check: Replace the brackets with real evidence and verify the answer before using it.
+
+PROMPT 08 • TRAINING CERTIFICATION PLAN
+
+ Turn this restaurant role into a clear certification plan.
+
+ Role: [position]
+ Core duties: [list]
+ Safety / sanitation requirements: [list]
+ Guest or quality standards: [list]
+ Tasks that require manager verification: [list]
+
+ Create a certification checklist divided into knowledge, demonstrated skill, consistency, safety, communication, and final
+ manager sign-off. Define what “ready” looks like for each major area. Do not certify someone merely because training time
+ is complete; require observable evidence.
+
+Manager check: Replace the brackets with real evidence and verify the answer before using it.
+
+PEOPLE LEADERSHIP
+
+PROMPT 09 • COACHING CONVERSATION PREP
+
+ Help me prepare a fair coaching conversation with an employee.
+
+ Observed behavior or performance issue: [specific facts]
+ Expected standard: [standard]
+ Previous coaching or training: [facts]
+ Impact on guests/team/operation: [facts]
+ What I want to improve: [outcome]
+
+ Draft a calm conversation outline that separates facts from assumptions, asks for the employee's perspective, restates the
+ standard, confirms what support or retraining is needed, sets a clear next expectation, and identifies what follow-up
+ evidence the manager should review. Keep the tone firm, respectful, and non-accusatory.
+
+Manager check: Replace the brackets with real evidence and verify the answer before using it.
+
+PROMPT 10 • CORRECTIVE-ACTION PREPARATION
+
+ Help me organize the facts for a restaurant corrective-action discussion. Do not make legal conclusions or decide discipline
+ for me.
+
+ Policy or standard involved: [paste current policy]
+ Verified facts: [facts only]
+ Dates / prior coaching: [facts]
+ Employee explanation, if known: [summary]
+ Operational impact: [facts]
+
+ Create: 1) a factual timeline, 2) what information is still missing, 3) questions management should answer before acting, 4) a
+ fair conversation outline, 5) possible retraining or performance expectations, and 6) documentation items to retain. Flag
+ anything that may require HR, legal, or policy review.
+
+Manager check: Corrective action can involve legal/HR risk; verify before acting.
+
+SOPS & STANDARDS
+
+PROMPT 11 • DRAFT A RESTAURANT SOP
+
+ Draft a practical restaurant SOP for: [process].
+
+ Who performs it: [role]
+ When it happens: [frequency / trigger]
+ Current process: [steps]
+ Required standard: [quality / time / safety / accuracy target]
+ Known failure points: [list]
+ Equipment / forms used: [list]
+
+ Write the SOP with: purpose, why it matters, responsibility, materials/equipment, step-by-step procedure, critical checks,
+ exceptions/escalation, required records, manager verification, and retraining trigger. Use plain restaurant language. Clearly
+ mark any safety or regulatory point that must be verified against current local requirements.
+
+Manager check: Current law, health code, manufacturer instructions, and restaurant policy always control.
+
+PROMPT 12 • SIMPLIFY AN EXISTING SOP
+
+ Rewrite this SOP so an employee can actually use it during restaurant operations.
+
+ Existing SOP: [paste text]
+
+ Keep every necessary standard, but remove repetition, jargon, vague wording, and unnecessary management language. Put
+ the steps in the order the work actually happens. Add a short “Why It Matters” section, identify the most important critical
+ checks, and list anything that is unclear or contradictory rather than guessing.
+
+Manager check: Replace the brackets with real evidence and verify the answer before using it.
+
+PROMPT 13 • STATION OPENING / CLOSING CHECKLIST
+
+ Create an opening and closing checklist for the [station] in a full-service restaurant.
+
+ Station responsibilities: [list]
+ Equipment: [list]
+ Products / pars: [list]
+ Cleaning responsibilities: [list]
+ Known recurring misses: [list]
+
+ Create two concise checklists: OPEN and CLOSE. Separate employee tasks from manager verification. Include only items that
+ can be observed or confirmed. Add 3-5 “failure prevention” checks for the recurring misses I listed.
+
+Manager check: Replace the brackets with real evidence and verify the answer before using it.
+
+CLEANING
+
+PROMPT 14 • CLEANING AND SANITATION SCHEDULE
+
+ Help me organize a cleaning and sanitation schedule for [area/station].
+
+ Equipment and surfaces: [list]
+ Current cleaning tasks: [list]
+ Who can perform them: [roles]
+ Service schedule: [hours / dayparts]
+ Known problem areas: [list]
+
+ Group tasks by after-use, each shift, daily, weekly, monthly, and as needed. Assign a responsible role and a manager-
+ verification method. Keep cleaning instructions separate from chemical-use directions, and tell me which items require
+ verification against the product label, food-safety plan, or local health requirements.
+
+Manager check: Replace the brackets with real evidence and verify the answer before using it.
+
+CLEANING & COMPLIANCE
+
+PROMPT 15 • STANDARDS / INSPECTION READINESS SELF-AUDIT
+
+ Create a restaurant self-audit from the standards I provide. This is an internal readiness tool, not a substitute for an official
+ inspection.
+
+ Standards / policies / inspection notes: [paste current verified requirements]
+ Problem areas from prior reviews: [list]
+
+ Build an audit grouped by food handling, employee practices, storage, temperatures/records, cleaning, equipment/facilities,
+ pest prevention, labeling/date marking, and manager records where applicable. For every failed item, include: immediate
+ correction, owner, due date, and proof of closure. Do not invent legal thresholds that I did not provide.
+
+Manager check: Use verified current requirements as the source; do not let AI invent inspection standards.
+
+LABOR
+
+PROMPT 16 • LABOR PERFORMANCE REVIEW
+
+ Analyze this restaurant labor information and help me identify where management attention is needed.
+
+ Sales: [data]
+ Labor hours: [data]
+ Labor dollars: [data]
+ Labor percent target: [target]
+ By department/daypart if available: [data]
+ Overtime: [data]
+ Call-outs / coverage issues: [notes]
+
+ Calculate or summarize only from the numbers I provide. Identify meaningful variances, possible operational causes that
+ need verification, overstaffed or understaffed periods, and 3 actions management can test next week without harming
+ service or safety. Show the evidence behind each recommendation.
+
+Manager check: Compare recommendations against guest demand and service standards, not labor percentage alone.
+
+PROMPT 17 • SCHEDULE AND COVERAGE REVIEW
+
+ Review this proposed restaurant schedule before I post it.
+
+ Forecast sales / covers by day or daypart: [data]
+ Proposed schedule: [paste schedule summary]
+ Employee availability / role limitations: [relevant facts]
+ Known reservations/events: [list]
+ Labor target: [target]
+
+ Look for coverage gaps, unnecessary overlap, weak opening/closing coverage, trainer needs, overtime risk, single points of
+ failure, and periods where staffing may not match demand. Give me a prioritized revision list. Do not recommend changes
+ that violate availability, required breaks, age restrictions, staffing rules, or other legal requirements.
+
+Manager check: Replace the brackets with real evidence and verify the answer before using it.
+
+FOOD COST
+
+PROMPT 18 • FOOD COST VARIANCE REVIEW
+
+ Help me investigate a food-cost variance using the records below.
+
+ Sales: [data]
+ Food purchases: [data]
+ Beginning / ending inventory: [data]
+ Theoretical or recipe cost, if available: [data]
+ Actual food cost: [data]
+ Waste / comps / transfers: [data]
+ Known price changes: [notes]
+
+ Separate mathematical facts from possible causes. Identify the largest likely drivers to verify - purchasing price, waste,
+ portioning, recipe usage, inventory accuracy, receiving, theft/loss, menu mix, or data errors. Give me a verification plan in
+ priority order instead of assuming the cause.
+
+Manager check: A variance points to a question; it does not prove the cause.
+
+PROMPT 19 • WASTE ROOT-CAUSE REVIEW
+
+ Analyze this restaurant waste log and help me find preventable patterns.
+
+ Waste records: [paste data]
+ Sales / volume context: [data]
+ Prep levels or pars: [data]
+ Known events or outages: [notes]
+
+ Group the waste by likely source: overproduction, spoilage, prep error, cooking error, portion error, quality rejection,
+ returned food, breakage/spill, or other. Identify repeated items/times/stations, estimate which patterns deserve the fastest
+ attention, and recommend 3 controlled tests to reduce waste. Do not treat unavoidable or safety-required disposal as a
+ performance failure.
+
+Manager check: Replace the brackets with real evidence and verify the answer before using it.
+
+INVENTORY
+
+PROMPT 20 • INVENTORY, PAR, AND PURCHASING PLAN
+
+ Help me review restaurant inventory and purchasing levels.
+
+ Recent usage / sales: [data]
+ Current on-hand: [data]
+ Current pars: [data]
+ Vendor lead times / delivery days: [data]
+ Upcoming events or demand changes: [notes]
+ Waste / stockouts: [notes]
+
+ Identify items that appear overstocked, understocked, or unstable. Recommend par changes only where the evidence
+ supports them. Show the logic for each recommendation and flag items where more usage history is needed before
+ changing the par.
+
+Manager check: Replace the brackets with real evidence and verify the answer before using it.
+
+GUEST EXPERIENCE
+
+PROMPT 21 • GUEST COMPLAINT RECOVERY RESPONSE
+
+ Help me respond to this restaurant guest complaint with empathy and accountability.
+
+ Guest message: [paste message with unnecessary personal information removed]
+ Verified facts: [facts]
+ What we can responsibly offer or do: [options]
+ What is still uncertain: [unknowns]
+
+ Draft a response that acknowledges the experience without arguing, avoids admitting facts we have not verified, explains
+ the next step, and sounds like a real restaurant leader rather than a corporate template. Then give me an internal follow-up
+ list so we fix the operating issue instead of only answering the guest.
+
+Manager check: Guest recovery should fix the operation as well as answer the guest.
+
+PROMPT 22 • GUEST FEEDBACK THEME ANALYSIS
+
+ Analyze these guest comments/reviews for operating patterns.
+
+ Feedback: [paste comments]
+ Time period: [dates]
+ Relevant sales/volume context, if available: [data]
+
+ Group feedback into themes such as food quality, speed, hospitality, accuracy, cleanliness, atmosphere, value, recovery, or
+ other. Distinguish repeated patterns from isolated comments. Identify the 3 themes with the strongest evidence, quote only
+ short representative phrases, and recommend what management should observe or measure next before making a major
+ change.
+
+Manager check: Replace the brackets with real evidence and verify the answer before using it.
+
+SALES & GROWTH
+
+PROMPT 23 • 30-DAY SALES-BUILDING PLAN
+
+ Build a realistic 30-day restaurant sales-building plan based on our actual situation.
+
+ Restaurant type / market: [context]
+ Current sales pattern: [data]
+ Best-selling items/dayparts: [data]
+ Weak dayparts or occasions: [data]
+ Guest strengths: [what people like]
+ Marketing resources/budget: [resources]
+ Operational limitations: [constraints]
+
+ Give me no more than 5 initiatives. For each: target guest, offer/message, operating requirement, owner, launch date,
+ cost/risk, measure of success, and stop/continue decision point. Favor ideas the operation can execute well over generic
+ social-media activity.
+
+Manager check: Replace the brackets with real evidence and verify the answer before using it.
+
+LOSS PREVENTION
+
+PROMPT 24 • CASH, VOID, DISCOUNT, AND EXCEPTION REVIEW
+
+ Help me review these restaurant cash/POS exceptions for patterns that deserve management attention.
+
+ Voids: [data]
+ Discounts/comps: [data]
+ Refunds: [data]
+ Cash over/short: [data]
+ Manager overrides: [data]
+ Relevant shift/server/daypart detail: [data]
+
+ Identify unusual concentrations, repeated patterns, missing explanations, and records that should be verified. Do not accuse
+ any employee of theft or misconduct. Separate data anomalies from evidence of policy violations, and give me a neutral
+ follow-up checklist for management review.
+
+Manager check: Patterns justify review; they do not by themselves prove misconduct.
+
+RISK & CONTINUITY
+
+PROMPT 25 • EMERGENCY / INCIDENT AFTER-ACTION REVIEW
+
+ Help me conduct a restaurant after-action review for this incident or disruption.
+
+ Incident: [power outage, injury, severe weather, equipment failure, guest incident, etc.]
+ Verified timeline: [facts]
+ What the team did: [facts]
+ What worked: [notes]
+ What failed or was unclear: [notes]
+ Operational impact: [notes]
+
+ Create an after-action review with: timeline, immediate response, strengths, breakdowns, missing resources/information,
+ corrective actions, owner and due date, training/SOP changes to consider, and evidence needed to verify closure. Flag any
+ matter that should be reviewed with the appropriate safety, insurance, HR, legal, health, or emergency authority.
+
+Manager check: Emergency, injury, safety, insurance, HR, or legal matters may require qualified review.
+
+25 MORE WAYS TO USE AI
+FORECASTING & DAILY CONTROL
+
+PROMPT 26 • SALES FORECAST & STAFFING ALIGNMENT
+
+ Act as a restaurant operations analyst. Help me turn the information below into a practical sales forecast and staffing need
+ for the next [day/week]. Recent comparable sales: [data] Recent covers / transactions: [data] Reservations / events / holidays
+ / weather factors: [facts] Current staffing availability by role: [data] Labor target or guardrails: [target] Known service risks:
+ [notes] Create: 1) a forecast range instead of false precision, 2) the assumptions behind it, 3) likely peak dayparts, 4)
+ recommended staffing by role/daypart, 5) risks that could make the forecast wrong, and 6) what the manager should
+ monitor and adjust in real time. Do not invent missing data.
+
+Manager check: Forecasts are planning tools. Compare them with actual demand and adjust rather than treating them as guarantees.
+
+PROMPT 27 • DAILY MANAGER CONTROL SUMMARY
+
+ Turn today’s restaurant operating data into a one-page manager control summary. Sales: [data] Covers / transactions: [data]
+ Labor: [data] Food / waste issues: [data] Guest complaints / recoveries: [notes] Voids / comps / refunds / cash exceptions:
+ [data] Staffing / call-outs / training issues: [notes] Equipment / facility issues: [notes] Separate: what happened, what is
+ unusual, what needs action today, what can wait, and what evidence is still missing. End with the top three management
+ priorities and one question the next manager must answer.
+
+Manager check: Use the summary to focus management attention, not to replace the underlying records.
+
+MENU & SALES INTELLIGENCE
+
+PROMPT 28 • MENU MIX & CONTRIBUTION OPPORTUNITY REVIEW
+
+ Help me analyze this menu mix for management opportunities. Menu items: [list] Units sold: [data] Selling prices: [data]
+ Recipe or estimated food cost: [data] Gross contribution dollars if available: [data] Prep difficulty / ticket-time concerns:
+ [notes] Guest feedback: [notes] Identify high-volume/high-contribution items, high-volume/low-contribution items, low-
+ volume/high-contribution opportunities, and low-volume/low-contribution items. Flag missing or unreliable data. Suggest
+ questions to investigate before changing prices, portions, recipes, placement, or promotion. Do not recommend a menu
+ change solely from popularity.
+
+Manager check: Profit, guest value, execution, and brand fit all matter; menu mix alone is not the whole decision.
+
+PROMPT 29 • PROMOTION OR LIMITED-TIME-OFFER REVIEW
+
+ Evaluate this restaurant promotion or limited-time offer using the real numbers I provide. Offer: [description] Dates /
+ dayparts: [period] Units sold: [data] Incremental sales if known: [data] Discount / offer cost: [data] Food and packaging cost:
+ [data] Labor or operational impact: [notes] Guest response: [notes] Cannibalization concerns: [notes] Tell me what we can
+ conclude, what we cannot conclude, whether the offer appears to drive profitable behavior, what operational costs may be
+ hidden, and what data to capture next time. End with keep / change / stop / test-again considerations, not a forced verdict.
+
+Manager check: Do not call a promotion successful just because sales went up; consider margin, workload, and what sales it replaced.
+
+PROMPT 30 • SERVER SALES COACHING PLAN
+
+ Build a fair restaurant sales-coaching plan for a server or service team using the evidence below. Sales measures we care
+ about: [beverage, appetizer, dessert, add-on, check average, etc.] Current results: [data] Restaurant standards: [standards]
+ Guest-service expectations: [standards] Observed strengths: [facts] Observed missed opportunities: [facts] Create coaching
+ focused on guest needs, product knowledge, confident recommendations, and accurate service - not pressure tactics.
+ Include one skill to practice, one role-play, one measurable observation, and one follow-up date.
+
+Manager check: Sales coaching should improve hospitality and product knowledge, not encourage manipulation or unwanted
+pressure.
+
+GUEST RELATIONSHIP & RETENTION
+
+PROMPT 31 • GUEST REACTIVATION PLAN
+
+ Help me design a respectful guest-reactivation plan for customers who have not returned recently. Available guest data and
+ permissions: [describe only what may lawfully/appropriately be used] Typical visit frequency: [data] Recent changes in
+ menu/service: [facts] Strongest reasons guests choose us: [facts] Budget / offer limits: [limits] Channels available: [email,
+ loyalty, social, etc.] Create a simple 30-day reactivation test with audience logic, message themes, optional offers, timing,
+ measurement, and a stop rule if the outreach is not useful. Do not assume consent or recommend using data we do not have
+ permission to use.
+
+Manager check: Use only customer information and communication permissions the restaurant is allowed to use.
+
+HIRING & RETENTION
+
+PROMPT 32 • EMPLOYEE RETENTION RISK REVIEW
+
+ Help me identify employee-retention risks using only job-related, non-sensitive information. Turnover pattern: [data] Call-
+ outs / scheduling issues: [data] Exit feedback: [themes] Training completion: [data] Manager observations: [facts] Pay /
+ hours / role changes relevant to the job: [facts] Known team concerns: [themes] Separate systemic risks from individual
+ assumptions. Identify the top retention pressure points, evidence supporting each one, what information is missing, and
+ low-cost management actions we can test over the next 30 days.
+
+Manager check: Do not infer private motives or personal traits; use job-related evidence and direct employee feedback.
+
+PROMPT 33 • STAY-INTERVIEW QUESTION SET
+
+ Create a short stay-interview guide for current restaurant employees. Role(s): [positions] Tenure range: [range] Known
+ retention concerns: [themes] What management genuinely can change: [list] What is not negotiable: [standards /
+ constraints] Give me 8-10 neutral questions that help employees explain what makes the job workable, what creates
+ frustration, what support they need, what makes them consider leaving, and what one realistic change would matter most.
+ Add a manager note-taking structure that separates employee comments from management conclusions.
+
+Manager check: A stay interview is for listening and pattern-finding, not promising changes the restaurant cannot make.
+
+TRAINING & CERTIFICATION
+
+PROMPT 34 • TRAINING GAP ANALYSIS
+
+ Analyze this restaurant training information and identify the highest-priority gaps. Role / station: [role] Required skills /
+ standards: [list] Training records: [data] Certification / sign-off results: [data] Observed errors: [facts] Guest / safety / cost
+ impact: [facts] Trainer notes: [notes] Separate knowledge gaps, skill gaps, unclear standards, weak practice, and weak
+ verification. Rank the gaps by operational risk and frequency. Recommend the smallest retraining plan that addresses the
+ highest-impact issues first.
+
+Manager check: Fix the reason performance is failing; do not automatically assume every miss requires more training.
+
+PROMPT 35 • TRAINER READINESS & COACHING PLAN
+
+ Help me evaluate whether a restaurant trainer is ready to train others consistently. Role / station: [role] Standards they
+ must teach: [list] Observed training behavior: [facts] Trainee outcomes: [data / observations] Strengths: [facts]
+ Inconsistencies: [facts] Create a trainer-readiness review covering technical mastery, explanation, demonstration,
+ observation, feedback, patience, consistency, documentation, and escalation to a manager. Then give me a short coaching
+ plan for any weak areas and evidence needed before certification.
+
+Manager check: Being excellent at a station does not automatically make someone an effective trainer.
+
+MANAGER DEVELOPMENT
+
+PROMPT 36 • DELEGATION & OWNERSHIP PLAN
+
+ Help me delegate this restaurant responsibility without losing accountability. Responsibility: [task / system / project]
+ Current owner: [role] New owner: [role] Required standard: [standard] Authority the person may use: [limits] Decisions
+ that still require approval: [limits] Records / evidence required: [list] Review dates: [schedule] Create a clear handoff:
+ desired outcome, scope, authority, non-negotiables, first actions, check-in schedule, and what evidence will show the
+ responsibility is under control.
+
+Manager check: Delegation transfers responsibility for work, not the leader’s responsibility to verify.
+
+PROMPT 37 • DIFFICULT CONVERSATION PREPARATION
+
+ Help me prepare for a difficult restaurant workplace conversation without making accusations or legal conclusions. Issue:
+ [specific situation] Verified facts: [facts] What I have personally observed: [facts] What I have only heard: [unverified
+ information] Relevant standard / policy: [paste current wording] Desired operational outcome: [outcome] Create a calm
+ conversation structure: opening, facts, questions to understand the employee’s perspective, standard, expected next step,
+ documentation points, and follow-up. Identify anything I should verify before the conversation.
+
+Manager check: Keep facts, reports, assumptions, and conclusions separate; serious HR matters may require qualified review.
+
+PROMPT 38 • MANAGER MEETING AGENDA FROM REAL ISSUES
+
+ Turn the following restaurant issues into a focused manager meeting agenda. Current KPIs: [data] Open operational
+ problems: [list] Guest issues: [list] Staffing / training issues: [list] Food / labor / sales issues: [list] Maintenance / safety issues:
+ [list] Decisions waiting for leadership: [list] Create a 45-60 minute agenda ordered by impact and decision need. For each
+ item include: evidence to review, decision needed, owner, due date, and what should not consume meeting time. End with a
+ five-minute accountability closeout.
+
+Manager check: A management meeting should produce decisions and ownership, not become a long status recital.
+
+FOOD COST & PURCHASING
+
+PROMPT 39 • RECIPE COST & PORTION CONTROL REVIEW
+
+ Help me review whether a menu item’s recipe cost and portion standard are under control. Recipe: [ingredients and
+ quantities] Current ingredient costs: [costs] Selling price: [price] Expected yield: [yield] Portion standard: [standard] Actual
+ portion observations / weights: [data] Waste / remakes / complaints: [notes] Calculate the recipe cost if the data is complete,
+ show the math, identify missing assumptions, compare expected and observed portioning, and list the most likely control
+ questions. Do not invent ingredient prices or yields.
+
+Manager check: Use current invoices, tested yields, and actual portion standards before making pricing or recipe decisions.
+
+PROMPT 40 • VENDOR PRICE-INCREASE RESPONSE
+
+ Help me evaluate a restaurant vendor price increase. Item(s): [list] Old price: [data] New price: [data] Usage volume: [data]
+ Menu items affected: [list] Current recipe margins if known: [data] Alternative vendors / products: [facts] Quality /
+ specification requirements: [standards] Calculate the likely cost impact, identify which menu items or purchasing decisions
+ deserve attention first, and give me options to investigate: negotiate, substitute, rebid, adjust par, reduce waste, change
+ recipe, or change price. Separate options from recommendations that require a quality or guest-impact test.
+
+Manager check: Protect specification, quality, and guest expectations; the cheapest replacement is not automatically the best choice.
+
+PROMPT 41 • RECEIVING DISCREPANCY REVIEW
+
+ Review these receiving records for purchasing or vendor problems that need follow-up. Purchase order: [data] Invoice:
+ [data] What was actually received: [data] Shortages / substitutions: [data] Damaged / rejected product: [data] Prices / credits:
+ [data] Temperature or quality issues if relevant: [verified observations] Create a discrepancy list showing ordered vs
+ invoiced vs received, estimated financial impact, missing credits, recurring vendor patterns, and the exact questions the
+ manager should resolve. Do not infer misconduct from an error pattern alone.
+
+Manager check: Receiving records should create a factual vendor conversation, not an accusation.
+
+PROMPT 42 • PREP & PAR FORECAST
+
+ Help me build or adjust prep pars for the next [day/week] using actual demand. Recent item sales / usage: [data] Current
+ pars: [data] Current on-hand: [data] Waste / stockouts: [data] Shelf life / hold-time limits: [verified standards] Upcoming
+ reservations / events: [facts] Delivery schedule: [data] Recommend a test par range for each priority item, show the demand
+ logic, flag products with high spoilage or stockout risk, and identify which pars should not be changed until more data is
+ collected.
+
+Manager check: Pars are operating targets that should be tested against real usage, shelf life, quality, and service risk.
+
+PROMPT 43 • PORTION-CONTROL OBSERVATION PLAN
+
+ Create a fair portion-control observation plan for [item/station]. Approved portion standard: [standard] Tools used: [scale,
+ scoop, ladle, count, etc.] Observed variation: [facts] Recipe / cost impact: [data] Training status: [facts] Give me a short
+ manager audit that checks setup, tools, technique, actual measured portions, employee understanding, and correction.
+ Include how many observations to take before drawing a conclusion and how to document retraining if needed.
+
+Manager check: Observe enough real portions to find a pattern; one unusual plate does not prove a station-wide problem.
+
+FACILITIES & MAINTENANCE
+
+PROMPT 44 • PREVENTIVE MAINTENANCE PRIORITY PLAN
+
+ Turn this restaurant maintenance list into a realistic preventive-maintenance priority plan. Equipment / facility items: [list]
+ Known condition: [facts] Breakdown history: [data] Safety / food-safety impact: [facts] Operational impact if unavailable:
+ [facts] Manufacturer or service requirements: [verified requirements] Budget / vendor constraints: [limits] Rank items by
+ safety, business interruption, food loss, guest impact, and repair risk. Create a 30/60/90-day action plan with owner, vendor
+ need, due date, and verification. Do not invent maintenance intervals.
+
+Manager check: Use manufacturer guidance and qualified service providers for technical maintenance requirements.
+
+PROMPT 45 • REPAIR-VS.-REPLACE DECISION PREP
+
+ Help me prepare a repair-versus-replace decision for restaurant equipment. Equipment: [item] Age: [age] Current
+ condition: [facts] Repair quote(s): [data] Repair history: [data] Downtime / lost-sales impact: [estimate and basis]
+ Replacement quote(s): [data] Energy / capacity / warranty differences: [facts] Operational importance: [context] Create a
+ decision comparison showing known costs, uncertain costs, downtime, reliability, capacity, safety implications, and payback
+ considerations. Identify the questions I still need answered before deciding.
+
+Manager check: Use this to structure the decision; technical safety and code questions should be confirmed by qualified professionals.
+
+PROMPT 46 • FACILITY WALK ACTION PLAN
+
+ Turn these restaurant facility-walk observations into a prioritized action list. Observations: [paste facts] Photos or locations
+ described: [notes] Guest-facing impact: [facts] Employee / safety impact: [facts] Cleaning / maintenance history: [facts]
+ Known vendor or repair status: [facts] Sort items into: correct today, schedule within 7 days, schedule within 30 days,
+ monitor, or escalate immediately. Assign an owner, due date, proof of completion, and any dependency for each item.
+
+Manager check: Prioritize actual risk and operational impact, not which defect is easiest to fix.
+
+CASH & LOSS PREVENTION
+
+PROMPT 47 • DEPOSIT RECONCILIATION REVIEW
+
+ Help me reconcile a restaurant deposit discrepancy from the records below. POS expected cash: [data] Drawer / checkout
+ records: [data] Paid-outs / tips / cash adjustments: [data] Deposit prepared: [data] Bank-confirmed deposit: [data] Known
+ timing differences: [facts] Manager notes: [facts] Show the reconciliation step by step, identify exactly where the numbers
+ stop matching, list likely record or process questions, and state what cannot be concluded from the data. Do not accuse any
+ person or infer theft from a discrepancy alone.
+
+Manager check: A cash discrepancy is a control problem to investigate with records; it is not proof of misconduct.
+
+RISK & CONTINUITY
+
+PROMPT 48 • INCIDENT DOCUMENTATION QUALITY CHECK
+
+ Review this restaurant incident write-up for completeness and neutrality. Do not rewrite facts into stronger conclusions
+ than the evidence supports. Incident record: [paste text with unnecessary personal information removed] Relevant policy /
+ form requirements: [paste verified requirements] Known supporting evidence: [list] Identify missing dates, times,
+ locations, witnesses, actions, notifications, photos/records, follow-up, or unclear wording. Separate observed facts from
+ reported statements and assumptions. Suggest neutral questions needed to complete the record.
+
+Manager check: Incident documentation should be factual and complete; injury, insurance, HR, or legal matters may require qualified
+review.
+
+PROMPT 49 • TOP OPERATIONAL RISK REGISTER
+
+    Help me build a simple restaurant operational risk register from the facts below. Recent incidents / near misses: [list]
+    Repeated equipment or facility problems: [list] Staffing / training weaknesses: [list] Food-safety / sanitation concerns:
+    [verified facts] Cash / fraud / access-control concerns: [facts] Vendor / supply risks: [facts] Weather / utility / continuity risks:
+    [facts] Identify the top 5-10 risks, current controls, evidence of control strength, likely impact, likelihood based on available
+    evidence, owner, next action, and review date. Clearly label unknowns instead of guessing.
+
+Manager check: A risk register is for prevention and ownership; it does not replace required safety, insurance, or legal processes.
+
+MANAGER DEVELOPMENT
+
+PROMPT 50 • 90-DAY MANAGER DEVELOPMENT PLAN
+
+    Build a 90-day development plan for a restaurant manager using the evidence below. Role: [assistant manager / kitchen
+    manager / GM / etc.] Current responsibilities: [list] Strengths: [verified examples] Development needs: [verified examples]
+    Key restaurant goals: [goals] Systems they must learn: [list] Available coaching / training: [resources] Create three 30-day
+    phases. For each phase include: 2-3 priorities, specific behaviors to practice, operating responsibilities to own, evidence to
+    collect, coaching checkpoints, and what “ready for more responsibility” would look like. Keep the plan realistic enough to
+    use during actual shifts.
+
+Manager check: Development should be based on demonstrated behavior and operating results, not vague personality labels.
+
+BEFORE YOU ACT ON AN AI ANSWER
+      Can I point to the actual record, policy, standard, or observation behind this recommendation?
+      Did the AI clearly identify what it does not know, or did it fill in missing facts?
+      Does this decision affect food safety, employment, injury, insurance, banking, privacy, or law in a way that requires
+       qualified review?
+      Would I make the same decision if the AI had not suggested it?
+      What evidence will tell me whether this action actually worked?
+
+Gravity rule: AI may help prepare the decision. The manager still owns the truth, the standard, and the
+follow-through.
+
+GRAVITY
+AI should make the manager clearer - not make the manager
+disappear.
+The first 50 prompts establish the core method. Every later expansion follows the same Gravity approach:
+connect the question to real evidence, an accountable owner, a clear standard, and verified follow-through.
+
+TRUTH
+  Give AI the facts you actually know. Separate evidence from assumptions.
+
+COST
+  Ask what the unresolved problem is costing in money, time, safety, guest trust, employee stability, or
+  management attention.
+
+SYSTEM
+  Turn the answer into a repeatable standard, tool, owner, review date, and verification step.
+
+THE LIVING RESTAURANT AI PROMPTS & SYSTEMS WORKBOOK
+
+This digital workbook grows only when completed Gravity books and operating systems create a genuinely
+useful, nonduplicate management use case. AI organizes and analyzes; managers remain responsible for
+facts, standards, judgment, and action.
+
+A restaurant eventually pays for every truth its leaders do not
+                            face.
+                                      Truth → Cost → System
+
+                                NEW IN THE UPDATED EDITION
+    The following 74 prompts extend the original 50-prompt collection with manager development, employee
+             training and certification, facilities and maintenance, and cross-system pressure testing.
+
+MANAGER DEVELOPMENT
+PROMPT 51 • MANAGER SHIFT HANDOFF SUMMARY
+
+ Review these Daily Manager Log entries. Summarize the three things the incoming manager most needs to know,
+ identify unresolved items, and name any item that lacks a clear owner. Do not invent facts or turn minor routine
+ notes into formal corrective actions.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 52 • RECURRING MANAGER LOG PATTERN REVIEW
+
+ Review the last seven days of Daily Manager Log entries. Identify repeated operational issues, repeated employee
+ or guest concerns, handoff failures, and items that appear to be discussed repeatedly without being closed.
+ Separate one-time events from recurring patterns.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 53 • DAILY MANAGER LOG QUALITY CHECK
+
+ Review these Manager Log entries for usefulness. Flag entries that are too vague, overly detailed, inappropriate for
+ a general shift log, or missing the information the next manager needs. Rewrite only the weak entries in a friendly,
+ concise handoff style.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 54 • PRE-SHIFT VS MANAGER LOG VS HANDOFF DECISION
+
+ For each item below, decide whether it belongs in the Daily Manager Log, GRV-M22 Pre-Shift Leadership Brief,
+ GRV-M25 Cross-Functional Handoff & Alignment Plan, or another Gravity system. Explain the placement briefly and
+ avoid duplicating the same record.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 55 • ROLE-BASED MANAGER LEARNING PATH
+
+ Using this manager's current role, experience, decision rights, and readiness evidence, build a practical
+ development path for Shift Leader, Manager on Duty, Assistant GM, or General Manager responsibilities. Include
+ what to learn, what to practice, what must be observed, what must be independently verified, and what evidence is
+ required before authority expands.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 56 • SHIFT LEADER DEVELOPMENT PLAN
+
+ Using the information below, create a Shift Leader development plan focused on shift readiness, clear
+ communication, deployment, basic guest recovery, handoff discipline, and escalation judgment. Include
+ representative practice and verification before independent authority.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 57 • SHIFT LEADER TO MOD READINESS
+
+ Evaluate whether this Shift Leader appears ready to begin Manager on Duty practice. Identify the decision-rights
+ knowledge, shift-control behaviors, guest recovery ability, coaching behavior, handoff discipline, and representative
+ practice still needed before independent MOD authority.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 58 • MOD DEVELOPMENT PLAN
+
+ Build a Manager on Duty development plan focused on full-shift control, labor and sales awareness, guest recovery,
+ coaching, corrective follow-through, and manager-log continuity. Separate what can be practiced with support from
+ what requires independent verification.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 59 • MOD TO AGM READINESS
+
+ Evaluate whether this MOD appears ready for Assistant GM-level development. Focus on follow-through, standards
+ verification, training/competency oversight, labor/food-cost awareness, corrective-action closure, cross-functional
+ ownership, and ability to support other managers rather than simply run a shift.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 60 • AGM DEVELOPMENT PLAN
+
+ Build an Assistant GM development plan focused on standards verification, training and competency follow-up,
+ cross-functional closure, basic labor and food-cost review, manager coaching, and operating follow-through. Define
+ evidence that would show the AGM can carry these responsibilities without repeated GM rescue.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 61 • AGM TO GM READINESS
+
+ Evaluate whether this Assistant GM appears ready for General Manager-level development. Focus on business
+ control, manager development, system ownership, financial judgment, staffing, guest retention, risk, owner
+ alignment, and ability to operate without repeated owner rescue.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 62 • GENERAL MANAGER DEVELOPMENT PLAN
+
+ Create a General Manager development plan using the evidence below. Include business control, system
+ installation, manager development, owner alignment, financial/operating review, staffing, risk, guest retention, and
+ verified outcomes. Do not treat title or tenure as proof of readiness.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 63 • AUTHORITY READINESS CHECK
+
+ Review this manager's readiness assessment, observations, coaching records, role-ramp record, and representative
+ shift evidence. State which responsibilities appear ready for greater authority, which still require support, and exactly
+ what evidence is missing.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 64 • MANAGER DECISION-RIGHTS CHECK
+
+ Review the proposed manager responsibilities below. Separate what the role may decide, what requires approval,
+ what requires consultation, what must be reported, and what must be escalated. Flag any authority that is unclear or
+ unsupported by the role charter.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 65 • MANAGER KNOWLEDGE CHECK BUILDER
+
+ Using the approved role standards below, create a short manager knowledge check that tests judgment and
+ understanding rather than trivia. Include an answer key and identify which questions require discussion rather than
+ automatic scoring.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 66 • REPRESENTATIVE PRACTICE PLANNER
+
+ Given this manager-development goal, design one realistic practice assignment that can demonstrate the required
+ capability. Include context, authority limits, safeguards, observer, evidence to collect, and what would count as
+ successful verification.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 67 • COACHING FOLLOW-THROUGH REVIEW
+
+ Review the coaching record and follow-up evidence below. Determine whether the behavior improved, whether
+ support was adequate, what remains unresolved, and whether the next step should be continued practice, changed
+ support, escalation, or verified closure.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 68 • MANAGER CORRECTIVE-ACTION CLOSURE REVIEW
+
+ Review these manager-development actions. For each item, classify it as Open, Assigned, Correction in Progress,
+ Corrected, or Verified Closed. Flag any item marked closed without evidence that the correction actually worked.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 69 • MANAGER FOLLOW-THROUGH PRIORITY REVIEW
+
+ Review these open manager-development actions. Prioritize them by operational consequence, identify overdue
+ items, flag actions without owners or verification methods, and recommend the smallest next step needed to move
+ each toward Verified Closed.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 70 • AGM FOLLOW-THROUGH FOCUS
+
+ Review these unresolved manager, guest, training, maintenance, staffing, and operating items. Identify which items
+ are appropriate for the Assistant GM to verify or close, which belong to another Gravity system owner, and which
+ require GM or owner escalation.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 71 • MANAGER MEETING DECISION SUMMARY
+
+ Turn these manager meeting notes into a concise decision record: decisions made, owner, due date, evidence
+ required, unresolved questions, and next review. Do not rewrite discussion that does not affect a decision or follow-
+ up.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 72 • MANAGER DEVELOPMENT WEEKLY REVIEW
+
+ Using this week's readiness, role-ramp progress, coaching, observations, manager-log patterns, open actions, and
+ bench information, prepare a one-page weekly manager-development review with: what improved, what remains
+ weak, decisions needed, risks, and next actions.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 73 • LEADERSHIP BEHAVIOR PATTERN REVIEW
+
+ Review these observations and coaching records for patterns in listening, clarity, fairness, delegation, follow-
+ through, pressure response, and accountability. Identify strengths and development priorities using only evidence
+ provided.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 74 • MANAGER BENCH RISK REVIEW
+
+ Review the manager capability and successor information below. Identify critical roles with weak backup coverage,
+ managers closest to readiness, development bottlenecks, and the top three actions that would most strengthen
+ bench depth without promoting people before they are ready.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 75 • OWNER DAILY LEADERSHIP BRIEF
+
+ Using only the significant Daily Manager Log items, end-of-day exceptions, and verified open actions below, create a
+ short owner brief. Include what changed, what is outside standard, who owns it, what remains unresolved, and what
+ requires owner attention. Exclude routine information that does not need owner involvement.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 76 • 30-DAY ACCELERATED MANAGER-SYSTEM PLAN
+
+ Create a 30-Day Accelerated GRV-M installation plan for the stated manager-development pressure. Follow this
+ sequence: Days 1-5 measure and define; Days 6-10 train and pilot; Days 11-20 execute and coach; Days 21-27
+ stress-test; Days 28-30 verify and decide. Use only 3-5 tools and one accountable owner.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 77 • 60-DAY GUIDED MANAGER-SYSTEM PLAN
+
+ Create a 60-Day Guided GRV-M installation plan. Follow this sequence: Days 1-10 learn and measure; Days 11-20
+ define and prepare; Days 21-30 train and practice; Day 30 midpoint gate; Days 31-46 guided execution; Days 47-54
+ stress-test; Days 55-60 verify and hold. Do not simply double the 30-day plan.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 78 • DAY-30 / DAY-60 MANAGER DECISION GATE
+
+ Review the implementation evidence below and prepare the Day-30 or Day-60 decision. State what should be kept,
+ changed, removed, expanded, or held. Identify any control that is creating paperwork without useful decisions or
+ evidence.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 79 • MANAGER-SYSTEM DUPLICATION CHECK
+
+ Review the proposed GRV-M forms, logs, meetings, and records below. Identify duplicate information, unclear
+ ownership, and any item that should reference another system's verified result rather than collect the same
+ information again. Recommend the simplest Gravity-aligned design.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+EMPLOYEE TRAINING & CERTIFICATION
+PROMPT 80 • DAILY TRAINING SUMMARY
+
+ Review these Daily Training Log entries. Summarize who trained, what progressed, who needs more practice, who
+ appears ready for independent verification, and what the manager should follow up on next shift. Do not mark
+ anyone certified based only on notes.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 81 • STALLED TRAINEE REVIEW
+
+ Review this employee's training history. Identify where progress appears stalled, distinguish possible
+ standard/trainer/practice/employee factors, and recommend the next practical training step. Do not invent a cause
+ that is not supported by the records.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 82 • CERTIFICATION READINESS CHECK
+
+ Evaluate the following training record against the Gravity certification gate: required learning complete, required
+ knowledge check passed where applicable, skill demonstrated, representative live performance observed where
+ appropriate, independent verification complete, and manager approval recorded. Identify what is still missing before
+ C - Certified.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 83 • TRAINER CALIBRATION REVIEW
+
+ Compare these trainer observations and sign-offs for the same position. Identify inconsistent standards, scoring
+ differences, unclear expectations, or evidence that trainers are teaching different versions of the work. Recommend
+ what the GM should recalibrate.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 84 • CROSS-TRAINING PRIORITY
+
+ Using the competency matrix, schedule, and known coverage needs below, recommend the three cross-training
+ moves that would reduce the greatest operating risk. Consider current ability, readiness, call-out vulnerability,
+ business volume, and trainer capacity.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 85 • RETRAINING PLAN
+
+ Using the verified performance gap below, build a short retraining plan that states the standard to relearn, practice
+ required, trainer, retest method, evidence needed, and completion decision. Keep coaching separate from
+ punishment.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 86 • REPEATED FAILURE REVIEW
+
+ Review these repeated failed competencies or retraining records. Determine whether the evidence points more
+ strongly to unclear standards, insufficient practice, trainer inconsistency, weak verification, or failure to follow the
+ standard. State what is known, what is uncertain, and what should be checked next.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 87 • TRAINING RISK PRIORITY
+
+ Rank the following training gaps by likely service, safety, compliance, quality, staffing, and guest impact.
+ Recommend only the highest-value actions the management team can realistically complete during the next review
+ period.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 88 • CORRECTIVE ACTION CLOSURE
+
+ Review this training corrective action. Determine whether the available evidence supports Open, Assigned,
+ Corrected, or Verified Closed. Explain what additional evidence is needed if closure cannot yet be verified.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 89 • MONTHLY TRAINING HEALTH REVIEW
+
+ Review the monthly training measures below. Compare expected versus actual performance, identify meaningful
+ variances, explain only causes supported by the data, flag the highest-risk competency gap, and recommend the
+ next three actions.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 90 • KNOWLEDGE CHECK REVIEW
+
+ Review these missed knowledge-check questions and identify what should be retaught. Do not infer practical
+ competence from quiz performance alone; recommend observation where the skill must be demonstrated.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 91 • COVERAGE RISK BEFORE SCHEDULING
+
+ Review this competency matrix and proposed schedule. Identify shifts or stations that depend on only one
+ verified/certified person, where the schedule relies on employees still Learning or Practicing, and where cross-
+ training would most improve resilience. Route staffing decisions to the labor-control process rather than rewriting the
+ schedule blindly.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+FACILITIES & MAINTENANCE
+PROMPT 92 • FACILITY RISK PRIORITY REVIEW
+
+ Review the facilities and maintenance records below. Identify the highest-risk open items using guest impact, safety
+ exposure, food-loss risk, downtime, repeat failure, repair age, vendor delay, and capital risk. Recommend the top
+ three management priorities and explain why each matters operationally.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 93 • OPEN REPAIR TRIAGE
+
+ Review the open repair log. Separate routine repairs from items that require urgent attention, owner approval,
+ vendor escalation, temporary controls, or continuity planning. Do not classify an issue as resolved unless verified
+ closure evidence is present.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 94 • PREVENTIVE MAINTENANCE GAP REVIEW
+
+ Analyze the preventive-maintenance calendar and identify overdue tasks, recurring deferrals, missing owners,
+ assets without a service rhythm, and tasks that should be escalated because of criticality.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 95 • DOWNTIME IMPACT SUMMARY
+
+ Review these downtime records. Summarize total downtime, repeated assets, affected dayparts, guest/service
+ impact, lost product/time/sales evidence, and which failures should trigger deeper corrective action.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 96 • VENDOR PERFORMANCE REVIEW
+
+ Review vendor service records for response time, completed work, repeated callbacks, invoice/quote mismatch,
+ unresolved issues, and verification quality. Identify vendors that need review, renegotiation, or replacement
+ consideration.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 97 • WARRANTY AND CONTRACT WATCH
+
+ Review the warranty, lease, and service-contract tracker. Identify upcoming renewals, expired protections, unclear
+ coverage, repeated paid repairs that may have been covered, and contracts requiring owner decision.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 98 • DAILY FACILITY HANDOFF SUMMARY
+
+ Turn the daily readiness and closing condition notes into a concise next-manager handoff. Include only material
+ issues, urgent hazards, unresolved repairs, owner assignments, and next-shift actions.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 99 • MONTHLY FACILITY SCORECARD SUMMARY
+
+ Review the monthly facility scorecard. Summarize what improved, what worsened, what remains open, which assets
+ or areas are creating the most operational strain, and what management decision is needed next.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 100 • QUARTERLY FACILITY AUDIT ANALYSIS
+
+ Analyze the quarterly facility audit and photo/evidence references. Identify repeated locations, repeated asset
+ classes, high-risk findings, weak closure evidence, and the top priorities for the next 90-day facility improvement
+ plan.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 101 • CORRECTIVE-ACTION CLOSURE CHECK
+
+ Evaluate these maintenance corrective-action records. Identify which items are not ready for Verified Closed
+ because evidence is missing, the correction was not tested, the issue repeated, the owner is unclear, or the
+ underlying cause was not confirmed.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 102 • CAPITAL RENEWAL ROADMAP DRAFT
+
+ Using the facility asset register, capital watchlist, downtime records, repair history, and owner priorities, draft a 12-
+ month capital-renewal roadmap. Separate must-do risk items from nice-to-have improvements.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 103 • TRIVIAL-VS-FORMAL CORRECTIVE ACTION
+
+ Review the maintenance issues below and decide which ones need formal corrective action and which ones should
+ remain normal management corrections. Explain your reasoning using recurrence, cost, risk, safety, guest impact,
+ and likelihood of return.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 104 • FACILITY READINESS FOR BUSY WEEKEND
+
+ Review current open repairs, PM status, asset condition, vendor follow-up, and daily-readiness notes. Identify what
+ must be handled before the upcoming busy weekend and what can wait without creating unreasonable risk.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 105 • AFTER-VENDOR VISIT REVIEW
+
+ Review the vendor service work record. Determine whether the work is ready to verify closed, needs recheck,
+ should remain open, or should be disputed. List any missing evidence before approval/payment.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 106 • FACILITY FAILURE ROOT-CAUSE QUESTIONS
+
+ Based on the repeated facility or equipment problem below, generate the best root-cause questions a manager
+ should ask before choosing a fix. Do not assume the cause; organize questions by equipment condition, usage,
+ cleaning, training, maintenance interval, parts, vendor work, and operating environment.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 107 • FACILITY CONTROL WEEKLY MEETING AGENDA
+
+ Using these open facility records, create a 15-minute weekly manager meeting agenda. Include decisions needed,
+ overdue items, urgent risks, vendor escalations, capital watch items, and verified closures.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 108 • GRV-FM30 IMPROVEMENT PLAN BUILDER
+
+ Using the quarterly audit, scorecard, open repair review, capital watchlist, and downtime records, draft a 90-Day
+ Facility Control Improvement Plan with three priorities, owners, milestones, 30/60 checkpoints, success evidence,
+ and final verification.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 109 • FACILITY DATA QUALITY CHECK
+
+ Review these facility records for missing dates, duplicate IDs, unclear owners, missing due dates, vague problem
+ descriptions, unsupported closure claims, missing vendor names, and inconsistent statuses. Produce a correction
+ list without inventing missing data.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 110 • MULTI-SYSTEM HANDOFF REVIEW
+
+ Review the facility issue below and determine whether it belongs only in GRV-FM or must also involve GRV-FS,
+ GRV-RC, GRV-P, GRV-I, or GRV-IV. Explain the boundary without duplicating the same record across systems.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+CROSS-SYSTEM PRESSURE TESTS
+PROMPT 111 • CROSS-SYSTEM ROUTING
+
+ Review the restaurant problem below and identify which Gravity Operating System should own the original record,
+ which other systems need only a verified handoff, and which system should verify implementation. Do not duplicate
+ records simply because multiple systems touch the issue. Explain the routing in plain restaurant language.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 112 • SHIFT PRESSURE TRIAGE
+
+ Given the following live shift problems, rank what the manager should address first using this order: immediate
+ safety/legal/emergency/cash risk, guest harm, operating continuity, employee stability, financial loss, then
+ optimization. Name the primary Gravity system for each issue and identify anything that can wait.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 113 • CORRECTIVE-ACTION CLOSURE TEST
+
+ Review these open corrective actions. Flag anything marked complete or closed without evidence that the correction
+ worked. For each weak closure, state what evidence would justify Verified Closed and who should verify it.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 114 • RECURRING-PROBLEM DETECTOR
+
+ Review these Manager Log, audit, complaint, maintenance, training, or variance records. Identify problems that
+ appear to be recurring even if they were described differently on different days. Separate one-time noise from
+ patterns that deserve corrective action.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 115 • BAD-DATA CHALLENGE
+
+ Review the following restaurant dashboard or worksheet data. Identify missing sources, inconsistent definitions,
+ suspicious defaults, stale dates, unexplained zeros, estimates presented as actuals, or sample/demo data that could
+ mislead management. Do not invent corrections; state what must be verified.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 116 • 3-5 TOOL STARTER SET
+
+ Given this one restaurant pressure point, select only the 3-5 Gravity tools that create the minimum useful control
+ loop. Explain why each is necessary and explicitly exclude tools that would add paperwork without changing a
+ decision or producing needed evidence.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 117 • SHORT-STAFFED SHIFT PLAN
+
+ Using this sales forecast, scheduled staffing, employee competency matrix, call-outs, and minimum coverage
+ requirements, identify the safest workable deployment plan. Do not treat an employee as qualified for a station
+ unless the provided competency record supports it.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 118 • FORECAST MISS REVIEW
+
+ Compare forecast sales/guests/labor to actual results. Separate forecast-model error from an unexpected event,
+ execution issue, weather/calendar factor, capacity issue, or bad source data. Recommend what should be
+ preserved as a lesson for the next comparable day.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 119 • WALK-IN / EQUIPMENT FAILURE ROUTER
+
+ Review this equipment failure. Separate the Facilities & Maintenance record, any Food Safety action, any Risk &
+ Continuity response, and any Food Cost inventory-loss record. Identify the one original record for each subject and
+ the minimum handoffs between systems.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 120 • CASH EXCEPTION BOUNDARY CHECK
+
+ Review this cash/payment exception. Identify what belongs in Cash Controls & Loss Prevention, what may require
+ an authorized HR/employment process, what can be coached through Manager Development, and what should not
+ be copied into general manager notes because it is confidential or investigative.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 121 • SOP CHANGE INSTALLATION CHECK
+
+ A restaurant changed the following SOP. Build a verification checklist showing: controlled version, affected roles,
+ training requirement, competency evidence, launch date, observation sample, corrective action for misses, and
+ evidence required before the change can be considered adopted.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 122 • MULTI-UNIT DRIFT TEST
+
+ Compare these two locations' versions of the same standard or operating process. Identify meaningful drift, local
+ differences that may be legitimate, conflicting source versions, and anything that needs Standards & Intelligence
+ review before one location copies the other.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 123 • OWNER DAILY SIGNAL FILTER
+
+ Review today's restaurant records and identify the few items an involved owner genuinely needs to know. Exclude
+ routine activity that management already controlled. Prioritize significant variances, unresolved risks, repeated
+ problems, missed commitments, and decisions requiring owner authority.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+PROMPT 124 • PRESSURE-TEST A GRAVITY TOOL
+
+ Pressure-test the following Gravity form or workflow as if the restaurant is busy, short staffed, and the manager has
+ ten minutes. Identify fields that are essential, fields that duplicate another source, decisions the tool should produce,
+ what evidence proves completion, and what could be simplified without weakening control.
+
+Manager check: Use current records and verified standards. Review the answer before acting; AI does not replace management judgment.
+
+SERVICE + BAR EXPANSION — SEPTEMBER 2026
+The following 18 prompts are derived from the completed Systems of Service flagship and both completed
+bar workbooks. They extend the existing 124-prompt edition without repeating its general pre-shift,
+inventory, vendor, promotion, training, or variance prompts.
+
+FINAL-CATALOG REORGANIZATION RULE
+When every planned Gravity book is complete, perform a full editorial reorganization of this digital
+workbook. De-duplicate and merge near-duplicates, then organize the surviving prompts around the
+manager's real workflow: prepare, open, operate, recover, close, review, improve, and build capability.
+Preserve cross-references to source books and systems. Do not reorganize merely to renumber pages or
+make the file look new.
+Current expansion control: 215 prompts total. Prompts 180-189 came from the completed Guest Service,
+Complaints & Recovery workbook. Prompts 190-215 add de-duplicated connected-workspace workflows
+and specialty/advanced operations drawn from the controlled 525-SOP library.
+
+SYSTEMS OF SERVICE
+PROMPT 125 • DEMAND-TO-CAPACITY SHIFT MAP
+
+ Act as an experienced full-service restaurant operations leader. Build a demand-to-capacity map for the next shift
+ using only the facts I provide. Demand picture: [forecast covers / reservations / walk-in expectation / large parties /
+ off-premise demand] Timing: [arrival waves and likely peak windows] Available people by role and verified skill: [list]
+ Station capacity or known limits: [host / servers / bussers / bar / expo / line / prep / pizza / salad / dish] Product,
+ equipment, or facility constraints: [list] For each demand wave, identify the station most likely to become the
+ constraint, the pressure that will transfer to other stations, the earliest observable warning signal, the manager action
+ that should follow, and the evidence to monitor in real time. Do not assume every scheduled employee is equally
+ capable. End with the three decisions that must be made before pre-shift.
+
+Manager check: Use verified skill and station-capacity evidence; a headcount alone does not prove usable capacity.
+
+PROMPT 126 • RESERVATION-WAVE & SEATING STRATEGY
+
+ Help me turn the following reservation and arrival pattern into an executable seating strategy without promising
+ timing the restaurant cannot support. Reservation book: [times / party sizes / special needs] Expected walk-ins:
+ [range and timing] Available tables and turn assumptions: [facts] Server sections and verified strength: [facts]
+ Kitchen, bar, and expo capacity limits: [facts] Known large-party or menu-complexity risks: [facts] Create a time-
+ blocked seating plan that protects the host stand, server workload, bar production, kitchen ticket flow, and guest
+ expectations. Identify where pacing, holds, manager communication, or expectation-setting may be needed. State
+ what would trigger a change to the plan and what the host should communicate when actual conditions differ.
+
+Manager check: A seating plan must respect whole-restaurant capacity; an open table is not automatically usable capacity.
+
+PROMPT 127 • EVERY-STATION READINESS EXCEPTION PLAN
+
+ Review this pre-service readiness evidence for every operating station. Stations: [host / servers / bussers / bar /
+ expo / line / prep / pizza / salad / dish] Opening checks and verified condition by station: [paste] Unfinished prep, low
+ product, equipment issues, training gaps, or call-outs: [list] Expected demand and timing: [facts] Do not rewrite a
+ generic opening checklist. Create an exception plan showing only what is outside standard, the guest or operating
+ consequence, the temporary control, the accountable owner, the deadline, the escalation trigger, and the proof
+ needed before the exception can be considered closed. Separate critical blockers from conditions the team can
+ safely manage during service.
+
+Manager check: Keep permanent station checklists in their controlled source; use this prompt only for verified exceptions and decisions.
+
+PROMPT 128 • PRE-SHIFT PLAN TRANSFER AUDIT
+
+ Audit whether this pre-shift meeting actually transferred the operating plan to the team. Manager plan: [paste
+ concise plan] Pre-shift talking points used: [paste] Station-specific changes or exceptions: [list] Questions employees
+ asked: [notes] Observed execution during the first service wave: [facts] Identify what the team clearly understood,
+ what remained vague, which roles did not receive the information they needed, and whether owners, triggers, and
+ escalation paths were explicit. Produce a corrected five-minute transfer outline for the next shift and no more than
+ three verification questions a manager can ask employees to confirm understanding.
+
+Manager check: Attendance does not prove transfer; verify that each role can explain the plan and its decision triggers.
+
+PROMPT 129 • CONTINGENCY TRIGGER & PRESSURE RESPONSE BUILDER
+
+ Turn these known service risks into predefined contingency triggers and responses. Expected demand: [facts]
+ Known risks: [call-outs / reservation wave / equipment / product / weather / new employees / other] Current staffing
+ and station capacity: [facts] Available manager authority and backup resources: [facts] For each material risk,
+ define: early warning signal, measurable trigger where possible, immediate response, person authorized to act,
+ communication path, guest-protection step, conditions for escalation, and evidence that shows the response worked.
+ Avoid vague instructions such as “watch closely” or “use judgment” unless you define what the manager should
+ observe.
+
+Manager check: A contingency plan becomes useful only when the trigger, authority, and first action are clear before pressure arrives.
+
+PROMPT 130 • LIVE PLAN VARIANCE & NEXT-SHIFT ADVANTAGE
+
+ Compare the shift plan with what actually happened and convert the difference into a next-shift advantage. Planned
+ demand, staffing, deployment, pacing, prep, and contingencies: [paste] Actual conditions and timing: [facts] Manager
+ changes made during service: [facts] Guest, team, ticket-time, product, and financial effects: [facts] Open
+ commitments: [list] Separate forecast error, capacity error, readiness miss, execution miss, and unavoidable
+ exception. Identify which live adjustments helped, which transferred pressure elsewhere, and what should change
+ before the next comparable shift. End with one lesson to preserve, one controlled change to test, one owner, and
+ the evidence required to verify improvement.
+
+Manager check: Do not turn one unusual shift into a permanent standard without comparable evidence.
+
+BAR, BEVERAGE & POUR COST CONTROL
+PROMPT 131 • STANDARD DRINK CARD AUDIT
+
+ Audit this beverage recipe or Standard Drink Card for operational and financial completeness. Drink name and
+ approved recipe: [ingredients / exact quantities / method] Glassware, ice, garnish, presentation, and service
+ standard: [details] Current ingredient costs and purchase units: [data] Selling price and POS name/button: [data]
+ Observed bartender variations: [facts] Check for unclear measurements, missing yield assumptions, inconsistent
+ build order, unpriced components, garnish or mixer omissions, unsupported substitutions, presentation gaps, and
+ POS naming problems. Calculate only from the data provided. Produce a corrected-control checklist and list every
+ fact management must verify before approving a new recipe version.
+
+Manager check: The approved recipe version controls; AI may expose gaps but cannot invent pour sizes, costs, or responsible-service rules.
+
+PROMPT 132 • BEVERAGE RECIPE COST & CONTRIBUTION REVIEW
+
+ Review this beverage item using both cost percentage and contribution dollars. Recipe quantities and current unit
+ costs: [data] Garnish, mixer, batch-yield, and consumable costs: [data] Selling price: [amount] Units sold and sales
+ mix: [data] Preparation time, training difficulty, and service impact: [facts] Calculate recipe cost, recipe beverage-
+ cost percentage, and gross contribution dollars only where the inputs support them. Explain how an attractive cost
+ percentage can still produce weak contribution and how a higher-cost item can still contribute well. Identify missing
+ data, operational tradeoffs, and the next pricing, recipe, or menu-placement questions management should verify
+ before changing the drink.
+
+Manager check: Review guest value, brand fit, execution, and responsible service along with the calculation.
+
+PROMPT 133 • POUR-COST VARIANCE INVESTIGATION
+
+ Help me investigate a beverage pour-cost variance without assuming theft or blaming the bar team. Beverage sales
+ by category: [data] Actual product usage at cost: [data] Theoretical product cost or recipe usage: [data] Inventory
+ counts and count method: [facts] Purchases, transfers, waste, comps, spills, substitutions, and promotions: [data]
+ Recipe versions, POS mapping, and observed pour practice: [facts] Quantify the verified variance, then rank the
+ checks for count accuracy, purchase/transfer recording, recipe version, POS mapping, unrecorded waste or comps,
+ portion drift, pricing/mix, and possible loss. Separate mathematical facts from hypotheses. Produce a neutral
+ investigation sequence, the evidence needed at each step, and a stop point before any employee conclusion.
+
+Manager check: A variance is an investigation target, not proof of misconduct.
+
+PROMPT 134 • BEVERAGE INVENTORY JUSTIFICATION & PRODUCT RATIONALIZATION
+
+ Evaluate whether each beverage product still has a clear reason to occupy cash, shelf space, and training attention.
+ Product list, cost, and usable on hand: [data] Menu Reach—the number of approved permanent uses: [data] Recent
+ demand and last meaningful use: [data] Contribution value and guest/brand importance: [facts] Cross-use,
+ substitution, and responsible depletion options: [facts] Classify each item as Core, Cross-Use, Seasonal, One-Drink
+ Risk, Deplete, or Review. Explain the evidence, identify products with weak inventory justification, and propose
+ controlled next steps such as menu use, approved feature, legal return, substitution, par change, depletion, or
+ retirement. Do not recommend irresponsible promotion or automatic reordering.
+
+Manager check: A product should not survive merely because it is already on the shelf or once appeared in a recipe.
+
+PROMPT 135 • BARTENDER RECIPE CONSISTENCY TRAINING PLAN
+
+ Build a short verification-based training plan for the beverage standards below. Approved Standard Drink Cards:
+ [paste or summarize] Observed variations by drink or technique: [facts] Bartender experience and verified skills:
+ [facts] High-volume or high-risk drinks: [list] Service schedule and available practice time: [facts] Prioritize the
+ smallest set of standards that will reduce the greatest quality, cost, speed, and guest risk. Include trainer
+ demonstration, measured practice, blind recipe recall where appropriate, live representative observation,
+ remediation for misses, and independent manager verification. Do not certify from attendance or time completed
+ alone.
+
+Manager check: Train the approved version and verify repeatable execution under representative service conditions.
+
+PROMPT 136 • BEVERAGE FEATURE / PROMOTION PROFITABILITY TEST
+
+ Evaluate this proposed beverage feature or promotion before launch. Drink and approved recipe: [details] Recipe
+ cost, selling price, and expected contribution: [data] Target guest or occasion: [facts] Expected units and timing:
+ [range] Inventory already on hand and any new one-use products: [data] Prep, service, training, responsible-service,
+ and POS requirements: [facts] Identify the financial case, inventory risk, operational burden, training need,
+ cannibalization risk, responsible-service guardrails, and evidence required to judge the test. Produce a launch/no-
+ launch checklist plus keep/change/stop thresholds. Do not label added sales as profitable without considering
+ product cost, labor, waste, and displaced sales.
+
+Manager check: A feature must improve contribution and fit the operation; it is not useful merely because it is creative.
+
+BAR INVENTORY & ORDERING
+PROMPT 137 • USABLE INVENTORY RECONCILIATION
+
+ Convert this beverage count into usable inventory for the next order decision. Physical count by full, open, partial,
+ keg, case, or each: [data] Approved open-container count method: [method] Damaged, expired, spoiled, committed,
+ quarantined, returned, or designated-for-disposal product: [data] Transfers and count-unit definitions: [facts]
+ Calculate Usable On Hand = Physical On Hand - Unusable / Committed Product only where units are compatible.
+ Flag mixed units, unsupported estimates, method changes, and high-risk counts requiring management verification.
+ Produce a reconciliation table that preserves physical count, deductions, reason, usable amount, verifier, and
+ unresolved question.
+
+Manager check: Product can physically exist without being usable for normal ordering; never hide deductions inside the final number.
+
+PROMPT 138 • GRAVITY SMART ORDER BUILDER
+
+ Build a beverage order from target need and usable inventory rather than memory or an empty shelf. Approved
+ normal par by item: [data] Approved Temporary Target where applicable: [data and expiration] Usable Inventory On
+ Hand: [data] Open purchase orders and delivery timing: [data] Purchase unit, order minimum, budget guardrail, and
+ known vendor issue: [facts] Use Suggested Order = Target Need - Usable Inventory On Hand, then show any
+ proposed Final Order adjustment separately with its reason. Round only according to the purchase unit and stated
+ management rule. Flag fractional needs that do not justify an additional unit, duplicate open orders, items that no
+ longer belong in the program, and decisions that require manager approval.
+
+Manager check: Keep the mathematical suggestion separate from management’s approved adjustment so the decision remains visible.
+
+PROMPT 139 • TEMPORARY TARGET & EVENT RESET PLAN
+
+ Create a controlled beverage inventory plan for this event or temporary demand exception. Event, date, expected
+ guests, and service window: [facts] Featured beverages and expected mix: [data or range] Normal pars and usable
+ on hand: [data] Delivery dates, storage limits, and substitutions: [facts] Products affected beyond the obvious base
+ spirit: [mixers / modifiers / wine / beer / garnishes / zero-proof] Recommend Temporary Targets only where the
+ evidence supports them, calculate suggested orders from usable on hand, identify cross-use and leftover risk, state
+ the target’s expiration, and create a post-event reset review. Do not convert a one-time target into a permanent par
+ without later evidence.
+
+Manager check: The temporary target expires; it must not silently become the new normal.
+
+PROMPT 140 • RECEIVING, COST-CHANGE & CREDIT CLOSURE REVIEW
+
+ Review this beverage delivery from ordered quantity through verified financial closure. Purchase order: [ordered
+ items / quantities / expected unit costs] Receiving record: [delivered / short / substituted / damaged] Invoice: [actual
+ units / unit costs / fees] Credits promised or returns: [facts] Affected recipes, prices, pars, or future orders: [facts]
+ Identify quantity and invoice discrepancies, calculate cost changes where supported, show which changes must
+ travel to recipe or pricing review, list credits still open, and assign the next action and verifier. Separate received,
+ accepted, disputed, credited, and verified-closed status. Do not close a vendor credit merely because it was
+ promised.
+
+Manager check: Receiving is the second half of ordering, and a promised credit remains open until verified.
+
+PROMPT 141 • BEVERAGE VENDOR TOTAL-VALUE COMPARISON
+
+ Compare these beverage vendors on total operating value, not unit price alone. Quoted prices and package sizes:
+ [data] Minimums, delivery frequency, lead time, fill rate, shortages, substitutions, and emergency support: [data]
+ Credit handling, invoice accuracy, quality, availability, and administrative burden: [facts] Restaurant demand,
+ storage, cash, and continuity constraints: [facts] Normalize comparable unit costs where the data supports it. Then
+ score or summarize the operational tradeoffs without inventing weights. Identify which vendor is stronger for routine
+ supply, high-risk items, emergency continuity, or negotiation, and state what evidence management still needs. Do
+ not recommend the cheapest quote automatically.
+
+Manager check: A lower price can cost more when minimums, shortages, credits, and service failure are included.
+
+PROMPT 142 • DEAD INVENTORY & COUNT-ACCURACY DECISION REVIEW
+
+ Review this slow-moving beverage inventory without confusing a count problem with a product problem. Current
+ and prior counts with count method: [data] Product value, menu reach, units sold, and last meaningful use: [data]
+ Purchases, transfers, waste, breakage, and known adjustments: [data] Current status or proposed action: [facts]
+ First test count-unit consistency, open-container method, purchases, transfers, and recording accuracy. Then
+ identify products that appear to be true dead or excess inventory. Recommend an evidence-based decision: keep,
+ reduce par, cross-use, seasonal hold, approved depletion, legal return, substitute, or retire. State why and identify
+ any conclusion that must wait for a verified recount.
+
+Manager check: Verify the count before drawing a behavior or product conclusion; use responsible, lawful depletion methods only.
+
+MANAGER READINESS + ETHICAL LEADERSHIP — SEPTEMBER
+The following 13 prompts are derived from the completed Manager Readiness trainee workbook, owner/GM instructor edition, and follow-up
+packet. They add prerequisite, ethical-authority, fair-treatment, bidirectional-training, evidence, and reassessment controls without repeating the
+existing role-development and training prompts.
+
+PREREQUISITE, DIAGNOSTIC & TRAINER READINESS
+PROMPT 143 • QUIET GRAVITY PREREQUISITE READINESS REVIEW
+
+ Prepare a readiness discussion after a manager or management trainee reads Quiet Gravity.
+
+ Role and current responsibilities: [facts]
+ Five reflections or passages the reader identified: [paste or summarize]
+ Examples the reader connected to leadership behavior: [facts]
+ Questions, disagreement, or uncertainty: [details]
+ Owner/GM observations from the discussion: [facts]
+
+ Organize the discussion around self-awareness, authority, fairness, listening, repair, and responsibility. Identify what
+ the reader understands, what needs clarification, and what behavior should be observed before or during training.
+ Recommend Ready to proceed, Proceed with support, or Complete prerequisite work first. Do not infer private
+ experiences, diagnose the reader, or require agreement with every passage.
+
+Manager check: Use the reading to begin an evidence-based discussion; do not demand private disclosures or identical agreement.
+
+PROMPT 144 • BASELINE MANAGER READINESS DIAGNOSTIC
+
+ Build a baseline manager-readiness diagnostic from the evidence below.
+
+ Current role and authorized duties: [facts]
+ Known strengths supported by evidence: [facts]
+ Known risks or development needs: [facts]
+ Two opening scenarios and responses: [details]
+ Recent observations, records, and operating conditions: [facts]
+
+ Classify each relevant capability as Ready, Ready with coaching, Developing, or Not yet applicable. Separate
+ knowledge, judgment, observable behavior, and missing evidence. Recommend the smallest role-based learning
+ path and the first representative workplace test. Do not treat confidence, tenure, popularity, or a single answer as
+ proof of readiness.
+
+Manager check: A baseline assigns development; it does not grant authority or become an employment decision by itself.
+
+PROMPT 145 • OWNER/GM TRAINER QUALIFICATION GATE
+
+ Evaluate whether this owner or GM is ready to serve as the manager-readiness trainer.
+
+ Modules already studied: [list]
+ Calibration-scenario response and reasoning: [details]
+ Example of coaching an incomplete or unsafe answer: [details]
+ Understanding of trainee and trainer authority boundaries: [details]
+ Observed training behavior and evidence: [facts]
+
+ Test whether the trainer can explain the standard, recognize a responsible alternative answer, protect an
+ independent attempt, coach without humiliation, distinguish evidence from opinion, and refuse to sign unobserved
+ work. Recommend Ready to train, Ready with support, or Complete development before training, with the evidence
+ required for the next decision.
+
+Manager check: Position and experience do not automatically prove that an owner or GM is ready to train another manager.
+
+ETHICAL AUTHORITY & EMPLOYEE TREATMENT
+PROMPT 146 • ETHICAL USE OF AUTHORITY DECISION REVIEW
+
+ Review this proposed management decision for ethical use of authority.
+
+ Decision and intended result: [details]
+ Manager's actual authority and limits: [facts]
+ People and standards affected: [facts]
+ Evidence supporting the decision: [facts]
+ Alternatives considered: [list]
+ Pressure, conflict of interest, favoritism, or retaliation risk: [facts or unknown]
+
+ Identify whether the decision is necessary, fair, consistent, explainable, reversible where appropriate, and within
+ authority. Flag any use of power for convenience, punishment, image protection, or personal preference.
+ Recommend proceed, revise, escalate, or stop, and state what must be documented and reviewed afterward. Do not
+ supply legal conclusions.
+
+Manager check: Authority should be used for the good of people and the operation, within lawful and defined boundaries.
+
+PROMPT 147 • DIGNITY, FAIRNESS & EMPLOYEE-TREATMENT REVIEW
+
+ Review this employee-treatment situation using dignity, fairness, and evidence.
+
+ Situation and decision required: [facts]
+ Applicable standard or expectation: [text]
+ Employee's known conduct and relevant context: [facts]
+ How comparable situations were handled: [facts or unknown]
+ Support, coaching, accommodation, or escalation already considered: [details]
+
+ Separate facts from labels and assumptions. Test whether the process allowed the employee to be heard, protected
+ privacy, avoided humiliation, applied a relevant standard consistently, and explained any different treatment. Identify
+ missing evidence and recommend a respectful next step within the manager's authority. Flag HR, legal, safety,
+ retaliation, discrimination, or accommodation concerns for qualified review.
+
+Manager check: Equal dignity does not require identical outcomes; differences must rest on relevant facts and consistent standards.
+
+PROMPT 148 • EMPLOYEE CONCERN & NON-RETALIATION RESPONSE PLAN
+
+ Prepare a safe management response to this employee concern.
+
+ Concern as reported, using only necessary details: [facts]
+ Immediate safety or operational risk: [facts]
+ Manager's authority and required escalation path: [facts]
+ Confidentiality limits and records required: [policy]
+ Any scheduling, discipline, evaluation, or treatment decisions that could appear retaliatory: [facts]
+
+ Draft the manager's first response, clarifying questions, immediate protections, documentation steps, escalation, and
+ follow-up commitment. Separate what the manager knows from what requires investigation. Identify actions to pause
+ or independently review to reduce retaliation risk. Do not investigate beyond authority, promise secrecy, reach a
+ legal conclusion, or judge credibility from tone alone.
+
+Manager check: A concern must be received without punishment, dismissal, forced disclosure, or a promise the manager cannot keep.
+
+BIDIRECTIONAL TRAINING & DECISION BOUNDARIES
+PROMPT 149 • TRAINEE ANSWER & RESPONSIBLE-ALTERNATIVE REVIEW
+
+ Evaluate this manager-trainee answer without forcing one scripted response.
+
+ Scenario and questions: [paste]
+ Trainee's independent answer and reasoning: [paste]
+
+ Best-supported answer from the instructor edition: [paste or summarize]
+ Critical standard, authority boundary, and required outcome: [facts]
+ Observed workplace evidence, if any: [facts]
+
+ Classify the answer as Strong and ready to test, Acceptable with coaching, Incomplete, or Unsafe. Explain what
+ facts and standards the trainee protected, whether a different approach is still responsible, what is missing, and what
+ would make the answer unsafe. Provide coaching questions rather than replacing the trainee's thinking. State the
+ representative workplace evidence required before authorization.
+
+Manager check: Judge the reasoning and protected standard, not whether the trainee copied the instructor's wording.
+
+PROMPT 150 • CRITICAL-FAILURE & EMPLOYMENT-BOUNDARY CHECK
+
+ Review this manager-readiness result for critical failure and decision boundaries.
+
+ Scenario, task, or observation: [details]
+ Trainee response or behavior: [facts]
+ Applicable critical standard: [facts]
+ Immediate risk to people, safety, legality, dignity, money, or records: [facts]
+ Existing policy, HR process, and manager authority: [facts]
+
+ Determine whether the result is a coachable miss, a retest condition, a temporary authority restriction, or a critical
+ failure requiring immediate escalation. Separate training decisions from scheduling, promotion, discipline, or
+ termination decisions. State what may be decided now, what requires consultation, what evidence must be
+ preserved, and what must not be inferred. Do not generate a final employment decision.
+
+Manager check: Training evidence may inform management, but this workbook alone must not make an employment decision.
+
+VERIFICATION, SYSTEM GAPS & FOLLOW-UP
+PROMPT 151 • WORKPLACE VERIFICATION EVIDENCE QUALITY AUDIT
+
+ Audit the quality of evidence offered for this manager capability.
+
+ Capability and approved standard: [details]
+ Representative operating conditions: [facts]
+ What was directly observed: [facts]
+ Prompts, coaching, assistance, or unusual conditions: [facts]
+ Records or outcomes supporting the observation: [details]
+ Reviewer identity, authority, and relationship to the work: [facts]
+
+ Judge whether the evidence is direct, representative, specific, current, independently verified, and sufficient for the
+ stated authority. Identify contamination from coaching, hindsight, self-report, easy conditions, or missing records.
+ Recommend authorize, authorize with limits, gather more evidence, or retest, and specify the next representative
+ test.
+
+Manager check: Attendance, discussion, confidence, and an unobserved signature do not prove workplace capability.
+
+PROMPT 152 • SYSTEM GAP VS INDIVIDUAL PERFORMANCE DIAGNOSIS
+
+ Determine whether this recurring performance problem is primarily an individual capability gap, a system gap, or
+ both.
+
+ Expected result and approved standard: [facts]
+ Observed misses across people, shifts, or conditions: [facts]
+ Training and verification completed: [facts]
+ Staffing, tools, workload, authority, information, and operating conditions: [facts]
+ Manager direction, follow-up, and known exceptions: [facts]
+
+ Map the evidence by person, process, standard, tool, staffing, authority, and environment. Identify the strongest
+ supported cause, competing explanations, and missing evidence. Recommend what to repair in the system, what to
+ coach or retest with the individual, who owns each action, and how the result will be verified. Do not assign blame
+
+ merely because one person's name appears on the record.
+
+Manager check: Do not coach or discipline a person for a failure created by an unclear standard, broken tool, staffing limit, or conflicting direction.
+
+PROMPT 153 • MANAGER READINESS CHECKPOINT DECISION
+
+ Prepare a manager-readiness checkpoint decision after the assigned module group.
+
+ Modules completed: [list]
+ Knowledge and scenario results: [evidence]
+ Observed workplace demonstrations: [evidence]
+ Critical misses, coaching, retests, and unresolved system gaps: [facts]
+ Authority currently held and authority being considered: [facts]
+
+ Summarize demonstrated strengths, incomplete capabilities, unsafe conditions, and evidence limitations.
+ Recommend Advance, Advance with limits and support, Hold for targeted development, or Return to an earlier
+ module. Assign the smallest next action, owner, representative test, and review date. Do not advance from
+ completed pages alone.
+
+Manager check: A checkpoint controls progression; it is not a ceremony and should not be passed to preserve a schedule.
+
+PROMPT 154 • 30-60 DAY POST-TRAINING REASSESSMENT
+
+ Build a targeted 30-60 day reassessment for this trained manager.
+
+ Original readiness decision and authorized limits: [facts]
+ Capabilities requiring follow-up: [list]
+ Since-training records, outcomes, incidents, and observations: [facts]
+ Changes in role, staffing, standards, or operating conditions: [facts]
+ Manager and owner/GM concerns: [facts]
+
+ Select only the capabilities and scenarios that need review. Include one independent response, one representative
+ workplace observation, retained-behavior evidence, system-gap check, and a bidirectional review conversation.
+ Recommend continue authority, continue with support, narrow authority, targeted retraining, or escalation, with
+ owners and dates. Do not restart the full program unless the evidence justifies it.
+
+Manager check: Follow-up must test retained behavior under real conditions, not repeat the original classroom conversation.
+
+PROMPT 155 • FINAL SCENARIO BANK, ASSIGNMENT & RETEST PLAN
+
+ Build a final manager-readiness judgment event from the available scenario bank.
+
+ Manager role and likely decisions: [facts]
+ Completed learning path and remaining risks: [facts]
+ Available core scenarios: [list]
+ Available role-specific scenarios: [list]
+ Scenarios previously seen or coached: [list]
+ Critical standards and authority boundaries: [facts]
+
+ Assign 10 mandatory core scenarios plus 4-6 role-specific scenarios where the bank supports that structure.
+ Balance people, safety, operations, judgment, communication, records, escalation, and follow-through. Keep unused
+ scenarios reserved for retest. Produce an assignment sheet and scoring plan that evaluates facts, decision,
+ authority, manager language, and record/follow-up. Do not reveal answer guidance before the independent attempt.
+
+Manager check: Use enough varied scenarios to test judgment while reserving unused material for a valid retest.
+
+INDEPENDENT REAL-WORLD MANAGEMENT TOOLS —
+SEPTEMBER 2026
+The following 18 prompts address recurring leadership and operating decisions that are useful beyond any single Gravity book or website
+feature. They strengthen truth, fairness, continuity, change control, and management follow-through without replacing policy, law, professional
+review, or human judgment.
+
+DECISION QUALITY, ALIGNMENT & CAPACITY
+PROMPT 156 • DECISION PRE-MORTEM
+
+ Pressure-test this proposed restaurant decision before implementation.
+
+ Decision, intended result, owner, and deadline: [facts]
+ Evidence supporting it: [facts]
+ People, systems, money, guests, and standards affected: [facts]
+ Known limits and assumptions: [facts]
+
+ Assume the decision failed six months from now. Identify the most plausible causes, people or standards harmed,
+ hidden dependencies, early warning signs, and preventive controls. Separate high-impact risks from unlikely
+ possibilities. Produce a short proceed/revise/pilot/stop recommendation, named controls, monitoring dates, and a
+ recovery trigger. Do not invent facts or use imagined failure as evidence of misconduct.
+
+Manager check: Use this before commitment; imagined failure is a planning tool, not proof that failure will occur.
+
+PROMPT 157 • OWNER-GM ALIGNMENT REVIEW
+
+ Compare the owner's expectations with the GM's understanding of the role.
+
+ Owner's stated priorities, limits, and measures of success: [paste]
+ GM's stated priorities, limits, and measures of success: [paste]
+ Current decision rights and escalation rules: [facts]
+ Recent disagreements, overrides, or missed expectations: [facts]
+
+ Identify agreements, contradictions, silent assumptions, unclear authority, reporting gaps, and decisions that appear
+ to have two owners or none. Draft an alignment agenda that ends with explicit decisions, owners, measures,
+ communication rules, and a review date. Do not decide that one person is correct merely because of title.
+
+Manager check: Agreement on goals is insufficient when authority, reporting, and decision ownership remain unclear.
+
+PROMPT 158 • CONFLICTING DIRECTION RESOLVER
+
+ Resolve these conflicting restaurant directions.
+
+ Direction A, source, time, and stated reason: [facts]
+ Direction B, source, time, and stated reason: [facts]
+ Approved SOP, policy, safety rule, or current standard: [facts]
+ Immediate operating conditions and risk: [facts]
+ Employee or manager caught between the directions: [role]
+
+ Separate actual conflict from wording differences. Identify which authority or controlling standard applies, what must
+ be paused, who must resolve the conflict, and what the affected person should do safely in the meantime. Draft a
+ short clarification message and the record needed to prevent recurrence. Never override law, safety requirements,
+ or approved policy through informal preference.
+
+Manager check: Do not make an employee choose privately between conflicting authorities or standards.
+
+FAIRNESS, TRUST & REPAIR
+PROMPT 159 • FAVORITISM & CONSISTENCY AUDIT
+
+ Audit this management pattern for favoritism and unsupported inconsistency.
+
+ Decisions being compared: [schedules / opportunities / coaching / discipline / recognition]
+ People, dates, and relevant circumstances: [de-identified facts]
+ Applicable standards and decision owners: [facts]
+ Documented reasons for differences: [facts or missing]
+
+ Compare like situations using job-related criteria. Identify supported differences, unexplained differences, incomplete
+ records, and patterns requiring independent review. Recommend corrections to process, documentation,
+ communication, or oversight without presuming unlawful discrimination or individual intent. Flag retaliation,
+ discrimination, accommodation, or legal concerns for qualified review.
+
+Manager check: Different outcomes may be fair only when relevant facts and standards explain the difference.
+
+PROMPT 160 • MANAGER BURNOUT & CAPACITY REVIEW
+
+ Review this manager's workload and operating capacity.
+
+ Role, scheduled hours, and actual availability demands: [facts]
+ Decisions, tasks, reports, and people currently owned: [list]
+ Interruptions, coverage, vacancies, and recurring emergencies: [facts]
+ Delegation, backup capability, and recovery time: [facts]
+ Recent errors, delays, missed follow-up, or behavior changes: [facts]
+
+ Identify overload, decision bottlenecks, avoidable work, abandoned delegation, single-person dependencies, and
+ risks to judgment or employee treatment. Recommend what to stop, delegate, simplify, schedule, back up, or
+ escalate. Include immediate safety protection and a 14-day capacity reset. Do not diagnose health conditions or
+ treat endurance as proof of readiness.
+
+Manager check: This is an operating-capacity review, not a medical diagnosis.
+
+PROMPT 161 • EMPLOYEE WORKLOAD FAIRNESS REVIEW
+
+ Review workload distribution across this restaurant team.
+
+ Roles, verified skills, availability, and authorized duties: [facts]
+ Difficult stations, closing duties, call-in coverage, training assignments, and schedule disruptions: [records]
+ Hours, recovery time, requested limits, and approved accommodations: [facts]
+ Business needs and staffing constraints: [facts]
+
+ Identify concentrated burdens, repeated inconvenience, invisible support work, skill-based reasons for differences,
+ and gaps that records cannot explain. Recommend fair redistribution, cross-training, recognition, staffing, or
+ manager review while protecting privacy. Do not infer motivation or recommend changes that violate availability,
+ accommodation, safety, or policy.
+
+Manager check: Fairness requires relevant evidence; it does not require every employee to receive identical work.
+
+PROMPT 162 • RUMOR, GOSSIP & TRUST REPAIR PLAN
+
+ Prepare a response to a rumor or gossip problem affecting the restaurant.
+
+ What was directly reported or observed: [facts]
+ What remains unverified: [claims]
+ People, privacy, safety, or operations affected: [facts]
+ Relevant conduct, reporting, and escalation standards: [facts]
+
+ Separate verified information, legitimate employee concerns, harmful repetition, and unknowns. Recommend
+ immediate communication, private fact-finding within authority, protections against retaliation, behavior expectations,
+ escalation, and follow-up. Draft language that corrects the process without publishing private details or demanding
+
+ silence about lawful concerns. Do not identify a source through speculation.
+
+Manager check: Address workplace damage without repeating allegations unnecessarily or turning rumor into fact.
+
+CHANGE CONTROL, EXCEPTIONS & CONTINUITY
+PROMPT 163 • CHANGE-READINESS TEST
+
+ Test whether this proposed restaurant change is ready for implementation.
+
+ Problem and intended result: [facts]
+ Proposed change and decision owner: [details]
+ Affected roles, systems, standards, guests, and records: [facts]
+ Training, tools, staffing, time, and budget available: [facts]
+ Pilot, measurement, rollback, and communication plan: [details]
+
+ Score readiness across clarity, authority, capacity, training, controlled documents, dependencies, risk,
+ measurement, and sustainment. Identify blocking gaps and distinguish must-fix-before-launch items from
+ manageable pilot risks. Recommend launch, limited pilot, revise, or hold, with owners and dates. Do not confuse
+ announcement with installation.
+
+Manager check: A good idea is not ready to launch until the operation can understand, support, and verify it.
+
+PROMPT 164 • POLICY EXCEPTION DECISION
+
+ Evaluate this requested exception to a restaurant policy or standard.
+
+ Policy or standard and its purpose: [text]
+ Requested exception, reason, scope, and duration: [facts]
+ Requester and authorized decision owner: [roles]
+ People, safety, legal, financial, guest, and precedent risks: [facts]
+ Available alternatives: [list]
+
+ Determine whether the exception is necessary, within authority, consistent with controlling requirements, time-
+ limited, and capable of being monitored. State approve/modify/deny/escalate, required safeguards, documentation,
+ communication, expiration, and post-exception review. Flag legal, HR, food-safety, accessibility, or accommodation
+ issues for qualified review.
+
+Manager check: An exception must remain visible, authorized, limited, and reviewable so it does not silently become the standard.
+
+PROMPT 165 • MANAGER APOLOGY & REPAIR PREPARATION
+
+ Help this manager prepare an accountable apology and repair conversation.
+
+ What the manager said, did, or failed to do: [facts]
+ Impact reported or observed: [facts]
+ Standard, promise, or responsibility missed: [facts]
+ Immediate correction already made: [facts]
+ Authority and privacy limits: [facts]
+
+ Draft a concise apology that acknowledges the specific action and impact, accepts responsibility without excuses,
+ states the correction, invites appropriate input, and commits to follow-up. Add a repair plan with observable actions
+ and a review date. Avoid admissions or promises beyond known facts and authority; flag matters requiring HR, legal,
+ insurer, or senior-leader guidance.
+
+Manager check: A useful apology names the harm and repair without demanding forgiveness or centering the manager's intentions.
+
+PROMPT 166 • RECOGNITION FAIRNESS & CREDIBILITY REVIEW
+
+ Review this restaurant's recognition pattern for fairness and credibility.
+
+ Recognition given, by whom, and stated reasons: [records]
+
+ Relevant contributions and verified outcomes: [facts]
+ Employees, roles, shifts, and work that receive little visibility: [facts]
+ Current recognition criteria and opportunities: [facts]
+
+ Identify specific earned recognition, vague praise, repeated visibility bias, overlooked support work, and unequal
+ access to recognition opportunities. Recommend clearer criteria, evidence sources, manager practices, and a
+ balanced recognition plan. Do not rank employee worth, invent contributions, or disclose private performance
+ information.
+
+Manager check: Recognition should make valuable behavior visible without turning popularity or visibility into the standard.
+
+PROMPT 167 • SUCCESSION & SINGLE-POINT-OF-FAILURE REVIEW
+
+ Identify restaurant work that depends too heavily on one person.
+
+ Critical duties, decisions, relationships, access, and knowledge: [list]
+ Current owners and verified backups: [facts]
+ Controlled instructions, records, and access protections: [facts]
+ Upcoming absences, turnover risks, or growth needs: [facts]
+
+ Map single-person dependencies by operational impact and urgency. Recommend documentation, cross-training,
+ decision-right clarification, access controls, backup verification, and staged succession. Protect confidential access
+ and preserve separation of duties. Do not recommend sharing passwords, bypassing controls, or removing
+ appropriate specialist ownership.
+
+Manager check: The goal is dependable continuity, not making one valuable employee easier to replace.
+
+ETHICAL GROWTH, FEEDBACK & MANAGEMENT RHYTHM
+PROMPT 168 • ETHICAL SALES-PRESSURE CHECK
+
+ Review this sales contest, upselling expectation, quota, or promotion for ethical pressure.
+
+ Offer, target, incentive, and measurement method: [facts]
+ Products, prices, margins, and guest value: [facts]
+ Employee expectations and consequences: [facts]
+ Responsible-service, disclosure, accessibility, and service standards: [facts]
+
+ Identify legitimate selling behavior, coercive or misleading pressure, incentive distortion, fairness problems,
+ operational burden, and risks to guest trust. Recommend proceed, revise, pilot, or stop, with approved language,
+ guardrails, monitoring, and stop conditions. Do not encourage deceptive selling or treat every guest interaction as a
+ sales failure.
+
+Manager check: Sales growth is not acceptable when it depends on misleading guests, humiliating employees, or sacrificing service standards.
+
+PROMPT 169 • ANONYMOUS FEEDBACK PATTERN REVIEW
+
+ Analyze this set of anonymous restaurant feedback responsibly.
+
+ Feedback entries with dates and necessary context: [de-identified text]
+ Known operating records or corroborating evidence: [facts]
+ Relevant standards and reporting channels: [facts]
+ Previous related concerns and actions: [facts]
+
+ Group recurring themes without guessing identities. Separate verifiable operational signals, serious allegations
+ requiring escalation, opinions, isolated claims, and missing evidence. Recommend safe follow-up, independent fact
+ checks, communication, protections against retaliation, and review dates. Do not expose writing-style clues or use AI
+ to identify anonymous contributors.
+
+Manager check: Anonymous feedback can reveal risk, but anonymity does not prove or disprove the underlying claim.
+
+PROMPT 170 • MEETING VALUE AUDIT
+
+ Audit this restaurant's recurring meetings.
+
+ Meeting list, frequency, duration, participants, and purpose: [facts]
+ Recent agendas, decisions, action items, and completion rates: [records]
+ Information available through existing logs or reports: [facts]
+ Participant feedback and operating constraints: [facts]
+
+ Classify each meeting as keep, shorten, combine, redesign, replace with an existing record, or eliminate. Identify
+ decisions that need live discussion, attendees who are necessary, preparation required, and follow-through controls.
+ Produce a lean meeting rhythm and estimate time returned. Do not remove legally, contractually, or safety-required
+ communication.
+
+Manager check: A meeting earns its time by producing necessary understanding, decisions, ownership, or coordination.
+
+PROMPT 171 • MANAGER PROMISE & COMMITMENT TRACKER
+
+ Build a control record for management promises and commitments.
+
+ Promises made to employees, guests, vendors, owners, or managers: [list]
+ Person responsible and person affected: [roles]
+ Date promised, due date, evidence, and current status: [facts]
+ Dependencies, authority limits, and changed conditions: [facts]
+
+ Separate commitments, intentions, requests, and unauthorized promises. Identify overdue or unclear commitments,
+ reputational risk, and the next honest communication required. Produce a concise tracker with owner, due date, next
+ action, verification, and closure status. Do not mark an item complete because a message was sent or because the
+ original promise became inconvenient.
+
+Manager check: A promise remains open until delivered, renegotiated honestly, or explicitly closed with the affected person.
+
+SYSTEM CONSEQUENCES & TRUTH
+PROMPT 172 • OPERATIONAL CHANGE CONSEQUENCE REVIEW
+
+ Trace the consequences of this proposed operational change across the restaurant.
+
+ Change, reason, owner, and intended benefit: [facts]
+ Affected role, station, process, tool, or standard: [facts]
+ Current baseline and known dependencies: [facts]
+ Time, staffing, training, technology, and financial constraints: [facts]
+
+ Map likely effects on labor, training, food safety, speed, quality, cleanliness, guest experience, employee workload,
+ records, inventory, cash, and management follow-through. Identify required companion changes, new failure points,
+ conflicts with controlled documents, and measures for a reversible pilot. Recommend proceed, revise, sequence, or
+ stop without inventing impacts unsupported by the supplied facts.
+
+Manager check: A local improvement can create a larger failure elsewhere when system connections are ignored.
+
+PROMPT 173 • WHAT ARE WE PRETENDING NOT TO KNOW? REVIEW
+
+ Conduct a disciplined truth review of this restaurant or leadership team.
+
+ Recurring problems, exceptions, complaints, and missed commitments: [facts]
+ Relevant operating and people records: [data]
+ What employees, managers, guests, or vendors repeatedly report: [de-identified facts]
+ Explanations and actions already attempted: [facts]
+
+ Identify truths supported by repeated evidence, important questions still open, contradictions between stated standards and actual
+ behavior, and issues being renamed instead of resolved. Separate evidence from suspicion. Recommend the first truth to face,
+ decision owner, immediate protection, smallest corrective action, verification measure, and review date. Do not diagnose motives
+ or turn anonymous claims into established fact.
+
+Manager check: Use this to face supported operating truth, not to accuse people or manufacture certainty.
+
+FINAL SITE + SYSTEM GAP SCAN — SEPTEMBER 2026
+These six prompts complete the final comparison against the current public Gravity site and connected operating-environment architecture. They
+address system-level gaps not already covered by the first 173 prompts.
+
+CONTROL VALUE, DATA, DISCOVERY & MATURITY
+PROMPT 174 • CONTROL & PAPERWORK BURDEN REVIEW
+
+ Audit the restaurant's current forms, logs, checklists, trackers, meetings, and recurring reports.
+
+ Control name, purpose, owner, user, frequency, and review method: [list]
+ Decisions actually made from each control: [facts]
+ Completion time, duplication, missed use, and complaints: [facts]
+ Legal, safety, accounting, payroll, insurance, or policy requirements: [facts]
+
+ Identify required controls, high-value controls, duplicates, unused records, excessive frequency, fields nobody reviews, and
+ controls that could be combined or retired. Recommend keep, simplify, combine, reduce frequency, replace, or retire, with decision
+ owners and safeguards. Do not remove an authoritative or risk-critical record merely because it is inconvenient.
+
+Manager check: A control earns its place only when its decision value exceeds the burden of completing and reviewing it.
+
+PROMPT 175 • MINIMUM-NECESSARY DATA & PRIVACY REVIEW
+
+ Review this restaurant record, workflow, or system for minimum-necessary data use.
+
+ Business purpose and authorized users: [facts]
+ Fields collected, source, and frequency: [list]
+ Employee, guest, payment, health, identity, or confidential information involved: [facts]
+ Storage, access, sharing, retention, and deletion practices: [facts]
+ Applicable policy and authoritative requirements: [facts]
+
+ Identify unnecessary fields, excessive access, risky free-text collection, avoidable identifiers, unclear retention, uncontrolled copies,
+ and missing ownership. Recommend minimize, mask, restrict, separate, retain, archive, or securely delete within policy and law.
+ Do not request passwords, full payment-card data, or unnecessary personal information.
+
+Manager check: Collect and expose only the information necessary for the authorized operating purpose.
+
+PROMPT 176 • UNKNOWN-ISSUE & BLIND-SPOT DISCOVERY
+
+ Search these restaurant records for important issues management has not already named.
+
+ Time period and operating context: [facts]
+ Sales, labor, food cost, waste, guest, training, maintenance, safety, cash, and people signals available: [data]
+ Known issues and actions already open: [list]
+ Missing, delayed, inconsistent, or unusually quiet records: [facts]
+
+ Identify anomalies, unexpected relationships, repeated exceptions, missing expected activity, sudden changes, and areas where
+ the absence of evidence may itself require a check. Rank only evidence-supported investigation questions by potential impact and
+ urgency. State what record or observation would confirm or reject each question. Do not label an anomaly as misconduct,
+ causation, or proof.
+
+Manager check: This review searches for unsupported assumptions and unexplained patterns; it does not manufacture problems.
+
+PROMPT 177 • PILOT-TO-OPERATIONAL MATURITY GATE
+
+ Decide whether this restaurant tool, process, or system is ready to move beyond controlled pilot status.
+
+ Pilot purpose, scope, owner, locations, roles, and dates: [facts]
+ Completion, adoption, outcome, exception, and corrective-action evidence: [data]
+ Training, documentation, access, backup, and review controls: [facts]
+ Failures, workarounds, unresolved risks, and user feedback: [facts]
+
+ Evaluate clarity, usability, adoption, result quality, evidence integrity, ownership, scalability, failure recovery, and sustainment.
+
+ Recommend remain in development, extend pilot, approve with limits, or move to operational status. Specify blocking gaps,
+ approval owner, controlled version, review date, and rollback trigger. Do not promote status to meet a deadline or because no
+ complaint was recorded.
+
+Manager check: A successful demonstration is not enough; operational maturity requires repeatable use, ownership, evidence, and recovery
+from failure.
+
+CROSS-SYSTEM LEARNING & IMPROVEMENT
+PROMPT 178 • CROSS-SYSTEM SIGNAL & CAUSATION CHECK
+
+ Review this possible relationship between restaurant results across systems.
+
+ Signals, definitions, sources, and time periods: [data]
+ Observed timing and pattern: [facts]
+ Relevant changes in price, hours, staffing, menu, weather, events, equipment, or operations: [facts]
+ Known data-quality limits and missing comparison periods: [facts]
+
+ Test timing, unit consistency, alternative explanations, lag effects, seasonality, and whether the relationship repeats under
+ comparable conditions. Separate observation, plausible explanation, testable hypothesis, and supported conclusion. Recommend
+ the smallest safe test or additional evidence needed before action. Do not claim causation or individual fault from correlation alone.
+
+Manager check: Signals moving together can guide investigation, but correlation alone does not establish cause.
+
+PROMPT 179 • FEEDBACK-TO-SYSTEM IMPROVEMENT CONTROL
+
+ Convert this collection of restaurant feedback into controlled improvement decisions.
+
+ Feedback from employees, managers, guests, vendors, or auditors: [de-identified entries]
+ Affected standard, tool, process, or system: [facts]
+ Frequency, severity, evidence, and operating context: [facts]
+ Previous responses and current owner: [facts]
+
+ Group repeated themes while preserving meaningful disagreement. Separate misunderstanding, training need, usability problem,
+ system defect, isolated preference, risk report, and improvement opportunity. Recommend clarify, train, correct, test, defer, reject,
+ or escalate, with reason, owner, due date, verification, and response to the people affected. Do not promise every suggestion will
+ be adopted or expose confidential identities.
+
+Manager check: Feedback becomes valuable when it is classified, decided, owned, tested, and closed visibly.
+
+GUEST SERVICE, COMPLAINTS & RECOVERY — SEPTEMBER 2026
+These 10 prompts are derived from the completed Guest Service, Complaints & Recovery Workbook. They are included in the current 215-
+prompt edition and cover complaint classification, recovery follow-up, authority, metrics, coaching, corrective action, and cause-closure controls
+without transferring management judgment to AI.
+
+COMPLAINT EVIDENCE, RECOVERY & SYSTEM CORRECTION
+PROMPT 180 • COMPLAINT THEME CLASSIFICATION
+
+ Using only the complaint records I provide, group the concerns into stable restaurant categories such as service, food quality,
+ accuracy, speed, facility, policy, expectation, payment, safety, or conduct. Separate reported facts from verified facts. Do not
+ decide blame. Show any records that do not fit cleanly and explain what additional fact a manager should verify.
+
+Manager check: Classification organizes evidence; it does not decide blame or turn a guest report into a verified fact.
+
+PROMPT 181 • REPEAT-CAUSE PATTERN REVIEW
+
+ Review these guest concern records by shift, daypart, station, item, manager response, and failure type. Identify repeated patterns
+ that are supported by the data, distinguish frequency from severity, and list evidence gaps. Do not assume one employee caused a
+ system pattern.
+
+Manager check: A repeated pattern is an investigation target; do not assign individual cause without supporting evidence.
+
+PROMPT 182 • RECOVERY FOLLOW-UP DRAFT
+
+ From the verified facts and the recovery action already approved by the manager, draft a short, calm guest follow-up message.
+ Acknowledge the experience, state only verified facts, explain the approved next step, avoid legal admissions or unsupported
+ promises, and leave any unresolved authority question for the manager.
+
+Manager check: The manager controls facts, authority, compensation, and final wording; AI may only draft from approved information.
+
+PROMPT 183 • RECOVERY ROLE-PLAY BUILDER
+
+ Using this restaurant's approved service standard, recovery authority matrix, and escalation rules, create five realistic role-play
+ scenarios for managers. Vary severity, guest emotion, operating pressure, and whether the first attempted recovery works. For
+ each scenario, provide evaluator questions rather than a single scripted answer.
+
+Manager check: Role-play should test judgment against the restaurant's real authority and escalation standards, not invent new policy.
+
+PROMPT 184 • DIRECT + ONLINE FEEDBACK COMPARISON
+
+ Compare these direct guest complaints and online reviews for repeated themes without exposing unnecessary guest information.
+ Show which themes appear in both sources, which appear only in one source, and which claims still require internal verification
+ before the restaurant changes a standard.
+
+Manager check: Protect guest privacy and verify claims internally before changing a standard or treating public feedback as established fact.
+
+AUTHORITY, METRICS, COACHING & WEEKLY REVIEW
+PROMPT 185 • CORRECTIVE-ACTION BUILDER
+
+ Turn this verified repeated guest-experience cause into the smallest useful corrective-action plan. Include the truth/evidence, cost
+ or risk, one operating change, named owner, due date, training or communication needed, verification evidence, and a
+ stop/revise/standardize decision point. Do not create extra paperwork unless it adds control value.
+
+Manager check: Use the smallest control that addresses a verified cause; paperwork is not a substitute for correction or verification.
+
+PROMPT 186 • GUEST RECOVERY METRICS
+
+ Using the totals I provide, calculate complaints per 100 guests, manager acknowledgment time, first-contact resolution rate, follow-
+ up completion rate, repeat-theme rate, and verified guest-return rate where the data supports them. Show each formula,
+ denominator, missing-data limitation, and what management question each number can actually answer.
+
+Manager check: Verify every numerator, denominator, and definition; a metric is useful only when the underlying records support it.
+
+PROMPT 187 • PRE-SHIFT RECOVERY COACHING NOTE
+
+ Create a five-minute pre-shift coaching note around this one guest-recovery standard. Include what employees should notice, what
+ they may handle themselves, when to involve a manager, one short practice question, and why the standard protects the guest
+ and the team. Do not invent authority limits that are not supplied.
+
+Manager check: Use the restaurant's approved recovery standard and authority limits; do not let a coaching note silently create policy.
+
+PROMPT 188 • AUTHORITY-MATRIX GAP REVIEW
+
+ Review this restaurant's recovery authority matrix for ambiguity, overlap, missing escalation points, or situations where employees
+ may wait for approval unnecessarily. Return questions for the owner/GM to resolve. Do not set compensation amounts or final
+ policy yourself.
+
+Manager check: AI may expose ambiguity; only authorized leadership sets recovery limits, compensation authority, and final policy.
+
+PROMPT 189 • WEEKLY GUEST EXPERIENCE REVIEW
+
+ Using these open cases, closed cases, online reviews, repeat patterns, follow-up commitments, and corrective actions, draft a
+ concise weekly guest-experience meeting agenda. Separate case closure from cause closure. End with the three decisions that
+ require a named owner, due date, and verification evidence.
+
+Manager check: Closing a guest case is not the same as correcting the cause; keep ownership, due dates, and verification visible.
+
+CONNECTED GRAVITY WORKSPACES + SPECIALTY OPERATIONS
+— SEPTEMBER 2026
+These 26 prompts are de-duplicated additions from current connected Gravity workspace workflows and specialty, less-common, and advanced
+operations within the controlled 525-SOP library. They bring the controlled digital edition to 215 prompts without duplicating the general
+scheduling, SOP, privacy, emergency, or cross-system prompts already covered earlier in the workbook.
+
+CONNECTED WORKSPACE WORKFLOWS
+PROMPT 190 • PERSONALIZER PRODUCTION & PROOF BRIEF
+
+ Build a production brief for this existing Gravity item before I personalize or print it. Material: [form/poster/checklist/sign/QR item].
+ Restaurant/company name: [name]. Store/unit number and location: [data]. Logo/brand requirements: [data]. Approved wording:
+ [text]. QR destination: [URL or none]. Finished size/format: [spec]. Quantity/finish: [spec]. Return a field-by-field personalization
+ checklist, proofing checklist, QR test checklist, and final production questions. Do not rewrite controlled operating content unless I
+ explicitly authorize a wording change.
+
+Manager check: Personalization changes presentation and local identity; it must not silently change the controlled standard, legal language, or
+QR destination.
+
+PROMPT 191 • DOCUMENT STUDIO BUILDER SELECTION & SOURCE CHECKLIST
+
+ Choose the best Gravity Document Studio builder for this management need and tell me what source information I should gather
+ before I start. Need: [describe]. Intended audience: [employees/managers/candidates/other]. Required decisions or approvals:
+ [known items]. Existing policies/forms: [list]. Identify the most appropriate builder, any closely related builder I should not confuse it
+ with, the minimum source records needed, privacy-sensitive fields to avoid unless necessary, and any official or provider-specific
+ form that should stay outside Document Studio.
+
+Manager check: Use Document Studio to organize restaurant-created documents; verify changing government, legal, payroll, insurance, and
+provider-specific requirements at the authoritative source.
+
+PROMPT 192 • DOCUMENT STUDIO DRAFT COMPLETENESS & POLICY-BOUNDARY REVIEW
+
+ Review this draft restaurant document before it is issued. Draft: [paste text with unnecessary personal information removed].
+ Intended purpose: [purpose]. Approved policy/source: [reference]. Check for missing owners, dates, definitions, acknowledgments,
+ approval fields, escalation points, conflicting language, accidental promises, vague enforcement language, and places where the
+ draft creates policy beyond the approved source. Return only the questions and edits management should resolve before release.
+
+Manager check: AI may improve completeness and clarity; authorized leadership must approve policy, employment terms, discipline, pay, legal
+language, and final use.
+
+PROMPT 193 • SHIFT LAB AVAILABILITY, QUALIFICATION & COVERAGE CONFLICT REVIEW
+
+ Review this proposed weekly schedule using the same decision logic a manager should apply in Gravity Shift Lab.
+ Forecast/coverage need: [data]. Employee availability and approved time off: [data]. Qualified/cross-trained sections: [data].
+ Proposed shifts: [data]. Max-hour or overtime limits: [rules]. Identify hard availability conflicts, unqualified assignments, uncovered
+ sections/dayparts, overtime risk, closing/opening concerns, and employees who appear overloaded or underused. Give me
+ questions to resolve before publishing; do not assume unavailable or unqualified employees can work.
+
+Manager check: The schedule must follow verified availability, qualifications, wage/hour requirements, local rules, and management judgment;
+optimization never overrides a hard constraint.
+
+PROMPT 194 • SHIFT LAB CALL-OUT FIND-COVERAGE DECISION
+
+ Help me work a call-out using a Find Coverage approach. Open shift: [date/time/section]. Required qualifications: [requirements].
+ Candidate availability: [data]. Existing scheduled hours: [data]. Overtime/max-hour limits: [rules]. Contact/privacy rules: [what a
+ delegated scheduler may see]. Rank candidates by qualification, availability, schedule fit, overtime risk, and operational impact.
+ Show why each person is or is not a reasonable contact. Do not expose private pay or contact information beyond the access I
+ specify.
+
+Manager check: Coverage matching supports the manager; it does not authorize schedule changes, overtime, contact disclosure, or qualification
+overrides by itself.
+
+PROMPT 195 • SHIFT LAB PUBLISH, REVISION & EMPLOYEE-PRIVACY AUDIT
+
+ Audit this schedule before and after publication. Manager schedule data: [data]. Employee-facing fields: [fields]. Proposed
+ QR/share method: [method]. Current published version: [version]. Changes since publication: [list]. Confirm that the employee-
+ facing copy excludes wage rates, labor dollars, private phone numbers, manager-only notes, and other restricted fields; identify
+ whether the schedule should be marked Published or Revised; and produce a concise change-log entry with date, change, owner,
+ reason, and republish requirement.
+
+Manager check: Published schedules need version control and minimum-necessary disclosure; a convenient QR link is not permission to expose
+manager-only information.
+
+PROMPT 196 • FOUNDRY MASTER-TO-LOCAL REVISION RECONCILIATION
+
+ Compare this restaurant working SOP with the current Gravity master without overwriting either one. Gravity master: [text/version].
+ Local working SOP: [text/version]. Local authority or equipment differences: [notes]. Separate changes into intentional local
+ customization, likely drift, obsolete wording, unresolved requirements, and items needing current authority verification. Then
+ propose a revision plan showing what to keep, what to investigate, what to retrain, and what evidence should be saved with the
+ revision.
+
+Manager check: A master/local comparison exposes differences; management must verify local law, equipment, policy, and operating reality
+before approving a revised SOP.
+
+PROMPT 197 • FOUNDRY BINDER DEPLOYMENT & ONE-PAGE PLAN
+
+ Turn this approved SOP set into a practical deployment plan. SOPs/stations: [list]. Audiences: [roles]. Detailed versions available:
+ [yes/no]. One-page operational versions needed: [stations]. Required approvals: [owners]. Training evidence: [records]. Build a
+ binder/section order, identify which SOPs deserve one-page station copies, assign owners and review frequencies, list unresolved
+ fields that must be closed before issue, and create a rollout sequence that avoids dumping the entire binder on the team at once.
+
+Manager check: A binder is useful only when employees can find the current approved standard, understand it, train to it, and know when it
+changed.
+
+SPECIALTY SERVICE, OFF-PREMISE & PRODUCTION
+PROMPT 198 • CATERING / BANQUET EVENT COMMAND PLAN
+
+ Build an event command plan from this catering or banquet information: [event details], guest count/timing: [data], menu/service
+ format: [data], contract/BEO commitments: [data], payment/deposit status: [data], load-out/transport needs: [data], site constraints:
+ [data], staffing: [data]. Identify handoffs, critical times, temperature/transport controls, setup readiness, payment or scope
+ questions, replenishment responsibilities, breakdown/return reconciliation, and the manager decision points most likely to fail if
+ ownership is unclear.
+
+Manager check: Use the approved event order, contract, food-safety requirements, payment terms, and site rules as the source of truth; AI does
+not change a guest commitment.
+
+PROMPT 199 • MOBILE UNIT / TEMPORARY EVENT READINESS MAP
+
+ Create a pre-departure and site-readiness map for this food truck, mobile unit, or temporary event. Location/event: [details]. Menu:
+ [items]. Commissary support: [plan]. Fresh water/wastewater capacity: [data]. Propane/fuel/generator: [data].
+ Handwashing/warewashing: [plan]. Permits/local conditions: [known requirements]. Separate what must be verified before
+ departure, on arrival, during service, and on return to the commissary. Flag any capacity or safety dependency that could stop
+ service.
+
+Manager check: Mobile and temporary operations depend on local regulatory, fire, utility, food-safety, and commissary requirements; verify them
+before operating.
+
+PROMPT 200 • DRIVE-THRU / CURBSIDE PEAK FLOW CONTROL REVIEW
+
+ Review this drive-thru, curbside, or high-volume off-premise plan for a peak period. Demand by 15/30-minute interval: [data]. Order
+ channels: [channels]. Staging space: [limits]. Staffing/deployment: [data]. Accuracy and handoff steps: [process]. Speed targets:
+ [targets]. Identify queue bottlenecks, lane/curbside collision points, staging overload, accuracy risk, payment/handoff confusion,
+ and when digital-order throttling or a recovery trigger should be considered. Return a short peak-control plan with measurable
+ checkpoints.
+
+Manager check: Speed is not the only target; preserve safety, order accuracy, food quality, guest identification, and approved channel rules.
+
+PROMPT 201 • COMMISSARY TRANSFER CHAIN-OF-CONTROL PLAN
+
+ Review this central-production or inter-unit transfer process. Product/batch: [data]. Producing unit: [location]. Receiving unit:
+ [location]. Batch/label codes: [data]. Cooling/holding requirements: [standards]. Transport time/temperature: [data]. Transfer
+ authorization: [record]. Container/tote return: [process]. Map custody from production through receipt, flag traceability or cold/hot-
+ chain gaps, identify required receiving checks, and show what must reconcile between yield, transfer quantity, and receipt.
+
+Manager check: Inter-unit movement does not reduce food-safety, traceability, labeling, or receiving requirements; verify the applicable standard
+at both locations.
+
+PROMPT 202 • BUFFET / SELF-SERVICE EXPOSURE & HOLDING REVIEW
+
+ Audit this buffet, salad bar, carving station, action station, or self-service setup. Menu/items: [list]. Holding methods/temperatures:
+ [data]. Replenishment method: [process]. Utensil/barrier setup: [details]. Guest-contact risks: [observations]. Leftover policy:
+ [standard]. Identify opening defects, monitoring points, contamination triggers, small-batch/replenishment opportunities, utensil or
+ barrier failures, and closing disposition decisions. Return a manager observation route and escalation triggers.
+
+Manager check: Self-service controls must follow current food-safety requirements and the restaurant’s approved disposition rules; appearance
+or speed never overrides contamination control.
+
+PROMPT 203 • SPECIALIZED PROCESS CONTROL & DEVIATION REVIEW
+
+ Review this specialized food process using only the approved plan and records I provide. Process: [ROP/sous vide/cook-chill/non-
+ continuous cooking/curing/fermentation/acidification/other]. Approved HACCP/variance or authority requirements: [source]. Critical
+ limits/steps: [data]. Monitoring records: [data]. Deviation: [if any]. Identify missing monitoring, label/date-control gaps, deviations
+ from the approved process, required hold/escalation questions, and records management must verify before product is released or
+ the process continues.
+
+Manager check: Do not invent critical limits, corrective actions, or regulatory approvals; use the current approved plan and competent
+regulatory/food-safety authority.
+
+PROMPT 204 • RAW / UNDERCOOKED & HIGH-RISK INGREDIENT CONTROL REVIEW
+
+ Review controls for this raw, undercooked, or unusually high-risk ingredient/service. Ingredient/menu item: [item]. Supplier/source
+ records: [data]. Required tags/certificates or parasite-destruction evidence: [records]. Storage/identity controls: [process].
+ Consumer advisory/label requirement: [approved wording]. Preparation/service controls: [steps]. Flag missing traceability, identity
+ mixing, warning/advisory gaps, unsafe assumptions, and records that must be retained or verified before service.
+
+Manager check: High-risk ingredients require current source, food-safety, and regulatory verification; AI cannot approve a supplier, advisory,
+treatment, or raw/undercooked service practice.
+
+PROMPT 205 • THIRD-PARTY DELIVERY / VIRTUAL-BRAND HANDOFF CONTROL
+
+ Review this third-party delivery, ghost-kitchen, or virtual-brand flow. Platforms/brands: [list]. Menu availability sync: [process]. Order
+ acceptance/staging: [steps]. Driver identity/release method: [method]. Tamper-evident packaging: [standard]. Delayed/missing
+ driver rules: [rules]. Identify cross-brand mix-up risk, stale menu availability, package/label mismatch, chain-of-custody breaks,
+ delayed pickup exposure, and platform-outage backup steps. Return the minimum checkpoints for a manager to observe during a
+ rush.
+
+Manager check: Marketplace convenience does not transfer responsibility for food quality, correct order identity, approved packaging, or the
+restaurant’s release controls.
+
+SPECIALTY SAFETY, FACILITIES & CONTINUITY
+PROMPT 206 • DRAFT & SPECIALTY BEVERAGE HIGH-CONTROL AUDIT
+
+ Audit this specialty beverage system or batch against its approved standard. System/product: [draft beer/CO2/nitro/batch
+ cocktail/frozen beverage/wine preservation/espresso/cold brew/other]. Recipe/settings: [standard]. Cleaning/sanitation record:
+ [data]. Pressure/time/temperature/shelf-life controls: [data]. Quality issue: [observations]. Separate product-quality problems from
+ equipment, cleaning, recipe, labeling, storage, or safety problems and identify the evidence needed before changing settings or
+ serving the product.
+
+Manager check: Use manufacturer instructions, approved recipes, alcohol-service rules, sanitation standards, and trained technical support
+where required; do not improvise gas or equipment settings.
+
+PROMPT 207 • UNCOMMON EQUIPMENT / UTILITY FAILURE CONTINUITY PLAN
+
+ Build a continuity plan for this uncommon equipment or utility problem. Asset/system: [grease interceptor/backflow/fire
+ suppression/hood/generator/refrigeration/ice/water treatment/drain/lift/other]. Failure signs: [facts]. Current service status: [data].
+ Product/food-safety impact: [data]. Building/employee impact: [data]. Vendor/authority contacts: [roles]. Separate immediate
+ shutdown/containment questions, product decisions, service coordination, documentation, safe restart/recommissioning, and
+ cross-system handoffs.
+
+Manager check: Equipment and utility failures can create life-safety, food-safety, fire, plumbing, and code risks; follow qualified service and
+applicable authority requirements before restart.
+
+PROMPT 208 • REGIONAL DISASTER CONTINUITY RESOURCE PRIORITIZATION
+
+ Help management prioritize operations during this regional disruption. Hazard: [flood/smoke/civil access restriction/hazmat/grid
+ failure/water/ice/supply disruption/other]. Affected locations: [units]. People/accountability status: [data]. Utilities: [status].
+ Refrigeration/product status: [data]. Supply routes: [status]. Safe access: [facts]. Rank immediate life-safety and employee-welfare
+ needs, product/utility controls, menu reduction or closure questions, communication responsibilities, and the evidence required
+ before reopening or recommissioning.
+
+Manager check: Regional emergencies require current public-authority, utility, emergency, and food-safety information; business continuity never
+outranks life safety.
+
+PROMPT 209 • DONATION / REUSABLE / SUSTAINABILITY CONTROL REVIEW
+
+ Review this food-donation, recycling, composting, used-oil, reusable-container, or refillable-container program. Program: [type].
+ Eligible materials/products: [rules]. Storage/segregation: [process]. Cooling/sanitation where applicable: [standard]. Pickup/return
+ verification: [process]. Vendor/agency records: [data]. Identify contamination, misidentification, traceability, pest, chemical,
+ sanitation, or reporting gaps and separate operational improvement from claims that require legal/regulatory verification.
+
+Manager check: Sustainability goals do not override food safety, sanitation, waste handling, vendor, donation, or local regulatory requirements.
+
+PROMPT 210 • LARGE EVENT / SEASONAL CROWD READINESS PLAN
+
+ Build a readiness plan for this unusual demand event. Event: [festival/stadium/holiday/group/VIP/buyout/late-night/other]. Forecast
+ and timing waves: [data]. Service area/capacity: [limits]. Staffing: [data]. Production/holding: [plan]. Weather or outdoor risks: [data].
+ Security/access constraints: [data]. Identify demand triggers, deployment changes, production limits, crowd-flow controls, weather
+ shutdown points, communication owners, and closeout/recovery work. Show which assumptions need confirmation before the plan
+ is final.
+
+Manager check: Crowd and event plans must respect occupancy, weather, security, alcohol, labor, food-safety, and local event requirements;
+confirm current limits with the responsible authority.
+
+MULTI-UNIT, DIGITAL & SPECIALTY PROGRAMS
+PROMPT 211 • MULTI-UNIT OPENING / TEMPORARY LEADERSHIP READINESS REVIEW
+
+ Review readiness for this new-unit opening, soft opening, grand opening, temporary manager assignment, inter-unit manager
+ coverage, acquisition, or restart. Unit/event: [context]. Current standards/version: [data]. Leadership/decision rights: [data].
+ Staffing/training: [data]. Vendor/equipment/permit readiness: [data]. Open issues: [list]. Separate launch blockers from monitor-
+ after-opening items, flag unclear temporary authority, identify cross-unit SOP/version risks, and produce a stabilization checklist for
+ the first operating days.
+
+Manager check: Temporary leadership and new-unit pressure do not change decision rights, controlled standards, training requirements, or
+approval authority unless leadership explicitly changes them.
+
+PROMPT 212 • DIGITAL ORDERING & DATA-CONTINUITY OUTAGE PLAN
+
+ Build an outage and recovery plan for this restaurant technology dependency. System: [online ordering/QR ordering/gift
+ card/payment terminal/marketplace/connected equipment/data backup/other]. Failure mode: [facts]. What still works: [data].
+ Offline/manual backup: [process]. Credentials/access owners: [roles]. Critical data/SOPs available offline: [yes/no]. Identify safe
+ fallback steps, orders/payments that must be reconciled later, credential or tamper concerns, guest communication needs,
+ backup/restore verification, and the exact point where the issue becomes a security or privacy escalation.
+
+Manager check: Do not request or paste passwords, payment-card data, authentication secrets, or sensitive breach details into AI; use
+authorized IT/payment/security procedures.
+
+PROMPT 213 • GRAB-AND-GO / AUTOMATED / UNATTENDED SERVICE CONTROL REVIEW
+
+ Audit this grab-and-go, locker, kiosk, vending, meal-kit, or unattended pickup operation. Products: [list]. Label/date instructions:
+ [data]. Display/locker/vending temperatures: [data]. Replenishment/rotation: [process]. Kiosk/manual backup: [process].
+ Security/abandoned-order rules: [standard]. Identify label, temperature, rotation, release, accessibility, outage, security, and
+ product-withdrawal gaps. Return a manager inspection route and the records that should prove control.
+
+Manager check: Unattended convenience still requires verified product identity, time/temperature control, accessibility, security, and current
+withdrawal/disposition procedures.
+
+PROMPT 214 • SHARED KITCHEN / POP-UP RESPONSIBILITY MATRIX
+
+ Create a responsibility matrix for this shared kitchen, pop-up, market booth, concession, or remote-service arrangement. Parties
+ using the space: [roles/businesses]. Shared cold/dry storage: [areas]. Smallwares/equipment: [assets]. Allergen/chemical controls:
+ [rules]. Opening/closeout handoff: [process]. Incident ownership: [rules]. Assign who owns space condition, labels, segregation,
+ sanitation, storage, incidents, closeout, and restoration; flag any area where two parties assume the other is responsible.
+
+Manager check: Shared space does not mean shared ambiguity; final responsibilities must match contracts, permits, landlord/operator rules, and
+applicable food-safety requirements.
+
+PROMPT 215 • FOOD DEFENSE / CERTIFIED-PROGRAM EVIDENCE READINESS REVIEW
+
+ Review evidence readiness for this food-defense or certified-program control. Program: [food
+ defense/gluten-free/halal/kosher/other certified claim]. Approved requirements/source: [documents]. Ingredients/suppliers:
+ [records]. Storage/equipment segregation: [process]. Staff training: [records]. Monitoring/verification: [evidence]. Incident or
+ suspected tampering issue: [if any]. Identify missing proof, chain-of-custody or segregation gaps, unauthorized substitutions,
+ unclear corrective escalation, and claims that should not be made until verified.
+
+Manager check: Do not infer certification, allergen safety, tampering intent, or regulatory compliance from incomplete records; verify with the
+applicable certifier, authority, approved plan, and trained leadership.

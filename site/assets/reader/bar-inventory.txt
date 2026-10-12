@@ -1,0 +1,2466 @@
+
+
+Copyright / Disclaimer
+Copyright © 2026 Thomas Butler.
+Published by Thomas Monroe Books.
+Part of The Gravity Restaurant Leadership System.
+All rights reserved.
+Limited internal-use license: the original customer may reproduce blank forms, checklists, and worksheets from this
+working book for internal use at that customer’s restaurant organization. Resale, public posting, redistribution, sharing
+outside the purchasing organization, or multi-location use beyond the customer’s licensed organization requires written
+permission or a separate license.
+This working book is designed for educational, operational planning, restaurant management support, purchasing control,
+and internal business organization purposes. It is not legal, financial, accounting, tax, food-safety certification, health-
+department, alcohol-law, employment-law, insurance, or compliance advice.
+Alcohol purchasing, receiving, storage, service, returns, credits, transfers, and inventory practices must comply with
+applicable law, licensing rules, distributor requirements, manufacturer guidance, and the restaurant’s approved policies.
+First edition, 2026. Version 1.0.
+
+
+Publication Control
+Version 1.0 — Complete — Ready for Use
+Release date: August 31, 2026
+Author: Thomas Butler
+Publisher: Thomas Monroe Books
+Gravity relationship: The Restaurant Manager’s Toolkit / The Gravity Restaurant Leadership System
+This publication is a controlled Gravity resource. When using downloadable or separately supplied Gravity forms, verify
+that the Form ID and revision are current for the version of the operating process being used.
+
+
+Ready to Use Now — System 22 Will Add Another Layer
+This working book is complete and designed for immediate use. Its inventory forms, par worksheets, ordering tools,
+receiving records, vendor controls, cost-change logs, and management reviews can be used independently in a full-
+service restaurant.
+Gravity System 22 — Beverage & Bar Operations Control is being developed to eventually make many of these processes
+even more useful by adding digital memory, trend analysis, recurring monitoring, exception identification, and connections
+to the larger Gravity operating environment.
+System 22 is an enhancement—not a requirement.
+Begin using this book now. The inventory history, pars, costs, ordering decisions, and operating standards you establish
+today can provide a stronger starting point when System 22 becomes available.
+
+
+
+
+2                                                                                                      THE GRAVITY SYSTEM
+
+How to Use This Working Book
+This book is the recurring inventory-and-purchasing companion to Restaurant Bar, Beverage & Pour Cost Control. The
+first book establishes what the beverage program should be. This book records what the restaurant actually counts,
+targets, orders, receives, pays for, reviews, and changes.
+The operating cycle is:
+COUNT → COMPARE TO TARGET → CONSIDER EXPECTED DEMAND → BUILD ORDER → MANAGER REVIEW
+→ ORDER → RECEIVE → VERIFY → REVIEW WHAT ACTUALLY HAPPENED
+Do not order from memory. Do not order from an empty shelf. Order from inventory, demand, par, delivery timing,
+and a management decision.
+• Set up the master inventory once, then maintain it.
+• Use category-specific count/order forms at the frequency the operation requires.
+• Use pars for normal demand and Temporary Targets for approved exceptions.
+• Document management adjustments instead of hiding them inside the order quantity.
+• Separate beverage-product purchases from bar-supply purchases.
+• Use the weekly record to preserve the operating story without repeating the largest master sheets 52 times.
+• Use monthly and annual reviews to decide what should change.
+
+
+Contents
+PART I - BUILD A RELIABLE INVENTORY BASELINE
+PART II - PARS, TARGETS & DEMAND
+PART III - GRAVITY SMART ORDER
+PART IV - RECEIVING & COST CHANGES
+PART V - VENDORS & PURCHASING
+PART VI - ACCURACY, VARIANCE & DEAD INVENTORY
+PART VII - WEEKLY OPERATING RECORD
+PART VIII - MONTHLY MANAGEMENT REVIEW
+PART IX - ANNUAL CLOSEOUT
+PART X - GRAVITY FULFILLMENT & REFILL TRANSITION
+PART XI - SYSTEM 22 HANDOFF
+APPENDIX - GLOSSARY, FORMULAS & CONTROLLED FORMS
+
+
+
+
+THE GRAVITY SYSTEM                                                                                               3
+
+PART I - BUILD A RELIABLE INVENTORY BASELINE
+Chapter 1 - Inventory Is Money in Another Form
+A beverage shelf is a financial record. Liquor, wine, beer, mixers, syrups, garnishes, and supplies represent cash that has
+been converted into operating inventory. The purpose of counting is not to admire what is on the shelf. It is to know what
+the restaurant owns, what is usable, what it is worth, and what decision should follow.
+The first rule of this book is simple:
+Physical inventory is not automatically usable inventory.
+A damaged bottle, spoiled juice, expired open wine, product committed to an event, or item already designated for
+disposal may be physically present while being unavailable for normal ordering decisions.
+Usable On Hand = Physical On Hand - Unusable / Committed Product
+
+Chapter 2 - Count the Same Thing the Same Way
+Reliable ordering begins with a repeatable count. Use the same count path, unit definitions, package sizes, and open-
+bottle method. A change in counting method can create apparent variance even when the operation did not change.
+• Count in shelf order, not memory order.
+• Define the purchase unit and count unit.
+• Use one approved open-bottle method.
+• Separate full, open, damaged, committed, and unusable quantities when they affect the decision.
+• Have management verify high-risk or unusual counts.
+
+Chapter 3 - Riverside Grill: The Working Example
+Riverside Grill is the fictional example restaurant used throughout this book. It is a full-service restaurant with a moderate
+bar, lunch and dinner, weekend volume, standard cocktails, wine by the glass, packaged and draft beer, and a small zero-
+proof program.
+Its normal weekly cycle is Sunday inventory, Monday order, Tuesday primary delivery, and Friday secondary delivery
+where needed. This week it also has a Saturday private event for approximately 80 additional guests featuring Margaritas,
+Palomas, house wine, domestic beer, and zero-proof grapefruit coolers.
+
+Chapter 4 - Riverside Grill Liquor Baseline
+Product            Size                Usable On Hand       Normal Par           Unit Cost            Inventory Value
+House Vodka        1L                  3.4                  5                    $18.00               $61.20
+Premium Vodka      750mL               2.6                  3                    $27.00               $70.20
+Gin                1L                  2.5                  4                    $22.00               $55.00
+Bourbon            1L                  4.3                  6                    $28.00               $120.40
+Rye                750mL               1.5                  2                    $31.00               $46.50
+Scotch             750mL               2.4                  3                    $34.00               $81.60
+Irish Whiskey      750mL               2.2                  3                    $29.00               $63.80
+Blanco Tequila     1L                  3.3                  6                    $25.00               $82.50
+Reposado Tequila   750mL               2.4                  3                    $32.00               $76.80
+Light Rum          1L                  3.6                  4                    $19.00               $68.40
+Dark Rum           750mL               1.7                  2                    $24.00               $40.80
+Orange Liqueur     1L                  2.3                  3                    $21.00               $48.30
+Sweet Vermouth     750mL               1.5                  2                    $12.00               $18.00
+Dry Vermouth       750mL               1.4                  2                    $12.00               $16.80
+Campari            750mL               1.6                  2                    $31.00               $49.60
+Aperol             750mL               1.3                  2                    $27.00               $35.10
+Amaretto           750mL               1.7                  2                    $23.00               $39.10
+Coffee Liqueur     750mL               1.4                  2                    $25.00               $35.00
+Cassis             750mL               0.6                  1                    $26.00               $15.60
+Riverside Grill liquor inventory value in this example: $1,024.70.
+
+Chapter 5 - Wine, Beer, Draft & Mixers
+The example wine inventory totals $508.60. One open Sauvignon Blanc is beyond its approved quality window. It still
+exists physically, but it is not usable inventory for the next order decision.
+
+
+4                                                                                                       THE GRAVITY SYSTEM
+
+Packaged beer inventory totals $200.85 in the example. Draft requires a different count method: House Lager half barrel is
+approximately 35% remaining with one backup; IPA sixth barrel is approximately 20% remaining with no backup; local
+seasonal sixth barrel is approximately 60% remaining and should be reviewed against demand before another keg is
+ordered.
+Mixers and bar support inventory include tonic, ginger beer, club soda, cranberry, grapefruit, pineapple, orange juice, lime
+prep, simple syrup, honey syrup, agave, olives, cherries, and mint. The Saturday event affects more than tequila, so the
+order must consider the whole drink architecture.
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                         5
+
+PART II - PARS, TARGETS & DEMAND
+Chapter 6 - What a Par Actually Means
+Par = the approved normal inventory level.
+A par should reflect expected usage, time until reliable replenishment, reasonable safety allowance, known demand
+patterns, and storage reality. It is not “what we have always kept.”
+A useful operating thought process is: expected usage + time until reliable replenishment + reasonable safety allowance +
+known demand adjustments, converted into practical purchase units.
+Product              Current Par              Avg Weekly Use           Peak Use                Review Decision
+House Vodka          5                        3.1                      4.0                     Keep 5
+Gin                  4                        1.7                      2.5                     Reduce to 3
+Bourbon              6                        4.2                      5.1                     Keep 6
+Blanco Tequila       6                        4.5                      5.8                     Increase to 7
+Light Rum            4                        1.9                      2.8                     Keep 4
+Campari              2                        0.6                      1.0                     Keep 2
+Cassis               1                        0.2                      0.4                     Keep 1
+
+
+Chapter 7 - Temporary Target Is Not a New Par
+Temporary Target = a temporary event or exception inventory level.
+Target Need = the applicable level used for the current order. Under normal conditions Target Need is the approved Par.
+During an approved event or exception, Target Need may be the Temporary Target.
+For Riverside Grill’s Saturday event, Blanco Tequila has a normal par of 6, 3.3 usable bottles on hand, and an approved
+Temporary Target of 8. The mathematical need is 4.7 bottles; the final order is 5 bottles. After the event, the Temporary
+Target expires. The normal par does not become 8 unless later evidence supports a permanent change.
+
+Chapter 8 - Event Demand Changes More Than the Obvious Bottle
+A Cinco de Mayo-style example illustrates the same rule. Expected covers rise from about 210 to 325, an increase of 115.
+Temporary targets may change across the full beverage architecture:
+Item                 Normal Target            Event Target             Usable On Hand          Suggested Order
+Blanco Tequila       7                        12                       4.2                     8
+Orange Liqueur       3                        5                        2.1                     3
+Grapefruit           5                        10                       4                       6
+Agave                4                        8                        3                       5
+Lime Prep            6                        12                       5                       7
+Ginger Beer          48                       72                       39                      33
+Temporary targets expire after the event. Specialty inventory is reviewed. No automatic reorder occurs merely because an
+event consumed product.
+
+Chapter 9 - Par Changes Require Evidence
+• Repeated stockouts under normal demand
+• Repeated excess inventory with no operational reason
+• Reliable change in delivery schedule
+• Permanent menu change
+• Documented sustained volume change
+• Storage or cash constraints
+• New substitute or product rationalization
+A par change is a management decision. Document the evidence, effective date, owner, and review date.
+
+
+
+
+6                                                                                                       THE GRAVITY SYSTEM
+
+PART III - GRAVITY SMART ORDER
+Chapter 10 - Build the Order from the Target
+Suggested Order = Target Need - Usable Inventory On Hand
+Final Order = Suggested Order +/- Approved Management Adjustment
+The adjustment is not hidden. It requires a reason. That preserves the difference between what the math suggested and
+what management decided.
+Light Rum example: par 4, usable on hand 3.6, suggested need 0.4. Final order: 0 bottles. A fractional need does not
+automatically justify purchasing another full bottle.
+Sweet Vermouth example: par 2, usable on hand 1.5, suggested need 0.5. Final order: 0 bottles when delivery timing and
+expected demand support holding.
+Blanco Tequila event example: Temporary Target 8, usable on hand 3.3, suggested need 4.7. Final order: 5 bottles.
+
+Chapter 11 - Approved Order Exceptions
+Management adjustments should use a reason that can be understood later. Approved exception categories include:
+• Event
+• Holiday
+• Weather
+• Large Reservation
+• Promotion
+• Delivery Change
+• Vendor Shortage
+• Price Change
+• Menu Change
+• Stockout Recovery
+• Seasonal Transition
+• Other documented reason
+
+Chapter 12 - Order Budget Control
+Riverside Grill’s example order budget:
+Category                                                    Planned Amount
+Liquor                                                      $313
+Wine                                                        $164
+Beer                                                        $146
+Mixers                                                      $118
+Event-Specific                                              $176
+Total                                                       $917
+Planned Range                                               $850-$950
+The budget does not replace the count. The count does not replace the budget. Management should understand both the
+inventory need and the cash decision.
+
+Chapter 13 - The Empty-Shelf Trap
+An empty shelf is not automatically instruction to buy. First ask whether the product still belongs in the program. A
+specialty melon liqueur with 1.4 bottles remaining, zero permanent drinks, Menu Reach of 0, and a Deplete status should
+not be reordered merely because the last bottle eventually becomes empty.
+The purpose of depletion is to stop dead inventory from recreating itself.
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                        7
+
+PART IV - RECEIVING & COST CHANGES
+Chapter 14 - Receiving Is the Second Half of Ordering
+An order is not complete when it is submitted. The restaurant must verify what actually arrives. Receiving should compare
+ordered quantity, delivered quantity, expected unit cost, invoice cost, substitutions, damage, shortages, and credits due.
+
+Chapter 15 - Cost Changes Must Travel
+Riverside Grill expected Bourbon at $28.00 per bottle. The invoice shows $29.50. The dollar change is $1.50 and the cost
+change is approximately 5.36%. That information should not stop at the invoice. It should reach the cost-change register
+and any recipe or pricing review that depends on the product.
+Dollar Change = New Cost - Previous Cost
+Cost Change % = Dollar Change ÷ Previous Cost × 100
+
+Chapter 16 - Shortage Is a Management Decision
+If 5 bottles of tequila were ordered and only 4 were delivered, management decides what happens next: accept partial
+delivery, source a legal/approved substitute, reduce the event target, place an approved secondary order, or change the
+offer. Do not allow the shortage to become an undocumented improvisation.
+
+Chapter 17 - Credits Must Close the Loop
+Damage, shortages, invoice corrections, and approved returns are not finished when somebody says, “The vendor will
+credit us.” Track the amount, vendor, invoice, reason, expected credit date, actual credit date, and person who verified the
+credit.
+
+
+
+
+8                                                                                                      THE GRAVITY SYSTEM
+
+PART V - VENDORS & PURCHASING
+Chapter 18 - Cheapest Is Not Automatically Best
+Vendor comparison should include price, package size, order minimums, delivery frequency, emergency support, fill rate,
+shortages, substitution practices, credit handling, product availability, quality, and administrative burden.
+Factor                                  Vendor A                                 Vendor B
+Example case price                      $118 / 12 = $9.83                        $112 / 12 = $9.33
+Minimum                                 $500                                     $750
+Delivery                                3x weekly                                2x weekly
+Emergency support                       Yes                                      No
+Recent shortages                        1                                        4
+Credit handling                         Strong                                   Moderate
+Vendor B is cheaper by unit in this example. That does not automatically make Vendor B the stronger operating choice.
+
+Chapter 19 - Separate Product Purchases from Operating Supplies
+Beverage Product Purchases are product costs that can enter beverage-cost calculations. Operating Supply Purchases-
+such as napkins, straws, bar towels, disposable items, or cleaning/support supplies-do not belong inside beverage product
+cost simply because they were ordered by the bar.
+Mixing the categories corrupts cost analysis.
+
+Chapter 20 - Weekly Purchase Summary
+Category                      Planned                        Actual                          Difference
+Liquor                        $520                           $548                            +$28
+Wine                          $310                           $296                            -$14
+Packaged Beer                 $245                           $258                            +$13
+Draft                         $360                           $342                            -$18
+Mixers                        $185                           $214                            +$29
+Bar Supplies                  $125                           $119                            -$6
+Specialty/Event               $180                           $167                            -$13
+Total                         $1,925                         $1,944                          +$19
+The weekly purchase summary is a management lens, not a substitute for invoice detail. Use it to identify where the
+purchasing story changed.
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                        9
+
+PART VI - ACCURACY, VARIANCE & DEAD INVENTORY
+Chapter 21 - Inventory Accuracy Test
+Previous Count + Purchases + Transfers In - Transfers Out - Documented Usage / Adjustments = Expected
+Ending Inventory
+Example: 8 + 6 - 1 - 7 = 6 expected units. Physical ending inventory is 5.2. Difference: 0.8. Investigate the difference
+before assigning a cause.
+
+Chapter 22 - Actual Product Usage at Cost
+Actual Product Usage at Cost = Beginning Inventory + Purchases + Transfers In - Transfers Out - Ending
+Inventory
+This is a financial calculation using dollar values. Documented adjustments remain separate according to the restaurant’s
+accounting structure. Do not mix this dollar calculation with physical-unit usage.
+Monthly Riverside Grill example: Beginning Inventory $8,420 + Purchases $7,860 + Transfers In $120 - Transfers Out $75
+- Ending Inventory $8,615 = Actual Product Usage at Cost $7,710.
+Beverage Sales: $31,850. Actual Beverage Cost %: 24.21%. Theoretical Product Cost: $7,420, or 23.30%. Difference:
+$290. The $290 difference is not automatically theft. It is an investigation target.
+
+Chapter 23 - Dead Inventory Tells the Truth
+Product                  Value                    Menu Reach                Last Meaningful Use      Status
+Melon Liqueur            $27                      0                         83 days                  Deplete
+Specialty Rum            $62                      1                         41 days                  Review
+Premium Gin              $108                     2                         8 days                   Keep
+Seasonal Syrup           $32                      0                         21 days                  Seasonal Hold
+Dead inventory is not solved by irresponsible promotion. Use approved features, depletion, legal returns where available,
+product substitution/rationalization, or a documented retirement decision consistent with responsible service and
+applicable law.
+
+Chapter 24 - Count Accuracy Before Behavior Conclusions
+When actual usage and theoretical usage differ, first verify the count, units, purchases, transfers, recipe version, POS
+mapping, documented waste, and portion standard. A variance is a question, not an accusation.
+
+
+
+
+10                                                                                                      THE GRAVITY SYSTEM
+
+PART VII - WEEKLY OPERATING RECORD
+Chapter 25 - Preserve the Story Without Repeating the Largest Forms
+The weekly operating record is intentionally streamlined. The master inventory, category inventory/order sheets, receiving
+form, and vendor records are used when needed. The weekly record preserves the management story: count completed,
+order completed, exceptions, receiving exceptions, weekly results, and next actions.
+The next 52 pages create a full-year operating record without repeating the largest inventory tables 52 times.
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                      11
+
+WEEK 01 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+12                                                                               THE GRAVITY SYSTEM
+
+WEEK 02 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    13
+
+WEEK 03 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+14                                                                               THE GRAVITY SYSTEM
+
+WEEK 04 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    15
+
+WEEK 05 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+16                                                                               THE GRAVITY SYSTEM
+
+WEEK 06 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    17
+
+WEEK 07 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+18                                                                               THE GRAVITY SYSTEM
+
+WEEK 08 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    19
+
+WEEK 09 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+20                                                                               THE GRAVITY SYSTEM
+
+WEEK 10 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    21
+
+WEEK 11 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+22                                                                               THE GRAVITY SYSTEM
+
+WEEK 12 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    23
+
+WEEK 13 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+24                                                                               THE GRAVITY SYSTEM
+
+WEEK 14 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    25
+
+WEEK 15 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+26                                                                               THE GRAVITY SYSTEM
+
+WEEK 16 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    27
+
+WEEK 17 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+28                                                                               THE GRAVITY SYSTEM
+
+WEEK 18 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    29
+
+WEEK 19 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+30                                                                               THE GRAVITY SYSTEM
+
+WEEK 20 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    31
+
+WEEK 21 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+32                                                                               THE GRAVITY SYSTEM
+
+WEEK 22 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    33
+
+WEEK 23 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+34                                                                               THE GRAVITY SYSTEM
+
+WEEK 24 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    35
+
+WEEK 25 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+36                                                                               THE GRAVITY SYSTEM
+
+WEEK 26 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    37
+
+WEEK 27 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+38                                                                               THE GRAVITY SYSTEM
+
+WEEK 28 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    39
+
+WEEK 29 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+40                                                                               THE GRAVITY SYSTEM
+
+WEEK 30 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    41
+
+WEEK 31 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+42                                                                               THE GRAVITY SYSTEM
+
+WEEK 32 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    43
+
+WEEK 33 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+44                                                                               THE GRAVITY SYSTEM
+
+WEEK 34 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    45
+
+WEEK 35 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+46                                                                               THE GRAVITY SYSTEM
+
+WEEK 36 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    47
+
+WEEK 37 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+48                                                                               THE GRAVITY SYSTEM
+
+WEEK 38 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    49
+
+WEEK 39 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+50                                                                               THE GRAVITY SYSTEM
+
+WEEK 40 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    51
+
+WEEK 41 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+52                                                                               THE GRAVITY SYSTEM
+
+WEEK 42 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    53
+
+WEEK 43 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+54                                                                               THE GRAVITY SYSTEM
+
+WEEK 44 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    55
+
+WEEK 45 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+56                                                                               THE GRAVITY SYSTEM
+
+WEEK 46 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    57
+
+WEEK 47 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+58                                                                               THE GRAVITY SYSTEM
+
+WEEK 48 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    59
+
+WEEK 49 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+60                                                                               THE GRAVITY SYSTEM
+
+WEEK 50 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    61
+
+WEEK 51 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+62                                                                               THE GRAVITY SYSTEM
+
+WEEK 52 - BEVERAGE OPERATING RECORD
+
+
+
+
+
+THE GRAVITY SYSTEM                                                                    63
+
+PART VIII - MONTHLY MANAGEMENT REVIEW
+Chapter 26 - Monthly Review Turns Records into Decisions
+The month-end review should connect inventory value, purchases, sales, actual cost, theoretical cost, identified variance,
+dead inventory, stockouts, vendor issues, par changes, and management actions. The purpose is not to produce another
+report. The purpose is to decide what changes next month.
+
+
+
+
+64                                                                                                    THE GRAVITY SYSTEM
+
+MONTH 01 - MANAGEMENT REVIEW
+GRV-BEV-MGT-07 | Rev 1.0 | Monthly Management Review
+Measure                        Month              Prior Month    Action / Note
+Beginning Inventory
+Ending Inventory
+Beverage Product Purchases
+Operating Supply Purchases
+Beverage Sales
+Actual Product Usage at Cost
+Actual Beverage Cost %
+Theoretical Beverage Cost %
+Identified Variance
+Dead Inventory
+Stockouts
+Vendor Credits Outstanding
+Par Changes Approved: ________________________________________
+Vendor / Cost Changes: ________________________________________
+Top Management Action: ________________________________________
+
+
+
+
+THE GRAVITY SYSTEM                                                                65
+
+MONTH 02 - MANAGEMENT REVIEW
+GRV-BEV-MGT-07 | Rev 1.0 | Monthly Management Review
+Measure                        Month              Prior Month    Action / Note
+Beginning Inventory
+Ending Inventory
+Beverage Product Purchases
+Operating Supply Purchases
+Beverage Sales
+Actual Product Usage at Cost
+Actual Beverage Cost %
+Theoretical Beverage Cost %
+Identified Variance
+Dead Inventory
+Stockouts
+Vendor Credits Outstanding
+Par Changes Approved: ________________________________________
+Vendor / Cost Changes: ________________________________________
+Top Management Action: ________________________________________
+
+
+
+
+66                                                                         THE GRAVITY SYSTEM
+
+MONTH 03 - MANAGEMENT REVIEW
+GRV-BEV-MGT-07 | Rev 1.0 | Monthly Management Review
+Measure                        Month              Prior Month    Action / Note
+Beginning Inventory
+Ending Inventory
+Beverage Product Purchases
+Operating Supply Purchases
+Beverage Sales
+Actual Product Usage at Cost
+Actual Beverage Cost %
+Theoretical Beverage Cost %
+Identified Variance
+Dead Inventory
+Stockouts
+Vendor Credits Outstanding
+Par Changes Approved: ________________________________________
+Vendor / Cost Changes: ________________________________________
+Top Management Action: ________________________________________
+
+
+
+
+THE GRAVITY SYSTEM                                                                67
+
+MONTH 04 - MANAGEMENT REVIEW
+GRV-BEV-MGT-07 | Rev 1.0 | Monthly Management Review
+Measure                        Month              Prior Month    Action / Note
+Beginning Inventory
+Ending Inventory
+Beverage Product Purchases
+Operating Supply Purchases
+Beverage Sales
+Actual Product Usage at Cost
+Actual Beverage Cost %
+Theoretical Beverage Cost %
+Identified Variance
+Dead Inventory
+Stockouts
+Vendor Credits Outstanding
+Par Changes Approved: ________________________________________
+Vendor / Cost Changes: ________________________________________
+Top Management Action: ________________________________________
+
+
+
+
+68                                                                         THE GRAVITY SYSTEM
+
+MONTH 05 - MANAGEMENT REVIEW
+GRV-BEV-MGT-07 | Rev 1.0 | Monthly Management Review
+Measure                        Month              Prior Month    Action / Note
+Beginning Inventory
+Ending Inventory
+Beverage Product Purchases
+Operating Supply Purchases
+Beverage Sales
+Actual Product Usage at Cost
+Actual Beverage Cost %
+Theoretical Beverage Cost %
+Identified Variance
+Dead Inventory
+Stockouts
+Vendor Credits Outstanding
+Par Changes Approved: ________________________________________
+Vendor / Cost Changes: ________________________________________
+Top Management Action: ________________________________________
+
+
+
+
+THE GRAVITY SYSTEM                                                                69
+
+MONTH 06 - MANAGEMENT REVIEW
+GRV-BEV-MGT-07 | Rev 1.0 | Monthly Management Review
+Measure                        Month              Prior Month    Action / Note
+Beginning Inventory
+Ending Inventory
+Beverage Product Purchases
+Operating Supply Purchases
+Beverage Sales
+Actual Product Usage at Cost
+Actual Beverage Cost %
+Theoretical Beverage Cost %
+Identified Variance
+Dead Inventory
+Stockouts
+Vendor Credits Outstanding
+Par Changes Approved: ________________________________________
+Vendor / Cost Changes: ________________________________________
+Top Management Action: ________________________________________
+
+
+
+
+70                                                                         THE GRAVITY SYSTEM
+
+MONTH 07 - MANAGEMENT REVIEW
+GRV-BEV-MGT-07 | Rev 1.0 | Monthly Management Review
+Measure                        Month              Prior Month    Action / Note
+Beginning Inventory
+Ending Inventory
+Beverage Product Purchases
+Operating Supply Purchases
+Beverage Sales
+Actual Product Usage at Cost
+Actual Beverage Cost %
+Theoretical Beverage Cost %
+Identified Variance
+Dead Inventory
+Stockouts
+Vendor Credits Outstanding
+Par Changes Approved: ________________________________________
+Vendor / Cost Changes: ________________________________________
+Top Management Action: ________________________________________
+
+
+
+
+THE GRAVITY SYSTEM                                                                71
+
+MONTH 08 - MANAGEMENT REVIEW
+GRV-BEV-MGT-07 | Rev 1.0 | Monthly Management Review
+Measure                        Month              Prior Month    Action / Note
+Beginning Inventory
+Ending Inventory
+Beverage Product Purchases
+Operating Supply Purchases
+Beverage Sales
+Actual Product Usage at Cost
+Actual Beverage Cost %
+Theoretical Beverage Cost %
+Identified Variance
+Dead Inventory
+Stockouts
+Vendor Credits Outstanding
+Par Changes Approved: ________________________________________
+Vendor / Cost Changes: ________________________________________
+Top Management Action: ________________________________________
+
+
+
+
+72                                                                         THE GRAVITY SYSTEM
+
+MONTH 09 - MANAGEMENT REVIEW
+GRV-BEV-MGT-07 | Rev 1.0 | Monthly Management Review
+Measure                        Month              Prior Month    Action / Note
+Beginning Inventory
+Ending Inventory
+Beverage Product Purchases
+Operating Supply Purchases
+Beverage Sales
+Actual Product Usage at Cost
+Actual Beverage Cost %
+Theoretical Beverage Cost %
+Identified Variance
+Dead Inventory
+Stockouts
+Vendor Credits Outstanding
+Par Changes Approved: ________________________________________
+Vendor / Cost Changes: ________________________________________
+Top Management Action: ________________________________________
+
+
+
+
+THE GRAVITY SYSTEM                                                                73
+
+MONTH 10 - MANAGEMENT REVIEW
+GRV-BEV-MGT-07 | Rev 1.0 | Monthly Management Review
+Measure                        Month              Prior Month    Action / Note
+Beginning Inventory
+Ending Inventory
+Beverage Product Purchases
+Operating Supply Purchases
+Beverage Sales
+Actual Product Usage at Cost
+Actual Beverage Cost %
+Theoretical Beverage Cost %
+Identified Variance
+Dead Inventory
+Stockouts
+Vendor Credits Outstanding
+Par Changes Approved: ________________________________________
+Vendor / Cost Changes: ________________________________________
+Top Management Action: ________________________________________
+
+
+
+
+74                                                                         THE GRAVITY SYSTEM
+
+MONTH 11 - MANAGEMENT REVIEW
+GRV-BEV-MGT-07 | Rev 1.0 | Monthly Management Review
+Measure                        Month              Prior Month    Action / Note
+Beginning Inventory
+Ending Inventory
+Beverage Product Purchases
+Operating Supply Purchases
+Beverage Sales
+Actual Product Usage at Cost
+Actual Beverage Cost %
+Theoretical Beverage Cost %
+Identified Variance
+Dead Inventory
+Stockouts
+Vendor Credits Outstanding
+Par Changes Approved: ________________________________________
+Vendor / Cost Changes: ________________________________________
+Top Management Action: ________________________________________
+
+
+
+
+THE GRAVITY SYSTEM                                                                75
+
+MONTH 12 - MANAGEMENT REVIEW
+GRV-BEV-MGT-07 | Rev 1.0 | Monthly Management Review
+Measure                        Month              Prior Month    Action / Note
+Beginning Inventory
+Ending Inventory
+Beverage Product Purchases
+Operating Supply Purchases
+Beverage Sales
+Actual Product Usage at Cost
+Actual Beverage Cost %
+Theoretical Beverage Cost %
+Identified Variance
+Dead Inventory
+Stockouts
+Vendor Credits Outstanding
+Par Changes Approved: ________________________________________
+Vendor / Cost Changes: ________________________________________
+Top Management Action: ________________________________________
+
+
+
+
+76                                                                         THE GRAVITY SYSTEM
+
+PART IX - ANNUAL CLOSEOUT
+Chapter 27 - Annual Beverage Purchasing Review
+At year end, management should be able to explain how the beverage inventory changed and whether the purchasing
+system became stronger. Review beginning and ending inventory, purchases, sales, average actual and theoretical cost
+percentages, identified variance, dead inventory at the beginning and end, emergency purchases, stockouts, vendor
+credits/losses, par changes, and recurring exceptions.
+Annual Measure                                               Result / Note
+Beginning Beverage Inventory
+Ending Beverage Inventory
+Beverage Product Purchases
+Beverage Sales
+Average Actual Beverage Cost %
+Average Theoretical Beverage Cost %
+Identified Variance
+Dead Inventory - Start
+Dead Inventory - End
+Emergency Purchases
+Stockouts
+Vendor Credits / Losses
+
+
+Chapter 28 - Three Improvements for the Next Year
+1. Improvement: _______________________________________________________
+Owner: ________________________
+First Action: __________________________________________
+Due: ________________
+2. Improvement: _______________________________________________________
+Owner: ________________________
+First Action: __________________________________________
+Due: ________________
+3. Improvement: _______________________________________________________
+Owner: ________________________
+First Action: __________________________________________
+Due: ________________
+The annual closeout should reduce confusion for the next year, not merely archive the previous year.
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                     77
+
+PART X - GRAVITY FULFILLMENT & REFILL TRANSITION
+Chapter 29 - Master Book vs. Refill Book
+This book contains setup guidance, worked examples, master forms, and a full first-year operating record. Refillable
+operating pages are a natural future Gravity Fulfillment product because customers predictably need new blank operating
+records after the master book is established.
+Gravity Fulfillment rule: If the customer fills it repeatedly, evaluate it for Fulfillment. If the customer learns or
+establishes the system from it, keep it with the master product.
+A separate Beverage Inventory & Ordering Refill is planned. Do not treat it as available until the refill file is separately
+validated and released.
+
+Chapter 30 - Refill Transition Record
+At the end of this master book, record the current approved Form IDs/revisions, active pars, Temporary Targets still open,
+vendor status, unresolved credits, do-not-reorder items, and management actions before beginning a refill record. The
+refill should continue the system, not reset the truth.
+
+
+
+
+78                                                                                                     THE GRAVITY SYSTEM
+
+PART XI - SYSTEM 22 HANDOFF
+Chapter 31 - Standardize First, Automate Later
+Gravity System 22 is a future enhancement. It can eventually remember recurring inventory data, compare periods,
+identify repeated exceptions, track cost changes, surface stockout patterns, and connect beverage records to the larger
+Gravity environment. It should not decide alone why variance occurred or whether an employee, vendor, or manager
+caused a problem.
+Standardize first. Verify second. Automate third.
+The working book establishes the standards and preserves the human decision record. Software can later help remember
+and analyze those standards.
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                   79
+
+APPENDIX A - GLOSSARY
+Actual Beverage Cost %: Actual Product Usage at Cost divided by Beverage Sales × 100, using the restaurant’s defined
+reporting categories.
+Actual Product Usage at Cost: Dollar-based financial usage: Beginning Inventory + Purchases + Transfers In -
+Transfers Out - Ending Inventory.
+Actual Usage: Physical product movement calculated in consistent physical units. Do not mix with dollar-based usage.
+Dead Inventory: Product consuming cash and space without sufficient useful movement or approved purpose.
+Deplete - D: Status instructing the operation to use responsibly where approved but not automatically reorder.
+Extended Cost: Purchase Quantity × Unit Cost.
+Final Order: Suggested Order plus or minus an approved management adjustment.
+Gravity Smart Order: The controlled order process that starts with Target Need and Usable Inventory On Hand, then
+documents management adjustment.
+Inventory Value: Quantity On Hand × Unit Cost.
+Menu Reach: Number of approved, sellable drinks an ingredient helps the restaurant produce.
+Operating Supply Purchase: Bar operating supplies that do not enter beverage-product cost calculations.
+Par: Approved normal inventory level.
+Physical On Hand: Product physically present before unusable or committed product is removed from the ordering
+decision.
+Suggested Order: Target Need - Usable Inventory On Hand.
+Target Need: The applicable target used for the current order: normally Par, or an approved Temporary Target during an
+exception.
+Temporary Target: Approved temporary inventory level for an event, holiday, shortage recovery, or other documented
+exception.
+Unit Cost: Cost of one defined purchase/count unit.
+Usable Inventory On Hand: Physical On Hand minus unusable or committed product.
+Usage Variance: Actual Usage - Theoretical Usage. Positive means actual usage exceeded theoretical usage. Variance
+is a question, not an accusation.
+Vendor Credit: Documented amount owed back to the restaurant for an approved shortage, damage, return, pricing
+correction, or other valid reason.
+
+
+APPENDIX B - FORMULA QUICK REFERENCE
+Inventory Value = Quantity On Hand × Unit Cost
+Open-Bottle Value = Open-Bottle Equivalent × Full-Bottle Unit Cost
+Extended Cost = Purchase Quantity × Unit Cost
+Usable Inventory On Hand = Physical On Hand - Unusable / Committed Product
+Suggested Order = Target Need - Usable Inventory On Hand
+Final Order = Suggested Order +/- Approved Management Adjustment
+Target Need = Par under normal conditions / Temporary Target during an approved exception
+Actual Product Usage at Cost = Beginning Inventory + Purchases + Transfers In - Transfers Out - Ending
+Inventory
+Physical Actual Usage = Beginning Quantity + Purchases + Transfers In - Transfers Out - Ending Quantity
+Usage Variance = Actual Usage - Theoretical Usage
+Expected Ending Inventory = Previous Count + Purchases + Transfers In - Transfers Out - Documented Usage /
+Adjustments
+Dollar Change = New Cost - Previous Cost
+Cost Change % = Dollar Change ÷ Previous Cost × 100
+Beverage Cost % = Beverage Cost ÷ Beverage Sales × 100
+Truth first. Calculation second. Decision third. Action fourth. Verification always.
+A formula never replaces judgment. Check the count, units, purchases, transfers, recipes, POS records, waste, receiving,
+and operating standards before assigning a cause.
+
+
+
+80                                                                                                  THE GRAVITY SYSTEM
+
+APPENDIX C - CONTROLLED FORM REGISTER
+The form belongs to the process—not to the page it happens to appear on. One process → one authoritative Form ID →
+controlled revisions → reuse across products.
+Form ID                                Controlled Form                         Revision
+GRV-BEV-INV-01                         Master Beverage Inventory               Rev 1.0
+GRV-BEV-INV-02                         Liquor Inventory & Order                Rev 1.0
+GRV-BEV-INV-03                         Wine Inventory & Order                  Rev 1.0
+GRV-BEV-INV-04                         Packaged Beer Inventory & Order         Rev 1.0
+GRV-BEV-INV-05                         Draft Beer Inventory & Order            Rev 1.0
+GRV-BEV-INV-06                         Mixer, Juice & Garnish Inventory        Rev 1.0
+GRV-BEV-INV-07                         Zero-Proof Inventory                    Rev 1.0
+GRV-BEV-INV-08                         Inventory Accuracy Test                 Rev 1.0
+GRV-BEV-INV-09                         Dead Inventory Review                   Rev 1.0
+GRV-BEV-INV-10                         First Inventory Summary                 Rev 1.0
+GRV-BEV-INV-11                         Standard On-Hand Inventory Worksheet    Rev 1.0
+GRV-BEV-INV-12                         Current Bar Inventory Reality Check     Rev 1.0
+GRV-BEV-ORD-01                         Gravity Smart Order                     Rev 1.0
+GRV-BEV-ORD-02                         Weekly Order Exception Record           Rev 1.0
+GRV-BEV-ORD-03                         Order Budget Control                    Rev 1.0
+GRV-BEV-ORD-04                         Event & Holiday Order Planner           Rev 1.0
+GRV-BEV-ORD-05                         Weekly Purchase Summary                 Rev 1.0
+GRV-BEV-ORD-06                         Do-Not-Reorder / Depletion Register     Rev 1.0
+GRV-BEV-PAR-01                         Par-Building Worksheet                  Rev 1.0
+GRV-BEV-PAR-02                         Par Change Authorization                Rev 1.0
+GRV-BEV-PAR-03                         Temporary Target Record                 Rev 1.0
+GRV-BEV-PAR-04                         Annual Par Review                       Rev 1.0
+GRV-BEV-REC-01                         Receiving Verification                  Rev 1.0
+GRV-BEV-REC-02                         Vendor Credit Tracker                   Rev 1.0
+GRV-BEV-VND-01                         Vendor Comparison                       Rev 1.0
+GRV-BEV-VND-02                         Vendor Review Card                      Rev 1.0
+GRV-BEV-VND-03                         Annual Vendor Review                    Rev 1.0
+GRV-BEV-CST-02                         Cost Change Register                    Rev 1.0
+GRV-BEV-SUP-01                         Bar Supply Inventory & Order            Rev 1.0
+GRV-BEV-SUP-02                         Supply Par Register                     Rev 1.0
+GRV-BEV-SUP-03                         Supply Stockout Log                     Rev 1.0
+GRV-BEV-MGT-07                         Monthly Management Review               Rev 1.0
+GRV-BEV-MGT-08                         Annual Beverage Purchasing Review       Rev 1.0
+GRV-BEV-MGT-09                         Annual Inventory Quality Review         Rev 1.0
+GRV-BEV-FUL-01                         Weekly Beverage Operating Record        Rev 1.0
+GRV-BEV-FUL-02                         Refill Book Transition Record           Rev 1.0
+GRV-BEV-REC-03 and GRV-BEV-FUL-03 are not active in this release. Their earlier concepts are covered by the
+Receiving Verification / Vendor Credit process and the annual review / refill-transition process respectively.
+
+
+
+
+THE GRAVITY SYSTEM                                                                                               81
+
+MASTER BEVERAGE INVENTORY
+GRV-BEV-INV-01 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date                   Primary Owner                    Verifier
+
+
+Purpose: Maintain the authoritative beverage inventory record across categories, quantities, usable inventory, value,
+targets, and order need.
+Use / Frequency: Set up initially; update during the primary inventory cycle and whenever permanent inventory structure
+changes.
+Product /       Size / Unit     Physical On      Unusable /   Usable On     Unit Cost         Value       Par / Target   Order
+Category                        Hand             Committed    Hand
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                                    Status / Evidence
+Source records agree with this form.                                 □ Verified □ Exception
+Exceptions have an owner and due date.                               □ Verified □ Exception
+Manager review completed.                                            □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+82                                                                                                                THE GRAVITY SYSTEM
+
+LIQUOR INVENTORY & ORDER
+GRV-BEV-INV-02 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date                   Primary Owner                    Verifier
+
+
+Purpose: Count usable liquor inventory and build the liquor order from approved targets rather than memory or shelf
+appearance.
+Use / Frequency: Use at each primary liquor inventory/order cycle; verify exceptions before the order is placed.
+Product /       Size / Unit     Physical On      Unusable /   Usable On     Unit Cost         Value       Par / Target   Order
+Category                        Hand             Committed    Hand
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                                    Status / Evidence
+Source records agree with this form.                                 □ Verified □ Exception
+Exceptions have an owner and due date.                               □ Verified □ Exception
+Manager review completed.                                            □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                                83
+
+WINE INVENTORY & ORDER
+GRV-BEV-INV-03 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date                   Primary Owner                    Verifier
+
+
+Purpose: Count usable wine inventory, including open-bottle equivalents where applicable, and build the wine order from
+approved targets.
+Use / Frequency: Use at each primary wine inventory/order cycle and whenever open-wine risk requires an additional
+check.
+Product /       Size / Unit     Physical On      Unusable /   Usable On     Unit Cost         Value       Par / Target   Order
+Category                        Hand             Committed    Hand
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                                    Status / Evidence
+Source records agree with this form.                                 □ Verified □ Exception
+Exceptions have an owner and due date.                               □ Verified □ Exception
+Manager review completed.                                            □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+84                                                                                                                THE GRAVITY SYSTEM
+
+PACKAGED BEER INVENTORY & ORDER
+GRV-BEV-INV-04 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date                   Primary Owner                    Verifier
+
+
+Purpose: Count packaged beer inventory by approved unit and build the packaged-beer order from targets and expected
+demand.
+Use / Frequency: Use at each packaged-beer inventory/order cycle; increase frequency when volume, events, or stockout
+risk justify it.
+Product /       Size / Unit     Physical On      Unusable /   Usable On     Unit Cost         Value       Par / Target   Order
+Category                        Hand             Committed    Hand
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                                    Status / Evidence
+Source records agree with this form.                                 □ Verified □ Exception
+Exceptions have an owner and due date.                               □ Verified □ Exception
+Manager review completed.                                            □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                                85
+
+DRAFT BEER INVENTORY & ORDER
+GRV-BEV-INV-05 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date                   Primary Owner                    Verifier
+
+
+Purpose: Record draft-beer inventory using the restaurant’s approved measurement method and build the draft order from
+verified need.
+Use / Frequency: Use at each draft inventory/order cycle and when keg yield, delivery timing, or stockout risk requires
+review.
+Product /       Size / Unit     Physical On      Unusable /   Usable On     Unit Cost         Value       Par / Target   Order
+Category                        Hand             Committed    Hand
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                                    Status / Evidence
+Source records agree with this form.                                 □ Verified □ Exception
+Exceptions have an owner and due date.                               □ Verified □ Exception
+Manager review completed.                                            □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+86                                                                                                                THE GRAVITY SYSTEM
+
+MIXER, JUICE & GARNISH INVENTORY
+GRV-BEV-INV-06 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date                   Primary Owner                    Verifier
+
+
+Purpose: Control mixers, juices, syrups, garnishes, and other beverage-support inventory that affects drink availability,
+waste, and ordering.
+Use / Frequency: Use at the primary beverage-support count/order cycle and more often for short-life or high-risk items.
+Product /       Size / Unit     Physical On      Unusable /   Usable On     Unit Cost         Value       Par / Target   Order
+Category                        Hand             Committed    Hand
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                                    Status / Evidence
+Source records agree with this form.                                 □ Verified □ Exception
+Exceptions have an owner and due date.                               □ Verified □ Exception
+Manager review completed.                                            □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                                87
+
+ZERO-PROOF INVENTORY
+GRV-BEV-INV-07 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date                   Primary Owner                    Verifier
+
+
+Purpose: Control the ingredients and finished inventory required for the approved zero-proof beverage program.
+Use / Frequency: Use at the normal beverage-support count/order cycle and before events or features that materially
+change zero-proof demand.
+Product /       Size / Unit     Physical On      Unusable /   Usable On     Unit Cost         Value       Par / Target   Order
+Category                        Hand             Committed    Hand
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                                    Status / Evidence
+Source records agree with this form.                                 □ Verified □ Exception
+Exceptions have an owner and due date.                               □ Verified □ Exception
+Manager review completed.                                            □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+88                                                                                                                THE GRAVITY SYSTEM
+
+INVENTORY ACCURACY TEST
+GRV-BEV-INV-08 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date                      Primary Owner                       Verifier
+
+
+Purpose: Compare expected ending inventory with the physical count and identify differences that require verification
+before a cause is assigned.
+Use / Frequency: Use when reconciling inventory periods, investigating count reliability, or validating material inventory
+differences.
+Product         Previous        Purchases        Transfers In   Transfers Out   Documented       Expected       Physical   Difference
+Count                                                           Usage / Adj.     Ending         Ending
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                                       Status / Evidence
+Source records agree with this form.                                    □ Verified □ Exception
+Exceptions have an owner and due date.                                  □ Verified □ Exception
+Manager review completed.                                               □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                                       89
+
+DEAD INVENTORY REVIEW
+GRV-BEV-INV-09 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date           Primary Owner                   Verifier
+
+
+Purpose: Identify slow, dead, deplete, seasonal, or review inventory and document the approved disposition decision.
+Use / Frequency: Review monthly and whenever an item shows repeated no-movement, obsolete menu use, or
+questionable shelf justification.
+Product             Qty                    Value     Menu Reach       Last Meaningful   Status              Decision
+Use
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                            Status / Evidence
+Source records agree with this form.                         □ Verified □ Exception
+Exceptions have an owner and due date.                       □ Verified □ Exception
+Manager review completed.                                    □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+90                                                                                                       THE GRAVITY SYSTEM
+
+FIRST INVENTORY SUMMARY
+GRV-BEV-INV-10 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date           Primary Owner                 Verifier
+
+
+Purpose: Establish the opening inventory and value baseline by category before the restaurant begins or materially resets
+the beverage-control process.
+Use / Frequency: Complete at initial installation and again only after a documented major reset or ownership/accounting
+baseline change.
+Liquor Inventory Value: ______________________________
+Wine Inventory Value: ______________________________
+Beer Inventory Value: ______________________________
+Mixer / Other Beverage Value: ______________________________
+Total Beverage Inventory Value: ______________________________
+Dead / Review Inventory Value: ______________________________
+
+MANAGEMENT VERIFICATION
+Verification Item                                            Status / Evidence
+Source records agree with this form.                         □ Verified □ Exception
+Exceptions have an owner and due date.                       □ Verified □ Exception
+Manager review completed.                                    □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                     91
+
+STANDARD ON-HAND INVENTORY WORKSHEET
+GRV-BEV-INV-11 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date                   Primary Owner                    Verifier
+
+
+Purpose: Record the approved on-hand inventory architecture so management can compare current stock with the
+intended operating position.
+Use / Frequency: Set up during installation; review when inventory tiers, menu architecture, or approved permanent
+holdings change.
+Product /       Size / Unit     Physical On      Unusable /   Usable On     Unit Cost         Value       Par / Target   Order
+Category                        Hand             Committed    Hand
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                                    Status / Evidence
+Source records agree with this form.                                 □ Verified □ Exception
+Exceptions have an owner and due date.                               □ Verified □ Exception
+Manager review completed.                                            □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+92                                                                                                                THE GRAVITY SYSTEM
+
+CURRENT BAR INVENTORY REALITY CHECK
+GRV-BEV-INV-12 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date           Primary Owner                 Verifier
+
+
+Purpose: Expose the current bar inventory reality, including excess depth, one-use items, uncertain costs, dead stock, and
+products that lack a clear operating reason.
+Use / Frequency: Complete during installation and repeat when inventory bloat, dead stock, or major menu/inventory
+changes justify a fresh reality check.
+Spirit SKUs: _________________________
+Wine SKUs: _________________________
+Packaged Beer SKUs: _________________________
+Draft Selections: _________________________
+Modifier / Liqueur SKUs: _________________________
+Products Not Used in 30 Days: _________________________
+Products With No Current Selling Purpose: _________________________
+
+MANAGEMENT VERIFICATION
+Verification Item                                            Status / Evidence
+Source records agree with this form.                         □ Verified □ Exception
+Exceptions have an owner and due date.                       □ Verified □ Exception
+Manager review completed.                                    □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                     93
+
+GRAVITY SMART ORDER
+GRV-BEV-ORD-01 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date                   Primary Owner                Verifier
+
+
+Purpose: Build the controlled beverage order from Target Need and Usable Inventory On Hand, then preserve any
+approved management adjustment.
+Use / Frequency: Use for every primary beverage order.
+Product             Target Need            Usable On Hand   Suggested Order   Management      Reason             Final Order
+Adjustment
+
+
+
+
+Suggested Order = Target Need - Usable Inventory On Hand
+Final Order = Suggested Order +/- Approved Management Adjustment
+
+MANAGEMENT VERIFICATION
+Verification Item                                                    Status / Evidence
+Source records agree with this form.                                 □ Verified □ Exception
+Exceptions have an owner and due date.                               □ Verified □ Exception
+Manager review completed.                                            □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+94                                                                                                            THE GRAVITY SYSTEM
+
+WEEKLY ORDER EXCEPTION RECORD
+GRV-BEV-ORD-02 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date         Primary Owner                 Verifier
+
+
+Purpose: Document why the Final Order differs from the mathematically Suggested Order so the decision can be
+understood and verified later.
+Use / Frequency: Use whenever an approved event, shortage, delivery, weather, price, menu, stockout, or other exception
+changes the Suggested Order.
+□ Event
+□ Holiday
+□ Weather
+□ Large Reservation
+□ Promotion
+□ Delivery Change
+□ Vendor Shortage
+□ Price Change
+□ Menu Change
+□ Stockout Recovery
+□ Seasonal Transition
+□ Other
+Affected Product / Category: ___________________________________
+Adjustment: ___________________________________
+Reason / Evidence: _____________________________________________
+
+MANAGEMENT VERIFICATION
+Verification Item                                          Status / Evidence
+Source records agree with this form.                       □ Verified □ Exception
+Exceptions have an owner and due date.                     □ Verified □ Exception
+Manager review completed.                                  □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                   95
+
+ORDER BUDGET CONTROL
+GRV-BEV-ORD-03 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date              Primary Owner            Verifier
+
+
+Purpose: Compare the justified order need with the approved purchasing budget so inventory and cash decisions are
+reviewed together.
+Use / Frequency: Use for primary order cycles where a purchasing budget/range is established and whenever an
+exception materially changes expected spend.
+Category                    Planned                  Proposed                Approved           Difference / Note
+Liquor
+Wine
+Beer
+Mixers
+Event / Specialty
+TOTAL
+
+MANAGEMENT VERIFICATION
+Verification Item                                               Status / Evidence
+Source records agree with this form.                            □ Verified □ Exception
+Exceptions have an owner and due date.                          □ Verified □ Exception
+Manager review completed.                                       □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+96                                                                                                   THE GRAVITY SYSTEM
+
+EVENT & HOLIDAY ORDER PLANNER
+GRV-BEV-ORD-04 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date                 Primary Owner                      Verifier
+
+
+Purpose: Translate an approved event or holiday demand change into temporary beverage targets and an event-specific
+purchasing plan.
+Use / Frequency: Complete before any event/holiday expected to materially change normal beverage demand; close or
+expire temporary targets afterward.
+Event / Holiday: ___________________________________
+Date: __________________
+Expected Covers / Demand Change: ____________________________
+Item                    Normal Target           Temporary Target   Usable On Hand           Suggested Order      Final Order
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                                  Status / Evidence
+Source records agree with this form.                               □ Verified □ Exception
+Exceptions have an owner and due date.                             □ Verified □ Exception
+Manager review completed.                                          □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                              97
+
+WEEKLY PURCHASE SUMMARY
+GRV-BEV-ORD-05 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date            Primary Owner             Verifier
+
+
+Purpose: Summarize actual weekly beverage-product and supply purchases by category so management can see where
+the purchasing story changed.
+Use / Frequency: Complete weekly from invoice records; review against plan, sales, inventory value, and known
+exceptions.
+Category                    Planned                  Actual                Difference          Reason / Action
+Liquor
+Wine
+Packaged Beer
+Draft
+Mixers
+Bar Supplies
+Specialty / Event
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                             Status / Evidence
+Source records agree with this form.                          □ Verified □ Exception
+Exceptions have an owner and due date.                        □ Verified □ Exception
+Manager review completed.                                     □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+98                                                                                                  THE GRAVITY SYSTEM
+
+DO-NOT-REORDER / DEPLETION REGISTER
+GRV-BEV-ORD-06 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date           Primary Owner                       Verifier
+
+
+Purpose: Prevent depleted, retired, seasonal, or review inventory from automatically re-entering the order simply because
+the shelf becomes empty.
+Use / Frequency: Update whenever a product receives Deplete, Review, Seasonal, Test, or retirement direction; check
+before every applicable order.
+Product                 Qty On Hand             Value        Reason                   Approved Use /        Do Not Reorder Until
+Depletion Plan
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                            Status / Evidence
+Source records agree with this form.                         □ Verified □ Exception
+Exceptions have an owner and due date.                       □ Verified □ Exception
+Manager review completed.                                    □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                                  99
+
+PAR-BUILDING WORKSHEET
+GRV-BEV-PAR-01 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date              Primary Owner                   Verifier
+
+
+Purpose: Build a normal Par from observed demand, delivery timing, storage capacity, stockout risk, and management
+judgment.
+Use / Frequency: Use when establishing a new Par and whenever evidence shows the current Par no longer supports
+normal operations.
+Product             Current Par            Avg Usage   Peak Usage        Delivery / Lead   Proposed Par /       Evidence / Reason
+Time              Target
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                               Status / Evidence
+Source records agree with this form.                            □ Verified □ Exception
+Exceptions have an owner and due date.                          □ Verified □ Exception
+Manager review completed.                                       □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+100                                                                                                          THE GRAVITY SYSTEM
+
+PAR CHANGE AUTHORIZATION
+GRV-BEV-PAR-02 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date              Primary Owner                   Verifier
+
+
+Purpose: Authorize a permanent Par change only when the evidence, owner, effective date, and review point are
+documented.
+Use / Frequency: Use every time management changes a normal permanent Par.
+Product             Current Par            Avg Usage   Peak Usage        Delivery / Lead   Proposed Par /   Evidence / Reason
+Time              Target
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                               Status / Evidence
+Source records agree with this form.                            □ Verified □ Exception
+Exceptions have an owner and due date.                          □ Verified □ Exception
+Manager review completed.                                       □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                         101
+
+TEMPORARY TARGET RECORD
+GRV-BEV-PAR-03 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date              Primary Owner                   Verifier
+
+
+Purpose: Create a time-limited Temporary Target for an approved event or exception without silently changing the normal
+Par.
+Use / Frequency: Use before the approved exception; include an expiration/review point and return to normal Par when
+the exception ends.
+Product             Current Par            Avg Usage   Peak Usage        Delivery / Lead   Proposed Par /       Evidence / Reason
+Time              Target
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                               Status / Evidence
+Source records agree with this form.                            □ Verified □ Exception
+Exceptions have an owner and due date.                          □ Verified □ Exception
+Manager review completed.                                       □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+102                                                                                                          THE GRAVITY SYSTEM
+
+ANNUAL PAR REVIEW
+GRV-BEV-PAR-04 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date              Primary Owner                   Verifier
+
+
+Purpose: Review the full Par structure for continued fit with demand, delivery timing, storage, cash, stockout history, and
+menu changes.
+Use / Frequency: Complete annually and after any material operating change that justifies a full-system Par review.
+Product             Current Par            Avg Usage   Peak Usage        Delivery / Lead   Proposed Par /   Evidence / Reason
+Time              Target
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                               Status / Evidence
+Source records agree with this form.                            □ Verified □ Exception
+Exceptions have an owner and due date.                          □ Verified □ Exception
+Manager review completed.                                       □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                         103
+
+RECEIVING VERIFICATION
+GRV-BEV-REC-01 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date               Primary Owner                 Verifier
+
+
+Purpose: Verify that the delivered product, quantity, condition, invoice cost, substitutions, shortages, and credits match the
+approved order and receiving standard.
+Use / Frequency: Use for every beverage delivery; unresolved exceptions remain open until corrected or credited.
+Item                Ordered                Delivered   Expected Unit      Invoice Cost    Substitution /       Credit Due
+Cost                               Damage /
+Shortage
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                                Status / Evidence
+Source records agree with this form.                             □ Verified □ Exception
+Exceptions have an owner and due date.                           □ Verified □ Exception
+Manager review completed.                                        □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+104                                                                                                         THE GRAVITY SYSTEM
+
+VENDOR CREDIT TRACKER
+GRV-BEV-REC-02 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date                Primary Owner                    Verifier
+
+
+Purpose: Track vendor credits from shortage, damage, return, pricing correction, or other approved discrepancy through
+actual receipt of the credit.
+Use / Frequency: Open whenever a credit is owed; update until the credit appears and is independently verified.
+Vendor              Invoice            Reason        Credit Due   Expected Date    Actual Credit   Verified By   Status
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                                 Status / Evidence
+Source records agree with this form.                              □ Verified □ Exception
+Exceptions have an owner and due date.                            □ Verified □ Exception
+Manager review completed.                                         □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                         105
+
+VENDOR COMPARISON
+GRV-BEV-VND-01 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date              Primary Owner              Verifier
+
+
+Purpose: Compare vendors on total operating value—not price alone—including availability, minimums, delivery, fill rate,
+credits, support, and administrative burden.
+Use / Frequency: Use before approving a new/alternate vendor and when a meaningful sourcing comparison is required.
+Vendor              Price / Package    Minimum       Delivery   Reliability      Credits   Substitution    Decision / Note
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                               Status / Evidence
+Source records agree with this form.                            □ Verified □ Exception
+Exceptions have an owner and due date.                          □ Verified □ Exception
+Manager review completed.                                       □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+106                                                                                                    THE GRAVITY SYSTEM
+
+VENDOR REVIEW CARD
+GRV-BEV-VND-02 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date              Primary Owner                 Verifier
+
+
+Purpose: Record a current operating review of a beverage vendor using price, reliability, shortages, substitutions, credits,
+service, and support evidence.
+Use / Frequency: Review on the restaurant’s vendor-review cadence and whenever repeated vendor exceptions justify an
+immediate review.
+Vendor              Price / Package    Minimum       Delivery   Reliability      Credits      Substitution   Decision / Note
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                               Status / Evidence
+Source records agree with this form.                            □ Verified □ Exception
+Exceptions have an owner and due date.                          □ Verified □ Exception
+Manager review completed.                                       □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                        107
+
+ANNUAL VENDOR REVIEW
+GRV-BEV-VND-03 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date              Primary Owner              Verifier
+
+
+Purpose: Evaluate each active beverage vendor across the full year and document retain, improve, rebid, replace, or
+secondary-source decisions.
+Use / Frequency: Complete annually before the next purchasing cycle/contract decision.
+Vendor              Price / Package    Minimum       Delivery   Reliability      Credits   Substitution    Decision / Note
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                               Status / Evidence
+Source records agree with this form.                            □ Verified □ Exception
+Exceptions have an owner and due date.                          □ Verified □ Exception
+Manager review completed.                                       □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+108                                                                                                    THE GRAVITY SYSTEM
+
+COST CHANGE REGISTER
+GRV-BEV-CST-02 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date              Primary Owner                 Verifier
+
+
+Purpose: Capture vendor cost changes and route them to the recipes, selling prices, pars, budgets, and management
+decisions affected by the change.
+Use / Frequency: Update whenever a verified invoice or vendor notice changes an approved beverage-product cost.
+Product             Previous Cost          New Cost   Dollar Change      Change %        Affected Recipes /   Action
+Orders
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                               Status / Evidence
+Source records agree with this form.                            □ Verified □ Exception
+Exceptions have an owner and due date.                          □ Verified □ Exception
+Manager review completed.                                       □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                      109
+
+BAR SUPPLY INVENTORY & ORDER
+GRV-BEV-SUP-01 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date         Primary Owner                   Verifier
+
+
+Purpose: Count and order non-product bar supplies separately from beverage product so operating supplies do not
+corrupt beverage-cost calculations.
+Use / Frequency: Use at the approved bar-supply count/order cycle.
+Supply Item         Unit                   On Hand   Par            Suggested Order   Final Order         Stockout / Note
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                          Status / Evidence
+Source records agree with this form.                       □ Verified □ Exception
+Exceptions have an owner and due date.                     □ Verified □ Exception
+Manager review completed.                                  □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+110                                                                                                    THE GRAVITY SYSTEM
+
+SUPPLY PAR REGISTER
+GRV-BEV-SUP-02 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date            Primary Owner                   Verifier
+
+
+Purpose: Maintain approved normal Pars for bar operating supplies using demand, delivery timing, storage, and stockout
+exposure.
+Use / Frequency: Set up initially; review when recurring excess, stockouts, delivery changes, or operating changes justify
+adjustment.
+Supply Item         Unit                   On Hand   Par               Suggested Order   Final Order      Stockout / Note
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                             Status / Evidence
+Source records agree with this form.                          □ Verified □ Exception
+Exceptions have an owner and due date.                        □ Verified □ Exception
+Manager review completed.                                     □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                           111
+
+SUPPLY STOCKOUT LOG
+GRV-BEV-SUP-03 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date           Primary Owner                   Verifier
+
+
+Purpose: Record bar-supply stockouts, service impact, cause, corrective action, and follow-up so recurring supply failures
+become visible.
+Use / Frequency: Use whenever a meaningful supply stockout or near-stockout affects operations.
+Supply Item         Unit                   On Hand   Par              Suggested Order   Final Order         Stockout / Note
+
+
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                            Status / Evidence
+Source records agree with this form.                         □ Verified □ Exception
+Exceptions have an owner and due date.                       □ Verified □ Exception
+Manager review completed.                                    □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+112                                                                                                      THE GRAVITY SYSTEM
+
+MONTHLY MANAGEMENT REVIEW
+GRV-BEV-MGT-07 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date           Primary Owner                 Verifier
+
+
+Purpose: Turn the month’s inventory, purchasing, sales, cost, variance, dead-stock, stockout, vendor, and Par records into
+management decisions for the next month.
+Use / Frequency: Complete monthly after the period’s primary inventory and financial results are available.
+Measure                     Current                  Prior                Target                  Action
+Inventory Value
+Product Purchases
+Supply Purchases
+Beverage Sales
+Actual Cost %
+Theoretical Cost %
+Variance
+Dead Inventory
+Stockouts
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                            Status / Evidence
+Source records agree with this form.                         □ Verified □ Exception
+Exceptions have an owner and due date.                       □ Verified □ Exception
+Manager review completed.                                    □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                    113
+
+ANNUAL BEVERAGE PURCHASING REVIEW
+GRV-BEV-MGT-08 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date        Primary Owner                Verifier
+
+
+Purpose: Review the year’s beverage purchasing performance, recurring exceptions, budget behavior, emergency buys,
+vendor credits, and purchasing-control opportunities.
+Use / Frequency: Complete annually at year-end or the restaurant’s designated annual beverage review.
+Annual Purchasing Measure              Result             Trend / Issue                Next-Year Action
+Product Purchases
+Emergency Purchases
+Stockouts
+Vendor Credits
+Cost Changes
+Event Exceptions
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                         Status / Evidence
+Source records agree with this form.                      □ Verified □ Exception
+Exceptions have an owner and due date.                    □ Verified □ Exception
+Manager review completed.                                 □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+114                                                                                                THE GRAVITY SYSTEM
+
+ANNUAL INVENTORY QUALITY REVIEW
+GRV-BEV-MGT-09 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date              Primary Owner                   Verifier
+
+
+Purpose: Evaluate the quality of the inventory system itself: count reliability, inventory value, dead stock, stockouts, Par
+quality, and unresolved control weaknesses.
+Use / Frequency: Complete annually and after a major inventory-control reset.
+Inventory Quality Measure              Start of Year            End of Year                     Decision
+Inventory Value
+Dead Inventory
+Deplete Items
+Stockouts
+Count Accuracy Exceptions
+Par Changes
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                               Status / Evidence
+Source records agree with this form.                            □ Verified □ Exception
+Exceptions have an owner and due date.                          □ Verified □ Exception
+Manager review completed.                                       □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                         115
+
+WEEKLY BEVERAGE OPERATING RECORD
+GRV-BEV-FUL-01 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date          Primary Owner                       Verifier
+
+
+Purpose: Preserve the weekly operating story—inventory, order, receiving, exceptions, results, and next actions—without
+repeating the largest master forms every week.
+Use / Frequency: Complete once each operating week; use supporting master forms whenever the weekly record
+identifies an exception.
+□ Inventory complete
+□ Order complete
+□ Exceptions documented
+□ Credits reviewed
+□ Weekly results reviewed
+Measure                                          Result                              Exception / Action
+Beverage Sales
+Actual Cost %
+Theoretical Cost %
+Variance
+Inventory Value
+Purchases
+Stockouts
+
+MANAGEMENT VERIFICATION
+Verification Item                                           Status / Evidence
+Source records agree with this form.                        □ Verified □ Exception
+Exceptions have an owner and due date.                      □ Verified □ Exception
+Manager review completed.                                   □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+116                                                                                                         THE GRAVITY SYSTEM
+
+REFILL BOOK TRANSITION RECORD
+GRV-BEV-FUL-02 | Rev 1.0 | Gravity Beverage Control
+Restaurant                             Record Date                 Primary Owner            Verifier
+
+
+Purpose: Carry current approved Form IDs/revisions, Pars, open Temporary Targets, vendor issues, credits, depletion
+decisions, and management actions into the next refill record without resetting the truth.
+Use / Frequency: Complete when transitioning from the master book to a validated refill book or new annual record.
+Transition Item                        Current Standard / Status   Form ID / Revision       Open Action / Owner
+Active Pars
+Temporary Targets
+Vendor Status
+Outstanding Credits
+Deplete / Do-Not-Reorder
+Open Management Actions
+
+
+MANAGEMENT VERIFICATION
+Verification Item                                                  Status / Evidence
+Source records agree with this form.                               □ Verified □ Exception
+Exceptions have an owner and due date.                             □ Verified □ Exception
+Manager review completed.                                          □ Verified □ Exception
+Decision / Follow-Up: ________________________________________
+Verifier: ________________________
+Date: ______________
+Follow-Up Due: ______________
+
+
+
+
+THE GRAVITY SYSTEM                                                                                                    117
+
+RESPONSIBILITY & VERIFICATION STANDARD
+Every recurring task in this book should answer four questions: Who owns the task? Who verifies it? When is it due? What
+happens when it is wrong?
+Use role or function before job title where practical. Verification should be risk-based. Small restaurants may use
+compensating verification when full segregation of duties is not possible.
+The system owns the process. A person owns the task. Management owns the exception. Leadership owns the
+unresolved risk. No important operating problem should survive simply because everyone assumed somebody
+else was handling it.
+
+
+
+
+118                                                                                                THE GRAVITY SYSTEM
+
+FINAL WORKING-BOOK COMMITMENT
+Restaurant: ___________________________________
+Implementation Lead: ______________________________
+Start Date: __________________
+First Weekly Review: __________________
+First Monthly Review: __________________
+Annual Closeout Date: __________________
+Do not order from memory. Do not order from an empty shelf. Order from inventory, demand, par, delivery timing,
+and a management decision.
+Truth first. Calculation second. Decision third. Action fourth. Verification always.
+
+
+
+
+THE GRAVITY SYSTEM                                                                                          119
+
+THE GRAVITY RESTAURANT LEADERSHIP SYSTEM
+
+
+
+G             HELP IMPROVE GRAVITY
+USE IT. TEST IT. TELL US THE TRUTH.
+Published by Thomas Monroe Books
+
+
+
+
+USE IT. THEN TELL US WHAT HAPPENED.
+
+Gravity is being used in real restaurant work so owners, managers, trainers, and team leaders can help prove what is
+useful, what is unclear, and what should improve next. We want the truth about what worked, what did not work, and
+what would make the system more practical.
+
+
+
+
+WHY YOUR EXPERIENCE MATTERS                                                                       THE FEEDBACK THAT HELPS MOST
+
+A book or tool is only valuable if it holds up during a real shift,                               - What you used and the problem you were solving
+with real people, pressure, and consequences. Your specific                                       - What worked in actual restaurant conditions
+experience helps us distinguish a strong idea from a proven                                       - What felt unclear, repetitive, incomplete, or impractical
+operating practice.                                                                               - What changed after the product was used
+- What would make the next revision more useful
+Honest criticism is useful evidence.
+
+
+WHY REVIEWS MATTER
+
+Positive, mixed, and critical reviews are all useful. A specific review helps another restaurant decide where to begin, helps Gravity
+identify which tools create real value, and helps future revisions become clearer and more practical. You never owe us a favorable
+rating.
+
+SCAN WITH YOUR PHONE CAMERA
+
+
+PUBLIC REVIEW                                                    PRIVATE FEEDBACK                                                OPTIONAL DONATION
+
+Share your experience                                            Tell us directly                                                Support the work
+
+
+
+
+Feedback and donations are optional. Never include confidential information.
+
+
+
+
+Founding Year note: Completed digital Gravity products are available at no cost through October 1, 2027. Registration is required before digital downloads. No purchase, donation,
+credit card, paid subscription, or positive review is required. Use the current version at thomasmonroebooks.com/releases.
+
+
+
+
+HOW FEEDBACK IMPROVES THE SYSTEM
+
+
+USE                                                          REPORT                                                       IMPROVE
+1       Apply the current product in real                    2       Share the result, the friction, and                  3       Gravity uses the evidence to
+restaurant work.                                             what is missing.                                             strengthen the next revision.
+
+
+
+
+THE GRAVITY SYSTEM | FEEDBACK AND REVIEWS INSERT | v1.3 | 2026-09-18                                                               Copyright 2026 Thomas Butler | Thomas Monroe Books
+

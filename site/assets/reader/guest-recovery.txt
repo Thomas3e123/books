@@ -1,0 +1,3110 @@
+Guest Service, Complaints &
+Recovery Workbook
+A Practical Restaurant Manager’s Workbook for Guest Experience,
+Complaint Tracking, and Service Recovery
+
+COMPLETE PRACTICAL WORKBOOK
+THOMAS BUTLER
+Thomas Monroe Books
+The Restaurant Manager’s Toolkit
+
+
+Copyright, Use, and Important Limits
+Copyright © 2026 Thomas Butler. Published by Thomas Monroe Books. First workbook edition, September 2026.
+All rights reserved except for blank guided-practice pages reproduced for internal use by the purchasing or
+authorized restaurant operation.
+
+IMPORTANT
+This workbook is educational restaurant-management guidance. It is not legal, medical, food-safety, insurance,
+emergency-response, privacy, or platform-policy advice. Restaurants must adapt the material to current federal,
+state, local, company, insurance, health-code, alcohol, accessibility, platform, and other applicable requirements.
+High-risk concerns must be routed through the restaurant’s approved emergency, safety, ownership, HR, insurance,
+or legal channels as appropriate.
+
+The workbook teaches manager judgment and guided practice. The Gravity Guest Relationship & Retention
+System (GRV-R) remains the controlled operating system for permanent tool IDs, official forms, ownership,
+access, retention, review cadence, and restaurant records. Do not create a second competing set of GRV-R IDs
+from this workbook.
+Protect guest and employee privacy. Record only facts needed for service, recovery, follow-up, safety, or
+management action. Do not collect payment-card numbers, passwords, government identification numbers,
+medical diagnoses, rumors, or unrelated personal information in workbook practice pages.
+
+
+How to Use This Workbook
+Use the chapter that matches the current pressure, complete the guided practice, then move permanent operating
+evidence into the controlled GRV-R record named in the chapter or forms directory. The book is designed to
+strengthen judgment; it does not replace the operating system.
+ Start with the guest’s actual impact and the verified operating facts.
+ Correct what can be corrected immediately without guessing or promising outside authority.
+ Escalate safety, conduct, legal, financial, privacy, or reputation risks through approved channels.
+ Document material cases, ownership, follow-up, and system correction.
+ Review material complaints daily and patterns weekly.
+ Use Truth → Cost → System to decide whether a new control is actually needed.
+
+The working cycle
+Stage Manager output Controlled support
+
+Hear Guest impact and concern understood GRV-R07
+
+Classify Category, severity, and escalation path GRV-R07 / GRV-R08
+
+Recover Operational correction and authorized GRV-R09 / GRV-R10
+remedy
+
+Follow Named owner, deadline, attempts, GRV-R11
+closure
+
+Learn Repeat theme and verified likely cause GRV-R12
+
+Correct Action owner, evidence, verification, GRV-R30 / GRV-IV
+closure
+
+Review Weekly decisions and next priorities GRV-R28
+
+
+Gravity Product Relationship
+Gravity product Unique job in this workbook
+
+Quiet Gravity Human standard: dignity, restraint, honesty, fairness, and
+calm use of authority.
+
+The Owner’s Chair Authority standard: owner/GM responsibility, decision rights,
+and consequences of unclear leadership.
+
+Systems of Service Operating context: flow, preparation, communication,
+pressure, recovery, and consistent guest experience.
+
+Employee Training & SOP Tracker Trains the service and recovery standards employees are
+expected to perform.
+
+Restaurant SOP & Station Operations Builder Builds and controls the procedures that complaints may
+reveal need repair.
+
+Gravity Restaurant SOP Library Provides customizable guest complaint, recovery, safety,
+and special-situation procedures.
+
+GRV-R Guest Relationship & Retention Controls permanent guest-recovery records, ownership,
+cadence, and retention evidence.
+
+GRV-IV Verifies installed corrective actions and closes the loop after
+the process changes.
+
+BOUNDARY
+This workbook owns recovery judgment and guided practice. It does not become a second SOP library, a CRM
+database, a legal manual, a reputation-marketing system, or a replacement for controlled GRV-R records.
+
+
+Contents
+Part 1: Face the Guest Experience Truth ........................................................ 9
+Chapter 1 Guest Experience Is a System ........................................................ 10
+Chapter 2 The True Cost of a Bad Guest Experience ........................................................ 14
+Chapter 3 A Complaint Is a Signal, Not a Verdict ........................................................ 18
+Chapter 4 Failure, Preference, Policy, or Expectation? ........................................................ 22
+Part 2: Build the Recovery Standard ........................................................ 26
+Chapter 5 Standards Must Exist Before Recovery ........................................................ 27
+Chapter 6 Complaint Categories That Lead to Action ........................................................ 31
+Chapter 7 Severity and Escalation ........................................................ 35
+Chapter 8 Listen Without Defending ........................................................ 39
+Chapter 9 Acknowledge the Impact ........................................................ 43
+Part 3: Recover in Real Time ........................................................ 47
+Chapter 10 The Manager Table Visit ........................................................ 48
+Chapter 11 Recovery Authority Before the Rush ........................................................ 52
+Chapter 12 Proportionate Recovery ........................................................ 56
+Chapter 13 Wrong Order and Missing Item Recovery ........................................................ 60
+
+
+Contents — continued
+Chapter 14 Delay, Pacing, and Expectation Failure ........................................................ 64
+Chapter 15 Food Quality and Product Concerns ........................................................ 68
+Chapter 16 Allergy and Immediate Safety Concerns ........................................................ 72
+Chapter 17 Illness, Injury, Foreign Object, and Other High-Risk Reports ........................................................ 76
+Chapter 18 Conduct, Harassment, Threats, and Disruptive Behavior ........................................................ 80
+Chapter 19 Payment, Billing, Comp, and Refund Disputes ........................................................ 84
+Chapter 20 When the First Recovery Does Not Work ........................................................ 88
+Part 4: Turn Complaints into Evidence ........................................................ 92
+Chapter 21 Document Facts Without Writing a Story ........................................................ 93
+Chapter 22 Follow-Up Is Part of the Recovery ........................................................ 97
+Chapter 23 Online Reviews: Public Response, Private Recovery ........................................................ 101
+Chapter 24 Compliments and Positive Signals ........................................................ 105
+Chapter 25 Pattern Analysis: Close the Cause, Not Only the Case ........................................................ 109
+Part 5: Read the Whole Guest Signal ........................................................ 113
+Chapter 26 Review Requests and Honest Reputation ........................................................ 114
+Chapter 27 Guest Return and Relationship Repair ........................................................ 118
+
+
+Contents — continued
+Chapter 28 Guest Preferences, Recognition, and Privacy ........................................................ 122
+Chapter 29 What the Guest Did Not Say ........................................................ 126
+Part 6: Coach the Cause and Correct the System ........................................................ 130
+Chapter 30 Coach the Cause, Not the Person ........................................................ 131
+Chapter 31 Correct the System, Then Verify ........................................................ 135
+Chapter 32 Recognition, Accountability, and Fairness ........................................................ 139
+Part 7: Manage Guest Experience as a Control ........................................................ 143
+Chapter 33 The Weekly Guest Experience Review ........................................................ 144
+Chapter 34 Measure What Helps a Decision ........................................................ 148
+Chapter 35 Truth → Cost → System: The Recovery Control Loop ........................................................ 152
+Manager Judgment Lab: 20 Recovery Scenarios ........................................................ 156
+30-Day Guest Complaint Recovery Improvement Plan ........................................................ 177
+Controlled GRV-R Cross-Reference Directory ........................................................ 181
+Operational Glossary ........................................................ 183
+Final Manager Readiness Assessment ........................................................ 187
+
+
+The Gravity Guest Recovery Standard
+CENTRAL STANDARD
+Recovery is complete only when the guest impact is addressed as far as reasonably possible, promised follow-up is
+owned, and material evidence is converted into a better management decision or verified operating correction.
+
+A complaint should never be used as an excuse to ignore facts, and facts should never be used as an excuse to
+ignore the guest. Gravity requires both.
+
+Truth → Cost → System
+Step Question Manager evidence
+
+Truth What actually happened to the guest Guest report, direct observation,
+and in the operation? ticket/POS timing, product, service
+sequence, policy, witnesses, records.
+
+Cost What did this truth cost or risk? Guest trust, time, product, labor,
+rework, table flow, recovery dollars,
+team confidence, safety, reputation.
+
+System What repeatable control addresses the Standard, authority, handoff, training,
+verified cause? tool, staffing rule, escalation, corrective
+action, verification.
+
+Do not add paperwork because a complaint feels serious. Add or repair a control only when the evidence shows a
+repeatable problem that requires a repeatable response.
+
+
+PART 1
+
+FACE THE GUEST EXPERIENCE
+TRUTH
+Separate emotion from evidence. A complaint is a real guest experience to
+address, but it is also operating information. The manager’s job is to protect the
+guest, protect the team from guesswork, and find the condition that allowed the
+miss.
+
+
+CHAPTER 1
+
+Guest Experience Is a System
+Show why guest experience is produced by connected operating conditions rather than personality alone.
+
+The operating truth
+The guest experiences the restaurant as one operation. They do not separate the host stand, server, bar, kitchen,
+expo, dish, manager, payment process, and facility into different departments.
+
+What the restaurant pays when this is missed
+When leaders treat each complaint as an isolated person problem, the same handoff or capacity failure survives
+and the restaurant pays through remakes, comps, slower tables, distrust, negative reviews, and employee
+frustration.
+
+MANAGER TEST
+Can you explain the guest impact, the verified operating facts, the authority used, and what must happen next
+without blaming a person you have not yet heard from?
+
+
+Chapter 1 Field Guide
+Use these rules on a real shift
+1. Map the full guest path before assigning blame.
+2. Ask where the first preventable miss occurred, not only where the guest finally complained.
+3. Separate the person who discovered the failure from the condition that created it.
+4. Use direct observation, tickets, timing, and records to test the story.
+5. Fix the weakest handoff that is producing repeat consequences.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R07 Guest Feedback & Concern Record; GRV-R28 Weekly Guest Relationship Review. Use the current
+approved version. This workbook page is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Table That Waited Everywhere
+A party was greeted late, drinks were slow, one entrée arrived after the others, and payment took too long. The
+server receives the complaint, but no single event explains the guest’s frustration.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 1 Action Record
+Complete this guided-practice page for one real or representative decision involving “Guest Experience Is a
+System.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 2
+
+The True Cost of a Bad Guest Experience
+Make managers calculate the operating and relationship cost instead of treating recovery only as the value of a
+comp.
+
+TRUTH FIRST
+The visible recovery cost may be a replacement item or discount. The larger cost can include rework, labor time,
+delayed table turns, manager attention, lost repeat visits, review exposure, and team confidence.
+
+The hidden cost
+If the restaurant measures only comps, leaders may celebrate low recovery spending while guests simply stop
+returning or employees hide problems to avoid a manager reaction.
+
+A practical distinction
+For “The True Cost of a Bad Guest Experience,” the guest-facing decision and the management decision are
+related but not identical. Address the immediate impact first, then preserve enough evidence to determine
+whether a standard, handoff, authority limit, training step, or other operating condition needs repair.
+
+
+Chapter 2 Field Guide
+Use these rules on a real shift
+6. Record direct recovery cost when known.
+7. Record operational consequences such as remake time, manager minutes, and delayed service.
+8. Distinguish an isolated expensive recovery from a cheap failure that repeats every night.
+9. Review lost trust as a risk, not as a number you can always know precisely.
+10. Spend recovery resources where they repair impact and reveal the cause.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R07 Guest Feedback & Concern Record; GRV-R28 Weekly Guest Relationship Review. Use the current
+approved version. This workbook page is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Free Dessert That Was Not
+Cheap
+A manager comps a dessert after a delayed entrée and marks the problem solved. The kitchen repeats the same
+ticket-delay pattern on three more tables that week.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 2 Action Record
+Complete this guided-practice page for one real or representative decision involving “The True Cost of a Bad
+Guest Experience.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 3
+
+A Complaint Is a Signal, Not a Verdict
+Teach managers to respect the complaint without assuming every statement is complete or every requested
+remedy is appropriate.
+
+Start with this distinction
+A complaint is evidence that the guest experienced a problem or mismatch. It is not automatically proof of cause,
+intent, employee misconduct, or the correct financial remedy.
+
+COST OF GETTING IT WRONG
+Managers who argue with every complaint destroy trust. Managers who accept every claim without checking facts
+create unfairness, uncontrolled discounting, and weak learning.
+
+What calm management looks like
+In “A Complaint Is a Signal, Not a Verdict,” calm management means moving at two speeds: act promptly on what
+is clear, and remain disciplined about what still needs verification. The guest should see ownership while the
+manager avoids inventing a cause or promise just to end the conversation.
+
+
+Chapter 3 Field Guide
+Use these rules on a real shift
+11. Listen first; verify second.
+12. Record what the guest reports separately from what the restaurant can independently confirm.
+13. Never require certainty before showing respect.
+14. Do not make an employee guilty simply because a guest is angry.
+15. Choose recovery from impact, facts, policy, and authority—not volume of emotion.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R07 Guest Feedback & Concern Record; GRV-R28 Weekly Guest Relationship Review. Use the current
+approved version. This workbook page is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: Two Different Stories
+A guest says the server ignored the table for twenty minutes. POS timing and a manager observation show the
+server checked twice, but a drink request was missed during a shift change.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 3 Action Record
+Complete this guided-practice page for one real or representative decision involving “A Complaint Is a Signal, Not
+a Verdict.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 4
+
+Failure, Preference, Policy, or Expectation?
+Give managers a simple classification that changes the recovery path.
+
+THE TRUTH
+Not every unhappy moment is the same. A restaurant may fail its own standard, a guest may prefer something
+different, a policy may create friction, or expectations may never have been clarified.
+
+Why this matters operationally
+If managers label every disappointment a service failure, standards become meaningless. If they label every
+complaint a preference, the operation learns nothing.
+
+Do not confuse activity with control
+Closing a conversation does not prove “Failure, Preference, Policy, or Expectation?” is controlled. The manager
+should be able to show what changed, who owns the next step, and what evidence on a comparable shift would
+demonstrate that the same avoidable failure is less likely to return.
+
+
+Chapter 4 Field Guide
+Use these rules on a real shift
+16. Failure: the restaurant missed an approved standard.
+17. Preference: the restaurant met the standard but the guest wanted a different option.
+18. Policy conflict: a rule or authority boundary created the dispute.
+19. Expectation gap: the restaurant did not clearly communicate timing, product, price, or limitation.
+20. Mixed case: more than one category can be true; record the primary operating cause.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R07 Guest Feedback & Concern Record; GRV-R28 Weekly Guest Relationship Review. Use the current
+approved version. This workbook page is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Well-Done Steak
+A guest orders medium steak, receives medium, and later says they expected no pink. The food is prepared to
+the stated order, but the ordering conversation did not clarify the guest’s expectation.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 4 Action Record
+Complete this guided-practice page for one real or representative decision involving “Failure, Preference, Policy,
+or Expectation?.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+PART 2
+
+BUILD THE RECOVERY STANDARD
+Recovery becomes fair only when expectations, authority, escalation, and
+documentation exist before the problem arrives. This part converts hospitality
+instincts into a usable decision system.
+
+
+CHAPTER 5
+
+Standards Must Exist Before Recovery
+Connect service recovery to clear service standards and prevent managers from improvising what “good service”
+means after the complaint.
+
+The operating truth
+You cannot reliably recover a standard that was never defined. Managers need clear expectations for greeting,
+order accuracy, pacing, communication, product quality, table maintenance, payment, and escalation.
+
+What the restaurant pays when this is missed
+When standards are vague, one manager calls a ten-minute wait acceptable and another calls it a crisis.
+Employees learn personalities instead of the operation.
+
+MANAGER TEST
+Can you explain the guest impact, the verified operating facts, the authority used, and what must happen next
+without blaming a person you have not yet heard from?
+
+
+Chapter 5 Field Guide
+Use these rules on a real shift
+21. Define the standard in observable language.
+22. Set timing targets only where the restaurant can support and verify them.
+23. Train exceptions: what to do when the target cannot be met.
+24. Tell guests the truth early when service will differ from normal.
+25. Review standards after evidence shows they are unrealistic or incomplete.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R07 Guest Feedback & Concern Record; GRV-R28 Weekly Guest Relationship Review. Use the current
+approved version. This workbook page is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Ten-Minute Debate
+Two managers disagree about whether a ten-minute wait for first drinks is a failure. Neither can point to an
+approved service standard.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 5 Action Record
+Complete this guided-practice page for one real or representative decision involving “Standards Must Exist Before
+Recovery.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 6
+
+Complaint Categories That Lead to Action
+Build a category system that supports pattern review without burying managers in labels.
+
+TRUTH FIRST
+Categories are useful only when they change a decision. A small set of consistent categories makes patterns visible
+across shifts and managers.
+
+The hidden cost
+If every manager invents a different label, the restaurant cannot tell whether it has one repeated problem or
+twenty unrelated ones.
+
+A practical distinction
+For “Complaint Categories That Lead to Action,” the guest-facing decision and the management decision are
+related but not identical. Address the immediate impact first, then preserve enough evidence to determine
+whether a standard, handoff, authority limit, training step, or other operating condition needs repair.
+
+
+Chapter 6 Field Guide
+Use these rules on a real shift
+26. Use categories such as service, speed, order accuracy, food quality, facility, payment, policy/expectation,
+conduct, and safety.
+27. Allow one primary category and limited secondary tags.
+28. Do not create a new category for every menu item or employee.
+29. Tag the failure point as well as the guest-facing symptom when known.
+30. Review category definitions quarterly and retire labels nobody uses.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R07 Guest Feedback & Concern Record; GRV-R28 Weekly Guest Relationship Review. Use the current
+approved version. This workbook page is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: Five Names for the Same Problem
+One manager calls an issue “slow food,” another “kitchen,” another “ticket time,” another “server delay,” and
+another “bad service.” The weekly report shows no pattern.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 6 Action Record
+Complete this guided-practice page for one real or representative decision involving “Complaint Categories That
+Lead to Action.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 7
+
+Severity and Escalation
+Give managers a consistent way to distinguish ordinary inconvenience from material failure and high-risk
+concerns.
+
+Start with this distinction
+The response should increase with impact, uncertainty, and risk. A missed side item is not managed the same
+way as an allergy concern, injury report, discrimination allegation, threat, or significant financial dispute.
+
+COST OF GETTING IT WRONG
+Without severity levels, managers either overreact to small misses or underreact to serious ones. Both consume
+trust and create risk.
+
+What calm management looks like
+In “Severity and Escalation,” calm management means moving at two speeds: act promptly on what is clear, and
+remain disciplined about what still needs verification. The guest should see ownership while the manager avoids
+inventing a cause or promise just to end the conversation.
+
+
+Chapter 7 Field Guide
+Use these rules on a real shift
+31. Level 1: isolated inconvenience with limited impact.
+32. Level 2: material failure, repeated miss, significant delay, or meaningful loss of confidence.
+33. Level 3: safety, injury, discrimination, threatening conduct, severe financial exposure, or material reputation
+risk.
+34. High-risk issues move to authorized leadership immediately.
+35. Severity guides escalation and documentation; it does not determine guilt.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R08 Service Recovery Decision Matrix; GRV-R07. Use the current approved version. This workbook page is
+guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Complaint That Changes
+Category
+A guest begins by complaining about a long wait, then reports that the meal may contain an allergen they
+disclosed. The manager must stop treating the case as a timing issue.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 7 Action Record
+Complete this guided-practice page for one real or representative decision involving “Severity and Escalation.”
+Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 8
+
+Listen Without Defending
+Train the first moments of the conversation so managers can gather information without making the guest fight to
+be heard.
+
+THE TRUTH
+Defensive listening is still arguing. The manager may remain silent while mentally preparing a rebuttal, interrupting
+facts, or protecting the team before understanding the impact.
+
+Why this matters operationally
+A defensive opening makes every later recovery harder. It also reduces information quality because the guest
+starts proving the case instead of explaining it.
+
+Do not confuse activity with control
+Closing a conversation does not prove “Listen Without Defending” is controlled. The manager should be able to
+show what changed, who owns the next step, and what evidence on a comparable shift would demonstrate that
+the same avoidable failure is less likely to return.
+
+
+Chapter 8 Field Guide
+Use these rules on a real shift
+36. Let the guest finish the first account.
+37. Use short clarifying questions instead of cross-examination.
+38. Restate the concern and impact in neutral words.
+39. Do not blame another employee or department in front of the guest.
+40. Separate acknowledgment from admitting an unverified cause.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R07; GRV-R09 Guest Recovery Authorization Guide. Use the current approved version. This workbook page
+is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Manager Who Explains Too
+Soon
+Before the guest finishes describing a late meal, the manager explains that the kitchen is short-staffed. The
+explanation is accurate but makes the guest feel dismissed.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 8 Action Record
+Complete this guided-practice page for one real or representative decision involving “Listen Without Defending.”
+Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 9
+
+Acknowledge the Impact
+Teach language that recognizes what happened to the guest without making unsupported promises or legal
+conclusions.
+
+The operating truth
+Guests often need to know that the restaurant understands the effect of the failure: lost time, disrupted meal flow,
+embarrassment, uncertainty, or disappointment.
+
+What the restaurant pays when this is missed
+A generic “sorry about that” can sound procedural. An overconfident apology that states an unverified cause can
+create a different problem.
+
+MANAGER TEST
+Can you explain the guest impact, the verified operating facts, the authority used, and what must happen next
+without blaming a person you have not yet heard from?
+
+
+Chapter 9 Field Guide
+Use these rules on a real shift
+41. Name the observed or reported impact.
+42. Keep the acknowledgment specific and proportionate.
+43. Avoid scripted exaggeration.
+44. Do not promise compensation before authority and facts are clear.
+45. Move from acknowledgment to a concrete next step quickly.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R07; GRV-R09 Guest Recovery Authorization Guide. Use the current approved version. This workbook page
+is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Birthday Course
+A birthday table waits while one entrée is remade. The issue is not only food quality; the group’s shared meal and
+celebration timing were disrupted.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 9 Action Record
+Complete this guided-practice page for one real or representative decision involving “Acknowledge the Impact.”
+Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+PART 3
+
+RECOVER IN REAL TIME
+A manager rarely receives a complaint in ideal conditions. These chapters address
+the common failures that arrive while the restaurant is busy and judgment is under
+pressure.
+
+
+CHAPTER 10
+
+The Manager Table Visit
+Turn the table visit into a purposeful diagnostic and recovery step rather than a ceremonial “everything okay?”
+
+TRUTH FIRST
+A manager table visit is valuable when it confirms the guest’s experience, verifies a recovery, or detects a problem
+early. A vague visit can create false reassurance.
+
+The hidden cost
+Managers who visit only after a complaint arrive late. Managers who visit every table with no purpose can spend
+time without learning anything.
+
+A practical distinction
+For “The Manager Table Visit,” the guest-facing decision and the management decision are related but not
+identical. Address the immediate impact first, then preserve enough evidence to determine whether a standard,
+handoff, authority limit, training step, or other operating condition needs repair.
+
+
+Chapter 10 Field Guide
+Use these rules on a real shift
+46. Know why you are approaching the table.
+47. Use open questions when you need information and specific questions when verifying a known recovery.
+48. Observe the table as well as the answer.
+49. Do not make the server stand beside the table while the guest criticizes them.
+50. Close with the next action and return when you said you would.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R08; GRV-R09; GRV-R10 Recovery Action Record. Use the current approved version. This workbook page is
+guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: Everything Is Fine—Until Checkout
+A manager asks a rushed “Everything good?” The guest says yes, then tells the cashier the meal was slow and
+the server disappeared.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 10 Action Record
+Complete this guided-practice page for one real or representative decision involving “The Manager Table Visit.”
+Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 11
+
+Recovery Authority Before the Rush
+Define what employees, shift leaders, and managers may correct so the team can act quickly without uncontrolled
+discounting.
+
+Start with this distinction
+Recovery authority must be established before the guest is upset. The team should know what can be corrected
+immediately, what needs a manager, and what requires owner or specialist review.
+
+COST OF GETTING IT WRONG
+Unclear authority creates two expensive outcomes: employees promise too much, or nobody acts while waiting for
+permission.
+
+What calm management looks like
+In “Recovery Authority Before the Rush,” calm management means moving at two speeds: act promptly on what
+is clear, and remain disciplined about what still needs verification. The guest should see ownership while the
+manager avoids inventing a cause or promise just to end the conversation.
+
+
+Chapter 11 Field Guide
+Use these rules on a real shift
+51. Separate operational correction from financial compensation.
+52. Define who may replace, discount, comp, refund, credit, or make a future offer.
+53. Set maximum values and escalation points by role.
+54. Require case documentation for material financial recovery.
+55. Review authority when abuse, delay, or repeated escalation appears.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R08; GRV-R09; GRV-R10 Recovery Action Record. Use the current approved version. This workbook page is
+guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Server Who Promised a Full
+Refund
+A server tells a guest the entire check will be refunded before a manager hears the concern. The manager’s
+actual authority is lower than the promise.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 11 Action Record
+Complete this guided-practice page for one real or representative decision involving “Recovery Authority Before
+the Rush.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 12
+
+Proportionate Recovery
+Prevent both under-recovery and automatic over-recovery by tying the response to verified impact and what can
+actually be repaired.
+
+THE TRUTH
+A recovery should address the guest’s real impact. More money is not always better recovery, and less money is not
+always disciplined management.
+
+Why this matters operationally
+Automatic comping teaches the team that discounting is the solution. Refusing reasonable recovery to protect a
+number can cost the relationship and create a larger public problem.
+
+Do not confuse activity with control
+Closing a conversation does not prove “Proportionate Recovery” is controlled. The manager should be able to
+show what changed, who owns the next step, and what evidence on a comparable shift would demonstrate that
+the same avoidable failure is less likely to return.
+
+
+Chapter 12 Field Guide
+Use these rules on a real shift
+56. Correct the operational failure first when possible.
+57. Match financial recovery to impact, stage of meal, and restaurant authority.
+58. Consider time and disruption, not only item price.
+59. Explain the resolution clearly so the guest knows what changed.
+60. Document the reason and approval for material recovery.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R08; GRV-R09; GRV-R10 Recovery Action Record. Use the current approved version. This workbook page is
+guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: Two Meals, Same Mistake, Different
+Impact
+The same entrée error happens at lunch to a solo guest with time to spare and at dinner to a guest who must
+leave for a show. Equal item value does not mean equal impact.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 12 Action Record
+Complete this guided-practice page for one real or representative decision involving “Proportionate Recovery.”
+Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 13
+
+Wrong Order and Missing Item Recovery
+Build a repeatable response to one of the most common service failures and locate the handoff where accuracy
+broke.
+
+The operating truth
+Wrong orders are guest problems and process signals. The failure may begin with listening, POS entry, modifier
+use, ticket routing, production, expo, runner handoff, or seat delivery.
+
+What the restaurant pays when this is missed
+If the restaurant only remakes the item, it pays the recovery cost without learning whether the same failure point is
+still active.
+
+MANAGER TEST
+Can you explain the guest impact, the verified operating facts, the authority used, and what must happen next
+without blaming a person you have not yet heard from?
+
+
+Chapter 13 Field Guide
+Use these rules on a real shift
+61. Confirm what the guest actually requested.
+62. Compare the guest statement, POS entry, kitchen ticket, and delivered item when useful.
+63. Prioritize the correction and communicate realistic timing.
+64. Protect allergy and safety details during the remake.
+65. Record the failure point when it can be established.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R07; GRV-R10; applicable SOP Library procedure. Use the current approved version. This workbook page is
+guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Modifier That Disappeared
+The guest asked for no cheese. The server entered the modifier correctly, but the expo handoff missed it. A
+remake solves the plate; only the review solves the process.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 13 Action Record
+Complete this guided-practice page for one real or representative decision involving “Wrong Order and Missing
+Item Recovery.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 14
+
+Delay, Pacing, and Expectation Failure
+Teach managers to distinguish actual delay, poor communication, and sequencing failures and to recover before
+frustration compounds.
+
+TRUTH FIRST
+Guests experience waiting differently when they know what is happening and when the rest of the table is moving
+together. Delay becomes more damaging when it is unexplained or repeatedly re-promised.
+
+The hidden cost
+False time promises create a second failure on top of the first. Silence makes guests assume nobody owns the
+problem.
+
+A practical distinction
+For “Delay, Pacing, and Expectation Failure,” the guest-facing decision and the management decision are related
+but not identical. Address the immediate impact first, then preserve enough evidence to determine whether a
+standard, handoff, authority limit, training step, or other operating condition needs repair.
+
+
+Chapter 14 Field Guide
+Use these rules on a real shift
+66. Verify actual timing before giving an estimate.
+67. Do not promise a completion time the kitchen or bar has not confirmed.
+68. Update the guest before they must ask again.
+69. Protect meal sequence when one course or seat is delayed.
+70. Record repeated delay causes by station, shift, or handoff.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R07; GRV-R10; applicable SOP Library procedure. Use the current approved version. This workbook page is
+guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: Five More Minutes—Three Times
+A manager tells a guest “five more minutes” three times because no one checks the actual kitchen position. The
+guest becomes angrier about the promises than the original delay.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 14 Action Record
+Complete this guided-practice page for one real or representative decision involving “Delay, Pacing, and
+Expectation Failure.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 15
+
+Food Quality and Product Concerns
+Manage quality complaints without pressuring the guest to accept a product they do not trust.
+
+Start with this distinction
+Food quality can involve doneness, temperature, freshness, recipe execution, portion, presentation, or a
+mismatch between product and expectation. Safety allegations require a different escalation path.
+
+COST OF GETTING IT WRONG
+Arguing taste with the guest wastes time. Throwing away a questioned item before review can also destroy useful
+evidence of a recurring process problem.
+
+What calm management looks like
+In “Food Quality and Product Concerns,” calm management means moving at two speeds: act promptly on what
+is clear, and remain disciplined about what still needs verification. The guest should see ownership while the
+manager avoids inventing a cause or promise just to end the conversation.
+
+
+Chapter 15 Field Guide
+Use these rules on a real shift
+71. Identify the exact item and stated concern.
+72. Separate quality preference from safety allegation.
+73. Remove or preserve the item according to policy.
+74. Offer an approved replacement or alternative without pressure.
+75. Tag recurring temperature, doneness, freshness, recipe, or equipment patterns.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R07; GRV-R10; applicable SOP Library procedure. Use the current approved version. This workbook page is
+guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Soup That Keeps Coming Back
+Three guests across two shifts describe the same soup as lukewarm. Each bowl is replaced, but nobody checks
+hot-holding practice or equipment.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 15 Action Record
+Complete this guided-practice page for one real or representative decision involving “Food Quality and Product
+Concerns.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 16
+
+Allergy and Immediate Safety Concerns
+Make immediate safety the priority and prevent ordinary recovery steps from delaying escalation.
+
+THE TRUTH
+When a guest reports an allergy concern or symptoms, the issue is no longer an ordinary service complaint. The
+team must follow the restaurant’s current allergy and emergency procedures.
+
+Why this matters operationally
+Trying to settle compensation, debate ingredients, or diagnose the guest before protecting safety can create
+serious harm and confusion.
+
+Do not confuse activity with control
+Closing a conversation does not prove “Allergy and Immediate Safety Concerns” is controlled. The manager
+should be able to show what changed, who owns the next step, and what evidence on a comparable shift would
+demonstrate that the same avoidable failure is less likely to return.
+
+
+Chapter 16 Field Guide
+Use these rules on a real shift
+76. Stop service of the questioned item.
+77. Notify the manager and designated kitchen leader immediately.
+78. Use approved ingredient/allergen resources; do not guess.
+79. Contact emergency services when the restaurant’s emergency procedure requires it or the guest reports an
+emergency.
+80. Preserve objective records and route follow-up through authorized leadership.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R07; GRV-R10; applicable emergency/safety/conduct/payment procedure. Use the current approved version.
+This workbook page is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Complaint That Cannot Wait
+A guest who initially says “this tastes wrong” then reports an allergy concern. The manager must move from
+hospitality recovery to the approved safety response immediately.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 16 Action Record
+Complete this guided-practice page for one real or representative decision involving “Allergy and Immediate
+Safety Concerns.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 17
+
+Illness, Injury, Foreign Object, and Other High-Risk
+Reports
+Provide a disciplined first response when facts, safety, insurance, or legal exposure may matter.
+
+The operating truth
+High-risk reports require calm, objective documentation and authorized escalation. The manager’s job is not to
+diagnose, investigate beyond authority, or decide liability at the table.
+
+What the restaurant pays when this is missed
+Speculation, destroyed evidence, merged witness stories, public discussion, and unsupported promises can make
+an already difficult event harder to manage.
+
+MANAGER TEST
+Can you explain the guest impact, the verified operating facts, the authority used, and what must happen next
+without blaming a person you have not yet heard from?
+
+
+Chapter 17 Field Guide
+Use these rules on a real shift
+81. Protect immediate safety first.
+82. Preserve relevant item, check, ticket, scene, and records when policy requires.
+83. Record what was observed separately from what was reported.
+84. Keep witnesses separate when statements are required.
+85. Route the matter promptly to approved ownership, safety, insurance, HR, or legal channels as applicable.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R07; GRV-R10; applicable emergency/safety/conduct/payment procedure. Use the current approved version.
+This workbook page is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Object on the Plate
+A guest reports a foreign object in food. An employee wants to throw the plate away and remake it immediately.
+The manager must preserve safety and evidence while still caring for the guest.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 17 Action Record
+Complete this guided-practice page for one real or representative decision involving “Illness, Injury, Foreign
+Object, and Other High-Risk Reports.” Use an approved case identifier rather than unnecessary personal
+information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 18
+
+Conduct, Harassment, Threats, and Disruptive
+Behavior
+Clarify when guest recovery stops being the only priority because employee or guest safety and conduct rules
+must control the response.
+
+TRUTH FIRST
+Hospitality does not require employees to tolerate threats, harassment, discrimination, violence, or unsafe conduct.
+A guest complaint can be valid while the guest’s behavior still crosses a boundary.
+
+The hidden cost
+Managers who excuse abuse in the name of service damage employees and culture. Managers who escalate
+ordinary frustration as a threat can inflame the situation.
+
+A practical distinction
+For “Conduct, Harassment, Threats, and Disruptive Behavior,” the guest-facing decision and the management
+decision are related but not identical. Address the immediate impact first, then preserve enough evidence to
+determine whether a standard, handoff, authority limit, training step, or other operating condition needs repair.
+
+
+Chapter 18 Field Guide
+Use these rules on a real shift
+86. Separate the underlying service issue from the conduct issue.
+87. Protect employees and guests from immediate danger.
+88. Use the restaurant’s conduct, security, and emergency procedures.
+89. Set a clear behavioral boundary without retaliatory language.
+90. Document material conduct incidents objectively and route them appropriately.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R07; GRV-R10; applicable emergency/safety/conduct/payment procedure. Use the current approved version.
+This workbook page is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Valid Complaint and the
+Unacceptable Threat
+A guest has a legitimate complaint about a delayed meal but begins threatening the server. The manager must
+address both truths at the same time.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 18 Action Record
+Complete this guided-practice page for one real or representative decision involving “Conduct, Harassment,
+Threats, and Disruptive Behavior.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 19
+
+Payment, Billing, Comp, and Refund Disputes
+Give managers a controlled response when the complaint involves money, authorization, payment processing, or
+prior promises.
+
+Start with this distinction
+Financial complaints often combine service impact with system records. The manager needs the check, payment
+record, discount/comp authority, and prior promises before deciding the remedy.
+
+COST OF GETTING IT WRONG
+Improvised refunds, duplicate adjustments, vague future credits, and unsupported promises create accounting
+problems and guest distrust.
+
+What calm management looks like
+In “Payment, Billing, Comp, and Refund Disputes,” calm management means moving at two speeds: act promptly
+on what is clear, and remain disciplined about what still needs verification. The guest should see ownership while
+the manager avoids inventing a cause or promise just to end the conversation.
+
+
+Chapter 19 Field Guide
+Use these rules on a real shift
+91. Verify the check and transaction facts.
+92. Separate a service recovery from a payment-processing correction.
+93. Use approved reason codes and authorization.
+94. Document refunds, credits, comps, and future offers clearly.
+95. Give the guest a realistic completion timeline for any delayed financial correction.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R07; GRV-R10; applicable emergency/safety/conduct/payment procedure. Use the current approved version.
+This workbook page is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Refund That Already Happened
+A guest calls saying a promised refund never arrived. The POS shows a void, not a completed refund. The
+manager must verify the financial path instead of assuming the guest or employee is wrong.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 19 Action Record
+Complete this guided-practice page for one real or representative decision involving “Payment, Billing, Comp, and
+Refund Disputes.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 20
+
+When the First Recovery Does Not Work
+Teach managers how to continue without escalating emotionally or throwing larger offers at an unresolved cause.
+
+THE TRUTH
+A guest can reject a reasonable first solution because the impact is larger than the manager understood, because
+trust is already low, or because the requested remedy is outside authority.
+
+Why this matters operationally
+Managers who take rejection personally begin arguing. Managers who keep increasing compensation without
+diagnosis lose control and still may not repair trust.
+
+Do not confuse activity with control
+Closing a conversation does not prove “When the First Recovery Does Not Work” is controlled. The manager
+should be able to show what changed, who owns the next step, and what evidence on a comparable shift would
+demonstrate that the same avoidable failure is less likely to return.
+
+
+Chapter 20 Field Guide
+Use these rules on a real shift
+96. Ask what remains unresolved.
+97. Reconfirm the impact and the guest’s desired outcome.
+98. Explain authority boundaries plainly.
+99. Escalate when the requested outcome exceeds authority or the risk level changes.
+100. Know when the restaurant has made its final authorized offer and the conversation must be closed
+respectfully.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R11 Recovery Follow-Up Tracker; GRV-R24 Online Review Response & Escalation Log. Use the current
+approved version. This workbook page is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Guest Who Does Not Want a
+Comp
+A manager offers to remove an entrée. The guest says money is not the issue; they are upset that nobody told
+them their child’s meal would arrive fifteen minutes later.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 20 Action Record
+Complete this guided-practice page for one real or representative decision involving “When the First Recovery
+Does Not Work.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+PART 4
+
+TURN COMPLAINTS INTO EVIDENCE
+The guest conversation is only the first half of recovery. The second half is
+documenting facts, assigning ownership, following through, and converting
+repeated problems into evidence.
+
+
+CHAPTER 21
+
+Document Facts Without Writing a Story
+Improve complaint records so later reviewers can distinguish evidence, guest report, manager decision, and
+follow-up.
+
+The operating truth
+Good documentation is factual enough to support learning and restrained enough to protect dignity and privacy. A
+complaint record is not a diary or a place to prove who was right.
+
+What the restaurant pays when this is missed
+Loaded language, speculation, missing times, missing owners, and copied rumors make the record less useful
+and can create unnecessary risk.
+
+MANAGER TEST
+Can you explain the guest impact, the verified operating facts, the authority used, and what must happen next
+without blaming a person you have not yet heard from?
+
+
+Chapter 21 Field Guide
+Use these rules on a real shift
+101. Use date, time, table/check/case identifiers, category, impact, and action.
+102. Label guest-reported information as reported when not independently verified.
+103. Record exact recovery and approval level.
+104. Record owner and due date for follow-up.
+105. Exclude unrelated personal information and emotional commentary.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R11 Recovery Follow-Up Tracker; GRV-R24 Online Review Response & Escalation Log. Use the current
+approved version. This workbook page is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Record That Blames Everyone
+A manager writes, “Guest was impossible and server was careless.” A later reviewer cannot tell what happened,
+what standard failed, or what was verified.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 21 Action Record
+Complete this guided-practice page for one real or representative decision involving “Document Facts Without
+Writing a Story.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 22
+
+Follow-Up Is Part of the Recovery
+Make promised follow-up an owned task rather than a courteous sentence that disappears after the shift.
+
+TRUTH FIRST
+A promise to call, email, refund, verify, replace, or investigate creates a new obligation. The case is not closed
+because the guest left the building.
+
+The hidden cost
+Missed follow-up creates a second betrayal: the restaurant not only failed once, it failed on the recovery promise.
+
+A practical distinction
+For “Follow-Up Is Part of the Recovery,” the guest-facing decision and the management decision are related but
+not identical. Address the immediate impact first, then preserve enough evidence to determine whether a
+standard, handoff, authority limit, training step, or other operating condition needs repair.
+
+
+Chapter 22 Field Guide
+Use these rules on a real shift
+106. Assign one named owner.
+107. Set a deadline and preferred contact channel when appropriate.
+108. Record attempts and outcomes.
+109. Close the guest commitment and the internal corrective action separately.
+110. Verify return or response only when the restaurant has a legitimate reason and permission to track it.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R11 Recovery Follow-Up Tracker; GRV-R24 Online Review Response & Escalation Log. Use the current
+approved version. This workbook page is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Call Nobody Made
+Two managers each assume the other will call a guest about a serious service problem. Three days later the
+guest posts that nobody followed up.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 22 Action Record
+Complete this guided-practice page for one real or representative decision involving “Follow-Up Is Part of the
+Recovery.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 23
+
+Online Reviews: Public Response, Private Recovery
+Help managers respond to reviews without arguing publicly, exposing private information, or treating reputation as
+more important than the underlying failure.
+
+Start with this distinction
+A public response is visible hospitality. It should acknowledge, remain calm, and route detailed recovery to an
+appropriate private channel. The internal operation still needs a case and pattern review.
+
+COST OF GETTING IT WRONG
+A clever public reply cannot repair a repeated operating failure. Defensive replies often amplify the issue and make
+future guests question the restaurant’s judgment.
+
+What calm management looks like
+In “Online Reviews: Public Response, Private Recovery,” calm management means moving at two speeds: act
+promptly on what is clear, and remain disciplined about what still needs verification. The guest should see
+ownership while the manager avoids inventing a cause or promise just to end the conversation.
+
+
+Chapter 23 Field Guide
+Use these rules on a real shift
+111. Respond according to current platform and company rules.
+112. Keep public responses brief, factual, and respectful.
+113. Do not expose guest history, order details, or employee information unnecessarily.
+114. Create an internal recovery case for material concerns.
+115. Tag themes from reviews alongside direct complaints.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R12 Repeat Concern Pattern Log; GRV-R28; GRV-R30 Corrective Action Log. Use the current approved
+version. This workbook page is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Review the Team Wants to Win
+A guest posts a harsh review with one inaccurate detail but a valid complaint about slow service. The manager
+wants to correct the guest publicly line by line.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 23 Action Record
+Complete this guided-practice page for one real or representative decision involving “Online Reviews: Public
+Response, Private Recovery.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 24
+
+Compliments and Positive Signals
+Use positive feedback as evidence of standards that should be reinforced rather than treating compliments only
+as morale moments.
+
+THE TRUTH
+Compliments show what guests notice when the system works: anticipation, warmth, timing, recovery, teamwork,
+accuracy, and personal attention. Positive signals can be studied without turning service into a contest for praise.
+
+Why this matters operationally
+If managers track only failures, employees experience feedback as punishment and the restaurant misses
+evidence of what should be repeated.
+
+Do not confuse activity with control
+Closing a conversation does not prove “Compliments and Positive Signals” is controlled. The manager should be
+able to show what changed, who owns the next step, and what evidence on a comparable shift would
+demonstrate that the same avoidable failure is less likely to return.
+
+
+Chapter 24 Field Guide
+Use these rules on a real shift
+116. Record specific behavior behind the compliment when possible.
+117. Recognize the employee without exaggerating or creating favoritism.
+118. Ask what conditions made the strong service possible.
+119. Share repeatable behavior in pre-shift or training.
+120. Do not pressure guests for public praise or reviews.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R12 Repeat Concern Pattern Log; GRV-R28; GRV-R30 Corrective Action Log. Use the current approved
+version. This workbook page is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Compliment with a Lesson
+A guest praises a server for noticing they were in a hurry and coordinating the meal. The manager can reinforce
+the observation and communication behavior, not just say “good job.”
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 24 Action Record
+Complete this guided-practice page for one real or representative decision involving “Compliments and Positive
+Signals.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 25
+
+Pattern Analysis: Close the Cause, Not Only the Case
+Move from individual complaint closure to repeated-cause correction.
+
+The operating truth
+One complaint may be noise or an isolated miss. Repeated complaints with similar timing, station, product,
+handoff, or leadership conditions are a pattern until evidence shows otherwise.
+
+What the restaurant pays when this is missed
+Restaurants can spend money recovering the same failure for months because every case is closed individually
+and never compared.
+
+MANAGER TEST
+Can you explain the guest impact, the verified operating facts, the authority used, and what must happen next
+without blaming a person you have not yet heard from?
+
+
+Chapter 25 Field Guide
+Use these rules on a real shift
+121. Review material complaints daily and patterns weekly.
+122. Group comparable cases using stable categories.
+123. Look for shift, station, product, role, time, volume, and handoff patterns.
+124. Test the likely cause before coaching or redesign.
+125. Assign one corrective action with owner, due date, and verification.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R12 Repeat Concern Pattern Log; GRV-R28; GRV-R30 Corrective Action Log. Use the current approved
+version. This workbook page is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: Three Different Complaints, One
+Handoff
+Guests complain about missing sauces, wrong sides, and incomplete takeout bags. The categories differ, but all
+failures occur at final handoff.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 25 Action Record
+Complete this guided-practice page for one real or representative decision involving “Pattern Analysis: Close the
+Cause, Not Only the Case.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+PART 5
+
+READ THE WHOLE GUEST SIGNAL
+Direct complaints are only one source of truth. Reviews, compliments, return
+behavior, and recurring themes show where the operation is building trust and
+where it is spending it.
+
+
+CHAPTER 26
+
+Review Requests and Honest Reputation
+Protect the integrity of feedback collection and keep review practices from becoming manipulation.
+
+TRUTH FIRST
+The goal of review requests is honest feedback from real guests, not filtering for people likely to praise the
+restaurant.
+
+The hidden cost
+Selective requests, incentives tied to positive reviews, or employee pressure may violate platform rules and distort
+the evidence managers need.
+
+A practical distinction
+For “Review Requests and Honest Reputation,” the guest-facing decision and the management decision are
+related but not identical. Address the immediate impact first, then preserve enough evidence to determine
+whether a standard, handoff, authority limit, training step, or other operating condition needs repair.
+
+
+Chapter 26 Field Guide
+Use these rules on a real shift
+126. Use a neutral, approved rule for asking guests.
+127. Do not gate requests based on expected sentiment.
+128. Do not condition incentives on positive ratings.
+129. Follow current platform requirements.
+130. Treat review volume and rating as context, not as a substitute for direct operating evidence.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R12 Repeat Concern Pattern Log; GRV-R28; GRV-R30 Corrective Action Log. Use the current approved
+version. This workbook page is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The “Happy Guests Only” Shortcut
+A manager tells servers to ask only visibly happy tables for reviews. The rating may improve while the restaurant
+becomes less informed about recurring misses.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 26 Action Record
+Complete this guided-practice page for one real or representative decision involving “Review Requests and
+Honest Reputation.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 27
+
+Guest Return and Relationship Repair
+Distinguish a completed transaction from restored confidence.
+
+Start with this distinction
+A recovery may resolve the immediate bill and still leave the relationship damaged. When the restaurant has
+legitimate, permissioned follow-up, return behavior can provide evidence of whether confidence was restored.
+
+COST OF GETTING IT WRONG
+Chasing every guest after every complaint can feel intrusive. Never contacting guests after significant failures can
+leave important promises unresolved.
+
+What calm management looks like
+In “Guest Return and Relationship Repair,” calm management means moving at two speeds: act promptly on
+what is clear, and remain disciplined about what still needs verification. The guest should see ownership while the
+manager avoids inventing a cause or promise just to end the conversation.
+
+
+Chapter 27 Field Guide
+Use these rules on a real shift
+131. Use follow-up only when appropriate and permitted.
+132. Connect return verification to the original case when the system supports it.
+133. Do not claim that a return proves full satisfaction.
+134. Review the next experience for repeated failure.
+135. Close internal actions even when the guest never responds.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R12; GRV-R30; GRV-IV verification. Use the current approved version. This workbook page is guided practice,
+not the permanent restaurant record.
+
+
+Applied Scenario: They Came Back Once
+A recovered guest returns but experiences the same slow bar service. The return itself is not success if the
+underlying pattern survived.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 27 Action Record
+Complete this guided-practice page for one real or representative decision involving “Guest Return and
+Relationship Repair.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 28
+
+Guest Preferences, Recognition, and Privacy
+Keep helpful guest knowledge useful without allowing recovery records to become intrusive profiles.
+
+THE TRUTH
+Information should exist because it helps the restaurant serve, recognize, recover, or follow up appropriately. A
+complaint is not permission to collect unrelated personal information.
+
+Why this matters operationally
+Over-collection creates privacy risk and can make recognition feel unsettling instead of hospitable.
+
+Do not confuse activity with control
+Closing a conversation does not prove “Guest Preferences, Recognition, and Privacy” is controlled. The manager
+should be able to show what changed, who owns the next step, and what evidence on a comparable shift would
+demonstrate that the same avoidable failure is less likely to return.
+
+
+Chapter 28 Field Guide
+Use these rules on a real shift
+136. Collect only information with a legitimate operating purpose.
+137. Use permission and suppression controls for outreach.
+138. Do not expose prior complaints or private details in front of others.
+139. Reverify safety-critical information at the point of service.
+140. Remove or retire information according to restaurant policy and applicable requirements.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R12; GRV-R30; GRV-IV verification. Use the current approved version. This workbook page is guided practice,
+not the permanent restaurant record.
+
+
+Applied Scenario: The Regular Guest Note
+A manager adds personal details to a guest profile because they might be useful later. None of the details are
+needed to serve the guest and the guest never expected them to be stored.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 28 Action Record
+Complete this guided-practice page for one real or representative decision involving “Guest Preferences,
+Recognition, and Privacy.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 29
+
+What the Guest Did Not Say
+Teach leaders to use observation and operational evidence without pretending to know hidden motives.
+
+The operating truth
+A quiet guest can be satisfied, disappointed, distracted, or simply private. Managers should observe service
+signals but avoid psychological guesses.
+
+What the restaurant pays when this is missed
+When leaders assume emotion from body language alone, they can overreact, stereotype, or miss the actual
+operating facts.
+
+MANAGER TEST
+Can you explain the guest impact, the verified operating facts, the authority used, and what must happen next
+without blaming a person you have not yet heard from?
+
+
+Chapter 29 Field Guide
+Use these rules on a real shift
+141. Use observable cues as prompts to check, not conclusions.
+142. Ask respectful questions when a check-in is appropriate.
+143. Use timing, table condition, unfinished needs, and service sequence as evidence.
+144. Avoid labels such as difficult, entitled, or dishonest in operating records.
+145. Let the guest’s stated concern guide recovery while the operation verifies its own standards.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R28 Weekly Guest Relationship Review; GRV-R29 Monthly Guest Retention Scorecard. Use the current
+approved version. This workbook page is guided practice, not the permanent restaurant record.
+
+
+Applied Scenario: The Silent Table
+A table says little and declines dessert. The server assumes they are unhappy. The manager reviews the service
+sequence before deciding whether there is a problem to recover.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 29 Action Record
+Complete this guided-practice page for one real or representative decision involving “What the Guest Did Not
+Say.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+PART 6
+
+COACH THE CAUSE AND CORRECT
+THE SYSTEM
+A complaint should not automatically become employee blame. Managers need to
+distinguish a knowledge gap, a standard gap, a capacity failure, a handoff failure,
+a leadership miss, and willful disregard.
+
+
+CHAPTER 30
+
+Coach the Cause, Not the Person
+Help managers use complaint evidence for fair coaching instead of public blame or automatic discipline.
+
+TRUTH FIRST
+The same guest outcome can come from different causes: knowledge, skill, unclear standard, capacity,
+communication, equipment, leadership, or deliberate disregard. Coaching should match the cause.
+
+The hidden cost
+Blaming the closest employee may feel decisive while leaving the real condition untouched. It also teaches
+employees to hide complaints.
+
+A practical distinction
+For “Coach the Cause, Not the Person,” the guest-facing decision and the management decision are related but
+not identical. Address the immediate impact first, then preserve enough evidence to determine whether a
+standard, handoff, authority limit, training step, or other operating condition needs repair.
+
+
+Chapter 30 Field Guide
+Use these rules on a real shift
+146. Coach privately and from verified behavior.
+147. Explain the standard and observed gap.
+148. Ask what the employee saw and what blocked the correct action.
+149. Distinguish training from accountability.
+150. Reobserve after coaching before declaring the problem fixed.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R28; GRV-R30; GRV-IV verification. Use the current approved version. This workbook page is guided practice,
+not the permanent restaurant record.
+
+
+Applied Scenario: The Server Who Could Not Win
+A server is coached for slow drinks, but the service bar was backed up and no manager communicated the delay.
+The guest impact is real; the coaching target is wrong.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 30 Action Record
+Complete this guided-practice page for one real or representative decision involving “Coach the Cause, Not the
+Person.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 31
+
+Correct the System, Then Verify
+Turn pattern findings into a small controlled change with evidence rather than a broad memo that nobody tests.
+
+Start with this distinction
+A corrective action is complete only when an owner, due date, change, evidence, verification, and closure
+decision exist.
+
+COST OF GETTING IT WRONG
+Restaurants often announce “we need to communicate better” without changing a handoff, tool, staffing rule, or
+verification method. The problem returns because nothing operational changed.
+
+What calm management looks like
+In “Correct the System, Then Verify,” calm management means moving at two speeds: act promptly on what is
+clear, and remain disciplined about what still needs verification. The guest should see ownership while the
+manager avoids inventing a cause or promise just to end the conversation.
+
+
+Chapter 31 Field Guide
+Use these rules on a real shift
+151. Name the specific failure condition.
+152. Choose the smallest useful change.
+153. Assign one owner and due date.
+154. Train affected roles and run the change on representative shifts.
+155. Verify whether recurrence or performance changed before standardizing.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R28; GRV-R30; GRV-IV verification. Use the current approved version. This workbook page is guided practice,
+not the permanent restaurant record.
+
+
+Applied Scenario: The New Expo Check
+Repeated missing sides lead to a final-check change at expo. The team must test whether the check catches
+errors without creating a new bottleneck.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 31 Action Record
+Complete this guided-practice page for one real or representative decision involving “Correct the System, Then
+Verify.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 32
+
+Recognition, Accountability, and Fairness
+Balance recognition of strong recoveries with consistent accountability for preventable failures.
+
+THE TRUTH
+Strong recovery work should be recognized because it teaches the team what good judgment looks like.
+Accountability should remain evidence-based and proportionate.
+
+Why this matters operationally
+If managers praise favorites for ordinary service and punish others for system failures, the complaint process
+becomes another source of favoritism.
+
+Do not confuse activity with control
+Closing a conversation does not prove “Recognition, Accountability, and Fairness” is controlled. The manager
+should be able to show what changed, who owns the next step, and what evidence on a comparable shift would
+demonstrate that the same avoidable failure is less likely to return.
+
+
+Chapter 32 Field Guide
+Use these rules on a real shift
+156. Recognize observable actions, not personalities.
+157. Use the same standard across comparable roles.
+158. Do not turn a guest complaint into public humiliation.
+159. Separate one mistake from a repeated coached pattern.
+160. Document material accountability through the proper employee-relations process, not the guest file.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R28; GRV-R30; GRV-IV verification. Use the current approved version. This workbook page is guided practice,
+not the permanent restaurant record.
+
+
+Applied Scenario: Two Employees, Same Miss
+Two servers make the same order-entry error on different shifts. One is a manager favorite. The recovery system
+must not become a back door for inconsistent discipline.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 32 Action Record
+Complete this guided-practice page for one real or representative decision involving “Recognition, Accountability,
+and Fairness.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+PART 7
+
+MANAGE GUEST EXPERIENCE AS A
+CONTROL
+The final step is a management rhythm: daily follow-up, weekly pattern review,
+defined measures, corrective-action ownership, and verified sustainment.
+
+
+CHAPTER 33
+
+The Weekly Guest Experience Review
+Create the management rhythm that turns open cases, patterns, reviews, and corrective actions into decisions.
+
+The operating truth
+The forms capture events. The weekly review makes the evidence manageable. It should be short enough to
+happen and specific enough to change the operation.
+
+What the restaurant pays when this is missed
+Without a review rhythm, cases age, follow-up disappears, patterns remain invisible, and corrective actions have
+no owner.
+
+MANAGER TEST
+Can you explain the guest impact, the verified operating facts, the authority used, and what must happen next
+without blaming a person you have not yet heard from?
+
+
+Chapter 33 Field Guide
+Use these rules on a real shift
+161. Review open material cases and overdue follow-up.
+162. Review repeat concern themes and leading category.
+163. Review material online reviews alongside direct feedback.
+164. Review open corrective actions, owners, due dates, and evidence.
+165. Name one or two priorities for the next week instead of launching ten fixes.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R28; GRV-R30; GRV-IV verification. Use the current approved version. This workbook page is guided practice,
+not the permanent restaurant record.
+
+
+Applied Scenario: The Folder Full of Complaints
+The restaurant has records, but nobody looks at them together. Managers believe documentation exists, so they
+assume the system is controlled.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 33 Action Record
+Complete this guided-practice page for one real or representative decision involving “The Weekly Guest
+Experience Review.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 34
+
+Measure What Helps a Decision
+Define a small guest-experience dashboard whose numbers have definitions, sources, and management uses.
+
+TRUTH FIRST
+Metrics are management questions expressed as evidence. A number matters only when leaders know the time
+period, definition, source, and decision it should influence.
+
+The hidden cost
+A dashboard can create false confidence when different managers count complaints differently or when the
+restaurant chases percentages without reading the cases.
+
+A practical distinction
+For “Measure What Helps a Decision,” the guest-facing decision and the management decision are related but
+not identical. Address the immediate impact first, then preserve enough evidence to determine whether a
+standard, handoff, authority limit, training step, or other operating condition needs repair.
+
+
+Chapter 34 Field Guide
+Use these rules on a real shift
+166. Complaint rate per 100 guests = material complaints ÷ guest count × 100.
+167. First-contact resolution rate = material cases resolved in the initial interaction ÷ material cases × 100.
+168. Follow-up completion rate = follow-ups completed by deadline ÷ follow-ups assigned × 100.
+169. Average days to close = total days open for closed cases ÷ closed cases.
+170. Track leading repeat themes and open corrective actions alongside percentages.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R28; GRV-R30; GRV-IV verification. Use the current approved version. This workbook page is guided practice,
+not the permanent restaurant record.
+
+
+Applied Scenario: The Better Percentage with Worse
+Service
+Complaint count falls after managers stop documenting minor material complaints consistently. The dashboard
+looks better while the information quality gets worse.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 34 Action Record
+Complete this guided-practice page for one real or representative decision involving “Measure What Helps a
+Decision.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+CHAPTER 35
+
+Truth → Cost → System: The Recovery Control Loop
+Close the workbook by linking individual guest truth to cost and then to the smallest useful operating system.
+
+Start with this distinction
+The Gravity direction is simple: face what actually happened, understand what the restaurant and people are
+paying for it, then build or repair the system that prevents recurrence.
+
+COST OF GETTING IT WRONG
+The danger is stopping at one of the first two steps. Truth without action becomes frustration. Cost without truth
+becomes blame. System without truth becomes paperwork.
+
+What calm management looks like
+In “Truth → Cost → System: The Recovery Control Loop,” calm management means moving at two speeds: act
+promptly on what is clear, and remain disciplined about what still needs verification. The guest should see
+ownership while the manager avoids inventing a cause or promise just to end the conversation.
+
+
+Chapter 35 Field Guide
+Use these rules on a real shift
+171. Truth: establish the guest impact and verified operating facts.
+172. Cost: identify the relationship, operational, financial, safety, or team consequence.
+173. System: choose the smallest repeatable control that addresses the verified cause.
+174. Verification: observe whether the control works on real shifts.
+175. Sustainment: keep only controls that produce useful evidence and better decisions.
+
+Questions before you close the case
+ What did the guest experience, in plain language?
+ What can we verify now, and what remains reported but unverified?
+ What recovery authority applies?
+ What promise or follow-up exists after the guest leaves?
+ Is this isolated, or does another case show the same failure condition?
+
+CONTROLLED RECORD CONNECTION
+GRV-R28; GRV-R30; GRV-IV verification. Use the current approved version. This workbook page is guided practice,
+not the permanent restaurant record.
+
+
+Applied Scenario: The Complaint That Became a Better
+Restaurant
+A recurring delay problem is traced to a predictable handoff at shift change. The team changes the handoff
+standard, trains it, verifies it, and sees the complaint theme decline.
+
+Your decision
+WHAT IS THE GUEST IMPACT?
+WHAT FACTS ARE VERIFIED?
+WHAT REMAINS UNKNOWN OR ONLY REPORTED?
+WHAT AUTHORITY OR ESCALATION APPLIES?
+WHAT IS THE SMALLEST USEFUL NEXT ACTION?
+WHO OWNS FOLLOW-UP, BY WHEN, AND HOW WILL IT BE VERIFIED?
+
+
+Chapter 35 Action Record
+Complete this guided-practice page for one real or representative decision involving “Truth → Cost → System:
+The Recovery Control Loop.” Use an approved case identifier rather than unnecessary personal information.
+CASE / SHIFT / DATE
+GUEST IMPACT IN NEUTRAL LANGUAGE
+VERIFIED OPERATING FACTS
+IMMEDIATE RECOVERY OR CORRECTION
+LIKELY CAUSE TO TEST — NOT ASSUME
+NEXT OWNER / DUE DATE / VERIFICATION EVIDENCE
+
+
+Manager Judgment Lab
+20 Recovery Scenarios
+Use these scenarios for manager development, pre-shift discussion, or readiness review. The goal is not to find a
+magic sentence. The goal is to show that the manager can protect dignity, verify facts, use authority correctly, and
+convert the event into an owned next step.
+ State what you would do first.
+ State what you would not promise yet.
+ Name the controlled record or escalation path.
+ Identify the likely system question after the guest is cared for.
+
+
+Scenario 1: The Cold Entrée at a Busy Table
+One entrée is cold while the other five meals are correct and the table is halfway through dinner.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+Scenario 2: The Missing Allergy Modifier
+The POS ticket contains the allergy note, but the plate arrives without the expected manager verification.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+Scenario 3: The Review Posted Before the Guest
+Leaves
+A guest posts a one-star review from the table before asking for a manager.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+Scenario 4: The Comp Request for a Preference
+A guest dislikes a correctly prepared item but did not report a defect and asks for the full check to be removed.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+Scenario 5: The Host Stand Promise
+A host promises a 15-minute wait. Forty minutes later the party is still waiting and nobody updated them.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+Scenario 6: The Bartender and the Lost Ticket
+A server says the bartender lost the ticket. The bar shows a printer failure that affected several orders.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+Scenario 7: The Guest Who Wants an Employee Fired
+A guest demands that a server be terminated before the manager has reviewed the event.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+Scenario 8: The Family Member Manager
+An owner’s relative is the manager on duty and minimizes a complaint involving a favored employee.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+Scenario 9: The Refund Across Two Systems
+A delivery-platform order and restaurant POS show different refund status.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+Scenario 10: The Repeat Takeout Error
+Three takeout orders in one week are missing condiments and utensils.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+Scenario 11: The Unreachable Guest
+A manager promised follow-up. Three attempts have received no response.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+Scenario 12: The Positive Recovery Review
+A guest posts that the meal failed but the manager handled it exceptionally well.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+Scenario 13: The Threat After a Valid Complaint
+A guest has a valid complaint but begins threatening an employee.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+Scenario 14: The Wrong Table Was Comped
+A manager selects the wrong check while attempting a recovery.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+Scenario 15: The Server Hid the Complaint
+An employee handled a complaint privately because they feared being blamed and never told management.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+Scenario 16: The Same Delay Every Friday
+Friday ticket delays recur despite individual comps and apologies.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+Scenario 17: The Complaint with No Case Record
+A serious complaint appears in an online review, but the manager log contains no case.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+Scenario 18: The Guest Wants a Call from the Owner
+A guest refuses the GM’s recovery and insists only the owner can resolve it.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+Scenario 19: The Employee Was Not Trained
+A complaint reveals the employee was assigned a task they had never been trained or verified to perform.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+Scenario 20: The Fix Worked—Once
+A new handoff check works on Monday but fails during Saturday volume.
+
+Manager response map
+FIRST ACTION
+FACTS TO VERIFY
+AUTHORITY / ESCALATION
+GUEST-FACING RESPONSE
+INTERNAL SYSTEM QUESTION
+VERIFICATION EVIDENCE
+
+
+30-Day Guest Complaint Recovery Improvement Plan
+Use this plan when complaint handling is inconsistent, follow-up is unreliable, or the same guest-experience
+failure keeps returning. Measure before coaching so the team does not confuse a belief with a baseline.
+
+Measure Baseline Day-30 target Actual
+
+Material complaints per 100
+guests
+
+Average time to manager
+acknowledgment
+
+First-contact resolution rate
+
+Follow-up completion rate
+
+Leading repeat complaint
+theme
+
+Verified return/response after
+recovery
+
+Recommended control boundaries
+ Document every material complaint using the approved process.
+ Assign follow-up whenever the cause or guest commitment remains open.
+ Reduce the leading repeated complaint category rather than chasing every small category at once.
+ Do not improve a metric by reducing documentation quality or discouraging complaints.
+
+
+30-Day Action Calendar — Days 1–10
+Day Phase Required action
+
+1 Measure Review 30 days of complaints, comps,
+reviews, and manager notes.
+
+2 Measure Classify service, food, accuracy, speed,
+facility, policy/expectation, conduct, and
+safety issues.
+
+3 Measure Measure response time, closure, follow-
+up, and repeated themes.
+
+4 Measure Map employee and manager recovery
+authority.
+
+5 Measure Choose the leading repeat cause for
+deeper review.
+
+6 Define Share baseline findings with managers;
+do not coach from assumptions.
+
+7 Define Approve definitions, target, case owner,
+and review cadence.
+
+8 Define Publish the recovery sequence and
+escalation triggers.
+
+9 Train Train listening, acknowledgment, options,
+authority, and verification.
+
+10 Train Role-play common high-emotion
+situations.
+
+
+30-Day Action Calendar — Days 11–20
+Day Phase Required action
+
+11 Pilot Launch or confirm one controlled concern
+record and ownership process.
+
+12 Pilot Pilot manager follow-up on material
+concerns.
+
+13 Pilot Observe without rescuing every difficulty.
+
+14 Pilot Revise the standard only when evidence
+supports the change.
+
+15 Pilot Confirm affected employees received the
+training.
+
+16 Execute Review every material complaint daily.
+
+17 Execute Coach defensive language and delayed
+escalation.
+
+18 Execute Correct the selected repeat cause
+operationally.
+
+19 Execute Verify promised follow-up occurs.
+
+20 Execute Compare resolution and recurrence with
+baseline.
+
+
+30-Day Action Calendar — Days 21–30
+Day Phase Required action
+
+21 Review Hold a ten-minute mid-plan review with
+assigned owners.
+
+22 Review Document exceptions, causes, and
+corrective actions.
+
+23 Review Recheck the highest-risk handoff.
+
+24 Stress-Test Audit authority use, documentation
+quality, and privacy.
+
+25 Stress-Test Review online and direct feedback
+together.
+
+26 Stress-Test Complete final complaint-pattern analysis.
+
+27 Stress-Test Recognize recoveries that protected
+dignity and learning.
+
+28 Verify/Hold Lock weekly complaint review and
+corrective-action ownership.
+
+29 Verify/Hold Obtain employee feedback on usability.
+
+30 Verify/Hold Assign the ongoing report owner and next
+review date.
+
+Day-30 verification
+ Was the baseline measured consistently?
+ Was the standard trained and observed?
+ Did the primary measure improve without hiding complaints?
+ Were safety, hospitality, fairness, and privacy protected?
+ Decision: Standardize / Extend controlled test / Redesign / Stop.
+
+
+Controlled GRV-R Cross-Reference Directory
+These are controlled operating records from the Gravity Guest Relationship & Retention System. Use the current
+approved version; do not rename or reuse the IDs for workbook practice pages.
+ID Tool Frequency Operating purpose
+
+GRV-R07 Guest Feedback & Concern At occurrence Facts, guest impact, response,
+Record owner, status.
+
+GRV-R08 Service Recovery Decision Quarterly review Severity, impact, response
+Matrix levels, authority.
+
+GRV-R09 Guest Recovery Authorization Quarterly review Role limits for correction,
+Guide replacement, discount, comp,
+escalation.
+
+GRV-R10 Recovery Action Record At occurrence Operational correction,
+compensation, coaching, system
+action.
+
+GRV-R11 Recovery Follow-Up Tracker Daily until closed Commitments, attempts, guest
+response, closure.
+
+GRV-R12 Repeat Concern Pattern Log Weekly Recurring themes, evidence,
+likely source, correction.
+
+GRV-R13 Visit & Engagement Log At visit/contact Permissioned engagement and
+follow-up history.
+
+Workbook rule
+Practice pages in this book may mirror the thinking sequence, but permanent restaurant evidence belongs in the
+controlled record. This prevents competing versions, duplicated IDs, and “which form is current?” confusion.
+
+
+Controlled GRV-R Cross-Reference Directory —
+continued
+ID Tool Frequency Operating purpose
+
+GRV-R16 Guest Return Verification Log At return Evidence of return and next-
+experience result.
+
+GRV-R23 Review Request Log As approved Neutral review requests under
+current policy/platform rules.
+
+GRV-R24 Online Review Response & Daily Response, severity, owner,
+Escalation Log offline recovery, system action.
+
+GRV-R28 Weekly Guest Relationship Weekly Recovery, patterns, reviews,
+Review open actions, next priorities.
+
+GRV-R29 Monthly Guest Retention Monthly Guest growth, return, recovery,
+Scorecard reviews, relationship measures.
+
+GRV-R30 Guest Relationship Corrective Weekly Owner, due date, evidence,
+Action Log verification, closure.
+
+Workbook rule
+Practice pages in this book may mirror the thinking sequence, but permanent restaurant evidence belongs in the
+controlled record. This prevents competing versions, duplicated IDs, and “which form is current?” confusion.
+
+
+Operational Glossary
+Acknowledgment — A clear statement that the manager understands the guest’s reported experience or impact
+without claiming an unverified cause.
+
+Authority Limit — The maximum action a role may take without additional approval, including discounts, comps,
+refunds, credits, or other commitments.
+
+Case ID — The restaurant’s approved identifier that links a material concern, recovery, follow-up, and corrective
+action without requiring unnecessary personal information.
+
+Complaint Category — A stable label used to group comparable concerns, such as service, speed, accuracy,
+food quality, facility, payment, policy/expectation, conduct, or safety.
+
+Corrective Action — A defined change with an owner, due date, evidence, verification, and closure decision
+intended to correct a verified operating cause.
+
+Escalation — Moving a concern to a role with the authority, expertise, safety responsibility, or risk ownership
+required for the next decision.
+
+First-Contact Resolution — A material concern that is satisfactorily resolved during the initial interaction
+without an open guest commitment requiring later recovery work.
+
+
+Operational Glossary — continued
+Follow-Up — A promised or required action after the immediate interaction, with a named owner and deadline.
+Guest Impact — The practical effect of the failure on the guest, such as lost time, disrupted meal sequence,
+uncertainty, incorrect product, financial error, or safety concern.
+
+Material Complaint — A concern significant enough under the restaurant’s standard to require manager review,
+documentation, follow-up, escalation, or pattern tracking.
+
+Manager Verification — Documented confirmation that the required action or standard was actually completed
+or observed in real operation.
+
+Operational Correction — The immediate action that fixes the service condition, such as remaking an item,
+correcting an order, reseating, cleaning, restoring equipment, or clarifying timing.
+
+Pattern — Multiple comparable cases whose timing, category, station, product, handoff, role, or other evidence
+suggests a repeatable cause worth testing.
+
+Preference — A guest desire that differs from the restaurant’s normal product or service but does not by itself
+prove the restaurant missed its standard.
+
+
+Operational Glossary — continued
+Proportionate Recovery — A response reasonably matched to verified impact, meal stage, authority, and what
+the restaurant can actually repair.
+
+Recovery — The combined work of hearing the concern, correcting what can be corrected, acting within
+authority, documenting material evidence, and completing follow-up.
+
+Repeat Concern Theme — A complaint pattern that appears often enough to require system review rather than
+another isolated apology.
+
+Reported Fact — Information provided by a guest, employee, or witness that is recorded as a report until
+independently verified when verification is relevant.
+
+Return Verification — Evidence, when legitimately and appropriately tracked, that a recovered guest returned
+and what happened on the next experience.
+
+Severity Level — A consistent classification of impact and risk used to guide escalation, authority, and
+documentation.
+
+Service Failure — A verified miss against an approved restaurant standard or reasonable committed
+expectation.
+
+
+Operational Glossary — continued
+System Correction — A change to a standard, training method, handoff, tool, staffing rule, authority boundary,
+maintenance response, or verification process that addresses a verified repeatable cause.
+
+Training Verification — Internal confirmation that an employee or manager can perform the required standard
+in practice. It is not an external certification or professional credential.
+
+Truth → Cost → System — Gravity’s governing sequence: establish what is true, understand what the
+restaurant or people are paying for it, then create or repair the smallest useful repeatable system.
+
+Verification Evidence — Observable proof that the corrective action worked, such as reobservation, reduced
+recurrence, completed follow-up, accurate record, or representative-shift result.
+
+Weekly Guest Experience Review — The recurring management review of open cases, overdue follow-up,
+repeat themes, reviews, corrective actions, and next priorities.
+
+
+Final Manager Readiness Assessment
+This is an internal readiness review. It does not create an outside certification or professional credential. The
+purpose is to determine whether the manager can use the restaurant’s approved guest-recovery system safely,
+fairly, and consistently.
+
+Readiness area Not ready Developing Ready
+
+Listening and neutral fact □ □ □
+gathering
+
+Complaint classification and □ □ □
+severity
+
+Recovery authority and □ □ □
+escalation
+
+Proportionate recovery □ □ □
+judgment
+
+Safety/high-risk routing □ □ □
+
+Documentation quality □ □ □
+
+Follow-up ownership and □ □ □
+closure
+
+Pattern analysis □ □ □
+
+Coaching and system □ □ □
+correction
+
+Weekly management review □ □ □
+
+REVIEWER EVIDENCE / COMMENTS
+
+
+Readiness Scenario Review
+Reviewer: choose three scenarios from the Manager Judgment Lab. The manager should explain the first action,
+authority, evidence, escalation, guest communication, controlled record, and verification step without relying on a
+script.
+
+Scenario 1
+SCENARIO NUMBER / TITLE
+WHAT THE MANAGER DID WELL
+WHAT REQUIRES COACHING OR RETRAINING
+Result: □ Not Ready □ Retrain / Reobserve □ Ready for Current Assigned Authority
+
+Scenario 2
+SCENARIO NUMBER / TITLE
+WHAT THE MANAGER DID WELL
+WHAT REQUIRES COACHING OR RETRAINING
+Result: □ Not Ready □ Retrain / Reobserve □ Ready for Current Assigned Authority
+
+Scenario 3
+SCENARIO NUMBER / TITLE
+WHAT THE MANAGER DID WELL
+WHAT REQUIRES COACHING OR RETRAINING
+Result: □ Not Ready □ Retrain / Reobserve □ Ready for Current Assigned Authority
+
+
+Practical Shift Verification
+Observe the manager on a representative shift or controlled role-play. Do not mark ready from discussion alone
+when the role requires real-time recovery judgment.
+
+Observed behavior Evidence / notes
+
+Listens without defensiveness
+
+Clarifies guest impact
+
+Verifies useful facts
+
+Uses correct authority
+
+Escalates high-risk issues promptly
+
+Communicates realistic next steps
+
+Documents material case correctly
+
+Assigns and completes follow-up
+
+Separates coaching from blame
+
+Identifies system question after recovery
+
+REQUIRED FOLLOW-UP BEFORE READINESS DECISION
+
+
+Manager Readiness Verification Record
+MANAGER NAME
+ROLE / AUTHORITY LEVEL ASSESSED
+REVIEWER
+ASSESSMENT DATE
+
+Final internal readiness result
+□ NOT READY — additional instruction required before using this authority independently.
+□ RETRAIN / REOBSERVE — specific gap identified; manager must demonstrate the standard again.
+□ READY FOR CURRENT ASSIGNED AUTHORITY — manager demonstrated the required judgment and
+controls for the authority being assessed.
+EVIDENCE SUPPORTING DECISION
+NEXT REVIEW DATE / TRIGGER
+Manager signature: ___________________________________ Date: __________________
+Reviewer signature: __________________________________ Date: __________________
+
+
+Closing Standard
+THE GRAVITY RECOVERY STANDARD
+Protect the guest. Protect the team from guesswork. Face the operating truth. Own the promised follow-up. Correct
+the verified cause. Then return to the floor and verify that the restaurant is actually better.
+
+A restaurant eventually pays for every truth its leaders do not face. Guest complaints are one of the clearest
+places that truth arrives. The goal is not to eliminate every complaint. The goal is to build leadership strong
+enough to hear the signal, recover with judgment, and prevent the same avoidable failure from becoming normal.
+THOMAS BUTLER
+Thomas Monroe Books • The Gravity Restaurant Leadership System
