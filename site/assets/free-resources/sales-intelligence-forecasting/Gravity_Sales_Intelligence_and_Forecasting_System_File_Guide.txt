@@ -1,0 +1,29 @@
+THE GRAVITY SALES INTELLIGENCE AND FORECASTING SYSTEM
+FILE LIST AND DOWNLOAD GUIDE
+Release 1.2 | August 2026
+
+WHAT THIS SYSTEM DOES
+Preserves the local facts behind sales, builds evidence-based forecasts, translates forecast demand into labor and production requirements, measures accuracy, and carries lessons forward from year to year.
+
+HISTORICAL EDITS
+Any prior day may be corrected when a governing factor is learned later. Update the affected record and complete the Daily Revision Log so the prior understanding, new evidence, editor, approval, and forecast/labor impact remain auditable.
+
+FILES
+1. Operating Manual (.docx) — editable master instructions, governance, labor method, glossary, and 30-tool architecture.
+2. Operating Manual (.pdf) — fixed-layout reading and distribution version.
+3. Forms (.docx) — editable set of 30 printable tools.
+4. Forms (.pdf) — print-ready fixed-layout forms.
+5. Digital Control Workbook (.xlsx) — formula-driven journal, Daily Revision Log, searchable Event History, forecasts, fiscal-year-to-date, labor demand, accuracy, calendar, and dashboard.
+6. How-to Presentation (.pptx) — 20-slide training and implementation presentation.
+7. This File List (.txt) — explains what to download and what each file is for.
+
+START HERE
+Read the manual, adopt the Data Definition Register and Labor Standards Register, begin the Daily Sales Intelligence Journal, build a 14-day forecast, approve the labor demand plan, and review forecast-versus-actual daily.
+
+IMPORTANT LABOR RULE
+The spreadsheet calculates productivity-based hours, guest-workload hours, minimum coverage, fixed work, and event workload. The final recommendation must not fall below legal, safety, food-safety, security, or minimum-role requirements.
+
+CONTROL
+Publisher: Thomas Monroe Books
+Creator: Thomas Butler
+System code: GRV-SF
