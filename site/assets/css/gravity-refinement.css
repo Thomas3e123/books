@@ -1,0 +1,29 @@
+/* Shared readability and optional detail. Workspace colors live in their scoped stylesheet. */
+.gravity-more{border:1px solid #aa8750;border-radius:12px;padding:0 20px;margin:12px 0;background:#fffdf8;color:#172332}
+.gravity-more>summary{display:flex;align-items:center;gap:12px;list-style:none;cursor:pointer;padding:18px 0;font-weight:750;line-height:1.4;color:#172332}
+.gravity-more>summary::-webkit-details-marker{display:none}
+.gravity-more>summary::before{content:"";display:block;width:9px;height:9px;border-right:2px solid #7b1e29;border-bottom:2px solid #7b1e29;transform:rotate(-45deg);flex:0 0 9px;transition:transform .15s}
+.gravity-more[open]>summary::before{transform:rotate(45deg)}
+.gravity-more[open]>summary{border-bottom:1px solid #d3c5ae;margin-bottom:18px}
+.gravity-more>summary:focus-visible{outline:3px solid #a67622;outline-offset:4px}
+.gravity-more>p,.gravity-more>h2,.gravity-more>h3,.gravity-more>ul,.gravity-more>ol{color:#172332}
+.gravity-more a:not(.btn):not(.mini-btn){color:#7b1e29;text-decoration:underline}
+.gravity-more>.section-head h2,.gravity-more>.section-head p{color:#172332}
+.gravity-more>div:last-child,.gravity-more>p:last-child{margin-bottom:18px}
+.page-search-status:empty{display:none}
+.page-search-result:focus-visible{outline:3px solid #a67622;outline-offset:-3px}
+.gravity-section-anchor{display:block;height:0}
+.qt-subtitle{font-size:1.15rem;margin-top:-.5rem}
+.ga-worknav{flex-wrap:wrap;overflow-x:visible}
+.gg-message p{white-space:pre-wrap;overflow-wrap:anywhere}
+.announcement .announcement-why{white-space:nowrap}
+@media(max-width:760px){
+ .gravity-more{padding:0 14px}
+ .ga-worknav{gap:6px}
+ .ga-worknav a{padding:8px 10px;font-size:12px}
+ .announcement{line-height:1.5}
+ .announcement .announcement-why{display:inline-block}
+ .ga-handoff-actions,.ga-handoff-row{flex-wrap:wrap}
+}
+@media(prefers-reduced-motion:reduce){.gravity-more>summary::before{transition:none}}
+@media print{.gravity-more{border:0;padding:0}.gravity-more>summary{display:none}.gravity-more::details-content{display:block}}
