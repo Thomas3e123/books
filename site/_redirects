@@ -1,0 +1,183 @@
+/gravity-fulfillment-personalizer.html /gravity-forms-personalizer 301!
+/gravity-inventory-center /gravity-inventory-center.html 200
+# The Gravity System — Netlify routes — 2026-09-05
+## Canonical extensionless routes
+/about                                 /about.html                                 200
+/books                                 /books.html                                 200
+/systems-of-service                    /systems-of-service.html                    200
+/gravity-system-field-guide            /gravity-system-field-guide.html            200
+/contact                               /contact.html                               200
+/customer-resources                    /customer-resources.html                    200
+/free-resources                        /free-resources.html                        200
+/gravity-fulfillment-center            /gravity-fulfillment-center.html            200
+/gravity-aware                        /gravity-aware.html                         200
+/gravity-sop-library-set               /gravity-sop-library-set.html               200
+/gravity-sop-library-volume-1          /gravity-sop-library-volume-1.html          200
+/gravity-sop-library-volume-2          /gravity-sop-library-volume-2.html          200
+/gravity-sop-library-volume-3          /gravity-sop-library-volume-3.html          200
+/help-center                           /help-center.html                           200
+/improvement-plans                     /improvement-plans.html                     200
+/installation-improvement              /installation-improvement.html              200
+/intelligence-ai                       /intelligence-ai.html                       200
+/knowledge-center                      /knowledge-center.html                      200
+/operating-systems                     /operating-systems.html                     200
+/privacy                               /privacy.html                               200
+/refund                                /refund.html                                200
+/releases                              /releases.html                              200
+/restaurant-cleaning-checklist         /restaurant-cleaning-checklist.html         200
+/restaurant-bar-beverage-pour-cost-control /restaurant-bar-beverage-pour-cost-control.html 200
+/restaurant-bar-beverage-inventory-ordering /restaurant-bar-beverage-inventory-ordering.html 200
+/restaurant-employee-training-checklist /restaurant-employee-training-checklist.html 200
+/restaurant-food-cost-control          /restaurant-food-cost-control.html          200
+/restaurant-guest-complaint-recovery   /restaurant-guest-complaint-recovery.html   200
+/restaurant-inventory-waste-control    /restaurant-inventory-waste-control.html    200
+/restaurant-labor-cost-control         /restaurant-labor-cost-control.html         200
+/restaurant-manager-checklist          /restaurant-manager-checklist.html          200
+/restaurant-manager-interview-questions /restaurant-manager-interview-questions.html 200
+/restaurant-pre-shift-meeting-checklist /restaurant-pre-shift-meeting-checklist.html 200
+/restaurant-pre-shift-checklist         /restaurant-pre-shift-checklist.html         200
+/restaurant-daily-prep-sheet             /restaurant-daily-prep-sheet.html             200
+/restaurant-manager-log-shift-handoff    /restaurant-manager-log-shift-handoff.html    200
+/restaurant-waste-spill-comp-log         /restaurant-waste-spill-comp-log.html         200
+/restaurant-inventory-par-worksheet      /restaurant-inventory-par-worksheet.html      200
+/restaurant-training-sign-off-checklist  /restaurant-training-sign-off-checklist.html  200
+/restaurant-corrective-action-record     /restaurant-corrective-action-record.html     200
+/restaurant-equipment-maintenance-log    /restaurant-equipment-maintenance-log.html    200
+/restaurant-server-side-work-checklist   /restaurant-server-side-work-checklist.html   200
+/restaurant-management-forms-checklists  /restaurant-management-forms-checklists.html  200
+/restaurant-sales-forecasting          /restaurant-sales-forecasting.html          200
+/restaurant-sop-template-guide         /restaurant-sop-template-guide.html         200
+/restaurant-weekly-business-review     /restaurant-weekly-business-review.html     200
+/review-thanks                         /review-thanks.html                         200
+/review                                /review.html                                200
+/sales-intelligence-forecasting        /sales-intelligence-forecasting.html        200
+/standards-library                     /standards-library.html                     200
+/standards                             /standards.html                             200
+/start-here                            /start-here.html                            200
+/support                               /support.html                               200
+/system                                /system.html                                200
+/terms                                 /terms.html                                 200
+/toolkit                               /toolkit.html                               200
+
+/restaurant-food-cost-percentage-formula  /restaurant-food-cost-percentage-formula.html     200
+/restaurant-food-cost-variance            /restaurant-food-cost-variance.html               200
+/restaurant-recipe-costing-guide          /restaurant-recipe-costing-guide.html             200
+/restaurant-portion-control-food-cost     /restaurant-portion-control-food-cost.html        200
+/restaurant-receiving-food-cost-control   /restaurant-receiving-food-cost-control.html      200
+/restaurant-food-cost-calculator          /restaurant-food-cost-calculator.html             200
+
+/restaurant-labor-cost-percentage-formula     /restaurant-labor-cost-percentage-formula.html  200
+/restaurant-labor-cost-calculator             /restaurant-labor-cost-calculator.html  200
+/restaurant-staff-scheduling-guide            /restaurant-staff-scheduling-guide.html  200
+/restaurant-employee-onboarding-checklist     /restaurant-employee-onboarding-checklist.html  200
+/restaurant-station-training-checklist        /restaurant-station-training-checklist.html  200
+/restaurant-training-matrix-guide             /restaurant-training-matrix-guide.html  200
+/restaurant-opening-checklist                 /restaurant-opening-checklist.html  200
+/restaurant-closing-checklist                 /restaurant-closing-checklist.html  200
+/restaurant-shift-handoff-checklist           /restaurant-shift-handoff-checklist.html  200
+/qr-code-generator                         /qr-code-generator.html  200
+
+/quiet-gravity                               /quiet-gravity.html  200
+/the-owners-chair                            /the-owners-chair.html  200
+/restaurant-employee-training-sop-tracker    /restaurant-employee-training-sop-tracker.html  200
+/restaurant-labor-control-scheduling-planner /restaurant-labor-control-scheduling-planner.html  200
+/restaurant-sop-station-operations-builder   /restaurant-sop-station-operations-builder.html  200
+/restaurant-food-cost-waste-inventory-control /restaurant-food-cost-waste-inventory-control.html  200
+/guest-service-complaints-recovery-workbook /guest-service-complaints-recovery-workbook.html 200
+
+## Legacy / convenience aliases — point directly to canonical clean URLs
+/awareness-check                      /gravity-aware                             301
+/reviews                              /review                                    301
+/share-your-experience                /review                                    301
+/faq                                  /help-center                               301
+/faqs                                 /help-center                               301
+/guides                               /knowledge-center                          301
+/knowledge                            /knowledge-center                          301
+/systems-of-service.html              /systems-of-service                        301!
+/planning-for-service                 /systems-of-service                        301
+/the-system-of-service                /systems-of-service                        301
+/the-quiet-systems-of-service         /systems-of-service                        301
+/service-under-pressure                  /systems-of-service                        301
+/field-guide                          /gravity-system-field-guide                 301
+/gravity-field-guide                  /gravity-system-field-guide                 301
+/gravity-system                       /system                                    301
+/gravity-system.html                  /system                                    301
+/books/quiet-gravity                  /books#quiet-gravity                       301
+/books/quiet-gravity.html             /books#quiet-gravity                       301
+/books/the-owners-chair               /books#owners-chair                        301
+/books/the-owners-chair.html          /books#owners-chair                        301
+
+/qr-generator                         /qr-code-generator                         301
+/qr                                   /qr-code-generator                         301
+
+
+
+## Legacy download aliases — canonical current files retained, duplicate bytes removed
+/assets/downloads/restaurant-managers-toolkit-book-2-labor-control-scheduling-planner-371-pages.pdf /assets/downloads/labor-control-scheduling-planner-gravity-elite-v2-2026-09-12-371-interior-372-digital-pages.pdf 301
+/assets/downloads/labor-control-scheduling-planner-gravity-elite-v2-2026-09-12-371-interior-pages.pdf /assets/downloads/labor-control-scheduling-planner-gravity-elite-v2-2026-09-12-371-interior-372-digital-pages.pdf 301
+/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_UPDATED_2026-09-05.pdf /assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_215_PROMPTS_2026-09-16.pdf 301!
+/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_UPDATED_2026-09-05.docx /assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_215_PROMPTS_2026-09-16.docx 301!
+/assets/downloads/quiet-gravity-gravity-system-elite-pass-3-308-pages.pdf /assets/downloads/quiet-gravity-gravity-elite-2026-09-11-155-pages.pdf 301
+/assets/downloads/the-owners-chair-elite-pass-212-pages.pdf /assets/downloads/the-owners-chair-gravity-elite-2026-09-11-212-pages.pdf 301
+/assets/downloads/restaurant-managers-toolkit-book-3-sop-station-operations-builder-254-pages.pdf /assets/downloads/restaurant-sop-station-operations-builder-gravity-elite-v3-2026-09-13-258-pages.pdf 301
+/assets/downloads/SYSTEMS_OF_SERVICE_THREE_PART_FLAGSHIP_GRAVITY_ELITE_PRINT_READY_v1.0.pdf /assets/downloads/systems-of-service-gravity-elite-v2-2026-09-11-253-pages.pdf 301
+/assets/downloads/gravity-restaurant-sop-library-volume-2-368-pages.pdf /assets/downloads/gravity-restaurant-sop-library-volume-2-gravity-elite-v2-2026-09-13-370-pages.pdf 301
+/assets/downloads/restaurant-managers-toolkit-book-1-employee-training-sop-tracker-257-pages.pdf /assets/downloads/employee-training-sop-tracker-gravity-elite-v2-2026-09-12-257-interior-pages.pdf 301
+/assets/downloads/book-companion-tools/LABOR_CONTROL_SCHEDULING_FORMS_COMPANION_PACK_v1.0.pdf /assets/downloads/book-companion-tools/LABOR_CONTROL_SCHEDULING_FORMS_COMPANION_PACK_v2.0.pdf 301
+/assets/downloads/gravity-restaurant-sop-library-volume-1-367-pages.pdf /assets/downloads/gravity-restaurant-sop-library-volume-1-gravity-elite-v2-2026-09-13-369-pages.pdf 301
+
+
+## Gravity Hosted Employee App — short public routes
+/e                                      /apps/sop-foundry/employee-access.html    200
+/e/*                                    /apps/sop-foundry/employee-access.html    200
+
+## Catch-all must remain LAST
+
+/gravity-sop-machine /gravity-sop-foundry 301
+/sop-machine /gravity-sop-foundry 301
+/restaurant-sop-machine /gravity-sop-foundry 301
+/sop-creator /gravity-sop-foundry 301
+/sop-foundry /gravity-sop-foundry 301
+/restaurant-sop-foundry /gravity-sop-foundry 301
+
+
+/sop-library-volume-3                  /gravity-sop-library-volume-3               301
+/assets/free-resources/onboarding/GRAVITY_START_HERE_GUIDE_v2.2_30_60_PACE_2026-08-20.pdf /assets/customer-resources/current/Gravity_Start_Here_v2.6_2026-10-10.pdf 301
+/assets/free-resources/onboarding/GRAVITY_START_HERE_GUIDE_v2.3_2026-09-14.pdf /assets/customer-resources/current/Gravity_Start_Here_v2.6_2026-10-10.pdf 301
+/assets/customer-resources/master/The_Gravity_System_Customer_Overview_Booklet_v1.2.pdf /assets/customer-resources/current/Gravity_System_Overview_v1.8_2026-10-10.pdf 301!
+/assets/customer-resources/master/The_Gravity_System_Customer_Overview_Booklet_v1.3_2026-09-14.pdf /assets/customer-resources/current/Gravity_System_Overview_v1.8_2026-10-10.pdf 301!
+/assets/free-resources/onboarding/GRAVITY_CUSTOMER_INSTALLATION_PACKAGE_v1.2_30_60_PACE_2026-08-20.zip /assets/free-resources/onboarding/GRAVITY_CUSTOMER_INSTALLATION_PACKAGE_v1.4_2026-09-15.zip 301
+/assets/free-resources/onboarding/GRAVITY_CUSTOMER_INSTALLATION_PACKAGE_v1.3_2026-09-14.zip /assets/free-resources/onboarding/GRAVITY_CUSTOMER_INSTALLATION_PACKAGE_v1.4_2026-09-15.zip 301
+
+/gravity-fulfillment-personalizer /gravity-forms-personalizer 301!
+/gravity-fulfillment-customizer         /gravity-forms-personalizer       301!
+/fulfillment-customizer                 /gravity-forms-personalizer       301!
+/customizer                             /gravity-forms-personalizer       301!
+/fulfillment-personalizer               /gravity-forms-personalizer       301
+/gravity-document-studio                /gravity-document-studio.html           200
+/document-studio                        /gravity-document-studio                301
+/gravity-shift-lab                      /gravity-shift-lab.html                 200
+/shift-lab                              /gravity-shift-lab                      301
+
+/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_189_PROMPTS_2026-09-13.pdf /assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_215_PROMPTS_2026-09-16.pdf 301!
+/assets/customer-resources/master/The_Gravity_System_Customer_Overview_Booklet_v1.4_2026-09-15.pdf /assets/customer-resources/current/Gravity_System_Overview_v1.8_2026-10-10.pdf 301!
+/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_189_PROMPTS_2026-09-13.docx /assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_215_PROMPTS_2026-09-16.docx 301!
+
+/register                                /register.html                             200
+/registration-thanks                     /registration-thanks.html                  200
+
+/assets/downloads/gravity-elite-editable-restaurant-employee-handbook-v1.0.pdf /assets/downloads/gravity-elite-editable-restaurant-employee-handbook-v2.0.pdf 301
+/assets/downloads/gravity-elite-editable-restaurant-employee-handbook-v1.0.docx /assets/downloads/gravity-elite-editable-restaurant-employee-handbook-v2.0.docx 301
+/restaurant-ai-prompt-search          /restaurant-ai-prompt-search.html          200
+/manager-readiness-leadership-development /manager-readiness-leadership-development.html 200
+/cleaning-inspection-readiness-workbook /books 301!
+
+
+
+/downloads/gravity-sop-library-volume-3.pdf /assets/downloads/gravity-restaurant-sop-library-volume-3-specialty-advanced-hard-to-find-sops.pdf 301!
+/assets/downloads/gravity-sop-library-volume-3.pdf /assets/downloads/gravity-restaurant-sop-library-volume-3-specialty-advanced-hard-to-find-sops.pdf 301!
+
+/assets/customer-resources/master/The_Gravity_System_Customer_Overview_Booklet_v1.5_2026-09-16.pdf /assets/customer-resources/current/Gravity_System_Overview_v1.8_2026-10-10.pdf 301!
+/assets/customer-resources/master/The_Gravity_System_Customer_Overview_Booklet_v1.6_2026-09-17.pdf /assets/customer-resources/current/Gravity_System_Overview_v1.8_2026-10-10.pdf 301!
+/*                                     /404.html                                  404
+

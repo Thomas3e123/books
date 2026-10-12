@@ -1,0 +1,44 @@
+# HTML and discovery files must always revalidate in the browser.
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' mailto:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+
+# CSS and JavaScript URLs carry a release version in every HTML document.
+/assets/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Image filenames are mostly dated; use a shorter browser lifetime for the
+# remaining stable names. Netlify invalidates its CDN copy on every deploy.
+/assets/images/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+# Customer downloads may be replaced under a stable filename, so keep these
+# deliberately conservative.
+/assets/downloads/*
+  Cache-Control: public, max-age=86400, must-revalidate
+
+# Companion PDFs duplicate selected pages from source books. Keep the useful
+# landing page indexable while preventing duplicate PDF content from competing.
+/assets/downloads/book-companion-tools/*
+  Cache-Control: public, max-age=86400, must-revalidate
+  X-Robots-Tag: noindex, noarchive
+
+/assets/system-previews/*
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/assets/customer-resources/*
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/assets/free-resources/*
+  Cache-Control: public, max-age=86400, must-revalidate
+
+# Book Reader catalog and text can change as books are revised; always revalidate.
+/assets/reader/*
+  Cache-Control: public, max-age=0, must-revalidate
