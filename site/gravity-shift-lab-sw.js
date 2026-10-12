@@ -1,0 +1,5 @@
+const CACHE='gravity-shift-lab-v8-windows-sync-r6';
+const CORE=['/gravity-shift-lab','/gravity-shift-lab.html','/gravity-shift-lab.webmanifest','/assets/js/gravity-shift-lab.js','/assets/js/gravity-qr.js','/assets/js/site.js','/assets/css/styles.css','/assets/css/shift-lab-web-sync.css','/assets/images/gravity-system-mark.svg','/assets/images/shift-lab-icon-192.png','/assets/images/shift-lab-icon-512.png'];
+self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('gravity-shift-lab-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(fetch(e.request).then(r=>{const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));return r}).catch(()=>caches.match(e.request).then(r=>r||caches.match('/gravity-shift-lab'))) )});
