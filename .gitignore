@@ -1,0 +1,14 @@
+node_modules/
+.netlify/
+.env
+.env.*
+!.env.example
+*.log
+*.sqlite
+*.sqlite-*
+*.db
+backups/
+hosted-connection.json
+.DS_Store
+Thumbs.db
+

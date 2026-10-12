@@ -1,0 +1,15 @@
+{
+  "name": "gravity-tmb-site",
+  "private": true,
+  "version": "15.4.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@netlify/database": "2.0.1"
+  },
+  "scripts": {
+    "build": "node scripts/verify-source.cjs",
+    "manifest": "node scripts/update-manifest.cjs"
+  }
+}
