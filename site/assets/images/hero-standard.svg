@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 680" role="img" aria-labelledby="title desc">
+<title id="title">The Gravity System hero art</title><desc id="desc">Premium abstract book, checklist, and restaurant operations illustration</desc>
+<defs><linearGradient id="panel" x1="0" x2="1"><stop offset="0" stop-color="#0d1b2a"/><stop offset="1" stop-color="#1e293b"/></linearGradient><linearGradient id="gold" x1="0" x2="1"><stop offset="0" stop-color="#f2d27a"/><stop offset=".55" stop-color="#b8872f"/><stop offset="1" stop-color="#f7e6b5"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="22" stdDeviation="26" flood-color="#000" flood-opacity=".45"/></filter></defs>
+<rect width="1100" height="680" rx="42" fill="#07111f"/>
+<circle cx="920" cy="90" r="240" fill="#8b1e1e" opacity=".12"/>
+<circle cx="170" cy="570" r="220" fill="#c9972b" opacity=".08"/>
+<g filter="url(#shadow)">
+<rect x="120" y="110" width="310" height="470" rx="20" fill="url(#panel)" stroke="url(#gold)" stroke-width="4"/>
+<text x="275" y="185" text-anchor="middle" font-family="Georgia, serif" font-size="25" letter-spacing="3" fill="#f7f0df">THE GRAVITY</text>
+<text x="275" y="223" text-anchor="middle" font-family="Georgia, serif" font-size="29" letter-spacing="4" fill="url(#gold)">SYSTEM</text>
+<line x1="170" y1="265" x2="380" y2="265" stroke="#c9972b" stroke-width="3"/>
+<text x="275" y="315" text-anchor="middle" font-family="Inter, Arial" font-size="21" font-weight="700" fill="#f7f0df">The solution</text>
+<text x="275" y="344" text-anchor="middle" font-family="Inter, Arial" font-size="21" font-weight="700" fill="#f7f0df">that becomes</text>
+<text x="275" y="373" text-anchor="middle" font-family="Inter, Arial" font-size="21" font-weight="700" fill="#f7f0df">the standard.</text>
+<rect x="168" y="430" width="215" height="8" rx="4" fill="#d9cab0" opacity=".65"/>
+<rect x="168" y="455" width="170" height="8" rx="4" fill="#d9cab0" opacity=".42"/>
+<rect x="168" y="480" width="198" height="8" rx="4" fill="#d9cab0" opacity=".42"/>
+</g>
+<g filter="url(#shadow)">
+<rect x="498" y="145" width="420" height="360" rx="24" fill="#f8f6f1"/>
+<rect x="498" y="145" width="420" height="70" rx="24" fill="#0d1b2a"/>
+<text x="528" y="188" font-family="Inter, Arial" font-size="22" font-weight="800" fill="#f7f0df">STANDARD ELEVATION PLAN</text>
+<g font-family="Inter, Arial" font-size="21" font-weight="700" fill="#0d1b2a">
+<text x="570" y="265">Face the truth</text><text x="570" y="321">Set the standard</text><text x="570" y="377">Build the system</text><text x="570" y="433">Measure and hold</text>
+</g>
+<g fill="none" stroke="#b8872f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M532 255l15 15 29-33"/><path d="M532 311l15 15 29-33"/><path d="M532 367l15 15 29-33"/><path d="M532 423l15 15 29-33"/></g>
+</g>
+</svg>
