@@ -1,0 +1,50 @@
+GRAVITY WINDOWS BETA + TMB SITE - FINAL RELEASE QA
+Date: 2026-10-13
+
+SCOPE
+- Gravity SOP Foundry Windows Beta
+- Gravity Shift Lab Windows Beta
+- Gravity Inventory Center Windows Beta
+- TMB site pages for all three tools
+- Windows Programs page
+- 12 user manuals: Color + Black & White, PDF + DOCX for each program
+
+CORRECTIONS MADE DURING FINAL PASS
+- Removed customer-visible/internal Foundry Visual QA menu and QA runtime file from the public package.
+- Cleaned remaining development-stage RC wording from packaged source metadata/comments where practical.
+- Flattened each customer ZIP so INSTALL, START HERE, PROGRAM and MANUALS are immediately visible after normal extraction.
+- Installer now refreshes program files cleanly on update so obsolete files do not linger.
+- Manuals are copied into the installed program folder and PDF manual shortcuts are added to the Thomas Monroe Books Start Menu folder.
+- Added/verified hover/context help, examples where needed, and glossary guidance.
+- Updated all six DOCX manuals and regenerated all six PDFs from the same source so guidance matches the final public beta.
+- Updated TMB tool pages and Windows Programs page to the final easy-install filenames and manual links.
+- Applied the Gravity Guide context patch required by the current website/Windows parity work.
+
+AUTOMATED/STATIC CHECKS PASSED
+- TMB source manifest: 496/496 reviewed source files verified.
+- All three customer ZIP archives pass ZIP integrity testing.
+- Program/package SHA-256 manifests: zero mismatches.
+- First-party JavaScript/CJS/MJS syntax check: passed.
+- New Windows/manual page links resolve to packaged files; /e is intentionally handled by the existing Netlify redirect.
+- 12 manuals are present in site assets and 4 manuals are included inside each program download.
+- Program executable present in each package.
+- No The River branding found in the commercial Windows app sources during release scan.
+- No public Foundry Visual QA menu/file remains.
+
+PROGRAM CHECKSUM COUNTS
+- SOP Foundry program manifest: 494 files verified.
+- Shift Lab program manifest: 92 files verified.
+- Inventory Center program manifest: 90 files verified.
+
+MANUAL QA
+- Six DOCX manuals rendered through Word-compatible headless output.
+- Six matching PDFs regenerated from those DOCX files.
+- Color and black-and-white page layouts visually reviewed for clipping/overlap after final guidance update.
+
+KNOWN RELEASE BOUNDARIES
+- These are public beta builds and are not yet code-signed. Windows SmartScreen may warn on first run.
+- Native Windows execution, printer-driver behavior, and every hardware-specific path cannot be executed in this Linux release-check environment. The packages were previously built from the Windows-ready Electron distributions and were statically/structurally checked here.
+- Large Windows ZIP assets are included in the site deploy because this release was requested as a complete deploy. Large static files may be subject to hosting/CDN limits; if Netlify rejects or performs poorly with them, move the three program ZIPs to release-asset hosting and keep the same site/manual pages.
+
+RELEASE STATUS
+Approved for controlled PUBLIC BETA rollout, with manager verification and backups as described in the manuals.

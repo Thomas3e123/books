@@ -1,0 +1,21 @@
+TMB FULL WINDOWS BETA DEPLOY - 2026-10-13
+
+THIS IS A COMPLETE TMB SITE DEPLOY.
+
+Includes:
+- Current TMB site baseline
+- Gravity Guide context patch required by the current Windows/website parity work
+- Windows Beta sections on SOP Foundry, Shift Lab and Inventory Center pages
+- /windows-programs page
+- 3 easy-install Windows Beta ZIPs
+- 12 user manuals (PDF + DOCX; Color + Black & White)
+
+CUSTOMER INSTALL EXPERIENCE
+Download ZIP -> Extract All -> run INSTALL GRAVITY ....cmd.
+The program and its manuals are installed for the current Windows user.
+
+PUBLIC BETA
+The apps are not yet code-signed. Windows SmartScreen may display a warning. Do not tell customers to disable Windows security.
+
+DEPLOY
+Deploy the complete Gravity_TMB folder after reconstructing the split archive. Netlify publish directory remains site/.

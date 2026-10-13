@@ -617,6 +617,66 @@
       "sha256": "09ed8a4141a89327add5403dbb2da515932273a79fbffd5b7c55cbc35fcdf659"
     },
     {
+      "path": "site/assets/downloads/windows/Gravity_Inventory_Center_Windows_Beta_2026-10-13_x64_EASY_INSTALL.zip",
+      "sha256": "732b6725307277df4a43b29ae6869edb9823634e98067d030a2b97988469f517"
+    },
+    {
+      "path": "site/assets/downloads/windows/Gravity_SOP_Foundry_Windows_Beta_2026-10-13_x64_EASY_INSTALL.zip",
+      "sha256": "af4db6ff0ccb5573545ba326d921e1920e68436ffcd0c045c46bdeeddc67ffe6"
+    },
+    {
+      "path": "site/assets/downloads/windows/Gravity_Shift_Lab_Windows_Beta_2026-10-13_x64_EASY_INSTALL.zip",
+      "sha256": "03104187a1ac30c544caf9d30ac2b8ae98b3efb3765155db5b2ea7cbe00d2b34"
+    },
+    {
+      "path": "site/assets/downloads/windows/manuals/Gravity_Inventory_Center_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.docx",
+      "sha256": "5aaa0e3bb204c735eed9cb51dea3f3642ed67dfc077925d4ea86f7f75d407836"
+    },
+    {
+      "path": "site/assets/downloads/windows/manuals/Gravity_Inventory_Center_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.pdf",
+      "sha256": "cf9db756130a0759459471c0a24087dcab2aa4a7d86b1d97570d992a8238189e"
+    },
+    {
+      "path": "site/assets/downloads/windows/manuals/Gravity_Inventory_Center_Windows_Beta_Full_User_Manual_COLOR.docx",
+      "sha256": "9c901c2583e763dc77bd9d02e8045acabd1cad3ee11db9274c4d50f6eb862a47"
+    },
+    {
+      "path": "site/assets/downloads/windows/manuals/Gravity_Inventory_Center_Windows_Beta_Full_User_Manual_COLOR.pdf",
+      "sha256": "a97a8531855dbeb8af3723f8f89a5ed769e940bc286fc26439445e6714dc04a6"
+    },
+    {
+      "path": "site/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.docx",
+      "sha256": "833a58bfb19ae03dc9969145676c06650a68a2a78f78294ec6dd5b9f909c8165"
+    },
+    {
+      "path": "site/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.pdf",
+      "sha256": "44fb2443b9778aea62125934f5b109b5394fa929c0211098aa902ac832a933a2"
+    },
+    {
+      "path": "site/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_COLOR.docx",
+      "sha256": "de31c01790523a4c42b757b4515746ecb047ee10b5ec25f75008e50af6b0144a"
+    },
+    {
+      "path": "site/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_COLOR.pdf",
+      "sha256": "01509357f259955734b1780506e18b370e7c34700869260f9a9b0dfeb4ba22bd"
+    },
+    {
+      "path": "site/assets/downloads/windows/manuals/Gravity_Shift_Lab_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.docx",
+      "sha256": "c5c504e7aa7df17200e60f147dc64508d370c18abd9c49f683ca3afa4894504d"
+    },
+    {
+      "path": "site/assets/downloads/windows/manuals/Gravity_Shift_Lab_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.pdf",
+      "sha256": "36e8bde9ea632d87238fe297d25667fa79fe3f691f03304ea7e952520ccb16ae"
+    },
+    {
+      "path": "site/assets/downloads/windows/manuals/Gravity_Shift_Lab_Windows_Beta_Full_User_Manual_COLOR.docx",
+      "sha256": "4c23db27d4a80644d14d7a5a83f8c9173dce4e2335d3eefcabc3602aef66e0c0"
+    },
+    {
+      "path": "site/assets/downloads/windows/manuals/Gravity_Shift_Lab_Windows_Beta_Full_User_Manual_COLOR.pdf",
+      "sha256": "490e20313f72c0c5548f562f9182974950e9e87c4c75da4f293dbe4308d6a93a"
+    },
+    {
       "path": "site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_215_PROMPTS_2026-09-16.docx",
       "sha256": "2da43834590810222472fae3c8f6e89526913d1ce105f88092fd96d2136fc733"
     },
@@ -1482,7 +1542,7 @@
     },
     {
       "path": "site/gravity-inventory-center.html",
-      "sha256": "3e8c6cc24f390986dfc0d01439e17225f4ad6add13c2f360439a37e1cbc5c46d"
+      "sha256": "151a49db379c7720d2b6ffaf3d55b050133d0d3907b6eda656561aa9171f952f"
     },
     {
       "path": "site/gravity-numbers-lab.html",
@@ -1502,7 +1562,7 @@
     },
     {
       "path": "site/gravity-shift-lab.html",
-      "sha256": "b007611ac71dd8fa2e484ba371fbf4ed7edc63eccb88b89b31007fb0e3bc7dfc"
+      "sha256": "e344b72620b3a5e3454ebe2c108af3d03981609687bc01c8c9d88ccf2016ca3a"
     },
     {
       "path": "site/gravity-shift-lab.webmanifest",
@@ -1514,7 +1574,7 @@
     },
     {
       "path": "site/gravity-sop-foundry.html",
-      "sha256": "8e13dd40b7f2a7ff53f5bd523390bb46f625fc1c11af688b4d2a9527cb34dcde"
+      "sha256": "f9bcfb24ede87467eb300df313537b4bf9ab4119554cd70a4f3f648ef555895b"
     },
     {
       "path": "site/gravity-sop-library-set.html",
@@ -1885,6 +1945,10 @@
       "sha256": "8c7a4a3eb9595638f91aaea566251081d5c87697d5b0be155d47395cd059996d"
     },
     {
+      "path": "site/windows-programs.html",
+      "sha256": "1ec83f793a29673bdd7612b7101c1d1399beee5d084b087be88ad61839f91820"
+    },
+    {
       "path": "functions/foundry-hosted/core.mjs",
       "sha256": "3e0f9f465f9cd603b481edb025316b003e38950a6e56620121b2cffc65398ae2"
     },
@@ -1898,7 +1962,7 @@
     },
     {
       "path": "functions/gravity-guide/guide-core.mjs",
-      "sha256": "6edf1067d7b7aa5533d53772ebf93cc320edfefd6beb08c964d42d3ecc0a0e01"
+      "sha256": "5ff96082f4d111d53b13aacb3e7451cd4edd595b9c9283bb6955183ab454e49f"
     },
     {
       "path": "functions/gravity-tts/gravity-tts.js",
