@@ -16,3 +16,4 @@ jobs:
           node-version: 22
       - name: Check live production routes, security, API boundaries, and Windows assets
         run: node scripts/live-site-audit.cjs
+# final clean-room rerun 2026-10-14
