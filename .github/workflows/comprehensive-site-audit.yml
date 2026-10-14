@@ -16,4 +16,4 @@ jobs:
           node-version: 22
       - name: Run comprehensive source audit
         run: node scripts/comprehensive-site-audit.cjs
-# refined rerun 2026-10-14
+# final clean-room rerun 2026-10-14
