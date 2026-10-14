@@ -1,0 +1,37 @@
+name: Shared accessibility polish
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/accessibility-polish.yml'
+permissions:
+  contents: write
+jobs:
+  polish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Remove shared visible-label/accessibility-name mismatches
+        run: node scripts/accessibility-polish.cjs
+      - name: Rebuild sitemap
+        run: node scripts/update-sitemap.cjs
+      - name: Refresh source manifest
+        run: npm run manifest
+      - name: Verify controlled source
+        run: npm run build
+      - name: Commit verified accessibility polish
+        run: |
+          if git diff --quiet; then
+            echo 'Shared accessible names already clean.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add site source-manifest.json
+          git commit -m 'Polish shared accessible control names'
+          git push
