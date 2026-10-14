@@ -10,7 +10,7 @@
     },
     {
       "path": "site/_redirects",
-      "sha256": "f03d0d1512023b661f39e3a76dc4c8b4440a06dc6f855999f0986dba1b2a253b"
+      "sha256": "5d9cd1989f8f6c8e01019728cee6f14c93fc487afda556f452b25492b0f0a967"
     },
     {
       "path": "site/about.html",
@@ -1290,7 +1290,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "b934f228672d1b88b7b02b47acd35dab258f6ca5c37732e77bfa9ff0f5696539"
+      "sha256": "56daec9c3e9b6b800128a1a8f10f4560aff52cbd270ad4c5f7f6d44674743a15"
     },
     {
       "path": "site/assets/reader/ai-prompts.txt",
@@ -1925,6 +1925,14 @@
       "sha256": "40445bcef87a9674fdffa515d02d4791762c5c09893dc6a5a08a92e6735ead0f"
     },
     {
+      "path": "site/testing-room-manager.html",
+      "sha256": "f417ab6f429b105a955e9548cbf9da8003679c8d05f022f260ece399eefb127f"
+    },
+    {
+      "path": "site/testing-room.html",
+      "sha256": "b7ad1b048b33b9c7bb9b2853dc60582eb5bf5186867b45436b3a8bad1063b361"
+    },
+    {
       "path": "site/the-owners-chair.html",
       "sha256": "6fef4dac91d29f5f669072890f2dccf452a2f9c4618179666dc4d7f309628d68"
     },
@@ -1950,15 +1958,27 @@
     },
     {
       "path": "functions/gravity-guide/guide-core.mjs",
-      "sha256": "fb1983c3b5bc46de55a53b32d77313319774ab828b2e0c4dfa8d6f177b086f2d"
+      "sha256": "6be14669a851404ababbf7e8b55a94ae0dc553bb9525e8a966c51b395648db06"
     },
     {
       "path": "functions/gravity-tts/gravity-tts.js",
       "sha256": "8f192a1ee09051714bef447ef522d9e8c61dc329b5bf8705c7ff72d12c496c15"
     },
     {
+      "path": "functions/testing-room/index.mjs",
+      "sha256": "166d5cee8ea5ad65f30dd436ca6683de4005f75b883f52c29867c707a71de08c"
+    },
+    {
       "path": "netlify/database/migrations/20261010070000_foundry_hosted_employee.sql",
       "sha256": "d74a490a1162ce65fdab380a1c0cf5df03c41b864a7f935463252ead5f0f793a"
+    },
+    {
+      "path": "netlify/database/migrations/20261014133000_gravity_testing_room.sql",
+      "sha256": "3e09357ab78ae8a8f604b7adbca320c164e860f893015b2213c4d149b37e9b4a"
+    },
+    {
+      "path": "netlify/database/migrations/20261014134500_gravity_testing_groups.sql",
+      "sha256": "e7a210491092d9c36466e1dcc09d37c539f5c450f04f6946c8cdea2cd25d9864"
     },
     {
       "path": "netlify.toml",

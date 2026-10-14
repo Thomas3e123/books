@@ -37,15 +37,16 @@ export default async(request)=>{
     }
     if(request.method==='GET'&&p==='messages'){
       const t=await testerFromToken(testerToken(request));if(!t)return json({error:'Tester link not found.'},404);
-      const rows=await db.sql`SELECT id,sender,kind,body,context,created_at FROM gravity_testing_messages WHERE tester_id=${t.id} ORDER BY created_at ASC LIMIT 1000`;
+      const rows=await db.sql`SELECT id,sender,kind,body,context,screenshot_data,created_at FROM gravity_testing_messages WHERE tester_id=${t.id} ORDER BY created_at ASC LIMIT 1000`;
       await db.sql`UPDATE gravity_testing_messages SET read_by_tester=TRUE WHERE tester_id=${t.id} AND sender='manager'`;
       return json({messages:rows});
     }
     if(request.method==='POST'&&p==='message'){
       const t=await testerFromToken(testerToken(request));if(!t)return json({error:'Tester link not found.'},404);const b=await readBody(request);
       const kind=['problem','idea','confusing','worked','other','schedule'].includes(b.kind)?b.kind:'other';const text=clean(b.body,6000);if(!text)return json({error:'Write a short message first.'},400);
-      const context={program:clean(b.program,120),page:clean(b.page,300),windows:clean(b.windows,120),build:clean(b.build,120)};
-      const mid=makeId('msg');await db.sql`INSERT INTO gravity_testing_messages (id,tester_id,sender,kind,body,context,read_by_manager,read_by_tester) VALUES (${mid},${t.id},'tester',${kind},${text},${JSON.stringify(context)}::jsonb,FALSE,TRUE)`;
+      const context={program:clean(b.program,120),page:clean(b.page,300),windows:clean(b.windows,120),build:clean(b.build,120),device:clean(b.device,500)};
+      const rawShot=clean(b.screenshotData,900000);const screenshot=/^data:image\/(png|jpeg|webp);base64,/i.test(rawShot)&&rawShot.length<900000?rawShot:null;
+      const mid=makeId('msg');await db.sql`INSERT INTO gravity_testing_messages (id,tester_id,sender,kind,body,context,screenshot_data,read_by_manager,read_by_tester) VALUES (${mid},${t.id},'tester',${kind},${text},${JSON.stringify(context)}::jsonb,${screenshot},FALSE,TRUE)`;
       await db.sql`UPDATE gravity_testing_testers SET status=CASE WHEN status='new' THEN 'active' ELSE status END,updated_at=NOW(),last_tester_message_at=NOW() WHERE id=${t.id}`;
       return json({ok:true,id:mid});
     }
@@ -93,8 +94,11 @@ export default async(request)=>{
       if(request.method==='GET'&&p==='manager/groups'){
         const rows=await db.sql`SELECT g.id,g.name,g.purpose,g.join_code,g.status,g.created_at,g.updated_at,(SELECT COUNT(*)::int FROM gravity_testing_group_members gm WHERE gm.group_id=g.id) members FROM gravity_testing_groups g ORDER BY g.updated_at DESC LIMIT 200`;return json({groups:rows});
       }
+      if(request.method==='GET'&&p.startsWith('manager/group-thread/')){
+        const gid=clean(p.split('/').pop(),100);const rows=await db.sql`SELECT id,tester_id,sender_name,body,kind,created_at FROM gravity_testing_group_messages WHERE group_id=${gid} ORDER BY created_at ASC LIMIT 2000`;return json({messages:rows});
+      }
       if(request.method==='GET'&&p.startsWith('manager/thread/')){
-        const testerId=clean(p.split('/').pop(),100);const rows=await db.sql`SELECT id,sender,kind,body,context,created_at FROM gravity_testing_messages WHERE tester_id=${testerId} ORDER BY created_at ASC LIMIT 2000`;
+        const testerId=clean(p.split('/').pop(),100);const rows=await db.sql`SELECT id,sender,kind,body,context,screenshot_data,created_at FROM gravity_testing_messages WHERE tester_id=${testerId} ORDER BY created_at ASC LIMIT 2000`;
         await db.sql`UPDATE gravity_testing_messages SET read_by_manager=TRUE WHERE tester_id=${testerId} AND sender='tester'`;
         return json({messages:rows});
       }
