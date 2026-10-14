@@ -1,0 +1,44 @@
+
+PROMPT 240 • PUBLISHED SOP EMPLOYEE MICRO-LESSON
+Create a five-minute employee lesson from this published SOP. SOP: [approved text]. Role/station: [audience]. Emphasize purpose, critical steps, common failure points, one short scenario, and two understanding questions. Do not add rules not in the SOP or treat lesson completion as certification.
+Manager check: Teaching the standard is different from verifying independent performance.
+
+PROMPT 241 • FIND → PROVE PROBLEM INVESTIGATION
+Apply the first two Gravity improvement stages to this restaurant problem. Reported problem: [statement]. Evidence available: [records/observations]. Define what should be found, what counts as proof, competing explanations, missing evidence, and the condition that would justify moving to prioritization.
+Manager check: Name and prove the real problem before planning the solution.
+
+PROMPT 242 • INSTALL → MEASURE → CORRECT VERIFICATION PLAN
+Build the verification layer for this approved restaurant change. Change: [change]. Expected result: [target]. Owner: [role]. Installation date: [date]. Define what proves installation, measures, review timing, failure thresholds, corrective options, and when to retest rather than declare success.
+Manager check: Installation is not completion; the result must be measured and corrected.
+
+PROMPT 243 • HOLD → IMPROVE SUSTAINMENT REVIEW
+Review whether this successful change is being held and where the next improvement should come from. Standard/change: [item]. Verification history: [data]. Drift/exceptions: [facts]. Training/ownership: [facts]. Determine what must be protected, what can be simplified, audit frequency, and whether evidence supports another improvement cycle.
+Manager check: Do not improve away the control that made the result stable.
+
+PROMPT 244 • RESTAURANT SOFTWARE PILOT-TEST PLAN
+Create a controlled pilot for this restaurant software or digital tool. Tool/version: [name]. Users: [roles]. Workflow: [task]. Data risk: [low/medium/high]. Backup/export: [facts]. Build a small test scope, safe data plan, success criteria, failure stop points, backup steps, tester notes, and approval needed before broader use.
+Manager check: Pilot first; do not make an unproven tool mission-critical on day one.
+
+PROMPT 245 • WINDOWS BETA CUSTOMER TEST CHECKLIST
+Create a practical customer test checklist for this Windows Beta. Program/version: [name]. Computer/Windows version: [facts]. Workflow: [task]. Test installation, first launch, navigation, help/glossary, data entry, save/reopen, print/export where applicable, error handling, backup/restore where applicable, and exit behavior. Capture expected vs actual result.
+Manager check: Use noncritical data first and keep backups while testing Beta software.
+
+PROMPT 246 • REPRODUCIBLE BUG REPORT BUILDER
+Turn tester notes into a bug report another person can reproduce. Program/version: [data]. Windows version: [data]. Goal: [goal]. Exact steps: [notes]. Expected result: [expected]. Actual result/error: [actual]. Frequency: [always/sometimes/once]. Build numbered reproduction steps, severity, evidence, and any safe workaround. Remove secrets and unnecessary personal data.
+Manager check: A useful bug report explains reproduction without exposing sensitive information.
+
+PROMPT 247 • BETA FEEDBACK RISK & PRIORITY REVIEW
+Prioritize this batch of Beta feedback. Feedback: [list]. Frequency: [data]. Operational impact: [facts]. Data-loss/safety/security implications: [facts]. Workaround: [yes/no]. Classify blocker, high, normal, low, or enhancement; separate defects from confusion/training requests; explain priority using evidence.
+Manager check: One severe failure can outrank many cosmetic requests.
+
+PROMPT 248 • SEARCHES WITH NO ANSWER / KNOWLEDGE GAP REVIEW
+Review searches, questions, or requests that did not produce a useful answer. Search terms/questions: [list]. Station/role context: [facts]. Frequency: [data]. Related SOPs/forms/help content: [sources]. Identify whether each miss points to missing content, unclear terminology, poor navigation, a training gap, or a genuinely new operating need.
+Manager check: A failed search is evidence of a question, not proof that a new policy or SOP is required.
+
+PROMPT 249 • POST-REVISION ADOPTION VERIFICATION
+Verify whether a changed SOP, poster, schedule rule, form, or operating standard was actually adopted after release. Revision: [change/version]. Release date: [date]. Affected roles: [roles]. Training/acknowledgment evidence: [data]. Observations/questions/errors/results: [data]. Separate communication completed, training completed, behavior observed, and result verified. Identify where adoption stopped.
+Manager check: Publishing or acknowledging a revision does not prove new behavior is being followed.
+
+PROMPT 250 • TOOL-TO-TOOL HANDOFF QUALITY CHECK
+Review information being transferred from one Gravity workspace or management process into another. Source: [tool/process]. Destination: [tool/process]. Transferred information: [data]. Decision supported: [goal]. Identify missing context, duplicate entry, conflicting definitions, stale information, privacy concerns, or fields that should not transfer automatically. Recommend the minimum useful handoff and what a manager must still review.
+Manager check: Connected tools should reduce re-entry without silently transferring assumptions or changing authority.
