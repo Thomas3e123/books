@@ -1618,7 +1618,7 @@
     },
     {
       "path": "site/knowledge-center.html",
-      "sha256": "164dd609423147de6b3592275fc83c227e158ad3b5c5104f4cc8ff6f9479a220"
+      "sha256": "0d2430999016179e70ff52329c0dccdacb6bafa4465da94b1c2893ac4d6805c2"
     },
     {
       "path": "site/manager-readiness-leadership-development.html",
@@ -1761,6 +1761,14 @@
       "sha256": "08e626d400724441ef79694cc675f9914cf6c45aea5a3e1bbe3e5a24a3b7f416"
     },
     {
+      "path": "site/restaurant-kitchen-closing-checklist.html",
+      "sha256": "1129be6e3112f88078370fc238dce1371893e6b11dcfc5039064156d3c717ca8"
+    },
+    {
+      "path": "site/restaurant-kitchen-opening-checklist.html",
+      "sha256": "8916366cf1d6bce622d750fa9ded1a58240ec1f3ac6a8203466c2356e34b215d"
+    },
+    {
       "path": "site/restaurant-labor-control-scheduling-planner.html",
       "sha256": "30cdfaa0bc28ac3b44a72ad557c33862111e1a811153f838a1edf8e56f343dc0"
     },
@@ -1777,6 +1785,10 @@
       "sha256": "0d7e54564ede4fc88c19d4d5dec616a1b92e52aae99e18aefba9f2370d00446a"
     },
     {
+      "path": "site/restaurant-line-check-checklist.html",
+      "sha256": "2ec31262e802094280819fbfa8ddfbdab600863790489ea229ac46ca5f05bd68"
+    },
+    {
       "path": "site/restaurant-management-forms-checklists.html",
       "sha256": "00e51f3c4dcc187c7a47e25bca3956e78901db26e5b2223c414d6b94d5127406"
     },
@@ -1791,6 +1803,10 @@
     {
       "path": "site/restaurant-manager-log-shift-handoff.html",
       "sha256": "240f4f31d2b1cdb2d048c90c6ba90383ad4340966305e71083e5caed023fd4bf"
+    },
+    {
+      "path": "site/restaurant-manager-training-program.html",
+      "sha256": "795bae32cc7b56fe98120ba8b0385eba5699e0789db5849f68280b5030ab9d73"
     },
     {
       "path": "site/restaurant-opening-checklist.html",
@@ -1833,8 +1849,16 @@
       "sha256": "95ae0b86873f0a36a6cc23de1899ae243cde0626b10ae2ecb9a72154d818c89e"
     },
     {
+      "path": "site/restaurant-server-training-checklist.html",
+      "sha256": "9b3cd37d269fe111cebb2e2b1c1c6ac73d09b74f0646776a4385aa005f2e5886"
+    },
+    {
       "path": "site/restaurant-shift-handoff-checklist.html",
       "sha256": "819c958b2b666c9843f47470dd5a5bf7a7922e2a1547dcf891e5ae4690d54e8b"
+    },
+    {
+      "path": "site/restaurant-shift-manager-checklist.html",
+      "sha256": "2b8a106ec03dcfc3134fc25dbafa10a8eeba6fadede38155af74ddda9a8866e0"
     },
     {
       "path": "site/restaurant-sop-revision-control-guide.html",
@@ -1894,7 +1918,7 @@
     },
     {
       "path": "site/sitemap.xml",
-      "sha256": "237629cf1208d22f26b5861fc5cf0d9f21e9bb600509b5e5c07d0a7b672b7064"
+      "sha256": "976d8d37ba267c43a5ad34a9b9f28fb849e60ce00f5d203c460f038f1e6483fe"
     },
     {
       "path": "site/standards-library.html",
