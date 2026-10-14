@@ -1,0 +1,44 @@
+name: Representative Lighthouse audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lighthouse-audit.yml'
+permissions:
+  contents: read
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Audit representative live pages
+        run: |
+          mkdir -p /tmp/lh
+          pages=(
+            "home|https://thomasmonroebooks.com/"
+            "gravity-assist|https://thomasmonroebooks.com/gravity-assist"
+            "windows-programs|https://thomasmonroebooks.com/windows-programs"
+            "testing-room|https://thomasmonroebooks.com/testing-room"
+            "ai-prompt-search|https://thomasmonroebooks.com/restaurant-ai-prompt-search"
+            "knowledge-center|https://thomasmonroebooks.com/knowledge-center"
+            "sop-foundry|https://thomasmonroebooks.com/gravity-sop-foundry"
+          )
+          for item in "${pages[@]}"; do
+            name="${item%%|*}"; url="${item#*|}"
+            npx --yes lighthouse "$url" --quiet --chrome-flags="--headless --no-sandbox" --only-categories=accessibility,best-practices,seo --output=json --output-path="/tmp/lh/$name.json"
+          done
+          node - <<'NODE'
+          const fs=require('fs');
+          const dir='/tmp/lh'; let low=0;
+          for(const f of fs.readdirSync(dir).filter(x=>x.endsWith('.json')).sort()){
+            const j=JSON.parse(fs.readFileSync(dir+'/'+f,'utf8')); const c=j.categories;
+            const scores={accessibility:Math.round(c.accessibility.score*100),bestPractices:Math.round(c['best-practices'].score*100),seo:Math.round(c.seo.score*100)};
+            console.log(`${f.replace('.json','')}: accessibility=${scores.accessibility} best-practices=${scores.bestPractices} seo=${scores.seo}`);
+            for(const [id,a] of Object.entries(j.audits)){if(a.score!==null&&a.score<1&&a.scoreDisplayMode==='binary'&&['accessibility','seo'].some(cat=>(c[cat]?.auditRefs||[]).some(r=>r.id===id))) console.log(`  FLAG ${id}: ${a.title}`)}
+            if(scores.accessibility<80||scores.seo<80) low++;
+          }
+          if(low){console.error(`Representative pages below 80 in accessibility or SEO: ${low}`);process.exit(2)}
+          NODE
