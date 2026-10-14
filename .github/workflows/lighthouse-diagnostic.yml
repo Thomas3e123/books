@@ -1,0 +1,30 @@
+name: Lighthouse diagnostic
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lighthouse-diagnostic.yml'
+permissions:
+  contents: read
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Inspect Knowledge Center and shared accessible names
+        run: |
+          npx --yes lighthouse https://thomasmonroebooks.com/knowledge-center --quiet --chrome-flags="--headless --no-sandbox" --only-categories=accessibility,best-practices,seo --output=json --output-path=/tmp/kc.json
+          npx --yes lighthouse https://thomasmonroebooks.com/ --quiet --chrome-flags="--headless --no-sandbox" --only-categories=accessibility,best-practices,seo --output=json --output-path=/tmp/home.json
+          node - <<'NODE'
+          const fs=require('fs');
+          for(const name of ['kc','home']){
+            const j=JSON.parse(fs.readFileSync('/tmp/'+name+'.json','utf8')),c=j.categories;
+            console.log(`${name}: accessibility=${Math.round(c.accessibility.score*100)} best-practices=${Math.round(c['best-practices'].score*100)} seo=${Math.round(c.seo.score*100)}`);
+            for(const cat of ['accessibility','best-practices','seo']){
+              for(const r of c[cat].auditRefs||[]){const a=j.audits[r.id];if(a&&a.score!==null&&a.score<1)console.log(`  ${cat} FAIL ${r.id}: ${a.title} :: ${a.description||''}`)}
+            }
+          }
+          NODE
