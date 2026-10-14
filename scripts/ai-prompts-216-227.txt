@@ -1,0 +1,52 @@
+
+
+GRAVITY WORK STUDY, SIGNALS, AWARENESS & BETA CONTROL — OCTOBER 2026
+These 35 de-duplicated additions extend the controlled digital edition from 215 to 250 prompts.
+
+PROMPT 216 • WORK STUDY DESIGN
+Design a practical work study for this restaurant task. Task/process: [task]. Purpose: [speed/quality/labor/flow/safety/other]. Context: [where/when]. People/equipment: [facts]. Build an observation plan with start/stop points, repeated observations, elements to time, motion/travel notes, interruption codes, quality checks, and evidence needed before changing the standard.
+Manager check: Measure representative real work before changing staffing, standards, or expectations.
+
+PROMPT 217 • TASK ELEMENT BREAKDOWN
+Break this task into measurable work elements without changing the approved result. Current method: [steps]. Required outcome: [standard]. Equipment/layout: [facts]. Identify start/stop points, value-producing work, waiting, travel, rework, handoffs, and checks.
+Manager check: Element breakdown describes the work; it does not authorize skipping quality, safety, or required checks.
+
+PROMPT 218 • MOTION & TRAVEL ANALYSIS
+Analyze this work-study observation for unnecessary motion and travel. Task: [task]. Layout: [describe]. Observed steps/travel: [data]. Reaching, bending, searching, double-handling, backtracking, waiting, or congestion: [facts]. Separate necessary from avoidable motion and propose the smallest tests worth trying.
+Manager check: Reduce wasted motion without creating unsafe lifting, sanitation, cross-contamination, or access problems.
+
+PROMPT 219 • BOTTLENECK STUDY
+Find the constraining step in this workflow. Demand pattern: [data]. Step times/queues: [data]. Staffing/equipment by step: [facts]. Rework or interruptions: [facts]. Identify where work accumulates, likely constraint type, evidence needed to confirm it, and one controlled test before adding labor or equipment.
+Manager check: A visible queue may be a symptom; verify the actual constraint first.
+
+PROMPT 220 • PREP FLOW STUDY
+Review this prep process for sequence, batching, staging, handoffs, and avoidable waiting. Prep list: [items/quantities]. Equipment/shared-space limits: [facts]. Start/completion times: [data]. Dependencies: [facts]. Build a better test sequence that protects food safety and quality while reducing repeated setup, cleanup, and waiting.
+Manager check: Prep efficiency never overrides time/temperature, allergen, sanitation, cooling, or recipe controls.
+
+PROMPT 221 • DISH-ROOM FLOW STUDY
+Analyze this dish-room workflow from dirty drop to clean storage. Layout: [describe]. Volume waves: [data]. Staffing: [data]. Machine/rack/sink capacity: [facts]. Backups, cross-traffic, sorting, scraping, soaking, washing, drying, or return delays: [facts]. Propose a safer one-direction test flow with clear responsibilities.
+Manager check: Preserve warewashing, chemical, temperature, air-dry, safety, and clean/dirty separation requirements.
+
+PROMPT 222 • STANDARD MINUTES BUILDER
+Use repeated observations to propose a working standard-minute range. Task: [task]. Observation times: [data]. Normal interruptions: [facts]. Abnormal delays: [facts]. Quality/result checks: [data]. Show typical performance, variation, justified outlier treatment, and a proposed planning standard or warn if the sample is too weak.
+Manager check: Standard minutes are planning evidence, not a shortcut for unsafe pace or unrealistic demands.
+
+PROMPT 223 • BEFORE/AFTER PRODUCTIVITY VERIFICATION
+Compare this workflow before and after a change. Before data: [times/quality/errors/labor/travel]. Change: [change]. After data: [same measures]. Context differences: [facts]. Identify whether improvement is repeatable, any tradeoff, and recommend keep, revise, retest, or reject.
+Manager check: Faster is not better if quality, safety, guest experience, or reliability declined.
+
+PROMPT 224 • WORK-STUDY-TO-SOP CONVERSION
+Turn verified work-study findings into an SOP revision proposal. Current SOP/version: [text/version]. Verified findings: [evidence]. Tested method: [steps/results]. Standards that cannot change: [list]. Show procedural changes, training impact, verification, revision record, and what stays unchanged.
+Manager check: Authorized management still approves and publishes the standard.
+
+PROMPT 225 • REPEATED QUESTION PATTERN REVIEW
+Review repeated employee or manager questions without assuming the people asking are the problem. Questions/topics: [de-identified list]. Station/role/time pattern: [facts]. Current SOP/help/training: [sources]. Classify likely causes as missing information, hard-to-find information, unclear wording, inconsistent training, process ambiguity, or isolated question.
+Manager check: Questions are signals for investigation, not evidence of poor performance.
+
+PROMPT 226 • QUIZ TROUBLE PATTERN REVIEW
+Analyze repeated misses on this knowledge check. Questions missed: [data]. Roles/stations: [de-identified context]. Training source: [standard]. Pass/retest history: [data]. Determine whether the pattern suggests unclear wording, weak instruction, confusing choices, a knowledge gap, or an unusable standard.
+Manager check: Aggregate quiz trouble is not individual discipline evidence.
+
+PROMPT 227 • SOP / POSTER ATTENTION INVESTIGATION
+Review an unusual increase or decrease in SOP/poster attention as a neutral signal. Content/station: [item]. Timing/volume: [aggregate pattern]. Recent revisions, incidents, training, menu/equipment changes: [facts]. Generate investigation questions and evidence needed to test them.
+Manager check: Attention patterns guide questions; they do not prove cause or performance.
