@@ -6,6 +6,7 @@ const allowedOrigins=new Set(['https://thomasmonroebooks.com','https://www.thoma
 const json=(body,status=200,headers={})=>Response.json(body,{status,headers:{'Cache-Control':'no-store',...headers}});
 const makeId=(prefix='x')=>prefix+'_'+crypto.randomUUID().replaceAll('-','');
 const makeToken=()=>crypto.randomBytes(24).toString('base64url');
+const makeCode=()=>crypto.randomBytes(5).toString('base64url').replace(/[^A-Za-z0-9]/g,'').slice(0,8).toUpperCase();
 const hash=s=>crypto.createHash('sha256').update(String(s||'')).digest('hex');
 const clean=(v,n=4000)=>String(v||'').trim().slice(0,n);
 const safeEmail=v=>{const s=clean(v,254);return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s)?s:null};
@@ -17,6 +18,7 @@ async function readBody(req){try{return await req.json()}catch{return {}}}
 async function testerFromToken(t){if(!t)return null;const r=await db.sql`SELECT * FROM gravity_testing_testers WHERE token_hash=${hash(t)} LIMIT 1`;return r[0]||null}
 function publicTester(t){return{id:t.id,displayName:t.display_name,email:t.email||'',interests:t.interests||[],status:t.status,createdAt:t.created_at,updatedAt:t.updated_at}}
 function managerOK(req){const expected=process.env.GRAVITY_TESTING_MANAGER_KEY||'';const got=bearer(req);if(!expected||!got)return false;const a=Buffer.from(expected),b=Buffer.from(got);return a.length===b.length&&crypto.timingSafeEqual(a,b)}
+async function isGroupMember(groupId,testerId){const r=await db.sql`SELECT 1 FROM gravity_testing_group_members WHERE group_id=${groupId} AND tester_id=${testerId} LIMIT 1`;return !!r[0]}
 
 export default async(request)=>{
   if(!cors(request))return json({error:'Origin not allowed.'},403);
@@ -56,11 +58,40 @@ export default async(request)=>{
       await db.sql`UPDATE gravity_testing_testers SET status='active',updated_at=NOW(),last_tester_message_at=NOW() WHERE id=${t.id}`;
       return json({ok:true,id:mid});
     }
+    if(request.method==='POST'&&p==='group/create'){
+      const t=await testerFromToken(testerToken(request));if(!t)return json({error:'Tester link not found.'},404);const b=await readBody(request);
+      const name=clean(b.name,100),purpose=clean(b.purpose,1200);if(!name)return json({error:'Give the group a short name.'},400);
+      const gid=makeId('group'),code=makeCode();await db.sql`INSERT INTO gravity_testing_groups (id,name,purpose,created_by_tester_id,join_code) VALUES (${gid},${name},${purpose},${t.id},${code})`;
+      await db.sql`INSERT INTO gravity_testing_group_members (group_id,tester_id,role) VALUES (${gid},${t.id},'creator')`;
+      return json({group:{id:gid,name,purpose,joinCode:code}});
+    }
+    if(request.method==='POST'&&p==='group/join'){
+      const t=await testerFromToken(testerToken(request));if(!t)return json({error:'Tester link not found.'},404);const b=await readBody(request);const code=clean(b.code,24).toUpperCase();
+      const g=(await db.sql`SELECT * FROM gravity_testing_groups WHERE join_code=${code} AND status='open' LIMIT 1`)[0];if(!g)return json({error:'That collaboration code was not found.'},404);
+      await db.sql`INSERT INTO gravity_testing_group_members (group_id,tester_id,role) VALUES (${g.id},${t.id},'member') ON CONFLICT DO NOTHING`;
+      return json({group:{id:g.id,name:g.name,purpose:g.purpose,joinCode:g.join_code}});
+    }
+    if(request.method==='GET'&&p==='groups'){
+      const t=await testerFromToken(testerToken(request));if(!t)return json({error:'Tester link not found.'},404);
+      const rows=await db.sql`SELECT g.id,g.name,g.purpose,g.join_code,g.status,g.created_at,(SELECT COUNT(*)::int FROM gravity_testing_group_members gm2 WHERE gm2.group_id=g.id) members FROM gravity_testing_groups g JOIN gravity_testing_group_members gm ON gm.group_id=g.id WHERE gm.tester_id=${t.id} ORDER BY g.updated_at DESC`;
+      return json({groups:rows});
+    }
+    if(request.method==='GET'&&p.startsWith('group/thread/')){
+      const t=await testerFromToken(testerToken(request));if(!t)return json({error:'Tester link not found.'},404);const gid=clean(p.split('/').pop(),100);if(!(await isGroupMember(gid,t.id)))return json({error:'Group access required.'},403);
+      const rows=await db.sql`SELECT id,tester_id,sender_name,body,kind,created_at FROM gravity_testing_group_messages WHERE group_id=${gid} ORDER BY created_at ASC LIMIT 2000`;return json({messages:rows});
+    }
+    if(request.method==='POST'&&p==='group/message'){
+      const t=await testerFromToken(testerToken(request));if(!t)return json({error:'Tester link not found.'},404);const b=await readBody(request);const gid=clean(b.groupId,100),text=clean(b.body,5000);if(!text)return json({error:'Write a short message first.'},400);if(!(await isGroupMember(gid,t.id)))return json({error:'Group access required.'},403);
+      const mid=makeId('gmsg');await db.sql`INSERT INTO gravity_testing_group_messages (id,group_id,tester_id,sender_name,body,kind) VALUES (${mid},${gid},${t.id},${t.display_name},${text},'message')`;await db.sql`UPDATE gravity_testing_groups SET updated_at=NOW() WHERE id=${gid}`;return json({ok:true,id:mid});
+    }
     if(p.startsWith('manager/')){
       if(!managerOK(request))return json({error:'Manager access required.'},401);
       if(request.method==='GET'&&p==='manager/testers'){
         const rows=await db.sql`SELECT t.id,t.display_name,t.email,t.interests,t.status,t.helpful_level,t.created_at,t.updated_at,t.last_tester_message_at,t.last_manager_message_at,(SELECT COUNT(*)::int FROM gravity_testing_messages m WHERE m.tester_id=t.id AND m.sender='tester' AND m.read_by_manager=FALSE) unread FROM gravity_testing_testers t ORDER BY (SELECT COUNT(*) FROM gravity_testing_messages m WHERE m.tester_id=t.id AND m.sender='tester' AND m.read_by_manager=FALSE) DESC,t.updated_at DESC LIMIT 500`;
         return json({testers:rows});
+      }
+      if(request.method==='GET'&&p==='manager/groups'){
+        const rows=await db.sql`SELECT g.id,g.name,g.purpose,g.join_code,g.status,g.created_at,g.updated_at,(SELECT COUNT(*)::int FROM gravity_testing_group_members gm WHERE gm.group_id=g.id) members FROM gravity_testing_groups g ORDER BY g.updated_at DESC LIMIT 200`;return json({groups:rows});
       }
       if(request.method==='GET'&&p.startsWith('manager/thread/')){
         const testerId=clean(p.split('/').pop(),100);const rows=await db.sql`SELECT id,sender,kind,body,context,created_at FROM gravity_testing_messages WHERE tester_id=${testerId} ORDER BY created_at ASC LIMIT 2000`;
@@ -71,6 +102,9 @@ export default async(request)=>{
         const b=await readBody(request);const testerId=clean(b.testerId,100),text=clean(b.body,6000);if(!testerId||!text)return json({error:'Tester and message required.'},400);
         const mid=makeId('msg');await db.sql`INSERT INTO gravity_testing_messages (id,tester_id,sender,kind,body,context,read_by_manager,read_by_tester) VALUES (${mid},${testerId},'manager','reply',${text},'{}'::jsonb,TRUE,FALSE)`;
         await db.sql`UPDATE gravity_testing_testers SET updated_at=NOW(),last_manager_message_at=NOW() WHERE id=${testerId}`;return json({ok:true,id:mid});
+      }
+      if(request.method==='POST'&&p==='manager/group-message'){
+        const b=await readBody(request);const gid=clean(b.groupId,100),text=clean(b.body,5000);if(!gid||!text)return json({error:'Group and message required.'},400);const mid=makeId('gmsg');await db.sql`INSERT INTO gravity_testing_group_messages (id,group_id,tester_id,sender_name,body,kind) VALUES (${mid},${gid},NULL,'Thomas / Gravity',${text},'manager')`;await db.sql`UPDATE gravity_testing_groups SET updated_at=NOW() WHERE id=${gid}`;return json({ok:true,id:mid});
       }
       if(request.method==='POST'&&p==='manager/status'){
         const b=await readBody(request);const testerId=clean(b.testerId,100),status=['new','active','helpful','top10','closed'].includes(b.status)?b.status:'active';const helpful=Math.max(0,Math.min(10,Number(b.helpfulLevel)||0));
