@@ -1,0 +1,37 @@
+name: Final truth cleanup
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/final-truth-cleanup.yml'
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Correct current-vs-historical AI wording
+        run: node scripts/final-truth-cleanup.cjs
+      - name: Rebuild sitemap
+        run: node scripts/update-sitemap.cjs
+      - name: Refresh source manifest
+        run: npm run manifest
+      - name: Verify controlled source
+        run: npm run build
+      - name: Commit verified truth cleanup
+        run: |
+          if git diff --quiet; then
+            echo 'Truth wording already current.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add site source-manifest.json
+          git commit -m 'Clarify AI prompt history and current 250-prompt edition'
+          git push
