@@ -1,0 +1,48 @@
+
+PROMPT 228 • TRAINING DROP-OFF INVESTIGATION
+Review where employees stop or delay in this training sequence. Required steps: [sequence]. Completion pattern: [aggregate data]. Scheduling/access/technology issues: [facts]. Trainer notes: [facts]. Separate access friction, unclear directions, excessive length, weak relevance, knowledge difficulty, and follow-up failure.
+Manager check: Diagnose the training system before attributing drop-off to motivation or attitude.
+
+PROMPT 229 • SIGNAL-TO-ROOT-CAUSE VERIFICATION
+Turn this Gravity Signal or other operational indicator into a disciplined investigation. Signal: [neutral description]. Supporting data: [facts]. Related systems: [list]. Create competing explanations, evidence to support/reject each, low-risk checks first, and a stop rule if the signal is not substantiated.
+Manager check: A signal starts investigation; it is not a finding or automatic action.
+
+PROMPT 230 • MANAGEMENT ATTENTION PRIORITIZER
+Review current restaurant indicators and rank what deserves management attention first. Inputs: [sales/labor/food cost/waste/guest/training/maintenance/safety/cash/people signals]. Known incidents: [facts]. Rank by verified impact, urgency, reversibility, and evidence strength. Separate act now, investigate next, monitor, and no action supported.
+Manager check: Prioritization should reduce noise, not turn every variation into a project.
+
+PROMPT 231 • MISSING EVIDENCE BEFORE DECISION
+I am considering this restaurant decision: [decision]. What I know: [verified facts]. What I suspect: [assumptions]. Records available: [list]. Identify the minimum missing evidence that could materially change the decision, where to get it, what can be decided safely now, and what should wait.
+Manager check: Do not fill an evidence gap with AI confidence.
+
+PROMPT 232 • WEEKLY OPERATING PATTERN REVIEW
+Review this week's operating evidence for meaningful cross-system patterns. Data: [sales/labor/inventory/waste/guest/training/equipment/manager logs]. Prior-week comparison: [data]. Known events: [facts]. Identify repeated patterns, exceptions, emerging risks, resolved items, and the three management questions that deserve ownership next week.
+Manager check: Keep patterns separate from causes until evidence supports the connection.
+
+PROMPT 233 • PROPOSED WEEKLY SCHEDULE FOR MANAGER APPROVAL
+Create a proposed weekly restaurant schedule for manager review, not automatic publication. Forecast demand: [data]. Required station/daypart coverage: [standards]. Employee availability, qualifications, approved time off, and hour limits: [data]. Produce a draft schedule, coverage exceptions, overtime risks, assumptions, and manager approval checklist.
+Manager check: AI may propose; the manager verifies and approves the schedule.
+
+PROMPT 234 • INVENTORY COUNT ROUTE BUILDER
+Build an efficient physical-count route from these locations and items. Storage areas: [list/layout]. Item list with locations: [data]. Count conditions: [facts]. Sequence the route to reduce backtracking and duplicate counts, flag items stored in multiple places, and include a final missed-location and duplicate-count check.
+Manager check: Item/location assignments must be current and counters must follow one defined path.
+
+PROMPT 235 • LOCAL / EMERGENCY PURCHASE CONTROL
+Design a control for locally purchased or emergency-sourced inventory without creating duplicate item records. Item: [item]. Normal vendor/pack: [data]. Local source/pack/price: [data]. Reason: [stockout/emergency/price/other]. Preserve one item identity, capture source/pack/cost differences, receive correctly, retain the receipt, and review whether the exception should change normal purchasing.
+Manager check: A different supplier does not automatically mean a different inventory item.
+
+PROMPT 236 • ITEM-MASTER DUPLICATE & NAMING AUDIT
+Audit this inventory item master for duplicates and inconsistent naming. Item list: [data]. Include descriptions, categories, units, pack sizes, locations, vendors, and barcodes. Flag probable duplicates, conflicting units/pack sizes, vague names, and barcode collisions. Recommend a controlled merge/rename plan without deleting history.
+Manager check: Confirm identity and historical references before merging or retiring an item.
+
+PROMPT 237 • INVENTORY VARIANCE INVESTIGATION CHAIN
+Trace this inventory variance through the record chain. Item/period: [data]. Beginning count: [data]. Purchases: [data]. Transfers: [data]. Waste/comps/production: [data]. Sales/usage basis: [data]. Ending count: [data]. Identify mathematical inconsistencies first, then the highest-value records or physical checks needed to explain the gap.
+Manager check: Reconcile records before assigning cause; do not label loss as theft without evidence.
+
+PROMPT 238 • SOP-TO-STATION-POSTER BUILDER
+Turn this approved SOP into a concise station poster without changing the standard. SOP/version: [text]. Audience/location: [station]. Identify 5-8 visible actions/checks, a Why It Matters line, any stop/escalate trigger, and the exact SOP reference/QR destination. List what must remain in the full SOP.
+Manager check: A poster is a quick-use layer, not a replacement for the controlled SOP.
+
+PROMPT 239 • SOP REVISION TRAINING-IMPACT DECISION
+Help the authorized reviser decide whether this SOP change requires retraining, acknowledgment only, communication only, or no employee action. Old version: [summary]. New version: [summary]. Roles affected: [roles]. Risk/behavior/equipment/sequence changes: [facts]. Return decision factors, affected audiences, recommended evidence, and questions the reviser must answer.
+Manager check: The SOP reviser controls the actual retraining requirement.
