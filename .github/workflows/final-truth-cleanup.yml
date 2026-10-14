@@ -35,3 +35,4 @@ jobs:
           git add site source-manifest.json
           git commit -m 'Clarify AI prompt history and current 250-prompt edition'
           git push
+# rerun after archived wording check
