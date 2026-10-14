@@ -98,6 +98,18 @@
     catch (_) { return ''; }
   }
   function fileExt(name) { var m=(name||'').match(/\.([a-z0-9]+)$/i); return m ? m[1].toLowerCase() : ''; }
+  function analyticsPageLocation() {
+    try {
+      var u=new URL(location.href), keep=new URLSearchParams();
+      ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){var v=u.searchParams.get(k);if(v)keep.set(k,v);});
+      var q=keep.toString(); return u.origin+u.pathname+(q?'?'+q:'');
+    } catch (_) { return location.origin+(location.pathname||'/'); }
+  }
+  function safeReferrer(v) {
+    if(!v)return '';
+    try { var u=new URL(v); ['t','token','key','access_token','auth'].forEach(function(k){u.searchParams.delete(k);}); return u.origin+u.pathname+(u.searchParams.toString()?'?'+u.searchParams.toString():''); }
+    catch (_) { return ''; }
+  }
   function send(name, params) {
     if (!analyticsEnabled || typeof window.gtag !== 'function') return;
     var base = { page_category: pageCategory(), page_path_clean: location.pathname || '/', gravity_site: SITE_NAME };
@@ -114,6 +126,7 @@
     window.gtag('js', new Date());
     window.gtag('config', GA4_MEASUREMENT_ID, {
       send_page_view: true,
+      page_location: analyticsPageLocation(),
       content_group: pageCategory(),
       allow_google_signals: false,
       allow_ad_personalization_signals: false
@@ -211,7 +224,7 @@
     if (existing) { try { return JSON.parse(existing); } catch (_) {} }
     var data = {
       landing_path: location.pathname || '/',
-      referrer: document.referrer || '',
+      referrer: safeReferrer(document.referrer || ''),
       utm_source: queryValue('utm_source'),
       utm_medium: queryValue('utm_medium'),
       utm_campaign: queryValue('utm_campaign'),
@@ -267,7 +280,7 @@
       'registration-utm-medium': gravityFirstTouch.utm_medium || '',
       'registration-utm-campaign': gravityFirstTouch.utm_campaign || '',
       'registration-visit-type': sessionGet('gravity_first_visit_flow_v1') === '1' ? 'first_visit_flow' : (gravityIsKnownBrowser ? 'returning_browser' : 'first_browser_visit'),
-      'registration-source-page': document.referrer || '',
+      'registration-source-page': safeReferrer(document.referrer || ''),
       'registration-registered-at': new Date().toISOString()
     };
     Object.keys(map).forEach(function (id) { var el=document.getElementById(id); if (el) el.value=map[id]; });
