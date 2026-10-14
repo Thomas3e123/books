@@ -4,7 +4,7 @@ THE RESTAURANT LEADERSHIP SYSTEM
 Restaurant AI Prompts &
 Systems Workbook
 
-215 practical copy-and-paste prompts for restaurant leadership, service
+250 practical copy-and-paste prompts for restaurant leadership, service
 planning, beverage control, training, facilities, controls, specialty operations,
 connected Gravity workspace workflows, guest recovery, and verified
 management follow-through.
@@ -21,7 +21,7 @@ incorporate this workbook into another product without written permission.
 Responsible use: AI output may be inaccurate. Managers remain responsible for verifying high-stakes information and decisions against current authoritative
 sources and restaurant policies.
 
-UPDATED DIGITAL EDITION • SEPTEMBER 2026
+UPDATED DIGITAL EDITION • OCTOBER 2026
 
     START HERE
 
@@ -2360,7 +2360,7 @@ Manager check: Closing a guest case is not the same as correcting the cause; kee
 CONNECTED GRAVITY WORKSPACES + SPECIALTY OPERATIONS
 — SEPTEMBER 2026
 These 26 prompts are de-duplicated additions from current connected Gravity workspace workflows and specialty, less-common, and advanced
-operations within the controlled 525-SOP library. They bring the controlled digital edition to 215 prompts without duplicating the general
+operations within the controlled 525-SOP library. They brought the September 2026 controlled digital edition to 215 prompts without duplicating the general
 scheduling, SOP, privacy, emergency, or cross-system prompts already covered earlier in the workbook.
 
 CONNECTED WORKSPACE WORKFLOWS
@@ -2642,3 +2642,144 @@ PROMPT 215 • FOOD DEFENSE / CERTIFIED-PROGRAM EVIDENCE READINESS REVIEW
 
 Manager check: Do not infer certification, allergen safety, tampering intent, or regulatory compliance from incomplete records; verify with the
 applicable certifier, authority, approved plan, and trained leadership.
+
+GRAVITY WORK STUDY, SIGNALS, AWARENESS & BETA CONTROL — OCTOBER 2026
+These 35 de-duplicated additions extend the controlled digital edition from 215 to 250 prompts.
+
+PROMPT 216 • WORK STUDY DESIGN
+Design a practical work study for this restaurant task. Task/process: [task]. Purpose: [speed/quality/labor/flow/safety/other]. Context: [where/when]. People/equipment: [facts]. Build an observation plan with start/stop points, repeated observations, elements to time, motion/travel notes, interruption codes, quality checks, and evidence needed before changing the standard.
+Manager check: Measure representative real work before changing staffing, standards, or expectations.
+
+PROMPT 217 • TASK ELEMENT BREAKDOWN
+Break this task into measurable work elements without changing the approved result. Current method: [steps]. Required outcome: [standard]. Equipment/layout: [facts]. Identify start/stop points, value-producing work, waiting, travel, rework, handoffs, and checks.
+Manager check: Element breakdown describes the work; it does not authorize skipping quality, safety, or required checks.
+
+PROMPT 218 • MOTION & TRAVEL ANALYSIS
+Analyze this work-study observation for unnecessary motion and travel. Task: [task]. Layout: [describe]. Observed steps/travel: [data]. Reaching, bending, searching, double-handling, backtracking, waiting, or congestion: [facts]. Separate necessary from avoidable motion and propose the smallest tests worth trying.
+Manager check: Reduce wasted motion without creating unsafe lifting, sanitation, cross-contamination, or access problems.
+
+PROMPT 219 • BOTTLENECK STUDY
+Find the constraining step in this workflow. Demand pattern: [data]. Step times/queues: [data]. Staffing/equipment by step: [facts]. Rework or interruptions: [facts]. Identify where work accumulates, likely constraint type, evidence needed to confirm it, and one controlled test before adding labor or equipment.
+Manager check: A visible queue may be a symptom; verify the actual constraint first.
+
+PROMPT 220 • PREP FLOW STUDY
+Review this prep process for sequence, batching, staging, handoffs, and avoidable waiting. Prep list: [items/quantities]. Equipment/shared-space limits: [facts]. Start/completion times: [data]. Dependencies: [facts]. Build a better test sequence that protects food safety and quality while reducing repeated setup, cleanup, and waiting.
+Manager check: Prep efficiency never overrides time/temperature, allergen, sanitation, cooling, or recipe controls.
+
+PROMPT 221 • DISH-ROOM FLOW STUDY
+Analyze this dish-room workflow from dirty drop to clean storage. Layout: [describe]. Volume waves: [data]. Staffing: [data]. Machine/rack/sink capacity: [facts]. Backups, cross-traffic, sorting, scraping, soaking, washing, drying, or return delays: [facts]. Propose a safer one-direction test flow with clear responsibilities.
+Manager check: Preserve warewashing, chemical, temperature, air-dry, safety, and clean/dirty separation requirements.
+
+PROMPT 222 • STANDARD MINUTES BUILDER
+Use repeated observations to propose a working standard-minute range. Task: [task]. Observation times: [data]. Normal interruptions: [facts]. Abnormal delays: [facts]. Quality/result checks: [data]. Show typical performance, variation, justified outlier treatment, and a proposed planning standard or warn if the sample is too weak.
+Manager check: Standard minutes are planning evidence, not a shortcut for unsafe pace or unrealistic demands.
+
+PROMPT 223 • BEFORE/AFTER PRODUCTIVITY VERIFICATION
+Compare this workflow before and after a change. Before data: [times/quality/errors/labor/travel]. Change: [change]. After data: [same measures]. Context differences: [facts]. Identify whether improvement is repeatable, any tradeoff, and recommend keep, revise, retest, or reject.
+Manager check: Faster is not better if quality, safety, guest experience, or reliability declined.
+
+PROMPT 224 • WORK-STUDY-TO-SOP CONVERSION
+Turn verified work-study findings into an SOP revision proposal. Current SOP/version: [text/version]. Verified findings: [evidence]. Tested method: [steps/results]. Standards that cannot change: [list]. Show procedural changes, training impact, verification, revision record, and what stays unchanged.
+Manager check: Authorized management still approves and publishes the standard.
+
+PROMPT 225 • REPEATED QUESTION PATTERN REVIEW
+Review repeated employee or manager questions without assuming the people asking are the problem. Questions/topics: [de-identified list]. Station/role/time pattern: [facts]. Current SOP/help/training: [sources]. Classify likely causes as missing information, hard-to-find information, unclear wording, inconsistent training, process ambiguity, or isolated question.
+Manager check: Questions are signals for investigation, not evidence of poor performance.
+
+PROMPT 226 • QUIZ TROUBLE PATTERN REVIEW
+Analyze repeated misses on this knowledge check. Questions missed: [data]. Roles/stations: [de-identified context]. Training source: [standard]. Pass/retest history: [data]. Determine whether the pattern suggests unclear wording, weak instruction, confusing choices, a knowledge gap, or an unusable standard.
+Manager check: Aggregate quiz trouble is not individual discipline evidence.
+
+PROMPT 227 • SOP / POSTER ATTENTION INVESTIGATION
+Review an unusual increase or decrease in SOP/poster attention as a neutral signal. Content/station: [item]. Timing/volume: [aggregate pattern]. Recent revisions, incidents, training, menu/equipment changes: [facts]. Generate investigation questions and evidence needed to test them.
+Manager check: Attention patterns guide questions; they do not prove cause or performance.
+PROMPT 228 • TRAINING DROP-OFF INVESTIGATION
+Review where employees stop or delay in this training sequence. Required steps: [sequence]. Completion pattern: [aggregate data]. Scheduling/access/technology issues: [facts]. Trainer notes: [facts]. Separate access friction, unclear directions, excessive length, weak relevance, knowledge difficulty, and follow-up failure.
+Manager check: Diagnose the training system before attributing drop-off to motivation or attitude.
+
+PROMPT 229 • SIGNAL-TO-ROOT-CAUSE VERIFICATION
+Turn this Gravity Signal or other operational indicator into a disciplined investigation. Signal: [neutral description]. Supporting data: [facts]. Related systems: [list]. Create competing explanations, evidence to support/reject each, low-risk checks first, and a stop rule if the signal is not substantiated.
+Manager check: A signal starts investigation; it is not a finding or automatic action.
+
+PROMPT 230 • MANAGEMENT ATTENTION PRIORITIZER
+Review current restaurant indicators and rank what deserves management attention first. Inputs: [sales/labor/food cost/waste/guest/training/maintenance/safety/cash/people signals]. Known incidents: [facts]. Rank by verified impact, urgency, reversibility, and evidence strength. Separate act now, investigate next, monitor, and no action supported.
+Manager check: Prioritization should reduce noise, not turn every variation into a project.
+
+PROMPT 231 • MISSING EVIDENCE BEFORE DECISION
+I am considering this restaurant decision: [decision]. What I know: [verified facts]. What I suspect: [assumptions]. Records available: [list]. Identify the minimum missing evidence that could materially change the decision, where to get it, what can be decided safely now, and what should wait.
+Manager check: Do not fill an evidence gap with AI confidence.
+
+PROMPT 232 • WEEKLY OPERATING PATTERN REVIEW
+Review this week's operating evidence for meaningful cross-system patterns. Data: [sales/labor/inventory/waste/guest/training/equipment/manager logs]. Prior-week comparison: [data]. Known events: [facts]. Identify repeated patterns, exceptions, emerging risks, resolved items, and the three management questions that deserve ownership next week.
+Manager check: Keep patterns separate from causes until evidence supports the connection.
+
+PROMPT 233 • PROPOSED WEEKLY SCHEDULE FOR MANAGER APPROVAL
+Create a proposed weekly restaurant schedule for manager review, not automatic publication. Forecast demand: [data]. Required station/daypart coverage: [standards]. Employee availability, qualifications, approved time off, and hour limits: [data]. Produce a draft schedule, coverage exceptions, overtime risks, assumptions, and manager approval checklist.
+Manager check: AI may propose; the manager verifies and approves the schedule.
+
+PROMPT 234 • INVENTORY COUNT ROUTE BUILDER
+Build an efficient physical-count route from these locations and items. Storage areas: [list/layout]. Item list with locations: [data]. Count conditions: [facts]. Sequence the route to reduce backtracking and duplicate counts, flag items stored in multiple places, and include a final missed-location and duplicate-count check.
+Manager check: Item/location assignments must be current and counters must follow one defined path.
+
+PROMPT 235 • LOCAL / EMERGENCY PURCHASE CONTROL
+Design a control for locally purchased or emergency-sourced inventory without creating duplicate item records. Item: [item]. Normal vendor/pack: [data]. Local source/pack/price: [data]. Reason: [stockout/emergency/price/other]. Preserve one item identity, capture source/pack/cost differences, receive correctly, retain the receipt, and review whether the exception should change normal purchasing.
+Manager check: A different supplier does not automatically mean a different inventory item.
+
+PROMPT 236 • ITEM-MASTER DUPLICATE & NAMING AUDIT
+Audit this inventory item master for duplicates and inconsistent naming. Item list: [data]. Include descriptions, categories, units, pack sizes, locations, vendors, and barcodes. Flag probable duplicates, conflicting units/pack sizes, vague names, and barcode collisions. Recommend a controlled merge/rename plan without deleting history.
+Manager check: Confirm identity and historical references before merging or retiring an item.
+
+PROMPT 237 • INVENTORY VARIANCE INVESTIGATION CHAIN
+Trace this inventory variance through the record chain. Item/period: [data]. Beginning count: [data]. Purchases: [data]. Transfers: [data]. Waste/comps/production: [data]. Sales/usage basis: [data]. Ending count: [data]. Identify mathematical inconsistencies first, then the highest-value records or physical checks needed to explain the gap.
+Manager check: Reconcile records before assigning cause; do not label loss as theft without evidence.
+
+PROMPT 238 • SOP-TO-STATION-POSTER BUILDER
+Turn this approved SOP into a concise station poster without changing the standard. SOP/version: [text]. Audience/location: [station]. Identify 5-8 visible actions/checks, a Why It Matters line, any stop/escalate trigger, and the exact SOP reference/QR destination. List what must remain in the full SOP.
+Manager check: A poster is a quick-use layer, not a replacement for the controlled SOP.
+
+PROMPT 239 • SOP REVISION TRAINING-IMPACT DECISION
+Help the authorized reviser decide whether this SOP change requires retraining, acknowledgment only, communication only, or no employee action. Old version: [summary]. New version: [summary]. Roles affected: [roles]. Risk/behavior/equipment/sequence changes: [facts]. Return decision factors, affected audiences, recommended evidence, and questions the reviser must answer.
+Manager check: The SOP reviser controls the actual retraining requirement.
+PROMPT 240 • PUBLISHED SOP EMPLOYEE MICRO-LESSON
+Create a five-minute employee lesson from this published SOP. SOP: [approved text]. Role/station: [audience]. Emphasize purpose, critical steps, common failure points, one short scenario, and two understanding questions. Do not add rules not in the SOP or treat lesson completion as certification.
+Manager check: Teaching the standard is different from verifying independent performance.
+
+PROMPT 241 • FIND → PROVE PROBLEM INVESTIGATION
+Apply the first two Gravity improvement stages to this restaurant problem. Reported problem: [statement]. Evidence available: [records/observations]. Define what should be found, what counts as proof, competing explanations, missing evidence, and the condition that would justify moving to prioritization.
+Manager check: Name and prove the real problem before planning the solution.
+
+PROMPT 242 • INSTALL → MEASURE → CORRECT VERIFICATION PLAN
+Build the verification layer for this approved restaurant change. Change: [change]. Expected result: [target]. Owner: [role]. Installation date: [date]. Define what proves installation, measures, review timing, failure thresholds, corrective options, and when to retest rather than declare success.
+Manager check: Installation is not completion; the result must be measured and corrected.
+
+PROMPT 243 • HOLD → IMPROVE SUSTAINMENT REVIEW
+Review whether this successful change is being held and where the next improvement should come from. Standard/change: [item]. Verification history: [data]. Drift/exceptions: [facts]. Training/ownership: [facts]. Determine what must be protected, what can be simplified, audit frequency, and whether evidence supports another improvement cycle.
+Manager check: Do not improve away the control that made the result stable.
+
+PROMPT 244 • RESTAURANT SOFTWARE PILOT-TEST PLAN
+Create a controlled pilot for this restaurant software or digital tool. Tool/version: [name]. Users: [roles]. Workflow: [task]. Data risk: [low/medium/high]. Backup/export: [facts]. Build a small test scope, safe data plan, success criteria, failure stop points, backup steps, tester notes, and approval needed before broader use.
+Manager check: Pilot first; do not make an unproven tool mission-critical on day one.
+
+PROMPT 245 • WINDOWS BETA CUSTOMER TEST CHECKLIST
+Create a practical customer test checklist for this Windows Beta. Program/version: [name]. Computer/Windows version: [facts]. Workflow: [task]. Test installation, first launch, navigation, help/glossary, data entry, save/reopen, print/export where applicable, error handling, backup/restore where applicable, and exit behavior. Capture expected vs actual result.
+Manager check: Use noncritical data first and keep backups while testing Beta software.
+
+PROMPT 246 • REPRODUCIBLE BUG REPORT BUILDER
+Turn tester notes into a bug report another person can reproduce. Program/version: [data]. Windows version: [data]. Goal: [goal]. Exact steps: [notes]. Expected result: [expected]. Actual result/error: [actual]. Frequency: [always/sometimes/once]. Build numbered reproduction steps, severity, evidence, and any safe workaround. Remove secrets and unnecessary personal data.
+Manager check: A useful bug report explains reproduction without exposing sensitive information.
+
+PROMPT 247 • BETA FEEDBACK RISK & PRIORITY REVIEW
+Prioritize this batch of Beta feedback. Feedback: [list]. Frequency: [data]. Operational impact: [facts]. Data-loss/safety/security implications: [facts]. Workaround: [yes/no]. Classify blocker, high, normal, low, or enhancement; separate defects from confusion/training requests; explain priority using evidence.
+Manager check: One severe failure can outrank many cosmetic requests.
+
+PROMPT 248 • SEARCHES WITH NO ANSWER / KNOWLEDGE GAP REVIEW
+Review searches, questions, or requests that did not produce a useful answer. Search terms/questions: [list]. Station/role context: [facts]. Frequency: [data]. Related SOPs/forms/help content: [sources]. Identify whether each miss points to missing content, unclear terminology, poor navigation, a training gap, or a genuinely new operating need.
+Manager check: A failed search is evidence of a question, not proof that a new policy or SOP is required.
+
+PROMPT 249 • POST-REVISION ADOPTION VERIFICATION
+Verify whether a changed SOP, poster, schedule rule, form, or operating standard was actually adopted after release. Revision: [change/version]. Release date: [date]. Affected roles: [roles]. Training/acknowledgment evidence: [data]. Observations/questions/errors/results: [data]. Separate communication completed, training completed, behavior observed, and result verified. Identify where adoption stopped.
+Manager check: Publishing or acknowledging a revision does not prove new behavior is being followed.
+
+PROMPT 250 • TOOL-TO-TOOL HANDOFF QUALITY CHECK
+Review information being transferred from one Gravity workspace or management process into another. Source: [tool/process]. Destination: [tool/process]. Transferred information: [data]. Decision supported: [goal]. Identify missing context, duplicate entry, conflicting definitions, stale information, privacy concerns, or fields that should not transfer automatically. Recommend the minimum useful handoff and what a manager must still review.
+Manager check: Connected tools should reduce re-entry without silently transferring assumptions or changing authority.

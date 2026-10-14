@@ -302,7 +302,7 @@
     },
     {
       "path": "site/assets/css/gravity-refinement.css",
-      "sha256": "b48d2fe41a8a90229a025bd2dd06dbe4e2b2cc995e542fb65b89940e6a5c4ab4"
+      "sha256": "3b494690fbba5435395443a4a73ed1be74b7cfc4484cdd2e666b36f5c952e279"
     },
     {
       "path": "site/assets/css/gravity-sop-foundry.css",
@@ -1290,11 +1290,11 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "e63c17dc42cac0ce8ed0b744588b1cca62ac236003d5946a02acfdfbc20c7ff9"
+      "sha256": "b934f228672d1b88b7b02b47acd35dab258f6ca5c37732e77bfa9ff0f5696539"
     },
     {
       "path": "site/assets/reader/ai-prompts.txt",
-      "sha256": "97218506d39d00508ef5d9713fcaec5c4693a8c64eb43ab8fb614ec84daba4dc"
+      "sha256": "6dd8da0c466d4b99c256a8e4d060eb9f155e6acb574640aa2e0b787975e075fa"
     },
     {
       "path": "site/assets/reader/bar-inventory.txt",
@@ -1950,7 +1950,7 @@
     },
     {
       "path": "functions/gravity-guide/guide-core.mjs",
-      "sha256": "5ff96082f4d111d53b13aacb3e7451cd4edd595b9c9283bb6955183ab454e49f"
+      "sha256": "fb1983c3b5bc46de55a53b32d77313319774ab828b2e0c4dfa8d6f177b086f2d"
     },
     {
       "path": "functions/gravity-tts/gravity-tts.js",

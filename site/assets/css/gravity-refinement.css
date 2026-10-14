@@ -27,3 +27,14 @@
 }
 @media(prefers-reduced-motion:reduce){.gravity-more>summary::before{transition:none}}
 @media print{.gravity-more{border:0;padding:0}.gravity-more>summary{display:none}.gravity-more::details-content{display:block}}
+
+/* GRAVITY FINAL POLISH 2026-10-14 */
+.gravity-help-tip::after,.gravity-help-tip::before{display:none!important}
+.gravity-help-overlay{position:fixed;z-index:2147483000;padding:.72rem .82rem;border:1px solid rgba(200,155,60,.68);border-radius:10px;background:#0f2639;color:#fff;font:500 .82rem/1.48 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:left;letter-spacing:0;white-space:normal;overflow-wrap:anywhere;box-shadow:0 14px 34px rgba(0,0,0,.32);pointer-events:none}
+.gravity-help-overlay[hidden]{display:none!important}
+.gravity-beta-invite{padding:34px 0;background:linear-gradient(135deg,#101d2b,#182f3f 62%,#3f2c1d);color:#fff;border-top:1px solid rgba(201,151,43,.35);border-bottom:1px solid rgba(201,151,43,.35)}
+.gravity-beta-invite-card{max-width:980px;margin:0 auto;padding:26px 30px;border:1px solid rgba(228,197,111,.42);border-radius:20px;background:rgba(7,17,31,.52);box-shadow:0 16px 40px rgba(0,0,0,.16)}
+.gravity-beta-invite .eyebrow{color:#e4c56f}.gravity-beta-invite h2{margin:.45rem 0 .7rem;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.7rem,3vw,2.35rem);line-height:1.05}.gravity-beta-invite p{max-width:850px;margin:.55rem 0;color:#f2eadc}.gravity-beta-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}.gravity-beta-invite .btn-outline.light{background:#fff;color:#0d1b2a;border-color:#fff}
+.gravity-beta-compact{padding:18px 0;background:#fff8e8;border-bottom:1px solid #dcc99f}.gravity-beta-compact-card{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 20px;border:1px solid #d6b66d;border-radius:14px;background:#fffdf8}.gravity-beta-compact-card strong{font-family:Georgia,"Times New Roman",serif;font-size:1.2rem;color:#172033}.gravity-beta-compact-card p{margin:.25rem 0 0;color:#4b5563}.gravity-beta-compact-card .btn{flex:0 0 auto}
+.gravity-beta-test-note{margin:10px 0 16px;padding:13px 15px;border-left:4px solid #b8872d;border-radius:10px;background:#fff7e6;color:#26364a}.gravity-beta-test-note strong{color:#172033}.gravity-beta-test-note p{margin:.3rem 0 .45rem}.gravity-beta-test-note a{font-weight:800;color:#7b1e29;text-decoration:underline}
+@media(max-width:700px){.gravity-beta-invite{padding:22px 0}.gravity-beta-invite-card{padding:20px 18px;border-radius:14px}.gravity-beta-actions .btn{width:100%}.gravity-beta-compact-card{align-items:flex-start;flex-direction:column}.gravity-beta-compact-card .btn{width:100%}.gravity-help-overlay{font-size:.86rem;line-height:1.5}}
