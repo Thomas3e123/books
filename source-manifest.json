@@ -1478,7 +1478,7 @@
     },
     {
       "path": "site/books.html",
-      "sha256": "d9216227f32402259a18d0a4dcde5726b00abb8f7a30b6abe79068a47be946b4"
+      "sha256": "45e7504b86cad9b42fcbf1552dba6814a4487f83a3e14bf6e37666ad702411d5"
     },
     {
       "path": "site/contact.html",
@@ -1490,11 +1490,11 @@
     },
     {
       "path": "site/free-resources.html",
-      "sha256": "dea1f402fdbe9402007686c6331c8fbf5a45292e9e90ac1388e006aada6067ae"
+      "sha256": "fc04d6eb5a5199c7524e61297452926c780ed0233de57090af075cf8bb5c7f2d"
     },
     {
       "path": "site/gravity-assist.html",
-      "sha256": "2ba7de67494fd56e274f9620a7c250e19c56859599267b76721249c7b9f98cf2"
+      "sha256": "1695a9f37998a444d245c4b44d6df10be5380a0525ca608f33eb8fae65cd56a3"
     },
     {
       "path": "site/gravity-aware.html",
@@ -1582,7 +1582,7 @@
     },
     {
       "path": "site/gravity-system-field-guide.html",
-      "sha256": "5c3c708bf6da95e4198699a40c34c92b88cd54b14f5877c89c3fcf5bc6f84662"
+      "sha256": "17c0cb9e3190239f911fb65ece1fca39ada92dab4167aab5ac9238243fadae11"
     },
     {
       "path": "site/gravity-work-study-lab.html",
@@ -1606,7 +1606,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "b1b6d3845f536abbe86cda20bf7e833bfe01307501f2c4ca2cd9a3b711740c6f"
+      "sha256": "7a2d40aeedaab78b501897814a7338c096848bbfd31ad7238428803c5279df5b"
     },
     {
       "path": "site/installation-improvement.html",
@@ -1614,11 +1614,11 @@
     },
     {
       "path": "site/intelligence-ai.html",
-      "sha256": "fe61de53c81e8b180085810f033725f8073067737ebc519b0d457a08f1ac2ea7"
+      "sha256": "d2eedb396fbdd2defccf608328e5c9fa7e54a391bb0a92b54ba6f2593cd7c902"
     },
     {
       "path": "site/knowledge-center.html",
-      "sha256": "cea83466ea3a6116e9c318b7249a9e320b02fd36a358bf944b4bc2a6a6173842"
+      "sha256": "164dd609423147de6b3592275fc83c227e158ad3b5c5104f4cc8ff6f9479a220"
     },
     {
       "path": "site/manager-readiness-leadership-development.html",
@@ -1894,7 +1894,7 @@
     },
     {
       "path": "site/sitemap.xml",
-      "sha256": "a1b20077522f843bcae11e4f5e2d08d2ed8be8ee48b5725ecc0cbe4ad9193e02"
+      "sha256": "237629cf1208d22f26b5861fc5cf0d9f21e9bb600509b5e5c07d0a7b672b7064"
     },
     {
       "path": "site/standards-library.html",
@@ -1906,7 +1906,7 @@
     },
     {
       "path": "site/start-here.html",
-      "sha256": "aa86aea5aa51441455290bc734a09290ea13c97c0cfbff78445a447b5c408156"
+      "sha256": "8a93a418f45c9a9557491deb4595a47934e5f33ac9a03232e4c41271719e5ced"
     },
     {
       "path": "site/support.html",
@@ -1914,7 +1914,7 @@
     },
     {
       "path": "site/system.html",
-      "sha256": "679a5cc5671237d2f69bc4d39c7d70e474c4c3a1fd6b5c091a68112270f05424"
+      "sha256": "02057566c605a5ca52dfbe5d27139a3047c9c3e15c5cdca58493048878841056"
     },
     {
       "path": "site/systems-of-service.html",
