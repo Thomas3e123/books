@@ -78,6 +78,7 @@
 
   function pageCategory() {
     var p = (location.pathname || '').toLowerCase();
+    if (p.indexOf('testing-room') >= 0) return 'Testing Room';
     if (p.indexOf('start-here') >= 0) return 'Start Here';
     if (p.indexOf('register') >= 0 || p.indexOf('registration-thanks') >= 0) return 'Registration';
     if (p.indexOf('operating-system') >= 0 || p.indexOf('sales-intelligence') >= 0) return 'Operating Systems';
@@ -103,6 +104,9 @@
     Object.keys(params || {}).forEach(function (k) { base[k] = params[k]; });
     window.gtag('event', name, base);
   }
+
+  // Safe public hook for first-party pages that need to report non-PII product events.
+  window.gravityAnalyticsEvent = function (name, params) { send(name, params || {}); };
 
   if (analyticsEnabled) {
     window.dataLayer = window.dataLayer || [];

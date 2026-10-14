@@ -1290,7 +1290,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "56daec9c3e9b6b800128a1a8f10f4560aff52cbd270ad4c5f7f6d44674743a15"
+      "sha256": "fc56c1cabe72eeb5b1b9edaea3afe538351e0a0a9b4b67c3a4578d82b37c9e7a"
     },
     {
       "path": "site/assets/reader/ai-prompts.txt",
@@ -1954,7 +1954,7 @@
     },
     {
       "path": "site/testing-room.html",
-      "sha256": "b7ad1b048b33b9c7bb9b2853dc60582eb5bf5186867b45436b3a8bad1063b361"
+      "sha256": "c2b3d8a0065524ea4299568979e4ec7565281519e7b2e033a800349dec946128"
     },
     {
       "path": "site/the-owners-chair.html",
