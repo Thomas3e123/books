@@ -28,4 +28,4 @@ jobs:
             }
           }
           NODE
-# rerun after production accessibility publish
+# final clean-room Lighthouse validation 2026-10-14
