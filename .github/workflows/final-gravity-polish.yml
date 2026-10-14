@@ -1,0 +1,68 @@
+name: Final Gravity site polish
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  apply-final-polish:
+    if: github.event.head_commit.message == 'Run final Gravity polish'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Apply UI, help, navigation, and AI prompt updates
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          root=Path('.')
+          js=root/'site/assets/js/site.js'
+          css=root/'site/assets/css/gravity-refinement.css'
+          prompt=root/'site/assets/reader/ai-prompts.txt'
+          marker='GRAVITY FINAL POLISH 2026-10-14'
+          s=js.read_text(encoding='utf-8')
+          extra=(root/'scripts/final-polish-ui.js').read_text(encoding='utf-8')
+          if marker not in s:
+              js.write_text(s.rstrip()+'\n\n'+extra.strip()+'\n',encoding='utf-8')
+          s=css.read_text(encoding='utf-8')
+          extra=(root/'scripts/final-polish-ui.css').read_text(encoding='utf-8')
+          if marker not in s:
+              css.write_text(s.rstrip()+'\n\n'+extra.strip()+'\n',encoding='utf-8')
+          s=prompt.read_text(encoding='utf-8')
+          s=s.replace('215 practical copy-and-paste prompts','250 practical copy-and-paste prompts',1)
+          s=s.replace('UPDATED DIGITAL EDITION • SEPTEMBER 2026','UPDATED DIGITAL EDITION • OCTOBER 2026',1)
+          s=s.replace('They bring the controlled digital edition to 215 prompts','They brought the September 2026 controlled digital edition to 215 prompts')
+          if 'PROMPT 250 • TOOL-TO-TOOL HANDOFF QUALITY CHECK' not in s:
+              for name in ['ai-prompts-216-227.txt','ai-prompts-228-239.txt','ai-prompts-240-250.txt']:
+                  s=s.rstrip()+(root/'scripts'/name).read_text(encoding='utf-8')
+          prompt.write_text(s.rstrip()+'\n',encoding='utf-8')
+          PY
+
+      - name: Refresh controlled manifest
+        run: npm run manifest
+
+      - name: Verify controlled source
+        run: npm run build
+
+      - name: Commit verified release
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/assets/js/site.js site/assets/css/gravity-refinement.css site/assets/reader/ai-prompts.txt functions/gravity-guide/guide-core.mjs source-manifest.json
+          if git diff --cached --quiet; then
+            echo "No verified changes to commit."
+            exit 0
+          fi
+          git commit -m "Polish customer experience, Guide knowledge, and AI 250"
+          git push origin HEAD:main
