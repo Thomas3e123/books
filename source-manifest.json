@@ -617,18 +617,6 @@
       "sha256": "09ed8a4141a89327add5403dbb2da515932273a79fbffd5b7c55cbc35fcdf659"
     },
     {
-      "path": "site/assets/downloads/windows/Gravity_Inventory_Center_Windows_Beta_2026-10-13_x64_EASY_INSTALL.zip",
-      "sha256": "732b6725307277df4a43b29ae6869edb9823634e98067d030a2b97988469f517"
-    },
-    {
-      "path": "site/assets/downloads/windows/Gravity_SOP_Foundry_Windows_Beta_2026-10-13_x64_EASY_INSTALL.zip",
-      "sha256": "af4db6ff0ccb5573545ba326d921e1920e68436ffcd0c045c46bdeeddc67ffe6"
-    },
-    {
-      "path": "site/assets/downloads/windows/Gravity_Shift_Lab_Windows_Beta_2026-10-13_x64_EASY_INSTALL.zip",
-      "sha256": "03104187a1ac30c544caf9d30ac2b8ae98b3efb3765155db5b2ea7cbe00d2b34"
-    },
-    {
       "path": "site/assets/downloads/windows/manuals/Gravity_Inventory_Center_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.docx",
       "sha256": "5aaa0e3bb204c735eed9cb51dea3f3642ed67dfc077925d4ea86f7f75d407836"
     },
@@ -1302,7 +1290,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "aee2352a68d1b9cd422efde7c682a9ac14255e4ef335488b5a247e2422616cab"
+      "sha256": "e63c17dc42cac0ce8ed0b744588b1cca62ac236003d5946a02acfdfbc20c7ff9"
     },
     {
       "path": "site/assets/reader/ai-prompts.txt",
@@ -1542,7 +1530,7 @@
     },
     {
       "path": "site/gravity-inventory-center.html",
-      "sha256": "151a49db379c7720d2b6ffaf3d55b050133d0d3907b6eda656561aa9171f952f"
+      "sha256": "f3cd11ce59f2a5ef8535763bcc6ef04169bb235c329acad30e3c9ba772cc277f"
     },
     {
       "path": "site/gravity-numbers-lab.html",
@@ -1562,7 +1550,7 @@
     },
     {
       "path": "site/gravity-shift-lab.html",
-      "sha256": "e344b72620b3a5e3454ebe2c108af3d03981609687bc01c8c9d88ccf2016ca3a"
+      "sha256": "940e29bef52595652187d09cb66bd05454e7958be7586b4ef0e253c66b331077"
     },
     {
       "path": "site/gravity-shift-lab.webmanifest",
@@ -1574,7 +1562,7 @@
     },
     {
       "path": "site/gravity-sop-foundry.html",
-      "sha256": "f9bcfb24ede87467eb300df313537b4bf9ab4119554cd70a4f3f648ef555895b"
+      "sha256": "8c7413fcff1c1c5fe6d28333cb55772362b33020ed867099c82233d2e7c1ce61"
     },
     {
       "path": "site/gravity-sop-library-set.html",
@@ -1946,7 +1934,7 @@
     },
     {
       "path": "site/windows-programs.html",
-      "sha256": "1ec83f793a29673bdd7612b7101c1d1399beee5d084b087be88ad61839f91820"
+      "sha256": "0a2bd2a5f96e2ea4e4af5da685dc751cc216d745f62c0c3f9bac8830e61994d3"
     },
     {
       "path": "functions/foundry-hosted/core.mjs",
