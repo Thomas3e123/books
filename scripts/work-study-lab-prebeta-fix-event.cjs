@@ -1,0 +1,11 @@
+'use strict';
+const fs=require('node:fs');
+const path=require('node:path');
+const file=path.resolve(__dirname,'..','windows','gravity-work-study-lab','renderer.js');
+let text=fs.readFileSync(file,'utf8');
+const from="document.getElementById('event').onclick=()=>{const note=prompt('What happened?');if(note){current.events.push({id:uid(),category:'EVENT',durationMs:0,note,at:now()});renderObserve();}};";
+const to="document.getElementById('event').onclick=()=>{const note=prompt('What happened?');if(note){stopTimer(true);current.events.push({id:uid(),category:'EVENT',durationMs:0,note,at:now()});renderObserve();}};";
+if(!text.includes(from))throw new Error('Event timing patch target not found.');
+text=text.replace(from,to);
+fs.writeFileSync(file,text);
+console.log('Windows event timing now preserves the active measured segment before recording an event.');
