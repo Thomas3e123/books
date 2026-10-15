@@ -15,6 +15,8 @@ function studyPath(id){return path.join(studiesDir(),safeId(id)+'.json');}
 function createWindow(){
  const win=new BrowserWindow({width:1440,height:930,minWidth:1020,minHeight:700,backgroundColor:'#f5f0e7',show:false,webPreferences:{preload:path.join(__dirname,'preload.js'),contextIsolation:true,nodeIntegration:false,sandbox:true}});
  win.removeMenu();
+ win.webContents.setWindowOpenHandler(()=>({action:'deny'}));
+ win.webContents.on('will-navigate',(event,url)=>{if(url!==win.webContents.getURL())event.preventDefault();});
  win.loadFile('index.html');
  win.once('ready-to-show',()=>win.show());
  return win;
@@ -41,7 +43,7 @@ ipcMain.handle('study:export-json',async(_e,study)=>{
 });
 ipcMain.handle('study:import-json',async()=>{
  const r=await dialog.showOpenDialog({title:'Import Gravity Work Study',properties:['openFile'],filters:[{name:'Gravity Work Study',extensions:['json']}]});
- if(r.canceled||!r.filePaths[0])return null;const study=jsonRead(r.filePaths[0],null);if(!study||typeof study!=='object')throw new Error('This is not a valid Gravity study file.');return study;
+ if(r.canceled||!r.filePaths[0])return null;const study=jsonRead(r.filePaths[0],null);if(!study||typeof study!=='object'||Array.isArray(study))throw new Error('This is not a valid Gravity study file.');return study;
 });
 ipcMain.handle('report:pdf',async(e,defaultName)=>{
  const win=BrowserWindow.fromWebContents(e.sender);const r=await dialog.showSaveDialog({title:'Save Study Report',defaultPath:(defaultName||'Gravity_Work_Study_Report')+'.pdf',filters:[{name:'PDF',extensions:['pdf']}]});if(r.canceled||!r.filePath)return null;
