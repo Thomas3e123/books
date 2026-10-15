@@ -24,6 +24,8 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: npm install
+      - name: Runtime dependency audit
+        run: npm audit --omit=dev --audit-level=high
       - name: Syntax check
         run: |
           node --check main.js
