@@ -15,6 +15,7 @@ CURRENT BETA CAPABILITIES
 - Editable work elements
 - Quality and safety guardrails
 - Live observation timing for work, walking, waiting, searching, replenishment, rework, required waiting, and delay
+- Completed-unit capture and measured throughput comparison
 - Abnormal event notes
 - Facts-before-conclusions results
 - Manager conclusion stored separately from Gravity conclusion
@@ -29,13 +30,14 @@ LOCAL DATA
 Study data is stored in the application's Windows user-data folder. Use the Home screen's Open Local Data Folder button to locate it.
 
 DATA PRINCIPLES
-Raw measured evidence is preserved. Gravity conclusions and management decisions are stored separately. SOP contributions remain traceable to their source study.
+Raw measured evidence is preserved. Gravity conclusions and management decisions are stored separately. SOP contributions remain traceable to their source study. A measured sample meeting demand is not automatically treated as a permanent verified standard; additional representative verification remains required.
 
 CURRENT LIMITATIONS
 - This is a beta build.
 - Ask Gravity is rule-based/offline in this first standalone build; full contextual AI actions are a later integration layer.
 - Advanced Continuous Gravitation comparisons, role-restricted leadership development views, glossary, movement map, and multi-person workload analysis are not complete yet.
-- The beta is not digitally code-signed.
+- The beta is not digitally code-signed and may produce a Windows SmartScreen warning.
+- The first beta build currently uses the default Electron application icon; Gravity-specific Windows icon packaging remains a branding polish item.
 
 BUILD
 Run BUILD_WINDOWS.cmd on a Windows computer with Node.js 22 or later.
