@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/comprehensive-audit-fixes.yml'
+      - 'scripts/oct15-final-audit-fixes.cjs'
 permissions:
   contents: write
 jobs:
@@ -18,6 +19,8 @@ jobs:
           node-version: 22
       - name: Apply comprehensive audit repairs
         run: node scripts/comprehensive-audit-fixes.cjs
+      - name: Apply October 15 final truth and testing repairs
+        run: node scripts/oct15-final-audit-fixes.cjs
       - name: Rebuild sitemap
         run: node scripts/update-sitemap.cjs
       - name: Refresh source manifest
@@ -33,5 +36,5 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add site source-manifest.json
-          git commit -m 'Repair AI search, privacy, and search hygiene from comprehensive audit'
+          git commit -m 'Repair final October 15 audit findings'
           git push
