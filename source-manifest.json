@@ -1978,7 +1978,7 @@
     },
     {
       "path": "site/testing-room.html",
-      "sha256": "cae96d05394a22995c63260839de79b6e5eb6771bef8b3d6eb7f1b9785edc349"
+      "sha256": "8a4c8950c0f005266d5d3aaf22d6d43536021688dc3323d277377a685a079964"
     },
     {
       "path": "site/the-owners-chair.html",
@@ -2010,7 +2010,7 @@
     },
     {
       "path": "functions/gravity-guide/guide-core.mjs",
-      "sha256": "6be14669a851404ababbf7e8b55a94ae0dc553bb9525e8a966c51b395648db06"
+      "sha256": "08f7ffa203832de73dfb2b8be4f943de29f4667633ce1ff3dfcc66769156a7da"
     },
     {
       "path": "functions/gravity-tts/gravity-tts.js",
