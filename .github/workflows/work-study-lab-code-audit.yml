@@ -1,0 +1,31 @@
+name: Gravity Work Study Lab Code Audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/assets/js/gravity-work-study-v2.js'
+      - 'windows/gravity-work-study-lab/**'
+      - 'scripts/work-study-lab-code-audit.cjs'
+      - '.github/workflows/work-study-lab-code-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  code-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax checks
+        run: |
+          node --check site/assets/js/gravity-work-study-v2.js
+          node --check windows/gravity-work-study-lab/main.js
+          node --check windows/gravity-work-study-lab/preload.js
+          node --check windows/gravity-work-study-lab/renderer.js
+      - name: The Code audit
+        run: node scripts/work-study-lab-code-audit.cjs
