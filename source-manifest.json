@@ -2010,7 +2010,7 @@
     },
     {
       "path": "functions/gravity-guide/guide-core.mjs",
-      "sha256": "08f7ffa203832de73dfb2b8be4f943de29f4667633ce1ff3dfcc66769156a7da"
+      "sha256": "c6a61338d75c337edbad82441de6e245b4a14c0bd44b75211369f56b712d9917"
     },
     {
       "path": "functions/gravity-tts/gravity-tts.js",
