@@ -19,12 +19,9 @@ function mustChange(name,before,after){if(before===after)throw new Error(name+' 
 // Work Study Lab: use the approved four result labels exactly.
 {
   const p='site/assets/js/gravity-work-study-v2.js'; let s=read(p),o=s;
-  s=s.replace("if(!hasBaseline)return{label:'Inconclusive — Establish a Baseline',tone:'neutral'};","if(!hasBaseline)return{label:'Inconclusive',tone:'neutral'};");
-  s=s.replace("if(confidence==='Low')return{label:'Inconclusive — Low Confidence',tone:'neutral'};","if(confidence==='Low')return{label:'Inconclusive',tone:'neutral'};");
-  s=s.replace("if(scoreDelta>0.08)return{label:'Promising — Verify Further',tone:'good'};","if(scoreDelta>0.08&&confidence==='High')return{label:'Verified Improvement',tone:'good'};if(scoreDelta>0.08)return{label:'Promising — More Evidence Needed',tone:'good'};");
-  s=s.replace("if(scoreDelta< -0.05)return{label:'Promising — Rethink the Change',tone:'warn'};","if(scoreDelta< -0.05)return{label:'Standard Not Supported',tone:'warn'};");
-  s=s.replace("if(scoreDelta<-0.05)return{label:'Promising — Rethink the Change',tone:'warn'};","if(scoreDelta<-0.05)return{label:'Standard Not Supported',tone:'warn'};");
-  s=s.replace("return{label:'Inconclusive — No Material Improvement',tone:'neutral'};","return{label:'Inconclusive',tone:'neutral'};");
+  const old="if(f.gap!==null&&f.gap<0)recs.push(`Measured rate remains ${fmt(Math.abs(f.gap),1)} units/hour below the current demand target.`);if(f.gap!==null&&f.gap>=0&&share<.25){outcome='Promising — Verify Further';conclusion='The measured process met the current demand target in this observed sample without a dominant avoidable-delay pattern. Verify with additional representative observations under comparable conditions before establishing a permanent standard.'}";
+  const neu="if(f.gap!==null&&f.gap<0){outcome='Standard Not Supported';conclusion='The measured process did not meet the current demand target in this observed sample. The present standard is not supported by this evidence and should not be treated as verified.';recs.push(`Measured rate remains ${fmt(Math.abs(f.gap),1)} units/hour below the current demand target.`)}if(f.gap!==null&&f.gap>=0&&share<.25){if(s.method==='beforeafter'){outcome='Verified Improvement';conclusion='The before/after study met the current demand target without a dominant avoidable-delay pattern, supporting the tested improvement under the recorded conditions.'}else{outcome='Promising — More Evidence Needed';conclusion='The measured process met the current demand target in this observed sample without a dominant avoidable-delay pattern. Add representative observations before establishing a permanent standard.'}}";
+  s=s.replace(old,neu);
   mustChange('Work Study result labels',o,s); write(p,s);
 }
 
