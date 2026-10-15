@@ -329,6 +329,14 @@
       "sha256": "d27401a5cd27e00a6c08491037cddfa1ea63f38c2187853e2cf82d5cc35e8953"
     },
     {
+      "path": "site/assets/css/testing-room-home.css",
+      "sha256": "cbf3e5db93742681a6071196873865b15139b19d0650d5922bb05176b4e13d22"
+    },
+    {
+      "path": "site/assets/css/testing-room.css",
+      "sha256": "3959d91edc9087f673ceebe30da4f4e342bd9e91983a7a3c87e08243da386da2"
+    },
+    {
       "path": "site/assets/customer-resources/current/Gravity_Start_Here_v2.6_2026-10-10.pdf",
       "sha256": "17878b383444be03fe8ce70755cc7eb1557bbf1eb6ead9571f25d5eb6ede8fea"
     },
@@ -1305,6 +1313,10 @@
       "sha256": "a48f81407186521c6a11d86d9662fd69f9fe81492254b813821ba4db7aeb9135"
     },
     {
+      "path": "site/assets/js/testing-room.js",
+      "sha256": "c8cc88b5dca484091692e57f2ebee77b875c4cdc62e9e755bdf2fffe2f7f4f6d"
+    },
+    {
       "path": "site/assets/reader/ai-prompts.txt",
       "sha256": "6dd8da0c466d4b99c256a8e4d060eb9f155e6acb574640aa2e0b787975e075fa"
     },
@@ -1618,7 +1630,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "f6f2384f49d7651bf03b5436a872009d035f6ee47ee68a89ff9cc99fe717987a"
+      "sha256": "027259211e666d1bc86d1ad937e5578a716f4cb680fe5e8551548a96a6e5ebb6"
     },
     {
       "path": "site/installation-improvement.html",
@@ -1966,7 +1978,7 @@
     },
     {
       "path": "site/testing-room.html",
-      "sha256": "396fb58bd454345c40bcbc5757cb424ae25fd88a8c7a30d6eb4556151ea4148d"
+      "sha256": "cae96d05394a22995c63260839de79b6e5eb6771bef8b3d6eb7f1b9785edc349"
     },
     {
       "path": "site/the-owners-chair.html",
