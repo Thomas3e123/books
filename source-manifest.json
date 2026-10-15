@@ -1982,7 +1982,7 @@
     },
     {
       "path": "site/work-study-prebeta-build.txt",
-      "sha256": "0516429a334b3b269e3d4bf343ed71c0313389a911cef1c228381e87c0d8deb1"
+      "sha256": "ec6076e8c54e56d01e3d6ce8b0614cefc1a3419dc1c54aab19f93963317dd8ae"
     },
     {
       "path": "functions/foundry-hosted/core.mjs",
