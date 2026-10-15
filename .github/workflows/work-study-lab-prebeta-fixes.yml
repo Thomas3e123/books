@@ -1,0 +1,55 @@
+name: Work Study Lab pre-beta audit fixes
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/work-study-lab-prebeta-fixes.cjs'
+      - '.github/workflows/work-study-lab-prebeta-fixes.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Apply pre-beta fixes
+        run: node scripts/work-study-lab-prebeta-fixes.cjs
+      - name: Syntax checks
+        run: |
+          node --check site/assets/js/gravity-work-study-v2.js
+          node --check windows/gravity-work-study-lab/renderer.js
+          node --check windows/gravity-work-study-lab/main.js
+          node --check windows/gravity-work-study-lab/preload.js
+      - name: Code-rule smoke checks
+        run: |
+          grep -q 'guardrails' site/assets/js/gravity-work-study-v2.js
+          grep -q 'completedUnits' site/assets/js/gravity-work-study-v2.js
+          grep -q 'completedUnits' windows/gravity-work-study-lab/renderer.js
+          grep -q 'Management Approved Draft' site/assets/js/gravity-work-study-v2.js
+          if grep -q "strength=s.observations.length>=8" site/assets/js/gravity-work-study-v2.js; then exit 1; fi
+      - name: Refresh source manifest
+        run: npm run manifest
+      - name: Verify controlled source
+        run: npm run build
+      - name: Commit fixes
+        run: |
+          if git diff --quiet -- site/assets/js/gravity-work-study-v2.js windows/gravity-work-study-lab/renderer.js source-manifest.json; then
+            echo 'Pre-beta fixes already applied.'
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/assets/js/gravity-work-study-v2.js windows/gravity-work-study-lab/renderer.js source-manifest.json
+          git commit -m "Fix Work Study Lab pre-beta audit findings"
+          git pull --rebase origin main
+          git push origin HEAD:main
