@@ -26,8 +26,19 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: npm ci
+      - name: Check Work Study Lab JavaScript syntax
+        run: node --check site/assets/js/gravity-work-study-v2.js
       - name: Apply Code-driven Work Study Lab shell
         run: node scripts/upgrade-work-study-lab-v2.cjs
+      - name: Smoke check generated page
+        run: |
+          grep -q 'id="ws2-app"' site/gravity-work-study-lab.html
+          grep -q 'gravity-work-study-v2.css' site/gravity-work-study-lab.html
+          grep -q 'gravity-work-study-v2.js' site/gravity-work-study-lab.html
+          if grep -q 'gravity-work-study.js?v=' site/gravity-work-study-lab.html; then
+            echo 'Legacy Work Study Lab JavaScript is still referenced.'
+            exit 1
+          fi
       - name: Refresh reviewed-source manifest
         run: npm run manifest
       - name: Verify controlled source
