@@ -1246,7 +1246,7 @@
     },
     {
       "path": "site/assets/js/ai-prompt-search.js",
-      "sha256": "90c491ea6894dcf598ad5d1679b83f7f78666c783bddda43ed7fb2ae8ebe54d3"
+      "sha256": "19d6674a6ce0ef17c9879cc49ca8798c14e04c7988059a4906deaa157b3b4505"
     },
     {
       "path": "site/assets/js/book-reader.js",
@@ -1294,7 +1294,7 @@
     },
     {
       "path": "site/assets/js/gravity-work-study-v2.js",
-      "sha256": "71ceb78cd4aea3a6ae3c65512a63e0647fe57b59ca3a3f5358e5975b9f5ddcca"
+      "sha256": "1078f3ca272601eade53b6c9abbdaa1b439c444ba8a86af32154b1d9b8887a8c"
     },
     {
       "path": "site/assets/js/gravity-work-study.js",
@@ -1686,7 +1686,7 @@
     },
     {
       "path": "site/restaurant-ai-prompt-search.html",
-      "sha256": "b007ae0a5af11d2dfa6ca4e2b026c2ba700975103f6b336649d0866a095c5847"
+      "sha256": "999d649f5d8f9d051baf6777f19363d4dabacb4da737db094bca2d72b29c4240"
     },
     {
       "path": "site/restaurant-bar-beverage-inventory-ordering.html",
@@ -1942,7 +1942,7 @@
     },
     {
       "path": "site/sitemap.xml",
-      "sha256": "f780ec031b0a56540aca066582f1075d5caf256a1f43d79bf9bdc3d5bec431dd"
+      "sha256": "377bd8645234beb0dc0aead393a85f9524c2fd251f2030abeeaa7adb3ea0d080"
     },
     {
       "path": "site/standards-library.html",
@@ -1978,7 +1978,7 @@
     },
     {
       "path": "site/testing-room.html",
-      "sha256": "8a4c8950c0f005266d5d3aaf22d6d43536021688dc3323d277377a685a079964"
+      "sha256": "b085ba0ee8cdac644390c3b0b00e9b5efa917158ab69386652bb06e7b26f3e01"
     },
     {
       "path": "site/the-owners-chair.html",
