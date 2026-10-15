@@ -1,0 +1,12 @@
+'use strict';
+const fs=require('node:fs');
+const path=require('node:path');
+const root=path.resolve(__dirname,'..');
+function patch(file,from,to,label){let text=fs.readFileSync(file,'utf8');if(!text.includes(from))throw new Error('Missing '+label);text=text.replace(from,to);fs.writeFileSync(file,text);}
+const web=path.join(root,'site','assets','js','gravity-work-study-v2.js');
+patch(web,"s.demand.strength=d&&d.n>=3?'Strong':d?'Preliminary':'Unknown'","s.demand.strength=d?'Preliminary':'Unknown'",'web demand confidence');
+patch(web,"$$('[data-next]').forEach(b=>b.onclick=()=>{capture();if(b.dataset.next==='review')s.gravityReview=null;setScreen(b.dataset.next)});","$$('[data-next]').forEach(b=>b.onclick=()=>{capture();if(b.dataset.next==='demand'&&!s.problem){status('Describe the problem or question before continuing.');return}if(b.dataset.next==='method'&&!s.people[0]?.role){status('Observed role is required.');return}if(b.dataset.next==='elements'&&(!s.boundary.start||!s.boundary.end)){status('Define where the process starts and ends before continuing.');return}if(b.dataset.next==='observe'&&!s.elements.length){status('Add at least one work element before observing.');return}if(b.dataset.next==='review')s.gravityReview=null;setScreen(b.dataset.next)});",'web required fields');
+const win=path.join(root,'windows','gravity-work-study-lab','renderer.js');
+patch(win,"current.demand.evidence=v.length>=3?'Strong':'Preliminary'","current.demand.evidence='Preliminary'",'windows demand confidence');
+patch(win,"document.getElementById('steps').onclick=()=>{current.method=document.getElementById('methodSel').value;current.boundary.start=document.getElementById('start').value;current.boundary.end=document.getElementById('end').value;current.boundary.unit=document.getElementById('unit').value||'1 completed unit';renderSteps();};","document.getElementById('steps').onclick=()=>{current.method=document.getElementById('methodSel').value;current.boundary.start=document.getElementById('start').value.trim();current.boundary.end=document.getElementById('end').value.trim();current.boundary.unit=document.getElementById('unit').value.trim()||'1 completed unit';if(!current.boundary.start||!current.boundary.end)return say('Define where the process starts and ends before continuing.');renderSteps();};",'windows boundary validation');
+console.log('Applied second Work Study Lab pre-beta evidence/validation pass.');
