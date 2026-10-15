@@ -1,0 +1,56 @@
+name: Restore Gravity Testing Room discovery
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/restore-testing-room-discovery.cjs'
+      - 'site/assets/css/testing-room-home.css'
+      - '.github/workflows/testing-room-restore.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  restore-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Restore Testing Room discovery
+        run: node scripts/restore-testing-room-discovery.cjs
+      - name: Verify Testing Room package
+        run: |
+          node --check site/assets/js/testing-room.js
+          grep -q 'Help me test Gravity before I call it finished' site/index.html
+          grep -q 'href="/testing-room"' site/index.html
+          grep -q 'Work Study Lab' site/testing-room.html
+          grep -q 'Private message to Thomas' site/testing-room.html
+          grep -q '10 people whose testing contributes the most' site/testing-room.html
+          grep -q 'testing-room-manager' <(find site -maxdepth 1 -type f -printf '%f\n')
+          test -f site/testing-room-manager.html
+          test -f functions/testing-room/index.mjs
+      - name: Install site dependencies
+        run: npm ci
+      - name: Refresh controlled-source manifest
+        run: npm run manifest
+      - name: Verify controlled source
+        run: npm run build
+      - name: Commit restored pages
+        run: |
+          if git diff --quiet; then
+            echo 'No generated changes to commit.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add site/index.html site/testing-room.html source-manifest.json
+          git commit -m 'Restore Testing Room homepage invitation and current betas'
+          git pull --rebase origin main
+          git push origin HEAD:main
