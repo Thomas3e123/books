@@ -30,7 +30,7 @@ LOCAL DATA
 Study data is stored in the application's Windows user-data folder. Use the Home screen's Open Local Data Folder button to locate it.
 
 DATA PRINCIPLES
-Raw measured evidence is preserved. Gravity conclusions and management decisions are stored separately. SOP contributions remain traceable to their source study. A measured sample meeting demand is not automatically treated as a permanent verified standard; additional representative verification remains required.
+Raw measured evidence is preserved. Gravity conclusions and management decisions are stored separately. SOP contributions remain traceable to their source study. A measured sample meeting demand is not automatically treated as a permanent verified standard; additional representative verification remains required. Demand evidence remains preliminary until its representativeness and conditions have been reviewed; a fixed count alone does not make evidence strong.
 
 CURRENT LIMITATIONS
 - This is a beta build.
@@ -45,3 +45,6 @@ The builder installs the pinned Electron/electron-builder versions and produces 
 
 THE CODE
 All future features must preserve the core rule: Gravity records, calculates, organizes, verifies, connects, preserves, and presents proven knowledge while keeping the simple study path simple.
+
+PRE-BETA QA
+Final source validation pass 2 applied before this rebuild.
