@@ -1,0 +1,34 @@
+name: Fix Gravity Guide Testing Room knowledge
+on:
+  push:
+    paths:
+      - 'scripts/_fix_gravity_guide_testing_room.trigger'
+permissions:
+  contents: write
+jobs:
+  fix-guide:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Correct Gravity Guide controlled testing facts
+        run: node scripts/fix-gravity-guide-testing-room.cjs
+      - name: Refresh controlled-source manifest
+        run: node scripts/update-manifest.cjs
+      - name: Verify controlled source
+        run: node scripts/verify-source.cjs
+      - name: Commit corrected Gravity Guide knowledge
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add functions/gravity-guide/guide-core.mjs source-manifest.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Teach Gravity Guide the Testing Room beta flow"
+            git push
+          fi
