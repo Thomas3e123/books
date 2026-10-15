@@ -1,0 +1,43 @@
+name: Work Study Lab preserve event timing
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/work-study-lab-prebeta-fix-event.cjs'
+      - '.github/workflows/work-study-lab-prebeta-event-fix.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Preserve active timing before event
+        run: node scripts/work-study-lab-prebeta-fix-event.cjs
+      - name: Verify Windows source
+        run: |
+          node --check windows/gravity-work-study-lab/renderer.js
+          grep -q "stopTimer(true);current.events.push" windows/gravity-work-study-lab/renderer.js
+      - name: Refresh source manifest
+        run: npm run manifest
+      - name: Verify controlled source
+        run: npm run build
+      - name: Commit fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add windows/gravity-work-study-lab/renderer.js source-manifest.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Preserve Work Study Lab event timing evidence"
+          git pull --rebase origin main
+          git push origin HEAD:main
