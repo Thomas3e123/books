@@ -1286,7 +1286,7 @@
     },
     {
       "path": "site/assets/js/gravity-work-study-v2.js",
-      "sha256": "33acc6803d747024be21fa45886b6384d8a452a116eabc7e5cbce1ce7e3e54c0"
+      "sha256": "71ceb78cd4aea3a6ae3c65512a63e0647fe57b59ca3a3f5358e5975b9f5ddcca"
     },
     {
       "path": "site/assets/js/gravity-work-study.js",
@@ -1979,6 +1979,10 @@
     {
       "path": "site/windows-programs.html",
       "sha256": "db7142e93a173853aecd973baaac17c76c78353df464f51b52a886084f94e7b3"
+    },
+    {
+      "path": "site/work-study-prebeta-build.txt",
+      "sha256": "0516429a334b3b269e3d4bf343ed71c0313389a911cef1c228381e87c0d8deb1"
     },
     {
       "path": "functions/foundry-hosted/core.mjs",
