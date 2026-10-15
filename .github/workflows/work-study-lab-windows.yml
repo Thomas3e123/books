@@ -1,0 +1,41 @@
+name: Gravity Work Study Lab Windows Beta
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'windows/gravity-work-study-lab/**'
+      - '.github/workflows/work-study-lab-windows.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: windows/gravity-work-study-lab
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install
+      - name: Syntax check
+        run: |
+          node --check main.js
+          node --check preload.js
+          node --check renderer.js
+      - name: Build Windows installer and ZIP
+        run: npm run build:win
+      - name: Upload Windows beta artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Gravity-Work-Study-Lab-Windows-Beta
+          path: |
+            windows/gravity-work-study-lab/dist/*.exe
+            windows/gravity-work-study-lab/dist/*.zip
+          if-no-files-found: error
