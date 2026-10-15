@@ -16,7 +16,7 @@ CURRENT BETA CAPABILITIES
 - Quality and safety guardrails
 - Live observation timing for work, walking, waiting, searching, replenishment, rework, required waiting, and delay
 - Completed-unit capture and measured throughput comparison
-- Abnormal event notes
+- Abnormal event notes that preserve the active measured segment before the event is recorded
 - Facts-before-conclusions results
 - Manager conclusion stored separately from Gravity conclusion
 - Mandatory Gravity Results Review
@@ -47,4 +47,4 @@ THE CODE
 All future features must preserve the core rule: Gravity records, calculates, organizes, verifies, connects, preserves, and presents proven knowledge while keeping the simple study path simple.
 
 PRE-BETA QA
-Final source validation pass 2 applied before this rebuild.
+Final source validation pass completed. Runtime production-dependency audit is part of the Windows build workflow. Event timing preservation and navigation hardening are included in this final pre-beta QA artifact.
