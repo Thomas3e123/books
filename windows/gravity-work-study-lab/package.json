@@ -1,0 +1,48 @@
+{
+  "name": "gravity-work-study-lab",
+  "version": "0.1.0-beta.1",
+  "private": true,
+  "description": "Gravity Work Study Lab standalone Windows edition",
+  "main": "main.js",
+  "author": "Thomas Monroe Books",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win nsis zip --x64",
+    "pack:win": "electron-builder --win dir --x64"
+  },
+  "devDependencies": {
+    "electron": "39.8.10",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "com.thomasmonroebooks.gravityworkstudylab",
+    "productName": "Gravity Work Study Lab",
+    "asar": true,
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer.js",
+      "index.html",
+      "styles.css",
+      "README.txt"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {"target":"nsis","arch":["x64"]},
+        {"target":"zip","arch":["x64"]}
+      ],
+      "artifactName": "Gravity_Work_Study_Lab_${version}_${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Gravity Work Study Lab"
+    }
+  }
+}
