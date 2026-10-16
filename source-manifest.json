@@ -1421,6 +1421,10 @@
       "sha256": "fb0e897c6369d41c83c3ace64fb712f173e831f326c71c4bce17671a3ce0bb61"
     },
     {
+      "path": "site/assets/js/gravity-work-study-queue-recovery-v51.js",
+      "sha256": "38cc2b3d92f545daf05cc57113c3a97c0202bfcc813f14523abe022a14807cff"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-repeatability-expert-v14.js",
       "sha256": "252a61f9e7f8befef1ba3cfd669aba55a8e215810f24aee51c9034378b8041f4"
     },
