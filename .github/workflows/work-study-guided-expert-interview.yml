@@ -9,6 +9,7 @@ on:
       - 'site/assets/js/gravity-work-study-production-pause-v28.js'
       - 'site/assets/js/gravity-work-study-confidence-expert-v29.js'
       - 'site/assets/js/gravity-work-study-run-comparability-v31.js'
+      - 'site/assets/js/gravity-work-study-standard-minutes-v32.js'
       - 'site/assets/js/gravity-work-study-clock-control-v32.js'
       - 'site/assets/js/gravity-work-study-earbud-mode-v18.js'
       - 'scripts/work-study-guided-expert-interview-suite.cjs'
@@ -16,6 +17,7 @@ on:
       - 'scripts/work-study-production-pause-suite.cjs'
       - 'scripts/work-study-confidence-expert-suite.cjs'
       - 'scripts/work-study-run-comparability-suite.cjs'
+      - 'scripts/work-study-standard-minutes-suite.cjs'
       - 'scripts/work-study-clock-control-suite.cjs'
       - 'scripts/upgrade-work-study-lab-v2.cjs'
       - '.github/workflows/work-study-guided-expert-interview.yml'
@@ -44,6 +46,7 @@ jobs:
           node --check site/assets/js/gravity-work-study-production-pause-v28.js
           node --check site/assets/js/gravity-work-study-confidence-expert-v29.js
           node --check site/assets/js/gravity-work-study-run-comparability-v31.js
+          node --check site/assets/js/gravity-work-study-standard-minutes-v32.js
           node --check site/assets/js/gravity-work-study-clock-control-v32.js
           node --check site/assets/js/gravity-work-study-earbud-mode-v18.js
       - name: Run Guided expert interview regression suite
@@ -56,10 +59,14 @@ jobs:
         run: node scripts/work-study-confidence-expert-suite.cjs
       - name: Run production run comparability regression suite
         run: node scripts/work-study-run-comparability-suite.cjs
+      - name: Run standard-minute validity regression suite
+        run: node scripts/work-study-standard-minutes-suite.cjs
       - name: Run clock control regression suite
         run: node scripts/work-study-clock-control-suite.cjs
-      - name: Verify voice prefers expert checkpoint
-        run: grep -q "\[data-ws26\] .ws26-q" site/assets/js/gravity-work-study-earbud-mode-v18.js
+      - name: Verify Guided teaching is blocked during active timing
+        run: |
+          grep -q "gravity-work-study-teaching" site/assets/js/gravity-work-study-earbud-mode-v18.js
+          grep -q "s?.timer?.running" site/assets/js/gravity-work-study-earbud-mode-v18.js
       - name: Install Guided expert interview in Work Study page
         run: node scripts/upgrade-work-study-lab-v2.cjs
       - name: Verify generated Work Study page
@@ -68,13 +75,12 @@ jobs:
           grep -q 'gravity-work-study-guided-expert-adaptive-v27.js?v=20261016-adaptive-expert-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-production-pause-v28.js?v=20261016-production-pause-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-confidence-expert-v29.js?v=20261016-confidence-expert-v1' site/gravity-work-study-lab.html
-          grep -q 'gravity-work-study-run-comparability-v31.js?v=20261016-run-comparability-v1' site/gravity-work-study-lab.html
+          grep -q 'gravity-work-study-run-comparability-v31.js?v=20261016-unit-aware-comparability-v2' site/gravity-work-study-lab.html
+          grep -q 'gravity-work-study-standard-minutes-v32.js?v=20261016-standard-minutes-v2' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-clock-control-v32.js?v=20261016-clock-control-v1' site/gravity-work-study-lab.html
-          grep -q 'gravity-work-study-earbud-mode-v18.js?v=20261016-guided-voice-v3' site/gravity-work-study-lab.html
-          grep -q 'optional natural-language hands-free clock control with user, Gravity, or Hybrid ownership' site/gravity-work-study-lab.html
-          grep -q 'production-safe pause/resume across normal production runs' site/gravity-work-study-lab.html
-          grep -q 'production-run comparability checks across batch size, yield, equipment, operator, and conditions' site/gravity-work-study-lab.html
-          grep -q 'confidence calibration that identifies the most valuable next evidence' site/gravity-work-study-lab.html
+          grep -q 'gravity-work-study-earbud-mode-v18.js?v=20261016-guided-teaching-v4' site/gravity-work-study-lab.html
+          grep -q 'standard-minute validity that separates active labor from machine and wait time' site/gravity-work-study-lab.html
+          grep -q 'unit-aware production-run comparability' site/gravity-work-study-lab.html
       - name: Refresh reviewed-source manifest
         run: npm run manifest
       - name: Verify controlled source
@@ -82,12 +88,12 @@ jobs:
       - name: Commit generated Work Study page
         run: |
           if git diff --quiet -- site/gravity-work-study-lab.html source-manifest.json; then
-            echo "Guided expert and clock-control source are already current."
+            echo "Guided expert and standard-minute source are already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add site/gravity-work-study-lab.html source-manifest.json
-          git commit -m "Install Work Study clock control"
+          git commit -m "Install Work Study standard-minute expert"
           git pull --rebase origin main
           git push origin HEAD:main
