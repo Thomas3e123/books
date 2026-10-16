@@ -1,0 +1,54 @@
+name: Work Study escalation expert
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/assets/js/gravity-work-study-escalation-expert-v25.js'
+      - 'scripts/work-study-escalation-expert-suite.cjs'
+      - 'scripts/upgrade-work-study-lab-v2.cjs'
+      - '.github/workflows/work-study-escalation-expert.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  escalation-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm ci
+      - name: Check escalation expert syntax
+        run: node --check site/assets/js/gravity-work-study-escalation-expert-v25.js
+      - name: Run escalation expert regression suite
+        run: node scripts/work-study-escalation-expert-suite.cjs
+      - name: Install escalation expert in Work Study page
+        run: node scripts/upgrade-work-study-lab-v2.cjs
+      - name: Verify generated Work Study page
+        run: |
+          grep -q 'gravity-work-study-escalation-expert-v25.js?v=20261016-escalation-expert-v1' site/gravity-work-study-lab.html
+          grep -q 'safety and specialist escalation boundaries' site/gravity-work-study-lab.html
+      - name: Refresh reviewed-source manifest
+        run: npm run manifest
+      - name: Verify controlled source
+        run: npm run build
+      - name: Commit generated Work Study page
+        run: |
+          if git diff --quiet -- site/gravity-work-study-lab.html source-manifest.json; then
+            echo "Work Study escalation expert source is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/gravity-work-study-lab.html source-manifest.json
+          git commit -m "Install Work Study escalation expert"
+          git pull --rebase origin main
+          git push origin HEAD:main
