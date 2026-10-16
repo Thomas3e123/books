@@ -1297,6 +1297,10 @@
       "sha256": "647ad5240d060bd3d66abee9898ac079619833bf3a38499ec06d7a114a94d00e"
     },
     {
+      "path": "site/assets/js/gravity-work-study-clock-control-v32.js",
+      "sha256": "c01c8d2b9f96b435bab227b5c03c6e3d41010801c0e5c2a6dedc41eb5854b8b0"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-confidence-expert-v29.js",
       "sha256": "e779bce6c5f47283f2f2e3e15ccfb974e6de22bf32795a81446c2a37178654b1"
     },
@@ -1379,6 +1383,10 @@
     {
       "path": "site/assets/js/gravity-work-study-sequence-expert-v11.js",
       "sha256": "083bd9a063d63bcaeb723a5bf4c7f425ff517fd9caafcbe7e55041d6f6cfd040"
+    },
+    {
+      "path": "site/assets/js/gravity-work-study-standard-minutes-v32.js",
+      "sha256": "641e45e73756edf3b70f777a567794baad1be6de8b93c049813c6f953c972a53"
     },
     {
       "path": "site/assets/js/gravity-work-study-synthesis-v24.js",
@@ -1706,7 +1714,7 @@
     },
     {
       "path": "site/gravity-work-study-lab.html",
-      "sha256": "33350f84a2c0f2f77c7d02d59610fdbdec71c97f9f26f1f86ae6158ed91be24f"
+      "sha256": "c45d25791908bb686e0b4aca1b4839be69bd7fa205652eb6cb8b7c2b45134d61"
     },
     {
       "path": "site/guest-service-complaints-recovery-workbook.html",
