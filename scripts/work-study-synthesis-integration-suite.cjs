@@ -18,6 +18,9 @@ const must=[
  "name:'Queue & recovery'",
  "queue?.applicable",
  "block:!!queue.blockStandard",
+ "name:'Shift-position representativeness'",
+ "shiftPosition?.applicable",
+ "block:!!shiftPosition.blockStandard",
  "name:'Standard-minute validity'",
  "standard?.runs?.length",
  "standard.decision==='Standard Minute Not Ready'",
@@ -45,9 +48,9 @@ const must=[
  "name:'Observation effect'",
  "block:!!observationEffect.blockConclusion",
  "Hold — Resolve Before Standardizing",
- "short-element measurement adequacy",
+ "shift-position representativeness",
  "core=['Study integrity','Measurement quality','Problem definition','Action design','Failure & recovery','Scope & escalation']",
  'window.GravityWorkStudySynthesis'
 ];
 for(const t of must){if(!src.includes(t)){console.error('Missing synthesis integration behavior:',t);process.exit(1)}}
-console.log('Synthesis integration suite passed: short-element adequacy, Work Sampling, precision, demand coverage, queue/recovery, shared setup, crew labor, yield/waste, incomplete-cycle protection, standard-minute validity, baseline control, observer calibration, proficiency representativeness, and observation-effect context participate in the consolidated Gravity verdict.');
+console.log('Synthesis integration suite passed: shift-position coverage, short-element adequacy, Work Sampling, precision, demand coverage, queue/recovery, shared setup, crew labor, yield/waste, incomplete-cycle protection, standard-minute validity, baseline control, observer calibration, proficiency representativeness, and observation-effect context participate in the consolidated Gravity verdict.');
