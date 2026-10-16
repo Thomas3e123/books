@@ -32,6 +32,10 @@ const reasoner='<script src="/assets/js/gravity-work-study-expert-reasoning-v7.j
 if(!html.includes('gravity-work-study-expert-reasoning-v7.js')) html=html.replace('</body>',reasoner+'</body>');
 else html=html.replace(/\/assets\/js\/gravity-work-study-expert-reasoning-v7\.js\?v=[^"]+/,'/assets/js/gravity-work-study-expert-reasoning-v7.js?v=20261016-expert-reasoning-v1');
 
+const welcome='<script src="/assets/js/gravity-work-study-guided-welcome-v9.js?v=20261016-guided-takeover-v1"></script>';
+if(!html.includes('gravity-work-study-guided-welcome-v9.js')) html=html.replace('</body>',welcome+'</body>');
+else html=html.replace(/\/assets\/js\/gravity-work-study-guided-welcome-v9\.js\?v=[^"]+/,'/assets/js/gravity-work-study-guided-welcome-v9.js?v=20261016-guided-takeover-v1');
+
 html=html.replace('Time restaurant work, study motion and bottlenecks, establish standard minutes, compare methods, and verify productivity.','Conduct restaurant work studies with fully guided, assisted, independent, or passive modes, restaurant-specific expert questions, method-specific cause testing, evidence checks, live observation, Gravity Results Review, knowledge maturity controls, development coaching, SOP contributions, and continuous improvement memory.');
 fs.writeFileSync(file,html);
-console.log('Work Study Lab fully guided development, expert questioning, expert reasoning, knowledge maturity, and rich theme are installed and current.');
+console.log('Work Study Lab fully guided development, Gravity Guided takeover, expert questioning, expert reasoning, knowledge maturity, and rich theme are installed and current.');
