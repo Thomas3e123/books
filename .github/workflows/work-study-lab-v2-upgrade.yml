@@ -19,6 +19,7 @@ on:
       - 'scripts/work-study-adversarial-suite.cjs'
       - 'scripts/work-study-systems-expert-suite.cjs'
       - 'scripts/patch-testing-rewards.cjs'
+      - 'scripts/patch-testing-founder-shortcut.cjs'
       - 'site/testing-room.html'
       - 'site/assets/js/gravity-work-study-v2.js'
       - 'site/assets/js/gravity-work-study-guided-v3.js'
@@ -64,6 +65,8 @@ jobs:
         run: node scripts/patch-work-study-systems-v10.cjs
       - name: Make tester rewards definitive
         run: node scripts/patch-testing-rewards.cjs
+      - name: Install hidden Founder shortcut
+        run: node scripts/patch-testing-founder-shortcut.cjs
       - name: Check Work Study JavaScript syntax
         run: |
           node --check site/assets/js/gravity-work-study-v2.js
@@ -98,6 +101,8 @@ jobs:
           grep -q "Welcome back. I’ll take it from here." site/assets/js/gravity-work-study-guided-welcome-v9.js
           grep -q "Gravity Systems Expert Check" site/assets/js/gravity-work-study-systems-expert-v10.js
           grep -q "systemsAssessment" site/assets/js/gravity-work-study-v2.js
+          grep -q "gravity-founder-shortcut" site/testing-room.html
+          grep -q "location.href='/testing-room-manager'" site/testing-room.html
           grep -q "you receive the final version of that program at no charge" site/testing-room.html
           grep -q "10 people whose testing contributes the most receive lifetime access" site/testing-room.html
           if grep -q 'gravity-work-study.js?v=' site/gravity-work-study-lab.html; then exit 1; fi
@@ -115,6 +120,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add site/gravity-work-study-lab.html site/testing-room.html site/assets/js/gravity-work-study-v2.js site/assets/js/gravity-work-study-guided-v3.js site/assets/js/gravity-work-study-guided-welcome-v9.js site/assets/js/gravity-work-study-expert-v5.js site/assets/js/gravity-work-study-expert-reasoning-v7.js site/assets/js/gravity-work-study-systems-expert-v10.js source-manifest.json
-          git commit -m "Train Work Study systems-context expert reasoning"
+          git commit -m "Add hidden Founder Booth shortcut and continue Work Study expert training"
           git pull --rebase origin main
           git push origin HEAD:main
