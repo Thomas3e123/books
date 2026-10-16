@@ -9,8 +9,6 @@ const css='<link href="/assets/css/gravity-work-study-v2.css?v=20261016-rich-gui
 if(!html.includes('gravity-work-study-v2.css')) html=html.replace('</head>',css+'</head>');
 else html=html.replace(/\/assets\/css\/gravity-work-study-v2\.css\?v=[^"]+/,'/assets/css/gravity-work-study-v2.css?v=20261016-rich-guided');
 
-// Upgrade the legacy Work Study body only when it is still present. The script is
-// intentionally safe to rerun after the v2 shell has already been installed.
 if(!html.includes('id="ws2-app"')){
   const start=html.indexOf('<section class="ws-hero">');
   const handoff=html.indexOf('<section aria-label="Use this work in another Gravity Assist tool"');
@@ -26,6 +24,10 @@ const guided='<script src="/assets/js/gravity-work-study-guided-v3.js?v=20261016
 if(!html.includes('gravity-work-study-guided-v3.js')) html=html.replace('</body>',guided+'</body>');
 else html=html.replace(/\/assets\/js\/gravity-work-study-guided-v3\.js\?v=[^"]+/,'/assets/js/gravity-work-study-guided-v3.js?v=20261016-fully-guided-v4');
 
-html=html.replace('Time restaurant work, study motion and bottlenecks, establish standard minutes, compare methods, and verify productivity.','Conduct restaurant work studies with fully guided, assisted, independent, or passive modes, evidence checks, live observation, Gravity Results Review, development coaching, SOP contributions, and continuous improvement memory.');
+const expert='<script src="/assets/js/gravity-work-study-expert-v5.js?v=20261016-restaurant-expert-v1"></script>';
+if(!html.includes('gravity-work-study-expert-v5.js')) html=html.replace('</body>',expert+'</body>');
+else html=html.replace(/\/assets\/js\/gravity-work-study-expert-v5\.js\?v=[^"]+/,'/assets/js/gravity-work-study-expert-v5.js?v=20261016-restaurant-expert-v1');
+
+html=html.replace('Time restaurant work, study motion and bottlenecks, establish standard minutes, compare methods, and verify productivity.','Conduct restaurant work studies with fully guided, assisted, independent, or passive modes, restaurant-specific expert questions, evidence checks, live observation, Gravity Results Review, development coaching, SOP contributions, and continuous improvement memory.');
 fs.writeFileSync(file,html);
-console.log('Work Study Lab fully guided development and rich theme are installed and current.');
+console.log('Work Study Lab fully guided development, expert questioning, and rich theme are installed and current.');
