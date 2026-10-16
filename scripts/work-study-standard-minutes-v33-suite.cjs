@@ -17,12 +17,14 @@ const must=[
  'Machine and unattended process time are separated from active labor',
  'normalized usable yield',
  'restaurant-specific evidence under recorded conditions',
+ "hold.status==='Hold Confirmed'&&hold.blockHold===false",
  's.timer?.running',
  'spokenSummary',
  'window.GravityWorkStudyStandardMinutes'
 ];
 for(const t of must){if(!src.includes(t)){console.error('Missing standard-minute v33 behavior:',t);process.exit(1)}}
 if(!src.includes("window.GravityWorkStudyRunComparability?.parseQuantity")){console.error('Standard minutes are not reusing the unit-aware comparability parser.');process.exit(1)}
+if(!src.includes("window.GravityWorkStudyHoldExpert?.assess?.(s.id)")){console.error('Standard minutes are not reading the existing Hold expert correctly.');process.exit(1)}
 if(!src.includes("st.cv>.30")||!src.includes("st.cv>.20")||!src.includes("st.cv<=.20")){console.error('Missing variation gates.');process.exit(1)}
 if(!src.includes("if(s.mode!=='guided'||s.timer?.running)return")){console.error('Guided teaching must stay silent during active timing.');process.exit(1)}
-console.log('Standard-minute v33 suite passed: unit-aware normalization, labor/process separation, evidence levels, and safe Guided teaching are present.');
+console.log('Standard-minute v33 suite passed: unit-aware normalization, labor/process separation, candidate-to-verified promotion on confirmed hold, and safe Guided teaching are present.');
