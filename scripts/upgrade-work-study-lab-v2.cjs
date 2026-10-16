@@ -34,10 +34,11 @@ const scripts=[
  ['gravity-work-study-observation-coach-v17.js','20261016-observation-coach-v1'],
  ['gravity-work-study-earbud-mode-v18.js','20261016-guided-voice-v2'],
  ['gravity-work-study-integrity-expert-v19.js','20261016-integrity-expert-v1'],
- ['gravity-work-study-measurement-expert-v20.js','20261016-measurement-expert-v1']
+ ['gravity-work-study-measurement-expert-v20.js','20261016-measurement-expert-v1'],
+ ['gravity-work-study-action-expert-v21.js','20261016-action-expert-v1']
 ];
 for(const [name,ver] of scripts){const tag=`<script src="/assets/js/${name}?v=${ver}"></script>`;if(!html.includes(name))html=html.replace('</body>',tag+'</body>');else html=html.replace(new RegExp('/assets/js/'+name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\?v=[^\"]+'),`/assets/js/${name}?v=${ver}`)}
 
-html=html.replace(/Conduct restaurant work studies with[^\"]+continuous improvement memory\./,'Conduct restaurant work studies with a one-question-at-a-time fully guided Gravity interview that begins speaking when Guided is selected, method-specific observation coaching, study-integrity and measurement-quality safeguards, restaurant-specific expert questions, cause testing, systems-context checks, constraint-sequence reasoning, repeatability and standardization checks, hold and drift revalidation, evidence checks, live observation, Gravity Results Review, knowledge maturity controls, development coaching, SOP contributions, and continuous improvement memory.');
+html=html.replace(/Conduct restaurant work studies with[^\"]+continuous improvement memory\./,'Conduct restaurant work studies with a one-question-at-a-time fully guided Gravity interview that begins speaking when Guided is selected, method-specific observation coaching, study-integrity and measurement-quality safeguards, controlled action-design checks, restaurant-specific expert questions, cause testing, systems-context checks, constraint-sequence reasoning, repeatability and standardization checks, hold and drift revalidation, evidence checks, live observation, Gravity Results Review, knowledge maturity controls, development coaching, SOP contributions, and continuous improvement memory.');
 fs.writeFileSync(file,html);
-console.log('Work Study Lab automatic Guided voice, first-timer interview, observation coach, integrity and measurement experts, expert reasoning, repeatability, hold/drift revalidation, knowledge maturity, and rich theme are installed and current.');
+console.log('Work Study Lab automatic Guided voice, first-timer interview, observation coach, integrity, measurement, and action experts, expert reasoning, repeatability, hold/drift revalidation, knowledge maturity, and rich theme are installed and current.');
