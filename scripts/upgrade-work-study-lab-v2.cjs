@@ -36,10 +36,14 @@ const systems='<script src="/assets/js/gravity-work-study-systems-expert-v10.js?
 if(!html.includes('gravity-work-study-systems-expert-v10.js')) html=html.replace('</body>',systems+'</body>');
 else html=html.replace(/\/assets\/js\/gravity-work-study-systems-expert-v10\.js\?v=[^"]+/,'/assets/js/gravity-work-study-systems-expert-v10.js?v=20261016-systems-expert-v1');
 
+const sequence='<script src="/assets/js/gravity-work-study-sequence-expert-v11.js?v=20261016-sequence-expert-v1"></script>';
+if(!html.includes('gravity-work-study-sequence-expert-v11.js')) html=html.replace('</body>',sequence+'</body>');
+else html=html.replace(/\/assets\/js\/gravity-work-study-sequence-expert-v11\.js\?v=[^"]+/,'/assets/js/gravity-work-study-sequence-expert-v11.js?v=20261016-sequence-expert-v1');
+
 const welcome='<script src="/assets/js/gravity-work-study-guided-welcome-v9.js?v=20261016-guided-takeover-v1"></script>';
 if(!html.includes('gravity-work-study-guided-welcome-v9.js')) html=html.replace('</body>',welcome+'</body>');
 else html=html.replace(/\/assets\/js\/gravity-work-study-guided-welcome-v9\.js\?v=[^"]+/,'/assets/js/gravity-work-study-guided-welcome-v9.js?v=20261016-guided-takeover-v1');
 
-html=html.replace('Time restaurant work, study motion and bottlenecks, establish standard minutes, compare methods, and verify productivity.','Conduct restaurant work studies with fully guided, assisted, independent, or passive modes, restaurant-specific expert questions, method-specific cause testing, systems-context checks, evidence checks, live observation, Gravity Results Review, knowledge maturity controls, development coaching, SOP contributions, and continuous improvement memory.');
+html=html.replace(/Conduct restaurant work studies with[^\"]+continuous improvement memory\./,'Conduct restaurant work studies with fully guided, assisted, independent, or passive modes, restaurant-specific expert questions, method-specific cause testing, systems-context checks, constraint-sequence reasoning, evidence checks, live observation, Gravity Results Review, knowledge maturity controls, development coaching, SOP contributions, and continuous improvement memory.');
 fs.writeFileSync(file,html);
-console.log('Work Study Lab Guided takeover, expert reasoning, systems-context reasoning, knowledge maturity, and rich theme are installed and current.');
+console.log('Work Study Lab Guided takeover, expert reasoning, systems-context reasoning, constraint-sequence reasoning, knowledge maturity, and rich theme are installed and current.');
