@@ -8,7 +8,7 @@ const must=[
  'Shared across multiple batches/products/runs',
  'Dedicated to each run',
  'allocated fixed labor is',
- 'does not silently count more than once',
+ 'not silently counted more than once',
  'Gravity will not invent fixed labor',
  "s.mode!=='guided'||s.timer?.running",
  'window.GravityWorkStudySharedSetup'
