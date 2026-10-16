@@ -1317,6 +1317,10 @@
       "sha256": "0c6be8459913f9d259f6fa2f96c73f4f2517baa9c87408d156a32267d0d4de3e"
     },
     {
+      "path": "site/assets/js/gravity-work-study-demand-coverage-v46.js",
+      "sha256": "10007b1313a90ee9971f53babbce1460b0e0782c30509ddd186840d005a516e7"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-diagnostic-expert-v22.js",
       "sha256": "301e5f1a40b12d9426cc7513c83f1a5545ad606ad8cd0a6aad1b892a63505cb9"
     },
