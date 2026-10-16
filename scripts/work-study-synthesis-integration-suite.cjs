@@ -10,11 +10,13 @@ const must=[
  "name:'Verified-baseline control'",
  "baseline?.baseline",
  "block:!!baseline.blockStandard",
+ "name:'Observer & boundary calibration'",
+ "observer?.applicable",
+ "block:!!observer.block",
  "Hold — Resolve Before Standardizing",
- "standard-minute validity when timed production evidence is present",
- "verified-baseline control after a standard exists",
+ "observer calibration when paired timing evidence is used",
  "core=['Study integrity','Measurement quality','Problem definition','Action design','Failure & recovery','Scope & escalation']",
  'window.GravityWorkStudySynthesis'
 ];
 for(const t of must){if(!src.includes(t)){console.error('Missing synthesis integration behavior:',t);process.exit(1)}}
-console.log('Synthesis integration suite passed: standard-minute v33 and verified-baseline change control participate in the consolidated Gravity verdict.');
+console.log('Synthesis integration suite passed: standard-minute validity, verified-baseline change control, and optional paired-observer calibration participate in the consolidated Gravity verdict.');
