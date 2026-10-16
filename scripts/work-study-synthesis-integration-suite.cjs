@@ -27,6 +27,9 @@ const must=[
  "name:'Yield & waste protection'",
  "yieldQuality?.applicable",
  "block:!!yieldQuality.blockStandard",
+ "name:'Incomplete-cycle protection'",
+ "incomplete?.applicable",
+ "block:!!incomplete.blockStandard",
  "planning|candidate",
  "name:'Verified-baseline control'",
  "baseline?.baseline",
@@ -39,9 +42,9 @@ const must=[
  "name:'Observation effect'",
  "block:!!observationEffect.blockConclusion",
  "Hold — Resolve Before Standardizing",
- "queue/recovery evidence",
+ "incomplete-cycle protection",
  "core=['Study integrity','Measurement quality','Problem definition','Action design','Failure & recovery','Scope & escalation']",
  'window.GravityWorkStudySynthesis'
 ];
 for(const t of must){if(!src.includes(t)){console.error('Missing synthesis integration behavior:',t);process.exit(1)}}
-console.log('Synthesis integration suite passed: method-specific Work Sampling, precision, demand coverage, queue/recovery, shared setup, crew labor, yield/waste protection, standard-minute validity, baseline control, observer calibration, proficiency representativeness, and observation-effect context participate in the consolidated Gravity verdict.');
+console.log('Synthesis integration suite passed: Work Sampling, precision, demand coverage, queue/recovery, shared setup, crew labor, yield/waste, incomplete-cycle protection, standard-minute validity, baseline control, observer calibration, proficiency representativeness, and observation-effect context participate in the consolidated Gravity verdict.');
