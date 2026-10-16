@@ -15,6 +15,8 @@ html=html.replace(/<script src="\/assets\/js\/gravity-work-study\.js\?v=[^"]+"><
 if(!html.includes('gravity-work-study-v2.js')){
   html=html.replace('</body>','<script src="/assets/js/gravity-work-study-v2.js?v=20261015-code-v2"></script></body>');
 }
+const guided='<script src="/assets/js/gravity-work-study-guided-v3.js?v=20261016-guided-development"></script>';
+if(!html.includes('gravity-work-study-guided-v3.js')) html=html.replace('</body>',guided+'</body>');
 html=html.replace('Time restaurant work, study motion and bottlenecks, establish standard minutes, compare methods, and verify productivity.','Conduct restaurant work studies with guided or independent modes, demand verification, live observation, evidence-based results, SOP contributions, and continuous improvement memory.');
 fs.writeFileSync(file,html);
-console.log('Upgraded Gravity Work Study Lab page to Code-driven v2 shell.');
+console.log('Upgraded Gravity Work Study Lab with Code-driven v2 and Guided Development layer.');
