@@ -1298,7 +1298,11 @@
     },
     {
       "path": "site/assets/js/gravity-work-study-clock-control-v32.js",
-      "sha256": "c01c8d2b9f96b435bab227b5c03c6e3d41010801c0e5c2a6dedc41eb5854b8b0"
+      "sha256": "483d163c6791e1eb363de112eda3990708013c29d435ed16412eb2a69fbb5168"
+    },
+    {
+      "path": "site/assets/js/gravity-work-study-concurrent-process-v35.js",
+      "sha256": "8f75070def952883806f69d27fb0412af65b6121ed9bb1ac09fc46dfbc94e136"
     },
     {
       "path": "site/assets/js/gravity-work-study-confidence-expert-v29.js",
