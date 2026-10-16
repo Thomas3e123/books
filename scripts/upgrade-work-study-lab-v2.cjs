@@ -30,10 +30,11 @@ const scripts=[
  ['gravity-work-study-guided-interview-v13.js','20261016-guided-interview-v1'],
  ['gravity-work-study-repeatability-expert-v14.js','20261016-repeatability-expert-v2'],
  ['gravity-work-study-hold-expert-v15.js','20261016-hold-expert-v1'],
- ['gravity-work-study-first-timer-v16.js','20261016-first-timer-v1']
+ ['gravity-work-study-first-timer-v16.js','20261016-first-timer-v1'],
+ ['gravity-work-study-observation-coach-v17.js','20261016-observation-coach-v1']
 ];
 for(const [name,ver] of scripts){const tag=`<script src="/assets/js/${name}?v=${ver}"></script>`;if(!html.includes(name))html=html.replace('</body>',tag+'</body>');else html=html.replace(new RegExp('/assets/js/'+name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\?v=[^\"]+'),`/assets/js/${name}?v=${ver}`)}
 
-html=html.replace(/Conduct restaurant work studies with[^\"]+continuous improvement memory\./,'Conduct restaurant work studies with a one-question-at-a-time fully guided Gravity interview for first-time or experienced managers, restaurant-specific expert questions, method-specific cause testing, systems-context checks, constraint-sequence reasoning, repeatability and standardization checks, hold and drift revalidation, evidence checks, live observation, Gravity Results Review, knowledge maturity controls, development coaching, SOP contributions, and continuous improvement memory.');
+html=html.replace(/Conduct restaurant work studies with[^\"]+continuous improvement memory\./,'Conduct restaurant work studies with a one-question-at-a-time fully guided Gravity interview for first-time or experienced managers, method-specific observation coaching, restaurant-specific expert questions, cause testing, systems-context checks, constraint-sequence reasoning, repeatability and standardization checks, hold and drift revalidation, evidence checks, live observation, Gravity Results Review, knowledge maturity controls, development coaching, SOP contributions, and continuous improvement memory.');
 fs.writeFileSync(file,html);
-console.log('Work Study Lab first-timer Guided interview, expert reasoning, repeatability, hold/drift revalidation, knowledge maturity, and rich theme are installed and current.');
+console.log('Work Study Lab first-timer Guided interview, observation coach, expert reasoning, repeatability, hold/drift revalidation, knowledge maturity, and rich theme are installed and current.');
