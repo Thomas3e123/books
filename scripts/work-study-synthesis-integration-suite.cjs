@@ -13,10 +13,12 @@ const must=[
  "name:'Observer & boundary calibration'",
  "observer?.applicable",
  "block:!!observer.block",
+ "name:'Proficiency representativeness'",
+ "block:!!proficiency.blockStandard",
  "Hold — Resolve Before Standardizing",
- "observer calibration when paired timing evidence is used",
+ "proficiency representativeness",
  "core=['Study integrity','Measurement quality','Problem definition','Action design','Failure & recovery','Scope & escalation']",
  'window.GravityWorkStudySynthesis'
 ];
 for(const t of must){if(!src.includes(t)){console.error('Missing synthesis integration behavior:',t);process.exit(1)}}
-console.log('Synthesis integration suite passed: standard-minute validity, verified-baseline change control, and optional paired-observer calibration participate in the consolidated Gravity verdict.');
+console.log('Synthesis integration suite passed: standard-minute validity, verified-baseline control, optional observer calibration, and proficiency representativeness participate in the consolidated Gravity verdict.');
