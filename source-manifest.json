@@ -1341,6 +1341,10 @@
       "sha256": "2ec26d2c28f0b7a07631357d44087c6677c75665514d0d0671579525ac2a2cf0"
     },
     {
+      "path": "site/assets/js/gravity-work-study-evidence-package-v56.js",
+      "sha256": "aaba8a65bc70c2151b0850860228be64c23d451a8641bfeb0009776b4a785e23"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-expert-reasoning-v7.js",
       "sha256": "680a1965cd48b5456e7c2cd002dc87be398ad3bc8550297535521afdc5882aa5"
     },
