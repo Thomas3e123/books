@@ -1301,6 +1301,10 @@
       "sha256": "b4bdb23cb832d1345c18feea3a277142079a5604ac95ca88aae750da970e93b6"
     },
     {
+      "path": "site/assets/js/gravity-work-study-first-timer-v16.js",
+      "sha256": "f159e0418894243dcd7988f94afa0302c47f31c568df4887e5af4463962add32"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-guided-interview-v13.js",
       "sha256": "7d2ee3e46504fa55e53617e20eba43ceaee15e5b625ad8cba70465292acdf296"
     },
@@ -1646,7 +1650,7 @@
     },
     {
       "path": "site/gravity-work-study-lab.html",
-      "sha256": "67a88a3923bc831f4da6460d2d95cbaa553366651369cadc7e9b09b0dd3a9dc0"
+      "sha256": "e064cd656d7b9b0db1ecf0e218e63c8e59355079e6843ce91ffb5bb06b0678fb"
     },
     {
       "path": "site/guest-service-complaints-recovery-workbook.html",
