@@ -17,7 +17,7 @@ function save(msg='Saved'){s.updatedAt=now();localStorage.setItem(KEY,JSON.strin
 function history(){try{return JSON.parse(localStorage.getItem(HISTORY)||'[]')}catch{return[]}}
 function saveHistory(){const list=history(),copy=JSON.parse(JSON.stringify(s));copy.savedAt=now();const i=list.findIndex(x=>x.id===s.id);if(i>=0)list[i]=copy;else list.push(copy);localStorage.setItem(HISTORY,JSON.stringify(list.slice(-100)));}
 function status(msg){const e=$('#ws2-status');if(e)e.textContent=msg||''}
-function setScreen(x){stopTimer(false);s.screen=x;save('');render()}
+function setScreen(x){if(s.timer?.running)stopTimer(true);s.screen=x;save('');render()}
 function modeBar(){return `<div class="ws2-topbar ws2-no-print"><div><span class="ws2-eyebrow">Gravity Mode</span><div class="ws2-mode">${Object.entries(modes).map(([k,v])=>`<button type="button" data-mode="${k}" class="${s.mode===k?'active':''}">${v}</button>`).join('')}</div></div><button class="ws2-btn" type="button" data-action="ask">Ask Gravity</button></div>`}
 function progress(){if(s.quick)return'';const i=steps.indexOf(s.screen);return `<div class="ws2-progress ws2-no-print">${steps.slice(1).map((x,n)=>`<span class="${n+1===i?'active':''}">${n+1}</span>`).join('')}</div>`}
 function shell(body,side=''){return `<div class="ws2-shell"><div class="ws2-hero"><div class="ws2-eyebrow">Gravity Assist · Work Study Lab</div><h1>Gravity Work Study Lab</h1><p>Study real work, prove what the evidence supports, and turn useful findings into better standards.</p></div>${modeBar()}${progress()}<div class="ws2-grid"><main>${body}<p id="ws2-status" class="ws2-status" aria-live="polite"></p></main><aside>${side||sideDefault()}</aside></div></div>`}
