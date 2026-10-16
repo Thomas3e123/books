@@ -50,6 +50,7 @@ jobs:
           grep -q "if(s.mode!=='guided'||s.timer?.running||!a.changed)return" site/assets/js/gravity-work-study-baseline-provenance-v40.js
           grep -q "if(s.mode!=='guided'||s.timer?.running)return" site/assets/js/gravity-work-study-allowance-expert-v41.js
           grep -q "if(!a.applicable||s.mode!=='guided'||s.timer?.running)return" site/assets/js/gravity-work-study-observer-agreement-v42.js
+          grep -q "if(s.mode!=='guided'||s.timer?.running)return" site/assets/js/gravity-work-study-proficiency-v43.js
       - name: Install expert stack in Work Study page
         run: node scripts/upgrade-work-study-lab-v2.cjs
       - name: Verify generated Work Study page
@@ -68,11 +69,13 @@ jobs:
           grep -q 'gravity-work-study-baseline-provenance-v40.js?v=20261016-baseline-provenance-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-allowance-expert-v41.js?v=20261016-allowance-expert-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-observer-agreement-v42.js?v=20261016-observer-agreement-v1' site/gravity-work-study-lab.html
+          grep -q 'gravity-work-study-proficiency-v43.js?v=20261016-proficiency-v1' site/gravity-work-study-lab.html
           grep -q 'unit-aware standard-minute validity with planning/candidate/verified evidence levels' site/gravity-work-study-lab.html
           grep -q 'fixed-versus-variable batch scaling with capacity-breakpoint safeguards' site/gravity-work-study-lab.html
           grep -q 'verified-baseline provenance and automatic revalidation holds after controlled changes' site/gravity-work-study-lab.html
           grep -q 'explicit observed-work versus staffing-allowance control with no invented default allowance' site/gravity-work-study-lab.html
           grep -q 'optional paired-observer and start-stop boundary calibration' site/gravity-work-study-lab.html
+          grep -q 'proficiency representativeness that separates process evidence from employee ranking' site/gravity-work-study-lab.html
           grep -q 'practical restaurant-readable timing units' site/gravity-work-study-lab.html
           grep -q 'condition-equivalence checks' site/gravity-work-study-lab.html
           grep -q 'parallel machine/process clocks' site/gravity-work-study-lab.html
