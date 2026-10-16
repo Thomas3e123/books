@@ -5,7 +5,7 @@ const first=fs.readFileSync(path.join(__dirname,'..','site','assets','js','gravi
 const required=[
  ['hello','Hello. I’m Gravity. I’ll take you through this.'],
  ['ordinary language','ordinary restaurant language'],
- ['facts first','Do not explain the numbers yet'],
+ ['facts first','Here are the facts we measured. Do not explain them yet.'],
  ['uncertain interpretation','It is completely acceptable to say you are not sure'],
  ['no guessing','Do not guess'],
  ['unknown button','I don’t know yet'],
