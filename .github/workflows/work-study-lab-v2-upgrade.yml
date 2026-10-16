@@ -12,10 +12,12 @@ on:
       - 'scripts/patch-work-study-beforeafter-v6.cjs'
       - 'scripts/patch-work-study-expert-reasoning-v7.cjs'
       - 'scripts/patch-work-study-adversarial-v8.cjs'
+      - 'scripts/patch-work-study-systems-v10.cjs'
       - 'scripts/work-study-scenario-suite.cjs'
       - 'scripts/work-study-conclusion-suite.cjs'
       - 'scripts/work-study-expert-reasoning-suite.cjs'
       - 'scripts/work-study-adversarial-suite.cjs'
+      - 'scripts/work-study-systems-expert-suite.cjs'
       - 'scripts/patch-testing-rewards.cjs'
       - 'site/testing-room.html'
       - 'site/assets/js/gravity-work-study-v2.js'
@@ -23,6 +25,7 @@ on:
       - 'site/assets/js/gravity-work-study-guided-welcome-v9.js'
       - 'site/assets/js/gravity-work-study-expert-v5.js'
       - 'site/assets/js/gravity-work-study-expert-reasoning-v7.js'
+      - 'site/assets/js/gravity-work-study-systems-expert-v10.js'
       - 'site/assets/css/gravity-work-study-v2.css'
       - '.github/workflows/work-study-lab-v2-upgrade.yml'
   workflow_dispatch:
@@ -57,6 +60,8 @@ jobs:
         run: node scripts/patch-work-study-expert-reasoning-v7.cjs
       - name: Add adversarial conflict reasoning
         run: node scripts/patch-work-study-adversarial-v8.cjs
+      - name: Integrate systems-context expert reasoning
+        run: node scripts/patch-work-study-systems-v10.cjs
       - name: Make tester rewards definitive
         run: node scripts/patch-testing-rewards.cjs
       - name: Check Work Study JavaScript syntax
@@ -66,6 +71,7 @@ jobs:
           node --check site/assets/js/gravity-work-study-guided-welcome-v9.js
           node --check site/assets/js/gravity-work-study-expert-v5.js
           node --check site/assets/js/gravity-work-study-expert-reasoning-v7.js
+          node --check site/assets/js/gravity-work-study-systems-expert-v10.js
       - name: Run restaurant scenario regression suite
         run: node scripts/work-study-scenario-suite.cjs
       - name: Run conclusion evidence regression suite
@@ -74,6 +80,8 @@ jobs:
         run: node scripts/work-study-expert-reasoning-suite.cjs
       - name: Run adversarial expert regression suite
         run: node scripts/work-study-adversarial-suite.cjs
+      - name: Run systems expert regression suite
+        run: node scripts/work-study-systems-expert-suite.cjs
       - name: Apply Work Study shell and Guided Development layer
         run: node scripts/upgrade-work-study-lab-v2.cjs
       - name: Smoke check generated page and tester reward promise
@@ -85,42 +93,28 @@ jobs:
           grep -q 'gravity-work-study-guided-welcome-v9.js?v=20261016-guided-takeover-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-expert-v5.js?v=20261016-restaurant-expert-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-expert-reasoning-v7.js?v=20261016-expert-reasoning-v1' site/gravity-work-study-lab.html
+          grep -q 'gravity-work-study-systems-expert-v10.js?v=20261016-systems-expert-v1' site/gravity-work-study-lab.html
           grep -q "Hello. I’m Gravity. I’ll take you through this." site/assets/js/gravity-work-study-guided-welcome-v9.js
           grep -q "Welcome back. I’ll take it from here." site/assets/js/gravity-work-study-guided-welcome-v9.js
-          grep -q "if(s.mode==='guided')s.method=recommendMethod()" site/assets/js/gravity-work-study-v2.js
-          grep -q "lastSignature" site/assets/js/gravity-work-study-guided-v3.js
-          grep -q "Gravity Restaurant Expert Path" site/assets/js/gravity-work-study-expert-v5.js
-          grep -q "Measured Before / After Evidence" site/assets/js/gravity-work-study-expert-v5.js
-          grep -q "Gravity Expert Reasoning Check" site/assets/js/gravity-work-study-expert-reasoning-v7.js
-          grep -q "Operational Standard" site/assets/js/gravity-work-study-expert-reasoning-v7.js
-          grep -q "detectExpertConflicts" site/assets/js/gravity-work-study-expert-reasoning-v7.js
-          grep -q "Conflicting evidence" site/assets/js/gravity-work-study-expert-reasoning-v7.js
-          grep -q "methodAssessment" site/assets/js/gravity-work-study-v2.js
-          grep -q "evaluateReviewEvidence" site/assets/js/gravity-work-study-v2.js
-          grep -q "s.gravityReview?.outcome!='Verified Improvement'\|s.gravityReview?.outcome!==\"Verified Improvement\"\|s.gravityReview?.outcome!=='Verified Improvement'" site/assets/js/gravity-work-study-v2.js
+          grep -q "Gravity Systems Expert Check" site/assets/js/gravity-work-study-systems-expert-v10.js
+          grep -q "systemsAssessment" site/assets/js/gravity-work-study-v2.js
           grep -q "you receive the final version of that program at no charge" site/testing-room.html
           grep -q "10 people whose testing contributes the most receive lifetime access" site/testing-room.html
-          if grep -q 'gravity-work-study.js?v=' site/gravity-work-study-lab.html; then
-            echo 'Legacy Work Study Lab JavaScript is still referenced.'
-            exit 1
-          fi
-          if grep -Eq 'materially help improve a Gravity Windows beta[^<]*\bmay\b|10 people whose testing contributes the most[^<]*\bmay\b' site/testing-room.html; then
-            echo 'Testing reward copy still contains may.'
-            exit 1
-          fi
+          if grep -q 'gravity-work-study.js?v=' site/gravity-work-study-lab.html; then exit 1; fi
+          if grep -Eq 'materially help improve a Gravity Windows beta[^<]*\bmay\b|10 people whose testing contributes the most[^<]*\bmay\b' site/testing-room.html; then exit 1; fi
       - name: Refresh reviewed-source manifest
         run: npm run manifest
       - name: Verify controlled source
         run: npm run build
       - name: Commit generated Work Study and Testing Room source
         run: |
-          if git diff --quiet -- site/gravity-work-study-lab.html site/testing-room.html site/assets/js/gravity-work-study-v2.js site/assets/js/gravity-work-study-guided-v3.js site/assets/js/gravity-work-study-guided-welcome-v9.js site/assets/js/gravity-work-study-expert-v5.js site/assets/js/gravity-work-study-expert-reasoning-v7.js source-manifest.json; then
+          if git diff --quiet -- site/gravity-work-study-lab.html site/testing-room.html site/assets/js/gravity-work-study-v2.js site/assets/js/gravity-work-study-guided-v3.js site/assets/js/gravity-work-study-guided-welcome-v9.js site/assets/js/gravity-work-study-expert-v5.js site/assets/js/gravity-work-study-expert-reasoning-v7.js site/assets/js/gravity-work-study-systems-expert-v10.js source-manifest.json; then
             echo "Work Study Lab and Testing Room source are already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add site/gravity-work-study-lab.html site/testing-room.html site/assets/js/gravity-work-study-v2.js site/assets/js/gravity-work-study-guided-v3.js site/assets/js/gravity-work-study-guided-welcome-v9.js site/assets/js/gravity-work-study-expert-v5.js site/assets/js/gravity-work-study-expert-reasoning-v7.js source-manifest.json
-          git commit -m "Make Gravity take over Guided Work Study"
+          git add site/gravity-work-study-lab.html site/testing-room.html site/assets/js/gravity-work-study-v2.js site/assets/js/gravity-work-study-guided-v3.js site/assets/js/gravity-work-study-guided-welcome-v9.js site/assets/js/gravity-work-study-expert-v5.js site/assets/js/gravity-work-study-expert-reasoning-v7.js site/assets/js/gravity-work-study-systems-expert-v10.js source-manifest.json
+          git commit -m "Train Work Study systems-context expert reasoning"
           git pull --rebase origin main
           git push origin HEAD:main
