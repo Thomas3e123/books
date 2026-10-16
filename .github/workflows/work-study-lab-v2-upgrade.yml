@@ -6,6 +6,7 @@ on:
     paths:
       - 'scripts/upgrade-work-study-lab-v2.cjs'
       - 'scripts/patch-work-study-guided-method.cjs'
+      - 'scripts/patch-work-study-guided-observer.cjs'
       - 'site/assets/js/gravity-work-study-v2.js'
       - 'site/assets/js/gravity-work-study-guided-v3.js'
       - 'site/assets/css/gravity-work-study-v2.css'
@@ -30,6 +31,8 @@ jobs:
         run: npm ci
       - name: Align Guided method selection
         run: node scripts/patch-work-study-guided-method.cjs
+      - name: Guard Guided redraw behavior
+        run: node scripts/patch-work-study-guided-observer.cjs
       - name: Check Work Study JavaScript syntax
         run: |
           node --check site/assets/js/gravity-work-study-v2.js
@@ -43,6 +46,7 @@ jobs:
           grep -q 'gravity-work-study-v2.js' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-guided-v3.js?v=20261016-fully-guided-v4' site/gravity-work-study-lab.html
           grep -q "if(s.mode==='guided')s.method=recommendMethod()" site/assets/js/gravity-work-study-v2.js
+          grep -q "lastSignature" site/assets/js/gravity-work-study-guided-v3.js
           if grep -q 'gravity-work-study.js?v=' site/gravity-work-study-lab.html; then
             echo 'Legacy Work Study Lab JavaScript is still referenced.'
             exit 1
@@ -53,13 +57,13 @@ jobs:
         run: npm run build
       - name: Commit generated Work Study source
         run: |
-          if git diff --quiet -- site/gravity-work-study-lab.html site/assets/js/gravity-work-study-v2.js source-manifest.json; then
+          if git diff --quiet -- site/gravity-work-study-lab.html site/assets/js/gravity-work-study-v2.js site/assets/js/gravity-work-study-guided-v3.js source-manifest.json; then
             echo "Work Study Lab source is already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add site/gravity-work-study-lab.html site/assets/js/gravity-work-study-v2.js source-manifest.json
-          git commit -m "Install Fully Guided Work Study method alignment"
+          git add site/gravity-work-study-lab.html site/assets/js/gravity-work-study-v2.js site/assets/js/gravity-work-study-guided-v3.js source-manifest.json
+          git commit -m "Install Fully Guided Work Study safeguards"
           git pull --rebase origin main
           git push origin HEAD:main
