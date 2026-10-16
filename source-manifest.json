@@ -1305,6 +1305,10 @@
       "sha256": "ca69b3ed650ddd47ff0370c0f70e01a3af1a7059ffab42cc60d52467142a7f41"
     },
     {
+      "path": "site/assets/js/gravity-work-study-changeover-sequence-v55.js",
+      "sha256": "8cb183c68a61d17d2383d3221a34427e567452c254bdbd4694ecfa0de273b9ad"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-clock-control-v32.js",
       "sha256": "483d163c6791e1eb363de112eda3990708013c29d435ed16412eb2a69fbb5168"
     },
