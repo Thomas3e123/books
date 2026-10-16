@@ -1,12 +1,17 @@
 (()=>{'use strict';
-const KEY='gravityWorkStudyV2';let lastSpoken='',lastMode='';
+const KEY='gravityWorkStudyV2';let lastSpoken='',lastMode='',entryStartedAt=0;
+const GREETING='Hello. I’m Gravity. I’ll take you through this.';
 function state(){try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch{return null}}
 function canSpeak(){return 'speechSynthesis' in window&&'SpeechSynthesisUtterance' in window}
-function currentText(){const s=state();if(!s||s.mode!=='guided')return'';const fresh=s.screen==='problem';const q=document.querySelector('[data-ws13] .ws13-q')?.textContent?.trim()||'';const obs=document.querySelector('[data-ws17] li')?.textContent?.trim()||'';if(fresh&&q)return `Hello. I’m Gravity. I’ll take you through this. ${q}`;if(s.screen==='observe'&&obs)return `Observation cue. ${obs}`;return q?`Gravity. ${q}`:''}
-function speak(text,force=false){if(!canSpeak()||!text)return;if(!force&&text===lastSpoken)return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.rate=.96;u.pitch=1;u.volume=1;lastSpoken=text;window.speechSynthesis.speak(u)}
-function sync(){const s=state();if(!s)return;if(s.mode!=='guided'){lastMode=s.mode||'';lastSpoken='';window.speechSynthesis?.cancel?.();return}const entered=lastMode!=='guided';lastMode='guided';const text=currentText();if(text)speak(text,entered)}
+function utter(text){if(!canSpeak()||!text)return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.rate=.98;u.pitch=1;u.volume=1;lastSpoken=text;window.speechSynthesis.speak(u)}
+function currentText(){const s=state();if(!s||s.mode!=='guided')return'';const q=document.querySelector('[data-ws13] .ws13-q')?.textContent?.trim()||'';const obs=document.querySelector('[data-ws17] li')?.textContent?.trim()||'';if(s.screen==='observe'&&obs)return `Observation cue. ${obs}`;return q?`Gravity. ${q}`:''}
+function speak(text,force=false){if(!text)return;if(!force&&text===lastSpoken)return;utter(text)}
+function startNow(){const now=Date.now();if(now-entryStartedAt<700)return;entryStartedAt=now;lastMode='guided';utter(GREETING)}
+function sync(){const s=state();if(!s)return;if(s.mode!=='guided'){lastMode=s.mode||'';lastSpoken='';window.speechSynthesis?.cancel?.();return}const entered=lastMode!=='guided';lastMode='guided';if(entered&&Date.now()-entryStartedAt>900)startNow();const text=currentText();if(text&&text!==lastSpoken){if(lastSpoken===GREETING){setTimeout(()=>{const next=currentText();if(next&&next!==GREETING)speak(next)},250)}else speak(text)}}
+function guidedTarget(e){return e.target.closest?.('[data-mode="guided"],[data-start="guided"],[data-action="guided"]')}
+document.addEventListener('pointerdown',e=>{if(guidedTarget(e))startNow()},true);
+document.addEventListener('click',e=>{if(guidedTarget(e)){startNow();setTimeout(sync,0)}},true);
 new MutationObserver(()=>sync()).observe(document.documentElement,{subtree:true,childList:true});
-document.addEventListener('click',e=>{const t=e.target.closest?.('[data-mode="guided"],[data-start="guided"],[data-action="guided"]');if(t)setTimeout(()=>sync(),0)},true);
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',sync);else sync();
-window.GravityWorkStudyGuidedVoice={speak,currentText,sync};
+window.GravityWorkStudyGuidedVoice={speak,currentText,sync,startNow,GREETING};
 })();
