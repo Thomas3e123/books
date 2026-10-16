@@ -7,7 +7,7 @@ const must=[
  'Queue/Recovery Evidence Supported',
  'average completions are below average arrivals',
  'average completion capacity met or exceeded average arrivals, yet a queue still formed',
- 'does not invent an acceptable queue size or recovery time',
+ 'will not invent an acceptable queue size or recovery time',
  'does not invent an acceptable queue target or infer guest wait time from queue size alone',
  "s.mode!=='guided'||s.timer?.running",
  'window.GravityWorkStudyQueueRecovery'
