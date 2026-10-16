@@ -12,6 +12,9 @@ const must=[
  "name:'Demand coverage'",
  "demand?.applicable",
  "block:!!demand.blockStandard",
+ "name:'Queue & recovery'",
+ "queue?.applicable",
+ "block:!!queue.blockStandard",
  "name:'Standard-minute validity'",
  "standard?.runs?.length",
  "standard.decision==='Standard Minute Not Ready'",
@@ -36,9 +39,9 @@ const must=[
  "name:'Observation effect'",
  "block:!!observationEffect.blockConclusion",
  "Hold — Resolve Before Standardizing",
- "method-specific Work Sampling validity",
+ "queue/recovery evidence",
  "core=['Study integrity','Measurement quality','Problem definition','Action design','Failure & recovery','Scope & escalation']",
  'window.GravityWorkStudySynthesis'
 ];
 for(const t of must){if(!src.includes(t)){console.error('Missing synthesis integration behavior:',t);process.exit(1)}}
-console.log('Synthesis integration suite passed: method-specific Work Sampling, precision, demand coverage, shared setup, crew labor, yield/waste protection, standard-minute validity, baseline control, observer calibration, proficiency representativeness, and observation-effect context participate in the consolidated Gravity verdict.');
+console.log('Synthesis integration suite passed: method-specific Work Sampling, precision, demand coverage, queue/recovery, shared setup, crew labor, yield/waste protection, standard-minute validity, baseline control, observer calibration, proficiency representativeness, and observation-effect context participate in the consolidated Gravity verdict.');
