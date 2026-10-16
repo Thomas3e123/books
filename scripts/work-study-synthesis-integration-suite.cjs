@@ -3,6 +3,9 @@ const fs=require('node:fs');
 const src=fs.readFileSync('site/assets/js/gravity-work-study-synthesis-v24.js','utf8');
 const must=[
  "name:'Scope & escalation'",
+ "name:'Measurement precision'",
+ "precision?.n>=2",
+ "block:!!precision.blockStandard",
  "name:'Standard-minute validity'",
  "standard?.runs?.length",
  "standard.decision==='Standard Minute Not Ready'",
@@ -18,9 +21,9 @@ const must=[
  "name:'Observation effect'",
  "block:!!observationEffect.blockConclusion",
  "Hold — Resolve Before Standardizing",
- "observation-context review",
+ "measurement quality and precision",
  "core=['Study integrity','Measurement quality','Problem definition','Action design','Failure & recovery','Scope & escalation']",
  'window.GravityWorkStudySynthesis'
 ];
 for(const t of must){if(!src.includes(t)){console.error('Missing synthesis integration behavior:',t);process.exit(1)}}
-console.log('Synthesis integration suite passed: standard-minute validity, baseline control, observer calibration, proficiency representativeness, and observation-effect context participate in the consolidated Gravity verdict.');
+console.log('Synthesis integration suite passed: precision, standard-minute validity, baseline control, observer calibration, proficiency representativeness, and observation-effect context participate in the consolidated Gravity verdict.');
