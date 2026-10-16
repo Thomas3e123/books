@@ -15,10 +15,12 @@ const must=[
  "block:!!observer.block",
  "name:'Proficiency representativeness'",
  "block:!!proficiency.blockStandard",
+ "name:'Observation effect'",
+ "block:!!observationEffect.blockConclusion",
  "Hold — Resolve Before Standardizing",
- "proficiency representativeness",
+ "observation-context review",
  "core=['Study integrity','Measurement quality','Problem definition','Action design','Failure & recovery','Scope & escalation']",
  'window.GravityWorkStudySynthesis'
 ];
 for(const t of must){if(!src.includes(t)){console.error('Missing synthesis integration behavior:',t);process.exit(1)}}
-console.log('Synthesis integration suite passed: standard-minute validity, verified-baseline control, optional observer calibration, and proficiency representativeness participate in the consolidated Gravity verdict.');
+console.log('Synthesis integration suite passed: standard-minute validity, baseline control, observer calibration, proficiency representativeness, and observation-effect context participate in the consolidated Gravity verdict.');
