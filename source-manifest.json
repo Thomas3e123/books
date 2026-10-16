@@ -1377,6 +1377,10 @@
       "sha256": "ed8416b0fa88a249dcddf4c7a2bf29bf39fc67eaa7b9ec1eacd1271457e456ab"
     },
     {
+      "path": "site/assets/js/gravity-work-study-incomplete-cycle-v52.js",
+      "sha256": "cd056acd632a2835c272d8e526f66f5a4815d9ca342abf9dac19934e70a0be71"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-integrity-expert-v19.js",
       "sha256": "dc475ea8ac3fc660b87dfc7140d5d05eec2706849430fbc6fa576b4fc894e482"
     },
@@ -1454,7 +1458,7 @@
     },
     {
       "path": "site/assets/js/gravity-work-study-synthesis-v24.js",
-      "sha256": "4ffb7dd8ff8ae31c98936828bfae0e1120a9193be42a1f6c6a9e1f47eddb33f5"
+      "sha256": "8814e2fa309d91f691200275dcee69c40dedc4d093ca027fe100d7a39ff0bd9e"
     },
     {
       "path": "site/assets/js/gravity-work-study-systems-expert-v10.js",
@@ -1786,7 +1790,7 @@
     },
     {
       "path": "site/gravity-work-study-lab.html",
-      "sha256": "634f7ddab9576d5788331052a6d261a9e0a2fab328fc1073657b165859460636"
+      "sha256": "bca33b98c279501672b4f2ea1232490a26fbc5020907d4d53b3c0d50e8a26c04"
     },
     {
       "path": "site/guest-service-complaints-recovery-workbook.html",
