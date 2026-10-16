@@ -11,7 +11,9 @@ const must=[
  "sourceType:'gravity-inferred'",
  "proposedFromProcessMap:true",
  "confirmedByManager:true",
- "['fixed','variable','capacity-step']",
+ 'value="fixed"',
+ 'value="variable"',
+ 'value="capacity-step"',
  'If you have the recipe or written production directions',
  'window.GravityWorkStudyProcessMap'
 ];
