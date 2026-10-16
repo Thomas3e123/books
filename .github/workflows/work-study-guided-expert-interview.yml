@@ -14,6 +14,7 @@ on:
       - 'site/assets/js/gravity-work-study-synthesis-v24.js'
       - 'site/assets/js/gravity-work-study-process-map-v34.js'
       - 'site/assets/js/gravity-work-study-earbud-mode-v18.js'
+      - 'functions/work-study-process-file/**'
       - 'scripts/work-study-guided-expert-interview-suite.cjs'
       - 'scripts/work-study-adaptive-expert-suite.cjs'
       - 'scripts/work-study-production-pause-suite.cjs'
@@ -22,6 +23,7 @@ on:
       - 'scripts/work-study-standard-minutes-suite.cjs'
       - 'scripts/work-study-synthesis-integration-suite.cjs'
       - 'scripts/work-study-process-map-suite.cjs'
+      - 'scripts/work-study-process-file-suite.cjs'
       - 'scripts/work-study-clock-control-suite.cjs'
       - 'scripts/upgrade-work-study-lab-v2.cjs'
       - '.github/workflows/work-study-guided-expert-interview.yml'
@@ -55,6 +57,7 @@ jobs:
           node --check site/assets/js/gravity-work-study-synthesis-v24.js
           node --check site/assets/js/gravity-work-study-process-map-v34.js
           node --check site/assets/js/gravity-work-study-earbud-mode-v18.js
+          node --check functions/work-study-process-file/work-study-process-file.js
       - name: Run Guided expert interview regression suite
         run: node scripts/work-study-guided-expert-interview-suite.cjs
       - name: Run adaptive expert regression suite
@@ -71,6 +74,8 @@ jobs:
         run: node scripts/work-study-synthesis-integration-suite.cjs
       - name: Run process-map regression suite
         run: node scripts/work-study-process-map-suite.cjs
+      - name: Run real DOCX process-file regression suite
+        run: node scripts/work-study-process-file-suite.cjs
       - name: Run clock control regression suite
         run: node scripts/work-study-clock-control-suite.cjs
       - name: Verify Guided teaching is blocked during active timing
@@ -88,9 +93,9 @@ jobs:
           grep -q 'gravity-work-study-run-comparability-v31.js?v=20261016-unit-aware-comparability-v2' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-standard-minutes-v32.js?v=20261016-standard-minutes-v2' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-clock-control-v32.js?v=20261016-clock-control-v1' site/gravity-work-study-lab.html
-          grep -q 'gravity-work-study-process-map-v34.js?v=20261016-process-map-v1' site/gravity-work-study-lab.html
+          grep -q 'gravity-work-study-process-map-v34.js?v=20261016-process-map-v2' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-earbud-mode-v18.js?v=20261016-guided-teaching-v4' site/gravity-work-study-lab.html
-          grep -q 'recipe and written-process mapping that keeps proposed steps separate from measured evidence' site/gravity-work-study-lab.html
+          grep -q 'ingredient-aware DOCX/text ingestion that keeps proposed steps separate from measured evidence' site/gravity-work-study-lab.html
           grep -q 'standard-minute validity that separates active labor from machine and wait time' site/gravity-work-study-lab.html
           grep -q 'unit-aware production-run comparability' site/gravity-work-study-lab.html
       - name: Refresh reviewed-source manifest
@@ -100,12 +105,12 @@ jobs:
       - name: Commit generated Work Study page
         run: |
           if git diff --quiet -- site/gravity-work-study-lab.html source-manifest.json; then
-            echo "Guided expert and process-map source are already current."
+            echo "Guided expert and DOCX process-map source are already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add site/gravity-work-study-lab.html source-manifest.json
-          git commit -m "Install Work Study process-map expert"
+          git commit -m "Install Work Study DOCX process-map expert"
           git pull --rebase origin main
           git push origin HEAD:main
