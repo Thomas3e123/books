@@ -45,19 +45,22 @@ jobs:
         run: |
           grep -q "gravity-work-study-teaching" site/assets/js/gravity-work-study-earbud-mode-v18.js
           grep -q "s?.timer?.running" site/assets/js/gravity-work-study-earbud-mode-v18.js
+          grep -q "if(s.mode!=='guided'||s.timer?.running)return" site/assets/js/gravity-work-study-standard-minutes-v33.js
       - name: Install expert stack in Work Study page
         run: node scripts/upgrade-work-study-lab-v2.cjs
       - name: Verify generated Work Study page
         run: |
           grep -q 'gravity-work-study-guided-expert-interview-v26.js?v=20261016-guided-expert-interview-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-run-comparability-v31.js?v=20261016-unit-aware-comparability-v2' site/gravity-work-study-lab.html
-          grep -q 'gravity-work-study-standard-minutes-v32.js?v=20261016-standard-minutes-v2' site/gravity-work-study-lab.html
+          grep -q 'gravity-work-study-standard-minutes-v33.js?v=20261016-standard-minutes-v33' site/gravity-work-study-lab.html
+          ! grep -q 'gravity-work-study-standard-minutes-v32.js' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-clock-control-v32.js?v=20261016-clock-control-v2' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-process-map-v34.js?v=20261016-process-map-v2' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-concurrent-process-v35.js?v=20261016-concurrent-process-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-labor-occupancy-v36.js?v=20261016-labor-occupancy-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-segment-reference-v37.js?v=20261016-segment-reference-v2' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-practical-units-v38.js?v=20261016-practical-units-v1' site/gravity-work-study-lab.html
+          grep -q 'unit-aware standard-minute validity with planning/candidate/verified evidence levels' site/gravity-work-study-lab.html
           grep -q 'practical restaurant-readable timing units' site/gravity-work-study-lab.html
           grep -q 'condition-equivalence checks' site/gravity-work-study-lab.html
           grep -q 'parallel machine/process clocks' site/gravity-work-study-lab.html
