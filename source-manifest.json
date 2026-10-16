@@ -1309,6 +1309,10 @@
       "sha256": "f38044137479c24fbfc24475bed82ea6c19f25d2f162fb1db6afbf8fa630c6f8"
     },
     {
+      "path": "site/assets/js/gravity-work-study-sequence-expert-v11.js",
+      "sha256": "083bd9a063d63bcaeb723a5bf4c7f425ff517fd9caafcbe7e55041d6f6cfd040"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-systems-expert-v10.js",
       "sha256": "ed05b224911e3be2b72eb11f57ce4721a2de8fc59515c2e7e936e1ed6063edfb"
     },
