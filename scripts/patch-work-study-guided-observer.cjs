@@ -1,0 +1,10 @@
+'use strict';
+const fs=require('node:fs');
+const path=require('node:path');
+const file=path.join(__dirname,'..','site','assets','js','gravity-work-study-guided-v3.js');
+let js=fs.readFileSync(file,'utf8');
+const from="let pending=false;function schedule(){if(pending)return;pending=true;setTimeout(()=>{pending=false;decorate()},25)}\nnew MutationObserver(schedule).observe(document.documentElement,{subtree:true,childList:true});window.addEventListener('storage',schedule);window.GravityWorkStudyDevelopment={version:2,provider:'local-browser',getSnapshot:()=>profile(),recommendedMode:()=>recommendation(profile())[0],getSkillHistory:()=>profile().skills};schedule();";
+const to="let pending=false,lastSignature='';function signature(){const raw=state();if(!raw)return'';const s=snapshot(raw),p=profile(),miss=checks(s).map(x=>x[1]).join('|');return[s.id,s.screen,s.mode,s.method,(s.observations||[]).length,s.completedUnits||0,s.decision||'',s.gravityReview?.generatedAt||'',miss,p.updatedAt||''].join('~')}function schedule(force=false){if(pending)return;pending=true;setTimeout(()=>{pending=false;const next=signature();if(!force&&next===lastSignature&&document.querySelector('[data-ws3]'))return;lastSignature=next;decorate()},25)}\nnew MutationObserver(records=>{const external=records.some(r=>[...r.addedNodes,...r.removedNodes].some(n=>!(n.nodeType===1&&n.matches?.('[data-ws3], [data-ws3] *'))));if(external)schedule()}).observe(document.documentElement,{subtree:true,childList:true});document.addEventListener('input',()=>schedule(true),true);document.addEventListener('change',()=>schedule(true),true);window.addEventListener('storage',()=>schedule(true));window.GravityWorkStudyDevelopment={version:2,provider:'local-browser',getSnapshot:()=>profile(),recommendedMode:()=>recommendation(profile())[0],getSkillHistory:()=>profile().skills};schedule(true);";
+if(js.includes(to)) console.log('Guided observer guard is already installed.');
+else if(js.includes(from)){js=js.replace(from,to);fs.writeFileSync(file,js);console.log('Installed Guided observer self-redraw guard.');}
+else throw new Error('Could not locate Guided observer source.');
