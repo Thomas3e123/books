@@ -1377,6 +1377,10 @@
       "sha256": "adad43527accdfaec9ada3e474fc9def911c955fd559a99da079de6f0a7ccac0"
     },
     {
+      "path": "site/assets/js/gravity-work-study-practical-units-v38.js",
+      "sha256": "8da44a09eb50a8fd89747e0dec89f01cf0ac7a1d3f4808321423ff1db9972e92"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-process-map-v34.js",
       "sha256": "ddbad99242a432f4a1cc1c47332ad0ca13b07377d605e53c2e2b9d5c5266533c"
     },
