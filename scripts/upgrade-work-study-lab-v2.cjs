@@ -44,6 +44,10 @@ const welcome='<script src="/assets/js/gravity-work-study-guided-welcome-v9.js?v
 if(!html.includes('gravity-work-study-guided-welcome-v9.js')) html=html.replace('</body>',welcome+'</body>');
 else html=html.replace(/\/assets\/js\/gravity-work-study-guided-welcome-v9\.js\?v=[^"]+/,'/assets/js/gravity-work-study-guided-welcome-v9.js?v=20261016-guided-takeover-v1');
 
-html=html.replace(/Conduct restaurant work studies with[^\"]+continuous improvement memory\./,'Conduct restaurant work studies with fully guided, assisted, independent, or passive modes, restaurant-specific expert questions, method-specific cause testing, systems-context checks, constraint-sequence reasoning, evidence checks, live observation, Gravity Results Review, knowledge maturity controls, development coaching, SOP contributions, and continuous improvement memory.');
+const interview='<script src="/assets/js/gravity-work-study-guided-interview-v13.js?v=20261016-guided-interview-v1"></script>';
+if(!html.includes('gravity-work-study-guided-interview-v13.js')) html=html.replace('</body>',interview+'</body>');
+else html=html.replace(/\/assets\/js\/gravity-work-study-guided-interview-v13\.js\?v=[^"]+/,'/assets/js/gravity-work-study-guided-interview-v13.js?v=20261016-guided-interview-v1');
+
+html=html.replace(/Conduct restaurant work studies with[^\"]+continuous improvement memory\./,'Conduct restaurant work studies with a one-question-at-a-time fully guided Gravity interview, assisted, independent, or passive modes, restaurant-specific expert questions, method-specific cause testing, systems-context checks, constraint-sequence reasoning, evidence checks, live observation, Gravity Results Review, knowledge maturity controls, development coaching, SOP contributions, and continuous improvement memory.');
 fs.writeFileSync(file,html);
-console.log('Work Study Lab Guided takeover, expert reasoning, systems-context reasoning, constraint-sequence reasoning, knowledge maturity, and rich theme are installed and current.');
+console.log('Work Study Lab Guided interview, expert reasoning, systems-context reasoning, constraint-sequence reasoning, knowledge maturity, and rich theme are installed and current.');
