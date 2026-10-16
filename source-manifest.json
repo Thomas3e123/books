@@ -1370,7 +1370,7 @@
     },
     {
       "path": "site/assets/js/gravity-work-study-process-map-v34.js",
-      "sha256": "4043ab63b8e7b4f8f668158a002cc9d0b3835a7d00d2f0a72c927e5449b0ca93"
+      "sha256": "ddbad99242a432f4a1cc1c47332ad0ca13b07377d605e53c2e2b9d5c5266533c"
     },
     {
       "path": "site/assets/js/gravity-work-study-production-pause-v28.js",
@@ -2127,6 +2127,10 @@
     {
       "path": "functions/testing-room/index.mjs",
       "sha256": "166d5cee8ea5ad65f30dd436ca6683de4005f75b883f52c29867c707a71de08c"
+    },
+    {
+      "path": "functions/work-study-process-file/work-study-process-file.js",
+      "sha256": "103f192ed8b1d5523cff8fd43e20a7a7e461548ed9541eb37c9307430ca60b4a"
     },
     {
       "path": "netlify/database/migrations/20261010070000_foundry_hosted_employee.sql",
