@@ -11,6 +11,7 @@ on:
       - 'site/assets/js/gravity-work-study-run-comparability-v31.js'
       - 'site/assets/js/gravity-work-study-standard-minutes-v32.js'
       - 'site/assets/js/gravity-work-study-clock-control-v32.js'
+      - 'site/assets/js/gravity-work-study-synthesis-v24.js'
       - 'site/assets/js/gravity-work-study-earbud-mode-v18.js'
       - 'scripts/work-study-guided-expert-interview-suite.cjs'
       - 'scripts/work-study-adaptive-expert-suite.cjs'
@@ -18,6 +19,7 @@ on:
       - 'scripts/work-study-confidence-expert-suite.cjs'
       - 'scripts/work-study-run-comparability-suite.cjs'
       - 'scripts/work-study-standard-minutes-suite.cjs'
+      - 'scripts/work-study-synthesis-integration-suite.cjs'
       - 'scripts/work-study-clock-control-suite.cjs'
       - 'scripts/upgrade-work-study-lab-v2.cjs'
       - '.github/workflows/work-study-guided-expert-interview.yml'
@@ -48,6 +50,7 @@ jobs:
           node --check site/assets/js/gravity-work-study-run-comparability-v31.js
           node --check site/assets/js/gravity-work-study-standard-minutes-v32.js
           node --check site/assets/js/gravity-work-study-clock-control-v32.js
+          node --check site/assets/js/gravity-work-study-synthesis-v24.js
           node --check site/assets/js/gravity-work-study-earbud-mode-v18.js
       - name: Run Guided expert interview regression suite
         run: node scripts/work-study-guided-expert-interview-suite.cjs
@@ -61,6 +64,8 @@ jobs:
         run: node scripts/work-study-run-comparability-suite.cjs
       - name: Run standard-minute validity regression suite
         run: node scripts/work-study-standard-minutes-suite.cjs
+      - name: Run synthesis integration regression suite
+        run: node scripts/work-study-synthesis-integration-suite.cjs
       - name: Run clock control regression suite
         run: node scripts/work-study-clock-control-suite.cjs
       - name: Verify Guided teaching is blocked during active timing
