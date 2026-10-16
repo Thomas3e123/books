@@ -27,6 +27,9 @@ const must=[
  "name:'Shared setup & cleanup allocation'",
  "sharedSetup?.applicable",
  "block:!!sharedSetup.blockStandard",
+ "name:'Sequence-dependent changeover'",
+ "changeover?.applicable",
+ "block:!!changeover.blockStandard",
  "name:'Crew labor accounting'",
  "crew?.applicable",
  "block:!!crew.blockStandard",
@@ -48,9 +51,9 @@ const must=[
  "name:'Observation effect'",
  "block:!!observationEffect.blockConclusion",
  "Hold — Resolve Before Standardizing",
- "shift-position representativeness",
+ "sequence-dependent changeover controls",
  "core=['Study integrity','Measurement quality','Problem definition','Action design','Failure & recovery','Scope & escalation']",
  'window.GravityWorkStudySynthesis'
 ];
 for(const t of must){if(!src.includes(t)){console.error('Missing synthesis integration behavior:',t);process.exit(1)}}
-console.log('Synthesis integration suite passed: shift-position coverage, short-element adequacy, Work Sampling, precision, demand coverage, queue/recovery, shared setup, crew labor, yield/waste, incomplete-cycle protection, standard-minute validity, baseline control, observer calibration, proficiency representativeness, and observation-effect context participate in the consolidated Gravity verdict.');
+console.log('Synthesis integration suite passed: changeover sequence, shift-position coverage, short-element adequacy, Work Sampling, precision, demand coverage, queue/recovery, shared setup, crew labor, yield/waste, incomplete-cycle protection, standard-minute validity, baseline control, observer calibration, proficiency representativeness, and observation-effect context participate in the consolidated Gravity verdict.');
