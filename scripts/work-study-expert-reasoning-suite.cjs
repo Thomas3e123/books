@@ -28,7 +28,7 @@ const cases=[
  ['flow','f1',{queueRepeated:'Yes',burstOnly:'Yes',sharedConstraint:'No',alternativeRuled:'No'},true,'Pattern'],
  ['beforeafter','ba1',{causeTied:'No',alternativeChange:'Yes',effectRepeated:'Yes',alternativeRuled:'No'},true,'Possible Cause'],
  ['beforeafter','ba2',{causeTied:'Yes',alternativeChange:'No',effectRepeated:'Yes',alternativeRuled:'Yes'},false,'Tested Finding'],
- ['custom','x1',{patternRepeated:'Yes',causeTested:'Yes',conflictFound:'Yes',alternativeRuled:'No'},true,'Possible Cause'],
+ ['custom','x1',{patternRepeated:'Yes',causeTested:'Yes',conflictFound:'Yes',alternativeRuled:'No'},true,'Raw Evidence'],
  ['custom','x2',{patternRepeated:'Yes',causeTested:'Yes',conflictFound:'No',alternativeRuled:'Yes'},false,'Tested Finding']
 ];
 const failures=[];
