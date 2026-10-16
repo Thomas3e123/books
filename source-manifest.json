@@ -1274,7 +1274,7 @@
     },
     {
       "path": "site/assets/js/gravity-guide-ai.js",
-      "sha256": "c0a75a63ec1343204629375aa777b2de708d1e0fabc903b464d91c35e09ea114"
+      "sha256": "73727924a78bd16cce224ade18b649867641d35098e84291ba47b389452fab00"
     },
     {
       "path": "site/assets/js/gravity-guide-registry.js",
@@ -2082,7 +2082,7 @@
     },
     {
       "path": "site/testing-room.html",
-      "sha256": "12c6c0d95f022b8cb06c4c73cb7e1820654614cc12147f6193b881da8ace85be"
+      "sha256": "b08415bc73cefbb6d15a302e3d4f9726046a37c5456a1eb213789f88575bc013"
     },
     {
       "path": "site/the-owners-chair.html",
