@@ -1365,6 +1365,10 @@
       "sha256": "dc475ea8ac3fc660b87dfc7140d5d05eec2706849430fbc6fa576b4fc894e482"
     },
     {
+      "path": "site/assets/js/gravity-work-study-labor-occupancy-v36.js",
+      "sha256": "18ec2d4dee2f8dee7499a62ca33511bf781505b68f062e8064b730b716010043"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-measurement-expert-v20.js",
       "sha256": "2b95661a3e97dd20af0da967c234c5270be0568fc4535702041e27d8ac338aa8"
     },
@@ -1722,7 +1726,7 @@
     },
     {
       "path": "site/gravity-work-study-lab.html",
-      "sha256": "e79c26d88973f53ff600a81b3376d7990a477e9998a77d01ac0319e423d98dc8"
+      "sha256": "4945e0941938cd488e1ef2d2709f36e4a0fc9ff05806e3f609b2014f91f86291"
     },
     {
       "path": "site/guest-service-complaints-recovery-workbook.html",
