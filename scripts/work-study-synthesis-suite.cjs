@@ -12,14 +12,16 @@ const must=[
  'Hold — Resolve Before Standardizing',
  'Proceed With Caution',
  'Expert Path Clear',
- 'controlled result label or repeatability requirement'
+ 'controlled result label, repeatability requirement'
 ];
 for(const token of must){if(!src.includes(token)){console.error('Missing synthesis safeguard:',token);process.exit(1)}}
-function verdict(checks){const blocked=checks.filter(c=>c.block),cautions=checks.filter(c=>!c.block&&/caution|provisional|promising|not yet/i.test(c.status||''));if(!checks.length)return'Expert Review Incomplete';if(blocked.length)return'Hold — Resolve Before Standardizing';if(cautions.length)return'Proceed With Caution';return'Expert Path Clear'}
+function verdict(checks){const blocked=checks.filter(c=>c.block),cautions=checks.filter(c=>!c.block&&/caution|provisional|promising|not yet|preliminary|planning|candidate/i.test(c.status||''));if(!checks.length)return'Expert Review Incomplete';if(blocked.length)return'Hold — Resolve Before Standardizing';if(cautions.length)return'Proceed With Caution';return'Expert Path Clear'}
 const cases=[
  ['nothing complete',[],'Expert Review Incomplete'],
  ['integrity hold',[{block:true,status:'Integrity Hold — Inconclusive'}],'Hold — Resolve Before Standardizing'],
  ['measurement caution',[{block:false,status:'Measurement Caution'}],'Proceed With Caution'],
+ ['planning estimate',[{block:false,status:'Planning Estimate Only'}],'Proceed With Caution'],
+ ['standard candidate',[{block:false,status:'Observed Standard-Minute Candidate'}],'Proceed With Caution'],
  ['all clear',[{block:false,status:'Integrity Supported'},{block:false,status:'Measurement Quality Supported'},{block:false,status:'Problem Definition Supported'}],'Expert Path Clear']
 ];
 for(const [name,c,want] of cases){const got=verdict(c);if(got!==want){console.error(`${name}: expected ${want}, got ${got}`);process.exit(1)}}
