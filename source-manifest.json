@@ -1453,6 +1453,10 @@
       "sha256": "dc1fbc77e6aea9155915a71a0167318990af4ae9d63ae197f661bb1c0f8d18ca"
     },
     {
+      "path": "site/assets/js/gravity-work-study-short-element-v53.js",
+      "sha256": "356af9f4e750ac571b36acf3051468973c19901d455d5f5af8676c6fe2353d7e"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-standard-minutes-v33.js",
       "sha256": "ba4cf9222a241507bf1131b3ee0a8d84fec7a62b74749fabac484dff8d59d8fc"
     },
