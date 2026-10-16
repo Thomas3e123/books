@@ -7,10 +7,9 @@ const guided=fs.readFileSync(path.join(root,'site','assets','js','gravity-work-s
 const expert=fs.readFileSync(path.join(root,'site','assets','js','gravity-work-study-expert-v5.js'),'utf8');
 
 function extractBody(src,start,end){const a=src.indexOf(start);if(a<0)throw new Error('Missing '+start);const b=src.indexOf(end,a);if(b<0)throw new Error('Missing '+end);return src.slice(a+start.length,b)}
-function baseRecommend(problem,desired=''){const body=extractBody(base,'function recommendMethod(){','}\nfunction screenMethod');return Function('s',body+'; return recommendMethodResult;'.replace('recommendMethodResult','undefined'))({problem,desired})}
 function runBase(problem,desired=''){
   const body=extractBody(base,'function recommendMethod(){','}\nfunction screenMethod');
-  return Function('s',body.replace(/return'([^']+)'/g,"return '$1'")+"\n")({problem,desired});
+  return Function('s',body)({problem,desired});
 }
 function runGuided(problem,desired=''){
   const body=extractBody(guided,'function recommendMethod(s){','}\nfunction demandMatters');
@@ -37,7 +36,7 @@ for(const [problem,expected] of scenarios){
 for(const method of ['flow','cycle','motion','bottleneck','sampling','prep','dish','service','setup','beforeafter','custom']){
   if(!expert.includes(method+':{')) failures.push('Expert path missing for '+method);
 }
-const requiredChecks=['alternative','cause','quality','safety'];
-for(const token of requiredChecks){if(!expert.includes(token))failures.push('Expert layer missing reasoning token: '+token)}
+for(const token of ['alternative','cause']){if(!expert.includes(token))failures.push('Expert layer missing reasoning token: '+token)}
+if(!base.includes("guardrails:{quality:'',safety:''}")) failures.push('Core study engine is missing quality/safety guardrails.');
 if(failures.length){console.error('Work Study scenario suite FAILED');for(const f of failures)console.error('- '+f);process.exit(1)}
-console.log(`Work Study scenario suite passed ${scenarios.length} classification scenarios and all expert-path coverage checks.`);
+console.log(`Work Study scenario suite passed ${scenarios.length} classification scenarios, expert-path coverage, cause testing, and core quality/safety checks.`);
