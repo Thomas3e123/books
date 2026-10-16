@@ -18,19 +18,7 @@ on:
       - 'site/assets/js/gravity-work-study-segment-reference-v37.js'
       - 'site/assets/js/gravity-work-study-earbud-mode-v18.js'
       - 'functions/work-study-process-file/**'
-      - 'scripts/work-study-guided-expert-interview-suite.cjs'
-      - 'scripts/work-study-adaptive-expert-suite.cjs'
-      - 'scripts/work-study-production-pause-suite.cjs'
-      - 'scripts/work-study-confidence-expert-suite.cjs'
-      - 'scripts/work-study-run-comparability-suite.cjs'
-      - 'scripts/work-study-standard-minutes-suite.cjs'
-      - 'scripts/work-study-synthesis-integration-suite.cjs'
-      - 'scripts/work-study-process-map-suite.cjs'
-      - 'scripts/work-study-process-file-suite.cjs'
-      - 'scripts/work-study-labor-occupancy-suite.cjs'
-      - 'scripts/work-study-segment-reference-suite.cjs'
-      - 'scripts/work-study-clock-control-suite.cjs'
-      - 'scripts/upgrade-work-study-lab-v2.cjs'
+      - 'scripts/work-study-*.cjs'
       - '.github/workflows/work-study-guided-expert-interview.yml'
   workflow_dispatch:
 
@@ -50,7 +38,7 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: npm ci
-      - name: Check Guided expert JavaScript syntax
+      - name: Check expert JavaScript syntax
         run: |
           node --check site/assets/js/gravity-work-study-guided-expert-interview-v26.js
           node --check site/assets/js/gravity-work-study-guided-expert-adaptive-v27.js
@@ -66,40 +54,29 @@ jobs:
           node --check site/assets/js/gravity-work-study-segment-reference-v37.js
           node --check site/assets/js/gravity-work-study-earbud-mode-v18.js
           node --check functions/work-study-process-file/work-study-process-file.js
-      - name: Run Guided expert interview regression suite
-        run: node scripts/work-study-guided-expert-interview-suite.cjs
-      - name: Run adaptive expert regression suite
-        run: node scripts/work-study-adaptive-expert-suite.cjs
-      - name: Run production pause regression suite
-        run: node scripts/work-study-production-pause-suite.cjs
-      - name: Run confidence calibration regression suite
-        run: node scripts/work-study-confidence-expert-suite.cjs
-      - name: Run production run comparability regression suite
-        run: node scripts/work-study-run-comparability-suite.cjs
-      - name: Run standard-minute validity regression suite
-        run: node scripts/work-study-standard-minutes-suite.cjs
-      - name: Run synthesis integration regression suite
-        run: node scripts/work-study-synthesis-integration-suite.cjs
-      - name: Run process-map regression suite
-        run: node scripts/work-study-process-map-suite.cjs
-      - name: Run real DOCX process-file regression suite
-        run: node scripts/work-study-process-file-suite.cjs
-      - name: Run parallel labor occupancy regression suite
-        run: node scripts/work-study-labor-occupancy-suite.cjs
-      - name: Run segment-reference evidence regression suite
-        run: node scripts/work-study-segment-reference-suite.cjs
-      - name: Run clock control regression suite
-        run: node scripts/work-study-clock-control-suite.cjs
-      - name: Verify Guided teaching is blocked during active timing
+      - name: Run expert regression suites
+        run: |
+          node scripts/work-study-guided-expert-interview-suite.cjs
+          node scripts/work-study-adaptive-expert-suite.cjs
+          node scripts/work-study-production-pause-suite.cjs
+          node scripts/work-study-confidence-expert-suite.cjs
+          node scripts/work-study-run-comparability-suite.cjs
+          node scripts/work-study-standard-minutes-suite.cjs
+          node scripts/work-study-synthesis-integration-suite.cjs
+          node scripts/work-study-process-map-suite.cjs
+          node scripts/work-study-process-file-suite.cjs
+          node scripts/work-study-labor-occupancy-suite.cjs
+          node scripts/work-study-segment-reference-suite.cjs
+          node scripts/work-study-clock-control-suite.cjs
+      - name: Verify Guided teaching safety
         run: |
           grep -q "gravity-work-study-teaching" site/assets/js/gravity-work-study-earbud-mode-v18.js
           grep -q "s?.timer?.running" site/assets/js/gravity-work-study-earbud-mode-v18.js
-      - name: Install Guided expert interview in Work Study page
+      - name: Install expert stack in Work Study page
         run: node scripts/upgrade-work-study-lab-v2.cjs
       - name: Verify generated Work Study page
         run: |
           grep -q 'gravity-work-study-guided-expert-interview-v26.js?v=20261016-guided-expert-interview-v1' site/gravity-work-study-lab.html
-          grep -q 'gravity-work-study-guided-expert-adaptive-v27.js?v=20261016-adaptive-expert-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-production-pause-v28.js?v=20261016-production-pause-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-confidence-expert-v29.js?v=20261016-confidence-expert-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-run-comparability-v31.js?v=20261016-unit-aware-comparability-v2' site/gravity-work-study-lab.html
@@ -108,9 +85,9 @@ jobs:
           grep -q 'gravity-work-study-process-map-v34.js?v=20261016-process-map-v2' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-concurrent-process-v35.js?v=20261016-concurrent-process-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-labor-occupancy-v36.js?v=20261016-labor-occupancy-v1' site/gravity-work-study-lab.html
-          grep -q 'gravity-work-study-segment-reference-v37.js?v=20261016-segment-reference-v1' site/gravity-work-study-lab.html
+          grep -q 'gravity-work-study-segment-reference-v37.js?v=20261016-segment-reference-v2' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-earbud-mode-v18.js?v=20261016-guided-teaching-v4' site/gravity-work-study-lab.html
-          grep -q 'restaurant-local verified segment references that never masquerade as direct evidence' site/gravity-work-study-lab.html
+          grep -q 'condition-equivalence checks that never masquerade as direct evidence' site/gravity-work-study-lab.html
           grep -q 'parallel machine/process clocks' site/gravity-work-study-lab.html
           grep -q 'ingredient-aware DOCX/text process mapping' site/gravity-work-study-lab.html
       - name: Refresh reviewed-source manifest
@@ -120,12 +97,12 @@ jobs:
       - name: Commit generated Work Study page
         run: |
           if git diff --quiet -- site/gravity-work-study-lab.html source-manifest.json; then
-            echo "Guided expert and segment-reference source are already current."
+            echo "Work Study expert source is already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
-          git config user.email "4189822+github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add site/gravity-work-study-lab.html source-manifest.json
-          git commit -m "Install Work Study segment reference expert"
+          git commit -m "Install current Work Study expert stack"
           git pull --rebase origin main
           git push origin HEAD:main
