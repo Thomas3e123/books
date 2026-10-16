@@ -1385,6 +1385,10 @@
       "sha256": "adad43527accdfaec9ada3e474fc9def911c955fd559a99da079de6f0a7ccac0"
     },
     {
+      "path": "site/assets/js/gravity-work-study-observation-effect-v44.js",
+      "sha256": "5d0268dea3a2bfc9078ceba61e6f6ad447f7752eeef9060a51b191622edd38b8"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-observer-agreement-v42.js",
       "sha256": "1f0de75703d52bf7e2b21fa742051b97ee2e513655e4e8be72000d94342e31c1"
     },
