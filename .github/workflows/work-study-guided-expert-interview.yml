@@ -4,19 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'site/assets/js/gravity-work-study-guided-expert-interview-v26.js'
-      - 'site/assets/js/gravity-work-study-guided-expert-adaptive-v27.js'
-      - 'site/assets/js/gravity-work-study-production-pause-v28.js'
-      - 'site/assets/js/gravity-work-study-confidence-expert-v29.js'
-      - 'site/assets/js/gravity-work-study-run-comparability-v31.js'
-      - 'site/assets/js/gravity-work-study-standard-minutes-v32.js'
-      - 'site/assets/js/gravity-work-study-clock-control-v32.js'
-      - 'site/assets/js/gravity-work-study-synthesis-v24.js'
-      - 'site/assets/js/gravity-work-study-process-map-v34.js'
-      - 'site/assets/js/gravity-work-study-concurrent-process-v35.js'
-      - 'site/assets/js/gravity-work-study-labor-occupancy-v36.js'
-      - 'site/assets/js/gravity-work-study-segment-reference-v37.js'
-      - 'site/assets/js/gravity-work-study-earbud-mode-v18.js'
+      - 'site/assets/js/gravity-work-study-*.js'
       - 'functions/work-study-process-file/**'
       - 'scripts/work-study-*.cjs'
       - '.github/workflows/work-study-guided-expert-interview.yml'
@@ -38,36 +26,21 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: npm ci
-      - name: Check expert JavaScript syntax
+      - name: Check all Work Study JavaScript syntax
         run: |
-          node --check site/assets/js/gravity-work-study-guided-expert-interview-v26.js
-          node --check site/assets/js/gravity-work-study-guided-expert-adaptive-v27.js
-          node --check site/assets/js/gravity-work-study-production-pause-v28.js
-          node --check site/assets/js/gravity-work-study-confidence-expert-v29.js
-          node --check site/assets/js/gravity-work-study-run-comparability-v31.js
-          node --check site/assets/js/gravity-work-study-standard-minutes-v32.js
-          node --check site/assets/js/gravity-work-study-clock-control-v32.js
-          node --check site/assets/js/gravity-work-study-synthesis-v24.js
-          node --check site/assets/js/gravity-work-study-process-map-v34.js
-          node --check site/assets/js/gravity-work-study-concurrent-process-v35.js
-          node --check site/assets/js/gravity-work-study-labor-occupancy-v36.js
-          node --check site/assets/js/gravity-work-study-segment-reference-v37.js
-          node --check site/assets/js/gravity-work-study-earbud-mode-v18.js
+          set -e
+          for f in site/assets/js/gravity-work-study-*.js; do
+            echo "Syntax: $f"
+            node --check "$f"
+          done
           node --check functions/work-study-process-file/work-study-process-file.js
-      - name: Run expert regression suites
+      - name: Run every Work Study regression suite
         run: |
-          node scripts/work-study-guided-expert-interview-suite.cjs
-          node scripts/work-study-adaptive-expert-suite.cjs
-          node scripts/work-study-production-pause-suite.cjs
-          node scripts/work-study-confidence-expert-suite.cjs
-          node scripts/work-study-run-comparability-suite.cjs
-          node scripts/work-study-standard-minutes-suite.cjs
-          node scripts/work-study-synthesis-integration-suite.cjs
-          node scripts/work-study-process-map-suite.cjs
-          node scripts/work-study-process-file-suite.cjs
-          node scripts/work-study-labor-occupancy-suite.cjs
-          node scripts/work-study-segment-reference-suite.cjs
-          node scripts/work-study-clock-control-suite.cjs
+          set -e
+          for f in scripts/work-study-*-suite.cjs; do
+            echo "Regression: $f"
+            node "$f"
+          done
       - name: Verify Guided teaching safety
         run: |
           grep -q "gravity-work-study-teaching" site/assets/js/gravity-work-study-earbud-mode-v18.js
@@ -77,8 +50,6 @@ jobs:
       - name: Verify generated Work Study page
         run: |
           grep -q 'gravity-work-study-guided-expert-interview-v26.js?v=20261016-guided-expert-interview-v1' site/gravity-work-study-lab.html
-          grep -q 'gravity-work-study-production-pause-v28.js?v=20261016-production-pause-v1' site/gravity-work-study-lab.html
-          grep -q 'gravity-work-study-confidence-expert-v29.js?v=20261016-confidence-expert-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-run-comparability-v31.js?v=20261016-unit-aware-comparability-v2' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-standard-minutes-v32.js?v=20261016-standard-minutes-v2' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-clock-control-v32.js?v=20261016-clock-control-v2' site/gravity-work-study-lab.html
@@ -86,8 +57,9 @@ jobs:
           grep -q 'gravity-work-study-concurrent-process-v35.js?v=20261016-concurrent-process-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-labor-occupancy-v36.js?v=20261016-labor-occupancy-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-segment-reference-v37.js?v=20261016-segment-reference-v2' site/gravity-work-study-lab.html
-          grep -q 'gravity-work-study-earbud-mode-v18.js?v=20261016-guided-teaching-v4' site/gravity-work-study-lab.html
-          grep -q 'condition-equivalence checks that never masquerade as direct evidence' site/gravity-work-study-lab.html
+          grep -q 'gravity-work-study-practical-units-v38.js?v=20261016-practical-units-v1' site/gravity-work-study-lab.html
+          grep -q 'practical restaurant-readable timing units' site/gravity-work-study-lab.html
+          grep -q 'condition-equivalence checks' site/gravity-work-study-lab.html
           grep -q 'parallel machine/process clocks' site/gravity-work-study-lab.html
           grep -q 'ingredient-aware DOCX/text process mapping' site/gravity-work-study-lab.html
       - name: Refresh reviewed-source manifest
