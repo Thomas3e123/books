@@ -32,7 +32,7 @@ const scripts=[
  ['gravity-work-study-hold-expert-v15.js','20261016-hold-expert-v1'],
  ['gravity-work-study-first-timer-v16.js','20261016-first-timer-v1'],
  ['gravity-work-study-observation-coach-v17.js','20261016-observation-coach-v1'],
- ['gravity-work-study-earbud-mode-v18.js','20261016-guided-voice-v3'],
+ ['gravity-work-study-earbud-mode-v18.js','20261016-guided-teaching-v4'],
  ['gravity-work-study-integrity-expert-v19.js','20261016-integrity-expert-v1'],
  ['gravity-work-study-measurement-expert-v20.js','20261016-measurement-expert-v1'],
  ['gravity-work-study-action-expert-v21.js','20261016-action-expert-v1'],
@@ -44,11 +44,12 @@ const scripts=[
  ['gravity-work-study-guided-expert-adaptive-v27.js','20261016-adaptive-expert-v1'],
  ['gravity-work-study-production-pause-v28.js','20261016-production-pause-v1'],
  ['gravity-work-study-confidence-expert-v29.js','20261016-confidence-expert-v1'],
- ['gravity-work-study-run-comparability-v31.js','20261016-run-comparability-v1'],
+ ['gravity-work-study-run-comparability-v31.js','20261016-unit-aware-comparability-v2'],
+ ['gravity-work-study-standard-minutes-v32.js','20261016-standard-minutes-v2'],
  ['gravity-work-study-clock-control-v32.js','20261016-clock-control-v1']
 ];
 for(const [name,ver] of scripts){const tag=`<script src="/assets/js/${name}?v=${ver}"></script>`;if(!html.includes(name))html=html.replace('</body>',tag+'</body>');else html=html.replace(new RegExp('/assets/js/'+name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\?v=[^\"]+'),`/assets/js/${name}?v=${ver}`)}
 
-html=html.replace(/Conduct restaurant work studies with[^\"]+continuous improvement memory\./,'Conduct restaurant work studies with a one-question-at-a-time fully guided Gravity interview that begins speaking when Guided is selected, optional natural-language hands-free clock control with user, Gravity, or Hybrid ownership, adaptive spoken expert checkpoint coaching, production-safe pause/resume across normal production runs, production-run comparability checks across batch size, yield, equipment, operator, and conditions, confidence calibration that identifies the most valuable next evidence, method-specific observation coaching, study-integrity and measurement-quality safeguards, controlled action-design checks, diagnostic problem-reframing and human-factor safeguards, failure prediction and recovery controls, consolidated expert synthesis, safety and specialist escalation boundaries, restaurant-specific expert questions, cause testing, systems-context checks, constraint-sequence reasoning, repeatability and standardization checks, hold and drift revalidation, evidence checks, live observation, Gravity Results Review, knowledge maturity controls, development coaching, SOP contributions, and continuous improvement memory.');
+html=html.replace(/Conduct restaurant work studies with[^\"]+continuous improvement memory\./,'Conduct restaurant work studies with a one-question-at-a-time fully guided Gravity interview that begins speaking when Guided is selected, optional natural-language hands-free clock control with user, Gravity, or Hybrid ownership, safe between-segment teaching, production-safe pause/resume across normal production runs, unit-aware production-run comparability, standard-minute validity that separates active labor from machine and wait time and distinguishes fixed, variable, and capacity-step work, confidence calibration that identifies the most valuable next evidence, adaptive spoken expert checkpoint coaching, method-specific observation coaching, study-integrity and measurement-quality safeguards, controlled action-design checks, diagnostic problem-reframing and human-factor safeguards, failure prediction and recovery controls, consolidated expert synthesis, safety and specialist escalation boundaries, restaurant-specific expert questions, cause testing, systems-context checks, constraint-sequence reasoning, repeatability and standardization checks, hold and drift revalidation, evidence checks, live observation, Gravity Results Review, knowledge maturity controls, development coaching, SOP contributions, and continuous improvement memory.');
 fs.writeFileSync(file,html);
-console.log('Work Study Lab automatic Guided voice, optional natural-language clock control, adaptive spoken expert checkpoints, production-safe pause/resume, production-run comparability, confidence calibration, first-timer interview, observation coach, integrity, measurement, action, diagnostic, failure/recovery, expert synthesis, and escalation layers, expert reasoning, repeatability, hold/drift revalidation, knowledge maturity, and rich theme are installed and current.');
+console.log('Work Study Lab Guided voice and teaching, natural-language clock control, production-safe pause/resume, unit-aware run comparability, standard-minute validity and normalization, confidence calibration, adaptive expert checkpoints, and the full expert reasoning stack are installed and current.');
