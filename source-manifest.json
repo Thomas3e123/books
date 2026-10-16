@@ -1325,6 +1325,10 @@
       "sha256": "ed8416b0fa88a249dcddf4c7a2bf29bf39fc67eaa7b9ec1eacd1271457e456ab"
     },
     {
+      "path": "site/assets/js/gravity-work-study-integrity-expert-v19.js",
+      "sha256": "dc475ea8ac3fc660b87dfc7140d5d05eec2706849430fbc6fa576b4fc894e482"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-observation-coach-v17.js",
       "sha256": "adad43527accdfaec9ada3e474fc9def911c955fd559a99da079de6f0a7ccac0"
     },
@@ -1658,7 +1662,7 @@
     },
     {
       "path": "site/gravity-work-study-lab.html",
-      "sha256": "35ba325e52d5a1278eb35c074d862dccf90b145d36cd1e7d8780c359785a5adb"
+      "sha256": "f0e7607ba308052bec7acb56cb350d1b938665b90b2b415ee5f91e08b7d05d17"
     },
     {
       "path": "site/guest-service-complaints-recovery-workbook.html",
