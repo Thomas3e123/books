@@ -1453,6 +1453,10 @@
       "sha256": "dc1fbc77e6aea9155915a71a0167318990af4ae9d63ae197f661bb1c0f8d18ca"
     },
     {
+      "path": "site/assets/js/gravity-work-study-shift-position-v54.js",
+      "sha256": "b26f585bb4dbcb534c92a96348fcde42f0f09a5e8264b557e5fc8349ddd066a8"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-short-element-v53.js",
       "sha256": "356af9f4e750ac571b36acf3051468973c19901d455d5f5af8676c6fe2353d7e"
     },
