@@ -1,0 +1,11 @@
+'use strict';
+const fs=require('node:fs');const path=require('node:path');const vm=require('node:vm');
+const file=path.join(__dirname,'..','site','assets','js','gravity-work-study-systems-expert-v10.js');const src=fs.readFileSync(file,'utf8');
+const store={};const localStorage={getItem:k=>Object.prototype.hasOwnProperty.call(store,k)?store[k]:null,setItem:(k,v)=>{store[k]=String(v)}};
+const document={getElementById:()=>null,querySelectorAll:()=>[],addEventListener:()=>{},documentElement:{},head:{appendChild:()=>{}},createElement:()=>({dataset:{},style:{},appendChild:()=>{}})};class MutationObserver{constructor(){}observe(){}};const window={};
+vm.runInNewContext(src,{localStorage,document,MutationObserver,window,alert:()=>{},console});const r=window.GravityWorkStudySystemsExpert;if(!r)throw new Error('Systems expert did not initialize');
+function put(id,a){const all=JSON.parse(localStorage.getItem('gravityWorkStudySystemsV10')||'{}');all[id]={studyId:id,answers:a};localStorage.setItem('gravityWorkStudySystemsV10',JSON.stringify(all));}
+const yes={demandStable:'Yes',staffingStable:'Yes',mixStable:'Yes',equipmentStable:'Yes',reworkControlled:'Yes',handoffControlled:'Yes',singleCause:'Yes',causeIsolated:'Yes'};
+const cases=[['clean',yes,false,'Tested Finding'],['demand',{...yes,demandStable:'No'},true,'Possible Cause'],['staff',{...yes,staffingStable:'No'},true,'Possible Cause'],['mix',{...yes,mixStable:'No'},true,'Possible Cause'],['equip',{...yes,equipmentStable:'No'},true,'Possible Cause'],['rework',{...yes,reworkControlled:'No'},true,'Possible Cause'],['handoff',{...yes,handoffControlled:'No'},true,'Possible Cause'],['multi',{...yes,singleCause:'No'},true,'Possible Cause'],['isolate',{...yes,causeIsolated:'No'},true,'Possible Cause'],['unknown',{...yes,causeIsolated:'Unknown'},true,'Pattern']];
+const f=[];for(const [id,a,b,s] of cases){put(id,a);const x=r.assess(id);if(x.blockVerified!==b)f.push(`${id}: block ${x.blockVerified}`);if(x.stage!==s)f.push(`${id}: stage ${x.stage}`)}
+if(!src.includes('Gravity Systems Expert Check')||!src.includes('more than one simultaneous constraint'))f.push('missing systems expert concepts');if(f.length){console.error(f.join('\n'));process.exit(1)}console.log(`Work Study systems expert suite passed ${cases.length} mixed-cause/context cases.`);
