@@ -12,6 +12,9 @@ const must=[
  "name:'Standard-minute validity'",
  "standard?.runs?.length",
  "standard.decision==='Standard Minute Not Ready'",
+ "name:'Shared setup & cleanup allocation'",
+ "sharedSetup?.applicable",
+ "block:!!sharedSetup.blockStandard",
  "planning|candidate",
  "name:'Verified-baseline control'",
  "baseline?.baseline",
@@ -24,9 +27,9 @@ const must=[
  "name:'Observation effect'",
  "block:!!observationEffect.blockConclusion",
  "Hold — Resolve Before Standardizing",
- "measurement quality and precision, demand coverage",
+ "shared setup/cleanup allocation",
  "core=['Study integrity','Measurement quality','Problem definition','Action design','Failure & recovery','Scope & escalation']",
  'window.GravityWorkStudySynthesis'
 ];
 for(const t of must){if(!src.includes(t)){console.error('Missing synthesis integration behavior:',t);process.exit(1)}}
-console.log('Synthesis integration suite passed: precision, demand coverage, standard-minute validity, baseline control, observer calibration, proficiency representativeness, and observation-effect context participate in the consolidated Gravity verdict.');
+console.log('Synthesis integration suite passed: precision, demand coverage, shared setup allocation, standard-minute validity, baseline control, observer calibration, proficiency representativeness, and observation-effect context participate in the consolidated Gravity verdict.');
