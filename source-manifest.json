@@ -1293,6 +1293,10 @@
       "sha256": "862083c3dc187136c34438aab2ebd680dc25a799042b88132d796d08ddf10296"
     },
     {
+      "path": "site/assets/js/gravity-work-study-expert-reasoning-v7.js",
+      "sha256": "78f88f034e84aaaf38a47a39fb5e8ad22078e04d9620a8677ea8a6cf9f4f36e4"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-expert-v5.js",
       "sha256": "b4bdb23cb832d1345c18feea3a277142079a5604ac95ca88aae750da970e93b6"
     },
@@ -1302,7 +1306,7 @@
     },
     {
       "path": "site/assets/js/gravity-work-study-v2.js",
-      "sha256": "639db3ebc2e49ab1df9e4cf492345feebac7b2c8c5ecaf7c3d956bb2cd4cf8f3"
+      "sha256": "11d5582835b5bdec7f793bac9f6707477755f8c2d0b6586e54d2399e71ba2b16"
     },
     {
       "path": "site/assets/js/gravity-work-study.js",
@@ -1618,7 +1622,7 @@
     },
     {
       "path": "site/gravity-work-study-lab.html",
-      "sha256": "6433ad6bd95becc7d39207aaa0202834b9f94f748d0d2d4439bed4a56923f5ee"
+      "sha256": "8acdf459fa903331be075039a8091d1cb27f77f4c70d0768f5b104c139368739"
     },
     {
       "path": "site/guest-service-complaints-recovery-workbook.html",
