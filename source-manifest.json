@@ -1298,11 +1298,11 @@
     },
     {
       "path": "site/assets/js/gravity-work-study-guided-v3.js",
-      "sha256": "30d75e48bb20abe52810ec934396b0d402a7b2fdf233975ad7698c2f530505f7"
+      "sha256": "6af053f793754e43130e04af9e9cdc84de11d7e8c2add523cd2e0c0f147c6046"
     },
     {
       "path": "site/assets/js/gravity-work-study-v2.js",
-      "sha256": "0f1f06146d48473b40550a73cb99f87ec811a03ed99f830c4fa637b18453a8f9"
+      "sha256": "f51b76b4fd3832d83da0252cd918c3b564c7f133365ef498b67472e289e40519"
     },
     {
       "path": "site/assets/js/gravity-work-study.js",
@@ -1986,7 +1986,7 @@
     },
     {
       "path": "site/testing-room.html",
-      "sha256": "b085ba0ee8cdac644390c3b0b00e9b5efa917158ab69386652bb06e7b26f3e01"
+      "sha256": "12a19eadc57ed5eae3434dd6d60111cfbfcc0adcf1633c4c4a461069ad9f4c0a"
     },
     {
       "path": "site/the-owners-chair.html",
