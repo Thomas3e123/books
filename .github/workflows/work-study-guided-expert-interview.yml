@@ -94,6 +94,7 @@ jobs:
           grep -q 'gravity-work-study-short-element-v53.js?v=20261016-short-element-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-shift-position-v54.js?v=20261016-shift-position-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-changeover-sequence-v55.js?v=20261016-changeover-sequence-v1' site/gravity-work-study-lab.html
+          grep -q 'gravity-work-study-evidence-package-v56.js?v=20261016-evidence-package-v1' site/gravity-work-study-lab.html
           grep -q 'unit-aware standard-minute validity with planning/candidate/verified evidence levels' site/gravity-work-study-lab.html
           grep -q 'fixed-versus-variable batch scaling with capacity-breakpoint safeguards' site/gravity-work-study-lab.html
           grep -q 'verified-baseline provenance and automatic revalidation holds after controlled changes' site/gravity-work-study-lab.html
@@ -112,6 +113,7 @@ jobs:
           grep -q 'incomplete-cycle protection that preserves aborted/restarted attempts and prevents successful-cycle survivorship bias' site/gravity-work-study-lab.html
           grep -q 'short-element measurement adequacy based on observable repeatable boundaries rather than stopwatch decimal display or a made-up universal cutoff' site/gravity-work-study-lab.html
           grep -q 'extended-window shift-position representativeness that requires early/middle/later evidence without inferring employee fatigue or intent' site/gravity-work-study-lab.html
+          grep -q 'a complete local-first .gravity-study.json evidence package that discovers and carries study-specific expert sidecars without claiming hosted sync' site/gravity-work-study-lab.html
           grep -q 'practical restaurant-readable timing units' site/gravity-work-study-lab.html
           grep -q 'condition-equivalence checks' site/gravity-work-study-lab.html
           grep -q 'parallel machine/process clocks' site/gravity-work-study-lab.html
