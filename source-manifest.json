@@ -1461,6 +1461,10 @@
       "sha256": "909db83c9c44bfe47b7d48fcc364542da2688ba0036b8dcaf9437dc611d2e12d"
     },
     {
+      "path": "site/assets/js/gravity-work-study-work-sampling-v50.js",
+      "sha256": "04927708d3e27023c3fae3a293354b74a16c71b56c9aae2a37d16945270ecf21"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-yield-quality-v49.js",
       "sha256": "d2a4d94fff9a74a08b5953724d910e6e6f31ed40957d99188493b33fac942c8d"
     },
