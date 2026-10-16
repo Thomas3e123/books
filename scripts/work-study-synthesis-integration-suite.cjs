@@ -18,6 +18,9 @@ const must=[
  "name:'Crew labor accounting'",
  "crew?.applicable",
  "block:!!crew.blockStandard",
+ "name:'Yield & waste protection'",
+ "yieldQuality?.applicable",
+ "block:!!yieldQuality.blockStandard",
  "planning|candidate",
  "name:'Verified-baseline control'",
  "baseline?.baseline",
@@ -30,9 +33,9 @@ const must=[
  "name:'Observation effect'",
  "block:!!observationEffect.blockConclusion",
  "Hold — Resolve Before Standardizing",
- "crew labor accounting",
+ "yield/waste protection",
  "core=['Study integrity','Measurement quality','Problem definition','Action design','Failure & recovery','Scope & escalation']",
  'window.GravityWorkStudySynthesis'
 ];
 for(const t of must){if(!src.includes(t)){console.error('Missing synthesis integration behavior:',t);process.exit(1)}}
-console.log('Synthesis integration suite passed: precision, demand coverage, shared setup, crew labor, standard-minute validity, baseline control, observer calibration, proficiency representativeness, and observation-effect context participate in the consolidated Gravity verdict.');
+console.log('Synthesis integration suite passed: precision, demand coverage, shared setup, crew labor, yield/waste protection, standard-minute validity, baseline control, observer calibration, proficiency representativeness, and observation-effect context participate in the consolidated Gravity verdict.');
