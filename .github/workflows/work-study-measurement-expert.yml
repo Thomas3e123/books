@@ -1,0 +1,57 @@
+name: Work Study measurement expert
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/assets/js/gravity-work-study-measurement-expert-v20.js'
+      - 'scripts/work-study-measurement-expert-suite.cjs'
+      - 'scripts/upgrade-work-study-lab-v2.cjs'
+      - '.github/workflows/work-study-measurement-expert.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  measurement-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm ci
+      - name: Check measurement expert syntax
+        run: node --check site/assets/js/gravity-work-study-measurement-expert-v20.js
+      - name: Run measurement expert regression suite
+        run: node scripts/work-study-measurement-expert-suite.cjs
+      - name: Install measurement expert in Work Study page
+        run: node scripts/upgrade-work-study-lab-v2.cjs
+      - name: Verify generated Work Study page
+        run: |
+          grep -q 'gravity-work-study-measurement-expert-v20.js?v=20261016-measurement-expert-v1' site/gravity-work-study-lab.html
+          grep -q 'gravity-work-study-integrity-expert-v19.js?v=20261016-integrity-expert-v1' site/gravity-work-study-lab.html
+          grep -q 'gravity-work-study-earbud-mode-v18.js?v=20261016-guided-voice-v2' site/gravity-work-study-lab.html
+          grep -q 'Gravity Measurement Quality' site/assets/js/gravity-work-study-measurement-expert-v20.js
+          grep -q 'Measurement Hold — More Evidence Needed' site/assets/js/gravity-work-study-measurement-expert-v20.js
+      - name: Refresh reviewed-source manifest
+        run: npm run manifest
+      - name: Verify controlled source
+        run: npm run build
+      - name: Commit generated Work Study page
+        run: |
+          if git diff --quiet -- site/gravity-work-study-lab.html source-manifest.json; then
+            echo "Work Study measurement source is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/gravity-work-study-lab.html source-manifest.json
+          git commit -m "Install Work Study measurement quality expert"
+          git pull --rebase origin main
+          git push origin HEAD:main
