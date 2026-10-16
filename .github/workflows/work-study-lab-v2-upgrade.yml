@@ -24,6 +24,7 @@ on:
       - 'scripts/work-study-repeatability-expert-suite.cjs'
       - 'scripts/work-study-hold-expert-suite.cjs'
       - 'scripts/work-study-first-timer-suite.cjs'
+      - 'scripts/work-study-observation-coach-suite.cjs'
       - 'scripts/patch-testing-rewards.cjs'
       - 'scripts/patch-testing-founder-shortcut.cjs'
       - 'site/testing-room.html'
@@ -38,6 +39,7 @@ on:
       - 'site/assets/js/gravity-work-study-repeatability-expert-v14.js'
       - 'site/assets/js/gravity-work-study-hold-expert-v15.js'
       - 'site/assets/js/gravity-work-study-first-timer-v16.js'
+      - 'site/assets/js/gravity-work-study-observation-coach-v17.js'
       - 'site/assets/css/gravity-work-study-v2.css'
       - '.github/workflows/work-study-lab-v2-upgrade.yml'
   workflow_dispatch:
@@ -93,6 +95,7 @@ jobs:
           node --check site/assets/js/gravity-work-study-repeatability-expert-v14.js
           node --check site/assets/js/gravity-work-study-hold-expert-v15.js
           node --check site/assets/js/gravity-work-study-first-timer-v16.js
+          node --check site/assets/js/gravity-work-study-observation-coach-v17.js
       - name: Run restaurant scenario regression suite
         run: node scripts/work-study-scenario-suite.cjs
       - name: Run conclusion evidence regression suite
@@ -113,6 +116,8 @@ jobs:
         run: node scripts/work-study-hold-expert-suite.cjs
       - name: Run first-time user regression suite
         run: node scripts/work-study-first-timer-suite.cjs
+      - name: Run observation coach regression suite
+        run: node scripts/work-study-observation-coach-suite.cjs
       - name: Apply Work Study shell and Guided Development layer
         run: node scripts/upgrade-work-study-lab-v2.cjs
       - name: Smoke check generated page and tester reward promise
@@ -124,6 +129,7 @@ jobs:
           grep -q 'gravity-work-study-repeatability-expert-v14.js?v=20261016-repeatability-expert-v2' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-hold-expert-v15.js?v=20261016-hold-expert-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-first-timer-v16.js?v=20261016-first-timer-v1' site/gravity-work-study-lab.html
+          grep -q 'gravity-work-study-observation-coach-v17.js?v=20261016-observation-coach-v1' site/gravity-work-study-lab.html
           grep -q "Hello. I’m Gravity. I’ll take you through this." site/assets/js/gravity-work-study-guided-interview-v13.js
           grep -q "Tell Gravity" site/assets/js/gravity-work-study-guided-interview-v13.js
           grep -q "I don’t know yet" site/assets/js/gravity-work-study-first-timer-v16.js
@@ -131,6 +137,7 @@ jobs:
           grep -q "Operational Standard" site/assets/js/gravity-work-study-repeatability-expert-v14.js
           grep -q "Gravity Hold Check" site/assets/js/gravity-work-study-hold-expert-v15.js
           grep -q "An operational standard is not permanent truth" site/assets/js/gravity-work-study-hold-expert-v15.js
+          grep -q "When do I have enough?" site/assets/js/gravity-work-study-observation-coach-v17.js
           grep -q "gravity-founder-shortcut" site/testing-room.html
           grep -q "you receive the final version of that program at no charge" site/testing-room.html
           grep -q "10 people whose testing contributes the most receive lifetime access" site/testing-room.html
@@ -142,13 +149,13 @@ jobs:
         run: npm run build
       - name: Commit generated Work Study and Testing Room source
         run: |
-          if git diff --quiet -- site/gravity-work-study-lab.html site/testing-room.html site/assets/js/gravity-work-study-v2.js site/assets/js/gravity-work-study-guided-v3.js site/assets/js/gravity-work-study-guided-welcome-v9.js site/assets/js/gravity-work-study-guided-interview-v13.js site/assets/js/gravity-work-study-expert-v5.js site/assets/js/gravity-work-study-expert-reasoning-v7.js site/assets/js/gravity-work-study-systems-expert-v10.js site/assets/js/gravity-work-study-sequence-expert-v11.js site/assets/js/gravity-work-study-repeatability-expert-v14.js site/assets/js/gravity-work-study-hold-expert-v15.js site/assets/js/gravity-work-study-first-timer-v16.js source-manifest.json; then
+          if git diff --quiet -- site/gravity-work-study-lab.html site/testing-room.html site/assets/js/gravity-work-study-v2.js site/assets/js/gravity-work-study-guided-v3.js site/assets/js/gravity-work-study-guided-welcome-v9.js site/assets/js/gravity-work-study-guided-interview-v13.js site/assets/js/gravity-work-study-expert-v5.js site/assets/js/gravity-work-study-expert-reasoning-v7.js site/assets/js/gravity-work-study-systems-expert-v10.js site/assets/js/gravity-work-study-sequence-expert-v11.js site/assets/js/gravity-work-study-repeatability-expert-v14.js site/assets/js/gravity-work-study-hold-expert-v15.js site/assets/js/gravity-work-study-first-timer-v16.js site/assets/js/gravity-work-study-observation-coach-v17.js source-manifest.json; then
             echo "Work Study Lab and Testing Room source are already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add site/gravity-work-study-lab.html site/testing-room.html site/assets/js/gravity-work-study-v2.js site/assets/js/gravity-work-study-guided-v3.js site/assets/js/gravity-work-study-guided-welcome-v9.js site/assets/js/gravity-work-study-guided-interview-v13.js site/assets/js/gravity-work-study-expert-v5.js site/assets/js/gravity-work-study-expert-reasoning-v7.js site/assets/js/gravity-work-study-systems-expert-v10.js site/assets/js/gravity-work-study-sequence-expert-v11.js site/assets/js/gravity-work-study-repeatability-expert-v14.js site/assets/js/gravity-work-study-hold-expert-v15.js site/assets/js/gravity-work-study-first-timer-v16.js source-manifest.json
-          git commit -m "Add Work Study hold and first-time expert safeguards"
+          git add site/gravity-work-study-lab.html site/testing-room.html site/assets/js/gravity-work-study-v2.js site/assets/js/gravity-work-study-guided-v3.js site/assets/js/gravity-work-study-guided-welcome-v9.js site/assets/js/gravity-work-study-guided-interview-v13.js site/assets/js/gravity-work-study-expert-v5.js site/assets/js/gravity-work-study-expert-reasoning-v7.js site/assets/js/gravity-work-study-systems-expert-v10.js site/assets/js/gravity-work-study-sequence-expert-v11.js site/assets/js/gravity-work-study-repeatability-expert-v14.js site/assets/js/gravity-work-study-hold-expert-v15.js site/assets/js/gravity-work-study-first-timer-v16.js site/assets/js/gravity-work-study-observation-coach-v17.js source-manifest.json
+          git commit -m "Add method-specific Work Study observation coaching"
           git pull --rebase origin main
           git push origin HEAD:main
