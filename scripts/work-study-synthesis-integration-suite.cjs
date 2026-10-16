@@ -6,6 +6,9 @@ const must=[
  "name:'Measurement precision'",
  "precision?.n>=2",
  "block:!!precision.blockStandard",
+ "name:'Short-element measurement'",
+ "shortElement?.applicable",
+ "block:!!shortElement.blockStandard",
  "name:'Work Sampling validity'",
  "sampling?.applicable",
  "block:!!sampling.blockStandard",
@@ -42,9 +45,9 @@ const must=[
  "name:'Observation effect'",
  "block:!!observationEffect.blockConclusion",
  "Hold — Resolve Before Standardizing",
- "incomplete-cycle protection",
+ "short-element measurement adequacy",
  "core=['Study integrity','Measurement quality','Problem definition','Action design','Failure & recovery','Scope & escalation']",
  'window.GravityWorkStudySynthesis'
 ];
 for(const t of must){if(!src.includes(t)){console.error('Missing synthesis integration behavior:',t);process.exit(1)}}
-console.log('Synthesis integration suite passed: Work Sampling, precision, demand coverage, queue/recovery, shared setup, crew labor, yield/waste, incomplete-cycle protection, standard-minute validity, baseline control, observer calibration, proficiency representativeness, and observation-effect context participate in the consolidated Gravity verdict.');
+console.log('Synthesis integration suite passed: short-element adequacy, Work Sampling, precision, demand coverage, queue/recovery, shared setup, crew labor, yield/waste, incomplete-cycle protection, standard-minute validity, baseline control, observer calibration, proficiency representativeness, and observation-effect context participate in the consolidated Gravity verdict.');
