@@ -20,38 +20,20 @@ if(!html.includes('id="ws2-app"')){
 html=html.replace(/<script src="\/assets\/js\/gravity-work-study\.js\?v=[^"]+"><\/script>/,'<script src="/assets/js/gravity-work-study-v2.js?v=20261015-code-v2"></script>');
 if(!html.includes('gravity-work-study-v2.js')) html=html.replace('</body>','<script src="/assets/js/gravity-work-study-v2.js?v=20261015-code-v2"></script></body>');
 
-const guided='<script src="/assets/js/gravity-work-study-guided-v3.js?v=20261016-fully-guided-v4"></script>';
-if(!html.includes('gravity-work-study-guided-v3.js')) html=html.replace('</body>',guided+'</body>');
-else html=html.replace(/\/assets\/js\/gravity-work-study-guided-v3\.js\?v=[^"]+/,'/assets/js/gravity-work-study-guided-v3.js?v=20261016-fully-guided-v4');
+const scripts=[
+ ['gravity-work-study-guided-v3.js','20261016-fully-guided-v4'],
+ ['gravity-work-study-expert-v5.js','20261016-restaurant-expert-v1'],
+ ['gravity-work-study-expert-reasoning-v7.js','20261016-expert-reasoning-v1'],
+ ['gravity-work-study-systems-expert-v10.js','20261016-systems-expert-v1'],
+ ['gravity-work-study-sequence-expert-v11.js','20261016-sequence-expert-v1'],
+ ['gravity-work-study-guided-welcome-v9.js','20261016-guided-takeover-v1'],
+ ['gravity-work-study-guided-interview-v13.js','20261016-guided-interview-v1'],
+ ['gravity-work-study-repeatability-expert-v14.js','20261016-repeatability-expert-v2'],
+ ['gravity-work-study-hold-expert-v15.js','20261016-hold-expert-v1'],
+ ['gravity-work-study-first-timer-v16.js','20261016-first-timer-v1']
+];
+for(const [name,ver] of scripts){const tag=`<script src="/assets/js/${name}?v=${ver}"></script>`;if(!html.includes(name))html=html.replace('</body>',tag+'</body>');else html=html.replace(new RegExp('/assets/js/'+name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\?v=[^\"]+'),`/assets/js/${name}?v=${ver}`)}
 
-const expert='<script src="/assets/js/gravity-work-study-expert-v5.js?v=20261016-restaurant-expert-v1"></script>';
-if(!html.includes('gravity-work-study-expert-v5.js')) html=html.replace('</body>',expert+'</body>');
-else html=html.replace(/\/assets\/js\/gravity-work-study-expert-v5\.js\?v=[^"]+/,'/assets/js/gravity-work-study-expert-v5.js?v=20261016-restaurant-expert-v1');
-
-const reasoner='<script src="/assets/js/gravity-work-study-expert-reasoning-v7.js?v=20261016-expert-reasoning-v1"></script>';
-if(!html.includes('gravity-work-study-expert-reasoning-v7.js')) html=html.replace('</body>',reasoner+'</body>');
-else html=html.replace(/\/assets\/js\/gravity-work-study-expert-reasoning-v7\.js\?v=[^"]+/,'/assets/js/gravity-work-study-expert-reasoning-v7.js?v=20261016-expert-reasoning-v1');
-
-const systems='<script src="/assets/js/gravity-work-study-systems-expert-v10.js?v=20261016-systems-expert-v1"></script>';
-if(!html.includes('gravity-work-study-systems-expert-v10.js')) html=html.replace('</body>',systems+'</body>');
-else html=html.replace(/\/assets\/js\/gravity-work-study-systems-expert-v10\.js\?v=[^"]+/,'/assets/js/gravity-work-study-systems-expert-v10.js?v=20261016-systems-expert-v1');
-
-const sequence='<script src="/assets/js/gravity-work-study-sequence-expert-v11.js?v=20261016-sequence-expert-v1"></script>';
-if(!html.includes('gravity-work-study-sequence-expert-v11.js')) html=html.replace('</body>',sequence+'</body>');
-else html=html.replace(/\/assets\/js\/gravity-work-study-sequence-expert-v11\.js\?v=[^"]+/,'/assets/js/gravity-work-study-sequence-expert-v11.js?v=20261016-sequence-expert-v1');
-
-const welcome='<script src="/assets/js/gravity-work-study-guided-welcome-v9.js?v=20261016-guided-takeover-v1"></script>';
-if(!html.includes('gravity-work-study-guided-welcome-v9.js')) html=html.replace('</body>',welcome+'</body>');
-else html=html.replace(/\/assets\/js\/gravity-work-study-guided-welcome-v9\.js\?v=[^"]+/,'/assets/js/gravity-work-study-guided-welcome-v9.js?v=20261016-guided-takeover-v1');
-
-const interview='<script src="/assets/js/gravity-work-study-guided-interview-v13.js?v=20261016-guided-interview-v1"></script>';
-if(!html.includes('gravity-work-study-guided-interview-v13.js')) html=html.replace('</body>',interview+'</body>');
-else html=html.replace(/\/assets\/js\/gravity-work-study-guided-interview-v13\.js\?v=[^"]+/,'/assets/js/gravity-work-study-guided-interview-v13.js?v=20261016-guided-interview-v1');
-
-const repeatability='<script src="/assets/js/gravity-work-study-repeatability-expert-v14.js?v=20261016-repeatability-expert-v1"></script>';
-if(!html.includes('gravity-work-study-repeatability-expert-v14.js')) html=html.replace('</body>',repeatability+'</body>');
-else html=html.replace(/\/assets\/js\/gravity-work-study-repeatability-expert-v14\.js\?v=[^"]+/,'/assets/js/gravity-work-study-repeatability-expert-v14.js?v=20261016-repeatability-expert-v1');
-
-html=html.replace(/Conduct restaurant work studies with[^\"]+continuous improvement memory\./,'Conduct restaurant work studies with a one-question-at-a-time fully guided Gravity interview, assisted, independent, or passive modes, restaurant-specific expert questions, method-specific cause testing, systems-context checks, constraint-sequence reasoning, repeatability and standardization checks, evidence checks, live observation, Gravity Results Review, knowledge maturity controls, development coaching, SOP contributions, and continuous improvement memory.');
+html=html.replace(/Conduct restaurant work studies with[^\"]+continuous improvement memory\./,'Conduct restaurant work studies with a one-question-at-a-time fully guided Gravity interview for first-time or experienced managers, restaurant-specific expert questions, method-specific cause testing, systems-context checks, constraint-sequence reasoning, repeatability and standardization checks, hold and drift revalidation, evidence checks, live observation, Gravity Results Review, knowledge maturity controls, development coaching, SOP contributions, and continuous improvement memory.');
 fs.writeFileSync(file,html);
-console.log('Work Study Lab Guided interview, expert reasoning, systems-context reasoning, constraint-sequence reasoning, repeatability standardization, knowledge maturity, and rich theme are installed and current.');
+console.log('Work Study Lab first-timer Guided interview, expert reasoning, repeatability, hold/drift revalidation, knowledge maturity, and rich theme are installed and current.');
