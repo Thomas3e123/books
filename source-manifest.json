@@ -1302,7 +1302,7 @@
     },
     {
       "path": "site/assets/js/gravity-work-study-earbud-mode-v18.js",
-      "sha256": "a7cee808eee15c89d51b20d71fba36f3c769ecb7d4abcb9d4b1f284324a29aaa"
+      "sha256": "afe777f29c1e381f9b5602fb046a4b23cf266b7add2f99c0de72d5154016654b"
     },
     {
       "path": "site/assets/js/gravity-work-study-escalation-expert-v25.js",
@@ -1323,6 +1323,10 @@
     {
       "path": "site/assets/js/gravity-work-study-first-timer-v16.js",
       "sha256": "f159e0418894243dcd7988f94afa0302c47f31c568df4887e5af4463962add32"
+    },
+    {
+      "path": "site/assets/js/gravity-work-study-guided-expert-interview-v26.js",
+      "sha256": "2328515defe59d380459b7842187a71ed34cf4e146e676d586c2cd7b6b7e797a"
     },
     {
       "path": "site/assets/js/gravity-work-study-guided-interview-v13.js",
