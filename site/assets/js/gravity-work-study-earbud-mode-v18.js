@@ -1,4 +1,5 @@
 (()=>{'use strict';
+// Guided voice begins from the user's Guided-mode press; do not wait for the interview card to render.
 const KEY='gravityWorkStudyV2';let lastSpoken='',lastMode='',entryStartedAt=0;
 const GREETING='Hello. I’m Gravity. I’ll take you through this.';
 function state(){try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch{return null}}
