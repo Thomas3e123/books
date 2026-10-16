@@ -1297,6 +1297,10 @@
       "sha256": "647ad5240d060bd3d66abee9898ac079619833bf3a38499ec06d7a114a94d00e"
     },
     {
+      "path": "site/assets/js/gravity-work-study-allowance-expert-v41.js",
+      "sha256": "a5ac468996caabf6f6bd82a4234e9b15f567f8924e00afd1edcf49417a897535"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-baseline-provenance-v40.js",
       "sha256": "ca69b3ed650ddd47ff0370c0f70e01a3af1a7059ffab42cc60d52467142a7f41"
     },
