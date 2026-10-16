@@ -6,9 +6,11 @@ on:
     paths:
       - 'site/assets/js/gravity-work-study-guided-expert-interview-v26.js'
       - 'site/assets/js/gravity-work-study-guided-expert-adaptive-v27.js'
+      - 'site/assets/js/gravity-work-study-production-pause-v28.js'
       - 'site/assets/js/gravity-work-study-earbud-mode-v18.js'
       - 'scripts/work-study-guided-expert-interview-suite.cjs'
       - 'scripts/work-study-adaptive-expert-suite.cjs'
+      - 'scripts/work-study-production-pause-suite.cjs'
       - 'scripts/upgrade-work-study-lab-v2.cjs'
       - '.github/workflows/work-study-guided-expert-interview.yml'
   workflow_dispatch:
@@ -33,11 +35,14 @@ jobs:
         run: |
           node --check site/assets/js/gravity-work-study-guided-expert-interview-v26.js
           node --check site/assets/js/gravity-work-study-guided-expert-adaptive-v27.js
+          node --check site/assets/js/gravity-work-study-production-pause-v28.js
           node --check site/assets/js/gravity-work-study-earbud-mode-v18.js
       - name: Run Guided expert interview regression suite
         run: node scripts/work-study-guided-expert-interview-suite.cjs
       - name: Run adaptive expert regression suite
         run: node scripts/work-study-adaptive-expert-suite.cjs
+      - name: Run production pause regression suite
+        run: node scripts/work-study-production-pause-suite.cjs
       - name: Verify voice prefers expert checkpoint
         run: grep -q "\[data-ws26\] .ws26-q" site/assets/js/gravity-work-study-earbud-mode-v18.js
       - name: Install Guided expert interview in Work Study page
@@ -46,8 +51,10 @@ jobs:
         run: |
           grep -q 'gravity-work-study-guided-expert-interview-v26.js?v=20261016-guided-expert-interview-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-guided-expert-adaptive-v27.js?v=20261016-adaptive-expert-v1' site/gravity-work-study-lab.html
+          grep -q 'gravity-work-study-production-pause-v28.js?v=20261016-production-pause-v1' site/gravity-work-study-lab.html
           grep -q 'gravity-work-study-earbud-mode-v18.js?v=20261016-guided-voice-v3' site/gravity-work-study-lab.html
           grep -q 'adaptive spoken expert checkpoint coaching' site/gravity-work-study-lab.html
+          grep -q 'production-safe pause/resume across normal production runs' site/gravity-work-study-lab.html
       - name: Refresh reviewed-source manifest
         run: npm run manifest
       - name: Verify controlled source
@@ -55,12 +62,12 @@ jobs:
       - name: Commit generated Work Study page
         run: |
           if git diff --quiet -- site/gravity-work-study-lab.html source-manifest.json; then
-            echo "Guided adaptive expert source is already current."
+            echo "Guided adaptive expert and production pause source are already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add site/gravity-work-study-lab.html source-manifest.json
-          git commit -m "Install adaptive Guided expert questioning"
+          git commit -m "Install production-safe pause and adaptive Guided expert questioning"
           git pull --rebase origin main
           git push origin HEAD:main
