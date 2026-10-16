@@ -11,9 +11,11 @@ on:
       - 'scripts/patch-work-study-results-v6.cjs'
       - 'scripts/patch-work-study-beforeafter-v6.cjs'
       - 'scripts/patch-work-study-expert-reasoning-v7.cjs'
+      - 'scripts/patch-work-study-adversarial-v8.cjs'
       - 'scripts/work-study-scenario-suite.cjs'
       - 'scripts/work-study-conclusion-suite.cjs'
       - 'scripts/work-study-expert-reasoning-suite.cjs'
+      - 'scripts/work-study-adversarial-suite.cjs'
       - 'scripts/patch-testing-rewards.cjs'
       - 'site/testing-room.html'
       - 'site/assets/js/gravity-work-study-v2.js'
@@ -52,6 +54,8 @@ jobs:
         run: node scripts/patch-work-study-beforeafter-v6.cjs
       - name: Integrate method-specific expert reasoning
         run: node scripts/patch-work-study-expert-reasoning-v7.cjs
+      - name: Add adversarial conflict reasoning
+        run: node scripts/patch-work-study-adversarial-v8.cjs
       - name: Make tester rewards definitive
         run: node scripts/patch-testing-rewards.cjs
       - name: Check Work Study JavaScript syntax
@@ -66,6 +70,8 @@ jobs:
         run: node scripts/work-study-conclusion-suite.cjs
       - name: Run expert reasoning regression suite
         run: node scripts/work-study-expert-reasoning-suite.cjs
+      - name: Run adversarial expert regression suite
+        run: node scripts/work-study-adversarial-suite.cjs
       - name: Apply Work Study shell and Guided Development layer
         run: node scripts/upgrade-work-study-lab-v2.cjs
       - name: Smoke check generated page and tester reward promise
@@ -82,6 +88,8 @@ jobs:
           grep -q "Measured Before / After Evidence" site/assets/js/gravity-work-study-expert-v5.js
           grep -q "Gravity Expert Reasoning Check" site/assets/js/gravity-work-study-expert-reasoning-v7.js
           grep -q "Operational Standard" site/assets/js/gravity-work-study-expert-reasoning-v7.js
+          grep -q "detectExpertConflicts" site/assets/js/gravity-work-study-expert-reasoning-v7.js
+          grep -q "Conflicting evidence" site/assets/js/gravity-work-study-expert-reasoning-v7.js
           grep -q "methodAssessment" site/assets/js/gravity-work-study-v2.js
           grep -q "evaluateReviewEvidence" site/assets/js/gravity-work-study-v2.js
           grep -q "s.gravityReview?.outcome!='Verified Improvement'\|s.gravityReview?.outcome!==\"Verified Improvement\"\|s.gravityReview?.outcome!=='Verified Improvement'" site/assets/js/gravity-work-study-v2.js
@@ -108,6 +116,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add site/gravity-work-study-lab.html site/testing-room.html site/assets/js/gravity-work-study-v2.js site/assets/js/gravity-work-study-guided-v3.js site/assets/js/gravity-work-study-expert-v5.js site/assets/js/gravity-work-study-expert-reasoning-v7.js source-manifest.json
-          git commit -m "Train Work Study expert reasoning and knowledge maturity"
+          git commit -m "Harden Work Study expert against conflicting evidence"
           git pull --rebase origin main
           git push origin HEAD:main
