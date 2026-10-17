@@ -1337,6 +1337,10 @@
       "sha256": "54270d934fa3a78d48ded0dc2b069dfc5f94f4be2ac495f1b4a2294b42897a88"
     },
     {
+      "path": "site/assets/js/gravity-work-study-ergonomics-v57.js",
+      "sha256": "35befeee1f1dc2a8c21d5bb35bfa750f0bb831d2b79b869f73313bedeb53d5d4"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-escalation-expert-v25.js",
       "sha256": "2ec26d2c28f0b7a07631357d44087c6677c75665514d0d0671579525ac2a2cf0"
     },
