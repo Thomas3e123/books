@@ -12,5 +12,5 @@ for(const [k,s] of Object.entries(files)){need(s,"s.mode!=='guided'||s.timer?.ru
 for(const t of ['awkward posture','meaningful force','high repetition','manual lifting/carrying','Operational screening only'])need(files.erg,t,'ergonomic safeguard');
 for(const t of ['method changed','not yet trained','learning rather than process change','stable performance state'])need(files.learn,t,'learning-curve safeguard');
 for(const t of ['temperature/heat/cold','equipment condition/setup','traffic/crowding','product/input condition','condition changed during observation'])need(files.ctx,t,'context safeguard');
-for(const t of ['best/fast cycles','quality/service did not remain','Safety conditions did not remain','100% continuous utilization','fastest observed cycle'])need(files.pace,t,'sustainable-pace safeguard');
+for(const t of ['best/fast cycles','Quality/service did not remain','Safety conditions did not remain','100% continuous utilization','fastest observed cycle'])need(files.pace,t,'sustainable-pace safeguard');
 console.log('Work Study human-factor v57-v60 suite passed ergonomic, learning-curve, context-representativeness, sustainable-pace, teaching-safety, and standard-hold safeguards.');
