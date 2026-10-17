@@ -19,6 +19,12 @@ contextBridge.exposeInMainWorld('gravityDesktop',{
  importEvidencePackage:()=>ipcRenderer.invoke('evidence:import'),
  readProcessFile:payload=>ipcRenderer.invoke('process-file:extract',payload),
  requestTts:payload=>ipcRenderer.invoke('tts:request',payload),
+ createDeviceLink:snapshot=>ipcRenderer.invoke('device-link:create',snapshot),
+ getDeviceLinkSession:()=>ipcRenderer.invoke('device-link:session'),
+ getDeviceLinkState:()=>ipcRenderer.invoke('device-link:state'),
+ pushDeviceLink:(snapshot,revision)=>ipcRenderer.invoke('device-link:push',{snapshot,revision}),
+ acceptDeviceLinkLatest:()=>ipcRenderer.invoke('device-link:accept'),
+ endDeviceLink:()=>ipcRenderer.invoke('device-link:end'),
  savePdf:name=>ipcRenderer.invoke('report:pdf',name),
  print:()=>ipcRenderer.invoke('report:print'),
  openDataFolder:()=>ipcRenderer.invoke('system:open-data')
