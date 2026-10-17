@@ -1,6 +1,7 @@
 (()=>{'use strict';
 // Guided Work Study uses the same canonical Gravity neural voice as Gravity Guide.
 // Cedar is the default Gravity voice; do not fall back to a device/browser voice.
+// Production refresh: 2026-10-17 Cedar neural voice correction.
 const KEY='gravityWorkStudyV2',VOICE='cedar',SPEED=.98;let lastSpoken='',lastMode='',entryStartedAt=0;
 const GREETING='Hello. I’m Gravity. I’ll take you through this.';
 let audioCtx=null,sourceNode=null,speechToken=0;
