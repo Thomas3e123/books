@@ -1,0 +1,17 @@
+'use strict';
+const {app,ipcMain}=require('electron');
+const fs=require('node:fs');
+const path=require('node:path');
+const URL_BASE='https://thomasmonroebooks.com/work-study-link';
+const sessionFile=()=>path.join(app.getPath('userData'),'data','work-study-device-link.json');
+function read(){try{return JSON.parse(fs.readFileSync(sessionFile(),'utf8'))}catch{return null}}
+function write(value){const file=sessionFile(),dir=path.dirname(file),tmp=file+'.tmp',bak=file+'.bak';fs.mkdirSync(dir,{recursive:true});fs.writeFileSync(tmp,JSON.stringify(value,null,2),'utf8');const fd=fs.openSync(tmp,'r');try{fs.fsyncSync(fd)}finally{fs.closeSync(fd)}try{if(fs.existsSync(file)){if(fs.existsSync(bak))fs.unlinkSync(bak);fs.renameSync(file,bak)}fs.renameSync(tmp,file);if(fs.existsSync(bak))fs.unlinkSync(bak)}catch(e){try{if(fs.existsSync(tmp))fs.unlinkSync(tmp)}catch{}try{if(!fs.existsSync(file)&&fs.existsSync(bak))fs.renameSync(bak,file)}catch{}throw e}}
+function remove(){try{fs.unlinkSync(sessionFile())}catch{}}
+async function request(route,{method='GET',token,body}={}){const headers={accept:'application/json'};if(token)headers.authorization='Bearer '+token;if(body!==undefined)headers['content-type']='application/json';const res=await fetch(URL_BASE+'/'+route,{method,headers,body:body===undefined?undefined:JSON.stringify(body),signal:AbortSignal.timeout(30000)});let data={};try{data=await res.json()}catch{}if(!res.ok){const e=new Error(data.error||`Work Study device service returned ${res.status}.`);e.status=res.status;e.data=data;throw e}return data}
+function publicSession(s){return s?{pairCode:s.pairCode,joinUrl:s.joinUrl,studyId:s.studyId,revision:s.revision,expiresAt:s.expiresAt,pendingRevision:s.pendingRevision||0}:null}
+ipcMain.handle('device-link:create',async(_e,snapshot)=>{const old=read();if(old?.ownerToken)try{await request('end',{method:'POST',token:old.ownerToken})}catch{}const data=await request('create',{method:'POST',body:{snapshot}}),study=snapshot?.study||snapshot;const session={ownerToken:data.ownerToken,pairCode:data.pairCode,joinUrl:data.joinUrl,studyId:study?.id,revision:data.revision,expiresAt:data.expiresAt,pendingRevision:0};write(session);return publicSession(session)});
+ipcMain.handle('device-link:session',()=>publicSession(read()));
+ipcMain.handle('device-link:state',async()=>{const s=read();if(!s?.ownerToken)return null;try{const data=await request('state',{token:s.ownerToken});s.pendingRevision=Number(data.revision)>Number(s.revision)?data.revision:0;write(s);return{...data,session:publicSession(s)}}catch(e){if(e.status===401||e.status===410){remove();return null}throw e}});
+ipcMain.handle('device-link:push',async(_e,payload)=>{const s=read();if(!s?.ownerToken)throw new Error('No portable Work Study connection is active.');const data=await request('state',{method:'PUT',token:s.ownerToken,body:{snapshot:payload?.snapshot,revision:payload?.revision??s.revision}});s.revision=data.revision;s.pendingRevision=0;write(s);return{...data,session:publicSession(s)}});
+ipcMain.handle('device-link:accept',async()=>{const s=read();if(!s?.ownerToken)return null;const data=await request('state',{token:s.ownerToken});s.revision=data.revision;s.pendingRevision=0;write(s);return{...data,session:publicSession(s)}});
+ipcMain.handle('device-link:end',async()=>{const s=read();if(s?.ownerToken)try{await request('end',{method:'POST',token:s.ownerToken})}finally{remove()}else remove();return{ok:true}});
