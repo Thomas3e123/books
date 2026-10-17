@@ -1,0 +1,43 @@
+name: Work Study premium style cache
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/patch-work-study-premium-cache.cjs'
+      - '.github/workflows/work-study-premium-cache.yml'
+permissions:
+  contents: write
+jobs:
+  patch-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Apply premium cache tag
+        run: node scripts/patch-work-study-premium-cache.cjs
+      - name: Verify premium CSS source
+        run: |
+          grep -q '20261017-premium-gold-v1' scripts/upgrade-work-study-lab-v2.cjs
+          grep -q '20261017-premium-gold-v1' site/gravity-work-study-lab.html
+          grep -q -- '--ws2-gold-deep' site/assets/css/gravity-work-study-v2.css
+          grep -q 'Segoe Script' site/assets/css/gravity-work-study-v2.css
+      - name: Refresh source manifest
+        run: node scripts/refresh-source-manifest.cjs
+      - name: Verify controlled source
+        run: node scripts/verify-source-manifest.cjs
+      - name: Commit premium cache tag
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add scripts/upgrade-work-study-lab-v2.cjs site/gravity-work-study-lab.html source-manifest.json
+          if git diff --cached --quiet; then
+            echo 'Premium cache tag already current.'
+          else
+            git commit -m 'Force-load premium Work Study visual package'
+            git push origin main
+          fi
