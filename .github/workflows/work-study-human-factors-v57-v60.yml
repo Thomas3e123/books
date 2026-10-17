@@ -1,0 +1,57 @@
+name: Work Study human-factor expert v57-v60
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/assets/js/gravity-work-study-ergonomics-v57.js'
+      - 'site/assets/js/gravity-work-study-learning-curve-v58.js'
+      - 'site/assets/js/gravity-work-study-context-conditions-v59.js'
+      - 'site/assets/js/gravity-work-study-sustainable-pace-v60.js'
+      - 'scripts/work-study-human-factors-v57-v60-integrate.cjs'
+      - 'scripts/work-study-human-factors-v57-v60-suite.cjs'
+      - '.github/workflows/work-study-human-factors-v57-v60.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  integrate-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Integrate v57-v60
+        run: node scripts/work-study-human-factors-v57-v60-integrate.cjs
+      - name: Syntax checks
+        run: |
+          node --check site/assets/js/gravity-work-study-ergonomics-v57.js
+          node --check site/assets/js/gravity-work-study-learning-curve-v58.js
+          node --check site/assets/js/gravity-work-study-context-conditions-v59.js
+          node --check site/assets/js/gravity-work-study-sustainable-pace-v60.js
+          node --check site/assets/js/gravity-work-study-synthesis-v24.js
+      - name: Human-factor regressions
+        run: node scripts/work-study-human-factors-v57-v60-suite.cjs
+      - name: Install expert stack
+        run: node scripts/upgrade-work-study-lab-v2.cjs
+      - name: Graduation gate
+        run: node scripts/work-study-graduation-suite.cjs
+      - name: Refresh source manifest
+        run: npm run manifest
+      - name: Verify controlled build
+        run: npm run build
+      - name: Commit integrated source
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/assets/js/gravity-work-study-synthesis-v24.js scripts/upgrade-work-study-lab-v2.cjs scripts/work-study-graduation-suite.cjs site/gravity-work-study-lab.html source-manifest.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Integrate Work Study human-factor expert stack v60"
+          git pull --rebase origin main
+          git push origin HEAD:main
