@@ -8,7 +8,7 @@ const EXACT='Click Guided once, then wait for Gravity to join you before clickin
  const browser=await chromium.launch({headless:true});
  const page=await browser.newPage({viewport:{width:1440,height:900}});
  const pageErrors=[];
- page.on('pageerror',err=>pageErrors.push(String(err?.message||err)));
+ page.on('pageerror',err=>pageErrors.push(String(err?.stack||err?.message||err)));
  try{
   await page.goto(URL,{waitUntil:'domcontentloaded',timeout:30000});
   await page.waitForSelector('[data-start="guided"]',{state:'visible',timeout:30000});
@@ -35,7 +35,7 @@ const EXACT='Click Guided once, then wait for Gravity to join you before clickin
   ]);
   if(result.ticks<40)throw new Error(`Website heartbeat stalled after Guided click (${result.ticks} ticks).`);
   if(result.mode!=='guided')throw new Error(`Website did not enter Guided mode (mode=${result.mode||'empty'}).`);
-  if(pageErrors.length)throw new Error('Website page errors during Guided smoke: '+pageErrors.join(' | '));
+  if(pageErrors.length)throw new Error('Website page errors during Guided smoke:\n'+pageErrors.join('\n---\n'));
   console.log('WORK_STUDY_SITE_GUIDED_SMOKE_PASS',JSON.stringify(result));
  }finally{
   await browser.close();
