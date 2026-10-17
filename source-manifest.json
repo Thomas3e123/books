@@ -1334,7 +1334,7 @@
     },
     {
       "path": "site/assets/js/gravity-work-study-device-link-v1.js",
-      "sha256": "201cfdbfcd380a4c2fdab2704ae047fe1d2794fcd4f20b97f45db8283ad4835e"
+      "sha256": "712c87cd366fdcedc28afc99677d5a90cd1e10175366bd856ae4cc139316c120"
     },
     {
       "path": "site/assets/js/gravity-work-study-diagnostic-expert-v22.js",
@@ -2250,7 +2250,7 @@
     },
     {
       "path": "functions/work-study-link/index.mjs",
-      "sha256": "bb3368f5bf2f7b4cc769aef9cc9a618f60fe72c4a7c641345667611749118e53"
+      "sha256": "9e438b915818401a11dd81658204e0882d10e6d89b635df0cada471df370b5d5"
     },
     {
       "path": "functions/work-study-process-file/work-study-process-file.js",
