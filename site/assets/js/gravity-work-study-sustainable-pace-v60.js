@@ -1,3 +1,4 @@
+// Controlled publication marker: Work Study expert stack integrated through v60.
 (()=>{'use strict';
 const STUDY='gravityWorkStudyV2',STORE='gravityWorkStudySustainablePaceV60';
 function load(k,f=null){try{return JSON.parse(localStorage.getItem(k)||'null')??f}catch{return f}}function save(k,v){localStorage.setItem(k,JSON.stringify(v))}function study(){return load(STUDY,null)}function all(){return load(STORE,{})||{}}
