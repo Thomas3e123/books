@@ -1,15 +1,17 @@
 {
   "name": "gravity-work-study-lab",
-  "version": "0.1.0-beta.1",
+  "version": "0.2.0-beta.1",
   "private": true,
-  "description": "Gravity Work Study Lab standalone Windows edition",
+  "description": "Gravity Work Study Lab standalone Windows beta with synchronized expert stack through v61",
   "main": "main.js",
   "author": "Thomas Monroe Books",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "electron .",
-    "build:win": "electron-builder --win nsis zip --x64",
-    "pack:win": "electron-builder --win dir --x64"
+    "sync:expert": "node sync-expert-stack.cjs",
+    "verify:expert": "node -e \"const fs=require('fs');const m=JSON.parse(fs.readFileSync('expert/windows-expert-manifest.json','utf8'));if(m.stack!=='v61'||m.count<50)process.exit(1);console.log('Verified Windows expert stack',m.stack,m.count,'scripts')\"",
+    "start": "npm run sync:expert && electron .",
+    "build:win": "npm run sync:expert && npm run verify:expert && electron-builder --win nsis zip --x64",
+    "pack:win": "npm run sync:expert && npm run verify:expert && electron-builder --win dir --x64"
   },
   "devDependencies": {
     "electron": "39.8.10",
@@ -22,10 +24,12 @@
     "files": [
       "main.js",
       "preload.js",
-      "renderer.js",
       "index.html",
       "styles.css",
-      "README.txt"
+      "expert-loader.js",
+      "expert/**/*",
+      "README.txt",
+      "PARITY_STATUS.md"
     ],
     "directories": {
       "output": "dist"
