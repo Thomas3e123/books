@@ -1321,6 +1321,10 @@
       "sha256": "0c6be8459913f9d259f6fa2f96c73f4f2517baa9c87408d156a32267d0d4de3e"
     },
     {
+      "path": "site/assets/js/gravity-work-study-context-conditions-v59.js",
+      "sha256": "ad2215a57c2e8cdbc5702a2b9fedf1ada17f19ed4d330e69a95527a874c39473"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-crew-labor-v48.js",
       "sha256": "b72c9aeedaca3faf187b9550004899c9a18947d5572e7201c5b2ca086a5e6d20"
     },
