@@ -1,0 +1,12 @@
+'use strict';
+const fs=require('node:fs');
+const path=require('node:path');
+const file=path.resolve(__dirname,'..','windows','gravity-work-study-lab','renderer.js');
+let src=fs.readFileSync(file,'utf8');
+const before='function renderObserve(){stopTimer(false);';
+const after='function renderObserve(){stopTimer(true);';
+if(src.includes(before)) src=src.replace(before,after);
+if(src.includes('function renderObserve(){stopTimer(false);')) throw new Error('Windows Work Study still discards active timer when observation screen rerenders.');
+if(!src.includes(after)) throw new Error('Expected Windows renderObserve timer-integrity behavior was not found.');
+fs.writeFileSync(file,src);
+console.log('Windows Work Study timer integrity patched: active elapsed time is recorded before observation-screen rerender.');
