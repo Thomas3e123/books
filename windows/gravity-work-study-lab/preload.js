@@ -18,6 +18,7 @@ contextBridge.exposeInMainWorld('gravityDesktop',{
  exportEvidencePackage:pkg=>ipcRenderer.invoke('evidence:export',pkg),
  importEvidencePackage:()=>ipcRenderer.invoke('evidence:import'),
  readProcessFile:payload=>ipcRenderer.invoke('process-file:extract',payload),
+ requestTts:payload=>ipcRenderer.invoke('tts:request',payload),
  savePdf:name=>ipcRenderer.invoke('report:pdf',name),
  print:()=>ipcRenderer.invoke('report:print'),
  openDataFolder:()=>ipcRenderer.invoke('system:open-data')
