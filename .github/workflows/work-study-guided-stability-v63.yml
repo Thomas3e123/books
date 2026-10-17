@@ -8,6 +8,7 @@ on:
       - 'site/assets/js/gravity-work-study-guided-entry-v63.js'
       - 'scripts/patch-work-study-guided-stability.cjs'
       - 'scripts/work-study-guided-stability-suite.cjs'
+      - 'scripts/work-study-guided-browser-smoke.cjs'
       - '.github/workflows/work-study-guided-stability-v63.yml'
 permissions:
   contents: write
@@ -29,12 +30,27 @@ jobs:
           node --check site/assets/js/gravity-work-study-mutation-guard-v62.js
           node --check site/assets/js/gravity-work-study-guided-entry-v63.js
           node --check scripts/work-study-guided-stability-suite.cjs
+          node --check scripts/work-study-guided-browser-smoke.cjs
       - name: Run Guided stability regression
         run: node scripts/work-study-guided-stability-suite.cjs
       - name: Run all Work Study regression suites
         run: |
           set -e
-          for f in scripts/work-study-*-suite.cjs; do echo "Running $f"; node "$f"; done
+          for f in scripts/work-study-*-suite.cjs; do
+            if [ "$f" = "scripts/work-study-guided-browser-smoke.cjs" ]; then continue; fi
+            echo "Running $f"
+            node "$f"
+          done
+      - name: Install website browser smoke runtime
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Run actual website Guided responsiveness smoke
+        run: |
+          python3 -m http.server 4173 --directory site >/tmp/work-study-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid' EXIT
+          node scripts/work-study-guided-browser-smoke.cjs
       - name: Refresh controlled source manifest
         run: npm run manifest
       - name: Verify controlled site build
