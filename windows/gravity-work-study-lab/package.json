@@ -2,8 +2,8 @@
   "name": "gravity-work-study-lab",
   "version": "0.3.0-beta.1",
   "private": true,
-  "description": "Gravity Work Study Lab standalone Windows beta with synchronized expert stack through v63, Guided stability, and durable complete-evidence backup",
-  "main": "main.js",
+  "description": "Gravity Work Study Lab standalone Windows beta with synchronized expert stack through v63, Guided stability, durable complete-evidence backup, and portable device connection",
+  "main": "bootstrap.js",
   "author": "Thomas Monroe Books",
   "license": "UNLICENSED",
   "scripts": {
@@ -22,9 +22,12 @@
     "productName": "Gravity Work Study Lab",
     "asar": true,
     "files": [
+      "bootstrap.js",
       "main.js",
+      "device-link-main.js",
       "preload.js",
       "desktop-bridge.js",
+      "device-link.js",
       "index.html",
       "styles.css",
       "expert-loader.js",
