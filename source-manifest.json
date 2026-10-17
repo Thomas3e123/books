@@ -1417,6 +1417,10 @@
       "sha256": "2b95661a3e97dd20af0da967c234c5270be0568fc4535702041e27d8ac338aa8"
     },
     {
+      "path": "site/assets/js/gravity-work-study-mutation-guard-v62.js",
+      "sha256": "92cc2eec0d6bf19c77b345eba646bb0ef90b064228932e1536fda4d7991d6c34"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-observation-coach-v17.js",
       "sha256": "adad43527accdfaec9ada3e474fc9def911c955fd559a99da079de6f0a7ccac0"
     },
