@@ -8,7 +8,7 @@ on:
       - 'site/assets/js/gravity-work-study-guided-entry-v63.js'
       - 'site/assets/js/gravity-work-study-device-link-v1.js'
       - 'functions/work-study-link/**'
-      - 'netlify/database/migrations/20261017131000_work_study_device_link.sql'
+      - 'netlify/database/migrations/20261017183000_work_study_device_link.sql'
       - 'windows/gravity-work-study-lab/bootstrap.js'
       - 'windows/gravity-work-study-lab/device-link-main.js'
       - 'windows/gravity-work-study-lab/device-link.js'
