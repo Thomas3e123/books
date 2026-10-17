@@ -1,0 +1,14 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'..');
+const file=path.join(root,'site','gravity-work-study-lab.html');
+let html=fs.readFileSync(file,'utf8');
+const guard='<script src="/assets/js/gravity-work-study-mutation-guard-v62.js?v=20261017-guided-stability-v1"></script>';
+const handoff='<script src="/assets/js/gravity-work-study-guided-entry-v63.js?v=20261017-guided-entry-v1"></script>';
+html=html.replace(/<script src="\/assets\/js\/gravity-work-study-mutation-guard-v62\.js\?v=[^"]+"><\/script>/g,'');
+html=html.replace(/<script src="\/assets\/js\/gravity-work-study-guided-entry-v63\.js\?v=[^"]+"><\/script>/g,'');
+const base=/<script src="\/assets\/js\/gravity-work-study-v2\.js\?v=[^"]+"><\/script>/;
+if(!base.test(html))throw new Error('Base Work Study v2 script tag not found.');
+html=html.replace(base,m=>guard+m+handoff);
+fs.writeFileSync(file,html,'utf8');
+console.log('Installed Guided stability guard before Work Study expert observers and click-once handoff after base engine.');
