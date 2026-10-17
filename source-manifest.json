@@ -1333,6 +1333,10 @@
       "sha256": "10007b1313a90ee9971f53babbce1460b0e0782c30509ddd186840d005a516e7"
     },
     {
+      "path": "site/assets/js/gravity-work-study-device-link-v1.js",
+      "sha256": "201cfdbfcd380a4c2fdab2704ae047fe1d2794fcd4f20b97f45db8283ad4835e"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-diagnostic-expert-v22.js",
       "sha256": "301e5f1a40b12d9426cc7513c83f1a5545ad606ad8cd0a6aad1b892a63505cb9"
     },
@@ -2245,6 +2249,10 @@
       "sha256": "166d5cee8ea5ad65f30dd436ca6683de4005f75b883f52c29867c707a71de08c"
     },
     {
+      "path": "functions/work-study-link/index.mjs",
+      "sha256": "bb3368f5bf2f7b4cc769aef9cc9a618f60fe72c4a7c641345667611749118e53"
+    },
+    {
       "path": "functions/work-study-process-file/work-study-process-file.js",
       "sha256": "103f192ed8b1d5523cff8fd43e20a7a7e461548ed9541eb37c9307430ca60b4a"
     },
@@ -2259,6 +2267,10 @@
     {
       "path": "netlify/database/migrations/20261014134500_gravity_testing_groups.sql",
       "sha256": "e7a210491092d9c36466e1dcc09d37c539f5c450f04f6946c8cdea2cd25d9864"
+    },
+    {
+      "path": "netlify/database/migrations/20261017183000_work_study_device_link.sql",
+      "sha256": "669c62119f05d2de6706396617192b865d41415b7687adf46b288c8a8777388d"
     },
     {
       "path": "netlify.toml",
