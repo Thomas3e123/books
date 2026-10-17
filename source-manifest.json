@@ -1373,6 +1373,10 @@
       "sha256": "f159e0418894243dcd7988f94afa0302c47f31c568df4887e5af4463962add32"
     },
     {
+      "path": "site/assets/js/gravity-work-study-guided-entry-v63.js",
+      "sha256": "d2b2fc6d2b692afba61e02ae0b3b8753745e0b483b274be548e64e35cd02e209"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-guided-expert-adaptive-v27.js",
       "sha256": "682be163181103c405da158e026e5dbcab57f790734f02df0668200d6c20b472"
     },
