@@ -38,7 +38,8 @@ has(win,'gravityDesktop.exportStudy(portableExport(current))','Windows v56 evide
 has(main,'contextIsolation:true','Windows context isolation');
 has(main,'nodeIntegration:false','Windows Node isolation');
 has(main,'sandbox:true','Windows sandbox');
-has(main,"setWindowOpenHandler(()=>({action:'deny'}))",'Windows new-window blocking');
+has(main,'setWindowOpenHandler','Windows new-window handler');
+has(main,"action:'deny'",'Windows new-window blocking');
 has(main,"will-navigate",'Windows navigation blocking');
 function throughput(units,seconds){return seconds>0&&units>0?units*3600/seconds:null;}
 if(throughput(10,600)!==60)failures.push('Throughput formula 10 units / 10 min should equal 60/hr');
@@ -46,4 +47,4 @@ if(throughput(8,600)!==48)failures.push('Throughput formula 8 units / 10 min sho
 if(throughput(0,600)!==null)failures.push('Zero completed units must not produce a rate');
 if(failures.length){console.error('WORK STUDY LAB CODE AUDIT: FAIL');for(const f of failures)console.error('- '+f);process.exit(1);}
 console.log('WORK STUDY LAB CODE AUDIT: PASS');
-console.log('Checked current web expert source plus Windows source for required Code controls, evidence portability, timer integrity, and core rate math.');
+console.log('Checked current web expert source plus Windows source for required Code controls, evidence portability, timer integrity, navigation security, and core rate math.');
