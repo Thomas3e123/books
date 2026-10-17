@@ -34,8 +34,10 @@ jobs:
         run: node scripts/upgrade-work-study-lab-v2.cjs
       - name: Verify generated Work Study page
         run: |
-          grep -q 'gravity-work-study-earbud-mode-v18.js?v=20261016-guided-voice-v2' site/gravity-work-study-lab.html
+          grep -q 'gravity-work-study-earbud-mode-v18.js?v=20261016-guided-teaching-v4' site/gravity-work-study-lab.html
           grep -q "Hello. I’m Gravity. I’ll take you through this." site/assets/js/gravity-work-study-earbud-mode-v18.js
+          grep -q "VOICE='cedar'" site/assets/js/gravity-work-study-earbud-mode-v18.js
+          grep -q '/.netlify/functions/gravity-tts' site/assets/js/gravity-work-study-earbud-mode-v18.js
           grep -q 'pointerdown' site/assets/js/gravity-work-study-earbud-mode-v18.js
           grep -q 'startNow' site/assets/js/gravity-work-study-earbud-mode-v18.js
       - name: Refresh reviewed-source manifest
@@ -51,6 +53,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add site/gravity-work-study-lab.html source-manifest.json
-          git commit -m "Make Work Study Guided voice start immediately"
+          git commit -m "Verify Work Study Cedar neural voice"
           git pull --rebase origin main
           git push origin HEAD:main
