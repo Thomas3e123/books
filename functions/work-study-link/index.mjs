@@ -45,8 +45,9 @@ export default async function(req){
    if(!active(row))return json({error:'That Work Study connection has expired or ended.'},410);
    if(row.device_token_hash)return json({error:'A portable device is already connected to this study. End that connection before pairing another device.'},409);
    const deviceToken=token();
-   await db.sql`UPDATE gravity_work_study_links SET device_token_hash=${hash(deviceToken)}, updated_at=NOW() WHERE id=${row.id} AND device_token_hash IS NULL`;
-   return json({ok:true,deviceToken,study:row.snapshot,revision:row.revision,expiresAt:row.expires_at});
+   const updated=await db.pool.query('UPDATE gravity_work_study_links SET device_token_hash=$1, updated_at=NOW() WHERE id=$2 AND device_token_hash IS NULL RETURNING id',[hash(deviceToken),row.id]);
+   if(!updated.rowCount)return json({error:'A portable device connected to this study first. End that connection before pairing another device.'},409);
+   return json({ok:true,deviceToken,pairCode,study:row.snapshot,revision:row.revision,expiresAt:row.expires_at});
   }
   const session=await byAuth(req);
   if(!session)return json({error:'This Work Study device connection is not authorized.'},401);
@@ -54,6 +55,7 @@ export default async function(req){
   if(path==='state'&&req.method==='GET')return json({ok:true,role:session.role,study:session.snapshot,revision:session.revision,expiresAt:session.expires_at,updatedAt:session.updated_at});
   if(path==='state'&&req.method==='PUT'){
    const b=await readBody(req),study=cleanStudy(b.study),expected=Number(b.revision);
+   if(String(study.id||'')!==String(session.study_id||''))return json({error:'The connected study ID does not match this device session.'},409);
    if(!Number.isInteger(expected)||expected<1)return json({error:'A valid revision is required.'},400);
    const client=await db.pool.connect();
    try{
