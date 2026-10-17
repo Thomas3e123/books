@@ -7,9 +7,11 @@ const handoff=read('site/assets/js/gravity-work-study-guided-entry-v63.js');
 const page=read('site/gravity-work-study-lab.html');
 const sync=read('windows/gravity-work-study-lab/sync-expert-stack.cjs');
 const desktop=read('windows/gravity-work-study-lab/desktop-bridge.js');
+const preload=read('windows/gravity-work-study-lab/preload.js');
 const main=read('windows/gravity-work-study-lab/main.js');
 function must(cond,msg){if(!cond)throw new Error(msg)}
 must(guard.includes('const registry=new Set()'),'Mutation guard must coordinate all Work Study observers as one cohort.');
+must(guard.includes('const pending=new Map()'),'Mutation guard must batch observer deliveries from one DOM change.');
 must(guard.includes('for(const observer of cohort)observer.suspend()'),'Mutation guard must suspend the full observer cohort before reactive redraws.');
 must(guard.includes('for(const observer of cohort)observer.native.takeRecords()'),'Mutation guard must discard redraw-generated mutation records before reactivation.');
 must(guard.includes('for(const observer of cohort)observer.resume()'),'Mutation guard must resume the full observer cohort after callback completion.');
@@ -22,7 +24,7 @@ must(iGuard<iBase&&iBase<iHandoff,'Mutation guard must load before base/expert o
 must(sync.includes("'gravity-work-study-mutation-guard-v62.js','gravity-work-study-v2.js','gravity-work-study-guided-entry-v63.js'"),'Windows sync order must put the guard first.');
 must(desktop.includes('saveEvidencePackage'),'Windows bridge must save complete evidence packages.');
 must(desktop.includes('loadLatestEvidencePackage'),'Windows bridge must restore latest local evidence package.');
-must(desktop.includes('requestTts'),'Windows bridge must expose main-process Guided TTS.');
+must(preload.includes("requestTts:payload=>ipcRenderer.invoke('tts:request',payload)"),'Windows preload bridge must expose main-process Guided TTS.');
 must(main.includes("ipcMain.handle('evidence:save'"),'Windows main process must persist evidence packages.');
 must(main.includes("ipcMain.handle('evidence:latest'"),'Windows main process must restore latest evidence package.');
 must(main.includes("ipcMain.handle('tts:request'"),'Windows main process must own the Cedar TTS request.');
