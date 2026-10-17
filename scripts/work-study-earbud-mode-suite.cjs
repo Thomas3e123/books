@@ -5,11 +5,12 @@ const required=[
  ['guided entry greeting','Hello. I’m Gravity. I’ll take you through this.'],
  ['guided only',"s.mode!=='guided'"],
  ['observation cue','Observation cue.'],
- ['speech synthesis','speechSynthesis.cancel()'],
+ ['Cedar neural voice',"VOICE='cedar'"],
+ ['Gravity neural TTS endpoint',"/.netlify/functions/gravity-tts"],
  ['automatic sync','function sync()'],
  ['guided click hook','[data-mode="guided"]'],
  ['guided start hook','[data-start="guided"]']
 ];
 for(const [name,text] of required)if(!src.includes(text))throw new Error(`Missing automatic Guided voice behavior: ${name}`);
-for(const banned of ['Test earbud','Off until you test audio','Turn off','tested:false'])if(src.includes(banned))throw new Error(`Old Earbud Mode setup remains: ${banned}`);
-console.log('Work Study Guided voice suite passed automatic speech-on-Guided, greeting, and observation-cue safeguards.');
+for(const banned of ['Test earbud','Off until you test audio','Turn off','tested:false','speechSynthesis.cancel()','SpeechSynthesisUtterance'])if(src.includes(banned))throw new Error(`Old Earbud Mode/device voice setup remains: ${banned}`);
+console.log('Work Study Guided voice suite passed Cedar neural speech-on-Guided, greeting, observation-cue, and no-device-fallback safeguards.');
