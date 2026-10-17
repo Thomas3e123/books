@@ -38,3 +38,9 @@
 .gravity-beta-compact{padding:18px 0;background:#fff8e8;border-bottom:1px solid #dcc99f}.gravity-beta-compact-card{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 20px;border:1px solid #d6b66d;border-radius:14px;background:#fffdf8}.gravity-beta-compact-card strong{font-family:Georgia,"Times New Roman",serif;font-size:1.2rem;color:#172033}.gravity-beta-compact-card p{margin:.25rem 0 0;color:#4b5563}.gravity-beta-compact-card .btn{flex:0 0 auto}
 .gravity-beta-test-note{margin:10px 0 16px;padding:13px 15px;border-left:4px solid #b8872d;border-radius:10px;background:#fff7e6;color:#26364a}.gravity-beta-test-note strong{color:#172033}.gravity-beta-test-note p{margin:.3rem 0 .45rem}.gravity-beta-test-note a{font-weight:800;color:#7b1e29;text-decoration:underline}
 @media(max-width:700px){.gravity-beta-invite{padding:22px 0}.gravity-beta-invite-card{padding:20px 18px;border-radius:14px}.gravity-beta-actions .btn{width:100%}.gravity-beta-compact-card{align-items:flex-start;flex-direction:column}.gravity-beta-compact-card .btn{width:100%}.gravity-help-overlay{font-size:.86rem;line-height:1.5}}
+
+/* Windows Programs room navigation repair: this page currently lacks the shared site.js menu listener. */
+@media(max-width:900px){
+ body[data-workspace="windows"] .header-inner:focus-within .nav{display:flex!important}
+ body[data-workspace="windows"] .menu-toggle:focus + .nav{display:flex!important}
+}
