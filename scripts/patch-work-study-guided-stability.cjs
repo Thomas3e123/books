@@ -11,8 +11,7 @@ const repairs=[
  ["$('[data-action]').forEach(","$$('[data-action]').forEach("]
 ];
 for(const [broken,fixed] of repairs){
- if(baseJs.includes(broken))baseJs=baseJs.replaceAll(broken,fixed);
- if(baseJs.includes(broken))throw new Error('Work Study base binding repair did not fully apply: '+broken);
+ if(!baseJs.includes(fixed))baseJs=baseJs.replaceAll(broken,fixed);
  if(!baseJs.includes(fixed))throw new Error('Expected repaired Work Study base binding was not found: '+fixed);
 }
 fs.writeFileSync(baseFile,baseJs,'utf8');
