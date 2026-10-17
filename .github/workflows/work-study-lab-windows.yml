@@ -6,10 +6,13 @@ on:
     branches: [main]
     paths:
       - 'windows/gravity-work-study-lab/**'
+      - 'site/assets/js/gravity-work-study-*.js'
+      - 'site/assets/css/gravity-work-study-v2.css'
+      - 'scripts/upgrade-work-study-lab-v2.cjs'
       - '.github/workflows/work-study-lab-windows.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build-windows:
@@ -26,18 +29,50 @@ jobs:
         run: npm install
       - name: Runtime dependency audit
         run: npm audit --omit=dev --audit-level=high
-      - name: Syntax check
+      - name: Synchronize website expert brain into Windows
+        run: npm run sync:expert
+      - name: Verify full expert parity through v61
+        run: npm run verify:expert
+      - name: Syntax check Windows shell and synchronized expert stack
+        shell: pwsh
         run: |
           node --check main.js
           node --check preload.js
-          node --check renderer.js
+          node --check expert-loader.js
+          Get-ChildItem expert\*.js | ForEach-Object { node --check $_.FullName; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
+      - name: Verify required expert layers are packaged
+        shell: pwsh
+        run: |
+          $required = @(
+            'gravity-work-study-clock-control-v32.js',
+            'gravity-work-study-standard-minutes-v33.js',
+            'gravity-work-study-evidence-package-v56.js',
+            'gravity-work-study-ergonomics-v57.js',
+            'gravity-work-study-learning-curve-v58.js',
+            'gravity-work-study-context-conditions-v59.js',
+            'gravity-work-study-sustainable-pace-v60.js',
+            'gravity-work-study-expert-triage-v61.js'
+          )
+          foreach ($name in $required) { if (-not (Test-Path (Join-Path 'expert' $name))) { throw "Missing required expert layer: $name" } }
+          if (-not (Select-String -Path expert\gravity-work-study-process-map-v34.js -Pattern 'https://thomasmonroebooks.com/.netlify/functions/work-study-process-file' -Quiet)) { throw 'Windows DOCX reader endpoint was not converted to the hosted absolute URL.' }
       - name: Build Windows installer and ZIP
         run: npm run build:win
       - name: Upload Windows beta artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: Gravity-Work-Study-Lab-Windows-Beta
+          name: Gravity-Work-Study-Lab-Windows-Beta-v0.2.0
           path: |
             windows/gravity-work-study-lab/dist/*.exe
             windows/gravity-work-study-lab/dist/*.zip
           if-no-files-found: error
+      - name: Publish rolling Windows beta release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete work-study-windows-beta --yes --cleanup-tag || true
+          gh release create work-study-windows-beta dist/*.exe dist/*.zip \
+            --target "$GITHUB_SHA" \
+            --prerelease \
+            --title "Gravity Work Study Lab Windows Beta v0.2.0" \
+            --notes "Windows beta synchronized from the same controlled Gravity Work Study expert source as the website through Expert Triage v61. Includes the premium gold-trimmed interface and complete evidence-package support. Unsigned beta: Windows SmartScreen may warn during installation. DOCX process-map extraction requires internet access; the rest of the expert study engine is packaged locally."
