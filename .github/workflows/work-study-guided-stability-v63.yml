@@ -1,0 +1,53 @@
+name: Work Study Guided stability v63
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'site/assets/js/gravity-work-study-mutation-guard-v62.js'
+      - 'site/assets/js/gravity-work-study-guided-entry-v63.js'
+      - 'scripts/patch-work-study-guided-stability.cjs'
+      - 'scripts/work-study-guided-stability-suite.cjs'
+      - '.github/workflows/work-study-guided-stability-v63.yml'
+permissions:
+  contents: write
+jobs:
+  guided-stability:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Guided stability layers on generated page
+        run: node scripts/patch-work-study-guided-stability.cjs
+      - name: Syntax check new stability layers
+        run: |
+          node --check site/assets/js/gravity-work-study-mutation-guard-v62.js
+          node --check site/assets/js/gravity-work-study-guided-entry-v63.js
+          node --check scripts/work-study-guided-stability-suite.cjs
+      - name: Run Guided stability regression
+        run: node scripts/work-study-guided-stability-suite.cjs
+      - name: Run all Work Study regression suites
+        run: |
+          set -e
+          for f in scripts/work-study-*-suite.cjs; do echo "Running $f"; node "$f"; done
+      - name: Refresh controlled source manifest
+        run: npm run manifest
+      - name: Verify controlled site build
+        run: npm run build
+      - name: Commit Guided-stable generated page
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add site/gravity-work-study-lab.html source-manifest.json
+          if git diff --cached --quiet; then
+            echo 'Guided stability page already current.'
+          else
+            git commit -m 'Publish Guided-stable Work Study v63'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
