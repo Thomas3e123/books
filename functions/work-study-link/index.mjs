@@ -12,10 +12,16 @@ const code=()=>Array.from(randomBytes(6),b=>ALPHABET[b%ALPHABET.length]).join(''
 const json=(body,status=200)=>new Response(JSON.stringify(body),{status,headers:{'content-type':'application/json; charset=utf-8','cache-control':'no-store'}});
 const bearer=req=>String(req.headers.get('authorization')||'').replace(/^Bearer\s+/i,'').trim();
 const readBody=async req=>{try{return await req.json()}catch{return {}}};
-function cleanStudy(study){
- if(!study||typeof study!=='object'||Array.isArray(study))throw Object.assign(new Error('A valid Work Study snapshot is required.'),{status:400});
- const text=JSON.stringify(study);
- if(Buffer.byteLength(text,'utf8')>MAX_BYTES)throw Object.assign(new Error('This Work Study is too large to connect in one session.'),{status:413});
+const isPackage=x=>!!(x&&x.packageType==='gravity-work-study-evidence-package'&&x.packageVersion===1&&x.study?.id&&x.study.id===x.studyId);
+const baseStudy=x=>isPackage(x)?x.study:x;
+function cleanSnapshot(raw){
+ if(!raw||typeof raw!=='object'||Array.isArray(raw))throw Object.assign(new Error('A valid Work Study snapshot is required.'),{status:400});
+ const base=baseStudy(raw);
+ if(!base?.id)throw Object.assign(new Error('Save the Work Study before connecting a portable device.'),{status:400});
+ if(raw.packageType&&raw.packageType!=='gravity-work-study-evidence-package')throw Object.assign(new Error('The Work Study evidence package type is not supported.'),{status:400});
+ if(raw.packageType&&!isPackage(raw))throw Object.assign(new Error('The Work Study evidence package is incomplete or inconsistent.'),{status:400});
+ const text=JSON.stringify(raw);
+ if(Buffer.byteLength(text,'utf8')>MAX_BYTES)throw Object.assign(new Error('This Work Study evidence package is too large to connect in one session.'),{status:413});
  return JSON.parse(text);
 }
 async function byAuth(req){
@@ -25,17 +31,17 @@ async function byAuth(req){
 }
 function active(row){return row&&row.status==='open'&&new Date(row.expires_at).getTime()>Date.now()}
 async function uniqueCode(){for(let i=0;i<8;i++){const c=code();const r=await db.sql`SELECT id FROM gravity_work_study_links WHERE pair_code=${c} LIMIT 1`;if(!r[0])return c}throw Error('Could not allocate a connection code. Try again.')}
+function stateBody(row,extra={}){const snapshot=row.snapshot,study=baseStudy(snapshot);return{ok:true,snapshot,study,packageType:isPackage(snapshot)?snapshot.packageType:'base-study',revision:Number(row.revision),expiresAt:row.expires_at,updatedAt:row.updated_at,...extra}}
 
 export default async function(req){
  try{
   const url=new URL(req.url),path=url.pathname.replace(/^\/work-study-link\/?/,'');
-  if(path==='health'&&req.method==='GET')return json({ok:true,service:'Gravity Work Study Device Link'});
+  if(path==='health'&&req.method==='GET')return json({ok:true,service:'Gravity Work Study Device Link',evidencePackage:true,conflictProtection:'revision-lock'});
   if(path==='create'&&req.method==='POST'){
-   const b=await readBody(req),study=cleanStudy(b.study),studyId=String(study.id||b.studyId||'').trim();
-   if(!studyId)return json({error:'Save the Work Study before connecting a portable device.'},400);
+   const b=await readBody(req),snapshot=cleanSnapshot(b.snapshot??b.study),studyId=String(baseStudy(snapshot).id).trim();
    const ownerToken=token(),pairCode=await uniqueCode(),id=randomUUID(),expiresAt=new Date(Date.now()+HOURS*3600000).toISOString();
-   await db.sql`INSERT INTO gravity_work_study_links (id,study_id,pair_code,owner_token_hash,snapshot,revision,status,expires_at) VALUES (${id},${studyId},${pairCode},${hash(ownerToken)},${JSON.stringify(study)}::jsonb,1,'open',${expiresAt}::timestamptz)`;
-   return json({ok:true,pairCode,ownerToken,revision:1,expiresAt,joinUrl:`https://thomasmonroebooks.com/gravity-work-study-lab?pair=${pairCode}`},201);
+   await db.sql`INSERT INTO gravity_work_study_links (id,study_id,pair_code,owner_token_hash,snapshot,revision,status,expires_at) VALUES (${id},${studyId},${pairCode},${hash(ownerToken)},${JSON.stringify(snapshot)}::jsonb,1,'open',${expiresAt}::timestamptz)`;
+   return json({ok:true,pairCode,ownerToken,revision:1,expiresAt,packageType:isPackage(snapshot)?snapshot.packageType:'base-study',joinUrl:`https://thomasmonroebooks.com/gravity-work-study-lab?pair=${pairCode}`},201);
   }
   if(path==='join'&&req.method==='POST'){
    const b=await readBody(req),pairCode=String(b.code||'').trim().toUpperCase();
@@ -45,17 +51,17 @@ export default async function(req){
    if(!active(row))return json({error:'That Work Study connection has expired or ended.'},410);
    if(row.device_token_hash)return json({error:'A portable device is already connected to this study. End that connection before pairing another device.'},409);
    const deviceToken=token();
-   const updated=await db.pool.query('UPDATE gravity_work_study_links SET device_token_hash=$1, updated_at=NOW() WHERE id=$2 AND device_token_hash IS NULL RETURNING id',[hash(deviceToken),row.id]);
+   const updated=await db.pool.query('UPDATE gravity_work_study_links SET device_token_hash=$1, updated_at=NOW() WHERE id=$2 AND device_token_hash IS NULL AND status=$3 RETURNING id',[hash(deviceToken),row.id,'open']);
    if(!updated.rowCount)return json({error:'A portable device connected to this study first. End that connection before pairing another device.'},409);
-   return json({ok:true,deviceToken,pairCode,study:row.snapshot,revision:row.revision,expiresAt:row.expires_at});
+   return json({...stateBody(row),deviceToken,pairCode});
   }
   const session=await byAuth(req);
   if(!session)return json({error:'This Work Study device connection is not authorized.'},401);
   if(!active(session))return json({error:'This Work Study device connection has expired or ended.'},410);
-  if(path==='state'&&req.method==='GET')return json({ok:true,role:session.role,study:session.snapshot,revision:session.revision,expiresAt:session.expires_at,updatedAt:session.updated_at});
+  if(path==='state'&&req.method==='GET')return json(stateBody(session,{role:session.role}));
   if(path==='state'&&req.method==='PUT'){
-   const b=await readBody(req),study=cleanStudy(b.study),expected=Number(b.revision);
-   if(String(study.id||'')!==String(session.study_id||''))return json({error:'The connected study ID does not match this device session.'},409);
+   const b=await readBody(req),snapshot=cleanSnapshot(b.snapshot??b.study),expected=Number(b.revision),incomingId=String(baseStudy(snapshot)?.id||'');
+   if(incomingId!==String(session.study_id||''))return json({error:'The connected study ID does not match this device session.'},409);
    if(!Number.isInteger(expected)||expected<1)return json({error:'A valid revision is required.'},400);
    const client=await db.pool.connect();
    try{
@@ -65,9 +71,9 @@ export default async function(req){
     if(!row||row.status!=='open'||new Date(row.expires_at).getTime()<=Date.now()){await client.query('ROLLBACK');return json({error:'This Work Study device connection has expired or ended.'},410)}
     if(Number(row.revision)!==expected){await client.query('ROLLBACK');return json({error:'A newer copy of this Work Study exists. Reload it before saving more changes.',revision:Number(row.revision)},409)}
     const next=expected+1;
-    await client.query('UPDATE gravity_work_study_links SET snapshot=$1::jsonb, revision=$2, updated_at=NOW() WHERE id=$3',[JSON.stringify(study),next,session.id]);
+    await client.query('UPDATE gravity_work_study_links SET snapshot=$1::jsonb, revision=$2, updated_at=NOW() WHERE id=$3',[JSON.stringify(snapshot),next,session.id]);
     await client.query('COMMIT');
-    return json({ok:true,revision:next,updatedAt:now()});
+    return json({ok:true,revision:next,packageType:isPackage(snapshot)?snapshot.packageType:'base-study',updatedAt:now()});
    }catch(e){try{await client.query('ROLLBACK')}catch{}throw e}finally{client.release()}
   }
   if(path==='end'&&req.method==='POST'){
