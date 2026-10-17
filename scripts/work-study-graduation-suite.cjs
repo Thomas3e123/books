@@ -31,10 +31,14 @@ const modules=[
  ['gravity-work-study-short-element-v53.js','short-element adequacy'],
  ['gravity-work-study-shift-position-v54.js','shift-position representativeness'],
  ['gravity-work-study-changeover-sequence-v55.js','directional changeover'],
+ ['gravity-work-study-ergonomics-v57.js','physical-demand and ergonomic screening'],
+ ['gravity-work-study-learning-curve-v58.js','learning-curve stability'],
+ ['gravity-work-study-context-conditions-v59.js','operating-context representativeness'],
+ ['gravity-work-study-sustainable-pace-v60.js','sustainable operating pace'],
  ['gravity-work-study-evidence-package-v56.js','complete evidence package']
 ];
 for(const [file,label] of modules){const p=path.join('site/assets/js',file);if(!fs.existsSync(p)){console.error('GRADUATION FAIL: missing expert module',label,file);process.exit(1)};need(installer,file,'installer '+label)}
-const synthChecks=['Measurement precision','Short-element measurement','Work Sampling validity','Demand coverage','Queue & recovery','Shift-position representativeness','Shared setup & cleanup allocation','Sequence-dependent changeover','Crew labor accounting','Yield & waste protection','Incomplete-cycle protection','Verified-baseline control','Observer & boundary calibration','Proficiency representativeness','Observation effect'];
+const synthChecks=['Measurement precision','Short-element measurement','Work Sampling validity','Demand coverage','Queue & recovery','Shift-position representativeness','Shared setup & cleanup allocation','Sequence-dependent changeover','Crew labor accounting','Yield & waste protection','Incomplete-cycle protection','Verified-baseline control','Observer & boundary calibration','Proficiency representativeness','Observation effect','Physical-demand / ergonomics','Learning-curve stability','Operating-context representativeness','Sustainable operating pace'];
 for(const x of synthChecks)need(synth,x,'synthesis check '+x);
 need(pkg,'gravity-study.json','portable study package extension');
 need(pkg,'sidecars','expert sidecar evidence packaging');
@@ -43,4 +47,4 @@ const safetyFiles=['gravity-work-study-yield-quality-v49.js','gravity-work-study
 for(const file of safetyFiles){const src=read(path.join('site/assets/js',file));if(!/safety|quality|clean|sanit|allergen/i.test(src)){console.error('GRADUATION FAIL: safety/quality boundary absent in',file);process.exit(1)}}
 const teachFiles=modules.slice(0,-1).map(x=>x[0]);
 for(const file of teachFiles){const src=read(path.join('site/assets/js',file));if(src.includes('speechSynthesis')&&!/timer\?\.running|timer\.running/.test(src)){console.error('GRADUATION FAIL: expert speech may occur during timing in',file);process.exit(1)}}
-console.log('WORK STUDY GRADUATION PASS: timer integrity, natural-language clock control, expert layers v39-v56, synthesis participation, safety/quality boundaries, and portable evidence packaging are all present in the controlled source.');
+console.log('WORK STUDY GRADUATION PASS: timer integrity, natural-language clock control, expert layers v39-v60, synthesis participation, safety/quality boundaries, and portable evidence packaging are all present in the controlled source.');
