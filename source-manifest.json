@@ -1485,6 +1485,10 @@
       "sha256": "ba4cf9222a241507bf1131b3ee0a8d84fec7a62b74749fabac484dff8d59d8fc"
     },
     {
+      "path": "site/assets/js/gravity-work-study-sustainable-pace-v60.js",
+      "sha256": "ed22f1e7b4c338fd8f1ffa2610b3fdcc159fb62fdc7d070e664a762065822b3f"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-synthesis-v24.js",
       "sha256": "0a2d6b965e5721cf6b82a1e59a2dab3a2d9f68603e96c8fd4f7f7c03ef06d3e8"
     },
