@@ -1357,6 +1357,10 @@
       "sha256": "680a1965cd48b5456e7c2cd002dc87be398ad3bc8550297535521afdc5882aa5"
     },
     {
+      "path": "site/assets/js/gravity-work-study-expert-triage-v61.js",
+      "sha256": "c2a109c09dda507b2ffe1219753efcd1d238df97218734d2112473447edceb51"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-expert-v5.js",
       "sha256": "b4bdb23cb832d1345c18feea3a277142079a5604ac95ca88aae750da970e93b6"
     },
