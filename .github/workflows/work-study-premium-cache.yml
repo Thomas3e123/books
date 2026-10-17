@@ -27,9 +27,9 @@ jobs:
           grep -q -- '--ws2-gold-deep' site/assets/css/gravity-work-study-v2.css
           grep -q 'Segoe Script' site/assets/css/gravity-work-study-v2.css
       - name: Refresh source manifest
-        run: node scripts/refresh-source-manifest.cjs
+        run: npm run manifest
       - name: Verify controlled source
-        run: node scripts/verify-source-manifest.cjs
+        run: npm run build
       - name: Commit premium cache tag
         run: |
           git config user.name 'github-actions[bot]'
@@ -39,5 +39,6 @@ jobs:
             echo 'Premium cache tag already current.'
           else
             git commit -m 'Force-load premium Work Study visual package'
-            git push origin main
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi
