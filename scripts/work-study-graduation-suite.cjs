@@ -9,8 +9,9 @@ const synth=read('site/assets/js/gravity-work-study-synthesis-v24.js');
 const installer=read('scripts/upgrade-work-study-lab-v2.cjs');
 const pkg=read('site/assets/js/gravity-work-study-evidence-package-v56.js');
 if(base.includes('stopTimer(false)')){console.error('GRADUATION FAIL: active timing can still be silently discarded on navigation.');process.exit(1)}
-need(clock,'Switch clock','clock-control ownership switching');
-need(clock,'I didn’t understand that. Please say it again.','uncertain speech protection');
+need(clock,'Clock control switched to','clock-control ownership switching');
+need(clock,"I didn't understand that. Please say it again.",'uncertain speech protection');
+need(clock,"if(result.intent==='switch'){if(s.timer?.running)stopCurrent();cycleOwner();return true}",'stop-before-switch safeguard');
 for(const phrase of ['arrived','complete','waiting','found it'])need(clock,phrase,'natural-language clock intent '+phrase);
 const modules=[
  ['gravity-work-study-scaling-expert-v39.js','fixed/variable scaling'],
@@ -33,7 +34,7 @@ const modules=[
  ['gravity-work-study-evidence-package-v56.js','complete evidence package']
 ];
 for(const [file,label] of modules){const p=path.join('site/assets/js',file);if(!fs.existsSync(p)){console.error('GRADUATION FAIL: missing expert module',label,file);process.exit(1)};need(installer,file,'installer '+label)}
-const synthChecks=['Measurement precision','Work Sampling validity','Demand coverage','Queue & recovery','Shared setup & cleanup allocation','Crew labor accounting','Yield & waste protection','Verified-baseline control','Observer & boundary calibration','Proficiency representativeness','Observation effect'];
+const synthChecks=['Measurement precision','Short-element measurement','Work Sampling validity','Demand coverage','Queue & recovery','Shift-position representativeness','Shared setup & cleanup allocation','Sequence-dependent changeover','Crew labor accounting','Yield & waste protection','Incomplete-cycle protection','Verified-baseline control','Observer & boundary calibration','Proficiency representativeness','Observation effect'];
 for(const x of synthChecks)need(synth,x,'synthesis check '+x);
 need(pkg,'gravity-study.json','portable study package extension');
 need(pkg,'sidecars','expert sidecar evidence packaging');
