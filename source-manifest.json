@@ -1401,6 +1401,10 @@
       "sha256": "18ec2d4dee2f8dee7499a62ca33511bf781505b68f062e8064b730b716010043"
     },
     {
+      "path": "site/assets/js/gravity-work-study-learning-curve-v58.js",
+      "sha256": "1b78553938a1a62ca78cc9a5325ddf18ddf2b124ecbe52ddc7512b7fb788334f"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-measurement-expert-v20.js",
       "sha256": "2b95661a3e97dd20af0da967c234c5270be0568fc4535702041e27d8ac338aa8"
     },
