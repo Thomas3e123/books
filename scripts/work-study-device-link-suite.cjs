@@ -7,7 +7,7 @@ const must=(ok,msg)=>{if(!ok)throw new Error(msg)};
 const backend=read('functions/work-study-link/index.mjs');
 const web=read('site/assets/js/gravity-work-study-device-link-v1.js');
 const evidence=read('site/assets/js/gravity-work-study-evidence-package-v56.js');
-const migration=read('netlify/database/migrations/20261017131000_work_study_device_link.sql');
+const migration=read('netlify/database/migrations/20261017183000_work_study_device_link.sql');
 const winMain=read('windows/gravity-work-study-lab/device-link-main.js');
 const preload=read('windows/gravity-work-study-lab/preload.js');
 const winUi=read('windows/gravity-work-study-lab/device-link.js');
