@@ -17,13 +17,16 @@ for(const name of unique){
   code=code.replace(old,replacement);
  }
  if(name==='gravity-work-study-earbud-mode-v18.js'){
-  code=code.replace("fetch('/.netlify/functions/gravity-tts'","fetch('https://thomasmonroebooks.com/.netlify/functions/gravity-tts'");
+  const old="const r=await fetch('/.netlify/functions/gravity-tts',{method:'POST',signal:AbortSignal.timeout(30000),headers:{'Content-Type':'application/json'},body:JSON.stringify({text:String(text).slice(0,2800),voice:VOICE,speed:SPEED})});if(!r.ok)throw new Error('TTS HTTP '+r.status);const ct=(r.headers.get('content-type')||'').toLowerCase();if(!ct.includes('audio'))throw new Error('TTS did not return audio');const raw=await (await r.blob()).arrayBuffer();";
+  const replacement="let raw;if(window.gravityDesktop?.requestTts){const packet=await window.gravityDesktop.requestTts({text:String(text).slice(0,2800),voice:VOICE,speed:SPEED});if(!packet?.base64)throw new Error('TTS bridge returned no audio');raw=Uint8Array.from(atob(packet.base64),c=>c.charCodeAt(0)).buffer}else{const r=await fetch('https://thomasmonroebooks.com/.netlify/functions/gravity-tts',{method:'POST',signal:AbortSignal.timeout(30000),headers:{'Content-Type':'application/json'},body:JSON.stringify({text:String(text).slice(0,2800),voice:VOICE,speed:SPEED})});if(!r.ok)throw new Error('TTS HTTP '+r.status);const ct=(r.headers.get('content-type')||'').toLowerCase();if(!ct.includes('audio'))throw new Error('TTS did not return audio');raw=await (await r.blob()).arrayBuffer();}";
+  if(!code.includes(old))throw new Error('Windows Guided voice compatibility patch no longer matches website voice source.');
+  code=code.replace(old,replacement);
  }
  fs.writeFileSync(to,code,'utf8');
 }
 fs.copyFileSync(siteCss,path.join(out,'gravity-work-study-v2.css'));
 const loader=`(()=>{'use strict';const files=${JSON.stringify(unique)};let i=0;function next(){if(i>=files.length){document.documentElement.dataset.gravityExpertStack='v63';window.dispatchEvent(new CustomEvent('gravity-work-study-windows-ready',{detail:{count:files.length,stack:'v63'}}));return}const s=document.createElement('script');s.src='expert/'+files[i++];s.onload=next;s.onerror=()=>{document.body.insertAdjacentHTML('afterbegin','<div style="padding:14px;background:#5c1b22;color:white;font-weight:800">Gravity Windows expert stack failed to load.</div>')};document.body.appendChild(s)}next()})();\n`;
 fs.writeFileSync(path.join(here,'expert-loader.js'),loader,'utf8');
-const manifest={stack:'v63',generatedAt:new Date().toISOString(),count:unique.length,files:unique,source:'site/assets/js + scripts/upgrade-work-study-lab-v2.cjs',windowsBridge:'durable-evidence-v1',guidedStability:'mutation-guard-v62 + guided-entry-v63',docxReader:'Electron main-process bridge to https://thomasmonroebooks.com/.netlify/functions/work-study-process-file',ttsReader:'https://thomasmonroebooks.com/.netlify/functions/gravity-tts'};
+const manifest={stack:'v63',generatedAt:new Date().toISOString(),count:unique.length,files:unique,source:'site/assets/js + scripts/upgrade-work-study-lab-v2.cjs',windowsBridge:'durable-evidence-v1',guidedStability:'mutation-guard-v62 + guided-entry-v63',docxReader:'Electron main-process bridge to https://thomasmonroebooks.com/.netlify/functions/work-study-process-file',ttsReader:'Electron main-process bridge to https://thomasmonroebooks.com/.netlify/functions/gravity-tts'};
 fs.writeFileSync(path.join(out,'windows-expert-manifest.json'),JSON.stringify(manifest,null,2),'utf8');
-console.log(`Synchronized ${unique.length} Work Study scripts plus premium CSS into Windows. Full expert stack through v63 verified with Guided stability and durable Windows evidence bridge.`);
+console.log(`Synchronized ${unique.length} Work Study scripts plus premium CSS into Windows. Full expert stack through v63 verified with Guided stability, Cedar bridge, and durable Windows evidence backup.`);
