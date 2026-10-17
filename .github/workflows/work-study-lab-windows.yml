@@ -14,8 +14,11 @@ on:
       - 'windows/gravity-work-study-lab/**'
       - 'site/assets/js/gravity-work-study-*.js'
       - 'site/assets/css/gravity-work-study-v2.css'
+      - 'functions/work-study-link/**'
+      - 'netlify/database/migrations/20261017183000_work_study_device_link.sql'
       - 'scripts/upgrade-work-study-lab-v2.cjs'
       - 'scripts/work-study-guided-stability-suite.cjs'
+      - 'scripts/work-study-device-link-suite.cjs'
       - '.github/workflows/work-study-lab-windows.yml'
 
 permissions:
@@ -40,15 +43,18 @@ jobs:
         run: npm run sync:expert
       - name: Verify Guided-stable full expert parity through v63
         run: npm run verify:expert
-      - name: Syntax check Windows shell and synchronized expert stack
+      - name: Syntax check Windows shell and portable-device bridge
         shell: pwsh
         run: |
+          node --check bootstrap.js
           node --check main.js
+          node --check device-link-main.js
           node --check preload.js
           node --check desktop-bridge.js
+          node --check device-link.js
           node --check expert-loader.js
           Get-ChildItem expert\*.js | ForEach-Object { node --check $_.FullName; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
-      - name: Verify required expert and stability layers are packaged
+      - name: Verify required expert, stability, and portable-device layers
         shell: pwsh
         run: |
           $required = @(
@@ -70,8 +76,15 @@ jobs:
           if (-not (Select-String -Path main.js -Pattern "https://thomasmonroebooks.com/.netlify/functions/gravity-tts" -SimpleMatch -Quiet)) { throw 'Windows Cedar TTS must use the HTTPS hosted path from the Electron main process.' }
           if (-not (Select-String -Path main.js -Pattern "ipcMain.handle('evidence:save'" -SimpleMatch -Quiet)) { throw 'Durable Windows evidence backup is missing.' }
           if (-not (Select-String -Path desktop-bridge.js -Pattern 'loadLatestEvidencePackage' -SimpleMatch -Quiet)) { throw 'Windows backup restore bridge is missing.' }
+          if (-not (Select-String -Path device-link-main.js -Pattern "ipcMain.handle('device-link:create'" -SimpleMatch -Quiet)) { throw 'Windows portable-device main-process bridge is missing.' }
+          if (-not (Select-String -Path device-link-main.js -Pattern 'https://thomasmonroebooks.com/work-study-link' -SimpleMatch -Quiet)) { throw 'Windows portable-device sync must use the hosted HTTPS route through Electron main.' }
+          if (Select-String -Path preload.js -Pattern 'ownerToken' -SimpleMatch -Quiet) { throw 'Private portable-device owner token must not be exposed to the renderer.' }
+          if (-not (Select-String -Path device-link.js -Pattern 'Bring Back Latest' -SimpleMatch -Quiet)) { throw 'Windows portable-device conflict recovery UI is missing.' }
           if (-not (Select-String -Path expert\gravity-work-study-mutation-guard-v62.js -Pattern "v62-global-cohort" -SimpleMatch -Quiet)) { throw 'Cross-observer Guided mutation-loop protection is missing.' }
           if (-not (Select-String -Path expert\gravity-work-study-guided-entry-v63.js -Pattern 'Click Guided once, then wait for Gravity to join you before clicking anything else.' -SimpleMatch -Quiet)) { throw 'Exact Guided click-once instruction is missing.' }
+      - name: Run shared portable-device integrity regression
+        working-directory: ${{ github.workspace }}
+        run: node scripts/work-study-device-link-suite.cjs
       - name: Run actual Windows Guided + durability + Cedar runtime smoke
         shell: pwsh
         run: |
@@ -98,4 +111,4 @@ jobs:
             --target "$GITHUB_SHA" \
             --prerelease \
             --title "Gravity Work Study Lab Windows Beta v0.3.0" \
-            --notes "Windows beta v0.3 candidate is published only after the live Electron Guided responsiveness test, Windows-local complete-evidence save/reload test, and Cedar main-process TTS test pass in this same workflow. Guided instruction: Click Guided once, then wait for Gravity to join you before clicking anything else. Unsigned beta: Windows SmartScreen may warn. Hosted Cedar voice and DOCX extraction require internet access. Automatic hosted cross-device sync is not yet implemented."
+            --notes "Windows beta v0.3 is published only after Guided responsiveness, Windows-local complete-evidence save/reload, Cedar main-process TTS, and portable-device integrity gates pass. Portable device sync uses a short-lived hosted connection while preserving Windows-local durable evidence and revision conflict protection. Guided instruction: Click Guided once, then wait for Gravity to join you before clicking anything else. Unsigned beta: Windows SmartScreen may warn. Hosted Cedar voice, DOCX extraction, and portable-device sync require internet access."
