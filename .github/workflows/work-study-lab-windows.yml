@@ -9,6 +9,7 @@ on:
       - 'site/assets/js/gravity-work-study-*.js'
       - 'site/assets/css/gravity-work-study-v2.css'
       - 'scripts/upgrade-work-study-lab-v2.cjs'
+      - 'scripts/work-study-guided-stability-suite.cjs'
       - '.github/workflows/work-study-lab-windows.yml'
 
 permissions:
@@ -31,19 +32,22 @@ jobs:
         run: npm audit --omit=dev --audit-level=high
       - name: Synchronize website expert brain into Windows
         run: npm run sync:expert
-      - name: Verify full expert parity through v61
+      - name: Verify Guided-stable full expert parity through v63
         run: npm run verify:expert
       - name: Syntax check Windows shell and synchronized expert stack
         shell: pwsh
         run: |
           node --check main.js
           node --check preload.js
+          node --check desktop-bridge.js
           node --check expert-loader.js
           Get-ChildItem expert\*.js | ForEach-Object { node --check $_.FullName; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
-      - name: Verify required expert layers are packaged
+      - name: Verify required expert and stability layers are packaged
         shell: pwsh
         run: |
           $required = @(
+            'gravity-work-study-mutation-guard-v62.js',
+            'gravity-work-study-guided-entry-v63.js',
             'gravity-work-study-clock-control-v32.js',
             'gravity-work-study-standard-minutes-v33.js',
             'gravity-work-study-evidence-package-v56.js',
@@ -54,13 +58,15 @@ jobs:
             'gravity-work-study-expert-triage-v61.js'
           )
           foreach ($name in $required) { if (-not (Test-Path (Join-Path 'expert' $name))) { throw "Missing required expert layer: $name" } }
-          if (-not (Select-String -Path expert\gravity-work-study-process-map-v34.js -Pattern 'https://thomasmonroebooks.com/.netlify/functions/work-study-process-file' -Quiet)) { throw 'Windows DOCX reader endpoint was not converted to the hosted absolute URL.' }
+          if (-not (Select-String -Path expert\gravity-work-study-process-map-v34.js -Pattern 'gravityDesktop?.readProcessFile' -SimpleMatch -Quiet)) { throw 'Windows DOCX reader was not routed through the Electron bridge.' }
+          if (-not (Select-String -Path main.js -Pattern "ipcMain.handle('evidence:save'" -SimpleMatch -Quiet)) { throw 'Durable Windows evidence backup is missing.' }
+          if (-not (Select-String -Path desktop-bridge.js -Pattern 'loadLatestEvidencePackage' -SimpleMatch -Quiet)) { throw 'Windows backup restore bridge is missing.' }
       - name: Build Windows installer and ZIP
         run: npm run build:win
       - name: Upload Windows beta artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: Gravity-Work-Study-Lab-Windows-Beta-v0.2.0
+          name: Gravity-Work-Study-Lab-Windows-Beta-v0.3.0
           path: |
             windows/gravity-work-study-lab/dist/*.exe
             windows/gravity-work-study-lab/dist/*.zip
@@ -74,5 +80,5 @@ jobs:
           gh release create work-study-windows-beta dist/*.exe dist/*.zip \
             --target "$GITHUB_SHA" \
             --prerelease \
-            --title "Gravity Work Study Lab Windows Beta v0.2.0" \
-            --notes "Windows beta synchronized from the same controlled Gravity Work Study expert source as the website through Expert Triage v61. Includes the premium gold-trimmed interface and complete evidence-package support. Unsigned beta: Windows SmartScreen may warn during installation. DOCX process-map extraction requires internet access; the rest of the expert study engine is packaged locally."
+            --title "Gravity Work Study Lab Windows Beta v0.3.0" \
+            --notes "Guided-stable Windows beta synchronized from the same controlled Gravity Work Study expert source as the website through Expert Triage v61 plus v62 render-loop protection and v63 Guided click-once handoff. Includes durable Windows-local complete-evidence backup/restore, manual complete-package import/export, PDF/print controls, premium interface, natural-language timing, and DOCX bridge handling. Click Guided once and wait for Gravity to be right with you before clicking anything else. Unsigned beta: Windows SmartScreen may warn. Hosted Cedar voice and DOCX extraction require internet access. Automatic hosted cross-device sync is not yet implemented."
