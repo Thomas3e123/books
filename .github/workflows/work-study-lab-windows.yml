@@ -2,6 +2,12 @@ name: Gravity Work Study Lab Windows Beta
 
 on:
   workflow_dispatch:
+    inputs:
+      publish_beta:
+        description: 'Replace the rolling Windows beta only after every v0.3 runtime gate passes'
+        required: true
+        default: false
+        type: boolean
   push:
     branches: [main]
     paths:
@@ -61,11 +67,19 @@ jobs:
           if (-not (Select-String -Path expert\gravity-work-study-process-map-v34.js -Pattern 'gravityDesktop?.readProcessFile' -SimpleMatch -Quiet)) { throw 'Windows DOCX reader was not routed through the Electron bridge.' }
           if (-not (Select-String -Path expert\gravity-work-study-earbud-mode-v18.js -Pattern 'gravityDesktop?.requestTts' -SimpleMatch -Quiet)) { throw 'Windows Guided Cedar voice was not routed through the Electron bridge.' }
           if (-not (Select-String -Path main.js -Pattern "ipcMain.handle('tts:request'" -SimpleMatch -Quiet)) { throw 'Windows Cedar TTS main-process bridge is missing.' }
+          if (-not (Select-String -Path main.js -Pattern "https://thomasmonroebooks.com/.netlify/functions/gravity-tts" -SimpleMatch -Quiet)) { throw 'Windows Cedar TTS must use the HTTPS hosted path from the Electron main process.' }
           if (-not (Select-String -Path main.js -Pattern "ipcMain.handle('evidence:save'" -SimpleMatch -Quiet)) { throw 'Durable Windows evidence backup is missing.' }
           if (-not (Select-String -Path desktop-bridge.js -Pattern 'loadLatestEvidencePackage' -SimpleMatch -Quiet)) { throw 'Windows backup restore bridge is missing.' }
+          if (-not (Select-String -Path expert\gravity-work-study-mutation-guard-v62.js -Pattern "v62-global-cohort" -SimpleMatch -Quiet)) { throw 'Cross-observer Guided mutation-loop protection is missing.' }
+          if (-not (Select-String -Path expert\gravity-work-study-guided-entry-v63.js -Pattern 'Click Guided once, then wait for Gravity to join you before clicking anything else.' -SimpleMatch -Quiet)) { throw 'Exact Guided click-once instruction is missing.' }
+      - name: Run actual Windows Guided + durability + Cedar runtime smoke
+        shell: pwsh
+        run: |
+          $env:GRAVITY_GUIDED_SMOKE = '1'
+          npx electron .
       - name: Build Windows installer and ZIP
         run: npm run build:win
-      - name: Upload Windows beta artifacts
+      - name: Upload Windows beta candidate artifacts
         uses: actions/upload-artifact@v4
         with:
           name: Gravity-Work-Study-Lab-Windows-Beta-v0.3.0
@@ -74,6 +88,7 @@ jobs:
             windows/gravity-work-study-lab/dist/*.zip
           if-no-files-found: error
       - name: Publish rolling Windows beta release
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.publish_beta == true }}
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -83,4 +98,4 @@ jobs:
             --target "$GITHUB_SHA" \
             --prerelease \
             --title "Gravity Work Study Lab Windows Beta v0.3.0" \
-            --notes "Guided-stable Windows beta synchronized from the same controlled Gravity Work Study expert source as the website through Expert Triage v61 plus v62 render-loop protection and v63 Guided click-once handoff. Includes durable Windows-local complete-evidence backup/restore, manual complete-package import/export, PDF/print controls, premium interface, natural-language timing, Cedar voice bridge, and DOCX bridge handling. Click Guided once and wait for Gravity to be right with you before clicking anything else. Unsigned beta: Windows SmartScreen may warn. Hosted Cedar voice and DOCX extraction require internet access. Automatic hosted cross-device sync is not yet implemented."
+            --notes "Windows beta v0.3 candidate is published only after the live Electron Guided responsiveness test, Windows-local complete-evidence save/reload test, and Cedar main-process TTS test pass in this same workflow. Guided instruction: Click Guided once, then wait for Gravity to join you before clicking anything else. Unsigned beta: Windows SmartScreen may warn. Hosted Cedar voice and DOCX extraction require internet access. Automatic hosted cross-device sync is not yet implemented."
