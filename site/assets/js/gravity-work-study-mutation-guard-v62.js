@@ -1,17 +1,55 @@
 (()=>{'use strict';
-// Work Study expert panels are intentionally reactive. Guided startup can cause several
-// independent expert layers to redraw the same DOM in response to one click. Suspending
-// only the observer currently delivering is not enough: observer A can wake observer B,
-// which can wake A again indefinitely. This guard creates one delivery window for the
-// complete Work Study observer cohort. While any observer callback redraws the page, every
-// wrapped observer is disconnected; records caused by that redraw are discarded, then the
-// observers are reattached to their requested targets. User/browser mutations that happen
-// after the redraw continue to be observed normally.
+// Work Study has many expert panels watching the same application DOM. A single user
+// action can replace the Work Study screen, which wakes many observers at once. If those
+// observers render independently, their own markup can wake other observers and create a
+// redraw storm. This wrapper batches every observer awakened by the same DOM change into
+// one delivery window. The complete cohort is disconnected while expert callbacks render,
+// so expert markup cannot recursively trigger another expert pass.
 const Native=window.MutationObserver;
 if(!Native||window.__gravityWorkStudySafeMutationObserver)return;
 
 const registry=new Set();
-const state={delivering:false,callbackCount:0,skippedCallbacks:0,lastDeliveryAt:0};
+const pending=new Map();
+const state={delivering:false,callbackCount:0,batchCount:0,skippedCallbacks:0,lastDeliveryAt:0};
+let flushTimer=null;
+
+function queue(observer,records){
+ if(!records||!records.length)return;
+ const prior=pending.get(observer)||[];
+ prior.push(...records);
+ pending.set(observer,prior);
+ if(flushTimer===null)flushTimer=setTimeout(flush,0);
+}
+
+function flush(){
+ flushTimer=null;
+ if(state.delivering){
+  if(pending.size&&flushTimer===null)flushTimer=setTimeout(flush,0);
+  return;
+ }
+ if(!pending.size)return;
+ const deliveries=Array.from(pending.entries());
+ pending.clear();
+ const cohort=Array.from(registry);
+ state.delivering=true;
+ state.batchCount++;
+ state.lastDeliveryAt=Date.now();
+ for(const observer of cohort)observer.suspend();
+ try{
+  for(const [observer,records] of deliveries){
+   if(!registry.has(observer)||!records.length)continue;
+   state.callbackCount++;
+   try{observer.callback(records,observer)}catch(err){setTimeout(()=>{throw err},0)}
+  }
+ }finally{
+  // Expert callbacks may replace or add large DOM sections. Those mutations happened
+  // while the native observers were disconnected, so they do not create another pass.
+  for(const observer of cohort)observer.native.takeRecords();
+  state.delivering=false;
+  for(const observer of cohort)observer.resume();
+  if(pending.size&&flushTimer===null)flushTimer=setTimeout(flush,0);
+ }
+}
 
 class SafeMutationObserver{
  constructor(callback){
@@ -19,7 +57,7 @@ class SafeMutationObserver{
   this.callback=callback;
   this.targets=new Map();
   this.suspended=false;
-  this.native=new Native((records)=>this.deliver(records));
+  this.native=new Native(records=>queue(this,records));
   registry.add(this);
  }
  observe(target,options){
@@ -29,10 +67,17 @@ class SafeMutationObserver{
  disconnect(){
   this.native.disconnect();
   this.targets.clear();
+  pending.delete(this);
+  registry.delete(this);
  }
- takeRecords(){return this.native.takeRecords();}
+ takeRecords(){
+  const queued=pending.get(this)||[];
+  pending.delete(this);
+  return queued.concat(this.native.takeRecords());
+ }
  suspend(){
-  this.native.takeRecords();
+  const records=this.native.takeRecords();
+  if(records.length)queue(this,records);
   this.native.disconnect();
   this.suspended=true;
  }
@@ -41,27 +86,7 @@ class SafeMutationObserver{
   this.suspended=false;
   for(const [target,options] of this.targets)this.native.observe(target,options);
  }
- deliver(records){
-  if(!records||!records.length)return;
-  if(state.delivering){
-   state.skippedCallbacks++;
-   this.native.takeRecords();
-   return;
-  }
-  state.delivering=true;
-  state.callbackCount++;
-  state.lastDeliveryAt=Date.now();
-  const cohort=Array.from(registry);
-  for(const observer of cohort)observer.suspend();
-  try{
-   this.callback(records,this);
-  }finally{
-   // Drop mutations caused by expert redraws before observers are made live again.
-   for(const observer of cohort)observer.native.takeRecords();
-   state.delivering=false;
-   for(const observer of cohort)observer.resume();
-  }
- }
+ deliver(records){queue(this,records)}
 }
 
 window.MutationObserver=SafeMutationObserver;
