@@ -1285,6 +1285,10 @@
       "sha256": "bd0db42ed8496dbf84fe5252d8c7902d608e8160fcc3c651887ca6c3754369c0"
     },
     {
+      "path": "site/assets/js/gravity-shift-first-schedule-tour-v1.js",
+      "sha256": "60254d4c5f9b3f3df1dac8ad8b5ed10a55562f78341c4da73c355cf757a73cde"
+    },
+    {
       "path": "site/assets/js/gravity-shift-lab.js",
       "sha256": "52d6b37c3ccb086fd3ad96ddf1922d65d609fae7a7ad1b6cc1cb6210b036520d"
     },
@@ -1810,7 +1814,7 @@
     },
     {
       "path": "site/gravity-shift-lab.html",
-      "sha256": "ababa2c661ae161b63559dcb62b0118e7ebe704157dd74870eb58002c25456f3"
+      "sha256": "f8cec0e27172f5fadc700fe5287a6927779e87d4f5f8a813b29a39161ef272cb"
     },
     {
       "path": "site/gravity-shift-lab.webmanifest",
@@ -2178,7 +2182,7 @@
     },
     {
       "path": "site/sitemap.xml",
-      "sha256": "aae90c5beeec046561a11f2df9385b4d467d332d27750a4b7112c2fdbf3387d7"
+      "sha256": "ca814e1a2aac6f59f803e37258231232a2125108ae1b05193154234ec90149f4"
     },
     {
       "path": "site/standards-library.html",
