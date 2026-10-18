@@ -76,6 +76,8 @@ async function runGuidedSmoke(win){
 function createWindow(){
  const win=new BrowserWindow({width:1440,height:930,minWidth:1020,minHeight:700,backgroundColor:'#061116',show:false,webPreferences:{preload:path.join(__dirname,'preload.js'),contextIsolation:true,nodeIntegration:false,sandbox:true}});
  win.removeMenu();
+ // Only grant microphone access to the packaged Work Study window after the user requests it.
+ win.webContents.session.setPermissionRequestHandler((contents,permission,callback,details)=>{const isLocal=contents===win.webContents&&contents.getURL().startsWith('file://');const isMic=permission==='media'&&(!details?.mediaTypes||details.mediaTypes.includes('audio'));callback(Boolean(isLocal&&isMic));});
  win.webContents.setWindowOpenHandler(({url})=>{if(/^https:\/\//i.test(url))shell.openExternal(url);return{action:'deny'}});
  win.webContents.on('will-navigate',(event,url)=>{if(url!==win.webContents.getURL())event.preventDefault();});
  if(GUIDED_SMOKE){
