@@ -27,5 +27,6 @@ contextBridge.exposeInMainWorld('gravityDesktop',{
  endDeviceLink:()=>ipcRenderer.invoke('device-link:end'),
  savePdf:name=>ipcRenderer.invoke('report:pdf',name),
  print:()=>ipcRenderer.invoke('report:print'),
+ transcribeRecording:(bytes,mime)=>ipcRenderer.invoke('recording:transcribe',{bytes,mime}),
  openDataFolder:()=>ipcRenderer.invoke('system:open-data')
 });
