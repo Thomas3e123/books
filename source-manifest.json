@@ -1466,7 +1466,7 @@
     },
     {
       "path": "site/assets/js/gravity-work-study-recorded-observation-v1.js",
-      "sha256": "c1765904fd158e4e66745559768f0856eac02f1852df86e23994d4c9af94ccc0"
+      "sha256": "8620b72dbfcbf1aa27c034d2d20e266369b383d78e617d4eceeb62dabae75d7e"
     },
     {
       "path": "site/assets/js/gravity-work-study-repeatability-expert-v14.js",
@@ -2259,6 +2259,10 @@
     {
       "path": "functions/work-study-process-file/work-study-process-file.js",
       "sha256": "103f192ed8b1d5523cff8fd43e20a7a7e461548ed9541eb37c9307430ca60b4a"
+    },
+    {
+      "path": "functions/work-study-transcribe/work-study-transcribe.js",
+      "sha256": "db06936dde65293187c83cd75b695b75cfa547f469e26eb1840fec20a7d023d8"
     },
     {
       "path": "netlify/database/migrations/20261010070000_foundry_hosted_employee.sql",
