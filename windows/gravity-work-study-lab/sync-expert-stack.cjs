@@ -4,7 +4,7 @@ const here=__dirname,root=path.resolve(here,'..','..'),siteJs=path.join(root,'si
 if(!fs.existsSync(upgrade))throw new Error('Website Work Study installer not found.');
 const src=fs.readFileSync(upgrade,'utf8');
 const matches=[...src.matchAll(/\['(gravity-work-study-[^']+\.js)','([^']+)'\]/g)];
-const names=['gravity-work-study-mutation-guard-v62.js','gravity-work-study-v2.js','gravity-work-study-guided-entry-v63.js',...matches.map(m=>m[1])];
+const names=['gravity-work-study-mutation-guard-v62.js','gravity-work-study-v2.js','gravity-work-study-guided-entry-v63.js','gravity-work-study-recorded-observation-v1.js',...matches.map(m=>m[1])];
 const unique=[...new Set(names)];
 for(const required of ['gravity-work-study-mutation-guard-v62.js','gravity-work-study-guided-entry-v63.js','gravity-work-study-clock-control-v32.js','gravity-work-study-standard-minutes-v33.js','gravity-work-study-evidence-package-v56.js','gravity-work-study-ergonomics-v57.js','gravity-work-study-learning-curve-v58.js','gravity-work-study-context-conditions-v59.js','gravity-work-study-sustainable-pace-v60.js','gravity-work-study-expert-triage-v61.js'])if(!unique.includes(required))throw new Error('Parity check failed. Missing '+required);
 fs.rmSync(out,{recursive:true,force:true});fs.mkdirSync(out,{recursive:true});
