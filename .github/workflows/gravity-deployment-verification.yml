@@ -1,0 +1,28 @@
+name: Gravity Deployment Verification (No Deploy)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-without-netlify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Create release-gate report (read-only)
+        run: node scripts/gravity-deployment-verification.cjs
+      - name: Check Work Study JavaScript syntax
+        run: |
+          node --check site/assets/js/gravity-work-study-recorded-observation-v1.js
+          node --check site/assets/js/gravity-work-study-recording-review-v1.js
+          node --check functions/work-study-transcribe/work-study-transcribe.js
+      - name: Check website source manifest
+        run: npm run build
+      - name: Upload verification report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gravity-deployment-verification
+          path: gravity-deployment-verification.md
