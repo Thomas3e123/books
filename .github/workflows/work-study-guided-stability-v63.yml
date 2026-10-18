@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'site/gravity-work-study-lab.html'
+      - 'site/windows-programs.html'
       - 'site/assets/js/gravity-work-study-mutation-guard-v62.js'
       - 'site/assets/js/gravity-work-study-guided-entry-v63.js'
       - 'site/assets/js/gravity-work-study-device-link-v1.js'
