@@ -55,9 +55,13 @@ async function run(win,base){
   if(published.status!==200)throw Error('Approved SOP publication failed: '+JSON.stringify(published.data));
   const employee=await (await fetch('/api/published-sops')).json();
   if(!employee.data?.sops?.some(sop=>sop.id===id))throw Error('Published SOP not visible in Employee Library');
+  const prior=await window.GravityFoundryWeb.load();
+  const priorDraft=prior.workroom?.sops?.find(x=>x.id===id);
+  if(!priorDraft)throw Error('SOP working copy vanished between save and revision, likely competing initialization');
+  if(priorDraft.steps?.length!==2)throw Error('Unexpected original SOP step count: '+JSON.stringify(priorDraft.steps));
   const revision={...entry,steps:[...entry.steps,'Verify the records before closing the station.'],changeSummary:'Revised closing verification'};
   const changed=await request('/api/workroom','PUT',{restaurant:'Candidate Smoke',sops:[revision],recipes:[]});
-  if(changed.status!==200||changed.data.sopRevisions?.find(x=>x.id===id)?.status!=='Draft')throw Error('SOP revision did not return to Draft for reapproval: '+JSON.stringify(changed));
+  if(changed.status!==200||changed.data.sopRevisions?.find(x=>x.id===id)?.status!=='Draft')throw Error('SOP revision did not return to Draft for reapproval: '+JSON.stringify({changed,priorDraft}));
   const archive=await window.GravityFoundryWeb.load();
   if(!archive.history.some(item=>item.item?.id===id&&item.kind==='sop'))throw Error('Previous SOP revision was not archived');
   if(!archive.publishedSops[id]||archive.publishedSops[id].steps.length!==2)throw Error('Draft change altered published employee SOP');
