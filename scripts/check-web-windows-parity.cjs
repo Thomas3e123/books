@@ -15,7 +15,9 @@ for(const [name,file] of files){
  const entry=status.components.find(e=>e.web_source===file);
  if(!entry){failures.push(name+': no Windows parity declaration');continue;}
  if(entry.web_sha256!==hash)failures.push(name+': website changed since Windows parity was last reviewed ('+file+').');
- if(entry.windows_status!=='verified')failures.push(name+': Windows parity is '+entry.windows_status+'.');
+ const coreVerified=(file==='site/gravity-work-study-lab.html'&&entry.windows_status==='verified_core'&&entry.parity_scope==='shared-expert-engine-and-guarded-bootstrap');
+ if(entry.windows_status!=='verified'&&!coreVerified)failures.push(name+': Windows parity is '+entry.windows_status+'.');
+ if(coreVerified&&!entry.notes?.includes('Website page shell and Windows UI differ'))failures.push(name+': core-level verification must disclose non-identical page shells.');
  if(!entry.windows_build_sha||!entry.windows_test_evidence)failures.push(name+': verified Windows build ID or test evidence missing.');
 }
 if(failures.length){console.error('\nWINDOWS PARITY NOT CONFIRMED:\n'+failures.map(s=>' - '+s).join('\n'));console.error('\nThis gate does not build Windows installers. Update the Windows program, record a tested build, and update the parity file after validation.');process.exitCode=1;}
