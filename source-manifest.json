@@ -1862,7 +1862,7 @@
     },
     {
       "path": "site/gravity-inventory-center.html",
-      "sha256": "d7636d08a7273180e1098791c8ea8e33751f093940812e8cc98a44fd4314cfbe"
+      "sha256": "5cbc9460d601da9b7dcd98a959a2a3e6def2f45ee5ef0f27d3d7473478176785"
     },
     {
       "path": "site/gravity-numbers-lab.html",
@@ -1882,7 +1882,7 @@
     },
     {
       "path": "site/gravity-shift-lab.html",
-      "sha256": "f8cec0e27172f5fadc700fe5287a6927779e87d4f5f8a813b29a39161ef272cb"
+      "sha256": "1c4693c994aa7a4226f32f5be664b83a03e03e97f1b81c5b3ea4da3a78b64238"
     },
     {
       "path": "site/gravity-shift-lab.webmanifest",
@@ -1894,7 +1894,7 @@
     },
     {
       "path": "site/gravity-sop-foundry.html",
-      "sha256": "c1e367b922220ac0b8524312a85991cfbb267ca489cbfc9db81d0da8cf91e167"
+      "sha256": "264f2fc06b51a085325dbcefb04070f2dd9cceb0785751f22465cf41dfb52356"
     },
     {
       "path": "site/gravity-sop-library-set.html",
@@ -1918,7 +1918,7 @@
     },
     {
       "path": "site/gravity-work-study-lab.html",
-      "sha256": "4ea517688388140f124f6e8ca703219998cd23806c5552221304c88d7d51c19b"
+      "sha256": "3e467f3eb7937262729b454b2330e3bf7e7ef09bf57886bd6d38666591c4d690"
     },
     {
       "path": "site/guest-service-complaints-recovery-workbook.html",
@@ -2298,7 +2298,7 @@
     },
     {
       "path": "site/windows-programs.html",
-      "sha256": "68e342c631bb6b3a72c405641f90c30955f47fc240c30ae45aacbd9450545595"
+      "sha256": "260148ed19ae21d2ac0737db937ead18f22f8d9978171dce58490db04e1b9934"
     },
     {
       "path": "site/work-study-prebeta-build.txt",
