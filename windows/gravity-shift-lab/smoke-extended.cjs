@@ -11,6 +11,7 @@ async function run(win) {
     if(document.querySelector('#lab-body .employee-wage'))fail('Manager wage inputs unlocked themselves after reload');
     if(!get('lab-backup').disabled||!get('lab-restore').disabled||!get('lab-print-manager').disabled)fail('Sensitive actions not protected after reload');
     if(Math.abs(parseFloat(get('g-percent').textContent)-15.4)>0.05)fail('Protected management labor basis lost after reload');
+    console.log('[SHIFT-SMOKE] Pay lock persistence verified');
     get('lab-pay-lock').click();
     if(!get('pay-lock-dialog').open)fail('Manager unlock prompt missing after restart');
     set(get('pay-lock-secret'),'incorrect-pin');
@@ -21,6 +22,7 @@ async function run(win) {
     get('pay-lock-submit').click();
     for(let i=0;i<35&&get('pay-lock-dialog').open;i++)await wait(80);
     if(get('pay-lock-dialog').open||!document.querySelector('#lab-body .employee-wage'))fail('Correct PIN did not unlock wages');
+    console.log('[SHIFT-SMOKE] PIN checks completed');
     // Intercept the normal backup download only within this test runner.
     const nativeCreateURL=URL.createObjectURL;
     const nativeClick=HTMLAnchorElement.prototype.click;
@@ -38,6 +40,7 @@ async function run(win) {
     if(!saved||Number(saved.wage)!==20)fail('Backup omitted the employee or salary data');
     const weeks=Object.values(backup.schedules);
     if(!weeks.length||!weeks.some(w=>Object.values(w.shifts||{}).some(sh=>sh.filter(x=>x==='10a-6p').length===6)))fail('Weekly schedule absent from backup');
+    console.log('[SHIFT-SMOKE] Backup exported and validated');
     // Destructively edit only the temporary test profile, then restore the saved backup.
     const row=[...document.querySelectorAll('#lab-body tr[data-employee-id]')].find(x=>x.querySelector('.employee-name')?.value==='Windows Smoke Tester');
     set(row.querySelector('.employee-name'),'Temporarily Modified Employee');
@@ -51,6 +54,7 @@ async function run(win) {
     const restored=[...document.querySelectorAll('#lab-body tr[data-employee-id]')].find(x=>x.querySelector('.employee-name')?.value==='Windows Smoke Tester');
     if(!restored||Number(restored.querySelector('.employee-wage')?.value)!==20)fail('Employee/wage missing after backup restore');
     if(Math.abs(parseFloat(get('g-hours').textContent)-56)>0.01)fail('Schedule hours incorrect after backup restore');
+    console.log('[SHIFT-SMOKE] Backup restore validated');
     // Exercise print buttons, printed employee snapshot and QR canvas without opening OS print dialogs.
     const captures=[];
     const originalPrint=window.print;
@@ -74,6 +78,7 @@ async function run(win) {
       if(captures.length!==2||captures[1].mode!=='manager')fail('Manager print action did not run');
       if(!captures[1].total.includes('$'))fail('Manager print lacks labor cost');
     }finally{window.print=originalPrint;}
+    console.log('[SHIFT-SMOKE] Employee and manager print paths validated');
     // Independently parse the compressed employee QR payload and check payroll privacy.
     get('lab-publish').click();get('publish-generate').click();
     for(let i=0;i<35&&!get('publish-link').textContent.startsWith('https:');i++)await wait(100);
@@ -94,6 +99,7 @@ async function run(win) {
     const employeeData=JSON.parse(plain);
     if(!Array.isArray(employeeData.w)||!employeeData.w.length)fail('QR payload missing scheduled week');
     if(/wage|salary|payLockHash|managerSalaryAllocation|phone|\\btest-4826\\b/i.test(plain))fail('Private manager information found in decoded QR payload');
+    console.log('[SHIFT-SMOKE] QR payload decoded and payroll privacy validated');
     get('publish-close').click();
     return {payLockAfterReload:true,wrongPinRejected:true,backupDownloaded:true,restoreVerified:true,
       employeePrint:true,managerPrint:true,printedQR:true,decodedEmployeeQRPrivate:true};
