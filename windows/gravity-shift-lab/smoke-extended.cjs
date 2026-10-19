@@ -86,8 +86,9 @@ async function run(win) {
     let unpacked=bytes;
     if(parts[0]==='d'){
       const ds=new DecompressionStream('deflate-raw');
-      const writer=ds.writable.getWriter();await writer.write(bytes);await writer.close();
-      unpacked=new Uint8Array(await new Response(ds.readable).arrayBuffer());
+      const writer=ds.writable.getWriter();const reading=new Response(ds.readable).arrayBuffer();
+      writer.write(bytes);writer.close();
+      unpacked=new Uint8Array(await reading);
     }
     const plain=new TextDecoder().decode(unpacked);
     const employeeData=JSON.parse(plain);
