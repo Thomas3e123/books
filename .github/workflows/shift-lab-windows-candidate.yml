@@ -18,8 +18,8 @@ jobs:
       run:
         working-directory: windows/gravity-shift-lab
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
       - run: npm install
@@ -34,7 +34,7 @@ jobs:
           if (-not (Test-Path app/PARITY_MANIFEST.json)) { throw 'Parity manifest missing' }
       - name: Build Windows candidate
         run: npm run build:win
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: Gravity-Shift-Lab-Windows-Candidate
           path: |
