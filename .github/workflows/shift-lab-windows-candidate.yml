@@ -31,6 +31,7 @@ jobs:
           node --check sync-site.cjs
           node --check smoke.cjs
           node --check smoke-extended.cjs
+          node --check smoke-print-pdf.cjs
           node --check app/assets/js/gravity-shift-lab.js
           node --check app/assets/js/gravity-shift-first-schedule-tour-v1.js
           if (-not (Test-Path app/PARITY_MANIFEST.json)) { throw 'Parity manifest missing' }
