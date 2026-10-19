@@ -1,8 +1,68 @@
 {
   "files": [
     {
-      "path": "site/404.html",
-      "sha256": "29dd5c90860de820ac3dada675de0b2f561968a6dd1a0635df9579e3ee8570f2"
+      "path": "functions/foundry-hosted/core.mjs",
+      "sha256": "3e0f9f465f9cd603b481edb025316b003e38950a6e56620121b2cffc65398ae2"
+    },
+    {
+      "path": "functions/foundry-hosted/index.mjs",
+      "sha256": "91a0c3d20c33f039dc9afe17ec91414cfe1db5aadc2ebb7645b45bc9ceb4971f"
+    },
+    {
+      "path": "functions/gravity-guide/gravity-guide.js",
+      "sha256": "f17f2c839ef794ad9a98f816915ffd9f7710ec9d484a8f959c30ceaa5c65a6fa"
+    },
+    {
+      "path": "functions/gravity-guide/guide-core.mjs",
+      "sha256": "c6a61338d75c337edbad82441de6e245b4a14c0bd44b75211369f56b712d9917"
+    },
+    {
+      "path": "functions/gravity-tts/gravity-tts.js",
+      "sha256": "8f192a1ee09051714bef447ef522d9e8c61dc329b5bf8705c7ff72d12c496c15"
+    },
+    {
+      "path": "functions/testing-room/index.mjs",
+      "sha256": "166d5cee8ea5ad65f30dd436ca6683de4005f75b883f52c29867c707a71de08c"
+    },
+    {
+      "path": "functions/work-study-link/index.mjs",
+      "sha256": "9e438b915818401a11dd81658204e0882d10e6d89b635df0cada471df370b5d5"
+    },
+    {
+      "path": "functions/work-study-process-file/work-study-process-file.js",
+      "sha256": "103f192ed8b1d5523cff8fd43e20a7a7e461548ed9541eb37c9307430ca60b4a"
+    },
+    {
+      "path": "functions/work-study-transcribe/work-study-transcribe.js",
+      "sha256": "db06936dde65293187c83cd75b695b75cfa547f469e26eb1840fec20a7d023d8"
+    },
+    {
+      "path": "netlify.toml",
+      "sha256": "389153ef57900cf413fa28f2cafb316372feea8fc6fca745084b23c9b0d55285"
+    },
+    {
+      "path": "netlify/database/migrations/20261010070000_foundry_hosted_employee.sql",
+      "sha256": "d74a490a1162ce65fdab380a1c0cf5df03c41b864a7f935463252ead5f0f793a"
+    },
+    {
+      "path": "netlify/database/migrations/20261014133000_gravity_testing_room.sql",
+      "sha256": "3e09357ab78ae8a8f604b7adbca320c164e860f893015b2213c4d149b37e9b4a"
+    },
+    {
+      "path": "netlify/database/migrations/20261014134500_gravity_testing_groups.sql",
+      "sha256": "e7a210491092d9c36466e1dcc09d37c539f5c450f04f6946c8cdea2cd25d9864"
+    },
+    {
+      "path": "netlify/database/migrations/20261017183000_work_study_device_link.sql",
+      "sha256": "669c62119f05d2de6706396617192b865d41415b7687adf46b288c8a8777388d"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "806f5cde89646bfb9981b8712e7e052e4ed74448e9b9f288ceb518f1b78fccf1"
+    },
+    {
+      "path": "package.json",
+      "sha256": "f847681ea2eb9c7600ee1e3efece34108fc8e65660d9edd19c180eb08b097653"
     },
     {
       "path": "site/_headers",
@@ -11,6 +71,10 @@
     {
       "path": "site/_redirects",
       "sha256": "5d9cd1989f8f6c8e01019728cee6f14c93fc487afda556f452b25492b0f0a967"
+    },
+    {
+      "path": "site/404.html",
+      "sha256": "29dd5c90860de820ac3dada675de0b2f561968a6dd1a0635df9579e3ee8570f2"
     },
     {
       "path": "site/about.html",
@@ -59,6 +123,10 @@
     {
       "path": "site/apps/sop-foundry/assistant.js",
       "sha256": "94635be50306c2081d86f5cb99c28aceed33859d338ef5c4d1701a2f89682bde"
+    },
+    {
+      "path": "site/apps/sop-foundry/binder-builder.js",
+      "sha256": "95fc05ebe6b712f3833f9d90ced99821534f4c969022b580db3995e2c23ce935"
     },
     {
       "path": "site/apps/sop-foundry/branding-config.js",
@@ -294,7 +362,7 @@
     },
     {
       "path": "site/apps/sop-foundry/workroom.html",
-      "sha256": "c60f391ef5daa1af16d4e8301d38de0375fd792bf9726e1e8ce3d9239b9c8861"
+      "sha256": "9c28c2b91acc0e7a191cf2b0b9bfd437ed36db9e70eb89776de73a070b5f4835"
     },
     {
       "path": "site/assets/css/book-reader.css",
@@ -389,50 +457,6 @@
       "sha256": "ae2422e64d1608e27259e6ca8eef3d7d2ecb06fdf49a9be3de513d0397c879f2"
     },
     {
-      "path": "site/assets/downloads/GRAVITY_ELITE_DAILY_CONTROL_FORMS_v1.0.docx",
-      "sha256": "bf4929779f13f7ed46942de8c57184dfffb30dabc4ac51dc07ab6422aff278a0"
-    },
-    {
-      "path": "site/assets/downloads/GRAVITY_ELITE_DAILY_CONTROL_FORMS_v1.0.pdf",
-      "sha256": "a2e9afac1ab70d6091fcad03c66fa19d71a063e59bd34e2e10d374a79a799dd3"
-    },
-    {
-      "path": "site/assets/downloads/GRAVITY_ELITE_OPERATIONAL_LOGS_v1.0.xlsx",
-      "sha256": "fcd55e5f4e6e587b1d334188b8a19733ef7f5c0f0dfd3ae688de43424c1f7881"
-    },
-    {
-      "path": "site/assets/downloads/GRAVITY_FEEDBACK_AND_REVIEWS_INSERT_v1.2_2026-09-05.pdf",
-      "sha256": "de36d9b5921f4f90bd4cae100300d6b8948afed7f06f8c6f52d31a4a864033bf"
-    },
-    {
-      "path": "site/assets/downloads/GRAVITY_FEEDBACK_AND_REVIEWS_INSERT_v1.3_2026-09-18.pdf",
-      "sha256": "de36d9b5921f4f90bd4cae100300d6b8948afed7f06f8c6f52d31a4a864033bf"
-    },
-    {
-      "path": "site/assets/downloads/GRAVITY_RECIPE_WORKS_OFFLINE_2026-09-19.html",
-      "sha256": "6d598bca23005f1cc1cb0cc7cd5b72c13cad100de95b2c355fd7cd4977e95635"
-    },
-    {
-      "path": "site/assets/downloads/GRAVITY_Restaurant_Bar_Beverage_Inventory_Ordering_v1.0.pdf",
-      "sha256": "38467de7fcd1ea18a05e2cad34baf4fe71b53a60d81560717382f08f635ef46c"
-    },
-    {
-      "path": "site/assets/downloads/GRAVITY_Restaurant_Bar_Beverage_Pour_Cost_Control_v1.0.pdf",
-      "sha256": "574221c7e80792ebbed27d5602e9dfcb65fd0e1052d25834243f5fb35032c0ad"
-    },
-    {
-      "path": "site/assets/downloads/Gravity_Training_Assignment_Verification_Record_Fast_v1.docx",
-      "sha256": "11e1b1db502a19c9c7da79b1525813ac4a57d42e034f365ec5113a54d7fd0e6a"
-    },
-    {
-      "path": "site/assets/downloads/Gravity_Training_Assignment_Verification_Record_Full_v1.docx",
-      "sha256": "17b5867db6a4ff200757054888a2e033f69eba9d9ee56553a148062b27f943fb"
-    },
-    {
-      "path": "site/assets/downloads/MANAGER_READINESS_LEADERSHIP_DEVELOPMENT_REVIEW_EDITION.zip",
-      "sha256": "548ee4673aa1410c8fd5399222986889898dce215f42a775eebaf11588422803"
-    },
-    {
       "path": "site/assets/downloads/book-companion-tools/BAR_BEVERAGE_INVENTORY_ORDERING_FORMS_COMPANION_PACK_v1.0.pdf",
       "sha256": "b0126603e1944cea1440dd7d682e6b6a18c7a452971b98de1250aaf743d1866d"
     },
@@ -509,6 +533,46 @@
       "sha256": "f01fb786102578a95c510515bac4a3d4bff3f627cd7cef1741f5856c2e107cb1"
     },
     {
+      "path": "site/assets/downloads/GRAVITY_ELITE_DAILY_CONTROL_FORMS_v1.0.docx",
+      "sha256": "bf4929779f13f7ed46942de8c57184dfffb30dabc4ac51dc07ab6422aff278a0"
+    },
+    {
+      "path": "site/assets/downloads/GRAVITY_ELITE_DAILY_CONTROL_FORMS_v1.0.pdf",
+      "sha256": "a2e9afac1ab70d6091fcad03c66fa19d71a063e59bd34e2e10d374a79a799dd3"
+    },
+    {
+      "path": "site/assets/downloads/GRAVITY_ELITE_OPERATIONAL_LOGS_v1.0.xlsx",
+      "sha256": "fcd55e5f4e6e587b1d334188b8a19733ef7f5c0f0dfd3ae688de43424c1f7881"
+    },
+    {
+      "path": "site/assets/downloads/GRAVITY_FEEDBACK_AND_REVIEWS_INSERT_v1.2_2026-09-05.pdf",
+      "sha256": "de36d9b5921f4f90bd4cae100300d6b8948afed7f06f8c6f52d31a4a864033bf"
+    },
+    {
+      "path": "site/assets/downloads/GRAVITY_FEEDBACK_AND_REVIEWS_INSERT_v1.3_2026-09-18.pdf",
+      "sha256": "de36d9b5921f4f90bd4cae100300d6b8948afed7f06f8c6f52d31a4a864033bf"
+    },
+    {
+      "path": "site/assets/downloads/GRAVITY_RECIPE_WORKS_OFFLINE_2026-09-19.html",
+      "sha256": "6d598bca23005f1cc1cb0cc7cd5b72c13cad100de95b2c355fd7cd4977e95635"
+    },
+    {
+      "path": "site/assets/downloads/GRAVITY_Restaurant_Bar_Beverage_Inventory_Ordering_v1.0.pdf",
+      "sha256": "38467de7fcd1ea18a05e2cad34baf4fe71b53a60d81560717382f08f635ef46c"
+    },
+    {
+      "path": "site/assets/downloads/GRAVITY_Restaurant_Bar_Beverage_Pour_Cost_Control_v1.0.pdf",
+      "sha256": "574221c7e80792ebbed27d5602e9dfcb65fd0e1052d25834243f5fb35032c0ad"
+    },
+    {
+      "path": "site/assets/downloads/Gravity_Training_Assignment_Verification_Record_Fast_v1.docx",
+      "sha256": "11e1b1db502a19c9c7da79b1525813ac4a57d42e034f365ec5113a54d7fd0e6a"
+    },
+    {
+      "path": "site/assets/downloads/Gravity_Training_Assignment_Verification_Record_Full_v1.docx",
+      "sha256": "17b5867db6a4ff200757054888a2e033f69eba9d9ee56553a148062b27f943fb"
+    },
+    {
       "path": "site/assets/downloads/gravity-elite-editable-restaurant-employee-handbook-v2.0.docx",
       "sha256": "a2ba72627fe9bf58a8fc337da3154197544236c42ff1a4e01b966112fb0f1973"
     },
@@ -559,6 +623,10 @@
     {
       "path": "site/assets/downloads/labor-tracking-weekly-review-pack-elite-v1.0.pdf",
       "sha256": "5a817f0870e8113fffd4eb554350694b6ca0b6f5f5d502c5f6bfaadfa825c790"
+    },
+    {
+      "path": "site/assets/downloads/MANAGER_READINESS_LEADERSHIP_DEVELOPMENT_REVIEW_EDITION.zip",
+      "sha256": "548ee4673aa1410c8fd5399222986889898dce215f42a775eebaf11588422803"
     },
     {
       "path": "site/assets/downloads/manager-labor-control-improvement-pack-elite-v1.0.pdf",
@@ -649,22 +717,6 @@
       "sha256": "a97a8531855dbeb8af3723f8f89a5ed769e940bc286fc26439445e6714dc04a6"
     },
     {
-      "path": "site/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.docx",
-      "sha256": "833a58bfb19ae03dc9969145676c06650a68a2a78f78294ec6dd5b9f909c8165"
-    },
-    {
-      "path": "site/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.pdf",
-      "sha256": "44fb2443b9778aea62125934f5b109b5394fa929c0211098aa902ac832a933a2"
-    },
-    {
-      "path": "site/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_COLOR.docx",
-      "sha256": "de31c01790523a4c42b757b4515746ecb047ee10b5ec25f75008e50af6b0144a"
-    },
-    {
-      "path": "site/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_COLOR.pdf",
-      "sha256": "01509357f259955734b1780506e18b370e7c34700869260f9a9b0dfeb4ba22bd"
-    },
-    {
       "path": "site/assets/downloads/windows/manuals/Gravity_Shift_Lab_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.docx",
       "sha256": "c5c504e7aa7df17200e60f147dc64508d370c18abd9c49f683ca3afa4894504d"
     },
@@ -679,6 +731,22 @@
     {
       "path": "site/assets/downloads/windows/manuals/Gravity_Shift_Lab_Windows_Beta_Full_User_Manual_COLOR.pdf",
       "sha256": "490e20313f72c0c5548f562f9182974950e9e87c4c75da4f293dbe4308d6a93a"
+    },
+    {
+      "path": "site/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.docx",
+      "sha256": "833a58bfb19ae03dc9969145676c06650a68a2a78f78294ec6dd5b9f909c8165"
+    },
+    {
+      "path": "site/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.pdf",
+      "sha256": "44fb2443b9778aea62125934f5b109b5394fa929c0211098aa902ac832a933a2"
+    },
+    {
+      "path": "site/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_COLOR.docx",
+      "sha256": "de31c01790523a4c42b757b4515746ecb047ee10b5ec25f75008e50af6b0144a"
+    },
+    {
+      "path": "site/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_COLOR.pdf",
+      "sha256": "01509357f259955734b1780506e18b370e7c34700869260f9a9b0dfeb4ba22bd"
     },
     {
       "path": "site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_215_PROMPTS_2026-09-16.docx",
@@ -721,16 +789,16 @@
       "sha256": "a4a1fd07a65e2e5bd1ae806297ad4343bf2e016b76e65522e28350b7840e0c50"
     },
     {
+      "path": "site/assets/free-resources/packages/current/GRV-F_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+      "sha256": "8fed4787e30f93fdaa797d216612f1a6a2d698bada19807345ca44bbe95103d7"
+    },
+    {
       "path": "site/assets/free-resources/packages/current/GRV-FM_SYSTEM_RELEASE_1.1_2026-08-22.zip",
       "sha256": "f6b0cc5ae645273497fd6e98fa38a1ee9e9d785edb8b879b8403512644f71896"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-FS_SYSTEM_RELEASE_1.1_2026-08-22.zip",
       "sha256": "f0d9cbc5e32c1760a48b8198c511d9dffba37ea28cf7d2d932bada30ef273cf2"
-    },
-    {
-      "path": "site/assets/free-resources/packages/current/GRV-F_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "8fed4787e30f93fdaa797d216612f1a6a2d698bada19807345ca44bbe95103d7"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-G_SYSTEM_RELEASE_1.1_2026-08-22.zip",
@@ -741,12 +809,12 @@
       "sha256": "5162e02b70b235efd7d2de9ae64968f140f1574a87751fa4509c3c35f83eeb6b"
     },
     {
-      "path": "site/assets/free-resources/packages/current/GRV-IV_SYSTEM_RELEASE_1.2_2026-08-22.zip",
-      "sha256": "b122c9ece09ebc40a260ac1bf1ce5a2cb5fb4a18eeedd630497c70d39f00d3b6"
-    },
-    {
       "path": "site/assets/free-resources/packages/current/GRV-I_SYSTEM_RELEASE_1.1_2026-08-22.zip",
       "sha256": "af9fe53409904f645f454a8991a032f48291dd09b145ad15d9631f23da8de80a"
+    },
+    {
+      "path": "site/assets/free-resources/packages/current/GRV-IV_SYSTEM_RELEASE_1.2_2026-08-22.zip",
+      "sha256": "b122c9ece09ebc40a260ac1bf1ce5a2cb5fb4a18eeedd630497c70d39f00d3b6"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-LP_SYSTEM_RELEASE_1.1_2026-08-22.zip",
@@ -761,12 +829,12 @@
       "sha256": "338fe0fb79a83f24495c20147c388fbd175c03e1220699695c397fb1d48ec1f4"
     },
     {
-      "path": "site/assets/free-resources/packages/current/GRV-RC_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "3dd48f8f01ea78f74789e740c58a97064006d8dcae69ecb9987e906311166ead"
-    },
-    {
       "path": "site/assets/free-resources/packages/current/GRV-R_SYSTEM_RELEASE_1.1_2026-08-22.zip",
       "sha256": "9ed3c25186993991a789f20728278fee0f66b0e1bd3ea49d3b9f775bc33e08f7"
+    },
+    {
+      "path": "site/assets/free-resources/packages/current/GRV-RC_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+      "sha256": "3dd48f8f01ea78f74789e740c58a97064006d8dcae69ecb9987e906311166ead"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-SF_SYSTEM_RELEASE_1.3_2026-08-22.zip",
@@ -803,70 +871,6 @@
     {
       "path": "site/assets/free-resources/sales-intelligence-forecasting/The_Gravity_Sales_Intelligence_and_Forecasting_System_Operating_Manual.pdf",
       "sha256": "f6eeab8490f7ee53bcb0fd1c0cf321c0088c5b5e27c4daa463caec87ec739be0"
-    },
-    {
-      "path": "site/assets/images/EMPLOYEE_TRAINING_SOP_TRACKER_LEATHER_FULL_WRAP_2026-08-31.webp",
-      "sha256": "ed28dfa9d99b5dc5cce9fbf70bbcb598600bf817faa2ec2f1fdef7123bfa895b"
-    },
-    {
-      "path": "site/assets/images/FOOD_COST_WASTE_INVENTORY_CONTROL_SITE_COVER_ELITE.webp",
-      "sha256": "3ffb9706b932556c6daa95e8c2453bb295d287fc5c7a532a17230358f940b299"
-    },
-    {
-      "path": "site/assets/images/GRAVITY_15_SYSTEM_LEATHER_COLLECTION_2026-08-28.webp",
-      "sha256": "c9cc754a68636b6d29166ac666b02564ea4c2d12e0c7e59324d18cdf9703d429"
-    },
-    {
-      "path": "site/assets/images/GRAVITY_SOP_LIBRARY_VOLUME_1_SITE_COVER_BLUE_LEATHER_2026-09-17.webp",
-      "sha256": "029b68dd7cb87b8c9b0068485a109fb5420b9d460fa93d1609a9579094437603"
-    },
-    {
-      "path": "site/assets/images/GRAVITY_SOP_LIBRARY_VOLUME_1_SITE_COVER_LEATHER_2026-08-31.webp",
-      "sha256": "42b4f425ecc05551c1841e7eaeafc1fd86bb9777adbfb1648007f28636831ac7"
-    },
-    {
-      "path": "site/assets/images/GRAVITY_SOP_LIBRARY_VOLUME_2_SITE_COVER_BLUE_LEATHER_2026-09-17.webp",
-      "sha256": "1579899b665f0b014c9dcb075b453a38d6b2330735f192768457af0e891dd949"
-    },
-    {
-      "path": "site/assets/images/GRAVITY_SOP_LIBRARY_VOLUME_2_SITE_COVER_LEATHER_2026-08-31.webp",
-      "sha256": "12755a5fe9c3ac7d9cfa3a91c9dfcc615c18a02f05b09a27904cd8a44945bd3f"
-    },
-    {
-      "path": "site/assets/images/GRAVITY_SOP_LIBRARY_VOLUME_3_SITE_COVER_BLUE_LEATHER_2026-09-17.webp",
-      "sha256": "fd1dc38513f911c0833ea605e85e228443f942681dd46edb364c7e795a273434"
-    },
-    {
-      "path": "site/assets/images/LABOR_CONTROL_SCHEDULING_PLANNER_SITE_COVER_LEATHER_2026-08-31.webp",
-      "sha256": "0194135adbc6e927e0e9e3ac2dd5f7552d28c77bd8901c29765db9b997a4dfe5"
-    },
-    {
-      "path": "site/assets/images/MANAGER_READINESS_LEADERSHIP_DEVELOPMENT_WORKBOOK_SITE_COVER_2026-09-05.webp",
-      "sha256": "8244f44dcef92ef13512b1ca8b100ab4204d42792f76c9555748e48591f3ba98"
-    },
-    {
-      "path": "site/assets/images/QUIET_GRAVITY_SITE_COVER_ELITE_2026-08-23.webp",
-      "sha256": "82ff19c4a7b93215eaeed160bf79651a3b40da927c4647105aa25c3922f3dae8"
-    },
-    {
-      "path": "site/assets/images/RESTAURANT_BAR_BEVERAGE_INVENTORY_ORDERING_SITE_COVER_ELITE_2026-08-31.webp",
-      "sha256": "b6205bdb2cafec8eebb2385a706ea8bc3ea91ae54cdd7da7461766c9022f3ce1"
-    },
-    {
-      "path": "site/assets/images/RESTAURANT_BAR_BEVERAGE_POUR_COST_CONTROL_SITE_COVER_ELITE_2026-08-31.webp",
-      "sha256": "bfdf0f786a7ea87581ef260e0ac260d23ec9c67a9e4f40dabe14985dc11d1f6b"
-    },
-    {
-      "path": "site/assets/images/RESTAURANT_SOP_STATION_OPERATIONS_BUILDER_SITE_COVER_LEATHER_2026-08-31.webp",
-      "sha256": "5f65a86d745930db47057d8a2bc5298de7d44d4daf13ddd33bec8cc84eebde47"
-    },
-    {
-      "path": "site/assets/images/SYSTEMS_OF_SERVICE_FLAGSHIP_SITE_COVER_GRAVITY_ELITE_2026-09-04.webp",
-      "sha256": "93564e1d1187c0864bcb274b085bdd096b5b9a3cc8b2c7af5267f8e115c37bb6"
-    },
-    {
-      "path": "site/assets/images/THE_GRAVITY_SYSTEM_CUSTOMER_OVERVIEW_BOOKLET_SITE_GRAPHIC_2026-09-05.webp",
-      "sha256": "1d7e5cd630b68a5aca384c7da37f58df303f6ad07c7af9432be5b0f9c89a4c24"
     },
     {
       "path": "site/assets/images/book-previews/gravity-sop-library-volume-1/page-003.webp",
@@ -1077,6 +1081,10 @@
       "sha256": "9f92fc017718d5a0479562185401943e2cd1a9865ba7859b1f3adca6438999cb"
     },
     {
+      "path": "site/assets/images/EMPLOYEE_TRAINING_SOP_TRACKER_LEATHER_FULL_WRAP_2026-08-31.webp",
+      "sha256": "ed28dfa9d99b5dc5cce9fbf70bbcb598600bf817faa2ec2f1fdef7123bfa895b"
+    },
+    {
       "path": "site/assets/images/field-guide-previews/page-001.webp",
       "sha256": "890247aac31e1bd863e4e004df9f1f21feb2f58c086ac61792a9cbf71098eaef"
     },
@@ -1091,6 +1099,34 @@
     {
       "path": "site/assets/images/field-guide-previews/page-025.webp",
       "sha256": "fe052a4c863124f6a67e12a5152ce278c44a295c3d37019b4e20ef3ce67e69d9"
+    },
+    {
+      "path": "site/assets/images/FOOD_COST_WASTE_INVENTORY_CONTROL_SITE_COVER_ELITE.webp",
+      "sha256": "3ffb9706b932556c6daa95e8c2453bb295d287fc5c7a532a17230358f940b299"
+    },
+    {
+      "path": "site/assets/images/GRAVITY_15_SYSTEM_LEATHER_COLLECTION_2026-08-28.webp",
+      "sha256": "c9cc754a68636b6d29166ac666b02564ea4c2d12e0c7e59324d18cdf9703d429"
+    },
+    {
+      "path": "site/assets/images/GRAVITY_SOP_LIBRARY_VOLUME_1_SITE_COVER_BLUE_LEATHER_2026-09-17.webp",
+      "sha256": "029b68dd7cb87b8c9b0068485a109fb5420b9d460fa93d1609a9579094437603"
+    },
+    {
+      "path": "site/assets/images/GRAVITY_SOP_LIBRARY_VOLUME_1_SITE_COVER_LEATHER_2026-08-31.webp",
+      "sha256": "42b4f425ecc05551c1841e7eaeafc1fd86bb9777adbfb1648007f28636831ac7"
+    },
+    {
+      "path": "site/assets/images/GRAVITY_SOP_LIBRARY_VOLUME_2_SITE_COVER_BLUE_LEATHER_2026-09-17.webp",
+      "sha256": "1579899b665f0b014c9dcb075b453a38d6b2330735f192768457af0e891dd949"
+    },
+    {
+      "path": "site/assets/images/GRAVITY_SOP_LIBRARY_VOLUME_2_SITE_COVER_LEATHER_2026-08-31.webp",
+      "sha256": "12755a5fe9c3ac7d9cfa3a91c9dfcc615c18a02f05b09a27904cd8a44945bd3f"
+    },
+    {
+      "path": "site/assets/images/GRAVITY_SOP_LIBRARY_VOLUME_3_SITE_COVER_BLUE_LEATHER_2026-09-17.webp",
+      "sha256": "fd1dc38513f911c0833ea605e85e228443f942681dd46edb364c7e795a273434"
     },
     {
       "path": "site/assets/images/gravity-document-studio-machine-icon.webp",
@@ -1133,6 +1169,14 @@
       "sha256": "3952968f6ab4d6e65168ec1ec4d732dcc444a676038b58d20be7b2e59b751655"
     },
     {
+      "path": "site/assets/images/LABOR_CONTROL_SCHEDULING_PLANNER_SITE_COVER_LEATHER_2026-08-31.webp",
+      "sha256": "0194135adbc6e927e0e9e3ac2dd5f7552d28c77bd8901c29765db9b997a4dfe5"
+    },
+    {
+      "path": "site/assets/images/MANAGER_READINESS_LEADERSHIP_DEVELOPMENT_WORKBOOK_SITE_COVER_2026-09-05.webp",
+      "sha256": "8244f44dcef92ef13512b1ca8b100ab4204d42792f76c9555748e48591f3ba98"
+    },
+    {
       "path": "site/assets/images/manager-readiness-follow-up-reassessment-cover.png",
       "sha256": "7edd5374c8cd83f7a1175c79b0b363364b242c2eceb7e4b544f38d6add286070"
     },
@@ -1163,6 +1207,22 @@
     {
       "path": "site/assets/images/owners-chair-site-cover-elite-20260813.jpg",
       "sha256": "cf130851bf2ab1c499cd4c007d95aaad06ed4d2bb1ea8e39a53fa506994af028"
+    },
+    {
+      "path": "site/assets/images/QUIET_GRAVITY_SITE_COVER_ELITE_2026-08-23.webp",
+      "sha256": "82ff19c4a7b93215eaeed160bf79651a3b40da927c4647105aa25c3922f3dae8"
+    },
+    {
+      "path": "site/assets/images/RESTAURANT_BAR_BEVERAGE_INVENTORY_ORDERING_SITE_COVER_ELITE_2026-08-31.webp",
+      "sha256": "b6205bdb2cafec8eebb2385a706ea8bc3ea91ae54cdd7da7461766c9022f3ce1"
+    },
+    {
+      "path": "site/assets/images/RESTAURANT_BAR_BEVERAGE_POUR_COST_CONTROL_SITE_COVER_ELITE_2026-08-31.webp",
+      "sha256": "bfdf0f786a7ea87581ef260e0ac260d23ec9c67a9e4f40dabe14985dc11d1f6b"
+    },
+    {
+      "path": "site/assets/images/RESTAURANT_SOP_STATION_OPERATIONS_BUILDER_SITE_COVER_LEATHER_2026-08-31.webp",
+      "sha256": "5f65a86d745930db47057d8a2bc5298de7d44d4daf13ddd33bec8cc84eebde47"
     },
     {
       "path": "site/assets/images/shift-lab-icon-192.png",
@@ -1237,12 +1297,16 @@
       "sha256": "549b7ef246994a853646d6b0eab55da097dd71cbda85984f8f766db505fb593c"
     },
     {
-      "path": "site/assets/images/thomas-butler-author-portrait-quiet-gravity.webp",
-      "sha256": "406fe94ad2e56d6d45d77dbb5b8dcf622f58228f5fe53ea2d43cd33bf098c91f"
+      "path": "site/assets/images/SYSTEMS_OF_SERVICE_FLAGSHIP_SITE_COVER_GRAVITY_ELITE_2026-09-04.webp",
+      "sha256": "93564e1d1187c0864bcb274b085bdd096b5b9a3cc8b2c7af5267f8e115c37bb6"
     },
     {
-      "path": "site/assets/js/QR_ENCODER_LICENSE.txt",
-      "sha256": "c62e242d0701d393efbcd32f35cbd2077bb4856768f0f94f5df62f251e7660bc"
+      "path": "site/assets/images/THE_GRAVITY_SYSTEM_CUSTOMER_OVERVIEW_BOOKLET_SITE_GRAPHIC_2026-09-05.webp",
+      "sha256": "1d7e5cd630b68a5aca384c7da37f58df303f6ad07c7af9432be5b0f9c89a4c24"
+    },
+    {
+      "path": "site/assets/images/thomas-butler-author-portrait-quiet-gravity.webp",
+      "sha256": "406fe94ad2e56d6d45d77dbb5b8dcf622f58228f5fe53ea2d43cd33bf098c91f"
     },
     {
       "path": "site/assets/js/ai-prompt-search.js",
@@ -1543,6 +1607,10 @@
     {
       "path": "site/assets/js/page-search.js",
       "sha256": "f8ba4a270d853c7d8ff85e1ea6cf46bb6d05f8af494bd0ee149390c6a874e58f"
+    },
+    {
+      "path": "site/assets/js/QR_ENCODER_LICENSE.txt",
+      "sha256": "c62e242d0701d393efbcd32f35cbd2077bb4856768f0f94f5df62f251e7660bc"
     },
     {
       "path": "site/assets/js/registration-identity.js",
@@ -2235,70 +2303,6 @@
     {
       "path": "site/work-study-prebeta-build.txt",
       "sha256": "ec6076e8c54e56d01e3d6ce8b0614cefc1a3419dc1c54aab19f93963317dd8ae"
-    },
-    {
-      "path": "functions/foundry-hosted/core.mjs",
-      "sha256": "3e0f9f465f9cd603b481edb025316b003e38950a6e56620121b2cffc65398ae2"
-    },
-    {
-      "path": "functions/foundry-hosted/index.mjs",
-      "sha256": "91a0c3d20c33f039dc9afe17ec91414cfe1db5aadc2ebb7645b45bc9ceb4971f"
-    },
-    {
-      "path": "functions/gravity-guide/gravity-guide.js",
-      "sha256": "f17f2c839ef794ad9a98f816915ffd9f7710ec9d484a8f959c30ceaa5c65a6fa"
-    },
-    {
-      "path": "functions/gravity-guide/guide-core.mjs",
-      "sha256": "c6a61338d75c337edbad82441de6e245b4a14c0bd44b75211369f56b712d9917"
-    },
-    {
-      "path": "functions/gravity-tts/gravity-tts.js",
-      "sha256": "8f192a1ee09051714bef447ef522d9e8c61dc329b5bf8705c7ff72d12c496c15"
-    },
-    {
-      "path": "functions/testing-room/index.mjs",
-      "sha256": "166d5cee8ea5ad65f30dd436ca6683de4005f75b883f52c29867c707a71de08c"
-    },
-    {
-      "path": "functions/work-study-link/index.mjs",
-      "sha256": "9e438b915818401a11dd81658204e0882d10e6d89b635df0cada471df370b5d5"
-    },
-    {
-      "path": "functions/work-study-process-file/work-study-process-file.js",
-      "sha256": "103f192ed8b1d5523cff8fd43e20a7a7e461548ed9541eb37c9307430ca60b4a"
-    },
-    {
-      "path": "functions/work-study-transcribe/work-study-transcribe.js",
-      "sha256": "db06936dde65293187c83cd75b695b75cfa547f469e26eb1840fec20a7d023d8"
-    },
-    {
-      "path": "netlify/database/migrations/20261010070000_foundry_hosted_employee.sql",
-      "sha256": "d74a490a1162ce65fdab380a1c0cf5df03c41b864a7f935463252ead5f0f793a"
-    },
-    {
-      "path": "netlify/database/migrations/20261014133000_gravity_testing_room.sql",
-      "sha256": "3e09357ab78ae8a8f604b7adbca320c164e860f893015b2213c4d149b37e9b4a"
-    },
-    {
-      "path": "netlify/database/migrations/20261014134500_gravity_testing_groups.sql",
-      "sha256": "e7a210491092d9c36466e1dcc09d37c539f5c450f04f6946c8cdea2cd25d9864"
-    },
-    {
-      "path": "netlify/database/migrations/20261017183000_work_study_device_link.sql",
-      "sha256": "669c62119f05d2de6706396617192b865d41415b7687adf46b288c8a8777388d"
-    },
-    {
-      "path": "netlify.toml",
-      "sha256": "389153ef57900cf413fa28f2cafb316372feea8fc6fca745084b23c9b0d55285"
-    },
-    {
-      "path": "package.json",
-      "sha256": "f847681ea2eb9c7600ee1e3efece34108fc8e65660d9edd19c180eb08b097653"
-    },
-    {
-      "path": "package-lock.json",
-      "sha256": "806f5cde89646bfb9981b8712e7e052e4ed74448e9b9f288ceb518f1b78fccf1"
     }
   ]
 }
