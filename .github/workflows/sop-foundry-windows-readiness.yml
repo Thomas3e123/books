@@ -1,0 +1,28 @@
+name: SOP Foundry Windows Readiness Audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/apps/sop-foundry/**'
+      - 'site/assets/js/gravity-sop-foundry.js'
+      - 'scripts/audit-sop-foundry-windows-readiness.cjs'
+      - 'windows/gravity-sop-foundry/**'
+      - '.github/workflows/sop-foundry-windows-readiness.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect-cross-platform-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Map Foundry pages, static dependencies, hosted functions and gaps
+        run: node scripts/audit-sop-foundry-windows-readiness.cjs
+      - name: Upload readiness report
+        uses: actions/upload-artifact@v5
+        with:
+          name: Gravity-SOP-Foundry-Windows-Readiness
+          path: windows/sop-foundry-web-readiness-report.json
