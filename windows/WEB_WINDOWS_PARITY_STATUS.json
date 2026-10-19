@@ -23,12 +23,12 @@
     },
     {
       "web_source": "site/gravity-work-study-lab.html",
-      "web_sha256": "4ea517688388140f124f6e8ca703219998cd23806c5552221304c88d7d51c19b",
+      "web_sha256": "3e467f3eb7937262729b454b2330e3bf7e7ef09bf57886bd6d38666591c4d690",
       "windows_status": "verified_core",
       "windows_build_sha": "9b0cbd99c8b3f6f27c1ed5f7d28735eb3e7fc3c8",
       "windows_test_evidence": "https://github.com/Thomas3e123/books/actions/runs/39253896178",
       "parity_scope": "shared-expert-engine-and-guarded-bootstrap",
-      "notes": "59 website expert scripts included; Guided guard/entry order, Cedar HTTPS audio and evidence persistence tested. Website page shell and Windows UI differ. Physical customer-device QA pending."
+      "notes": "59 website expert scripts included; Guided guard/entry order, Cedar HTTPS audio and evidence persistence tested. Website page shell and Windows UI differ. Physical customer-device QA pending. October 19 page-shell change adds preview installer download links only; no changes to the shared expert scripts."
     }
   ]
 }
