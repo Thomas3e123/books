@@ -18,6 +18,8 @@
     "files": [
       "main.js",
       "package.json",
+      "smoke.cjs",
+      "smoke-extended.cjs",
       "app/**/*",
       "README.md"
     ],
