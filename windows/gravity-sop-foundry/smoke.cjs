@@ -42,8 +42,27 @@ async function run(win,base){
   await window.GravityFoundryWeb.save(test);
   const current=await window.GravityFoundryWeb.load();
   if(current.branding.name!=='Gravity Foundry Windows Smoke Restaurant')throw Error('Windows IndexedDB write failed');
+  // Actual SOP lifecycle through the same local APIs used by the customer UI.
+  const request=async(url,method,data)=>{
+    const response=await fetch(url,{method,headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+    return {status:response.status,data:await response.json()};
+  };
+  const id='gravity-windows-lifecycle-smoke';
+  const entry={id,title:'Candidate SOP lifecycle test',purpose:'Confirm repeatable safe operating steps.',role:'Assigned station employee',frequency:'Every shift',steps:['Check and prepare the workstation.','Complete the approved work in order.'],checks:'Manager checks the finished station.',records:'Log the completed station inspection.',correction:'Correct any missed requirement and notify the manager.',safety:'Follow restaurant safety standards.',approvedBy:'Candidate Test Manager',effectiveDate:new Date().toISOString().slice(0,10),trainingRequirement:'review',changeSummary:'Initial controlled release',status:'Approved',isSample:false};
+  const saved=await request('/api/workroom','PUT',{restaurant:'Candidate Smoke',sops:[entry],recipes:[]});
+  if(saved.status!==200)throw Error('SOP save failed: '+JSON.stringify(saved.data));
+  const published=await request('/api/published-sops','POST',{id});
+  if(published.status!==200)throw Error('Approved SOP publication failed: '+JSON.stringify(published.data));
+  const employee=await (await fetch('/api/published-sops')).json();
+  if(!employee.data?.sops?.some(sop=>sop.id===id))throw Error('Published SOP not visible in Employee Library');
+  const revision={...entry,steps:[...entry.steps,'Verify the records before closing the station.'],changeSummary:'Revised closing verification'};
+  const changed=await request('/api/workroom','PUT',{restaurant:'Candidate Smoke',sops:[revision],recipes:[]});
+  if(changed.status!==200||changed.data.sopRevisions?.find(x=>x.id===id)?.status!=='Draft')throw Error('SOP revision did not return to Draft for reapproval');
+  const archive=await window.GravityFoundryWeb.load();
+  if(!archive.history.some(item=>item.item?.id===id&&item.kind==='sop'))throw Error('Previous SOP revision was not archived');
+  if(!archive.publishedSops[id]||archive.publishedSops[id].steps.length!==2)throw Error('Draft change altered published employee SOP');
   await window.GravityFoundryWeb.save(original);
-  return {room:'build',referenceBytes:raw.length,localStorage:true,workspace:true};
+  return {room:'build',referenceBytes:raw.length,localStorage:true,workspace:true,sopSaved:true,approvedAndPublished:true,revisionArchived:true,publicationProtected:true};
  });
  console.log('[FOUNDRY-SMOKE] manager workspace / bundled SOP library:',JSON.stringify(manager));
  const screens=['import-export','history','poster-studio','employee-connection','desktop-settings','employee-app'];
