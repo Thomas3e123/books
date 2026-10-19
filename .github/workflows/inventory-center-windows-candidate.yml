@@ -1,0 +1,70 @@
+name: Gravity Inventory Center Windows Candidate
+on:
+  push:
+    branches: [main, gravity-inventory-windows-sync-20261019]
+    paths:
+      - 'windows/gravity-inventory-center/**'
+      - 'site/apps/inventory-center/**'
+      - '.github/workflows/inventory-center-windows-candidate.yml'
+  workflow_dispatch:
+concurrency:
+  group: inventory-center-windows-candidate-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  inventory-windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: windows/gravity-inventory-center
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Install pinned dependencies
+        run: npm install
+      - name: Sync web business logic into Windows
+        run: npm run sync:web
+      - name: Verify packaged JavaScript
+        shell: pwsh
+        run: |
+          node --check main.js
+          node --check preload.js
+          node --check sync-site.cjs
+          node --check smoke.cjs
+          node --check app/assets/js/inventory-center.js
+          node --check app/assets/js/inventory-validation.js
+          if (-not (Test-Path app/PARITY_MANIFEST.json)) { throw 'Source parity manifest missing' }
+      - name: Run actual Windows Inventory Center customer workflow
+        shell: pwsh
+        run: |
+          $env:GRAVITY_INVENTORY_SMOKE = '1'
+          npx electron .
+          if ($LASTEXITCODE -ne 0) { throw "Windows inventory smoke failed with code $LASTEXITCODE" }
+      - name: Build installer and Windows ZIP
+        run: npm run build:win
+      - name: Install on clean Windows runner and test installed program
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $installer = Get-ChildItem 'dist/Gravity_Inventory_Center_Candidate_*.exe' | Select-Object -First 1
+          if (-not $installer) { throw 'Inventory Center NSIS installer missing' }
+          $destination = Join-Path $env:RUNNER_TEMP 'gravity-inventory-installed-smoke'
+          $install = Start-Process -FilePath $installer.FullName -ArgumentList @('/S', "/D=$destination") -Wait -PassThru
+          if ($install.ExitCode -ne 0) { throw "Inventory Center installation failed: $($install.ExitCode)" }
+          $installed = Join-Path $destination 'Gravity Inventory Center Candidate.exe'
+          if (-not (Test-Path $installed)) { throw "Inventory Center installed EXE missing: $installed" }
+          $env:GRAVITY_INVENTORY_SMOKE = '1'
+          $test = Start-Process -FilePath $installed -Wait -PassThru
+          if ($test.ExitCode -ne 0) { throw "Installed Inventory Center runtime smoke failed: $($test.ExitCode)" }
+          Write-Host "Inventory Center installed application tests passed."
+      - name: Upload private candidate artifacts
+        uses: actions/upload-artifact@v5
+        with:
+          name: Gravity-Inventory-Center-Windows-Candidate
+          path: |
+            windows/gravity-inventory-center/dist/*.exe
+            windows/gravity-inventory-center/dist/*.zip
+          if-no-files-found: error
