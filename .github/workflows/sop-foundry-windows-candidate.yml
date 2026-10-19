@@ -8,14 +8,10 @@ on:
       - 'site/assets/images/gravity-system-mark.svg'
       - 'source-manifest.json'
       - '.github/workflows/sop-foundry-windows-candidate.yml'
-  pull_request:
-    paths:
-      - 'windows/gravity-sop-foundry/**'
-      - 'site/apps/sop-foundry/**'
-      - 'site/assets/images/gravity-system-mark.svg'
-      - 'source-manifest.json'
-      - '.github/workflows/sop-foundry-windows-candidate.yml'
   workflow_dispatch:
+concurrency:
+  group: gravity-sop-foundry-candidate-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:

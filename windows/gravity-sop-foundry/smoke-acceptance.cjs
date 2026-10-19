@@ -39,6 +39,11 @@ async function run(win){
     const snapshot=await req('/api/desktop-backup');
     if(snapshot.status!==200||snapshot.body.product!=='Gravity SOP Foundry')fail('Full manager backup unavailable');
     const old=snapshot.body.state;
+    // An incomplete/corrupt backup must not replace existing restaurant data.
+    const invalid=await req('/api/desktop-backup','POST',{product:'Gravity SOP Foundry',state:{pins:{build:'0000'}}});
+    if(invalid.status!==400)fail('Incomplete backup was accepted and may overwrite customer data');
+    const afterInvalid=await req('/api/desktop-backup');
+    if(afterInvalid.status!==200||!afterInvalid.body.state.workroom.recipes.some(r=>r.id===recipeId))fail('Rejected backup damaged the current customer workspace');
     if(!old.workroom.recipes.some(r=>r.id===recipeId)||!old.posters[posterId]||!old.history.length||!old.pins)fail('Full backup missing recipes, posters, revision history, or PIN settings');
     const update=await req('/api/desktop-settings','POST',{name:'MUTATED NOT TO SAVE'});
     if(update.status!==200)fail('Test mutation failed');
@@ -72,7 +77,7 @@ async function run(win){
     // Roll back the entire disposable acceptance dataset after successful assertions.
     await window.GravityFoundryWeb.save(baseline);
     return{recipeImport:true,duplicateSkip:true,recipeRevisionArchived:true,unpublishedRecipePrivate:true,
-      posterPublished:true,invalidPosterLinksRejected:true,fullBackupIncludesHistory:true,fullRestore:true,
+      posterPublished:true,invalidPosterLinksRejected:true,fullBackupIncludesHistory:true,corruptRestoreRejected:true,restoreRejectionPreservedData:true,fullRestore:true,
       restoredPins:true,managerAutomaticallyLocked:true,employeeManagerAccessRejected:true,assistantManagerSourceProtected:true,invalidLocalQRDisabled:true};
   });
   console.log('[FOUNDRY-ACCEPTANCE] backup, recipes, posters, roles, QR safety:',JSON.stringify(result));
