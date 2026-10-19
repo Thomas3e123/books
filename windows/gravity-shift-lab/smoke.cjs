@@ -36,7 +36,7 @@ async function run(win) {
     get('lab-publish').click();
     if(!get('publish-dialog').open)fail('Employee QR publish dialog did not open');
     get('publish-generate').click();
-    for(let i=0;i<35&&!document.querySelector('#publish-link a');i++)await sleep(250);
+    for(let i=0;i<35&&!get('publish-link').textContent.includes('thomasmonroebooks.com');i++)await sleep(250);
     if(!get('publish-link').textContent.includes('thomasmonroebooks.com'))fail('Employee QR link was not generated: '+get('publish-status').textContent);
     const url=get('publish-link').textContent;
     if(url.includes('Windows Smoke Tester')&&url.includes('20'))fail('Employee link appears to expose payroll information');
