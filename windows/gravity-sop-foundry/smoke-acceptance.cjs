@@ -95,6 +95,33 @@ async function run(win){
   if(pdf.length<9000||pdf.subarray(0,5).toString('ascii')!=='%PDF-')throw Error('Native SOP PDF rendering failed or empty: '+pdf.length);
   await renderer(win,()=>{document.getElementById('foundryPrintBack')?.click();return true});
   console.log('[FOUNDRY-ACCEPTANCE] actual SOP print/PDF:',JSON.stringify({...prepared,pdfBytes:pdf.length}));
-  return{...result,sopPrintPreview:true,nativePdf:true};
+  const binder=await renderer(win,async function(){
+    const btn=document.getElementById('gravity-binder-open');
+    if(!btn)throw Error('Print SOP Binder button missing');
+    btn.click();
+    const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+    const dialog=document.getElementById('gravity-binder-dialog');
+    for(let i=0;i<100&&(!dialog.open||dialog.querySelector('#gravity-binder-next').disabled);i++)await sleep(100);
+    if(!dialog.open)throw Error('SOP Binder dialog failed to open');
+    const status=dialog.querySelector('#gravity-binder-status');
+    status.value='all';status.dispatchEvent(new Event('change',{bubbles:true}));
+    const rows=dialog.querySelectorAll('#gravity-binder-preview-list li');
+    if(rows.length!==25)throw Error('Expected 25 SOPs in binder print batch, found '+rows.length);
+    dialog.querySelector('#gravity-binder-print').click();
+    for(let i=0;i<60&&!document.getElementById('foundryPrintPreview');i++)await sleep(100);
+    const preview=document.getElementById('foundryPrintPreview');
+    if(!preview)throw Error('Binder print preview missing');
+    if(dialog.open)throw Error('Binder selection dialog obscures the print preview');
+    if(!preview.textContent.includes('Gravity SOP Binder'))throw Error('Binder print cover missing');
+    const pages=preview.querySelectorAll('.gravity-binder-sop');
+    if(pages.length!==25)throw Error('Binder preview missing expected SOP pages: '+pages.length);
+    if(preview.textContent.includes('gravityfoundry://'))throw Error('Unscannable Windows QR URL leaked into binder');
+    return {batchSize:rows.length,printSections:pages.length,selectionClosed:true};
+  });
+  const binderPDF=Buffer.from(await win.webContents.printToPDF({printBackground:true,pageSize:'A4'}));
+  if(binderPDF.length<18000||binderPDF.subarray(0,5).toString('ascii')!=='%PDF-')throw Error('Windows Binder PDF missing or invalid: '+binderPDF.length);
+  await renderer(win,()=>{document.getElementById('foundryPrintBack')?.click();return true});
+  console.log('[FOUNDRY-ACCEPTANCE] binder preview and PDF:',JSON.stringify({...binder,pdfBytes:binderPDF.length}));
+  return{...result,sopPrintPreview:true,nativePdf:true,binderBatch25:true,binderPdf:true};
 }
 module.exports={run};
