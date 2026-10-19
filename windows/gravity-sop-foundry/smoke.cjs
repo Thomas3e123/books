@@ -57,7 +57,7 @@ async function run(win,base){
   if(!employee.data?.sops?.some(sop=>sop.id===id))throw Error('Published SOP not visible in Employee Library');
   const revision={...entry,steps:[...entry.steps,'Verify the records before closing the station.'],changeSummary:'Revised closing verification'};
   const changed=await request('/api/workroom','PUT',{restaurant:'Candidate Smoke',sops:[revision],recipes:[]});
-  if(changed.status!==200||changed.data.sopRevisions?.find(x=>x.id===id)?.status!=='Draft')throw Error('SOP revision did not return to Draft for reapproval');
+  if(changed.status!==200||changed.data.sopRevisions?.find(x=>x.id===id)?.status!=='Draft')throw Error('SOP revision did not return to Draft for reapproval: '+JSON.stringify(changed));
   const archive=await window.GravityFoundryWeb.load();
   if(!archive.history.some(item=>item.item?.id===id&&item.kind==='sop'))throw Error('Previous SOP revision was not archived');
   if(!archive.publishedSops[id]||archive.publishedSops[id].steps.length!==2)throw Error('Draft change altered published employee SOP');
