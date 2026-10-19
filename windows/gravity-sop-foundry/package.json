@@ -24,7 +24,8 @@
       "verify-site.cjs",
       "package.json",
       "README.md",
-      "app/**/*"
+      "app/**/*",
+      "smoke-acceptance.cjs"
     ],
     "directories": {
       "output": "dist"
