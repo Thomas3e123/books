@@ -21,7 +21,8 @@
       "smoke.cjs",
       "smoke-extended.cjs",
       "app/**/*",
-      "README.md"
+      "README.md",
+      "smoke-print-pdf.cjs"
     ],
     "directories": {
       "output": "dist"
