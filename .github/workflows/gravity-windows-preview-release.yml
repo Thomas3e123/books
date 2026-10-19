@@ -1,0 +1,101 @@
+name: Gravity Windows Preview Release (verified candidates)
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/gravity-windows-preview-release.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  publish-verified-previews:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      TAG: gravity-windows-preview-2026-10-19
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Gate current repository source and scoped Windows parity
+        run: |
+          node scripts/verify-source.cjs
+          node scripts/check-web-windows-parity.cjs
+      - name: Confirm exact successful Windows candidate runs and source SHAs
+        shell: bash
+        run: |
+          set -euo pipefail
+          runs=(
+            '39253535932:376ab00275429f27a889403988c65ea3ee9d57ba'
+            '39228666471:9513e220608bd5b0ff4bbcacd8ee9ac79f3c1ab1'
+            '39213278484:3f616df565674c5ebe6804adde29365aad295c6c'
+            '39253896178:9b0cbd99c8b3f6f27c1ed5f7d28735eb3e7fc3c8'
+          )
+          for pair in "${runs[@]}"; do
+            id="${pair%%:*}"
+            expected="${pair#*:}"
+            state="$(gh api "repos/$GH_REPO/actions/runs/$id" --jq '[.status,.conclusion,.head_sha] | join(":")')"
+            test "$state" = "completed:success:$expected" || { echo "::error::Candidate $id has incorrect verification state: $state"; exit 1; }
+            echo "Verified immutable Windows candidate run $id."
+          done
+      - name: Download four independently tested candidate artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p stage/sop stage/inventory stage/shift stage/study
+          gh run download 39253535932 -n Gravity-SOP-Foundry-Windows-Candidate -D stage/sop
+          gh run download 39228666471 -n Gravity-Inventory-Center-Windows-Candidate -D stage/inventory
+          gh run download 39213278484 -n Gravity-Shift-Lab-Windows-Candidate -D stage/shift
+          gh run download 39253896178 -n Gravity-Work-Study-Lab-Windows-Beta-v0.3.0 -D stage/study
+      - name: Verify installers, ZIP integrity, and hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          for p in sop inventory shift study; do
+            count_exe="$(find "stage/$p" -maxdepth 1 -type f -name '*.exe' | wc -l)"
+            count_zip="$(find "stage/$p" -maxdepth 1 -type f -name '*.zip' | wc -l)"
+            test "$count_exe" -eq 1 && test "$count_zip" -eq 1 || { echo "::error::$p must contain one installer and one ZIP"; exit 1; }
+            while IFS= read -r archive; do unzip -tqq "$archive"; done < <(find "stage/$p" -maxdepth 1 -name '*.zip')
+          done
+          find stage -type f \( -name '*.exe' -o -name '*.zip' \) -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS.txt
+          test "$(wc -l < SHA256SUMS.txt)" -eq 8
+          cat SHA256SUMS.txt
+      - name: Prepare Windows preview release notes
+        shell: bash
+        run: |
+          cat > RELEASE_NOTES.md <<'NOTES'
+          # Gravity Windows test-preview candidates — October 19, 2026
+
+          Four **unsigned Windows x64 preview candidates**. These installers are not approved as replacements for the previously published restaurant betas. The website keeps those existing downloads available.
+
+          - SOP Foundry: 525-SOP local library, Build/Employee rooms, revision control and archives, prints/PDF binder (25 SOPs per batch); build run 39253535932.
+          - Inventory Center: inventory, receiving, counts, waste, backup/restore, PDF; build run 39228666471.
+          - Shift Lab: synchronized scheduling engine, privacy controls, 31-step walkthrough, print and backup; build run 39213278484.
+          - Work Study Lab: v0.3 Guided-stability/59-expert-script build, Cedar audio via HTTPS, durable evidence and mobile study bridge; build run 39253896178.
+
+          **Important:** Customer migration from older Windows data profiles, actual printer/scanner operation, and Windows 10/11 customer-device checks remain unverified. These installs may use different application profiles. Export and protect all existing data before installing any preview. Do not uninstall or overwrite an existing working installation. Hosted employee/voice/portable functions require internet and must be tested in the actual restaurant environment. Windows SmartScreen can warn about unsigned software.
+
+          Assets include one NSIS installer and one ZIP for each program, with SHA256SUMS.txt for integrity. Only use these previews for controlled evaluation; the existing stable beta links remain unchanged.
+          NOTES
+      - name: Publish a separate prerelease without touching existing beta releases
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -d '' assets < <(find stage -type f \( -name '*.exe' -o -name '*.zip' \) -print0 | sort -z)
+          test "${#assets[@]}" -eq 8
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Preview tag already exists; refusing to overwrite published release assets."
+            exit 1
+          fi
+          gh release create "$TAG" "${assets[@]}" SHA256SUMS.txt \
+            --target "$GITHUB_SHA" --draft --prerelease \
+            --title 'Gravity Windows — Four Test Previews (October 19, 2026)' \
+            --notes-file RELEASE_NOTES.md
+          assets_count="$(gh release view "$TAG" --json assets --jq '.assets | length')"
+          test "$assets_count" -eq 9 || { echo "::error::Preview release is incomplete; leaving draft."; exit 1; }
+          gh release edit "$TAG" --draft=false --prerelease
+          echo "Published separated prerelease with $assets_count verified assets."
