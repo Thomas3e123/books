@@ -29,9 +29,16 @@ jobs:
         run: |
           node --check main.js
           node --check sync-site.cjs
+          node --check smoke.cjs
           node --check app/assets/js/gravity-shift-lab.js
           node --check app/assets/js/gravity-shift-first-schedule-tour-v1.js
           if (-not (Test-Path app/PARITY_MANIFEST.json)) { throw 'Parity manifest missing' }
+      - name: Run real Windows Shift Lab customer workflow smoke
+        shell: pwsh
+        run: |
+          $env:GRAVITY_SHIFT_SMOKE = '1'
+          npx electron .
+          if ($LASTEXITCODE -ne 0) { throw "Windows runtime smoke failed with exit code $LASTEXITCODE" }
       - name: Build Windows candidate
         run: npm run build:win
       - uses: actions/upload-artifact@v5
