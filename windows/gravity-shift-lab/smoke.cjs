@@ -117,6 +117,7 @@ async function run(win) {
   });
   console.log('[SHIFT-LAB SMOKE] saved data after reload:',JSON.stringify(reload));
   const extended=await require('./smoke-extended.cjs').run(win);
-  return {initial,reload,extended};
+  const pdf=await require('./smoke-print-pdf.cjs').run(win);
+  return {initial,reload,extended,pdf};
 }
 module.exports={run};
