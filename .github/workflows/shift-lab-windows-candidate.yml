@@ -42,6 +42,21 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw "Windows runtime smoke failed with exit code $LASTEXITCODE" }
       - name: Build Windows candidate
         run: npm run build:win
+      - name: Install candidate silently on clean Windows runner and rerun end-to-end smoke
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $installer = Get-ChildItem 'dist/Gravity_Shift_Lab_Candidate_*.exe' | Select-Object -First 1
+          if (-not $installer) { throw 'NSIS installer missing' }
+          $destination = Join-Path $env:RUNNER_TEMP 'gravity-shift-installed-smoke'
+          $install = Start-Process -FilePath $installer.FullName -ArgumentList @('/S', "/D=$destination") -Wait -PassThru
+          if ($install.ExitCode -ne 0) { throw "NSIS installation failed: $($install.ExitCode)" }
+          $installed = Join-Path $destination 'Gravity Shift Lab Candidate.exe'
+          if (-not (Test-Path $installed)) { throw "Installer exited but app missing: $installed" }
+          $env:GRAVITY_SHIFT_SMOKE = '1'
+          $application = Start-Process -FilePath $installed -Wait -PassThru
+          if ($application.ExitCode -ne 0) { throw "Installed Windows application smoke failed: $($application.ExitCode)" }
+          Write-Host "NSIS installation and installed Shift Lab runtime tests passed."
       - uses: actions/upload-artifact@v5
         with:
           name: Gravity-Shift-Lab-Windows-Candidate
