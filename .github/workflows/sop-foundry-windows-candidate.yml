@@ -30,7 +30,7 @@ jobs:
         run: |
           npm run verify:site
           if ($LASTEXITCODE -ne 0) { throw 'Foundry source parity verification failed' }
-          foreach ($file in @('main.js','smoke.cjs','sync-site.cjs','verify-site.cjs')) {
+          foreach ($file in @('main.js','smoke.cjs','smoke-acceptance.cjs','sync-site.cjs','verify-site.cjs')) {
             node --check $file
             if ($LASTEXITCODE -ne 0) { throw "Invalid JavaScript syntax in $file" }
           }
