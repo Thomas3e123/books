@@ -14,6 +14,7 @@ function launch(){
   }
  });
  if(SMOKE){
+  win.webContents.on('console-message',(event,details)=>{const message=details?.message||event?.message||'';if(String(message).startsWith('[SHIFT-SMOKE]'))console.log(message);});
   const timer=setTimeout(()=>{console.error('Windows Shift Lab smoke timed out.');app.exit(1)},65000);
   win.webContents.once('did-finish-load',async()=>{
    try{
