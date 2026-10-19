@@ -9,9 +9,10 @@ on:
         default: false
         type: boolean
   push:
-    branches: [main]
+    branches: [main, gravity-work-study-windows-parity-20261019]
     paths:
       - 'windows/gravity-work-study-lab/**'
+      - 'site/gravity-work-study-lab.html'
       - 'site/assets/js/gravity-work-study-*.js'
       - 'site/assets/css/gravity-work-study-v2.css'
       - 'functions/work-study-link/**'
@@ -41,6 +42,17 @@ jobs:
         run: npm audit --omit=dev --audit-level=high
       - name: Synchronize website expert brain into Windows
         run: npm run sync:expert
+      - name: Verify website Guided bootstrap matches protected Windows stack
+        shell: pwsh
+        run: |
+          $html = Get-Content '../../site/gravity-work-study-lab.html' -Raw
+          $guard = $html.IndexOf('src="/assets/js/gravity-work-study-mutation-guard-v62.js')
+          $core = $html.IndexOf('src="/assets/js/gravity-work-study-v2.js')
+          $guided = $html.IndexOf('src="/assets/js/gravity-work-study-guided-entry-v63.js')
+          if ($guard -lt 0 -or $core -lt 0 -or $guided -lt 0 -or $guard -ge $core -or $core -ge $guided) {
+            throw 'Website Guided bootstrap order differs from guarded Windows stack'
+          }
+          Write-Host 'Website and Windows Guided bootstrap order verified.'
       - name: Verify Guided-stable full expert parity through v63
         run: npm run verify:expert
       - name: Syntax check Windows shell and portable-device bridge
