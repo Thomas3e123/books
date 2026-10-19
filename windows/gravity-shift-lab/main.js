@@ -5,6 +5,14 @@ const SMOKE=process.env.GRAVITY_SHIFT_SMOKE==='1';
 function launch(){
  const win=new BrowserWindow({width:1440,height:940,minWidth:850,minHeight:620,show:!SMOKE,autoHideMenuBar:true,webPreferences:{contextIsolation:true,nodeIntegration:false,sandbox:true}});
  win.webContents.setWindowOpenHandler(({url})=>{if(/^https:\/\//.test(url))shell.openExternal(url);return{action:'deny'}});
+ // Website navigation must not replace the local Windows scheduling application.
+ win.webContents.on('will-navigate',(event,url)=>{
+  if(/^https:\/\//i.test(url)){
+   event.preventDefault();shell.openExternal(url).catch(err=>console.warn('Could not open website:',err.message));
+  }else if(!url.startsWith('file://')){
+   event.preventDefault();
+  }
+ });
  if(SMOKE){
   const timer=setTimeout(()=>{console.error('Windows Shift Lab smoke timed out.');app.exit(1)},65000);
   win.webContents.once('did-finish-load',async()=>{
