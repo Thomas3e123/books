@@ -23,6 +23,11 @@ jobs:
           node-version: '22'
       - name: Install Windows candidate dependencies
         run: npm install
+      - name: Verify website source SHA-256 manifest
+        shell: pwsh
+        run: |
+          node ../../scripts/verify-source.cjs
+          if ($LASTEXITCODE -ne 0) { throw 'TMB website source manifest is stale' }
       - name: Copy current website Foundry source
         run: npm run sync:web
       - name: Verify multi-page source parity and module syntax
