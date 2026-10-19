@@ -8,6 +8,11 @@ fs.rmSync(output,{force:true,recursive:true});
 const dest=path.join(output,'apps/sop-foundry');
 fs.mkdirSync(path.dirname(dest),{recursive:true});
 fs.cpSync(source,dest,{recursive:true});
+// A homepage link is a website link, not a local Windows-app route.
+for(const name of fs.readdirSync(dest).filter(x=>x.endsWith('.html'))){
+ const file=path.join(dest,name),html=fs.readFileSync(file,'utf8');
+ fs.writeFileSync(file,html.replace(/href=(["'])\/\1/g,(_match,q)=>'href='+q+'https://thomasmonroebooks.com/'+q),'utf8');
+}
 const image=path.join(root,'site/assets/images/gravity-system-mark.svg');
 const target=path.join(output,'assets/images/gravity-system-mark.svg');
 fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(image,target);
