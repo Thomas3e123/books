@@ -30,8 +30,17 @@ async function run(win,base){
   const role=await (await fetch('/api/room-access')).json();
   if(role.role!=='build')throw Error('Build Room did not unlock');
   if(!document.querySelector('[data-view="sops"]'))throw Error('SOP editor navigation not mounted');
-  const w=await fetch('/api/workroom');
-  if(!w.ok)throw Error('Build Room workspace unavailable: '+w.status);
+  // The first launch imports 525 master SOPs asynchronously. Wait for that to complete
+  // before testing edits; an early direct API write would race the initial manual import.
+  let library=null;
+  for(let i=0;i<160;i++){
+    const w=await fetch('/api/workroom');
+    if(!w.ok)throw Error('Build Room workspace unavailable: '+w.status);
+    const d=await w.json();
+    if(d.data?.sops?.length>=525&&document.querySelector('#app .gravity-hero')){library=d.data;break;}
+    await pause(100);
+  }
+  if(!library)throw Error('The full 525-SOP Build Room did not finish initializing');
   const sop=await fetch('/api/sop-source');
   if(!sop.ok)throw Error('SOP reference library failed: '+sop.status);
   const raw=await sop.text();
@@ -49,7 +58,7 @@ async function run(win,base){
   };
   const id='gravity-windows-lifecycle-smoke';
   const entry={id,title:'Candidate SOP lifecycle test',purpose:'Confirm repeatable safe operating steps.',role:'Assigned station employee',frequency:'Every shift',steps:['Check and prepare the workstation.','Complete the approved work in order.'],checks:'Manager checks the finished station.',records:'Log the completed station inspection.',correction:'Correct any missed requirement and notify the manager.',safety:'Follow restaurant safety standards.',approvedBy:'Candidate Test Manager',effectiveDate:new Date().toISOString().slice(0,10),trainingRequirement:'review',changeSummary:'Initial controlled release',status:'Approved',isSample:false};
-  const saved=await request('/api/workroom','PUT',{restaurant:'Candidate Smoke',sops:[entry],recipes:[]});
+  const saved=await request('/api/workroom','PUT',{...library,sops:[...library.sops,entry],recipes:library.recipes});
   if(saved.status!==200)throw Error('SOP save failed: '+JSON.stringify(saved.data));
   const published=await request('/api/published-sops','POST',{id});
   if(published.status!==200)throw Error('Approved SOP publication failed: '+JSON.stringify(published.data));
@@ -60,7 +69,7 @@ async function run(win,base){
   if(!priorDraft)throw Error('SOP working copy vanished between save and revision, likely competing initialization');
   if(priorDraft.steps?.length!==2)throw Error('Unexpected original SOP step count: '+JSON.stringify(priorDraft.steps));
   const revision={...entry,steps:[...entry.steps,'Verify the records before closing the station.'],changeSummary:'Revised closing verification'};
-  const changed=await request('/api/workroom','PUT',{restaurant:'Candidate Smoke',sops:[revision],recipes:[]});
+  const changed=await request('/api/workroom','PUT',{...prior.workroom,sops:prior.workroom.sops.map(x=>x.id===id?revision:x),recipes:prior.workroom.recipes});
   if(changed.status!==200||changed.data.sopRevisions?.find(x=>x.id===id)?.status!=='Draft')throw Error('SOP revision did not return to Draft for reapproval: '+JSON.stringify({changed,priorDraft}));
   const archive=await window.GravityFoundryWeb.load();
   if(!archive.history.some(item=>item.item?.id===id&&item.kind==='sop'))throw Error('Previous SOP revision was not archived');
