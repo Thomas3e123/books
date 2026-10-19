@@ -105,8 +105,9 @@ async function run(win){
     if(!dialog.open)throw Error('SOP Binder dialog failed to open');
     const status=dialog.querySelector('#gravity-binder-status');
     status.value='all';status.dispatchEvent(new Event('change',{bubbles:true}));
+    for(let i=0;i<100&&dialog.querySelectorAll('#gravity-binder-preview-list li').length!==25;i++)await sleep(100);
     const rows=dialog.querySelectorAll('#gravity-binder-preview-list li');
-    if(rows.length!==25)throw Error('Expected 25 SOPs in binder print batch, found '+rows.length);
+    if(rows.length!==25)throw Error('Expected 25 SOPs in binder print batch, found '+rows.length+'; '+dialog.querySelector('#gravity-binder-status-text').textContent);
     dialog.querySelector('#gravity-binder-print').click();
     for(let i=0;i<60&&!document.getElementById('foundryPrintPreview');i++)await sleep(100);
     const preview=document.getElementById('foundryPrintPreview');
