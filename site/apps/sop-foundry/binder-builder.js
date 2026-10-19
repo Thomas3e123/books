@@ -61,6 +61,7 @@ function print(){
  item.style.cssText='position:fixed;left:-20000px;top:0;width:195mm;background:#fff;color:#111;padding:8mm';
  item.innerHTML=style+'<div class="gravity-binder-cover"><h1>Gravity SOP Binder</h1><p>Restaurant: '+esc(window.foundryBrand?.name||'Your Restaurant')+'</p><p>Selection: '+esc(selectStatus.selectedOptions[0]?.textContent||'')+' · '+esc(station==='all'?'All stations':station)+' · Batch '+(index+1)+'</p><p>Generated '+esc(new Date().toLocaleString())+'. Manager control copy. Verify approval and effective dates before use.</p><h2>Contents</h2><ol class="gravity-binder-toc">'+selected.map(s=>'<li>'+esc(s.title||'Untitled')+'</li>').join('')+'</ol></div>'+selected.map(sopHtml).join('');
  document.body.append(item);
+ if(dialog.open)dialog.close();
  window.print();
  setTimeout(()=>item.remove(),1200);
 }
