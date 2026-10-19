@@ -29,10 +29,11 @@ jobs:
         shell: pwsh
         run: |
           npm run verify:site
-          node --check main.js
-          node --check smoke.cjs
-          node --check sync-site.cjs
-          node --check verify-site.cjs
+          if ($LASTEXITCODE -ne 0) { throw 'Foundry source parity verification failed' }
+          foreach ($file in @('main.js','smoke.cjs','sync-site.cjs','verify-site.cjs')) {
+            node --check $file
+            if ($LASTEXITCODE -ne 0) { throw "Invalid JavaScript syntax in $file" }
+          }
       - name: Test Windows PIN gates, SOP source, storage and page navigation
         shell: pwsh
         run: |
