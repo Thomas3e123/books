@@ -1,0 +1,50 @@
+{
+  "name": "gravity-shift-lab-windows-candidate",
+  "version": "0.1.0-beta.1",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "sync:web": "node sync-site.cjs",
+    "build:win": "npm run sync:web && electron-builder --win nsis zip --x64"
+  },
+  "devDependencies": {
+    "electron": "39.8.10",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "com.thomasmonroebooks.gravityshiftlab.candidate",
+    "productName": "Gravity Shift Lab Candidate",
+    "asar": true,
+    "files": [
+      "main.js",
+      "package.json",
+      "app/**/*",
+      "README.md"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "Gravity_Shift_Lab_Candidate_${version}_${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    }
+  }
+}
