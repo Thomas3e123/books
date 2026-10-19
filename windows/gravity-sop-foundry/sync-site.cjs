@@ -22,6 +22,12 @@ function patch(rel,find,replacement){
   fs.writeFileSync(file,text.replace(find,replacement),'utf8');
 }
 patch('employee-connection.js',"location.origin+'/e/'","'https://thomasmonroebooks.com/e/'");
+patch('branding-config.js',"code?location.origin+'/e/'+encodeURIComponent(code):''","code?'https://thomasmonroebooks.com/e/'+encodeURIComponent(code):''");
+patch('branding-config.js',"return employeeRoot?window.foundryEmployeeUrl(next):location.origin+next","return employeeRoot?window.foundryEmployeeUrl(next):''");
+patch('branding-config.js',"const svg=window.GravityQR.renderSvg(String(text||''),{level:'M',quiet:3});","if(!String(text||'').trim())return '';const svg=window.GravityQR.renderSvg(String(text||''),{level:'M',quiet:3});");
+patch('workroom.html','Direct QR for this SOP','Employee QR — requires Hosted Employee Access');
+patch('workroom.html','Employee link — available after publication','Employee link — available after publication and hosted connection');
+
 patch('web-api-shim.js',"employeeBase:location.origin+APP.replace(/\\/$/,'')","employeeBase:''");
 patch('web-api-shim.js',"dataLocation:'Browser-local storage for this website'","dataLocation:'Private storage on this Windows computer'");
 patch('desktop-settings.html','Gravity SOP Foundry · Web Workspace','Gravity SOP Foundry · Windows Workspace');
