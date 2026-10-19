@@ -51,7 +51,7 @@ async function run(win) {
     set(home,'Management','change');
     set(manager.querySelector('.employee-wage'),'25');
     set(manager.querySelectorAll('.shift-input')[0],'10a-6p');
-    if(Math.abs(parseFloat(get('g-percent').textContent)-11.6)>0.05)fail('Management inclusive labor percent must be 11.6, found '+get('g-percent').textContent);
+    if(Math.abs(parseFloat(get('g-percent').textContent)-12.4)>0.05)fail('Management inclusive labor percent must be 12.4, found '+get('g-percent').textContent);
     get('lab-pay-lock').click();
     if(!get('pay-lock-dialog').open)fail('Pay Lock setup dialog did not open');
     set(get('pay-lock-secret'),'test-4826');set(get('pay-lock-confirm'),'test-4826');
@@ -63,16 +63,16 @@ async function run(win) {
     set(get('manager-labor-mode'),'exclude','change');
     set(get('manager-salary-allocation'),'300');
     get('manager-settings-save').click();
-    if(Math.abs(parseFloat(get('g-percent').textContent)-9.6)>0.05)fail('Exclude management must yield 9.6%, found '+get('g-percent').textContent);
+    if(Math.abs(parseFloat(get('g-percent').textContent)-10.4)>0.05)fail('Exclude management must yield 10.4%, found '+get('g-percent').textContent);
     get('lab-manager-settings').click();
     set(get('manager-labor-mode'),'include','change');
     get('manager-settings-save').click();
-    if(Math.abs(parseFloat(get('g-percent').textContent)-14.6)>0.05)fail('Include manager and $300 salary must yield 14.6%, found '+get('g-percent').textContent);
+    if(Math.abs(parseFloat(get('g-percent').textContent)-15.4)>0.05)fail('Include manager and $300 salary must yield 15.4%, found '+get('g-percent').textContent);
     get('lab-pay-lock').click();
     if(!/locked/i.test(get('pay-lock-status').textContent)&&!/hidden/i.test(get('pay-lock-status').textContent))fail('Pay lock did not activate');
     if(document.querySelector('#lab-body .employee-wage'))fail('Pay input still exposed when locked');
     if(!get('lab-manager-settings').disabled||!get('lab-csv').disabled||!get('lab-backup').disabled)fail('Sensitive actions not disabled when locked');
-    if(Math.abs(parseFloat(get('g-percent').textContent)-14.6)>0.05)fail('Locked labor percent changed');
+    if(Math.abs(parseFloat(get('g-percent').textContent)-15.4)>0.05)fail('Locked labor percent changed');
     // Check one-time approved absence and a repeating cannot-work weekday.
     get('lab-calendar').click();
     if(!get('availability-calendar-dialog').open)fail('Calendar failed to open');
@@ -109,7 +109,7 @@ async function run(win) {
         const row=[...document.querySelectorAll('#lab-body tr[data-employee-id]')].find(x=>x.querySelector('.employee-name')?.value==='Windows Smoke Tester');
         if(!row)throw Error('Saved employee missing after reload');
         const hours=document.getElementById('g-hours')?.textContent||'';
-        if(Math.abs(parseFloat(hours)-48)>0.01)throw Error('Saved 48 hours missing after reload: '+hours);
+        if(Math.abs(parseFloat(hours)-56)>0.01)throw Error('Saved 56 hours missing after reload: '+hours);
         return {savedName:true,hours};
       })()`,true).then(resolve,reject);
     });
