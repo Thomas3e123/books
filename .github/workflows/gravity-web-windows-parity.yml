@@ -1,0 +1,27 @@
+name: Gravity Web and Windows Parity Gate
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/assets/js/gravity-shift-lab.js'
+      - 'site/assets/js/gravity-shift-first-schedule-tour-v1.js'
+      - 'site/gravity-shift-lab.html'
+      - 'site/assets/js/gravity-work-study-*.js'
+      - 'windows/**'
+      - 'site/windows-programs.html'
+      - '.github/workflows/gravity-web-windows-parity.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  cross-platform-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check source and parity declarations
+        run: node scripts/check-web-windows-parity.cjs
+      - name: Verify source hashes
+        run: npm run build
