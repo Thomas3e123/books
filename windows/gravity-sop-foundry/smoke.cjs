@@ -78,6 +78,7 @@ async function run(win,base){
   return {room:'build',referenceBytes:raw.length,localStorage:true,workspace:true,sopSaved:true,approvedAndPublished:true,revisionArchived:true,publicationProtected:true};
  });
  console.log('[FOUNDRY-SMOKE] manager workspace / bundled SOP library:',JSON.stringify(manager));
+ const acceptance=await require('./smoke-acceptance.cjs').run(win);
  const screens=['import-export','history','poster-studio','employee-connection','desktop-settings','employee-app'];
  for(const page of screens){
    await win.loadURL(base+'/apps/sop-foundry/'+page+'.html');
@@ -97,6 +98,6 @@ async function run(win,base){
   return{extensionlessRoute:true,role:role.role};
  });
  assert.equal(reload.extensionlessRoute,true);
- return {before,manager,pages:screens.length,reload};
+ return {before,manager,acceptance,pages:screens.length,reload};
 }
 module.exports={run};
