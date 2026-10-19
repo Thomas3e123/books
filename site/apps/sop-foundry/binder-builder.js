@@ -55,7 +55,8 @@ function sopHtml(s){
 }
 function print(){
  const selected=included().slice(index*MAX,(index+1)*MAX);if(!selected.length)return;
- if(document.getElementById('gravity-binder-print-source'))document.getElementById('gravity-binder-print-source').remove();
+ // Clear finished one-SOP print sources before preparing a binder batch.
+ document.querySelectorAll('.print-target').forEach(node=>node.remove());
  const style='<style>.gravity-binder-cover{border-bottom:3px solid #c59b35;padding:8mm 0 12mm}.gravity-binder-cover h1{font-size:28pt;color:#171e2a}.gravity-binder-cover p{font-size:10pt}.gravity-binder-sop{break-before:page;page-break-before:always;color:#111;font:10pt/1.5 Arial,sans-serif}.gravity-binder-sop header{border-bottom:2px solid #c59b35;padding:6mm 0}.gravity-binder-sop h2{font:23pt Georgia,serif;margin:3mm 0}.gravity-binder-sop h3{font:700 11pt Arial,sans-serif;margin:4mm 0 2mm}.gravity-binder-block{break-inside:avoid}.gravity-binder-sop ol{padding-left:7mm}.gravity-binder-sop li{margin:0 0 3mm}.gravity-binder-sop footer{border-top:1px solid #ccc;font-size:8pt;margin-top:7mm;padding-top:3mm;overflow-wrap:anywhere}.gravity-binder-eyebrow{font-weight:bold;letter-spacing:.04em;color:#6e4b00}.gravity-binder-toc{column-count:2;font-size:9pt}.gravity-binder-toc li{break-inside:avoid;margin-bottom:2mm}@media print{.gravity-binder-sop{break-before:page;page-break-before:always}.gravity-binder-cover{break-after:page;page-break-after:always}}<\/style>';
  const item=document.createElement('article');item.id='gravity-binder-print-source';item.className='print-target';
  item.style.cssText='position:fixed;left:-20000px;top:0;width:195mm;background:#fff;color:#111;padding:8mm';
