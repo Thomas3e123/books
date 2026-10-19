@@ -53,6 +53,11 @@ async function run(win){
     if(staff.status!==200)fail('Original staff PIN not restored');
     const staffPublic=await req('/api/published-posters');
     if(staffPublic.status!==200||!staffPublic.body.posters.some(x=>x.id===posterId))fail('Restored poster unavailable to employees');
+    // A staff PIN must never authorize manager-only Ask Gravity draft sources.
+    const privateSop=old.workroom.sops[0]?.id;
+    if(!privateSop)fail('No manager-only SOP available to test');
+    const escalation=await req('/api/assistant','POST',{room:'build',kind:'sop',sourceId:privateSop,messages:[{content:'How do I start?'}]});
+    if(escalation.status!==403)fail('Staff accessed manager source through Ask Gravity: '+escalation.status);
     for(const [url,method,data] of [['/api/workroom','GET'],['/api/desktop-backup','GET'],['/api/signals','GET'],['/api/history','GET'],['/api/staff-recipes','POST',{recipes:[recipe]}]]){
       const checked=await req(url,method,data);
       if(checked.status!==403)fail('Employee role accessed manager-only endpoint '+url+': '+checked.status);
@@ -68,7 +73,7 @@ async function run(win){
     await window.GravityFoundryWeb.save(baseline);
     return{recipeImport:true,duplicateSkip:true,recipeRevisionArchived:true,unpublishedRecipePrivate:true,
       posterPublished:true,invalidPosterLinksRejected:true,fullBackupIncludesHistory:true,fullRestore:true,
-      restoredPins:true,managerAutomaticallyLocked:true,employeeManagerAccessRejected:true,invalidLocalQRDisabled:true};
+      restoredPins:true,managerAutomaticallyLocked:true,employeeManagerAccessRejected:true,assistantManagerSourceProtected:true,invalidLocalQRDisabled:true};
   });
   console.log('[FOUNDRY-ACCEPTANCE] backup, recipes, posters, roles, QR safety:',JSON.stringify(result));
   for(const [key,value] of Object.entries(result))assert.equal(value,true,key);
@@ -123,6 +128,47 @@ async function run(win){
   if(binderPDF.length<18000||binderPDF.subarray(0,5).toString('ascii')!=='%PDF-')throw Error('Windows Binder PDF missing or invalid: '+binderPDF.length);
   await renderer(win,()=>{document.getElementById('foundryPrintBack')?.click();return true});
   console.log('[FOUNDRY-ACCEPTANCE] binder preview and PDF:',JSON.stringify({...binder,pdfBytes:binderPDF.length}));
-  return{...result,sopPrintPreview:true,nativePdf:true,binderBatch25:true,binderPdf:true};
+  // A later unapproved manager edit must never appear in the published SOP Binder.
+  const snapshotCheck=await renderer(win,async function(){
+    const original=structuredClone(await window.GravityFoundryWeb.load());
+    const sample=original.workroom.sops.find(s=>s.steps?.length);
+    if(!sample)throw Error('Missing sample SOP for binder snapshot test');
+    const id='gravity-binder-snapshot-regression';
+    const published={...structuredClone(sample),id,title:'Binder Snapshot Regression',
+      station:'Binder Acceptance QA',revision:'1.0',status:'Approved',isSample:false,
+      approvedBy:'Acceptance Manager',purpose:'PUBLISHED APPROVED PURPOSE ONLY',
+      steps:['PUBLISHED APPROVED PROCEDURE ONLY']};
+    const draft={...structuredClone(published),revision:'1.1',status:'Draft',
+      purpose:'UNAPPROVED DRAFT MUST NEVER PRINT',steps:['UNAPPROVED DRAFT STEP MUST NEVER PRINT']};
+    const updated=structuredClone(original);
+    updated.workroom.sops.push(draft);updated.publishedSops[id]=published;
+    const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+    try{
+      await window.GravityFoundryWeb.save(updated);
+      document.getElementById('gravity-binder-open').click();
+      const dialog=document.getElementById('gravity-binder-dialog'),station=dialog.querySelector('#gravity-binder-station');
+      for(let i=0;i<100&&!station.querySelector('option[value="Binder Acceptance QA"]');i++)await sleep(75);
+      if(!station.querySelector('option[value="Binder Acceptance QA"]'))throw Error('Binder snapshot station missing');
+      const status=dialog.querySelector('#gravity-binder-status');
+      status.value='published';status.dispatchEvent(new Event('change',{bubbles:true}));
+      station.value='Binder Acceptance QA';station.dispatchEvent(new Event('change',{bubbles:true}));
+      const rows=dialog.querySelectorAll('#gravity-binder-preview-list li');
+      if(rows.length!==1)throw Error('Published snapshot selection incorrect: '+rows.length);
+      dialog.querySelector('#gravity-binder-print').click();
+      for(let i=0;i<60&&!document.getElementById('foundryPrintPreview');i++)await sleep(75);
+      const preview=document.getElementById('foundryPrintPreview');
+      if(!preview)throw Error('Published binder preview missing');
+      if(!preview.textContent.includes('PUBLISHED APPROVED PROCEDURE ONLY'))throw Error('Published snapshot missing in binder');
+      if(preview.textContent.includes('UNAPPROVED DRAFT'))throw Error('Draft manager edits exposed in published binder');
+      return {publishedSnapshotPreserved:true,unapprovedDraftExcluded:true};
+    }finally{
+      document.getElementById('foundryPrintBack')?.click();
+      document.getElementById('gravity-binder-dialog')?.close();
+      await window.GravityFoundryWeb.save(original);
+    }
+  });
+  console.log('[FOUNDRY-ACCEPTANCE] published binder snapshot privacy:',JSON.stringify(snapshotCheck));
+  for(const [key,value] of Object.entries(snapshotCheck))assert.equal(value,true,key);
+  return{...result,...snapshotCheck,sopPrintPreview:true,nativePdf:true,binderBatch25:true,binderPdf:true};
 }
 module.exports={run};

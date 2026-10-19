@@ -1,11 +1,19 @@
 name: Gravity SOP Foundry Windows Candidate
 on:
   push:
-    branches: [main, gravity-sop-foundry-windows-sync-20261019]
+    # Any changed website source produces an isolated Windows candidate on every branch.
     paths:
       - 'windows/gravity-sop-foundry/**'
       - 'site/apps/sop-foundry/**'
       - 'site/assets/images/gravity-system-mark.svg'
+      - 'source-manifest.json'
+      - '.github/workflows/sop-foundry-windows-candidate.yml'
+  pull_request:
+    paths:
+      - 'windows/gravity-sop-foundry/**'
+      - 'site/apps/sop-foundry/**'
+      - 'site/assets/images/gravity-system-mark.svg'
+      - 'source-manifest.json'
       - '.github/workflows/sop-foundry-windows-candidate.yml'
   workflow_dispatch:
 permissions:

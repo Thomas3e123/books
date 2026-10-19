@@ -126,7 +126,7 @@
     },
     {
       "path": "site/apps/sop-foundry/binder-builder.js",
-      "sha256": "95fc05ebe6b712f3833f9d90ced99821534f4c969022b580db3995e2c23ce935"
+      "sha256": "68207166b9cd426236d85f2710c058ded9d2e16d3cedebf6e87128da451f1c50"
     },
     {
       "path": "site/apps/sop-foundry/branding-config.js",
@@ -354,7 +354,7 @@
     },
     {
       "path": "site/apps/sop-foundry/web-api-shim.js",
-      "sha256": "41f4a661682714ab07b330018540a0cb9e134e9ee94219d293788d51cf1b459e"
+      "sha256": "d0d8c1599257e2a43160143163d57306a46d2c381951e9b6ccd0db2d8dcb42ad"
     },
     {
       "path": "site/apps/sop-foundry/window.svg",

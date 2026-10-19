@@ -3,7 +3,7 @@
 // Prints at most 25 SOPs per batch, avoiding huge Chromium print jobs.
 const API='/api/',MAX=25;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
-let data=[],index=0,filter='published',station='all',dialog,summary,selectStatus,selectStation,selectedBatch=null;
+let working=[],publishedSops=[],index=0,filter='published',station='all',dialog,summary,selectStatus,selectStation,selectedBatch=null;
 const toast=s=>{if(summary)summary.textContent=s};
 async function fetchJson(path){
  const response=await fetch(API+path,{cache:'no-store'});
@@ -13,19 +13,18 @@ async function fetchJson(path){
 async function load(){
  const [work,published]=await Promise.all([fetchJson('workroom'),fetchJson('published-sops')]);
  const all=Array.isArray(work?.data?.sops)?work.data.sops:[];
- const publicIds=new Set((published?.data?.sops||[]).map(s=>String(s.id)));
- const publicSops=published?.data?.sops||[];
- const merged=all.map(s=>({...s,_isPublished:publicIds.has(String(s.id))}));
- publicSops.forEach(s=>{if(!merged.some(x=>String(x.id)===String(s.id)))merged.push({...s,_isPublished:true})});
- data=merged;
- let names=[...new Set(merged.map(s=>String(s.station||s.stationName||s.category||'General').trim()||'General'))].sort();
+ const publicSops=Array.isArray(published?.data?.sops)?published.data.sops:[];
+ // The published library is an approved snapshot, not the editable manager copy.
+ // Editing a published SOP must not replace the employee version in printed binders.
+ working=all.map(s=>({...s,_isPublished:false}));
+ publishedSops=publicSops.map(s=>({...s,_isPublished:true}));
+ let names=[...new Set([...working,...publishedSops].map(s=>String(s.station||s.stationName||s.category||'General').trim()||'General'))].sort();
  selectStation.innerHTML='<option value="all">All stations</option>'+names.map(s=>'<option value="'+esc(s)+'">'+esc(s)+'</option>').join('');
  station='all';selectStation.value='all';index=0;update();
 }
 function included(){
- return data.filter(s=>{
+ return (filter==='published'?publishedSops:working).filter(s=>{
    if(station!=='all'&&String(s.station||s.stationName||s.category||'General').trim()!==station)return false;
-   if(filter==='published')return s._isPublished;
    if(filter==='approved')return s.status==='Approved'&&s.isSample===false;
    return true;
  }).sort((a,b)=>String(a.station||'').localeCompare(String(b.station||''))||String(a.title||'').localeCompare(String(b.title||'')));
@@ -43,7 +42,7 @@ function update(){
 function sopHtml(s){
  const state=s.isSample?'SAMPLE — customize and approve before use':s._isPublished?'PUBLISHED SOP':'MANAGER WORKING COPY — NOT PUBLISHED';
  const link=typeof window.foundrySopUrl==='function'?window.foundrySopUrl(String(s.id)):'';
- const safeLink=/^https:\/\/thomasmonroebooks\.com\/e\/[A-Z0-9]+/i.test(link)?link:'';
+ const safeLink=s._isPublished&&/^https:\/\/thomasmonroebooks\.com\/e\/[A-Z0-9]+/i.test(link)?link:'';
  const lines=(Array.isArray(s.steps)?s.steps:[]).filter(Boolean);
  const block=(title,value)=>'<section class="gravity-binder-block"><h3>'+esc(title)+'</h3><p>'+esc(value||'Not documented')+'</p></section>';
  return '<section class="gravity-binder-sop"><header><div class="gravity-binder-eyebrow">'+esc(state)+'</div><h2>'+esc(s.title||'Untitled SOP')+'</h2><p>'+esc(s.station||s.stationName||s.category||'General')+' · Revision '+esc(s.revision||'1.0')+' · Effective '+esc(s.effectiveDate||'Not set')+'</p></header>'+
@@ -72,7 +71,7 @@ function init(){
  nav.append(button);
  dialog=document.createElement('dialog');dialog.id='gravity-binder-dialog';dialog.style.cssText='max-width:min(900px,95vw);width:100%;max-height:90vh;overflow:auto;border-radius:16px;padding:24px;border:2px solid #c59b35;background:white;color:#102938;box-shadow:0 16px 45px #0007';
  dialog.innerHTML='<h2 style="margin:0 0 10px">Print SOP Binder</h2><p>Manager-only print control. Select what to include, review the batch, then Print / Save as PDF. Each batch contains up to 25 SOPs. Sample or draft procedures are clearly labeled and must not be mistaken for approved procedures.</p>'+
- '<div style="display:flex;gap:14px;flex-wrap:wrap"><label>Status <select id="gravity-binder-status"><option value="published">Published employee SOPs only (recommended)</option><option value="approved">Approved working SOPs</option><option value="all">All SOPs, including samples and drafts — manager review</option></select></label><label>Station <select id="gravity-binder-station"><option>All stations</option></select></label></div>'+
+ '<div style="display:flex;gap:14px;flex-wrap:wrap"><label>Status <select id="gravity-binder-status"><option value="published">Published employee SOP snapshots only (recommended)</option><option value="approved">Approved working SOPs</option><option value="all">All SOPs, including samples and drafts — manager review</option></select></label><label>Station <select id="gravity-binder-station"><option>All stations</option></select></label></div>'+
  '<p id="gravity-binder-status-text" role="status"></p><ol id="gravity-binder-preview-list" style="max-height:250px;overflow:auto;columns:2"></ol>'+
  '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px"><button type="button" id="gravity-binder-prev">← Previous 25</button><button type="button" id="gravity-binder-next">Next 25 →</button><button type="button" id="gravity-binder-print">Preview print batch</button><button type="button" id="gravity-binder-close">Close</button></div>';
  document.body.append(dialog);
