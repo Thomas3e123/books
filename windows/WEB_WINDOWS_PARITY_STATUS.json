@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "updated_at": "2026-10-18",
+  "note": "Verification record. Mark verified only after rebuilding Windows and capturing test evidence; the web SHA must be refreshed from approved source.",
+  "components": [
+    {
+      "web_source": "site/assets/js/gravity-shift-lab.js",
+      "web_sha256": null,
+      "windows_status": "unverified",
+      "windows_build_sha": null,
+      "windows_test_evidence": null
+    },
+    {
+      "web_source": "site/assets/js/gravity-shift-first-schedule-tour-v1.js",
+      "web_sha256": null,
+      "windows_status": "not_ported",
+      "windows_build_sha": null,
+      "windows_test_evidence": null
+    },
+    {
+      "web_source": "site/gravity-work-study-lab.html",
+      "web_sha256": null,
+      "windows_status": "candidate_only",
+      "windows_build_sha": null,
+      "windows_test_evidence": null
+    }
+  ]
+}
