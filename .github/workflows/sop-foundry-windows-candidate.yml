@@ -1,0 +1,74 @@
+name: Gravity SOP Foundry Windows Candidate
+on:
+  push:
+    # Any changed website source produces an isolated Windows candidate on every branch.
+    paths:
+      - 'windows/gravity-sop-foundry/**'
+      - 'site/apps/sop-foundry/**'
+      - 'site/assets/images/gravity-system-mark.svg'
+      - 'source-manifest.json'
+      - '.github/workflows/sop-foundry-windows-candidate.yml'
+  workflow_dispatch:
+concurrency:
+  group: gravity-sop-foundry-candidate-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  build-windows-candidate:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: windows/gravity-sop-foundry
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Install Windows candidate dependencies
+        run: npm install
+      - name: Verify website source SHA-256 manifest
+        shell: pwsh
+        run: |
+          node ../../scripts/verify-source.cjs
+          if ($LASTEXITCODE -ne 0) { throw 'TMB website source manifest is stale' }
+      - name: Copy current website Foundry source
+        run: npm run sync:web
+      - name: Verify multi-page source parity and module syntax
+        shell: pwsh
+        run: |
+          npm run verify:site
+          if ($LASTEXITCODE -ne 0) { throw 'Foundry source parity verification failed' }
+          foreach ($file in @('main.js','smoke.cjs','smoke-acceptance.cjs','sync-site.cjs','verify-site.cjs')) {
+            node --check $file
+            if ($LASTEXITCODE -ne 0) { throw "Invalid JavaScript syntax in $file" }
+          }
+      - name: Test Windows PIN gates, SOP source, storage and page navigation
+        shell: pwsh
+        run: |
+          $env:GRAVITY_FOUNDRY_SMOKE = '1'
+          npx electron .
+          if ($LASTEXITCODE -ne 0) { throw "Foundry Windows runtime smoke failed: $LASTEXITCODE" }
+      - name: Build NSIS installer and ZIP candidate
+        run: npm run build:win
+      - name: Install candidate on clean Windows runner and rerun smoke
+        shell: pwsh
+        run: |
+          $installer = Get-ChildItem 'dist/Gravity_SOP_Foundry_Candidate_*.exe' | Select-Object -First 1
+          if (-not $installer) { throw 'NSIS installer missing' }
+          $destination = Join-Path $env:RUNNER_TEMP 'gravity-foundry-installed-test'
+          $process = Start-Process -FilePath $installer.FullName -ArgumentList @('/S', "/D=$destination") -Wait -PassThru
+          if ($process.ExitCode -ne 0) { throw "NSIS install failed: $($process.ExitCode)" }
+          $program = Join-Path $destination 'Gravity SOP Foundry Candidate.exe'
+          if (-not (Test-Path $program)) { throw 'Foundry Windows EXE missing after install' }
+          $env:GRAVITY_FOUNDRY_SMOKE = '1'
+          $check = Start-Process -FilePath $program -Wait -PassThru
+          if ($check.ExitCode -ne 0) { throw "Installed Foundry smoke failed: $($check.ExitCode)" }
+      - name: Retain Windows candidate for beta acceptance
+        uses: actions/upload-artifact@v5
+        with:
+          name: Gravity-SOP-Foundry-Windows-Candidate
+          path: |
+            windows/gravity-sop-foundry/dist/*.exe
+            windows/gravity-sop-foundry/dist/*.zip
+          if-no-files-found: error

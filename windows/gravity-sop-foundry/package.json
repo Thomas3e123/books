@@ -1,0 +1,58 @@
+{
+  "name": "gravity-sop-foundry-windows-candidate",
+  "version": "0.1.0-beta.1",
+  "private": true,
+  "main": "main.js",
+  "description": "Gravity SOP Foundry local Windows candidate — same app sources as the website; hosted employee sync requires internet",
+  "scripts": {
+    "sync:web": "node sync-site.cjs",
+    "verify:site": "node verify-site.cjs",
+    "build:win": "npm run sync:web && npm run verify:site && electron-builder --win nsis zip --x64"
+  },
+  "devDependencies": {
+    "electron": "39.8.10",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "com.thomasmonroebooks.gravitysopfoundry.candidate",
+    "productName": "Gravity SOP Foundry Candidate",
+    "asar": true,
+    "files": [
+      "main.js",
+      "smoke.cjs",
+      "sync-site.cjs",
+      "verify-site.cjs",
+      "package.json",
+      "README.md",
+      "app/**/*",
+      "smoke-acceptance.cjs"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "Gravity_SOP_Foundry_Candidate_${version}_${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Gravity SOP Foundry Candidate"
+    }
+  }
+}

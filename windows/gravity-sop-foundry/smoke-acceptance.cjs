@@ -1,0 +1,179 @@
+'use strict';
+// Expanded Windows acceptance tests use isolated disposable Foundry profile only.
+// They exercise shared website APIs from the packaged Windows renderer.
+const assert=require('node:assert/strict');
+const renderer=(win,fn,...args)=>win.webContents.executeJavaScript('('+fn.toString()+')('+args.map(JSON.stringify).join(',')+')',true);
+async function run(win){
+  const result=await renderer(win,async function(){
+    const req=async(path,method='GET',value)=>{
+      const options={method,headers:{'Content-Type':'application/json'}};
+      if(value!==undefined)options.body=JSON.stringify(value);
+      const response=await fetch(path,options);
+      return {status:response.status,body:await response.json()};
+    };
+    const fail=message=>{throw Error(message)};
+    const baseline=structuredClone(await window.GravityFoundryWeb.load());
+    if(!baseline.workroom?.sops?.length||baseline.workroom.sops.length<525)fail('Master SOPs not initialized');
+    if(window.foundrySopUrl('sample-sop-test')!=='')fail('Windows generated an unscannable local-protocol QR URL without hosting');
+    if(window.foundryQr('')!=='')fail('Windows generated a QR matrix from an empty URL');
+    const recipeId='gravity-acceptance-recipe';
+    const recipe={id:recipeId,title:'Gravity Acceptance Tomato Sauce',type:'food',station:'Prep',ingredients:['Tomatoes','Salt'],steps:['Combine ingredients']};
+    const created=await req('/api/staff-recipes','POST',{recipes:[recipe],duplicates:'skip'});
+    if(created.status!==200||created.body.imported!==1)fail('Recipe import failed: '+JSON.stringify(created));
+    const skipped=await req('/api/staff-recipes','POST',{recipes:[recipe],duplicates:'skip'});
+    if(skipped.status!==200||skipped.body.skipped!==1)fail('Recipe duplicate skip failed: '+JSON.stringify(skipped));
+    const replaced=await req('/api/staff-recipes','POST',{recipes:[{...recipe,steps:['Mix tomatoes and salt','Verify safe storage']}],duplicates:'replace'});
+    if(replaced.status!==200||replaced.body.imported!==1)fail('Recipe replacement failed: '+JSON.stringify(replaced));
+    const current=await window.GravityFoundryWeb.load();
+    const imported=current.workroom.recipes.find(r=>r.id===recipeId);
+    if(!imported||imported.status!=='Draft'||imported.revision==='1.0')fail('Replacement recipe must remain draft with revised number');
+    if(!current.history.some(e=>e.item?.id===recipeId))fail('Replaced recipe not archived');
+    if(current.publishedRecipes[recipeId])fail('Draft recipe exposed in published Employee Library');
+    const posterId='gravity-acceptance-poster';
+    const rejected=await req('/api/posters','POST',{id:posterId,title:'Accept Poster',lines:'Step 1',status:'Active',sopId:'unknown-sop'});
+    if(rejected.status!==400)fail('Poster accepted link to nonpublished SOP');
+    const poster=await req('/api/posters','POST',{id:posterId,title:'Acceptance Poster',lines:'Wash and prepare station',status:'Active',relatedSopIds:[]});
+    if(poster.status!==200)fail('Poster creation failed: '+JSON.stringify(poster));
+    const library=await req('/api/published-posters');
+    if(library.status!==200||!library.body.posters.some(x=>x.id===posterId))fail('Active poster not visible to Employee Library');
+    const snapshot=await req('/api/desktop-backup');
+    if(snapshot.status!==200||snapshot.body.product!=='Gravity SOP Foundry')fail('Full manager backup unavailable');
+    const old=snapshot.body.state;
+    // An incomplete/corrupt backup must not replace existing restaurant data.
+    const invalid=await req('/api/desktop-backup','POST',{product:'Gravity SOP Foundry',state:{pins:{build:'0000'}}});
+    if(invalid.status!==400)fail('Incomplete backup was accepted and may overwrite customer data');
+    const afterInvalid=await req('/api/desktop-backup');
+    if(afterInvalid.status!==200||!afterInvalid.body.state.workroom.recipes.some(r=>r.id===recipeId))fail('Rejected backup damaged the current customer workspace');
+    if(!old.workroom.recipes.some(r=>r.id===recipeId)||!old.posters[posterId]||!old.history.length||!old.pins)fail('Full backup missing recipes, posters, revision history, or PIN settings');
+    const update=await req('/api/desktop-settings','POST',{name:'MUTATED NOT TO SAVE'});
+    if(update.status!==200)fail('Test mutation failed');
+    const pin=await req('/api/room-settings','POST',{room:'staff',pin:'9876'});
+    if(pin.status!==200)fail('Staff PIN mutation failed');
+    const restored=await req('/api/desktop-backup','POST',snapshot.body);
+    if(restored.status!==200)fail('Full backup restore failed: '+JSON.stringify(restored));
+    if((await req('/api/desktop-backup')).status!==403)fail('Restore failed to lock manager session');
+    const bad=await req('/api/room-access','POST',{room:'staff',pin:'9876'});
+    if(bad.status!==403)fail('Mutated staff PIN survived a full restore');
+    const staff=await req('/api/room-access','POST',{room:'staff',pin:String(old.pins.staff)});
+    if(staff.status!==200)fail('Original staff PIN not restored');
+    const staffPublic=await req('/api/published-posters');
+    if(staffPublic.status!==200||!staffPublic.body.posters.some(x=>x.id===posterId))fail('Restored poster unavailable to employees');
+    // A staff PIN must never authorize manager-only Ask Gravity draft sources.
+    const privateSop=old.workroom.sops[0]?.id;
+    if(!privateSop)fail('No manager-only SOP available to test');
+    const escalation=await req('/api/assistant','POST',{room:'build',kind:'sop',sourceId:privateSop,messages:[{content:'How do I start?'}]});
+    if(escalation.status!==403)fail('Staff accessed manager source through Ask Gravity: '+escalation.status);
+    for(const [url,method,data] of [['/api/workroom','GET'],['/api/desktop-backup','GET'],['/api/signals','GET'],['/api/history','GET'],['/api/staff-recipes','POST',{recipes:[recipe]}]]){
+      const checked=await req(url,method,data);
+      if(checked.status!==403)fail('Employee role accessed manager-only endpoint '+url+': '+checked.status);
+    }
+    await req('/api/room-access','DELETE');
+    const manager=await req('/api/room-access','POST',{room:'build',pin:String(old.pins.build)});
+    if(manager.status!==200)fail('Restored Build Room PIN did not work');
+    const verified=await req('/api/desktop-backup');
+    if(verified.status!==200)fail('Full restore not readable after new manager authentication');
+    if(!verified.body.state.workroom.recipes.some(r=>r.id===recipeId)||!verified.body.state.posters[posterId])fail('Full restore lost recipe or poster');
+    if(verified.body.state.branding?.name==='MUTATED NOT TO SAVE')fail('Edited branding survived backup restoration');
+    // Roll back the entire disposable acceptance dataset after successful assertions.
+    await window.GravityFoundryWeb.save(baseline);
+    return{recipeImport:true,duplicateSkip:true,recipeRevisionArchived:true,unpublishedRecipePrivate:true,
+      posterPublished:true,invalidPosterLinksRejected:true,fullBackupIncludesHistory:true,corruptRestoreRejected:true,restoreRejectionPreservedData:true,fullRestore:true,
+      restoredPins:true,managerAutomaticallyLocked:true,employeeManagerAccessRejected:true,assistantManagerSourceProtected:true,invalidLocalQRDisabled:true};
+  });
+  console.log('[FOUNDRY-ACCEPTANCE] backup, recipes, posters, roles, QR safety:',JSON.stringify(result));
+  for(const [key,value] of Object.entries(result))assert.equal(value,true,key);
+  // Exercise the app's real Print SOP button and Chromium's native PDF renderer.
+  const prepared=await renderer(win,async function(){
+    const app=await window.GravityFoundryWeb.load();
+    const target=app.workroom.sops.find(x=>x.steps?.length>0);
+    if(!target)throw Error('No printable SOP available');
+    location.hash='#/sop/'+encodeURIComponent(target.id);
+    const wait=ms=>new Promise(done=>setTimeout(done,ms));
+    for(let i=0;i<50&&!document.querySelector('[data-action="print-sop"]');i++)await wait(75);
+    const b=document.querySelector('[data-action="print-sop"]');
+    if(!b)throw Error('Real SOP print button not rendered');
+    b.click();
+    for(let i=0;i<55&&!document.getElementById('foundryPrintPreview');i++)await wait(80);
+    const preview=document.getElementById('foundryPrintPreview');
+    if(!preview)throw Error('Foundry print preview did not open');
+    const body=preview.querySelector('.foundry-print-page')?.textContent||'';
+    if(!body.includes(target.title)||body.length<200)throw Error('Print preview missing SOP content');
+    if(body.includes('gravityfoundry://'))throw Error('Private Windows URL appeared in printed QR');
+    return {title:target.title,previewChars:body.length};
+  });
+  const pdf=Buffer.from(await win.webContents.printToPDF({printBackground:true,pageSize:'A4'}));
+  if(pdf.length<9000||pdf.subarray(0,5).toString('ascii')!=='%PDF-')throw Error('Native SOP PDF rendering failed or empty: '+pdf.length);
+  await renderer(win,()=>{document.getElementById('foundryPrintBack')?.click();return true});
+  console.log('[FOUNDRY-ACCEPTANCE] actual SOP print/PDF:',JSON.stringify({...prepared,pdfBytes:pdf.length}));
+  const binder=await renderer(win,async function(){
+    const btn=document.getElementById('gravity-binder-open');
+    if(!btn)throw Error('Print SOP Binder button missing');
+    btn.click();
+    const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+    const dialog=document.getElementById('gravity-binder-dialog');
+    for(let i=0;i<100&&(!dialog.open||dialog.querySelector('#gravity-binder-next').disabled);i++)await sleep(100);
+    if(!dialog.open)throw Error('SOP Binder dialog failed to open');
+    const status=dialog.querySelector('#gravity-binder-status');
+    status.value='all';status.dispatchEvent(new Event('change',{bubbles:true}));
+    for(let i=0;i<100&&dialog.querySelectorAll('#gravity-binder-preview-list li').length!==25;i++)await sleep(100);
+    const rows=dialog.querySelectorAll('#gravity-binder-preview-list li');
+    if(rows.length!==25)throw Error('Expected 25 SOPs in binder print batch, found '+rows.length+'; '+dialog.querySelector('#gravity-binder-status-text').textContent);
+    dialog.querySelector('#gravity-binder-print').click();
+    for(let i=0;i<60&&!document.getElementById('foundryPrintPreview');i++)await sleep(100);
+    const preview=document.getElementById('foundryPrintPreview');
+    if(!preview)throw Error('Binder print preview missing');
+    if(dialog.open)throw Error('Binder selection dialog obscures the print preview');
+    if(!preview.textContent.includes('Gravity SOP Binder'))throw Error('Binder print cover missing');
+    const pages=preview.querySelectorAll('.gravity-binder-sop');
+    if(pages.length!==25)throw Error('Binder preview missing expected SOP pages: '+pages.length);
+    if(preview.textContent.includes('gravityfoundry://'))throw Error('Unscannable Windows QR URL leaked into binder');
+    return {batchSize:rows.length,printSections:pages.length,selectionClosed:true};
+  });
+  const binderPDF=Buffer.from(await win.webContents.printToPDF({printBackground:true,pageSize:'A4'}));
+  if(binderPDF.length<18000||binderPDF.subarray(0,5).toString('ascii')!=='%PDF-')throw Error('Windows Binder PDF missing or invalid: '+binderPDF.length);
+  await renderer(win,()=>{document.getElementById('foundryPrintBack')?.click();return true});
+  console.log('[FOUNDRY-ACCEPTANCE] binder preview and PDF:',JSON.stringify({...binder,pdfBytes:binderPDF.length}));
+  // A later unapproved manager edit must never appear in the published SOP Binder.
+  const snapshotCheck=await renderer(win,async function(){
+    const original=structuredClone(await window.GravityFoundryWeb.load());
+    const sample=original.workroom.sops.find(s=>s.steps?.length);
+    if(!sample)throw Error('Missing sample SOP for binder snapshot test');
+    const id='gravity-binder-snapshot-regression';
+    const published={...structuredClone(sample),id,title:'Binder Snapshot Regression',
+      station:'Binder Acceptance QA',revision:'1.0',status:'Approved',isSample:false,
+      approvedBy:'Acceptance Manager',purpose:'PUBLISHED APPROVED PURPOSE ONLY',
+      steps:['PUBLISHED APPROVED PROCEDURE ONLY']};
+    const draft={...structuredClone(published),revision:'1.1',status:'Draft',
+      purpose:'UNAPPROVED DRAFT MUST NEVER PRINT',steps:['UNAPPROVED DRAFT STEP MUST NEVER PRINT']};
+    const updated=structuredClone(original);
+    updated.workroom.sops.push(draft);updated.publishedSops[id]=published;
+    const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+    try{
+      await window.GravityFoundryWeb.save(updated);
+      document.getElementById('gravity-binder-open').click();
+      const dialog=document.getElementById('gravity-binder-dialog'),station=dialog.querySelector('#gravity-binder-station');
+      for(let i=0;i<100&&!station.querySelector('option[value="Binder Acceptance QA"]');i++)await sleep(75);
+      if(!station.querySelector('option[value="Binder Acceptance QA"]'))throw Error('Binder snapshot station missing');
+      const status=dialog.querySelector('#gravity-binder-status');
+      status.value='published';status.dispatchEvent(new Event('change',{bubbles:true}));
+      station.value='Binder Acceptance QA';station.dispatchEvent(new Event('change',{bubbles:true}));
+      const rows=dialog.querySelectorAll('#gravity-binder-preview-list li');
+      if(rows.length!==1)throw Error('Published snapshot selection incorrect: '+rows.length);
+      dialog.querySelector('#gravity-binder-print').click();
+      for(let i=0;i<60&&!document.getElementById('foundryPrintPreview');i++)await sleep(75);
+      const preview=document.getElementById('foundryPrintPreview');
+      if(!preview)throw Error('Published binder preview missing');
+      if(!preview.textContent.includes('PUBLISHED APPROVED PROCEDURE ONLY'))throw Error('Published snapshot missing in binder');
+      if(preview.textContent.includes('UNAPPROVED DRAFT'))throw Error('Draft manager edits exposed in published binder');
+      return {publishedSnapshotPreserved:true,unapprovedDraftExcluded:true};
+    }finally{
+      document.getElementById('foundryPrintBack')?.click();
+      document.getElementById('gravity-binder-dialog')?.close();
+      await window.GravityFoundryWeb.save(original);
+    }
+  });
+  console.log('[FOUNDRY-ACCEPTANCE] published binder snapshot privacy:',JSON.stringify(snapshotCheck));
+  for(const [key,value] of Object.entries(snapshotCheck))assert.equal(value,true,key);
+  return{...result,...snapshotCheck,sopPrintPreview:true,nativePdf:true,binderBatch25:true,binderPdf:true};
+}
+module.exports={run};
