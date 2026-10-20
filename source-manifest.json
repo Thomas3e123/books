@@ -1302,11 +1302,11 @@
     },
     {
       "path": "site/assets/js/ai-prompt-search.js",
-      "sha256": "19d6674a6ce0ef17c9879cc49ca8798c14e04c7988059a4906deaa157b3b4505"
+      "sha256": "90c491ea6894dcf598ad5d1679b83f7f78666c783bddda43ed7fb2ae8ebe54d3"
     },
     {
       "path": "site/assets/js/book-reader.js",
-      "sha256": "6ffeca3eea4b96bd299d0096a10e49964831660ae8e51b30eb5238fb4c63a1f2"
+      "sha256": "14a0a0ab3e060ef6a72a5fa0467044e6c5dd7361d97951fe334d1fb23a8d403b"
     },
     {
       "path": "site/assets/js/gravity-aware-study.js",
@@ -1626,7 +1626,7 @@
     },
     {
       "path": "site/assets/reader/catalog.json",
-      "sha256": "b50e00a475eee6aedb75ca5f1eaaac3c4b53513f88caa51b1fefe73cec0a8bc3"
+      "sha256": "b92cab7b5a5dfd75ccfcfe6bb8ba7b6270a21093f12831a24a9424ae34e1bb47"
     },
     {
       "path": "site/assets/reader/employee-training-sop-tracker.txt",
@@ -1794,7 +1794,7 @@
     },
     {
       "path": "site/book-reader.html",
-      "sha256": "4c394da0ad24e08b7d51f2223ab47e4aeb1b26f1e4c03b4a218e7f21c0228f20"
+      "sha256": "a4cdd30619fd63345391c494b0792c64e5414f452d80393bc36fed2cec7626d5"
     },
     {
       "path": "site/books.html",
@@ -1982,7 +1982,7 @@
     },
     {
       "path": "site/restaurant-ai-prompt-search.html",
-      "sha256": "999d649f5d8f9d051baf6777f19363d4dabacb4da737db094bca2d72b29c4240"
+      "sha256": "0ed564785128256fbfbff8a71f781a436470ae122bf950ca04e083332e2e814f"
     },
     {
       "path": "site/restaurant-bar-beverage-inventory-ordering.html",
@@ -2238,7 +2238,7 @@
     },
     {
       "path": "site/sitemap.xml",
-      "sha256": "8588b875098f3d667bf64b867069bba5762069c0cf329ba25d93f6f523e4f053"
+      "sha256": "917d960988d913ba4cfafa47f35421363927674c42035e97f591f4e9aa99d893"
     },
     {
       "path": "site/standards-library.html",
@@ -2286,7 +2286,7 @@
     },
     {
       "path": "site/windows-programs.html",
-      "sha256": "b0c4e45ab5e5fd527f4e4b47f6bfd9f283aa5bc142b2a1c71c199637b248a0c8"
+      "sha256": "25eada2acc951cf4cab6e75536bb0e09da72a7dcd65c0a151955e764c746c3f2"
     },
     {
       "path": "site/work-study-prebeta-build.txt",
