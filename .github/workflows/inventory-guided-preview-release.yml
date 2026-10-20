@@ -1,0 +1,76 @@
+name: Publish Inventory First-Time Guided Windows Preview
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/inventory-guided-preview-release.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  release-guided-inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      RUN_ID: '39358814005'
+      EXPECTED_SHA: '9d0826824d1ef81cdc06f4ec5409ff0f77795257'
+      RELEASE_TAG: 'gravity-inventory-guided-2026-10-19'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Require successful full Windows guided-tour acceptance
+        shell: bash
+        run: |
+          set -euo pipefail
+          state="$(gh api "repos/$GH_REPO/actions/runs/$RUN_ID" --jq '[.status,.conclusion,.head_sha] | join(":")')"
+          test "$state" = "completed:success:$EXPECTED_SHA" || { echo "::error::Guided Windows build is not verified: $state"; exit 1; }
+          echo 'Source revision and completed Windows candidate match.'
+      - name: Retrieve installed-and-tested Windows preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p stage
+          gh run download "$RUN_ID" -n Gravity-Inventory-Center-Windows-Candidate -D stage
+          installer="$(find stage -maxdepth 1 -name '*.exe' -type f | head -1)"
+          archive="$(find stage -maxdepth 1 -name '*.zip' -type f | head -1)"
+          test -n "$installer" && test -n "$archive"
+          test "$(find stage -maxdepth 1 -name '*.exe' | wc -l)" -eq 1
+          test "$(find stage -maxdepth 1 -name '*.zip' | wc -l)" -eq 1
+          mv "$installer" stage/Gravity_Inventory_Center_FIRST_INVENTORY_GUIDED_2026-10-19_x64.exe
+          mv "$archive" stage/Gravity_Inventory_Center_FIRST_INVENTORY_GUIDED_2026-10-19_x64.zip
+          unzip -tqq stage/*.zip
+          (cd stage && sha256sum *.exe *.zip > SHA256SUMS.txt)
+          test "$(wc -l < stage/SHA256SUMS.txt)" -eq 2
+      - name: Prepare customer preview release notes
+        run: |
+          cat > RELEASE_NOTES.md <<'NOTES'
+          # Gravity Inventory Center — Guided First Inventory Windows Preview
+
+          This is the updated optional Windows x64 preview with the complete **29-step First Inventory walkthrough** built into the application. It explains the process from restaurant profile and locations through item setup, opening stock, barcode handling, local purchases, receiving, transfers and waste, counts and variance, reorder, history, exporting and recovery.
+
+          **Installation:** Download the EXE for a normal Windows install or the ZIP for portable use. Installation code-signing is not yet enabled, so Windows may warn. Before trying this preview, preserve your existing Gravity inventory installation and export an independent dated backup of all inventory. The older Windows Beta can have a different storage profile; do not assume an automatic migration.
+
+          **Manual:** The updated current Windows PDF, Word and readable online user manuals are linked beside the download on https://thomasmonroebooks.com/gravity-inventory-center and https://thomasmonroebooks.com/windows-programs.
+
+          **Validation:** Build source 9d0826824d1ef81cdc06f4ec5409ff0f77795257, GitHub Actions Windows run 39358814005. Automated tests included guided-tour navigation and resumption, actual receiving/waste/count transaction flow, native Windows backup and restore, restart durability, PDF, a silent NSIS install and an installed-app smoke check.
+
+          **Limitations:** Real restaurant printer/barcode-scanner compatibility and migration of existing customer data still need testing. Use for controlled evaluation. The October 12 Beta remains accessible.
+          NOTES
+      - name: Publish separate Windows beta without overwriting old downloads
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            echo "::error::Release tag exists; no overwrite permitted"
+            exit 1
+          fi
+          gh release create "$RELEASE_TAG" stage/*.exe stage/*.zip stage/SHA256SUMS.txt \
+            --target "$EXPECTED_SHA" --draft --prerelease \
+            --title 'Gravity Inventory Center — Complete First Inventory Guided Preview' \
+            --notes-file RELEASE_NOTES.md
+          count="$(gh release view "$RELEASE_TAG" --json assets --jq '.assets | length')"
+          test "$count" -eq 3 || { echo "::error::Incomplete preview release; left draft"; exit 1; }
+          gh release edit "$RELEASE_TAG" --draft=false --prerelease
+          echo "Published Inventory Center guided Windows preview with all 3 verified assets."
