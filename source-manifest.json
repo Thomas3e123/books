@@ -750,11 +750,11 @@
     },
     {
       "path": "site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_325_PROMPTS_2026-10-20.docx",
-      "sha256": "86a681c6e7d6ad30c0b147df8148077328a771bb8e9005e8d734a50abeda2a77"
+      "sha256": "5501c5395cb2b0dfd262c22a99ed71379b7a60f477ec3d1bc008ba5769a32556"
     },
     {
       "path": "site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_325_PROMPTS_2026-10-20.pdf",
-      "sha256": "d4be8e67fc1af9dca14cdb40e5b46938603e825409c40f69cb6e8185d18896a0"
+      "sha256": "e0cca5994ba721d16505b55bddc1879a78990f6f87edb5059fa273ad9ee598d0"
     },
     {
       "path": "site/assets/free-resources/improvement-plans/The_Gravity_30-Day_Improvement_Plan_Library_Founding_Year_Package.zip",
@@ -1318,7 +1318,7 @@
     },
     {
       "path": "site/assets/js/book-reader.js",
-      "sha256": "30c52947e15b433c4b953e461edc52819a67aa316c1f5b82bd5e71721e35e30f"
+      "sha256": "752f44b921334fa8e333102206f056bbadd873cc71497619593d5b1f4f89e27f"
     },
     {
       "path": "site/assets/js/gravity-aware-study.js",
