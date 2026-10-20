@@ -24,3 +24,5 @@ jobs:
           name: Gravity-all-page-menu-check
           path: site-menu-audit.json
           if-no-files-found: warn
+
+# Recheck all public page menus after Owner-GM viewer and missing-menu repairs.
