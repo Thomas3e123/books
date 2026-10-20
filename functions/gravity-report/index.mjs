@@ -18,7 +18,7 @@ function rss(items){return '<?xml version="1.0" encoding="UTF-8"?><rss version="
 function sitemap(items){return '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>'+SITE+'/gravity-report</loc></url>'+items.map(a=>'<url><loc>'+SITE+'/gravity-report/'+a.slug+'</loc><lastmod>'+a.release_date+'</lastmod></url>').join('')+'</urlset>';}
 export default async function handler(req){
  if(!['GET','HEAD'].includes(req.method))return new Response('Method not allowed',{status:405,headers:{Allow:'GET, HEAD'}});
- const p=new URL(req.url).pathname.replace(/\\/$/,'');const t=stamp(),ready=data.articles.filter(a=>released(a,t));
+ const p=new URL(req.url).pathname.replace(/\/$/,'');const t=stamp(),ready=data.articles.filter(a=>released(a,t));
  const common={'Cache-Control':'public, max-age=0, must-revalidate','X-Content-Type-Options':'nosniff'};
  if(p==='/gravity-report/articles.json'){const schedule=data.articles.map(a=>({issue:a.issue,title:a.title,slug:a.slug,release_date:a.release_date,category:a.category,released:released(a,t),summary:released(a,t)?a.summary:null}));return new Response(JSON.stringify({as_of_central:t,articles:schedule}),{headers:{...common,'Content-Type':'application/json; charset=utf-8'}});}
  if(p==='/gravity-report/feed.xml')return new Response(rss(ready),{headers:{...common,'Content-Type':'application/rss+xml; charset=utf-8'}});
