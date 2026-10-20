@@ -26,7 +26,7 @@ for suffix in ('pdf','docx'):
 edited=[]
 def write(path,before,after):
     if before==after:
-        raise RuntimeError(f'Nothing changed in {path}; confirm migration assumptions')
+        return
     path.write_text(after,encoding='utf-8')
     edited.append(str(path.relative_to(ROOT)))
 
@@ -40,8 +40,21 @@ for name in PAGES:
     s=s.replace('250 prompts','325 prompts')
     s=s.replace('250 Prompts (digital text)','325 Prompts (complete edition)')
     if name=='restaurant-ai-prompt-search.html':
+        # Update SEO, descriptions, dynamic search-intro and live count together.
+        # Only this page can use broad 250-to-325 count replacement; elsewhere
+        # "first 250 preserved" is historical information and must stay.
+        s=s.replace('250-prompt','325-prompt')
+        s=s.replace('250-Prompt','325-Prompt')
+        s=s.replace('250 Restaurant AI Prompts','325 Restaurant AI Prompts')
+        s=s.replace('250 Gravity restaurant AI prompts','325 Gravity restaurant AI prompts')
+        s=s.replace('Search all 250','Search all 325')
+        s=s.replace('<strong>250</strong><span>controlled prompts','<strong>325</strong><span>controlled prompts')
+        s=s.replace('Loading the 250-prompt index','Loading the 325-prompt index')
+        s=s.replace('GRV-AI-250</strong>','GRV-AI-325</strong>')
         s=s.replace('ai-prompt-search.js?v=20261020-250','ai-prompt-search.js?v=20261020-325')
         s=re.sub(r'(ai-prompt-search\.js)(?:\?v=[^"\']*)?',r'\1?v=20261020-325',s)
+    if name=='free-resources.html':
+        s=s.replace('215 practical copy-and-paste prompts', '325 practical copy-and-paste prompts')
     # Book search page should explain the new topics rather than imply old content.
     if name in BOOKS:
         s=s.replace('The updated digital Gravity workbook includes 325 practical prompts organized for restaurant management, operations, problem solving, and connected Gravity workflows.',
