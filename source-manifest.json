@@ -750,11 +750,11 @@
     },
     {
       "path": "site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_325_PROMPTS_2026-10-20.docx",
-      "sha256": "a1f9279b5b81035bd6c8cb55f2ce9c06f6278d15e38e4fa85f26b8887e5ab162"
+      "sha256": "68ccad5f72503e11c18c77a1861650d2ef727abcdf191d9b3cd582bc958bab87"
     },
     {
       "path": "site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_325_PROMPTS_2026-10-20.pdf",
-      "sha256": "f757c048eb0c29bffd1d78aa9868c7023fb149647a0ca6aff46202a7bfa80c9b"
+      "sha256": "3e17cfcb17963dda6988b976091bf1ec1e170b88f99f77ec60b9a2e5822ecfb8"
     },
     {
       "path": "site/assets/free-resources/improvement-plans/The_Gravity_30-Day_Improvement_Plan_Library_Founding_Year_Package.zip",
@@ -1822,7 +1822,7 @@
     },
     {
       "path": "site/free-resources.html",
-      "sha256": "cce81cfd55a8c5be3ccc84c559a0260c3fc21021a9fe7ca221a6f7f8d2cdb96c"
+      "sha256": "277bb61636885c527a73a6fa81a0018b2100aa7fcf064d962b2c74e32769b680"
     },
     {
       "path": "site/gravity-assist.html",
@@ -1998,7 +1998,7 @@
     },
     {
       "path": "site/restaurant-ai-prompt-search.html",
-      "sha256": "e5300f63355275edad25446b39bc8ac91b84a828d9c7cb0a0ae1211d52d23174"
+      "sha256": "99d1ae976dcf6c3563c88fc32eef0a986417f7dddfce40dcd1a4cfcb79172019"
     },
     {
       "path": "site/restaurant-bar-beverage-inventory-ordering.html",
