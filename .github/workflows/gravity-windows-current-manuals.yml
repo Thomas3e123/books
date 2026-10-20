@@ -1,0 +1,51 @@
+name: Publish Gravity Windows current manuals
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/assets/downloads/windows/manuals/current/*.html'
+      - 'scripts/build-windows-manuals.py'
+      - '.github/workflows/gravity-windows-current-manuals.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  validate-pdf-docx:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install document build dependencies
+        run: |
+          python -m pip install --disable-pip-version-check 'beautifulsoup4==4.12.3' 'reportlab==4.4.4' 'python-docx==1.2.0' 'pypdf==6.1.1'
+      - name: Build and extract-verify all four current manuals
+        run: python scripts/build-windows-manuals.py
+      - name: Check sources and regenerated PDFs/Word documents
+        run: |
+          node scripts/update-manifest.cjs
+          npm run build
+          find site/assets/downloads/windows/manuals/current -maxdepth 1 -type f | sort
+          test "$(find site/assets/downloads/windows/manuals/current -maxdepth 1 -name '*.pdf' | wc -l)" -eq 4
+          test "$(find site/assets/downloads/windows/manuals/current -maxdepth 1 -name '*.docx' | wc -l)" -eq 4
+      - name: Save current manuals as downloadable site files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add site/assets/downloads/windows/manuals/current/ source-manifest.json
+          if git diff --cached --quiet; then
+            echo "Current manuals already built."
+            exit 0
+          fi
+          git commit -m 'Publish complete October 2026 Gravity Windows PDF and Word manuals'
+          git pull --rebase origin main
+          git push origin HEAD:main
