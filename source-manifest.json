@@ -1850,7 +1850,7 @@
     },
     {
       "path": "site/gravity-inventory-center.html",
-      "sha256": "4c1287261f1d930b3d87d07a6b91b733758e312eaa6d8311e9836b65facfb1f8"
+      "sha256": "d7f3130d197798383bb736aec065f828b3f3ca03ed3180d1fdbe8844c7248f76"
     },
     {
       "path": "site/gravity-numbers-lab.html",
@@ -2286,7 +2286,7 @@
     },
     {
       "path": "site/windows-programs.html",
-      "sha256": "971812184cde31fcf3d2aff48f3609c80fd056f3e980b44ba8edc456a3c75a46"
+      "sha256": "099fbecf2e201ab47adee88af2b65db3aab89f4e63a67bf42f248149269df2fb"
     },
     {
       "path": "site/work-study-prebeta-build.txt",
