@@ -8,8 +8,8 @@ const walk=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(x=>x.isDirectory()?
 const html=walk(root).filter(x=>x.endsWith('.html')).sort(), issues=[],internal=[],publicPages=[],special=[];
 for(const file of html){
  const rel=path.relative(root,file).replace(/\\/g,'/'),s=fs.readFileSync(file,'utf8');
- const hasButton=/<button\b[^>]*\bdata-menu-toggle\b/i.test(s);
- const hasNav=/<nav\b[^>]*\bdata-menu\b/i.test(s);
+ const hasButton=/<button\\b[^>]*\\bdata-menu-toggle\\b/i.test(s)||/<button\\b[^>]*\\bid=["']manual-menu-button["']/i.test(s);
+ const hasNav=/<nav\\b[^>]*\\bdata-menu\\b/i.test(s)||/<nav\\b[^>]*\\bid=["']manual-menu-links["']/i.test(s);
  const hasScript=/(?:src=["'][^"']*site\.js|addEventListener\(['"]click['"]|onclick=)/i.test(s);
  const isInternal=/^(apps\/|assets\/)/.test(rel);
  const rec={file:rel,menu:hasButton,nav:hasNav,script:hasScript};
