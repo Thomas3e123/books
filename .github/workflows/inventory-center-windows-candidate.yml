@@ -57,8 +57,12 @@ jobs:
           $installed = Join-Path $destination 'Gravity Inventory Center Candidate.exe'
           if (-not (Test-Path $installed)) { throw "Inventory Center installed EXE missing: $installed" }
           $env:GRAVITY_INVENTORY_SMOKE = '1'
-          $test = Start-Process -FilePath $installed -Wait -PassThru
-          if ($test.ExitCode -ne 0) { throw "Installed Inventory Center runtime smoke failed: $($test.ExitCode)" }
+          $stdout = Join-Path $env:RUNNER_TEMP 'gravity-inventory-installed-out.txt'
+          $stderr = Join-Path $env:RUNNER_TEMP 'gravity-inventory-installed-err.txt'
+          $test = Start-Process -FilePath $installed -Wait -PassThru -RedirectStandardOutput $stdout -RedirectStandardError $stderr
+          if (Test-Path $stdout) { Get-Content $stdout | Select-Object -Last 100 }
+          if (Test-Path $stderr) { Get-Content $stderr | Select-Object -Last 100 }
+          if ($test.ExitCode -ne 0) { throw "Installed Inventory Center runtime smoke failed: $($test.ExitCode). See captured stdout/stderr above." }
           Write-Host "Inventory Center installed application tests passed."
       - name: Upload private candidate artifacts
         uses: actions/upload-artifact@v5
