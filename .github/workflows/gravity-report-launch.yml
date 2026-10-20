@@ -6,7 +6,7 @@ on:
     paths:
       - ".github/workflows/gravity-report-launch.yml"
       - "functions/gravity-report/**"
-      - "site/gravity-report.html"
+      - "site/**"
       - "site/gravity-report-thanks.html"
       - "scripts/test-gravity-report.mjs"
   workflow_dispatch:
