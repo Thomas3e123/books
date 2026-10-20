@@ -1,0 +1,202 @@
+[
+  {
+    "number": 251,
+    "id": "GRV-AI-251",
+    "title": "RECIPE OR PROCESS UPLOAD STARTER",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "I need to study this restaurant task: [task]. Source available: [recipe, process sheet, DOCX, PDF, TXT, copied directions, or none]. Before estimating time, offer the five intake choices, identify what each source can and cannot prove, and create a short intake checklist. Do not convert written instructions into measured times.",
+    "manager_check": "Written directions are inputs, not timed observations."
+  },
+  {
+    "number": 252,
+    "id": "GRV-AI-252",
+    "title": "PROPOSED TIME MAP FROM INSTRUCTIONS",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Create an editable proposed time map from these instructions: [process or recipe]. Split into ordered steps and likely boundaries; label each as active human work, machine time, passive waiting, travel, setup, or unknown. Mark every unverified segment proposed and request an observer to confirm before measurement.",
+    "manager_check": "Never present an inferred sequence as a verified observation."
+  },
+  {
+    "number": 253,
+    "id": "GRV-AI-253",
+    "title": "RECIPE BATCH-SIZE COMPARABILITY",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Evaluate whether two preparation time studies can be compared. Recipe: [name]. Run A batch size/conditions: [details]. Run B batch size/conditions: [details]. Separate fixed setup, per-unit labor, machine capacity, cleanup and quality checks; identify normalizations and conditions that invalidate direct comparisons.",
+    "manager_check": "Do not divide all labor by units when setup, queues or quality differ."
+  },
+  {
+    "number": 254,
+    "id": "GRV-AI-254",
+    "title": "ACTIVE WORK VERSUS ELAPSED TIME",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Analyze this observed restaurant task timeline: [timestamps and steps]. Distinguish total elapsed duration, hands-on labor, concurrent labor, unattended machine time, waiting, rework and travel. Show the calculation logic and missing observations; do not imply elapsed minutes equal labor minutes.",
+    "manager_check": "One elapsed minute is not automatically one labor minute."
+  },
+  {
+    "number": 255,
+    "id": "GRV-AI-255",
+    "title": "TIMER PAUSE AND RESUME INTEGRITY",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Audit this Work Study timer record: [start, stop, pause, resume, interruption and edit events]. Detect impossible ordering, gaps, duplicated intervals, negative durations, and clock changes. Reconcile usable time without inventing missing timestamps, and flag runs needing a fresh observation.",
+    "manager_check": "Never silently repair a timer record to make the result look cleaner."
+  },
+  {
+    "number": 256,
+    "id": "GRV-AI-256",
+    "title": "REPEATED MEASUREMENT AND CONFIDENCE",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Assess confidence in a proposed restaurant task standard using these observed runs: [times and conditions]. Examine number of runs, spread, outliers, operator variation, interruptions, and observer notes. Identify what the evidence supports, what it does not, and what additional repetitions would improve confidence.",
+    "manager_check": "No precise standard from one unrepresentative or contaminated run."
+  },
+  {
+    "number": 257,
+    "id": "GRV-AI-257",
+    "title": "OBSERVER AGREEMENT CALIBRATION",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Two observers recorded the same process differently. Observer A: [segments and times]. Observer B: [segments and times]. Compare segment boundaries, definitions, missed work, and clock usage. Propose calibration and re-observation without choosing a winner solely by seniority.",
+    "manager_check": "Disagreement can expose unclear measurement rules."
+  },
+  {
+    "number": 258,
+    "id": "GRV-AI-258",
+    "title": "OBSERVATION EFFECT CHECK",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Review whether observing this restaurant employee may have altered work speed or method. Task: [task]. Observation conditions: [facts]. Usual workflow indicators: [facts]. Identify coaching, rushing, extra preparation, avoidance, or supervision effects; suggest unobtrusive ethical rechecks.",
+    "manager_check": "Observation should not become pressure to perform faster than safe practice."
+  },
+  {
+    "number": 259,
+    "id": "GRV-AI-259",
+    "title": "PROFICIENCY AND TRAINING FAIRNESS",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Compare restaurant task observations across new and experienced employees. Role: [role]. Training and qualification: [facts]. Times and quality: [data]. Distinguish legitimate skill differences from unclear procedures, inadequate training, equipment issues, and unrealistic expectations; avoid using raw speed alone for performance discipline.",
+    "manager_check": "A standard should not punish someone for training the system failed to supply."
+  },
+  {
+    "number": 260,
+    "id": "GRV-AI-260",
+    "title": "STANDARD-MINUTE VALIDITY GATE",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Evaluate a proposed standard minute for [task]. Evidence: [timings, number of runs, conditions]. Safety and quality steps: [list]. Allowances: [approved policy and data]. Check sequence, repeatability, representativeness and explicit assumptions; return approved, provisional, or not supportable with reasons.",
+    "manager_check": "Only authorized management adopts standards; AI presents evidence and gaps."
+  },
+  {
+    "number": 261,
+    "id": "GRV-AI-261",
+    "title": "PERSONAL, FATIGUE AND DELAY ALLOWANCES",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Review allowance assumptions for a work-study standard: [task, working conditions, observed delays, approved policy]. Separate necessary personal needs, fatigue and unavoidable delays from preventable bottlenecks or abnormal interruptions. Propose what must be measured or confirmed before any allowance is adopted.",
+    "manager_check": "Do not quietly eliminate needed rest, safe handling, or recovery time."
+  },
+  {
+    "number": 262,
+    "id": "GRV-AI-262",
+    "title": "PRODUCTION-PAUSE CONTEXT",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Investigate a paused production run: [event log]. Explain whether the pause was planned, material-related, equipment-related, quality-related, staffing-related or unexplained. Keep elapsed time and effective work separate, and recommend when the run should be retained, annotated or excluded.",
+    "manager_check": "Exclusions must be traceable, never selected to force a target."
+  },
+  {
+    "number": 263,
+    "id": "GRV-AI-263",
+    "title": "QUEUE AND RECOVERY OBSERVATION",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Analyze service or prep queues using arrivals, starts, finishes and interruptions: [records]. Identify growing backlog, recovery points, rush intervals and potential capacity limits. Separate observed patterns from hypothesized causes and propose a safe second study.",
+    "manager_check": "A long queue may be caused upstream or downstream of the visible bottleneck."
+  },
+  {
+    "number": 264,
+    "id": "GRV-AI-264",
+    "title": "DISH-ROOM FLOW STUDY",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Study this dish-room workflow: [layout, staff roles, cycle records, rack loads and peak demand]. Map dirty return, sorting, scraping, washing, drying, storage and pickup. Distinguish travel, waiting, handling, machine capacity, rewash, and safety constraints. Recommend a testable flow change.",
+    "manager_check": "Keep sanitation, separation, safe storage and worker safety non-negotiable."
+  },
+  {
+    "number": 265,
+    "id": "GRV-AI-265",
+    "title": "LINE SETUP AND MOTION STUDY",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Review station setup and motion observations: [station, equipment reach, travel path, steps and timing]. Identify backtracking, repeated reaching, crossover, unnecessary motions and ergonomic risk. Prioritize one reversible layout test and its before/after measurement.",
+    "manager_check": "Never trade safe handling or food quality for a few seconds."
+  },
+  {
+    "number": 266,
+    "id": "GRV-AI-266",
+    "title": "PREP WORK STUDY AND YIELD",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Evaluate food prep productivity from [recipe, raw weight, usable yield, labor steps, batch size, waste and quality checks]. Distinguish prep speed, food yield and actual output; identify where an apparent labor saving increases food waste or quality loss.",
+    "manager_check": "Productivity gains require acceptable yield and quality."
+  },
+  {
+    "number": 267,
+    "id": "GRV-AI-267",
+    "title": "CROSS-STATION SHARED SETUP ALLOCATION",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Review shared prep, equipment setup or cleaning across these tasks: [tasks and durations]. Avoid double-counting shared time; distinguish fixed overhead, direct station work, batch allocations and uncertain attribution. Show alternative allocation assumptions and their impact.",
+    "manager_check": "Explain assumptions before charging the same minutes to multiple stations."
+  },
+  {
+    "number": 268,
+    "id": "GRV-AI-268",
+    "title": "DEMAND AND STAFF COVERAGE TEST",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Test whether observed service demand and task times support proposed staffing coverage. Demand intervals: [data]. Qualified roles: [list]. Task overlap and constraints: [facts]. Calculate feasible coverage scenarios, bottleneck risks, and gaps requiring live validation.",
+    "manager_check": "Never translate an average demand level directly into peak-hour staffing."
+  },
+  {
+    "number": 269,
+    "id": "GRV-AI-269",
+    "title": "WORK SAMPLING DESIGN",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Design a representative work-sampling study for [role or station]. Observation window: [times]. Categories: [service, prep, idle, rework, travel, support, other]. Define unbiased sampling intervals, recording rules, privacy protections, and a minimum sample plan before drawing conclusions.",
+    "manager_check": "Sampling categories must be consistent and cannot measure employee worth."
+  },
+  {
+    "number": 270,
+    "id": "GRV-AI-270",
+    "title": "CREW LABOR AND CONCURRENT TASKS",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Investigate a multi-person task: [process, people, assigned roles, observed intervals]. Separate clock duration from summed person-minutes, identify concurrent steps and dependencies, and check whether adding workers actually reduces elapsed time or only raises labor use.",
+    "manager_check": "Do not confuse faster completion with lower total labor."
+  },
+  {
+    "number": 271,
+    "id": "GRV-AI-271",
+    "title": "BEFORE-AFTER WORKFLOW COMPARABILITY",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Compare a baseline process to a proposed improvement. Before: [runs, dates, conditions]. After: [runs, dates, conditions]. Match volume, equipment, staffing, product and quality; quantify meaningful changes with uncertainty, side effects and validation next steps.",
+    "manager_check": "Reject convenient before/after claims when conditions are not comparable."
+  },
+  {
+    "number": 272,
+    "id": "GRV-AI-272",
+    "title": "INCOMPLETE CYCLE HANDLING",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Decide how to treat an interrupted or incomplete work-study cycle: [observed events]. Identify completed segments, missing end conditions and salvageable evidence. Recommend restart, segment-only use or exclusion with documented reason. Never fill missing time with an estimate disguised as observation.",
+    "manager_check": "Incomplete evidence can be useful without becoming a completed cycle."
+  },
+  {
+    "number": 273,
+    "id": "GRV-AI-273",
+    "title": "STUDY-TO-SOP DRAFT CONTRIBUTION",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Turn this verified work-study finding into a proposed contribution to a living SOP. Evidence: [observed action, sequence, safety, measurement and uncertainty]. Current SOP version: [text or none]. Draft only sections proved by evidence, leave unknown fields explicitly blank, and retain evidence links for reviser approval.",
+    "manager_check": "A study contributes a draft; it does not authorize a published procedure."
+  },
+  {
+    "number": 274,
+    "id": "GRV-AI-274",
+    "title": "LIVING SOP EVIDENCE CONFLICT REVIEW",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Multiple studies propose changes to the same living SOP. Current approved SOP: [version]. Contributions: [study evidence and proposed lines]. Identify agreement, contradictions, changed conditions, revision precedence and needed re-observation. Keep the existing approved text until the authorized owner resolves conflicts.",
+    "manager_check": "Never auto-overwrite an approved SOP because a new study disagrees."
+  },
+  {
+    "number": 275,
+    "id": "GRV-AI-275",
+    "title": "DEVICE-LINK AND EVIDENCE TRANSFER",
+    "category": "WORK STUDY LAB & EVIDENCE",
+    "prompt": "Review a phone-to-Windows or device-linked work study transfer. Devices: [facts]. Study identifiers, timestamps, versions and attachments: [records]. Detect duplicated events, missing parts, mismatched clocks, unauthorized access and partial sync. Suggest an auditable reconciliation preserving original evidence.",
+    "manager_check": "Do not declare a transfer complete until all required evidence is present."
+  }
+]
