@@ -1810,7 +1810,7 @@
     },
     {
       "path": "site/books.html",
-      "sha256": "d58a283f4457973fc329569048ad730cbdcc57a385b5dc3d633215c399e7e493"
+      "sha256": "5cb7ae0898ae8471dccdaa89f587f784681a528da7ccd9f1522a67486aeae141"
     },
     {
       "path": "site/contact.html",
@@ -1822,7 +1822,7 @@
     },
     {
       "path": "site/free-resources.html",
-      "sha256": "ed82873df6c8f6851eabbbb9f611ecf6ba2dc0f34ed32a4d6bf9566d4c43ea15"
+      "sha256": "208ad9549ab371cd4f62ccad68ac0afdb06f19c90d0b79dbd2200e58919c1727"
     },
     {
       "path": "site/gravity-assist.html",
@@ -1878,11 +1878,11 @@
     },
     {
       "path": "site/gravity-report-thanks.html",
-      "sha256": "e4fbea3e936e58fe1832d717f7dc32df3e846d995b9459896bf10a724e9aa6fa"
+      "sha256": "341afc5c105019a98abad413662e37d56c6301f2cf126c9c299d49e4b21b7609"
     },
     {
       "path": "site/gravity-report.html",
-      "sha256": "65e81c6fc6f2598e5f77134366d9dee9144c49840af332893f12ea2ff603951e"
+      "sha256": "caf5de4d20f74347e1cc03de7f91bd2b541f19789dec4edac1bfde962a840a31"
     },
     {
       "path": "site/gravity-shift-lab-sw.js",
@@ -1946,7 +1946,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "7d022a38bdb2684879c17742e891b65f70dda21b78ef6653d7f1bf6505d186f7"
+      "sha256": "32821b81ff2ed28ddd1d22d5fd2ce5a50ffba5ab3a19bc09fbde7ae3f63db446"
     },
     {
       "path": "site/installation-improvement.html",
@@ -1958,7 +1958,7 @@
     },
     {
       "path": "site/knowledge-center.html",
-      "sha256": "41a6880ea955682dd62aeb030a82046f68bb1cb49f9a2a5a329e2a76001376d2"
+      "sha256": "16092ce7a542fcca9a80c1fd39098b94923a0f35620c9afa6a410dda56cb57f9"
     },
     {
       "path": "site/manager-readiness-leadership-development.html",
@@ -2306,7 +2306,7 @@
     },
     {
       "path": "site/toolkit.html",
-      "sha256": "a09907db4daf07efcd1f0c2f75640f552e246c4c0fb499e4453a99c635f4950f"
+      "sha256": "fdb7ff69646cfbb68b73a0da49419771e614c9c64b8eda414167eb415659b712"
     },
     {
       "path": "site/windows-programs.html",
@@ -2334,7 +2334,7 @@
     },
     {
       "path": "functions/gravity-report/articles.json",
-      "sha256": "0bbf09dacccb784a30529484ac3c99ac609bc313f7c438de9173a735bbc5f079"
+      "sha256": "f41dea13820b9a3afbc2fada4d9df590413dc856c90f983f3bcee2dfdd7213a4"
     },
     {
       "path": "functions/gravity-report/index.mjs",
