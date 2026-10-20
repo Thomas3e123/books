@@ -54,7 +54,9 @@ function mount(){
  host.querySelector('#gif-exit').addEventListener('click',()=>end(false));
  host.querySelector('#gif-hide').addEventListener('click',()=>end(false));
  host.querySelector('#gif-restart').addEventListener('click',()=>show(0));
- const p=pref();if(!p.seen){save({seen:true,step:0});} // Offer the tour prominently; never interrupt or change existing data.
+ const p=pref();if(!p.seen){save({seen:true,step:0,active:false});}
+ // If the app reloaded while a profile dialog was being saved, resume safely.
+ else if(p.active&&Number.isInteger(p.step)&&p.step>=0&&p.step<steps.length){setTimeout(()=>show(p.step),80);}
 }
 function highlight(){
  focused?.classList.remove('gif-focus');focused=null;
@@ -74,7 +76,17 @@ function goToView(){
   if(!dlg||!button)return;
   if(dlg.open)return;
   const panel=host.querySelector('.gif-panel');panel.hidden=true;
-  dlg.addEventListener('close',()=>{if(index>=0){panel.hidden=false;highlight()}},{once:true});
+  // Electron's native <dialog> close event can arrive late during a Windows installation.
+  // Watch the real 'open' state as well as the event; either path restores the guide.
+  let restored=false;
+  const resume=()=>{
+   if(restored||dlg.open)return;
+   restored=true;observer.disconnect();
+   if(index>=0&&panel.isConnected){panel.hidden=false;highlight()}
+  };
+  const observer=new MutationObserver(resume);
+  observer.observe(dlg,{attributes:true,attributeFilter:['open']});
+  dlg.addEventListener('close',resume,{once:true});
   button.click();return;
  }
  if(document.querySelector('dialog[open]')){host.querySelector('#gif-location').textContent='Finish or cancel the open form first, then choose Show This Screen.';return}
@@ -87,7 +99,7 @@ function goToView(){
  nav.click();highlight();
 }
 function show(i){
- if(i<0||i>=steps.length)return;index=i;save({seen:true,step:i});
+ if(i<0||i>=steps.length)return;index=i;save({seen:true,step:i,active:true});
  const step=steps[i],panel=host.querySelector('.gif-panel');panel.hidden=false;
  host.querySelector('#gif-progress').textContent='First Inventory Walkthrough · Step '+(i+1)+' of '+steps.length;
  host.querySelector('#gif-title').textContent=step.title;host.querySelector('#gif-text').textContent=step.body;host.querySelector('#gif-verify').textContent=step.verify;
@@ -100,7 +112,7 @@ function show(i){
 }
 function end(done){
  focused?.classList.remove('gif-focus');focused=null;index=-1;
- host.querySelector('.gif-panel').hidden=true;if(done)save({seen:true,step:steps.length-1,completed:true});
+ host.querySelector('.gif-panel').hidden=true;const p=pref();save({seen:true,step:done?steps.length-1:(Number.isInteger(p.step)?p.step:0),completed:Boolean(done)||Boolean(p.completed),active:false});
  document.getElementById('inventory-start-guided')?.focus();
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});else mount();
