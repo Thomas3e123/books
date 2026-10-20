@@ -57,6 +57,10 @@ jobs:
 
           **Manual:** Full current PDF, Word, and online manuals are linked beside downloads at https://thomasmonroebooks.com/gravity-inventory-center and https://thomasmonroebooks.com/windows-programs.
           NOTES
+      # GitHub's GITHUB_TOKEN cannot create tags on a historical commit if that commit
+      # changed workflow files relative to default branch. Pin the downloaded build
+      # and acceptance to EXPECTED_SHA above; target the current main tip for release
+      # metadata, not the historical build commit. Notes state the exact source SHA.
       - name: Publish separate preview release, preserving old downloads
         shell: bash
         run: |
@@ -66,7 +70,7 @@ jobs:
             exit 1
           fi
           gh release create "$RELEASE_TAG" stage/*.exe stage/*.zip stage/SHA256SUMS.txt \
-            --target "$EXPECTED_SHA" --draft --prerelease \
+            --target main --draft --prerelease \
             --title 'Gravity Inventory Center — Guided Walkthrough Click Fix' \
             --notes-file RELEASE_NOTES.md
           count="$(gh release view "$RELEASE_TAG" --json assets --jq '.assets | length')"
