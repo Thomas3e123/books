@@ -1,0 +1,26 @@
+name: Audit every TMB site navigation menu
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/site-all-menu-audit.yml'
+      - 'scripts/audit-site-menu-buttons.cjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-pages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - name: Inspect all 145+ HTML documents and every public menu
+        run: node scripts/audit-site-menu-buttons.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Gravity-all-page-menu-check
+          path: site-menu-audit.json
+          if-no-files-found: warn
