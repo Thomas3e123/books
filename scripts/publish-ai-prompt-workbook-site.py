@@ -87,7 +87,7 @@ s=old.replace('Restaurant AI Prompts & Systems Workbook — 250 Prompts (digital
 s=s.replace(OLD+'.pdf',NEW+'.pdf')
 # Keep the Book Reader's embedded fallback catalog synchronized with the
 # source catalog even when the new text length changes in future editions.
-pattern = r'("id":\\s*"ai-prompts"[^{}]*?"characters":\\s*)\\d+'
+pattern = r'("id":\s*"ai-prompts"[^{}]*?"characters":\s*)\d+'
 s, updated = re.subn(pattern, lambda match: match.group(1) + str(len(reader)), s, count=1)
 assert updated == 1, 'AI prompt entry missing from embedded Book Reader catalog'
 write(f,old,s)
