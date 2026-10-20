@@ -1,0 +1,63 @@
+name: Gravity full site checkup — October 2026
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/complete-site-checkup-2026-10.yml'
+      - 'scripts/complete-site-browser-checkup.cjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  static-site:
+    name: 145-page source, links, SEO, privacy, parity and manual checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - name: Verify source asset integrity and production parity
+        run: |
+          node scripts/verify-source.cjs
+          node scripts/check-web-windows-parity.cjs
+      - name: Validate page titles, canonical URLs, internal links, ids, noindex, sitemap and confidential tokens
+        run: node scripts/comprehensive-site-audit.cjs
+      - name: Upload detailed source audit log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Gravity-site-source-checkup
+          path: site-audit-report.txt
+          if-no-files-found: warn
+  live-routes:
+    name: Live pages, headers, protected APIs, sitemap and old download assets
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - name: Audit every sitemap URL and server boundaries
+        run: node scripts/live-site-audit.cjs
+  real-browser:
+    name: Desktop/mobile pages, all manuals and first-run Inventory UI
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - name: Install browser automation in CI workspace only
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Test the LIVE site with desktop and mobile Chromium
+        run: node scripts/complete-site-browser-checkup.cjs
+      - name: Upload detailed actual-browser results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Gravity-site-browser-checkup
+          path: site-browser-checkup-results.json
+          if-no-files-found: warn
