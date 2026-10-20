@@ -15,8 +15,8 @@ jobs:
     env:
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
-      RUN_ID: '39362355467'
-      EXPECTED_SHA: '5a2a108a5f107869fc95633044b5c6d3b38f4ebf'
+      RUN_ID: '39363132837'
+      EXPECTED_SHA: 'b4f8c95ae71155c53123c136384efe6723d4f400'
       RELEASE_TAG: 'gravity-inventory-guided-clickfix-2026-10-19'
     steps:
       - uses: actions/checkout@v4
@@ -51,7 +51,7 @@ jobs:
 
           **Fixed:** On a new installation, the automatic Restaurant Profile modal blocked mouse clicks on the 29-step First Inventory walkthrough. The tour now opens before the profile form. Step 2 has an **Open Restaurant Profile** button; after the user saves or cancels that form, the tour automatically resumes. The walkthrough also supports Back, Next Step, Show This Screen and Save My Place.
 
-          This release was built from source 5a2a108a5f107869fc95633044b5c6d3b38f4ebf and checked through Windows Actions run 39362355467, including a first-launch UI hit test, on-demand profile step, navigation/resumption, stock receiving, movements, count posting, backup/restore, app restart, generated PDF, silent installer and installed-app operation.
+          This release was built from source b4f8c95ae71155c53123c136384efe6723d4f400 and checked through Windows Actions run 39363132837, including a first-launch UI hit test, on-demand profile step, navigation/resumption, stock receiving, movements, count posting, backup/restore, app restart, generated PDF, silent installer and installed-app operation.
 
           **Install:** This Windows x64 preview is unsigned. The .exe is an installer; the .zip is the portable build. Keep your existing installation and save independent backups first. Existing customer data is not automatically migrated between app versions. Test with sample inventory until you have verified data, physical printer and barcode equipment.
 
