@@ -85,8 +85,11 @@ old=f.read_text(encoding='utf-8')
 s=old.replace('Restaurant AI Prompts & Systems Workbook — 250 Prompts (digital text)',
               'Restaurant AI Prompts & Systems Workbook — 325 Prompts')
 s=s.replace(OLD+'.pdf',NEW+'.pdf')
-s=s.replace('\"characters\": 152806','\"characters\": '+str(len(reader)))
-s=s.replace('\"characters\": 170530','\"characters\": '+str(len(reader)))
+# Keep the Book Reader's embedded fallback catalog synchronized with the
+# source catalog even when the new text length changes in future editions.
+pattern = r'("id":\\s*"ai-prompts"[^{}]*?"characters":\\s*)\\d+'
+s, updated = re.subn(pattern, lambda match: match.group(1) + str(len(reader)), s, count=1)
+assert updated == 1, 'AI prompt entry missing from embedded Book Reader catalog'
 write(f,old,s)
 
 # Fail the build rather than publish references pointing at 215-prompt downloads.
