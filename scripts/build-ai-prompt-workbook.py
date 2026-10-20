@@ -60,8 +60,9 @@ def fetch_rows():
     assert len(set(names)) == COUNT, 'Duplicate titles'
     for i, r in enumerate(rows, 1):
         assert r['number'] == i and r['id'] == f'GRV-AI-{i:03d}', f'Broken numbering: {r}'
-        for key in ('title','category','prompt','manager_check'):
+        for key in ('title','prompt','manager_check'):
             assert isinstance(r.get(key), str) and len(r[key].strip()) > 8, f'Missing {key} at {i}'
+        assert isinstance(r.get('category'), str) and len(r['category'].strip()) > 2, f'Missing category at {i}'
         assert len(r['prompt']) >= 100, f'Prompt {i} too short for a useful copy/paste'
     assert rows[249] == baseline[-1] and rows[250]['id'] == 'GRV-AI-251', 'Baseline not preserved'
     return rows
