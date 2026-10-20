@@ -1,0 +1,78 @@
+name: Publish complete Gravity AI Workbook — 325 prompts
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-ai-prompts-325.yml'
+      - 'scripts/build-ai-prompt-workbook.py'
+      - 'scripts/publish-ai-prompt-workbook-site.py'
+      - 'scripts/ai-prompts-251-275.json'
+      - 'scripts/ai-prompts-276-300.json'
+      - 'scripts/ai-prompts-301-325.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  compile-and-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install reproducible document dependencies
+        run: |
+          python -m pip install --disable-pip-version-check 'reportlab==4.4.4' 'python-docx==1.2.0' 'pypdf==6.1.1'
+      - name: Build 325-prompt complete editable Word book, PDF, online search and reader
+        run: python scripts/build-ai-prompt-workbook.py
+      - name: Repoint current website books, Toolkit, reader and free resources to verified deliverables
+        run: python scripts/publish-ai-prompt-workbook-site.py
+      - name: Verify repository files and prevent publishing broken counts or links
+        run: |
+          node scripts/update-manifest.cjs
+          npm run build
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('site')
+          prompts=json.loads((root/'assets/data/restaurant-ai-prompts-325.json').read_text())
+          assert len(prompts)==325
+          assert prompts[249]['id']=='GRV-AI-250'
+          assert prompts[324]['id']=='GRV-AI-325'
+          index=(root/'assets/js/ai-prompt-search.js').read_text()
+          assert 'restaurant-ai-prompts-325.json' in index
+          for page in ['books.html','toolkit.html','free-resources.html']:
+              text=(root/page).read_text()
+              assert '325' in text and 'WORKBOOK_325_PROMPTS_2026-10-20.docx' in text and 'WORKBOOK_325_PROMPTS_2026-10-20.pdf' in text
+          print('COMPLETE_AI_BOOK_TESTS=PASS',len(prompts))
+          PY
+      - name: Commit atomically to the source-controlled website
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add             site/assets/data/restaurant-ai-prompts-325.json             site/assets/reader/ai-prompts.txt             site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_325_PROMPTS_2026-10-20.docx             site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_325_PROMPTS_2026-10-20.pdf             site/assets/js/ai-prompt-search.js             site/assets/js/book-reader.js             site/assets/reader/catalog.json             site/books.html site/toolkit.html site/free-resources.html             site/restaurant-ai-prompt-search.html site/book-reader.html             source-manifest.json
+          git diff --cached --stat
+          if git diff --cached --quiet; then
+            echo 'The complete 325-prompt edition is already synchronized.'
+            exit 0
+          fi
+          git commit -m 'Publish complete 325-prompt Gravity AI Workbook, PDF, Word, reader and search'
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Upload verified copies for the release record
+        uses: actions/upload-artifact@v4
+        with:
+          name: Complete-Gravity-AI-Workbook-325
+          path: |
+            site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_325_PROMPTS_2026-10-20.docx
+            site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_325_PROMPTS_2026-10-20.pdf
+            site/assets/data/restaurant-ai-prompts-325.json
+          retention-days: 30
