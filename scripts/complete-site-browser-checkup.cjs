@@ -123,8 +123,14 @@ const within=(p,ms,selector)=>p.locator(selector).waitFor({state:'visible',timeo
    record('Live 250-prompt search data loads and last prompt is searchable',true);
   }catch(e){record('Live 250-prompt search data loads and last prompt is searchable',false,String(e).slice(0,300))}
   await p.goto(BASE+'/windows-programs',{waitUntil:'domcontentloaded'});
-  const warning=await p.locator('.inventory-guided-firstclick-update').count();
-  record('Old Windows Inventory preview issue disclosed',warning===1,'Existing public installer not misrepresented as fixed');
+  const inventoryCard=p.locator('.content-card').filter({has:p.locator('h3:text-is("Gravity Inventory Center")')}).first();
+  const inventoryLinks=await inventoryCard.locator('a[href]').evaluateAll(arr=>arr.map(a=>a.href));
+  const fixedRelease='gravity-inventory-guided-clickfix-2026-10-19';
+  const fixedExe=inventoryLinks.some(h=>h.includes('/releases/download/'+fixedRelease+'/Gravity_Inventory_Center_GUIDED_CLICK_FIX_2026-10-19_x64.exe'));
+  const fixedZip=inventoryLinks.some(h=>h.includes('/releases/download/'+fixedRelease+'/Gravity_Inventory_Center_GUIDED_CLICK_FIX_2026-10-19_x64.zip'));
+  record('Public Inventory downloads point to corrected Windows installer and portable ZIP',fixedExe&&fixedZip,'exe='+fixedExe+' ZIP='+fixedZip);
+  const note=await p.locator('.inventory-guided-firstclick-update').innerText().catch(()=>'');
+  record('Inventory fixed Windows release disclosed',note.includes('Fixed Windows walkthrough released')&&!note.includes('replacement is pending'),'public release announcement');
   await linkctx.close();
  }catch(e){record('Browser audit harness',false,String(e).slice(0,900))}
  finally{if(browser)await browser.close().catch(()=>{});}
