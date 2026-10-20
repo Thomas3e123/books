@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://thomasmonroebooks.com/</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://thomasmonroebooks.com/about</loc>
@@ -10,11 +10,11 @@
   </url>
   <url>
     <loc>https://thomasmonroebooks.com/book-reader</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://thomasmonroebooks.com/books</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://thomasmonroebooks.com/contact</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://thomasmonroebooks.com/free-resources</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://thomasmonroebooks.com/gravity-assist</loc>
@@ -63,6 +63,10 @@
   <url>
     <loc>https://thomasmonroebooks.com/gravity-recipe-works</loc>
     <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://thomasmonroebooks.com/gravity-report</loc>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://thomasmonroebooks.com/gravity-shift-lab</loc>
@@ -126,7 +130,7 @@
   </url>
   <url>
     <loc>https://thomasmonroebooks.com/knowledge-center</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://thomasmonroebooks.com/manager-readiness-leadership-development</loc>
@@ -142,7 +146,7 @@
   </url>
   <url>
     <loc>https://thomasmonroebooks.com/privacy</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://thomasmonroebooks.com/qr-code-generator</loc>
@@ -166,7 +170,7 @@
   </url>
   <url>
     <loc>https://thomasmonroebooks.com/restaurant-ai-prompt-search</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://thomasmonroebooks.com/restaurant-bar-beverage-inventory-ordering</loc>
@@ -450,11 +454,10 @@
   </url>
   <url>
     <loc>https://thomasmonroebooks.com/toolkit</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://thomasmonroebooks.com/windows-programs</loc>
     <lastmod>2026-10-20</lastmod>
   </url>
-  <url><loc>https://thomasmonroebooks.com/gravity-report</loc><lastmod>2026-10-20</lastmod></url>
 </urlset>
