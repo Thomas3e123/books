@@ -3317,7 +3317,7 @@ ID: GRV-AI-284
 
 Review an SOP, poster, food recipe or drink recipe pack before customer distribution. Sources: [files]. Detect internal restaurant names, private recipes, employee names, local PINs and other internal details. Preserve Gravity branding where intended and list customer-logo placeholders; return a release-blocking privacy checklist.
 
-Manager check: Never ship River-only or customer-private content in the generic product.
+Manager check: Never ship internal-only or customer-private content in the generic product.
 
 PROMPT 285 • BINDER PRINT SEQUENCE & VERSION CONTROL
 ID: GRV-AI-285

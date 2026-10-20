@@ -398,7 +398,7 @@
     },
     {
       "path": "site/assets/data/restaurant-ai-prompts-325.json",
-      "sha256": "9bf20702f1d4c6269843e0b49aae26971bdf5012c2e5f3548e5771d4ea27913a"
+      "sha256": "f936c7f9850f89905dca9da04df32b44a9f47b320a2d8e6eeec06510f1d80dc2"
     },
     {
       "path": "site/assets/downloads/GRAVITY_ELITE_DAILY_CONTROL_FORMS_v1.0.docx",
@@ -750,11 +750,11 @@
     },
     {
       "path": "site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_325_PROMPTS_2026-10-20.docx",
-      "sha256": "68ccad5f72503e11c18c77a1861650d2ef727abcdf191d9b3cd582bc958bab87"
+      "sha256": "86a681c6e7d6ad30c0b147df8148077328a771bb8e9005e8d734a50abeda2a77"
     },
     {
       "path": "site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_325_PROMPTS_2026-10-20.pdf",
-      "sha256": "3e17cfcb17963dda6988b976091bf1ec1e170b88f99f77ec60b9a2e5822ecfb8"
+      "sha256": "d4be8e67fc1af9dca14cdb40e5b46938603e825409c40f69cb6e8185d18896a0"
     },
     {
       "path": "site/assets/free-resources/improvement-plans/The_Gravity_30-Day_Improvement_Plan_Library_Founding_Year_Package.zip",
@@ -1626,7 +1626,7 @@
     },
     {
       "path": "site/assets/reader/ai-prompts.txt",
-      "sha256": "0720528f8102396ed823a999327e88f1feeba7a8c303038e92956849331735c7"
+      "sha256": "3f53c1a613321777a9ea8da2d0cf919e5e93d6eae6aefff3c15c1efd343ef1c0"
     },
     {
       "path": "site/assets/reader/bar-inventory.txt",
@@ -1638,7 +1638,7 @@
     },
     {
       "path": "site/assets/reader/catalog.json",
-      "sha256": "8c1e2c66b21c201fe879a7b3d1cd283571766585fdaa90122f47d03dd895cd02"
+      "sha256": "e88d754b91f2d344367ac4d3522dc93d1f7eedb8df87f265f3fb9397dacd7a1a"
     },
     {
       "path": "site/assets/reader/employee-training-sop-tracker.txt",
