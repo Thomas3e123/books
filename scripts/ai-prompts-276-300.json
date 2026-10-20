@@ -69,7 +69,7 @@
     "category": "SOP FOUNDRY & TRAINING",
     "title": "CUSTOMER BRANDING AND EDITION SEPARATION",
     "prompt": "Review an SOP, poster, food recipe or drink recipe pack before customer distribution. Sources: [files]. Detect internal restaurant names, private recipes, employee names, local PINs and other internal details. Preserve Gravity branding where intended and list customer-logo placeholders; return a release-blocking privacy checklist.",
-    "manager_check": "Never ship River-only or customer-private content in the generic product."
+    "manager_check": "Never ship internal-only or customer-private content in the generic product."
   },
   {
     "number": 285,
