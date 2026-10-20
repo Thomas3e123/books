@@ -1,0 +1,202 @@
+[
+  {
+    "number": 276,
+    "id": "GRV-AI-276",
+    "category": "SOP FOUNDRY & TRAINING",
+    "title": "IMPORTED SOP SOURCE-OF-TRUTH REVIEW",
+    "prompt": "Review an existing restaurant SOP import batch before saving drafts. Sources: [files, versions, stations, authors]. Match each imported procedure to an existing controlled SOP, identify duplicates, ambiguous titles and untrusted extraction. Return a review queue with keep, compare, replace-draft or reject options; never publish an import automatically.",
+    "manager_check": "Confirm ownership and approved status from source records, not filenames."
+  },
+  {
+    "number": 277,
+    "id": "GRV-AI-277",
+    "category": "SOP FOUNDRY & TRAINING",
+    "title": "SOP WORD OR PDF EXTRACTION VALIDATION",
+    "prompt": "Compare extracted steps against the uploaded SOP document: [original text or file and extracted text]. Find dropped warnings, shifted numbering, missing tables, ambiguous temperatures, units or responsibilities. Produce a correction queue for manager review and refuse to certify an extraction on appearance alone.",
+    "manager_check": "An imported PDF image or imperfect OCR does not become a verified procedure."
+  },
+  {
+    "number": 278,
+    "id": "GRV-AI-278",
+    "category": "SOP FOUNDRY & TRAINING",
+    "title": "SOP REVISION ARCHIVE COMPLETENESS",
+    "prompt": "Audit a revised SOP's record: [old version, new version, revision notes, approver, training decision]. Verify prior versions remain retrievable, new scope and effective date are clear, linked posters are identified, and any retraining checkbox belongs to the authorized reviser.",
+    "manager_check": "Preserve the record of what employees were trained to do at each effective date."
+  },
+  {
+    "number": 279,
+    "id": "GRV-AI-279",
+    "category": "SOP FOUNDRY & TRAINING",
+    "title": "POSTER TO SOP LINK VERIFICATION",
+    "prompt": "Check whether station posters point to the correct published SOP versions. Poster IDs and QR destinations: [list]. Current SOP versions: [list]. Flag stale links, missing posters, unreadable print, misleading shorthand and unsafe exceptions; provide a correction and verification queue.",
+    "manager_check": "A QR scan should open the intended current employee-accessible SOP."
+  },
+  {
+    "number": 280,
+    "id": "GRV-AI-280",
+    "category": "SOP FOUNDRY & TRAINING",
+    "title": "MANAGER-ONLY SIGNAL TRIAGE",
+    "prompt": "Summarize aggregate trends in SOP, poster and training activity: [counts, dates and stations]. Identify legitimate training-demand patterns, likely navigation or content gaps, and follow-up checks without assuming an individual's motives. Keep manager analytics in authorized management views and observe applicable privacy notice and access controls.",
+    "manager_check": "Viewing patterns are signals to investigate, not proof of employee performance."
+  },
+  {
+    "number": 281,
+    "id": "GRV-AI-281",
+    "category": "SOP FOUNDRY & TRAINING",
+    "title": "EMPLOYEE QUESTION TO CONTROLLED REVISION",
+    "prompt": "Turn employee questions and error reports about an SOP into a manager review queue. Questions: [redacted list]. Approved SOP: [version]. Cluster confusing instructions, unsafe ambiguities and missing examples. Draft clarification proposals while leaving approval, re-teach decisions and publication with the authorized reviser.",
+    "manager_check": "Do not teach an unapproved revision as if it were current policy."
+  },
+  {
+    "number": 282,
+    "id": "GRV-AI-282",
+    "category": "SOP FOUNDRY & TRAINING",
+    "title": "STAFF TRAINING QUIZ FAIRNESS REVIEW",
+    "prompt": "Evaluate a short employee SOP quiz: [approved text, questions, answer key, outcomes]. Identify questions that depend on undocumented standards, misleading distractors, language complexity or untrained procedures. Propose clearer questions and distinguish knowledge results from demonstrated ability.",
+    "manager_check": "Quiz failure can expose flaws in instruction or assessment, not just the learner."
+  },
+  {
+    "number": 283,
+    "id": "GRV-AI-283",
+    "category": "SOP FOUNDRY & TRAINING",
+    "title": "CROSS-STATION LEARNING PATH",
+    "prompt": "Design a voluntary cross-station learning path for [roles and interested stations] using published SOPs only. Separate view/read practice, supervised demonstration, sign-off and role authorization. Plan development without exposing employee browsing analytics or granting unsupervised access to restricted tasks.",
+    "manager_check": "Interest in learning is not authorization to perform a critical station task."
+  },
+  {
+    "number": 284,
+    "id": "GRV-AI-284",
+    "category": "SOP FOUNDRY & TRAINING",
+    "title": "CUSTOMER BRANDING AND EDITION SEPARATION",
+    "prompt": "Review an SOP, poster, food recipe or drink recipe pack before customer distribution. Sources: [files]. Detect internal restaurant names, private recipes, employee names, local PINs and other internal details. Preserve Gravity branding where intended and list customer-logo placeholders; return a release-blocking privacy checklist.",
+    "manager_check": "Never ship River-only or customer-private content in the generic product."
+  },
+  {
+    "number": 285,
+    "id": "GRV-AI-285",
+    "category": "SOP FOUNDRY & TRAINING",
+    "title": "BINDER PRINT SEQUENCE & VERSION CONTROL",
+    "prompt": "Create a station-by-station SOP binder print plan from [approved SOP list, effective versions, revision archive, poster associations]. Produce dividers, inclusion rules, print order, QR checks and a revision reconciliation sheet, while excluding drafts and obsolete records from current-use copies.",
+    "manager_check": "Printed copies must be clearly tied to controlled revisions."
+  },
+  {
+    "number": 286,
+    "id": "GRV-AI-286",
+    "category": "SHIFT LAB & STAFFING",
+    "title": "OPEN AND CLOSE ALLOWANCE REVIEW",
+    "prompt": "Evaluate labor planning for opening and closing duties. Stations: [roles]. Tasks, normal minutes and opening/closing coverage: [data]. Distinguish shift operating hours from pre-open setup and after-close completion; calculate proposal alternatives and verify labor rules and observed workload.",
+    "manager_check": "Opening and closing minutes must be planned, not hidden outside scheduled hours."
+  },
+  {
+    "number": 287,
+    "id": "GRV-AI-287",
+    "category": "SHIFT LAB & STAFFING",
+    "title": "HOURLY COVERAGE AND DEMAND GAP",
+    "prompt": "Compare a proposed staff schedule with half-hour or hourly service demand: [forecast, positions, qualifications, breaks, arrivals, departures]. Highlight uncovered stations, unqualified assignments, busy-period pinch points and available alternatives for manager review.",
+    "manager_check": "A full headcount does not guarantee qualified station coverage."
+  },
+  {
+    "number": 288,
+    "id": "GRV-AI-288",
+    "category": "SHIFT LAB & STAFFING",
+    "title": "SCHEDULE RULE CONFLICT REVIEW",
+    "prompt": "Check a draft schedule against availability, approved time off, role qualifications, hours limits and local break requirements: [rules and shifts]. Report collisions without silently removing employees; recommend possible repairs requiring manager authorization.",
+    "manager_check": "A schedule is a proposal until the manager approves it."
+  },
+  {
+    "number": 289,
+    "id": "GRV-AI-289",
+    "category": "SHIFT LAB & STAFFING",
+    "title": "OVERTIME AND LABOR-PERCENT SCENARIOS",
+    "prompt": "Build side-by-side labor scenarios for [forecast sales, scheduled shifts, pay rates where authorized, overtime rules and labor target]. Show scheduled hours, estimated labor dollars and labor percent, overtime exposure and tradeoffs; flag missing inputs and keep compensation details limited to authorized viewers.",
+    "manager_check": "Do not invent wage data or promise labor percentage from forecast alone."
+  },
+  {
+    "number": 290,
+    "id": "GRV-AI-290",
+    "category": "SHIFT LAB & STAFFING",
+    "title": "SCHEDULE CHANGE HISTORY RECONCILIATION",
+    "prompt": "Review edits between a draft and approved weekly schedule: [versions, who changed what, timestamps, notifications]. Identify changed coverage, added hours, removed shifts, approval gaps and who must receive a corrected notice. Preserve the prior approved record.",
+    "manager_check": "A saved edit is not the same as an approved published change."
+  },
+  {
+    "number": 291,
+    "id": "GRV-AI-291",
+    "category": "SHIFT LAB & STAFFING",
+    "title": "EMPLOYEE SCHEDULE ACCESS AND PRIVACY",
+    "prompt": "Evaluate an employee schedule-sharing process using QR or online access. Access model: [roles, link rules, device conditions]. Identify unauthorized visibility of wages, other employees' private information or stale schedules; recommend least-privilege access and employee confirmation steps.",
+    "manager_check": "Employees need their schedule, not unrestricted access to private labor records."
+  },
+  {
+    "number": 292,
+    "id": "GRV-AI-292",
+    "category": "SHIFT LAB & STAFFING",
+    "title": "CROSS-TRAINING COVERAGE OPPORTUNITY",
+    "prompt": "Use verified training qualifications and next week's demand to identify safe cross-training opportunities. Employees and approved stations: [data]. Gaps: [days and shifts]. Distinguish development assignments from certified coverage and flag supervision requirements.",
+    "manager_check": "Do not count an unqualified trainee as sole coverage for a safety-critical role."
+  },
+  {
+    "number": 293,
+    "id": "GRV-AI-293",
+    "category": "SHIFT LAB & STAFFING",
+    "title": "WEEKLY DRAFT-TO-MANAGER APPROVAL PACK",
+    "prompt": "Assemble a manager approval packet for a proposed schedule: [forecast, availability, draft, hour totals, conflicts, previous schedule]. Include key changes, policy checks, coverage risks, alternatives and sign-off fields. Clearly mark it as an unapproved proposal.",
+    "manager_check": "Only designated managers may release an operational schedule."
+  },
+  {
+    "number": 294,
+    "id": "GRV-AI-294",
+    "category": "INVENTORY CENTER & DATA",
+    "title": "FIRST INVENTORY 29-STEP READINESS GUIDE",
+    "prompt": "Guide a manager through first Inventory Center setup using [restaurant profile, locations, item sources, initial counts]. Explain what must be entered before items, starting stock and daily changes can be trusted; provide a progress checklist and the next safe step without assuming steps were completed.",
+    "manager_check": "Do not create stock balances until locations, units and source counts are verified."
+  },
+  {
+    "number": 295,
+    "id": "GRV-AI-295",
+    "category": "INVENTORY CENTER & DATA",
+    "title": "RESTAURANT PROFILE FIRST-RUN SUPPORT",
+    "prompt": "Help a new Inventory Center user when a profile window interrupts first-time guidance. Current screen: [description]. Saved data: [facts]. Offer safe navigation and data-preserving steps, explain profile fields and how to resume the guide. Escalate a reproducible lockup instead of telling a user to click repeatedly.",
+    "manager_check": "Protect saved work and do not declare a frozen interface fixed with wording."
+  },
+  {
+    "number": 296,
+    "id": "GRV-AI-296",
+    "category": "INVENTORY CENTER & DATA",
+    "title": "BARCODE SOURCE AND COLLISION CHECK",
+    "prompt": "Review inventory barcode choices for [item list, vendor codes, internal labels and scanner model]. Distinguish supplier UPCs from customer-generated labels, detect duplicated barcodes and unit/pack mismatches, and outline a physical scan test before live use.",
+    "manager_check": "A barcode identifies an item only when its mapping is correct."
+  },
+  {
+    "number": 297,
+    "id": "GRV-AI-297",
+    "category": "INVENTORY CENTER & DATA",
+    "title": "LOCAL STORE PURCHASE RECEIVING",
+    "prompt": "Build an auditable receiving record for supplies bought locally instead of from the primary vendor. Item master: [unit/pack]. Receipt: [store, date, pack, tax, price]. Record source and conversion without creating duplicate item identities; flag unusual one-off handling for review.",
+    "manager_check": "Keep physical quantities and landed costs traceable across vendors."
+  },
+  {
+    "number": 298,
+    "id": "GRV-AI-298",
+    "category": "INVENTORY CENTER & DATA",
+    "title": "INVENTORY BACKUP RESTORE DRILL",
+    "prompt": "Plan a non-destructive inventory data backup and restoration test. Current version, backup source and location: [facts]. Define what records to preserve, how to verify integrity, test restore into a safe copy, and confirm counts and transactions before upgrading.",
+    "manager_check": "A backup is only dependable after a safe restore verification."
+  },
+  {
+    "number": 299,
+    "id": "GRV-AI-299",
+    "category": "INVENTORY CENTER & DATA",
+    "title": "COUNT POSTING AND CORRECTION TRACE",
+    "prompt": "Check physical counts before they change on-hand stock. Item/location/period: [records]. Identify missing locations, negative or impossible balances, late receipts, duplicate posts and adjustments requiring approval. Build a correction trail that preserves the original count evidence.",
+    "manager_check": "Never quietly overwrite a posted count to erase a variance."
+  },
+  {
+    "number": 300,
+    "id": "GRV-AI-300",
+    "category": "INVENTORY CENTER & DATA",
+    "title": "REORDER PROPOSAL WITH LEAD-TIME RISK",
+    "prompt": "Draft an inventory reorder proposal using verified stock, demand, safety quantity, case packs, vendor lead times and expected deliveries: [data]. Compare par-level alternatives, flag supply risks, shelf-life constraints and exceptional purchases, and require authorized purchasing approval.",
+    "manager_check": "Suggested orders do not become purchase commitments automatically."
+  }
+]
