@@ -34,6 +34,35 @@ const within=(p,ms,selector)=>p.locator(selector).waitFor({state:'visible',timeo
    }
    await ctx.close();
   }
+  // Verify a visitor can actually open and close navigation menus on mobile.
+  // Presence-only checks previously missed the inert Windows Programs button.
+  const menuContext=await browser.newContext({viewport:{width:390,height:844}});
+  const mp=await menuContext.newPage();
+  for(const route of ['/owner-gm-governance-agreement-pack','/restaurant-existing-sop-library-import-guide','/testing-room','/windows-programs']){
+   try{
+    const response=await mp.goto(BASE+route,{waitUntil:'domcontentloaded',timeout:35000});
+    must(response&&response.status()===200,'HTTP '+response?.status());
+    const button=mp.locator('[data-menu-toggle]'),nav=mp.locator('[data-menu]');
+    must(await button.count()===1,'Menu button missing');
+    must(await nav.count()===1,'Nav container missing');
+    await button.click({timeout:8000});
+    must((await button.getAttribute('aria-expanded'))==='true','Menu click did not expand');
+    must(await nav.evaluate(x=>x.classList.contains('open')),'Menu did not open');
+    must(await nav.locator('a[href="/"]').isVisible(),'Home link not visible');
+    await button.click({timeout:8000});
+    must((await button.getAttribute('aria-expanded'))==='false','Menu click did not close');
+    record('Mobile menu opens and closes '+route,true);
+   }catch(e){record('Mobile menu opens and closes '+route,false,String(e).slice(0,400))}
+  }
+  try{
+   await mp.goto(BASE+'/owner-gm-governance-agreement-pack',{waitUntil:'domcontentloaded',timeout:35000});
+   must(await mp.locator('iframe[title*="Governance"]').count()===1,'Pack PDF viewer missing');
+   const pdf=await mp.request.get(BASE+'/assets/downloads/owners-chair-owner-gm-governance-pack-elite-v1.0.pdf',{timeout:15000});
+   must(pdf.status()===200,'Pack PDF missing HTTP '+pdf.status());
+   must((pdf.headers()['content-type']||'').includes('pdf'),'Pack PDF content type wrong');
+   record('Owner–GM Governance Pack view and raw PDF',true,'Viewer + downloadable original document');
+  }catch(e){record('Owner–GM Governance Pack view and raw PDF',false,String(e).slice(0,480))}
+  await menuContext.close();
   // Fresh first-time user: the original Windows/web blocker was an automatically
   // opened profile dialog overlaying the walkthrough's launch button.
   const ctx=await browser.newContext({viewport:{width:1366,height:900},acceptDownloads:true});
