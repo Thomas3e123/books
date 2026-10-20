@@ -106,9 +106,9 @@
   {
     "number": 264,
     "id": "GRV-AI-264",
-    "title": "DISH-ROOM FLOW STUDY",
+    "title": "DISH-ROOM LABOR AND MACHINE-CYCLE TIMING",
     "category": "WORK STUDY LAB & EVIDENCE",
-    "prompt": "Study this dish-room workflow: [layout, staff roles, cycle records, rack loads and peak demand]. Map dirty return, sorting, scraping, washing, drying, storage and pickup. Distinguish travel, waiting, handling, machine capacity, rewash, and safety constraints. Recommend a testable flow change.",
+    "prompt": "Analyze measured dish-room labor and machine cycles: [rack start/finish events, staff observations, dirty return waves, travel and wait times, rewash and capacity]. Separate machine duration, operator hands-on minutes, simultaneous tasks, queuing delays and sanitation-critical dwell or drying. Calculate measurable bottleneck hypotheses, then design a safe comparative follow-up rather than offering only a layout suggestion.",
     "manager_check": "Keep sanitation, separation, safe storage and worker safety non-negotiable."
   },
   {
