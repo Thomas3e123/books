@@ -77,8 +77,17 @@ const within=(p,ms,selector)=>p.locator(selector).waitFor({state:'visible',timeo
    const found=hrefs.filter(h=>h&&h.includes(manual));
    const required=['.pdf','.docx','.html'];
    const ok=required.every(ext=>found.some(h=>{try{return new URL(h).pathname.endsWith('/manuals/current/'+manual+ext)}catch{return false}}));
-   record('Current manual linked '+manual,ok,'page='+p.url()+' found='+found.length+' urls='+found.join(' | ').slice(0,500));
+   const panel=await p.locator('.windows-current-manual').first().evaluate(el=>el.outerHTML.slice(0,1150)).catch(()=>'(not found)');
+   record('Current manual linked '+manual,ok,'page='+p.url()+' found='+found.length+' urls='+found.join(' | ').slice(0,350)+' html='+(!ok?panel:''));
   }
+  try{
+   await p.goto(BASE+'/restaurant-ai-prompt-search',{waitUntil:'domcontentloaded',timeout:45000});
+   await p.waitForFunction(()=>document.querySelector('#ai-prompt-search-status')?.textContent?.includes('250 prompts shown.'),{timeout:12000});
+   await p.locator('#ai-prompt-query').fill('GRV-AI-250');
+   must((await p.locator('#ai-prompt-results').innerText()).includes('GRV-AI-250'),'Prompt 250 not found');
+   record('Live 250-prompt search data loads and last prompt is searchable',true);
+  }catch(e){record('Live 250-prompt search data loads and last prompt is searchable',false,String(e).slice(0,300))}
+  await p.goto(BASE+'/windows-programs',{waitUntil:'domcontentloaded'});
   const warning=await p.locator('.inventory-guided-firstclick-update').count();
   record('Old Windows Inventory preview issue disclosed',warning===1,'Existing public installer not misrepresented as fixed');
   await linkctx.close();
