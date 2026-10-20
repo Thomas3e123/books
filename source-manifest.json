@@ -397,6 +397,10 @@
       "sha256": "ae2422e64d1608e27259e6ca8eef3d7d2ecb06fdf49a9be3de513d0397c879f2"
     },
     {
+      "path": "site/assets/data/restaurant-ai-prompts-325.json",
+      "sha256": "9bf20702f1d4c6269843e0b49aae26971bdf5012c2e5f3548e5771d4ea27913a"
+    },
+    {
       "path": "site/assets/downloads/GRAVITY_ELITE_DAILY_CONTROL_FORMS_v1.0.docx",
       "sha256": "bf4929779f13f7ed46942de8c57184dfffb30dabc4ac51dc07ab6422aff278a0"
     },
@@ -743,6 +747,14 @@
     {
       "path": "site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_215_PROMPTS_2026-09-16.pdf",
       "sha256": "80e4f5d0457bef47cbf8c2e4c27d936a33390db3a8c58f1a63fb8a23b2e04cbc"
+    },
+    {
+      "path": "site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_325_PROMPTS_2026-10-20.docx",
+      "sha256": "a1f9279b5b81035bd6c8cb55f2ce9c06f6278d15e38e4fa85f26b8887e5ab162"
+    },
+    {
+      "path": "site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_325_PROMPTS_2026-10-20.pdf",
+      "sha256": "f757c048eb0c29bffd1d78aa9868c7023fb149647a0ca6aff46202a7bfa80c9b"
     },
     {
       "path": "site/assets/free-resources/improvement-plans/The_Gravity_30-Day_Improvement_Plan_Library_Founding_Year_Package.zip",
@@ -1302,11 +1314,11 @@
     },
     {
       "path": "site/assets/js/ai-prompt-search.js",
-      "sha256": "90c491ea6894dcf598ad5d1679b83f7f78666c783bddda43ed7fb2ae8ebe54d3"
+      "sha256": "443665de6b9667517527b0f80e2e1f16f7c12220c7b47314d1a742e2ad02fe42"
     },
     {
       "path": "site/assets/js/book-reader.js",
-      "sha256": "14a0a0ab3e060ef6a72a5fa0467044e6c5dd7361d97951fe334d1fb23a8d403b"
+      "sha256": "30c52947e15b433c4b953e461edc52819a67aa316c1f5b82bd5e71721e35e30f"
     },
     {
       "path": "site/assets/js/gravity-aware-study.js",
@@ -1614,7 +1626,7 @@
     },
     {
       "path": "site/assets/reader/ai-prompts.txt",
-      "sha256": "6dd8da0c466d4b99c256a8e4d060eb9f155e6acb574640aa2e0b787975e075fa"
+      "sha256": "0720528f8102396ed823a999327e88f1feeba7a8c303038e92956849331735c7"
     },
     {
       "path": "site/assets/reader/bar-inventory.txt",
@@ -1626,7 +1638,7 @@
     },
     {
       "path": "site/assets/reader/catalog.json",
-      "sha256": "b92cab7b5a5dfd75ccfcfe6bb8ba7b6270a21093f12831a24a9424ae34e1bb47"
+      "sha256": "8c1e2c66b21c201fe879a7b3d1cd283571766585fdaa90122f47d03dd895cd02"
     },
     {
       "path": "site/assets/reader/employee-training-sop-tracker.txt",
@@ -1794,11 +1806,11 @@
     },
     {
       "path": "site/book-reader.html",
-      "sha256": "a4cdd30619fd63345391c494b0792c64e5414f452d80393bc36fed2cec7626d5"
+      "sha256": "72646d2bc21cae07b3adcc332ab077fdaf6090c55a2f7c79434f22bc44eea8e6"
     },
     {
       "path": "site/books.html",
-      "sha256": "129d604b97d8d705f9598b5e94cbc42dc1e496fdfbaae500250a4c043f49be21"
+      "sha256": "e6108c234a3dd9f68568f1dd2e57b828798a98df49dfcc738a683760fece62e8"
     },
     {
       "path": "site/contact.html",
@@ -1810,7 +1822,7 @@
     },
     {
       "path": "site/free-resources.html",
-      "sha256": "8115d2437c631bf02b9eb4782e00c935f84bccbdffa4d64705d13fea8bc204c6"
+      "sha256": "cce81cfd55a8c5be3ccc84c559a0260c3fc21021a9fe7ca221a6f7f8d2cdb96c"
     },
     {
       "path": "site/gravity-assist.html",
@@ -1986,7 +1998,7 @@
     },
     {
       "path": "site/restaurant-ai-prompt-search.html",
-      "sha256": "0ed564785128256fbfbff8a71f781a436470ae122bf950ca04e083332e2e814f"
+      "sha256": "e5300f63355275edad25446b39bc8ac91b84a828d9c7cb0a0ae1211d52d23174"
     },
     {
       "path": "site/restaurant-bar-beverage-inventory-ordering.html",
@@ -2286,7 +2298,7 @@
     },
     {
       "path": "site/toolkit.html",
-      "sha256": "2c138de4646ad62c911ab843eb4b6ef30cfd2708399a100b423863e7eb7b0bf7"
+      "sha256": "72b727de25241d1fc3de13813eaca4cb4c1814154dac63ef23be79a17aabb846"
     },
     {
       "path": "site/windows-programs.html",
