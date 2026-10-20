@@ -2,7 +2,7 @@ name: Verify and stage Gravity Report newsletter
 on:
   push:
     branches:
-      - feature/gravity-report-launch-2026-10-20
+      - 'feature/gravity-report-*'
     paths:
       - ".github/workflows/gravity-report-launch.yml"
       - "functions/gravity-report/**"
@@ -41,6 +41,6 @@ jobs:
           git add source-manifest.json
           if ! git diff --cached --quiet; then
             git commit -m 'test(report): synchronize verified newsletter publication manifest'
-            git pull --rebase origin feature/gravity-report-launch-2026-10-20
-            git push origin HEAD:feature/gravity-report-launch-2026-10-20
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push origin "HEAD:$GITHUB_REF_NAME"
           fi
