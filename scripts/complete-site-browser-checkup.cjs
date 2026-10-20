@@ -72,13 +72,19 @@ const within=(p,ms,selector)=>p.locator(selector).waitFor({state:'visible',timeo
   const linkctx=await browser.newContext({viewport:{width:1280,height:820}});
   const p=await linkctx.newPage();
   await p.goto(BASE+'/windows-programs',{waitUntil:'domcontentloaded'});
-  const hrefs=await p.locator('a[href]').evaluateAll(arr=>arr.map(a=>a.href));
   for(const manual of ['Gravity_SOP_Foundry_Windows_User_Manual','Gravity_Shift_Lab_Windows_User_Manual','Gravity_Inventory_Center_Windows_User_Manual','Gravity_Work_Study_Lab_Windows_User_Manual']){
-   const found=hrefs.filter(h=>h&&h.includes(manual));
-   const required=['.pdf','.docx','.html'];
-   const ok=required.every(ext=>found.some(h=>{try{return new URL(h).pathname.endsWith('/manuals/current/'+manual+ext)}catch{return false}}));
-   const panel=await p.locator('.windows-current-manual').first().evaluate(el=>el.outerHTML.slice(0,1150)).catch(()=>'(not found)');
-   record('Current manual linked '+manual,ok,'page='+p.url()+' found='+found.length+' urls='+found.join(' | ').slice(0,350)+' html='+(!ok?panel:''));
+   const card=p.locator('.windows-current-manual').filter({has:p.locator('a[href*="'+manual+'.pdf"]')}).first();
+   try{
+    must(await card.count()===1,'Missing manual card for '+manual);
+    const links=await card.locator('a[href]').evaluateAll(anchors=>anchors.map(a=>({href:a.href,label:(a.textContent||'').trim()})));
+    const formats=['.pdf','.docx'].every(ext=>links.some(x=>new URL(x.href).pathname.endsWith('/manuals/current/'+manual+ext)));
+    must(formats,'PDF or Word manual missing');
+    const online=links.find(x=>/Read online/i.test(x.label));
+    must(online&&online.href,'Read online manual link missing');
+    const response=await p.request.get(online.href,{timeout:18000});
+    must(response.status()===200,'Read online link returns HTTP '+response.status()+': '+online.href);
+    record('Current manual accessible '+manual,true,'PDF+Word linked; online HTTP 200; '+online.href);
+   }catch(e){record('Current manual accessible '+manual,false,String(e).slice(0,450))}
   }
   try{
    await p.goto(BASE+'/restaurant-ai-prompt-search',{waitUntil:'domcontentloaded',timeout:45000});
