@@ -30,11 +30,11 @@
     },
     {
       "path": "site/apps/inventory-center/assets/js/first-time-tour.js",
-      "sha256": "e0eee89f430a8434b10d07765e2522f6213f85ae03b179cdde8c5e6ef1e90da1"
+      "sha256": "774220930cfb0dfe0b45c572fea2d4dc3a9807a1d241b4aa6e769d02cfd21c82"
     },
     {
       "path": "site/apps/inventory-center/assets/js/inventory-center.js",
-      "sha256": "44f55540faa798cba9515b71e4a1dea75348526d95267d6a77be1edf8930f463"
+      "sha256": "5649c30ee125f6420144c6b4e48c38faa6021a12deec23e9432ea6a3bf55429f"
     },
     {
       "path": "site/apps/inventory-center/assets/js/inventory-validation.js",
@@ -42,7 +42,7 @@
     },
     {
       "path": "site/apps/inventory-center/index.html",
-      "sha256": "c501a920642539f69e99b8caa78f26d002b114bf41474f4b8486efc25c4d2166"
+      "sha256": "4515d74e5b5492d8904446d1ac3415d7d66157465d577c695bb8cb49dc94da1e"
     },
     {
       "path": "site/apps/inventory-center/web.css",
