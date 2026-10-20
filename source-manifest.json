@@ -1850,7 +1850,7 @@
     },
     {
       "path": "site/gravity-inventory-center.html",
-      "sha256": "d7f3130d197798383bb736aec065f828b3f3ca03ed3180d1fdbe8844c7248f76"
+      "sha256": "f32424adaeb129a4e52f2135d95662e5f39dcfda2b0992737fe70eda3881004b"
     },
     {
       "path": "site/gravity-numbers-lab.html",
@@ -2242,7 +2242,7 @@
     },
     {
       "path": "site/sitemap.xml",
-      "sha256": "db8b4e2e4053dc678724fca7f6e225db3035cb53ec040ced7571065caf9d9be8"
+      "sha256": "c9aca2625f46742e40ddd9033cf12732ed191ff1daad896b4890d10df3773efa"
     },
     {
       "path": "site/standards-library.html",
@@ -2290,7 +2290,7 @@
     },
     {
       "path": "site/windows-programs.html",
-      "sha256": "66e89f3febf2366127f2417df2019ad586bb4f2c5962de7ef909d2497bc5ce85"
+      "sha256": "6d7be0b7c08b2e627993fb6505471e6e06e7aef1e131e32c5619eccf728196de"
     },
     {
       "path": "site/work-study-prebeta-build.txt",
