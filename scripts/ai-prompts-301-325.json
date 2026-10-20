@@ -1,0 +1,202 @@
+[
+  {
+    "number": 301,
+    "id": "GRV-AI-301",
+    "category": "TESTING ROOM & CUSTOMER FEEDBACK",
+    "title": "FIRST-TIME TESTER WALKTHROUGH",
+    "prompt": "Prepare a friendly, task-based onboarding for a Gravity product tester. Program/version: [name]. Prior experience: [optional]. Test goals: [tasks]. Explain entry, safe sample data, expected checkpoints, how to report confusion or defects, and how to exit without exposing live restaurant records.",
+    "manager_check": "Treat tester uncertainty as useful feedback, not as failure."
+  },
+  {
+    "number": 302,
+    "id": "GRV-AI-302",
+    "category": "TESTING ROOM & CUSTOMER FEEDBACK",
+    "title": "STRUCTURED TESTER ISSUE INTAKE",
+    "prompt": "Transform a customer Testing Room submission into an actionable issue. Product/version/device: [details]. Steps and observed behavior: [text]. Evidence: [optional screenshot]. Separate defect, help request, design suggestion and unclear description; request only essential follow-up evidence.",
+    "manager_check": "Do not collect passwords, PINs, employee secrets or unnecessary guest data."
+  },
+  {
+    "number": 303,
+    "id": "GRV-AI-303",
+    "category": "TESTING ROOM & CUSTOMER FEEDBACK",
+    "title": "TESTER SCREENSHOT PRIVACY CHECK",
+    "prompt": "Review a proposed bug screenshot or screen recording: [description]. Identify names, schedules, wage rates, credentials, private recipes, customer information and hidden tabs that must be redacted. Recommend a replacement capture if safe masking would obscure the bug.",
+    "manager_check": "Testing evidence is not permission to redistribute private data."
+  },
+  {
+    "number": 304,
+    "id": "GRV-AI-304",
+    "category": "TESTING ROOM & CUSTOMER FEEDBACK",
+    "title": "PRIVATE TESTER MESSAGE RESPONSE",
+    "prompt": "Draft an accurate, respectful private reply to a tester: [issue or suggestion]. Confirm what was reported, state only verified behavior, ask a precise follow-up if needed and outline a realistic next validation step. Avoid promising a fix or publication that has not occurred.",
+    "manager_check": "The reply should acknowledge evidence without overstating release status."
+  },
+  {
+    "number": 305,
+    "id": "GRV-AI-305",
+    "category": "TESTING ROOM & CUSTOMER FEEDBACK",
+    "title": "TESTER WALKTHROUGH REQUEST PLAN",
+    "prompt": "Turn a request for a call or screen walkthrough into a short support agenda. User goal: [task]. Device, program version and obstacle: [facts]. Plan consent-based screen review, sample-data preparation, 3 key actions to demonstrate and a follow-up summary.",
+    "manager_check": "Never ask a customer to reveal passwords or production-sensitive data on a call."
+  },
+  {
+    "number": 306,
+    "id": "GRV-AI-306",
+    "category": "TESTING ROOM & CUSTOMER FEEDBACK",
+    "title": "TESTER CONTRIBUTION AND PRIORITY REVIEW",
+    "prompt": "Summarize tester contributions from [submission log, duplicates, severity, reproduction evidence and helpfulness notes]. Recognize actionable evidence, avoid rewarding praise over accuracy, and recommend follow-up testing areas without making unsupported promises of benefits.",
+    "manager_check": "Recognition and rewards need documented, consistent criteria."
+  },
+  {
+    "number": 307,
+    "id": "GRV-AI-307",
+    "category": "TESTING ROOM & CUSTOMER FEEDBACK",
+    "title": "CUSTOMER PILOT EXIT DECISION",
+    "prompt": "Evaluate whether a restaurant beta pilot should continue, expand or pause. Outcomes: [tested workflows]. Blockers, data integrity and user confidence: [facts]. Backup/restoration: [verified]. List open questions, approval owner and clear stop/go criteria.",
+    "manager_check": "A passed automated test does not certify a customer environment."
+  },
+  {
+    "number": 308,
+    "id": "GRV-AI-308",
+    "category": "WINDOWS RELEASE & DOCUMENTATION",
+    "title": "RELEASE ARTIFACT VERIFICATION",
+    "prompt": "Audit a candidate Windows release: [build commit, CI run, installer file, portable ZIP, checksums]. Match source, workflow evidence, size, integrity and expected runtime behavior; report any artifact mismatch or inaccessible download. Distinguish built, tested, uploaded and publicly released states.",
+    "manager_check": "Do not call a private build artifact a public download."
+  },
+  {
+    "number": 309,
+    "id": "GRV-AI-309",
+    "category": "WINDOWS RELEASE & DOCUMENTATION",
+    "title": "EXE VERSUS PORTABLE ZIP INSTALLATION EXPLAINER",
+    "prompt": "Write plain customer instructions for [Windows application/version]. Distinguish a setup installer (.exe) from a portable ZIP, explain where program data may live, show how to launch each, and warn against assuming a ZIP contains an INSTALL file.",
+    "manager_check": "Instructions must match the exact files in the actual release."
+  },
+  {
+    "number": 310,
+    "id": "GRV-AI-310",
+    "category": "WINDOWS RELEASE & DOCUMENTATION",
+    "title": "WINDOWS UPGRADE DATA-CUSTODY CHECK",
+    "prompt": "Plan a safe Windows beta update from [old version] to [new version] with [stored data and backups]. Identify data locations, export options, test restore, expected migration support and rollback plan. Explicitly mark unverified migrations and equipment compatibility.",
+    "manager_check": "Preserve the prior working version until customer data is validated."
+  },
+  {
+    "number": 311,
+    "id": "GRV-AI-311",
+    "category": "WINDOWS RELEASE & DOCUMENTATION",
+    "title": "WORK STUDY GUIDED FREEZE REPRODUCTION",
+    "prompt": "Investigate a Guided assistant freeze: [version, exact click sequence, logs and behavior]. Distinguish rapid repeat clicks, render/mutation loops, event registration, slow initialization and voice loading. Specify reproduction and regression tests; show a click-once instruction as support, not a substitute for an actual fix.",
+    "manager_check": "A tooltip cannot replace a root-cause repair."
+  },
+  {
+    "number": 312,
+    "id": "GRV-AI-312",
+    "category": "WINDOWS RELEASE & DOCUMENTATION",
+    "title": "CEDAR VOICE AND OFFLINE TTS TEST PLAN",
+    "prompt": "Design a desktop Guided voice acceptance test: [Windows app, microphone/speaker configuration, privacy consent, voice path]. Check the Cedar voice through its supported desktop process, not a broken site-relative file path. Separate TTS, transcription, offline behavior, permissions and audible-quality checks.",
+    "manager_check": "Never claim device voice works based only on a source-code inspection."
+  },
+  {
+    "number": 313,
+    "id": "GRV-AI-313",
+    "category": "WINDOWS RELEASE & DOCUMENTATION",
+    "title": "PICTURE-LED USER MANUAL AUDIT",
+    "prompt": "Audit a software manual against the actual program: [manual, build/version, screen captures]. Confirm each screenshot shows the same release, is readable in color and grayscale, matches control labels and contains no internal testing or private data. Identify missing numbered steps and outdated visuals.",
+    "manager_check": "A screenshot of an older version may be worse than no screenshot."
+  },
+  {
+    "number": 314,
+    "id": "GRV-AI-314",
+    "category": "WINDOWS RELEASE & DOCUMENTATION",
+    "title": "PUBLIC DOWNLOAD PAGE PARITY AUDIT",
+    "prompt": "Compare a website download page against published release assets: [page URLs, GitHub tag, filenames and checksums]. Check every button, installer/portable labels, update notes and support links. Flag stale pages and separately verify deployed production rather than assuming GitHub source equals the live site.",
+    "manager_check": "A commit is not proof that production is updated."
+  },
+  {
+    "number": 315,
+    "id": "GRV-AI-315",
+    "category": "WINDOWS RELEASE & DOCUMENTATION",
+    "title": "RELEASE READINESS CUSTOMER SIMULATION",
+    "prompt": "Run a customer-journey evaluation for [program/version]: download, extraction or installation, first launch, first task, Help, save/reopen, export, backup and uninstall/exit. Define test evidence, blocked steps, passing conditions and what remains a real-machine verification requirement.",
+    "manager_check": "Customer readiness needs actual interaction, not only a successful build."
+  },
+  {
+    "number": 316,
+    "id": "GRV-AI-316",
+    "category": "GRAVITY GOVERNANCE & IMPROVEMENT",
+    "title": "OWNER–GM DECISION AUTHORITY AGREEMENT",
+    "prompt": "Help an owner and GM prepare a reviewable working agreement from [decision categories, limits, existing policy]. Distinguish owner-reserved decisions, delegated authority, emergency exceptions, communication timing, escalation and documentation; identify clauses requiring qualified legal or HR review.",
+    "manager_check": "AI can structure an agreement but cannot approve or interpret legal obligations."
+  },
+  {
+    "number": 317,
+    "id": "GRV-AI-317",
+    "category": "GRAVITY GOVERNANCE & IMPROVEMENT",
+    "title": "OWNER-ABSENCE CONTINUITY DECISION TREE",
+    "prompt": "Prepare an owner-absence readiness plan for [restaurant, roles, contact chain, cash, safety and supplier scenarios]. Identify what the GM may handle, when to contact the owner, emergency authority, evidence to capture and reconnection steps.",
+    "manager_check": "A continuity plan must name who has actual authority under existing policy."
+  },
+  {
+    "number": 318,
+    "id": "GRV-AI-318",
+    "category": "GRAVITY GOVERNANCE & IMPROVEMENT",
+    "title": "MANAGER READINESS TRAINER-TRAINEE BOUNDARY",
+    "prompt": "Review an instructor's trainee evaluation: [lesson, scenario response, observation and follow-up]. Distinguish teaching, coaching, employment discipline and actual certification authority. Propose a fair observation or reassessment without auto-promoting or punishing the trainee.",
+    "manager_check": "Only qualified restaurant leadership makes readiness and employment decisions."
+  },
+  {
+    "number": 319,
+    "id": "GRV-AI-319",
+    "category": "GRAVITY GOVERNANCE & IMPROVEMENT",
+    "title": "GRAVITY SIGNAL TO PROBLEM PROOF",
+    "prompt": "Translate an aggregate operational signal into a Gravity investigation plan. Signal: [pattern]. Relevant records: [sources]. List multiple possible explanations, privacy boundaries, minimum proof and the owner who may authorize action. Do not infer guilt, intent or an individual performance issue.",
+    "manager_check": "A signal is a question for management, not a verdict."
+  },
+  {
+    "number": 320,
+    "id": "GRV-AI-320",
+    "category": "GRAVITY GOVERNANCE & IMPROVEMENT",
+    "title": "ONE-PROBLEM GRAVITY STARTER PATH",
+    "prompt": "A restaurant has this immediate problem: [describe]. Available time, roles and tools: [facts]. Recommend the smallest useful Gravity method step, one standalone tool if appropriate, needed evidence, decision owner and verification checkpoint. Explain optional connections without pressuring a full-system adoption.",
+    "manager_check": "Start with the customer's real problem, not a sales script."
+  },
+  {
+    "number": 321,
+    "id": "GRV-AI-321",
+    "category": "GRAVITY GOVERNANCE & IMPROVEMENT",
+    "title": "WORKFLOW HANDOFF HISTORY AND READINESS",
+    "prompt": "Assess readiness to move a case from Gravity Method to another Gravity workspace. Case history: [facts, decisions, owner and approvals]. Proposed transfer: [records]. Check provenance, missing prerequisites, unsupported assumptions, reversibility and retained accountability.",
+    "manager_check": "A transfer must preserve decision history and never silently grant authority."
+  },
+  {
+    "number": 322,
+    "id": "GRV-AI-322",
+    "category": "GRAVITY COMMUNICATION & EDUCATION",
+    "title": "TWO-PER-WEEK GRAVITY REPORT EDITORIAL PLAN",
+    "prompt": "Plan two useful Gravity Report articles each week from [verified restaurant questions, published books, existing tools and approved changes]. Group by leadership, staffing, inventory, SOP systems and ownership. For each article specify the real problem, evidence, corrective action, verification and a relevant optional resource.",
+    "manager_check": "Avoid publishing invented customer stories or presenting unfinished tools as available."
+  },
+  {
+    "number": 323,
+    "id": "GRV-AI-323",
+    "category": "GRAVITY COMMUNICATION & EDUCATION",
+    "title": "NEWSLETTER TO FACEBOOK AND X ADAPTATION",
+    "prompt": "Adapt this approved Gravity Report article for Facebook, X and a weekly email digest: [full article]. Preserve its practical voice, verified facts and useful takeaway while adjusting length, hook and link. Draft channel-specific copy without inventing testimonials, dates or past publication history.",
+    "manager_check": "A scheduled post should not masquerade as an article published earlier."
+  },
+  {
+    "number": 324,
+    "id": "GRV-AI-324",
+    "category": "GRAVITY COMMUNICATION & EDUCATION",
+    "title": "WEBSITE CUSTOMER PROMISE CONSISTENCY",
+    "prompt": "Audit these public website claims: [pages, product state, manuals, downloads and dates]. Compare announced features with verified live behavior and actual release files. Identify outdated counts, dead links, private-preview claims, security promises and copy needing a truthful correction.",
+    "manager_check": "Customer copy must reflect production reality, not development intent."
+  },
+  {
+    "number": 325,
+    "id": "GRV-AI-325",
+    "category": "GRAVITY COMMUNICATION & EDUCATION",
+    "title": "FOUNDING YEAR RESOURCE NAVIGATION",
+    "prompt": "Help a first-time Gravity visitor choose what to download or read. Their problem, restaurant size and preference for a standalone tool: [facts]. Offer a short relevant path, identify completed versus in-development resources, explain registration and Founding Year terms accurately, and leave the visitor free to stop after one useful resource.",
+    "manager_check": "Access explanations must be accurate and non-coercive."
+  }
+]
