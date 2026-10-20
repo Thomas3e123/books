@@ -3,7 +3,7 @@
 const STORAGE='gravityInventoryFirstTour.v1';
 const steps=[
 {view:'dashboard',target:'.process-roadmap',title:'See the complete inventory process',body:'Begin with the roadmap. A dependable inventory starts with the restaurant, then locations and items, followed by starting stock. Every later change must be recorded and checked against physical stock.',verify:'You can name all eight stages and understand that nothing in the tour posts an inventory transaction for you.'},
-{target:'#edit-profile',title:'Open Restaurant Profile',body:'Select Restaurant Profile. Identify the restaurant before creating items, receiving stock or counting. The identity should match the location that actually owns these inventory numbers.',verify:'The restaurant name will appear above the inventory dashboard. Do not enter real restaurant data into another location’s profile.'},
+{view:'dashboard',target:'#edit-profile',title:'Open Restaurant Profile',body:'Select Restaurant Profile. Identify the restaurant before creating items, receiving stock or counting. The identity should match the location that actually owns these inventory numbers.',verify:'The restaurant name will appear above the inventory dashboard. Do not enter real restaurant data into another location’s profile.'},
 {view:'dashboard',target:'#profile-name',title:'Confirm restaurant and store identity',body:'Save a restaurant name. Add store/location identifiers if you operate more than one restaurant. Use the top Restaurant Profile button again whenever the identifying information changes.',verify:'The heading no longer says “Restaurant not set”.'},
 {view:'locations',target:'#location-form',title:'Map physical storage areas',body:'Open Locations. Add one actual place for each area where a person can find and count stock: for example Walk-in Cooler, Freezer, Dry Storage, Bar Cage and Line Cooler. Do not use “Food” or “Beverages” as a physical location.',verify:'Each physical storage area has its own saved location.'},
 {view:'locations',target:'#loc-order',title:'Set a walking count route',body:'Enter a different route order for each location, reflecting the path employees walk during inventory. Leave the order blank to append. Save the location, then repeat for all areas.',verify:'The Locations in count order list follows a practical walking path.'},
@@ -66,6 +66,17 @@ function highlight(){
 }
 function goToView(){
  const step=steps[index];if(!step?.view){highlight();return}
+ // An initial modal prevented the entire walkthrough from receiving mouse clicks.
+ // Open Profile only when the customer chooses it, temporarily suspending the panel
+ // while the native dialog has focus; resume safely on Save or Cancel.
+ if(step.target==='#edit-profile'){
+  const dlg=document.getElementById('profile-dialog'),button=document.getElementById('edit-profile');
+  if(!dlg||!button)return;
+  if(dlg.open)return;
+  const panel=host.querySelector('.gif-panel');panel.hidden=true;
+  dlg.addEventListener('close',()=>{if(index>=0){panel.hidden=false;highlight()}},{once:true});
+  button.click();return;
+ }
  if(document.querySelector('dialog[open]')){host.querySelector('#gif-location').textContent='Finish or cancel the open form first, then choose Show This Screen.';return}
  const nav=viewFor(step.view);
  if(!nav){host.querySelector('#gif-location').textContent='This screen is not available. Use the program’s Help section.';return}
@@ -82,8 +93,9 @@ function show(i){
  host.querySelector('#gif-title').textContent=step.title;host.querySelector('#gif-text').textContent=step.body;host.querySelector('#gif-verify').textContent=step.verify;
  host.querySelector('#gif-back').disabled=i===0;host.querySelector('#gif-next').textContent=i===steps.length-1?'Finish Walkthrough':'Next Step';
  const nav=viewFor(step.view),active=nav?.classList.contains('active');
- host.querySelector('#gif-show').hidden=!step.view||Boolean(active);
- host.querySelector('#gif-location').textContent=step.view&&!active?'Select Show This Screen to move to '+nav?.textContent+'. Your work is not entered or saved by the tour.':'Complete the work in Inventory Center, then select Next Step. This tour never submits an item or posts a transaction.';
+ host.querySelector('#gif-show').hidden=!step.view||(Boolean(active)&&step.target!=='#edit-profile');
+ host.querySelector('#gif-show').textContent=step.target==='#edit-profile'?'Open Restaurant Profile':'Show This Screen';
+ host.querySelector('#gif-location').textContent=step.target==='#edit-profile'?'Select Open Restaurant Profile above, enter your restaurant name and save. The walkthrough resumes after the form closes.':step.view&&!active?'Select Show This Screen to move to '+nav?.textContent+'. Your work is not entered or saved by the tour.':'Complete the work in Inventory Center, then select Next Step. This tour never submits an item or posts a transaction.';
  highlight();
 }
 function end(done){
