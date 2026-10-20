@@ -1,0 +1,52 @@
+name: Publish latest TMB site to Netlify (recovery)
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/netlify-publish-rescue.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      ALT_NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+      ALT_NETLIFY_ACCESS_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+      NETLIFY_BUILD_HOOK_URL: ${{ secrets.NETLIFY_BUILD_HOOK_URL }}
+      NETLIFY_DEPLOY_HOOK: ${{ secrets.NETLIFY_DEPLOY_HOOK }}
+      NETLIFY_SITE_ID: '1548e212-4cfe-4751-ab81-f46936249304'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Verify full website source before touching production
+        run: |
+          npm ci
+          npm run build
+          node scripts/comprehensive-site-audit.cjs
+          node scripts/audit-site-menu-buttons.cjs
+      - name: Trigger production Git build or securely deploy current checked site
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${NETLIFY_BUILD_HOOK_URL:-}" ] || [ -n "${NETLIFY_DEPLOY_HOOK:-}" ]; then
+            echo 'Using the existing authenticated Netlify build hook.'
+            hook="${NETLIFY_BUILD_HOOK_URL:-${NETLIFY_DEPLOY_HOOK:-}}"
+            curl -fsSL --retry 3 --retry-delay 2 -X POST "$hook" > /tmp/netlify-build-reply.txt
+            echo 'Netlify build hook accepted; check production SHA separately.'
+          else
+            token="${NETLIFY_AUTH_TOKEN:-${ALT_NETLIFY_TOKEN:-${ALT_NETLIFY_ACCESS_TOKEN:-}}}"
+            if [ -z "$token" ]; then
+              echo '::error::Netlify Git automatic deploys are stale, and no existing Netlify deployment credential or build-hook secret is configured in GitHub Actions. No production change was made.'
+              exit 3
+            fi
+            echo 'Using previously configured Netlify authentication for direct release.'
+            export NETLIFY_AUTH_TOKEN="$token"
+            npx --yes netlify-cli@23.11.0 deploy --prod --build --site "$NETLIFY_SITE_ID" --message "Restore TMB latest main; fix Windows Programs menu and current Inventory download" --json > /tmp/deploy-output.json
+            node -e 'const fs=require("fs"); const r=JSON.parse(fs.readFileSync("/tmp/deploy-output.json","utf8")); console.log(JSON.stringify({site_id:r.site_id,deploy_id:r.deploy_id,url:r.url,deploy_url:r.deploy_url,logs:r.logs},null,2))'
+          fi
