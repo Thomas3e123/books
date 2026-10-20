@@ -39,6 +39,8 @@ assert.equal(schedule.articles.filter(x=>x.released).length,2);
 assert(schedule.articles.filter(x=>!x.released).every(x=>x.summary===null),'Scheduled story previews leaked');
 r=await at('2026-10-20T17:00:00Z','/gravity-report/feed.xml');
 assert.equal((await r.text()).includes('<item>'),false,'RSS leaked an unpublished story');
+r=await at('2026-11-03T18:00:00Z','/gravity-report/feed.xml');
+assert((await r.text()).includes('Tue, 03 Nov 2026 15:00:00 GMT'),'Post-DST RSS must publish at 9 a.m. Central');
 r=await at('2026-11-01T17:00:00Z','/gravity-report/sitemap.xml');
 assert.equal(((await r.text()).match(/<lastmod>/g)||[]).length,2);
 console.log('GRAVITY_REPORT_CHECKS=PASS source=10 dates=10 future_gate=PASS release_timezone=America/Chicago feed=PASS sitemap=PASS opt_in=present');
