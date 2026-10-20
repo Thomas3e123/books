@@ -72,9 +72,12 @@ const within=(p,ms,selector)=>p.locator(selector).waitFor({state:'visible',timeo
   const linkctx=await browser.newContext({viewport:{width:1280,height:820}});
   const p=await linkctx.newPage();
   await p.goto(BASE+'/windows-programs',{waitUntil:'domcontentloaded'});
-  const hrefs=await p.locator('a[href]').evaluateAll(arr=>arr.map(a=>a.getAttribute('href')));
+  const hrefs=await p.locator('a[href]').evaluateAll(arr=>arr.map(a=>a.href));
   for(const manual of ['Gravity_SOP_Foundry_Windows_User_Manual','Gravity_Shift_Lab_Windows_User_Manual','Gravity_Inventory_Center_Windows_User_Manual','Gravity_Work_Study_Lab_Windows_User_Manual']){
-   record('Current manual linked '+manual,['.pdf','.docx','.html'].every(ext=>hrefs.some(h=>h&&h.includes('/manuals/current/'+manual+ext))),'PDF, Word and online');
+   const found=hrefs.filter(h=>h&&h.includes(manual));
+   const required=['.pdf','.docx','.html'];
+   const ok=required.every(ext=>found.some(h=>{try{return new URL(h).pathname.endsWith('/manuals/current/'+manual+ext)}catch{return false}}));
+   record('Current manual linked '+manual,ok,'page='+p.url()+' found='+found.length+' urls='+found.join(' | ').slice(0,500));
   }
   const warning=await p.locator('.inventory-guided-firstclick-update').count();
   record('Old Windows Inventory preview issue disclosed',warning===1,'Existing public installer not misrepresented as fixed');
