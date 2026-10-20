@@ -42,7 +42,7 @@
     },
     {
       "path": "site/apps/inventory-center/index.html",
-      "sha256": "02a82d3476b4f946489d4c3fbfd3e86b043a53b3548a999a0d4a22a089566957"
+      "sha256": "c501a920642539f69e99b8caa78f26d002b114bf41474f4b8486efc25c4d2166"
     },
     {
       "path": "site/apps/inventory-center/web.css",
@@ -302,7 +302,7 @@
     },
     {
       "path": "site/apps/sop-foundry/workroom.html",
-      "sha256": "9c28c2b91acc0e7a191cf2b0b9bfd437ed36db9e70eb89776de73a070b5f4835"
+      "sha256": "9efeb79bf46c5df4717e9e22c3fbc34c1dd647f60e1050d282d8df81d7a10c54"
     },
     {
       "path": "site/assets/css/book-reader.css",
@@ -1906,7 +1906,7 @@
     },
     {
       "path": "site/gravity-work-study-lab.html",
-      "sha256": "7f6893b3c915d863726fb410c3e4b068a39cd9d263792ecb2eed250560c9b69d"
+      "sha256": "ac50e1413f4e3150fac863e15291d56393df3cf17ef7b733d1d2a4d63ecd410d"
     },
     {
       "path": "site/guest-service-complaints-recovery-workbook.html",
