@@ -17,6 +17,26 @@
     if (label) label.textContent = open ? 'Close' : 'Menu';
   }
 
+  // The Gravity Report link belongs in every standard website menu.
+  // Most pages share this script even though their HTML menus are embedded.
+  if (nav && !nav.querySelector('a[href="/gravity-report"]')) {
+    var reportLink = document.createElement('a');
+    reportLink.id = 'gravity-report-nav-link';
+    reportLink.href = '/gravity-report';
+    reportLink.textContent = 'Gravity Report';
+    var knowledgeLink = nav.querySelector('a[href="/knowledge-center"]');
+    if (knowledgeLink) knowledgeLink.insertAdjacentElement('afterend', reportLink);
+    else {
+      var contactLink = nav.querySelector('a[href="/contact"]');
+      if (contactLink) contactLink.insertAdjacentElement('beforebegin', reportLink);
+      else nav.appendChild(reportLink);
+    }
+    if (location.pathname.replace(/\\.html$/, '') === '/gravity-report' || location.pathname.indexOf('/gravity-report/') === 0) {
+      reportLink.classList.add('active');
+      reportLink.setAttribute('aria-current', 'page');
+    }
+  }
+
   if (menuToggle && nav) {
     menuToggle.addEventListener('click', function (e) {
       e.stopPropagation();

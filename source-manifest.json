@@ -10,7 +10,7 @@
     },
     {
       "path": "site/_redirects",
-      "sha256": "2a2436f359d75670f7a19d1f0474c3df50d1928c2c660f86ee0861960c8a69ba"
+      "sha256": "a83637151135ae10fcfdf094af9b3cd9917db6b9475be089262b02aaf61a73b2"
     },
     {
       "path": "site/about.html",
@@ -1618,7 +1618,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "a48f81407186521c6a11d86d9662fd69f9fe81492254b813821ba4db7aeb9135"
+      "sha256": "ccfd97d07456db106f959cf118f3c573eb1185553b17715b7316d74da19582cc"
     },
     {
       "path": "site/assets/js/testing-room.js",
@@ -1810,7 +1810,7 @@
     },
     {
       "path": "site/books.html",
-      "sha256": "e6108c234a3dd9f68568f1dd2e57b828798a98df49dfcc738a683760fece62e8"
+      "sha256": "d58a283f4457973fc329569048ad730cbdcc57a385b5dc3d633215c399e7e493"
     },
     {
       "path": "site/contact.html",
@@ -1822,7 +1822,7 @@
     },
     {
       "path": "site/free-resources.html",
-      "sha256": "277bb61636885c527a73a6fa81a0018b2100aa7fcf064d962b2c74e32769b680"
+      "sha256": "ed82873df6c8f6851eabbbb9f611ecf6ba2dc0f34ed32a4d6bf9566d4c43ea15"
     },
     {
       "path": "site/gravity-assist.html",
@@ -1875,6 +1875,14 @@
     {
       "path": "site/gravity-recipe-works.html",
       "sha256": "893dc3d72bbc6988f8e7cc59841a4cc30095620d24eddb57068a2d626999b497"
+    },
+    {
+      "path": "site/gravity-report-thanks.html",
+      "sha256": "e4fbea3e936e58fe1832d717f7dc32df3e846d995b9459896bf10a724e9aa6fa"
+    },
+    {
+      "path": "site/gravity-report.html",
+      "sha256": "65e81c6fc6f2598e5f77134366d9dee9144c49840af332893f12ea2ff603951e"
     },
     {
       "path": "site/gravity-shift-lab-sw.js",
@@ -1938,7 +1946,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "027259211e666d1bc86d1ad937e5578a716f4cb680fe5e8551548a96a6e5ebb6"
+      "sha256": "7d022a38bdb2684879c17742e891b65f70dda21b78ef6653d7f1bf6505d186f7"
     },
     {
       "path": "site/installation-improvement.html",
@@ -1950,7 +1958,7 @@
     },
     {
       "path": "site/knowledge-center.html",
-      "sha256": "5d50d3839b15b50b20ee3bf4f71deac84d3899080cca4f8bf5f7ed87c75040ea"
+      "sha256": "41a6880ea955682dd62aeb030a82046f68bb1cb49f9a2a5a329e2a76001376d2"
     },
     {
       "path": "site/manager-readiness-leadership-development.html",
@@ -1966,7 +1974,7 @@
     },
     {
       "path": "site/privacy.html",
-      "sha256": "f4e69a65f70f78b90e00db75e25441e387d4b3c8e35e078a105f3249f88c219b"
+      "sha256": "daea2378b959a69fcd5ad136a06e0ea38f5762acdf27fab5d065b7c630ac8b67"
     },
     {
       "path": "site/qr-code-generator.html",
@@ -2246,7 +2254,7 @@
     },
     {
       "path": "site/robots.txt",
-      "sha256": "c28fcfc3929b48bdd1503212d17a3687ba3744c71869ef6d1bcebf6acfefce2a"
+      "sha256": "bbbb1d118e38510d50cdd66db15764962695afb07a2d12554acb9aa0b9ce5542"
     },
     {
       "path": "site/sales-intelligence-forecasting.html",
@@ -2254,7 +2262,7 @@
     },
     {
       "path": "site/sitemap.xml",
-      "sha256": "c9aca2625f46742e40ddd9033cf12732ed191ff1daad896b4890d10df3773efa"
+      "sha256": "521de2293e619e08ce7f5fab5d5007a021dda5123369b426453d342b8360d128"
     },
     {
       "path": "site/standards-library.html",
@@ -2298,7 +2306,7 @@
     },
     {
       "path": "site/toolkit.html",
-      "sha256": "72b727de25241d1fc3de13813eaca4cb4c1814154dac63ef23be79a17aabb846"
+      "sha256": "a09907db4daf07efcd1f0c2f75640f552e246c4c0fb499e4453a99c635f4950f"
     },
     {
       "path": "site/windows-programs.html",
@@ -2323,6 +2331,14 @@
     {
       "path": "functions/gravity-guide/guide-core.mjs",
       "sha256": "c6a61338d75c337edbad82441de6e245b4a14c0bd44b75211369f56b712d9917"
+    },
+    {
+      "path": "functions/gravity-report/articles.json",
+      "sha256": "0bbf09dacccb784a30529484ac3c99ac609bc313f7c438de9173a735bbc5f079"
+    },
+    {
+      "path": "functions/gravity-report/index.mjs",
+      "sha256": "e1da9a0c7f066266645ab71a7028c29bd810f82d0bbaf032e57e88de8e51fd16"
     },
     {
       "path": "functions/gravity-tts/gravity-tts.js",

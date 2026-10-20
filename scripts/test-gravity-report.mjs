@@ -1,0 +1,46 @@
+import assert from 'node:assert/strict';
+import handler,{config} from '../functions/gravity-report/index.mjs';
+import data from '../functions/gravity-report/articles.json' with {type:'json'};
+import fs from 'node:fs';
+const path='site/gravity-report.html';
+const front=fs.readFileSync(path,'utf8');
+assert.equal(data.articles.length,10);
+assert.deepEqual(data.articles.map(x=>x.issue),[1,2,3,4,5,6,7,8,9,10]);
+assert.deepEqual(data.articles.map(x=>x.release_date),['2026-10-27','2026-10-30','2026-11-03','2026-11-06','2026-11-10','2026-11-13','2026-11-17','2026-11-20','2026-11-24','2026-11-27']);
+assert(data.articles.every(a=>a.article_html.length>3000&&a.article_html.includes('<h2>What to do tomorrow</h2>')));
+assert(new Set(data.articles.map(a=>a.slug)).size===10);
+assert(front.includes('data-netlify="true"')&&front.includes('name="newsletter-consent"'));
+assert(front.includes('data-report-issue="10"')&&front.includes('id="site-nav"'));
+assert(config.path.includes('/gravity-report/:slug'));
+const RealDate=globalThis.Date;
+async function at(iso,url){
+ const moment=new RealDate(iso);
+ globalThis.Date=class MockDate extends RealDate{constructor(...args){super(...(args.length?args:[moment.toISOString()]));}static now(){return moment.valueOf();}};
+ try{return await handler(new Request('https://thomasmonroebooks.com'+url),{});}finally{globalThis.Date=RealDate;}
+}
+const first='/gravity-report/'+data.articles[0].slug,last='/gravity-report/'+data.articles[9].slug;
+let r=await at('2026-10-20T17:00:00Z',first);
+assert.equal(r.status,404,'Future article leaked before launch');
+assert.equal(r.headers.get('X-Robots-Tag'),'noindex');
+r=await at('2026-10-27T13:59:00Z',first);
+assert.equal(r.status,404,'Article leaked before 9 a.m. Central');
+r=await at('2026-10-27T14:00:00Z',first);
+assert.equal(r.status,200,'Article not available at 9 a.m. Central');
+let page=await r.text();
+assert(page.includes(data.articles[0].title)&&page.includes('<h2>What to do tomorrow</h2>')&&page.includes('datePublished'));
+r=await at('2026-10-27T14:00:00Z',last);
+assert.equal(r.status,404);
+r=await at('2026-11-27T18:00:00Z',last);
+assert.equal(r.status,200);
+r=await at('2026-11-01T14:00:00Z','/gravity-report/articles.json');
+let schedule=await r.json();
+assert.equal(schedule.articles.length,10);
+assert.equal(schedule.articles.filter(x=>x.released).length,2);
+assert(schedule.articles.filter(x=>!x.released).every(x=>x.summary===null),'Scheduled story previews leaked');
+r=await at('2026-10-20T17:00:00Z','/gravity-report/feed.xml');
+assert.equal((await r.text()).includes('<item>'),false,'RSS leaked an unpublished story');
+r=await at('2026-11-03T18:00:00Z','/gravity-report/feed.xml');
+assert((await r.text()).includes('Tue, 03 Nov 2026 15:00:00 GMT'),'Post-DST RSS must publish at 9 a.m. Central');
+r=await at('2026-11-01T17:00:00Z','/gravity-report/sitemap.xml');
+assert.equal(((await r.text()).match(/<lastmod>/g)||[]).length,2);
+console.log('GRAVITY_REPORT_CHECKS=PASS source=10 dates=10 future_gate=PASS release_timezone=America/Chicago feed=PASS sitemap=PASS opt_in=present');
