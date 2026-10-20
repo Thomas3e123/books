@@ -61,3 +61,5 @@ jobs:
           name: Gravity-site-browser-checkup
           path: site-browser-checkup-results.json
           if-no-files-found: warn
+
+# site audit publication recheck: current 250-prompt search and Windows manual links
