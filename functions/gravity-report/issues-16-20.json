@@ -1,0 +1,217 @@
+[
+  {
+    "issue": 16,
+    "title": "How Much Restaurant Prep Should Be Done Before Service?",
+    "category": "PREP & PRODUCTION",
+    "lead": "One manager prepares large batches to avoid shortages. Another cuts production to save food cost, only to run out during dinner. Neither method is a reliable prep plan unless the restaurant knows how much product will be used, when it will be needed, and how safely it can be replenished.",
+    "sections": [
+      [
+        "Start with a daypart forecast",
+        [
+          "Review actual item quantities from comparable service periods, not only the restaurant's total sales. Account for reservations, events, promotions, weather, and menu changes that could make historic counts less predictive. A busy shift does not necessarily mean high demand for every ingredient.",
+          "Separate the amount that must be ready at opening from quantities that can be made during service. If another batch takes forty minutes but the line runs out in twenty, a small initial batch creates an avoidable shortage. Timing belongs in the plan."
+        ]
+      ],
+      [
+        "Calculate usable portions and yield",
+        [
+          "An ingredient changes weight or quantity during preparation. Use approved recipe yields or measured batches to convert a portion forecast into actual raw prep. Subtract safe, usable carryover already on hand. Do not prepare tomorrow's estimated consumption a second time simply because it sits in another storage container.",
+          "For example, a forecast of forty portions with ten acceptable portions in storage leaves thirty portions to prepare before adding a documented reserve. Adjust the batch for observed yield rather than guessing from the size of the package."
+        ]
+      ],
+      [
+        "Protect safe holding and quality",
+        [
+          "Preparation in large batches can create waste or safety problems when food exceeds approved storage, cooling, or holding requirements. Follow applicable food safety requirements and your restaurant's own validated process. Labor savings do not justify unsafe holding or extending a use-by window.",
+          "Different products require different strategies. Some can be replenished in small safe batches; others need lead time or must be prepared close to service for quality. Identify that distinction on each station's prep sheet."
+        ]
+      ],
+      [
+        "Use replenishment triggers",
+        [
+          "Establish the minimum on-hand amount that should start the next batch, accounting for production lead time and expected remaining demand. Assign decision authority when a shift performs unexpectedly. An observed surge may require approved extra production while an early slowdown may justify stopping the next batch.",
+          "Document why a manager overrides the plan. Without that record, the next shift cannot determine whether the forecast was inaccurate or circumstances legitimately changed."
+        ]
+      ],
+      [
+        "Test and verify",
+        [
+          "Select three items with recurring leftovers or stockouts. For two comparable services, record opening amount, additional prep, sales, discard, and remaining usable product. Review guest availability and service speed as well as waste.",
+          "Revise one trigger at a time, then recheck. The Restaurant Daily Prep Sheet and Work Study Lab can support the record, but managers must apply judgment to actual demand and required safety controls. The result is a repeatable plan, not the same par every day."
+        ]
+      ]
+    ]
+  },
+  {
+    "issue": 17,
+    "title": "Why Do Restaurant Employees Stop Reporting Problems?",
+    "category": "TRUST & COMMUNICATION",
+    "lead": "A cooler problem goes unreported until the opening manager finds damaged product. Employees say they tried to tell somebody earlier. Posting another reminder to communicate does not address what happened when employees spoke up before.",
+    "sections": [
+      [
+        "Consider the cost of speaking up",
+        [
+          "Employees learn from a manager's reaction to bad news. If concerns are publicly dismissed, used against the reporter, or ignored, silence becomes understandable. An open-door statement carries little weight when everyday leadership discourages inconvenient information.",
+          "Review the most recent reported problems: who acknowledged them, which were assigned to a reviewer, what decision followed, and whether the employee learned the outcome. Compare responses across stations and supervisors rather than trusting a manager's recollection."
+        ]
+      ],
+      [
+        "Provide urgent and routine channels",
+        [
+          "Food safety, violence, harassment, and equipment hazards require clear escalation and prompt action under applicable procedures and law. Employees should know how to raise a concern when their immediate supervisor is involved. Urgent risks must not wait for a weekly suggestion review.",
+          "Ordinary workflow problems can use a short report noting location, time, condition, and immediate impact. Do not require the employee to diagnose the cause. Protect confidential information and prohibit retaliation for good-faith reporting."
+        ]
+      ],
+      [
+        "Investigate without punishing the messenger",
+        [
+          "A manager can accept a report respectfully without assuming every detail is correct. Check the records and observations. Sometimes the condition cannot be reproduced; sometimes a temperature or maintenance log confirms a pattern. Explain what was checked and what happens next.",
+          "'I did not find the reported condition during this check, but we will monitor it tonight' preserves trust better than 'you imagined it.' Good-faith reporting is valuable even when the initial interpretation turns out to be incomplete."
+        ]
+      ],
+      [
+        "Close the loop on every actionable report",
+        [
+          "Assign a person, a status, and the next communication date. A submitted report that vanishes into a binder signals that leadership only wanted the appearance of participation. Share a useful outcome without disclosing private details.",
+          "Where several employees identify the same missing supply or confusing instruction, consider whether the pattern justifies a process correction. Recognize the reporting behavior, not merely the person who ultimately fixes the issue."
+        ]
+      ],
+      [
+        "Measure trust through follow-through",
+        [
+          "For one week, ask managers to invite an operational observation, record the next step, and report the outcome. At the weekly review, look for unresolved risks, follow-up delays, and consistency across managers. Do not treat a falling number of reports as evidence that concerns disappeared.",
+          "Quiet Gravity and the Manager Log can support these habits. Leadership credibility comes from receiving uncomfortable truth fairly and making responsible decisions visible."
+        ]
+      ]
+    ]
+  },
+  {
+    "issue": 18,
+    "title": "Why Do Restaurant SOPs Fail During the Rush?",
+    "category": "SOPS & FLOW",
+    "lead": "The documented station procedure works in training. During Friday service, staff reach across stations, wait for utensils, and skip checks. Before calling employees careless, test whether the process was designed to work with the actual volume and interruptions of a busy shift.",
+    "sections": [
+      [
+        "Observe one real service cycle",
+        [
+          "Choose a procedure that repeatedly fails under pressure. Compare the written steps with what happens during several peak-volume orders. Record tools, walking distance, interruptions, waiting, and competing assignments. Keep observations factual and avoid creating a safety hazard during the study.",
+          "A process that requires repeated travel across a crowded aisle may be impractical. Changing a supply location or responsibility can improve compliance without reducing standards."
+        ]
+      ],
+      [
+        "Separate essential protections",
+        [
+          "Food safety, allergen handling, injury prevention, and other required controls cannot be treated as optional shortcuts. If the SOP cannot be completed safely during rush conditions, change the workflow, equipment, staffing, or service capacity—not the safety requirement.",
+          "Make the ownership of essential checks explicit. Sequence flexibility may be appropriate for noncritical steps, but only if customer quality and safety remain protected."
+        ]
+      ],
+      [
+        "Run a bounded experiment",
+        [
+          "Suppose a cook must leave the line to collect a sauce bottle. Move approved bottles to a safe, reachable location and assign a replenishment owner. Observe a comparable busy shift. Did employees follow the standard more reliably? Did rework, ticket delays, or expo problems change?",
+          "Check the adjacent workstations. Improving the pizza line while creating a bottleneck for expo may simply move the failure. Track the complete handoff, not just the first station."
+        ]
+      ],
+      [
+        "Control revisions across versions",
+        [
+          "Document the proposed change, approval, effective date, and reason. Update training instructions, QR-linked copies, posters, and printed materials together. Archive the old SOP so employees do not find two conflicting versions.",
+          "The SOP revisor, not an automated assistant, should decide whether retraining or acknowledgment is required after a change. Managers must verify that affected staff know which version now applies."
+        ]
+      ],
+      [
+        "Check the next three rushes",
+        [
+          "Observe compliance across different staffing combinations. Note whether required steps remain practical, guest errors decline, and quality remains acceptable. A method that works only when one expert is present is not installed across the team.",
+          "Gravity SOP Foundry and the SOP Library can organize version control and training evidence. The outcome that matters is safe, repeatable performance during the conditions when the procedure is most needed."
+        ]
+      ]
+    ]
+  },
+  {
+    "issue": 19,
+    "title": "Why Do Restaurant Managers Keep Changing the Rules?",
+    "category": "LEADERSHIP & GOVERNANCE",
+    "lead": "Employees hear one stocking instruction on Monday and the opposite on Tuesday. A week later ownership changes it again. The team eventually follows whichever manager is standing nearby. Inconsistency is not fixed by demanding loyalty; it requires a controlled decision and communication process.",
+    "sections": [
+      [
+        "Differentiate improvement from preference",
+        [
+          "Rules should change when evidence, equipment, menu demands, or regulation requires improvement. The problem arises when the reason is undocumented and an individual manager's preference quietly becomes policy. Collect several examples and determine whether each was authorized and supported by a clear operating need.",
+          "Sometimes there was never an agreed standard. Sometimes the written document was correct but difficult to access. Sometimes managers applied an emergency exception as if it were a permanent rule. These circumstances require different repairs."
+        ]
+      ],
+      [
+        "Assign approval authority",
+        [
+          "A manager should be able to propose a change and present evidence without automatically rewriting the standard for every shift. Establish who can approve routine revisions, who must review safety implications, and when urgent exceptions need immediate escalation.",
+          "A short proposal can state the observed problem, suggested method, risks, affected stations, and effective date. Good controls make improvement straightforward while preventing contradictory instructions from spreading unnoticed."
+        ]
+      ],
+      [
+        "Explain what stopped and what started",
+        [
+          "'We're doing it differently' is not enough. State the previous requirement, the precise new requirement, when it takes effect, and who must demonstrate understanding. If a portion tool changes, update recipe quantities, supply locations, costing, and training documents together.",
+          "Ask employees from different shifts to explain the new standard. If their interpretations differ, the change has not been communicated successfully regardless of how many notices were posted."
+        ]
+      ],
+      [
+        "Hold leaders to the same standard",
+        [
+          "When one manager's exception is accepted without review but another manager is criticized for the same deviation, employees lose faith in the system. Record valid circumstances that justify an exception and review comparable situations consistently.",
+          "Owners retain decision authority but should exercise it transparently. A leader who changes standards without explanation cannot reasonably expect the workforce to know which instruction to trust."
+        ]
+      ],
+      [
+        "Resolve one recurring contradiction",
+        [
+          "Have managers independently write their understanding of a disputed procedure. Compare the answers to the approved version, agree on a correction, publish a single effective standard, and inspect use across three shifts.",
+          "The Owner's Chair and SOP revision controls can preserve that decision. Reliable leadership does not refuse change; it prevents unexplained, competing versions from becoming the daily operating environment."
+        ]
+      ]
+    ]
+  },
+  {
+    "issue": 20,
+    "title": "Why Does Restaurant Food Waste Return After You Fix It?",
+    "category": "WASTE & VERIFICATION",
+    "lead": "Food waste drops for a week after a meeting. Two weeks later the same prepared product is discarded again. The initial change may have been genuine, but it did not become a stable operating habit that survives multiple managers and variable demand.",
+    "sections": [
+      [
+        "Inspect the first correction",
+        [
+          "Did the restaurant change the opening par, add a batch trigger, improve receiving, or simply ask everybody to be careful? A temporary burst of attention can reduce waste without fixing the process. Identify what was installed, who owned it, and which checks were actually performed.",
+          "Compare the circumstances of the returning waste with the original loss. A new equipment fault or unexpected menu change may require a different solution rather than repetition of the first instruction."
+        ]
+      ],
+      [
+        "Tie production to demand",
+        [
+          "Instead of 'make less,' define the amount to prepare before service, when another batch should begin, and who can approve exceptions. When demand falls, staff should know when to stop preparing product. When demand rises, they need a safe, approved way to replenish without shortages.",
+          "Record meaningful deviations so management can see whether the forecast or execution needs correction. Without a shared record, each manager begins the next shift by guessing."
+        ]
+      ],
+      [
+        "Separate waste causes",
+        [
+          "Overproduction, expired holding, receiving shortages, guest returns, and incorrect assembly are not interchangeable problems. Record each reason, product quantity, shift, and relevant condition. A single dollar amount hides which control failed.",
+          "Do not create incentives to conceal ordinary waste. If the log becomes mysteriously empty after a disciplinary warning, verify actual disposal rather than treating silence as improvement."
+        ]
+      ],
+      [
+        "Build a hold check",
+        [
+          "Inspect the new prep rule on busy and quiet services under different managers. Review whether the product is available at proper quality and whether the recorded waste category actually declined. Reducing waste while causing stockouts does not make the operation stronger.",
+          "Define when repeated loss should reopen the problem and who is responsible for the review. The correction should hold even when the manager who started it has a day off."
+        ]
+      ],
+      [
+        "Retest after thirty days",
+        [
+          "Choose one recurring waste item and record seven representative services. Review opening production, replenishment, discard, stockouts, and safe carryover. Recheck at one and four weeks. Compare conditions rather than selecting only the easiest shifts.",
+          "The Food Cost, Waste & Inventory Control Workbook can support the measurements. A lasting control is not a good-looking week; it is a reasonable standard, applied consistently and verified again after the initial attention fades."
+        ]
+      ]
+    ]
+  }
+]
