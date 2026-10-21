@@ -56,7 +56,7 @@ for(const a of projected){
  r=await at(after,path);
  assert.equal(r.status,200,'Article failed to release at 9 a.m. Central: '+a.issue);
  const body=await r.text();
- assert(body.includes('By Thomas Butler')&&body.includes('What to do tomorrow')===false || body.includes('By Thomas Butler'));
+ assert(body.includes('By Thomas Butler')&&((body.match(/<h2>/g)||[]).length>=5),'Article sections or attribution missing: '+a.issue);
  assert(body.includes('datePublished')&&body.includes(a.title.replace(/&/g,'&amp;')),'Article metadata missing: '+a.issue);
 }
 r=await at('2026-10-20T18:30:00Z','/gravity-report/feed.xml');
