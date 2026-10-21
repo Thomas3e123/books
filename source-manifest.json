@@ -2345,6 +2345,10 @@
       "sha256": "3657d2280fcbf816615437301b883f0173a1487007f896eddff3c04772a4d200"
     },
     {
+      "path": "functions/gravity-report/issues-16-20.json",
+      "sha256": "2a8388dfaa59dfdb6b1e83cc495a659f5abc0486fcd8efe53a7ef47f65878868"
+    },
+    {
       "path": "functions/gravity-tts/gravity-tts.js",
       "sha256": "8f192a1ee09051714bef447ef522d9e8c61dc329b5bf8705c7ff72d12c496c15"
     },
