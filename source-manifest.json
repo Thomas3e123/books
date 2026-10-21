@@ -2341,6 +2341,10 @@
       "sha256": "e1da9a0c7f066266645ab71a7028c29bd810f82d0bbaf032e57e88de8e51fd16"
     },
     {
+      "path": "functions/gravity-report/issues-11-15.json",
+      "sha256": "3657d2280fcbf816615437301b883f0173a1487007f896eddff3c04772a4d200"
+    },
+    {
       "path": "functions/gravity-tts/gravity-tts.js",
       "sha256": "8f192a1ee09051714bef447ef522d9e8c61dc329b5bf8705c7ff72d12c496c15"
     },
