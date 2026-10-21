@@ -1,6 +1,24 @@
 import data from './articles.json' with {type:'json'};
+import volume11 from './issues-11-15.json' with {type:'json'};
+import volume16 from './issues-16-20.json' with {type:'json'};
+import volume21 from './issues-21-25.json' with {type:'json'};
+import volume26 from './issues-26-30.json' with {type:'json'};
 const SITE='https://thomasmonroebooks.com';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const slugify=t=>t.toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+function extraReleaseDate(issue){
+ const i=issue-11;
+ const d=new Date(Date.UTC(2026,10,13+Math.floor(i/2)*7+(i%2)*4));
+ return d.toISOString().slice(0,10);
+}
+function fromEditorialDraft(d){
+ if(!Number.isInteger(d.issue)||d.issue<11||d.issue>30||d.sections?.length!==5)throw Error('Invalid issue in Gravity Report editorial collection');
+ const article_html='<p>'+esc(d.lead)+'</p>'+d.sections.map(([title,paragraphs])=>'<h2>'+esc(title)+'</h2>'+paragraphs.map(p=>'<p>'+esc(p)+'</p>').join('')).join('');
+ return {issue:d.issue,title:d.title,slug:slugify(d.title),category:d.category,release_date:extraReleaseDate(d.issue),release_time:'09:00',summary:d.lead,article_html};
+}
+const ALL_ARTICLES=[...data.articles,...[...volume11,...volume16,...volume21,...volume26].map(fromEditorialDraft)];
+if(ALL_ARTICLES.length!==30 || new Set(ALL_ARTICLES.map(a=>a.slug)).size!==30 ||
+ ALL_ARTICLES.some((a,i)=>a.issue!==i+1))throw Error('Gravity Report publication inventory invalid');
 function stamp(){
  const z=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
  const g=k=>z.find(x=>x.type===k).value;
@@ -27,12 +45,12 @@ function rss(items){return '<?xml version="1.0" encoding="UTF-8"?><rss version="
 function sitemap(items){return '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>'+SITE+'/gravity-report</loc></url>'+items.map(a=>'<url><loc>'+SITE+'/gravity-report/'+a.slug+'</loc><lastmod>'+a.release_date+'</lastmod></url>').join('')+'</urlset>';}
 export default async function handler(req){
  if(!['GET','HEAD'].includes(req.method))return new Response('Method not allowed',{status:405,headers:{Allow:'GET, HEAD'}});
- const p=new URL(req.url).pathname.replace(/\/$/,'');const t=stamp(),ready=data.articles.filter(a=>released(a,t));
+ const p=new URL(req.url).pathname.replace(/\/$/,'');const t=stamp(),ready=ALL_ARTICLES.filter(a=>released(a,t));
  const common={'Cache-Control':'public, max-age=0, must-revalidate','X-Content-Type-Options':'nosniff'};
- if(p==='/gravity-report/articles.json'){const schedule=data.articles.map(a=>({issue:a.issue,title:a.title,slug:a.slug,release_date:a.release_date,category:a.category,released:released(a,t),summary:released(a,t)?a.summary:null}));return new Response(JSON.stringify({as_of_central:t,articles:schedule}),{headers:{...common,'Content-Type':'application/json; charset=utf-8'}});}
+ if(p==='/gravity-report/articles.json'){const schedule=ALL_ARTICLES.map(a=>({issue:a.issue,title:a.title,slug:a.slug,release_date:a.release_date,category:a.category,released:released(a,t),summary:released(a,t)?a.summary:null}));return new Response(JSON.stringify({as_of_central:t,articles:schedule}),{headers:{...common,'Content-Type':'application/json; charset=utf-8'}});}
  if(p==='/gravity-report/feed.xml')return new Response(rss(ready),{headers:{...common,'Content-Type':'application/rss+xml; charset=utf-8'}});
  if(p==='/gravity-report/sitemap.xml')return new Response(sitemap(ready),{headers:{...common,'Content-Type':'application/xml; charset=utf-8'}});
- const a=data.articles.find(x=>x.slug===p.split('/').at(-1));
+ const a=ALL_ARTICLES.find(x=>x.slug===p.split('/').at(-1));
  if(!a||!released(a,t))return new Response('<!doctype html><html><head><meta name="robots" content="noindex"></head><body><h1>Article not available yet</h1><a href="/gravity-report">The Gravity Report</a></body></html>',{status:404,headers:{...common,'Content-Type':'text/html; charset=utf-8','X-Robots-Tag':'noindex'}});
  return new Response(req.method==='HEAD'?null:articlePage(a),{headers:{...common,'Content-Type':'text/html; charset=utf-8'}});
 }
