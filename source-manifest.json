@@ -1878,11 +1878,11 @@
     },
     {
       "path": "site/gravity-report-thanks.html",
-      "sha256": "341afc5c105019a98abad413662e37d56c6301f2cf126c9c299d49e4b21b7609"
+      "sha256": "ae569eebd946cae5d44902815ac27bc5a47e74da0689937b3d7023ac817aaa78"
     },
     {
       "path": "site/gravity-report.html",
-      "sha256": "caf5de4d20f74347e1cc03de7f91bd2b541f19789dec4edac1bfde962a840a31"
+      "sha256": "cda22704dd972eab89dbb4736c2c9f77d37e7ca186f500a8511d7473fdace9f3"
     },
     {
       "path": "site/gravity-shift-lab-sw.js",
@@ -1974,7 +1974,7 @@
     },
     {
       "path": "site/privacy.html",
-      "sha256": "daea2378b959a69fcd5ad136a06e0ea38f5762acdf27fab5d065b7c630ac8b67"
+      "sha256": "99be8e393b98985540c06e70a3597c9829089f5c2de5ee5db39f5eb111856296"
     },
     {
       "path": "site/qr-code-generator.html",
@@ -2338,7 +2338,23 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "e1da9a0c7f066266645ab71a7028c29bd810f82d0bbaf032e57e88de8e51fd16"
+      "sha256": "b6d5bb67d523b961a3d03f987ddcbbe0468c6d56b5b592fc42b6134be02324d1"
+    },
+    {
+      "path": "functions/gravity-report/issues-11-15.json",
+      "sha256": "3657d2280fcbf816615437301b883f0173a1487007f896eddff3c04772a4d200"
+    },
+    {
+      "path": "functions/gravity-report/issues-16-20.json",
+      "sha256": "2a8388dfaa59dfdb6b1e83cc495a659f5abc0486fcd8efe53a7ef47f65878868"
+    },
+    {
+      "path": "functions/gravity-report/issues-21-25.json",
+      "sha256": "1709165f114e95db0d52cfc6298b6666621f0c82a77570f4e1d5e266d3fa86ed"
+    },
+    {
+      "path": "functions/gravity-report/issues-26-30.json",
+      "sha256": "a765119af4deceb383ad4097e17eaa65b73cc7bec25904a11cbd5d827716f8df"
     },
     {
       "path": "functions/gravity-tts/gravity-tts.js",
