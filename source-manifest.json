@@ -2,7 +2,7 @@
   "files": [
     {
       "path": "site/404.html",
-      "sha256": "74c4d90055bf6b83c3b2feec7209af9c44c42d6e2b9b23e62c4a08965c1cca9d"
+      "sha256": "7ad624153e08bb14c32b40001344243781aca69605ca5edcf931faae1144ebf1"
     },
     {
       "path": "site/_headers",
@@ -14,7 +14,7 @@
     },
     {
       "path": "site/about.html",
-      "sha256": "5ec87bb5fffa98080d5c6ece81aba28d07b580b2b0680efd201ddfc0002c973c"
+      "sha256": "cb75d3ab5a8080e09a910324f22b874a06b10b07d435b84043a5210503de6cd5"
     },
     {
       "path": "site/apps/inventory-center/assets/css/inventory.css",
@@ -42,7 +42,7 @@
     },
     {
       "path": "site/apps/inventory-center/index.html",
-      "sha256": "39a9fd1acbf541167ffb073cca63aa379b05b41d09b26cd7db14903634a65a9d"
+      "sha256": "e36208d8f8b404b375ce0638f743078dcdee9766a2092262246ab7687577058a"
     },
     {
       "path": "site/apps/inventory-center/web.css",
@@ -150,7 +150,7 @@
     },
     {
       "path": "site/apps/sop-foundry/help.html",
-      "sha256": "53924918b04e0031291d31c96207e94fe74423116cc14b20dd3c98f9345040ed"
+      "sha256": "dd360b7468ccfc887e41f0d60fac0b60e41b95722d99a4b483c77a773fa54012"
     },
     {
       "path": "site/apps/sop-foundry/history.html",
@@ -302,7 +302,7 @@
     },
     {
       "path": "site/apps/sop-foundry/workroom.html",
-      "sha256": "ed5bfa9cbb01f81c8bd8a2ddeaa83e7dad389378b9810ba6c6f9fbb322bff4d5"
+      "sha256": "25a945bf2f829d8e3560a8cb0ab2890183e1f161632b64b9dee540c3beabc2c1"
     },
     {
       "path": "site/assets/css/book-reader.css",
@@ -1806,47 +1806,47 @@
     },
     {
       "path": "site/book-reader.html",
-      "sha256": "760a41e2c44f38f5138f885625380d6ce47d6bcce709c40a86956404143ebb8f"
+      "sha256": "cbf0d04c01d13e065a2e9d884e9c47bfa2b967d5048889a7abc0c3aade24611e"
     },
     {
       "path": "site/books.html",
-      "sha256": "8424a9f80a711bdc245be36f3ee6a3f38d1cf727a0b8768328cb4c089d72701a"
+      "sha256": "112fc6f44cb865310ebd142bba23cde603c1fc188e45a65c9820cff62cc26d14"
     },
     {
       "path": "site/contact.html",
-      "sha256": "79c9e9b73690176664ff7100844f72d036328c164f3fd0ebf891b22d519ec698"
+      "sha256": "c2d147f422f10a63bfd8a0084e461afd89318042672ab83b3e67d3d111226940"
     },
     {
       "path": "site/customer-resources.html",
-      "sha256": "5e8bf9c56845cfdd91184891b82e902eac166d0621f60e7bd094866689d76168"
+      "sha256": "7224a9b49aebc4b00a9bc13e07f3f4b4dab73f93cab76071aadc778ae545c7d5"
     },
     {
       "path": "site/free-resources.html",
-      "sha256": "1c1c0d8274c4eefcc7cae56030e7c9545ea4d40506b948f0e43f740d629a4700"
+      "sha256": "07d4457fec1e6fc98401aa24c7c6eb63e5d28171ea91939314e68494a0da2214"
     },
     {
       "path": "site/gravity-assist.html",
-      "sha256": "189440bbdbfbc847d8581f2eaa7b639be78d2f571e49b467a758b92dd5e0848b"
+      "sha256": "f10f8456c2106b83a5ffe8d0c48d5b223e11a10d1a327887249f4dcd5a9288c9"
     },
     {
       "path": "site/gravity-aware.html",
-      "sha256": "cf250360784e4db575d247293591a6e35b32c7c56c64055bd50392646ac7a0e6"
+      "sha256": "800d581cdc0c1434a7f967ab8e1b5789f13f7dc425a78fdbdf2d80af4dabf650"
     },
     {
       "path": "site/gravity-document-studio.html",
-      "sha256": "cd59a2c498bfff26fb56153baf462defc618a0bfb0b11d54818a3d62909b9d73"
+      "sha256": "a8a8ff30dae3ca934056cd6c1377373a9eed98deb9e7f6a05f801927598b7f27"
     },
     {
       "path": "site/gravity-forms-personalizer.html",
-      "sha256": "4de7344db7f323b722fb964341dbbf95c59369cda5d002dd10a2c55d468b72c2"
+      "sha256": "5bc372e9000ba842bc50d905163d763dceca99ad20ec9247ebff0bcb8c6f2b6b"
     },
     {
       "path": "site/gravity-fulfillment-center.html",
-      "sha256": "a49e5641a01205d4db192c890d29e9e9bcfc2e157b45f07bca2d5c52219aba2b"
+      "sha256": "13544f1443a90d041a05f056482f0e1058cbff99f90ab41783ac0cbc4542b983"
     },
     {
       "path": "site/gravity-fulfillment-personalizer.html",
-      "sha256": "ce1c953f1fdceef17d9c10c865bef37291a79a053c2797e7bc6e83e27ef628f4"
+      "sha256": "c53652e5d583a33fe32bdc2fe1fd64e563d2abfa00eac7fcb2325a156cf377bb"
     },
     {
       "path": "site/gravity-guide-registry-v2.json",
@@ -1862,27 +1862,27 @@
     },
     {
       "path": "site/gravity-inventory-center.html",
-      "sha256": "2d85493908dd8d198e6d8d4887be0950eaf683e2a0574df862f0e8d9e86fba21"
+      "sha256": "35f856b6772be20fec45442c133f5b996d7ddc6aba744be967a4fa1857087553"
     },
     {
       "path": "site/gravity-numbers-lab.html",
-      "sha256": "fa069c47e68041340818bc2a2d619111d1199a709d968adec8f9a52739a3e7b1"
+      "sha256": "cb4abd55681d83d8bb8fd3cd325923574ceec3f136a455ecfac9b5fbd1f289d6"
     },
     {
       "path": "site/gravity-quick-tools.html",
-      "sha256": "b3cb7bd748a195573f26bdd311c74011534a0bef9d5e0e30398654b705655a39"
+      "sha256": "253640132309cf7bbaa6671ace17a29b2f45ab942118d9c3bede86f9146a65cf"
     },
     {
       "path": "site/gravity-recipe-works.html",
-      "sha256": "a628bffa646e8619bddc1802e47940ec19374e377bfe6a74052f7e9b7f1ea0a3"
+      "sha256": "d6ca27465d3f77ec581e9ffe0eb9db070aa51073f873233d3790de87df70e2c9"
     },
     {
       "path": "site/gravity-report-thanks.html",
-      "sha256": "fcc42e327ddfaadd48198b2b9de55e40e3281208a136a605839fce27339f0542"
+      "sha256": "19456e49730501287ca0c0f7aca7f6393b181a1be0c2a7ab25c7611963cead95"
     },
     {
       "path": "site/gravity-report.html",
-      "sha256": "bbe548b7345dff60476bb9fa9eafc5db4861006225f89a3bc98aff686956cb3e"
+      "sha256": "39726b0dd97e480276b207ca9b1369abfa22807051a0f9e75c2cf29bc983c639"
     },
     {
       "path": "site/gravity-shift-lab-sw.js",
@@ -1890,7 +1890,7 @@
     },
     {
       "path": "site/gravity-shift-lab.html",
-      "sha256": "2e765b948b5bdd00bb58e128636862fd0fdf7362c2d1da52f67db1a1a309c9cc"
+      "sha256": "d5e18955f8db6ce3852185be5120ffc890436a63833e1dc5b3383fa30990efaf"
     },
     {
       "path": "site/gravity-shift-lab.webmanifest",
@@ -1898,103 +1898,103 @@
     },
     {
       "path": "site/gravity-signals-manager-guide.html",
-      "sha256": "66053762fa8880bfaccac3a7667d97ba5c271679d508be09d300e0009181e501"
+      "sha256": "a03a9ec3a78fb7da0091ca50363553356f398b05bdfcffc3aef123f7accc94be"
     },
     {
       "path": "site/gravity-sop-foundry.html",
-      "sha256": "232eb5dde7555a3869c76a9680015920558536323e18abe554817644568d001f"
+      "sha256": "066dadd1f31ccf492d4b30564d161e7ba799fc5380e76091fd618bc3c2e0fd7e"
     },
     {
       "path": "site/gravity-sop-library-set.html",
-      "sha256": "9901890ec33b5be5d60ed017541546f83b5d52742074657ae037f9d0e13d5131"
+      "sha256": "43a31a0d5bc6028a032fb1053984f2e579a844e0375e6e31fa769bf48194b163"
     },
     {
       "path": "site/gravity-sop-library-volume-1.html",
-      "sha256": "c2c8b8b6f22363ec84499b49bfa79e5225d0c4f2f35a795a8a3a47f6d801261c"
+      "sha256": "1100dd847d1f232d5a2745ba9b9a81b3416dcbee029160f9901b490c3ce154cd"
     },
     {
       "path": "site/gravity-sop-library-volume-2.html",
-      "sha256": "7c098d5cfc9173c29d838af2638810f70650f66571638d2cba656a581cfc8eac"
+      "sha256": "b357ce9cb50c5b3a5db0d98878bee9310379bc9a5eb90e97fa34cc352274c346"
     },
     {
       "path": "site/gravity-sop-library-volume-3.html",
-      "sha256": "9524d0bda2e932fbbb203b131030e93beb4ac9a6230aea7f3bb1174503764cc5"
+      "sha256": "8efc33a7f18aa2e18a5bd1ac8af20182873562f88367cd0ca731fc59fcf23115"
     },
     {
       "path": "site/gravity-system-field-guide.html",
-      "sha256": "6e43ddbd26520f096e1f5fc477f4f831961da6eae11b33192e4a380508677ed2"
+      "sha256": "4383b5c849ec6255666fe2b7622580de6468dae5c3b4f543e5e3a6939a366d45"
     },
     {
       "path": "site/gravity-work-study-lab.html",
-      "sha256": "69caf2368b302ae32b974f428aa12e1dbad1cceb161c0183fae86750adbd24d5"
+      "sha256": "96a58a55f9a18f47a487dc96f0bd45a3825c689f2a5964f85e85d5efd6c1dadf"
     },
     {
       "path": "site/guest-service-complaints-recovery-workbook.html",
-      "sha256": "5176faa213fe985060a8f5796c9b576ff69282cbb25622ddfe62ef33b7059ae0"
+      "sha256": "4a47f007d04aa707a71a56a79f1c54c5bb9268f1b1e18fdb88e26ec1d8dd027e"
     },
     {
       "path": "site/help-center.html",
-      "sha256": "3553fe3a5fb13a84f3295a24be09a9d95c2964821864d98e48a3b88443ed8780"
+      "sha256": "f4553f64b809b6cc71ca5d20dd12f56fbbc26813c64777ecaf638d1db0b5875d"
     },
     {
       "path": "site/hiring-interviewing-employee-retention-tracker.html",
-      "sha256": "0b76d7cdea8d2134daa0094f73b037337dc60b88dbafee8f65fd59748c525756"
+      "sha256": "844ff1a66c0c6d48d5dab1965a8416db3fee835ac5da8f683b7af78c28d21766"
     },
     {
       "path": "site/improvement-plans.html",
-      "sha256": "e542808793596c63cafbd1679baded06e39c2094577403abec63cd23d94d31d1"
+      "sha256": "e08090d7705cdd77bdc95f0b488414910efe2f9dff0a55d657e83e26b550844f"
     },
     {
       "path": "site/index.html",
-      "sha256": "29375b61921fb01fd3e0fd1299073386af15871ee9ad1c9eb45086eff5378b17"
+      "sha256": "7de760a92e61b0d04c8525c5025a90cf6839c5f83128499df0edac36baeb4d2e"
     },
     {
       "path": "site/installation-improvement.html",
-      "sha256": "48af1e0374ca1c9ab0f42c6912edf5f98e366130fe5a1afc4cb3ec73cc13ce65"
+      "sha256": "aa7dfe7f6e904b5cf498e244b640c8a833fdf287c74f947bc1f9fbc978117080"
     },
     {
       "path": "site/intelligence-ai.html",
-      "sha256": "91fae483e2e241fa205389eefcb3b4587de4239dbff9d8b79de96d9291fb7326"
+      "sha256": "95a5d6dfa649e46d255d5c14b3031e46c72bb363b2a06e44607e58767efdf7cc"
     },
     {
       "path": "site/knowledge-center.html",
-      "sha256": "8882c96331be250411e8b4e893a1911e758b3714790876dc5b0dfaf7409bb341"
+      "sha256": "f94ad619e53a71d0b5bfcb3c55c4a22f86bbe52f29cf7043a73f996f909500f7"
     },
     {
       "path": "site/manager-readiness-leadership-development.html",
-      "sha256": "94d5c875d1efc1095fa5cd53a79979eef779505a4c869cfebebb23471a6ee0f2"
+      "sha256": "af792a111bf4a2e6f74b477458621287e1fedc67c2b816f3ce09fa121af8b0f9"
     },
     {
       "path": "site/operating-systems.html",
-      "sha256": "9813c12c8d2b1e7152880f2b3fb29c72461b0096cd93259d25de1e39b7662798"
+      "sha256": "b5e24cec0b080f2a6781e6f974fb39f1e007cf2e7412c944b68846261e6c9cc0"
     },
     {
       "path": "site/owner-gm-governance-agreement-pack.html",
-      "sha256": "b5c064eddc13ba0e99a9b1a2bf392c7b9b9c12ae68656ef3baae99422207bf28"
+      "sha256": "f50a364395e183b126e5ffee5bec86859dea53206a43666df702c41e21b83240"
     },
     {
       "path": "site/privacy.html",
-      "sha256": "54ca54c9e65cfc4e89f36fad754d90d2802efbedd26e027aa086623c4a1dbe35"
+      "sha256": "e7994bf0b60af2d7bddadce639035f00395fcd3ac67dcdbdb6a8a2c448ba6f34"
     },
     {
       "path": "site/qr-code-generator.html",
-      "sha256": "ab4c5559e3c40a7c59bad0c414c73a6f2d101be8b0a3eefa92c8d29257df53c9"
+      "sha256": "633729ab37a0771dad775bd9a3a98a17e0ebfd253e2e4bc593f376d7b5ff24c1"
     },
     {
       "path": "site/quiet-gravity.html",
-      "sha256": "11df3d4b70e04f80d56d72a80528d6f5dd463cdf475c9137f9dee275e4329ca8"
+      "sha256": "d08f78ad7402c05e0e9733319a0597f17be94e0144fc8ee95476987d34d353f1"
     },
     {
       "path": "site/refund.html",
-      "sha256": "9262c0e61b3114ec6178a9523c2af843c2c61fecda88ffa1a15d01befd11f21d"
+      "sha256": "bb71e5db7e924d3f188bb4a2ff4d88d35f511bd90b25d4cef6dec2b66fecf5ae"
     },
     {
       "path": "site/register.html",
-      "sha256": "848155991073041b7bc5026977afbc7aadf66e116bf03fed7c9075a5df6250fd"
+      "sha256": "f3aff2be257b4d15cc6b4d91f97d0e662cd5ebdd9ac658b3948359c68eedd4bd"
     },
     {
       "path": "site/registration-thanks.html",
-      "sha256": "27f540ff7e93105649e9a96cc6a2073bf1fd964e6d4852133f3e64c4539449ac"
+      "sha256": "3023fd87b4e7dc070b9d5dcc420b94e7d754b37dad804b003a852d25b78eb2e4"
     },
     {
       "path": "site/release-validator.mjs",
@@ -2002,255 +2002,255 @@
     },
     {
       "path": "site/releases.html",
-      "sha256": "55a09a498360bb87b0774c0dda85457ba5929c7a01193a13402bcb641525166d"
+      "sha256": "bff6ef7ebed64ac4cec3c8e842132aa636aa3878a487f7228272886e74a34005"
     },
     {
       "path": "site/restaurant-ai-prompt-search.html",
-      "sha256": "aac35d1933cfab8b57b26a0fd7fad4d8547024a2b1828960b189158a82b731b0"
+      "sha256": "992735bad567e49f946a23dc1e4e238b5c6fbdba240a01aceaf85da747d2b11b"
     },
     {
       "path": "site/restaurant-bar-beverage-inventory-ordering.html",
-      "sha256": "fdf6b5573c39146b292aeef42d9d19aefe170d94de2241322990323052c917ca"
+      "sha256": "71143ada48b27a38a9966456a21d2f0d1c1b1fc0a7d94cb8aff886c272b06a5d"
     },
     {
       "path": "site/restaurant-bar-beverage-pour-cost-control.html",
-      "sha256": "81ffce78354de6c9e9c2c2be956b84ab21a5594024b95c7cc55f0f0b37e87c46"
+      "sha256": "1bdf897b7505ca77408ac9b68363cefcbebf38ca5c6d213c94aa67dc5af1f0ab"
     },
     {
       "path": "site/restaurant-cleaning-checklist.html",
-      "sha256": "beca0df08fda3fed53b2a1c5cc2f00017bf376bb07687305c5ce5b001e2e1810"
+      "sha256": "b7c144210b50abf3e3eabab88b611735eeffdab38260019cdb9f1f7afa94ef13"
     },
     {
       "path": "site/restaurant-closing-checklist.html",
-      "sha256": "11e463ceb589b4185e805f7e124d907b2c649fdeb9c452893f3c6a678a34f67a"
+      "sha256": "c6135e2820ee7dd1e60396a5f7e6735c47027b73708b385765dc00b0e9c4e91d"
     },
     {
       "path": "site/restaurant-corrective-action-record.html",
-      "sha256": "89b849172c370e05ff8ddeb5a7015978811994385977b8e1f9eef1881a1df3d5"
+      "sha256": "3eaf6a7d45ddf22adbe155bbc101110cb29f468ed322e35888670e72818f6d8b"
     },
     {
       "path": "site/restaurant-daily-prep-sheet.html",
-      "sha256": "9ef0207ae1de07e6eae62fec7c572bd3a6b83631c28cf338454b7e79fbc88705"
+      "sha256": "12f3eb55a27914df75a9efd7886f824311eb11ae3807a600e7bbf78ef470bfbd"
     },
     {
       "path": "site/restaurant-employee-onboarding-checklist.html",
-      "sha256": "556a894c508a30254c02dc85af9830fd452ee3f32efb8311a3b87f6134156f15"
+      "sha256": "938b37e22b1ff57a76ed6d6a931d7e9f5c59267724308c2c4e317ed69cdbf0ba"
     },
     {
       "path": "site/restaurant-employee-schedule-publishing-guide.html",
-      "sha256": "796bf20b6c40a28026c2990e40adc139231f1a3f604e3f696d15f1d77aff65e3"
+      "sha256": "a9abc0b6fbae6b73d92d52204f8b857a3a4319eccd70825aaa0ae75f912639f4"
     },
     {
       "path": "site/restaurant-employee-training-acknowledgment-qualification-guide.html",
-      "sha256": "ff8a9d4fdf82a561b7fc1ee0a50fc46b3b66dc43ad2ce3ce7d7fec5618a3360f"
+      "sha256": "e3b1f51acb9a67364803df259b51ba174690342f258e08d6e98fa90bbde78531"
     },
     {
       "path": "site/restaurant-employee-training-checklist.html",
-      "sha256": "49ef163f88cfb2fadc2724632478fc340ec41259d5f08fdb2771d42ffa89b466"
+      "sha256": "f33a4500747699273d8ca61739017faefa8082a996f3c19b963b20014e751f90"
     },
     {
       "path": "site/restaurant-employee-training-sop-tracker.html",
-      "sha256": "9efd0ff1270c5a7da15585d1849fcc3cb164640f966457621e8c040aa652aac3"
+      "sha256": "e594be81e00fa12c09897e93563474a53899539559a95ce024c8b7571fddf449"
     },
     {
       "path": "site/restaurant-equipment-maintenance-log.html",
-      "sha256": "e9259c797675bc0fef90c59a891ac861af872948449828c4fcf0c9c0f2bb2a78"
+      "sha256": "27a7c96b228a269d9afc7a2fbe48f199c50804951e61c3fe6ddd05b9d7b518a9"
     },
     {
       "path": "site/restaurant-existing-sop-library-import-guide.html",
-      "sha256": "72cc0d1ace9b14b427507ad5ff6bb482d12a22beee27bdeaf12d779697014b2c"
+      "sha256": "dd4190b4de65f2cd7c8fff681ab8f8e92e019af2b8102e58635b4d12c4947516"
     },
     {
       "path": "site/restaurant-food-cost-calculator.html",
-      "sha256": "3f8527cf9ea80cdfd106f567ec49c0621ec45d70a8bed7825309e95d52801152"
+      "sha256": "afac317d952b88f43601313d6d45f5a1aff161e8da248cd127ebe72b10ca550c"
     },
     {
       "path": "site/restaurant-food-cost-control.html",
-      "sha256": "8174c1ed8ab65e86e34b665706cb0ae1bb2ec71469612b315aef472ab0ef5aee"
+      "sha256": "f166c7c4aa007606cda71c88fbbd1f4f5dfefccf896994b6193fc6c54a2d2380"
     },
     {
       "path": "site/restaurant-food-cost-percentage-formula.html",
-      "sha256": "fb15e9921b0d19ba4d6fa1f1d1e10dda125272befcb45dc6df4c2895babfc6c5"
+      "sha256": "61ec14153d84f39c08847d640f949141ebb46caaa9f59c7fc0218e1ec7363759"
     },
     {
       "path": "site/restaurant-food-cost-variance.html",
-      "sha256": "985943d4dd5c4434910378142b87d046702790ba8bbf475e2c6b6819920d21af"
+      "sha256": "364702e66e2f1bb7c6f750c8e37b0397cab6173bdfba4b7d770cd0bab5c058a9"
     },
     {
       "path": "site/restaurant-food-cost-waste-inventory-control.html",
-      "sha256": "37821417e0649d21c96d61b78fddbb910316a6fa75eb5d730e0f4b5f507e52c2"
+      "sha256": "4f2c24a79b4ebc03563a5dd24d887c8041e5922aac70823100ddca9327eaab9e"
     },
     {
       "path": "site/restaurant-guest-complaint-recovery.html",
-      "sha256": "949cbb4128cbdf76c986797517ad73c1204ca7003eb90c00ff86611d262bbe3b"
+      "sha256": "830f14a81fe5bbb7dc8e8549066fc0c996f4cffc66d41e6a92b9fb26e49b5f7b"
     },
     {
       "path": "site/restaurant-inventory-barcode-local-purchasing-guide.html",
-      "sha256": "461c4a771f69bde01b0566b684c2a6e9377969308116b25d4399835ed29c0915"
+      "sha256": "0e39964cd6ed823e1d63c522ede8b95f4a77d36129a6819c5f6ce8946da58be9"
     },
     {
       "path": "site/restaurant-inventory-count-variance-backup-guide.html",
-      "sha256": "540f0f411eed77b9bc3a4b89a976d649538ff7500ea4b980a790479ba2880fdd"
+      "sha256": "ac2e573dd9d96a8e7c0b7c603f7dd08b05d1dca78ed3901fd0f900518f7d8b85"
     },
     {
       "path": "site/restaurant-inventory-par-worksheet.html",
-      "sha256": "8faa665c56140e547348b84be8b00a048280467be974fb7d5da3fea4cfeb9788"
+      "sha256": "be54432e766e75dcc3b8b5136ff19206dfb0fc25a4d82b7bd6d41dfe2058d32e"
     },
     {
       "path": "site/restaurant-inventory-setup-workflow-guide.html",
-      "sha256": "e54ed9c10389dd66a4b95d61b5141a2c8d68333896e057c60cb0e0f63d4ba792"
+      "sha256": "f506c439be39d6628c3ae41325ddab40017c41dfa81fa2de6f9201df1449ed3d"
     },
     {
       "path": "site/restaurant-inventory-waste-control.html",
-      "sha256": "208e1b705a5f8f8e730b48dc110e6d62238a50f5ff4717c8e838ae462d50d563"
+      "sha256": "0df8cf6b2c534301163cc196319b4671b152e5fc39ed0ae148f9e805a41b7233"
     },
     {
       "path": "site/restaurant-kitchen-closing-checklist.html",
-      "sha256": "7fd454f19ecb14b174904e4669d422bc2a10bf37cafcce0395de53c13d39991b"
+      "sha256": "d8f3866e6dffcfb8d189662ef84bbeb5b7b13abc69c9fc6295376f967c3515ab"
     },
     {
       "path": "site/restaurant-kitchen-opening-checklist.html",
-      "sha256": "b4d802bfe4c2de0a225d44bcea31d06bda6a2a800691a099b8853a1cccb2d579"
+      "sha256": "bbabfd0acb635f3a0e1e4726c39e2866ec0f6d482702e37a3031db49cd563ae8"
     },
     {
       "path": "site/restaurant-labor-control-scheduling-planner.html",
-      "sha256": "8bb6c01e8adebd83fac57097bbb821357d3039e941eaaf09de4c2a709d5ed5ad"
+      "sha256": "eef78155b66da67d49bce68e2affd9040f8b17656669b366864c2a00fc938d4c"
     },
     {
       "path": "site/restaurant-labor-cost-calculator.html",
-      "sha256": "f47521a542e8ceab5c5dc770346d4f6ff93e40919e30a53357bfab2b70a1cc55"
+      "sha256": "5c5781f7c4d778747fd815c5d4f5309241e71775e0d2cc619a64c35c4403a67a"
     },
     {
       "path": "site/restaurant-labor-cost-control.html",
-      "sha256": "2d27986a95b20c717123dbf4c12be6cbcd05ae6aad61a5de35f634d27769059d"
+      "sha256": "390a43d6c6e1699de749b72fcbf8ba423a55f235edafc3f1fa2c44209ab52572"
     },
     {
       "path": "site/restaurant-labor-cost-percentage-formula.html",
-      "sha256": "6983208d40aa62debb6f5251d3dd901d5f0861add19339aa00f821a8b7ff7bfa"
+      "sha256": "3df839c9c41ab34e769ddda2dceee875945bef9dd8a1c29f15abc7b728e28888"
     },
     {
       "path": "site/restaurant-line-check-checklist.html",
-      "sha256": "dfe7336c505bb0335d26f0965da2615e88c8b65df381668202cff9f9f2b8461a"
+      "sha256": "7050545a5f7fa59ac8b9539b271c25f00ed91c76a5be2dd3e52652974b079b07"
     },
     {
       "path": "site/restaurant-management-forms-checklists.html",
-      "sha256": "74a3ed395f9928a0562de08728cd9c90c4d4853064d7abfe0f80d3e08680c63e"
+      "sha256": "dfdfaec11514c2ea1a88aff45a0c2986f07b5c5319e5c6272bbe296ce920164f"
     },
     {
       "path": "site/restaurant-manager-checklist.html",
-      "sha256": "e77255e0b32f8214485be5b0f188bc898ff67d71bcd18deb4d152836b7052445"
+      "sha256": "cabc3af80811d044ae49dfbd514f4902f01f974b02b1df3184e640230e0c67fc"
     },
     {
       "path": "site/restaurant-manager-interview-questions.html",
-      "sha256": "d83019d6a0077fb179916095968d7e05703b3091b908c486ab0e727141fcc128"
+      "sha256": "e6175f03054f661068deeae506d9bd93baee6b2448360fd70db908e8920e2167"
     },
     {
       "path": "site/restaurant-manager-log-shift-handoff.html",
-      "sha256": "3bdd74dec516cdad35b294c0ee96e36349dca8963cdffd60e84a1cb1db3a443e"
+      "sha256": "76777845b582c2f70960f8ea0338865a2ce5086a9605ecb5009e6571e8a636a9"
     },
     {
       "path": "site/restaurant-manager-training-program.html",
-      "sha256": "cf0aa3dbc4298833c6ce248ea259adbe935386384865aba9171e53e2191120fc"
+      "sha256": "063bbc1f4ada6f297d7fb9ac6a5ef9e6f4ee9cd68d8dae06222feb1a4feafeb3"
     },
     {
       "path": "site/restaurant-opening-checklist.html",
-      "sha256": "9d674144a3f7015e0cc4a2e3243a3008d5f8303b66cb4ac7d012d8b82f5e7f5e"
+      "sha256": "87d7ff6da48ff02a50a8e4d4b72ce2c2572bb5356b76b01a14205f67eb81f603"
     },
     {
       "path": "site/restaurant-operational-poster-qr-guide.html",
-      "sha256": "7f45452f365acbe2dffe4c59e0a6372adb944864461b01cce6bbbc6ffd9f6a87"
+      "sha256": "258d2e30c66c599e3dfd05e17c9b26e3ea1bde3e27f0261404a894a01b4eda8e"
     },
     {
       "path": "site/restaurant-portion-control-food-cost.html",
-      "sha256": "962fb5387a9bace988e335e73403c7f2553b2f9ebf881b94de03c63eab86539c"
+      "sha256": "1a2ad044f6c78cfe4b52a8755ed21c8b639a50ccd672d5a684d05fc3d79a0c6b"
     },
     {
       "path": "site/restaurant-pre-shift-checklist.html",
-      "sha256": "8bb2a5640bce5adb659554a0fcc3d59bb6beda9426be771c3eac90773a961f39"
+      "sha256": "15b25b8a496beb77ab3d7724c6265b16c053b32e87a19c52cca5209be411371e"
     },
     {
       "path": "site/restaurant-pre-shift-meeting-checklist.html",
-      "sha256": "d53bdf5e389e399b38e43a5da76ee5cdfe57a805127cf68d5c6c912dd687b021"
+      "sha256": "aba2b0f688395fe5040ad23032a1855b3dcedc49d59d89efb4f561b66f3128fa"
     },
     {
       "path": "site/restaurant-receiving-food-cost-control.html",
-      "sha256": "d6e81b54e30ec06eb6a86c56785d53a18998848970db9c3bcbdeafb3c27a5ba4"
+      "sha256": "36d97a028c60be84606f1c4cb9df3cccc4fd2bc35269166143ecd9fcfcc1e437"
     },
     {
       "path": "site/restaurant-recipe-costing-guide.html",
-      "sha256": "b931460d1603c477f8d70be06cb3ee8b1c723b1bc74ca84e4d53809feb3d1bde"
+      "sha256": "242643666e1e03a93687f72617f84d10b269d3d253c5c893284ed0966e9eb99b"
     },
     {
       "path": "site/restaurant-sales-forecasting.html",
-      "sha256": "25e94ecac44a54c3345249482a03690b38a64115329f6c5ac1ba95191babbce3"
+      "sha256": "8d56baea0a96888b8e88fb52592d72876d6f615cf697d183f107e619d730544c"
     },
     {
       "path": "site/restaurant-schedule-validation-conflict-overtime-guide.html",
-      "sha256": "9e832a6f0396fea67511daa200b2140136b81e14e9159860545b84701bc1233c"
+      "sha256": "b9817ec597f4ded92d146671c028a4df071baecc8899f82fb93a3c7789e72f6c"
     },
     {
       "path": "site/restaurant-server-side-work-checklist.html",
-      "sha256": "f4109721f55b15d591a5c660a4be93c34c933c3c0f5efe360643f6db7af67d2c"
+      "sha256": "807d1a897ecb319af8092addad96b0007e3322a3d1a33c7348fd1befd563a2e6"
     },
     {
       "path": "site/restaurant-server-training-checklist.html",
-      "sha256": "fc0946630b64abc09febf45980e4dc72a1fcb056c97269dc78dcd6defb35ae1e"
+      "sha256": "ade555addab49dd31bc85a84fcad52db684c3e88cfd6586463492db7ddf4638e"
     },
     {
       "path": "site/restaurant-shift-handoff-checklist.html",
-      "sha256": "524f76e2f4f4c735bb4e44712577d6b0f8c3b631d411e64e1d8f6733240703f9"
+      "sha256": "41b263ef52646ac25f9e15227ea58b5790af04bfd014fed9ffa8ab041fdd9971"
     },
     {
       "path": "site/restaurant-shift-manager-checklist.html",
-      "sha256": "925ad1ffd457fd58e977d28262a732238618d107728c8ace73cb6eadb24c10c5"
+      "sha256": "d103f8de8cc005e3cf0bcf2e0acce624b2387fb263fb44ee6a568c08d5d08af3"
     },
     {
       "path": "site/restaurant-sop-revision-control-guide.html",
-      "sha256": "8bb8f82f9a5e23524a118ed9c2fc597f49cea94d44ac7040e1e6f6f4d0885759"
+      "sha256": "b43ede91322018310ee1bb9840edffd69fd56d53637cde05494ce3195c668507"
     },
     {
       "path": "site/restaurant-sop-station-operations-builder.html",
-      "sha256": "06b498b9540f70adae00dd471b74bfb9334c9a06bff89f5f624f4b2cb47e6436"
+      "sha256": "85a787933b08dc85a16badc7996ee64717c5fe1c0fa4d633f914dc7e65286604"
     },
     {
       "path": "site/restaurant-sop-template-guide.html",
-      "sha256": "1ba2c3481e44212e7f8377a315e2fc7167606a05e481a61c4563f0ba4cfca792"
+      "sha256": "19ab2580418d80331e703151c3ea5c43708eb6109309a6f47027e07683408dd5"
     },
     {
       "path": "site/restaurant-sop-training-retraining-guide.html",
-      "sha256": "69d24c4c691bda6d6d90aa4977a0752be8f47425dd0f58d4d4abe8e047513b6d"
+      "sha256": "46e8a287f42682e4e5b88d3422aa5440c3e673164f27f2c2deb8bd3df6364c68"
     },
     {
       "path": "site/restaurant-staff-scheduling-guide.html",
-      "sha256": "72f1987f07a1dbbd27f562575c7a12d0906e1f19f99a0497ed1662396620f749"
+      "sha256": "7e9baad677dcb2229a58cdc0f20bbe0099cecc90a7464215c9a4f6882564d693"
     },
     {
       "path": "site/restaurant-station-training-checklist.html",
-      "sha256": "010c16711c27e826753b0c5e3c25dc9a4f9a36b6187c33d85441f83042702e76"
+      "sha256": "6ce3eae3a4143adfa48d772d1ec3c1625b7830fb73547da4220c47d87592e5b9"
     },
     {
       "path": "site/restaurant-training-matrix-guide.html",
-      "sha256": "397c3b856f798bde997294282791ff5860746659e30cab84b46da973edd26202"
+      "sha256": "a3708da876af68cb6fd0855fb518a0e46c65b154d9b6e4f214a55070d278a1f1"
     },
     {
       "path": "site/restaurant-training-sign-off-checklist.html",
-      "sha256": "7cb990297d69330d9c76916fe888984c05a9645f3f3279319499c368d9b86668"
+      "sha256": "8f98c259cc0f96b7fda905840148afcc7ca8b9f4091bfdc326c36bac405a5956"
     },
     {
       "path": "site/restaurant-waste-spill-comp-log.html",
-      "sha256": "2e9ddad80e8a22c3f592f099110f5075a3c2faca7c0e358b9956392818066003"
+      "sha256": "de570958ec10c9fbd4eddc4f17e7be62d8712e2359113793409a3c4124c3b0e5"
     },
     {
       "path": "site/restaurant-weekly-business-review.html",
-      "sha256": "290dc64a1c8fce83b9ed966fdb358c8cdd75589834a928a540c41a2fc4e4dfd6"
+      "sha256": "2cd44e3444afdaecace2436d14072f4a0e6facb7bda1f43a948b0cf87937ebdc"
     },
     {
       "path": "site/review-thanks.html",
-      "sha256": "52cb8926a73f1f0a8dc39646e6edeebdae3dab8c2c521543f7ff1b28f53c2096"
+      "sha256": "cb491044bafd7c578040d971952f97127b17ba516d353a2eb08eef2dbcc129da"
     },
     {
       "path": "site/review.html",
-      "sha256": "e1c2c9a4ef51daefbd75c647334367fb8c920a084a4b1c558200b8a719100363"
+      "sha256": "ec93630126ac85cf7bd483bcf1dc8b69f7a11a2a021e1d1a7c3b6a677fae7bb4"
     },
     {
       "path": "site/robots.txt",
@@ -2258,7 +2258,7 @@
     },
     {
       "path": "site/sales-intelligence-forecasting.html",
-      "sha256": "59b85f02f6441acb9dda227b6eb61dda22847388a0f2f2a8a06a781930e3a963"
+      "sha256": "da881c5f7ec1262c13d52171e2a50950bfbabe1e26e88d81ab999c6cb4e92f9f"
     },
     {
       "path": "site/sitemap.xml",
@@ -2266,31 +2266,31 @@
     },
     {
       "path": "site/standards-library.html",
-      "sha256": "af6c68462b2b5c1fd2d2052cde998365f6f0bf238fa520c29e60c070467ed352"
+      "sha256": "e8b06037dc74c12450797cb9b964e144ed5654624fa25a687644f0c820dcb548"
     },
     {
       "path": "site/standards.html",
-      "sha256": "95b32baf4d8f7592647e42b46c41027a314b2d01bfbf9116f3feaeb18ba1e341"
+      "sha256": "4ceaf2763a51f5578a279fc1e69bef246f5b226e25d7b9caa03e2078a12c8c38"
     },
     {
       "path": "site/start-here.html",
-      "sha256": "e5aaae91fd553739da185f1825d6bbeb1861019d3e1b271aac03aa20f9a54b57"
+      "sha256": "85dfa719fb4e91617a2fd2c7dda5c2eda2a320a3b79fb38a6d1d2a07a0e29b2d"
     },
     {
       "path": "site/support.html",
-      "sha256": "f2d97594c747f406927ca237024da49931138f118cd73620f8b029aa8546b158"
+      "sha256": "b143b4622fe415711a35a5653e9785c302773482935bb712cae549ab2eb2373a"
     },
     {
       "path": "site/system.html",
-      "sha256": "5c39e2aaa1fff1660541219b5f6c149b75435f9d1f5cb346568518777eb4f2ee"
+      "sha256": "66f8a315df84cbf1ab83e32e616800b38bd8c50ab6c1ba3877cb65514c49d50d"
     },
     {
       "path": "site/systems-of-service.html",
-      "sha256": "518fa8cf1d770230a81db2b2baf7ae7af2ac62f1d96e9d576cb9085c8dd7ccf0"
+      "sha256": "6987b15c6ba5511563d8637c2ca6356edda2ae8ff81c1c2d498487c9e6d320bf"
     },
     {
       "path": "site/terms.html",
-      "sha256": "901617f242c10522c2f25d08db8a2a41264e16518ecb58519ddb819a9eceed4d"
+      "sha256": "17541043ae3a4d441c339582a2da94f3516d89e87a571b88841cf3d24b367cbf"
     },
     {
       "path": "site/testing-room-manager.html",
@@ -2298,19 +2298,19 @@
     },
     {
       "path": "site/testing-room.html",
-      "sha256": "f5e004df7584eab671374f6c46a61b50aa6d50e3dd53b2d6e6364dd186e1a5e6"
+      "sha256": "bff6d8f7bd75c866d62bd874ca3755ef95476c05e51a16536f689966f6cdda3d"
     },
     {
       "path": "site/the-owners-chair.html",
-      "sha256": "7aa76660babffcd26fe364ab27eeaf248f1aaf1416911eb7bc0711324fc8e86a"
+      "sha256": "c2c8ded501bc7968014377facdaf7f1dd92ab3256667f98daf857bbb0062005d"
     },
     {
       "path": "site/toolkit.html",
-      "sha256": "3817f541b0c1d04af8ce94cb3f18d7d8481762c305543b560710be0b25fc7093"
+      "sha256": "3f5da8fd4ed81c129c797b70fe84c1231ada5b7571de2162a9f670043ec6dc38"
     },
     {
       "path": "site/windows-programs.html",
-      "sha256": "80e7eaea45288061c93112286fee8ebb9e48a4508967f80a311a5e1d8b889219"
+      "sha256": "00917517bedad02c78faebc28d3fdbff5b7fcd7ac0d56bc0d5729d961af923aa"
     },
     {
       "path": "site/work-study-prebeta-build.txt",
