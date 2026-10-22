@@ -1,0 +1,29 @@
+name: Gravity published preview - test all download URLs, NO DEPLOY
+on:
+  push:
+    branches:
+      - feature/gravity-migration-phase1-2026-10-22
+    paths:
+      - 'scripts/audit-gravity-live-downloads.cjs'
+      - '.github/workflows/gravity-live-downloads-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Read-only HEAD checks for all local download targets
+        run: node scripts/audit-gravity-live-downloads.cjs
+      - name: Preserve missing file and status evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gravity-live-download-link-integrity-no-deployment
+          path: gravity-live-downloads-audit.json
+          retention-days: 30
