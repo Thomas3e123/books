@@ -12,7 +12,7 @@ on:
       - 'scripts/audit-gravity-customer-services.cjs'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   verify:
     name: Offline migration gates only (no Netlify API, no deploy)
@@ -27,12 +27,22 @@ jobs:
       - name: Install pinned dependencies and verify generated preview
         run: |
           npm ci
+          node scripts/update-manifest.cjs
           npm run build
           node scripts/verify-gravity-preview.cjs
       - name: Test backend origins and pairing without network writes
         run: node scripts/test-gravity-domain-functions.cjs
       - name: Check forms, assets, manuals and backend links
         run: node scripts/audit-gravity-customer-services.cjs
+      - name: Commit updated integrity manifest only after checks pass
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add source-manifest.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore(migration): integrity manifest for customer fixes [skip ci]'
+            git push origin HEAD:feature/gravity-migration-phase1-2026-10-22
+          fi
       - name: Save release-gate evidence
         if: always()
         uses: actions/upload-artifact@v4
