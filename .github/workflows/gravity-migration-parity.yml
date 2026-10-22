@@ -1,0 +1,36 @@
+name: Gravity migration - LIVE side-by-side browser navigation parity (no deploy)
+on:
+  push:
+    branches:
+      - 'feature/gravity-migration-phase1-*'
+    paths:
+      - '.github/workflows/gravity-migration-parity.yml'
+      - 'scripts/migration-live-parity.cjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compare-live:
+    name: Compare existing TMB vs new Gravity, screenshot 4 screen widths
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install headless browser for independent verification
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Measure real browser navigation side by side (read-only)
+        run: node scripts/migration-live-parity.cjs
+      - name: Preserve screenshots and detailed geometry
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gravity-live-parity-menu-screenshots
+          path: |
+            gravity-nav-parity.json
+            gravity-nav-*.png
+          retention-days: 30
