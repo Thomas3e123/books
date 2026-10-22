@@ -8,6 +8,11 @@ on:
       - 'scripts/audit-gravity-customer-services.cjs'
       - 'site/register.html'
       - 'site/review.html'
+      - 'functions/gravity-guide/**'
+      - 'functions/gravity-tts/**'
+      - 'functions/testing-room/**'
+      - 'functions/work-study-link/**'
+      - 'functions/work-study-transcribe/**'
   workflow_dispatch:
 permissions:
   contents: read
@@ -20,6 +25,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Validate migrated function syntax without deploying
+        run: |
+          node --check functions/gravity-guide/guide-core.mjs
+          node --check functions/gravity-tts/gravity-tts.js
+          node --check functions/testing-room/index.mjs
+          node --check functions/work-study-link/index.mjs
+          node --check functions/work-study-transcribe/work-study-transcribe.js
       - name: Run read-only migration blockers analysis
         run: node scripts/audit-gravity-customer-services.cjs
       - name: Save detailed audit results
