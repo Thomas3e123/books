@@ -1,0 +1,29 @@
+name: Gravity published preview - all internal links and assets, NO DEPLOY
+on:
+  push:
+    branches:
+      - feature/gravity-migration-phase1-2026-10-22
+    paths:
+      - 'scripts/gravity-navigation-integrity.cjs'
+      - '.github/workflows/gravity-navigation-integrity.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Scan all website routes and HEAD-check links without writes
+        run: node scripts/gravity-navigation-integrity.cjs
+      - name: Save navigation and resource checks
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Gravity-internal-page-navigation-and-assets-audit
+          path: gravity-navigation-integrity.json
+          retention-days: 30
