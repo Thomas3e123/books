@@ -2,6 +2,8 @@ import { getDatabase } from '@netlify/database';
 import { createHash, randomBytes, randomUUID } from 'node:crypto';
 
 const db=getDatabase();
+const allowedGravityOrigins=new Set(['https://gravity-leadership-system.netlify.app','https://gravityleadershipsystem.com','https://www.gravityleadershipsystem.com']);
+const gravityOrigin=url=>allowedGravityOrigins.has(url.origin)?url.origin:'https://gravity-leadership-system.netlify.app';
 const HOURS=12;
 const MAX_BYTES=2_500_000;
 const ALPHABET='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -41,7 +43,7 @@ export default async function(req){
    const b=await readBody(req),snapshot=cleanSnapshot(b.snapshot??b.study),studyId=String(baseStudy(snapshot).id).trim();
    const ownerToken=token(),pairCode=await uniqueCode(),id=randomUUID(),expiresAt=new Date(Date.now()+HOURS*3600000).toISOString();
    await db.sql`INSERT INTO gravity_work_study_links (id,study_id,pair_code,owner_token_hash,snapshot,revision,status,expires_at) VALUES (${id},${studyId},${pairCode},${hash(ownerToken)},${JSON.stringify(snapshot)}::jsonb,1,'open',${expiresAt}::timestamptz)`;
-   return json({ok:true,pairCode,ownerToken,revision:1,expiresAt,packageType:isPackage(snapshot)?snapshot.packageType:'base-study',joinUrl:`https://thomasmonroebooks.com/gravity-work-study-lab?pair=${pairCode}`},201);
+   return json({ok:true,pairCode,ownerToken,revision:1,expiresAt,packageType:isPackage(snapshot)?snapshot.packageType:'base-study',joinUrl:`${gravityOrigin(url)}/gravity-work-study-lab?pair=${encodeURIComponent(pairCode)}`},201);
   }
   if(path==='join'&&req.method==='POST'){
    const b=await readBody(req),pairCode=String(b.code||'').trim().toUpperCase();

@@ -1,0 +1,42 @@
+name: Gravity staging customer safeguards — no deployment
+on:
+  push:
+    branches:
+      - feature/gravity-migration-phase1-2026-10-22
+    paths:
+      - '.github/workflows/gravity-staging-customer-gates.yml'
+      - 'site/register.html'
+      - 'site/review.html'
+      - 'functions/**'
+      - 'scripts/test-gravity-domain-functions.cjs'
+      - 'scripts/audit-gravity-customer-services.cjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    name: Offline migration gates only (no Netlify API, no deploy)
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install pinned dependencies and verify generated preview
+        run: |
+          npm ci
+          npm run build
+          node scripts/verify-gravity-preview.cjs
+      - name: Test backend origins and pairing without network writes
+        run: node scripts/test-gravity-domain-functions.cjs
+      - name: Check forms, assets, manuals and backend links
+        run: node scripts/audit-gravity-customer-services.cjs
+      - name: Save release-gate evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gravity-staging-customer-release-gates
+          path: gravity-customer-service-gates.json
+          retention-days: 30

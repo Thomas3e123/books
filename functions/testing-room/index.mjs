@@ -2,7 +2,7 @@ import { getDatabase } from '@netlify/database';
 import crypto from 'node:crypto';
 
 const db=getDatabase();
-const allowedOrigins=new Set(['https://thomasmonroebooks.com','https://www.thomasmonroebooks.com']);
+const allowedOrigins=new Set(['https://thomasmonroebooks.com','https://www.thomasmonroebooks.com','https://gravity-leadership-system.netlify.app','https://gravityleadershipsystem.com','https://www.gravityleadershipsystem.com']);
 const json=(body,status=200,headers={})=>Response.json(body,{status,headers:{'Cache-Control':'no-store',...headers}});
 const makeId=(prefix='x')=>prefix+'_'+crypto.randomUUID().replaceAll('-','');
 const makeToken=()=>crypto.randomBytes(24).toString('base64url');
