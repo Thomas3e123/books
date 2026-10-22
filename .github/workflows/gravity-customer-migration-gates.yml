@@ -7,6 +7,7 @@ on:
       - '.github/workflows/gravity-customer-migration-gates.yml'
       - 'scripts/audit-gravity-customer-services.cjs'
       - 'site/register.html'
+      - 'site/review.html'
   workflow_dispatch:
 permissions:
   contents: read
