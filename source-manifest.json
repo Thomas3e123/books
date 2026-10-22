@@ -1990,7 +1990,7 @@
     },
     {
       "path": "site/register.html",
-      "sha256": "40aea6f49365b03a06be3f8bb2d783281fc4c6c685ebd432457ec2ff233b56ea"
+      "sha256": "04f12ade93c1a10fad417eba4c19a3ba65a7e14938a32e6b5de308eda0b954b4"
     },
     {
       "path": "site/registration-thanks.html",
@@ -2250,7 +2250,7 @@
     },
     {
       "path": "site/review.html",
-      "sha256": "04b0eb235982c73ce0aee9d58ae5b11f74096a9c4f0f4d61e1b97dfe3d983168"
+      "sha256": "8b7e28c4c8471dbea58755007f2a4c903231347102e412435ff65166549a9734"
     },
     {
       "path": "site/robots.txt",
@@ -2330,7 +2330,7 @@
     },
     {
       "path": "functions/gravity-guide/guide-core.mjs",
-      "sha256": "c6a61338d75c337edbad82441de6e245b4a14c0bd44b75211369f56b712d9917"
+      "sha256": "3086557a743f4341d2b33cb5647c8b5d5a1ef13f32c0a71b853253c3a3aefdac"
     },
     {
       "path": "functions/gravity-report/articles.json",
@@ -2358,15 +2358,15 @@
     },
     {
       "path": "functions/gravity-tts/gravity-tts.js",
-      "sha256": "8f192a1ee09051714bef447ef522d9e8c61dc329b5bf8705c7ff72d12c496c15"
+      "sha256": "d7f0611754891745c013fadd710cefd433d7695637ecddb38716951e42753759"
     },
     {
       "path": "functions/testing-room/index.mjs",
-      "sha256": "166d5cee8ea5ad65f30dd436ca6683de4005f75b883f52c29867c707a71de08c"
+      "sha256": "8d1a162a3df7deb8a6df890d961ac70d64be058f49ba431a1cb62b88567e147e"
     },
     {
       "path": "functions/work-study-link/index.mjs",
-      "sha256": "9e438b915818401a11dd81658204e0882d10e6d89b635df0cada471df370b5d5"
+      "sha256": "22c2e37a61c438faec6eb89d840e8506192101e63124651e6ee52446fab9d32d"
     },
     {
       "path": "functions/work-study-process-file/work-study-process-file.js",
@@ -2374,7 +2374,7 @@
     },
     {
       "path": "functions/work-study-transcribe/work-study-transcribe.js",
-      "sha256": "db06936dde65293187c83cd75b695b75cfa547f469e26eb1840fec20a7d023d8"
+      "sha256": "1dbe974f8ae85d87832429d0985f6e5620d4a5c022b8f1c7d7e222a92bca2223"
     },
     {
       "path": "netlify/database/migrations/20261010070000_foundry_hosted_employee.sql",
