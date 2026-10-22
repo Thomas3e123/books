@@ -1,0 +1,71 @@
+name: Gravity website migration — isolated, noindex preview
+on:
+  push:
+    branches:
+      - 'feature/gravity-migration-phase1-*'
+    paths:
+      - '.github/workflows/gravity-site-migration.yml'
+      - 'scripts/prepare-gravity-preview.cjs'
+      - 'scripts/verify-gravity-preview.cjs'
+      - 'docs/gravity-migration-2026-10-22.md'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build-static-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      ALT_NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+      ALT_NETLIFY_ACCESS_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+      GRAVITY_NETLIFY_SITE_ID: fa5d39a0-bef9-4ff1-9c28-57d585d741d7
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Prepare brand-separated preview (never main, no production domain)
+        run: |
+          npm ci
+          node scripts/prepare-gravity-preview.cjs
+          node scripts/update-manifest.cjs
+          npm run build
+          node scripts/verify-gravity-preview.cjs
+      - name: Preserve reproducible preview source on migration branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add site source-manifest.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore(migration): stage Gravity preview source and integrity manifest [skip ci]'
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
+      - name: Deploy a DRAFT preview to the NEW Gravity Netlify project only
+        shell: bash
+        run: |
+          set -euo pipefail
+          token="${NETLIFY_AUTH_TOKEN:-${ALT_NETLIFY_TOKEN:-${ALT_NETLIFY_ACCESS_TOKEN:-}}}"
+          if [ -z "$token" ]; then
+            echo 'PREVIEW DEPLOY NOT PERFORMED: GitHub repository has no usable Netlify deploy token secret.'
+            echo 'The approved source is available on the migration branch. Connect the new Netlify project to that branch in Netlify or authorize a new-site deploy token.'
+            exit 0
+          fi
+          export NETLIFY_AUTH_TOKEN="$token"
+          npx --yes netlify-cli@23.11.0 deploy --site "$GRAVITY_NETLIFY_SITE_ID" --dir site --alias gravity-migration --message "INTERNAL GRAVITY MIGRATION PREVIEW - not customer ready" --json > /tmp/gravity-preview-deploy.json
+          node -e 'const o=require("/tmp/gravity-preview-deploy.json"); console.log(JSON.stringify({site_id:o.site_id,deploy_id:o.deploy_id,url:o.deploy_url||o.url},null,2))'
+      - name: Upload static QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Gravity-migration-phase1-static-evidence
+          path: |
+            docs/gravity-migration-2026-10-22.md
+            source-manifest.json
+          retention-days: 30
