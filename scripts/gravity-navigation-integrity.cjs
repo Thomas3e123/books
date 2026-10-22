@@ -9,7 +9,7 @@ const targets=new Map(),ignored=[];
 function remember(key,page,kind){if(!targets.has(key))targets.set(key,{pages:new Set(),kinds:new Set()});targets.get(key).pages.add(page);targets.get(key).kinds.add(kind)}
 for(const f of pages){
  const rel=path.relative(site,f).split(path.sep).join('/');
- const html=fs.readFileSync(f,'utf8');
+ const html=fs.readFileSync(f,'utf8').replace(/(<script\b[^>]*>)[\s\S]*?<\/script\s*>/gi,'$1</script>').replace(/<style\b[^>]*>[\s\S]*?<\/style\s*>/gi,'');
  for(const m of html.matchAll(/<(a|link|script|img|iframe|source)\b[^>]*>/gi)){
   const tag=m[0],type=m[1].toLowerCase(),attr=type==='a'||type==='link'?'href':'src';
   const a=tag.match(new RegExp('(?:^|\\s)'+attr+'\\s*=\\s*(["\x27])([\\s\\S]*?)\\1','i'));
@@ -25,7 +25,7 @@ for(const f of pages){
   if(u.hostname!=='gravity-leadership-system.netlify.app')continue;
   const clean=u.pathname.replace(/\/+/g,'/');
   if(/\.(pdf|zip|exe|docx)(?:$)/i.test(clean))continue;
-  if(clean.includes('/*'))continue;
+  if(clean.includes('/*')||/%24%7B|%27\+|%7B/i.test(clean))continue;
   const key=clean+(u.search||'');
   remember(key,rel,type);
  }
@@ -36,8 +36,16 @@ async function worker(){
   const entry=queue.shift();if(!entry)break;
   const [target,info]=entry;
   try{
-   const res=await fetch(host+target,{method:'HEAD',redirect:'follow',signal:AbortSignal.timeout(22000),headers:{'User-Agent':'GravityOwnSiteReadOnlyNavigationAudit/1.0'}});
-   rows.push({target,status:res.status,ok:res.status<400,finalUrl:res.url,sourcePages:[...info.pages].slice(0,8),totalReferences:info.pages.size,kinds:[...info.kinds]});
+   let result=null;
+   for(let attempt=0;attempt<3;attempt++){
+    try{
+     const res=await fetch(host+target,{method:'HEAD',redirect:'follow',signal:AbortSignal.timeout(15000),headers:{'User-Agent':'GravityOwnSiteReadOnlyNavigationAudit/1.0'}});
+     result={target,status:res.status,ok:res.status<400,finalUrl:res.url,sourcePages:[...info.pages].slice(0,8),totalReferences:info.pages.size,kinds:[...info.kinds]};
+     if(res.status<500)break;
+    }catch(e){result={target,ok:false,error:String(e).slice(0,180),sourcePages:[...info.pages].slice(0,8),kinds:[...info.kinds]}}
+    await new Promise(r=>setTimeout(r,400*(attempt+1)));
+   }
+   rows.push(result);
   }catch(e){rows.push({target,ok:false,error:String(e).slice(0,180),sourcePages:[...info.pages].slice(0,8),kinds:[...info.kinds]})}
  }
 }
