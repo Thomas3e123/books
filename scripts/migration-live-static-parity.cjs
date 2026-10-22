@@ -40,7 +40,16 @@ async function test(file){
  if(JSON.stringify(links(nav(a.body)))!==JSON.stringify(links(nav(b.body))))issues.push('nav-link-discrepancy');
  if(!result.previewNotice)issues.push('missing-preview-warning');
  if(result.formCount[0]!==result.formCount[1])issues.push('form-count-discrepancy');
- if(result.scriptCount[0]!==result.scriptCount[1])issues.push('script-count-discrepancy');
+ if(result.scriptCount[0]!==result.scriptCount[1]){
+   const sourceCount=count(fs.readFileSync(path.join(site,file),'utf8'),'script');
+   result.scriptDiff={source:sourceCount,liveTMB:result.scriptCount[0],liveGravity:result.scriptCount[1]};
+   // The existing Netlify TMB site injects a single post-processing monitoring script
+   // into HTML responses; it is not present in either Git branch's page source.
+   // Distinguish this known live-only difference from a loss of application scripts.
+   if(result.scriptCount[0]===sourceCount+1 && result.scriptCount[1]===sourceCount){
+     result.scriptDiff.explanation='One additional TMB Netlify-injected script; source scripts retained';
+   } else issues.push('application-script-count-discrepancy');
+ }
  if(result.imageCount[0]!==result.imageCount[1])issues.push('image-count-discrepancy');
  if(!/noindex/i.test(b.robots) && !/content=["']noindex/i.test(b.body))issues.push('preview-indexing-risk');
  if(issues.length){result.issues=issues;report.issues.push({page:file,issues,aError:a.error,bError:b.error})}
