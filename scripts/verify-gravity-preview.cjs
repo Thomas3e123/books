@@ -20,7 +20,7 @@ const redirects = fs.readFileSync(path.join(site, '_redirects'), 'utf8');
 const assert = (good, message) => { if (!good) throw new Error(message); };
 assert(homepage.includes('gravity-migration-preview-notice'), 'Missing migration-preview warning on home');
 assert(homepage.includes('The Gravity Restaurant Leadership System'), 'Missing Gravity business identity');
-assert(homepage.includes('https://gravityleadershipsystem.com'), 'Missing Gravity URLs');
+assert(homepage.includes('https://gravity-leadership-system.netlify.app'), 'Absolute staging URLs must resolve on the preview host');
 assert(homepage.includes('Published by Thomas Monroe Books') || homepage.includes('published by Thomas Monroe Books'), 'Lost book-publisher attribution');
 assert(contact.includes('mailto:thomas.butler@gravityleadershipsystem.com'), 'Contact not switched to verified business mailbox');
 assert(/Disallow:\s*\//.test(robots), 'Staging robots.txt is not blocking indexing');
