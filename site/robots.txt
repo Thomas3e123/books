@@ -1,5 +1,2 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://thomasmonroebooks.com/sitemap.xml
-Sitemap: https://thomasmonroebooks.com/gravity-report/sitemap.xml
+Disallow: /
