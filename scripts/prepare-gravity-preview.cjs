@@ -43,7 +43,9 @@ function visit(dir) {
       replacedIdentities++;
       return open + JSON.stringify(data) + close;
     });
-    html = html.split(oldOrigin).join(newOrigin);
+    // Normalize URLs written by an earlier staging pass as well as untouched TMB URLs.
+    // This keeps repeat runs idempotent and avoids broken links to the not-yet-connected permanent domain.
+    html = html.split('https://gravityleadershipsystem.com').join(newOrigin).split(oldOrigin).join(newOrigin);
     html = html.replace(/<small>Published by Thomas Monroe Books<\/small>/g, '<small>Restaurant Leadership &amp; Operations</small>');
     html = html.replace(/<strong>Published by Thomas Monroe Books<\/strong>/g, '<strong>Books published by Thomas Monroe Books</strong>');
     html = html.replace(/<div class="eyebrow">Published by Thomas Monroe Books<\/div>/g, '<div class="eyebrow">The Gravity Restaurant Leadership System</div>');
