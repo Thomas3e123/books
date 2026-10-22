@@ -14,7 +14,7 @@ const oldOrigin = 'https://thomasmonroebooks.com';
 // Do not route customers or metadata at the unavailable future domain.
 const newOrigin = 'https://gravity-leadership-system.netlify.app';
 const email = 'thomas.butler@gravityleadershipsystem.com';
-const banner = '<div id="gravity-migration-preview-notice" role="note" style="position:fixed;left:12px;bottom:12px;top:auto;z-index:9999;max-width:min(420px,calc(100vw - 24px));box-sizing:border-box;background:#611818;color:#fff;text-align:left;padding:9px 13px;border:1px solid #fff5;border-radius:9px;box-shadow:0 8px 24px #0006;font:600 12px/1.35 Arial,sans-serif">GRAVITY MIGRATION PREVIEW — NOT LIVE FOR CUSTOMERS. Use <a style="color:#fff;text-decoration:underline" href="https://thomasmonroebooks.com/">the existing website</a> for registrations, downloads and employee access.</div>';
+const banner = '<div id="gravity-migration-preview-notice" role="note" style="position:fixed;right:12px;bottom:12px;top:auto;z-index:30;max-width:min(420px,calc(100vw - 24px));box-sizing:border-box;background:#611818;color:#fff;text-align:left;padding:9px 13px;border:1px solid #fff5;border-radius:9px;box-shadow:0 8px 24px #0006;font:600 12px/1.35 Arial,sans-serif">GRAVITY MIGRATION PREVIEW — NOT LIVE FOR CUSTOMERS. Use <a style="color:#fff;text-decoration:underline" href="https://thomasmonroebooks.com/">the existing website</a> for registrations, downloads and employee access.</div>';
 let htmlCount = 0;
 let replacedIdentities = 0;
 let modifiedCount = 0;
