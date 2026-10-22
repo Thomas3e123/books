@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const {chromium} = require('playwright');
 const urls = {
   TMB: 'https://thomasmonroebooks.com/',
-  GRAVITY: 'https://gravity-leadership-system.netlify.app/'
+  GRAVITY: process.env.PARITY_GRAVITY_URL || 'https://gravity-leadership-system.netlify.app/'
 };
 const sizes = [{width:390,height:844},{width:820,height:1040},{width:1280,height:800},{width:1920,height:1080}];
 const results=[];
