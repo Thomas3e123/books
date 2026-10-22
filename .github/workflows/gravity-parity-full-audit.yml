@@ -1,0 +1,62 @@
+name: Gravity / TMB exact-copy parity - isolated full-site audit, NO DEPLOY
+on:
+  push:
+    branches:
+      - audit/gravity-parity-2026-10-22
+    paths:
+      - '.github/workflows/gravity-parity-full-audit.yml'
+      - 'scripts/migration-source-parity-audit.cjs'
+      - 'scripts/migration-live-parity.cjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compare-undeployed-candidate:
+    name: Compare all HTML source + live browser desktop and mobile
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Keep baseline and candidate isolated; build locally
+        run: |
+          git fetch origin main:main
+          npm ci
+          node scripts/prepare-gravity-preview.cjs
+          node scripts/update-manifest.cjs
+          npm run build
+          node scripts/verify-gravity-preview.cjs
+      - name: Compare every website HTML source, menus, scripts and assets with main
+        run: node scripts/migration-source-parity-audit.cjs
+      - name: Set up headless browser; this runs locally, NOT on Netlify
+        if: always()
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Start candidate-only local server
+        if: always()
+        run: |
+          python3 -m http.server 8765 --directory site > /tmp/gravity-local-web.log 2>&1 &
+          sleep 2
+          curl -fsS -o /dev/null http://127.0.0.1:8765/index.html
+      - name: Compare actual TMB website with candidate in browser, four device widths
+        if: always()
+        env:
+          PARITY_GRAVITY_URL: http://127.0.0.1:8765/index.html
+        run: node scripts/migration-live-parity.cjs
+      - name: Save source report, browser evidence and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Gravity-TMB-full-site-parity-audit-no-deployment
+          path: |
+            gravity-source-parity-report.json
+            gravity-source-parity-report.md
+            gravity-nav-parity.json
+            gravity-nav-*.png
+          retention-days: 30
