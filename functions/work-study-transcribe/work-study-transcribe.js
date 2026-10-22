@@ -1,5 +1,5 @@
 'use strict';
-const allowed=new Set(['https://thomasmonroebooks.com','https://www.thomasmonroebooks.com']);
+const allowed=new Set(['https://thomasmonroebooks.com','https://www.thomasmonroebooks.com','https://gravity-leadership-system.netlify.app','https://gravityleadershipsystem.com','https://www.gravityleadershipsystem.com']);
 const reply=(statusCode,body)=>({statusCode,headers:{'content-type':'application/json; charset=utf-8','cache-control':'no-store'},body:JSON.stringify(body)});
 exports.handler=async event=>{
  try{
