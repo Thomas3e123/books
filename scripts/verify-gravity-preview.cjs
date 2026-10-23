@@ -52,7 +52,7 @@ for (const file of navPages) {
   const nav = [...body.matchAll(/<nav[^>]*>[\s\S]*?<\/nav>/gi)].map(m => m[0]).find(html => /id=["']site-nav["']|data-menu/.test(html));
   assert(nav, 'Missing primary navigation on ' + file);
   for (const route of ['/windows-programs','/testing-room','/start-here']) {
-    const links = [...nav[0].matchAll(/href=["']([^"']+)["']/g)].map(m => m[1]);
+    const links = [...nav.matchAll(/href=["']([^"']+)["']/g)].map(m => m[1]);
     const count = links.filter(href => href === route).length;
     assert(count === 1, 'Expected exactly one ' + route + ' link on ' + file + ', found ' + count);
   }
