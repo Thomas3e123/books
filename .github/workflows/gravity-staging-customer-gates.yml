@@ -10,6 +10,9 @@ on:
       - 'functions/**'
       - 'scripts/test-gravity-domain-functions.cjs'
       - 'scripts/audit-gravity-customer-services.cjs'
+      - 'scripts/check-gravity-first-use-qr.cjs'
+      - 'site/qr-code-generator.html'
+      - 'site/assets/js/gravity-qr.js'
   workflow_dispatch:
 permissions:
   contents: write
@@ -32,6 +35,8 @@ jobs:
           node scripts/verify-gravity-preview.cjs
       - name: Test backend origins and pairing without network writes
         run: node scripts/test-gravity-domain-functions.cjs
+      - name: Verify Windows QR links and site presets for initial Gravity launch
+        run: node scripts/check-gravity-first-use-qr.cjs
       - name: Check forms, assets, manuals and backend links
         run: node scripts/audit-gravity-customer-services.cjs
       - name: Commit updated integrity manifest only after checks pass
