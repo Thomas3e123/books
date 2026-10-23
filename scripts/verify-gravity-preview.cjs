@@ -52,7 +52,8 @@ for (const file of navPages) {
   const nav = body.match(/<nav\\b[^>]*(?:id=[\"']site-nav[\"']|data-menu)[^>]*>[\\s\\S]*?<\\/nav>/i);
   assert(nav, 'Missing primary navigation on ' + file);
   for (const route of ['/windows-programs','/testing-room','/start-here']) {
-    const count = (nav[0].match(new RegExp('href=[\"\\\\\']' + route + '[\"\\\\\']','g')) || []).length;
+    const links = [...nav[0].matchAll(/href=["']([^"']+)["']/g)].map(m => m[1]);
+    const count = links.filter(href => href === route).length;
     assert(count === 1, 'Expected exactly one ' + route + ' link on ' + file + ', found ' + count);
   }
   assert(!body.includes('https://gravity-leadership-system.netlify.app/assets/downloads/windows/manuals/current/'), 'Windows manual links must be relative on ' + file);
