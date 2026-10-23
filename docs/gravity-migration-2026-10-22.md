@@ -91,3 +91,7 @@ The branch, audit, or staging preview **does not** establish that the production
 ## Approved isolated preview build — 2026-10-22
 
 Owner approved one coordinated Gravity preview deployment after the successful green Foundry employee-isolation workflow run. Trigger only the existing draft/alias preview workflow against Netlify site `fa5d39a0-bef9-4ff1-9c28-57d585d741d7`. Do not publish to the permanent domain, change DNS, merge into `main`, or modify the TMB Netlify site. AI credentials and live registration/authentication remain separate acceptance gates. A draft preview is not evidence that those services work.
+
+## Controlled preview workflow retry after GitHub secret installation
+
+The owner confirmed installation of `NETLIFY_AUTH_TOKEN` as a GitHub Actions repository secret and authorized a single draft/alias preview deployment to Gravity site `fa5d39a0-bef9-4ff1-9c28-57d585d741d7`. This documentation-only staging commit triggers the existing `gravity-site-migration.yml` path-filtered workflow. The workflow must use the *alias* deployment, never `--prod`. No DNS edits, TMB deployment, or `main` changes are authorized. Inspect workflow logs for an actual Netlify deploy ID; a green workflow check alone is insufficient.
