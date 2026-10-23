@@ -1990,7 +1990,7 @@
     },
     {
       "path": "site/register.html",
-      "sha256": "04f12ade93c1a10fad417eba4c19a3ba65a7e14938a32e6b5de308eda0b954b4"
+      "sha256": "0445c52d504c3303ef57852a7d9ef9afe3169f593b8d608268cdc42025e8fa9b"
     },
     {
       "path": "site/registration-thanks.html",
@@ -2250,7 +2250,7 @@
     },
     {
       "path": "site/review.html",
-      "sha256": "8b7e28c4c8471dbea58755007f2a4c903231347102e412435ff65166549a9734"
+      "sha256": "f861d0ee7834499a4dbe89ce9949dbe1a7a3aa11fe8ad4e00a03ad487852bf33"
     },
     {
       "path": "site/robots.txt",
