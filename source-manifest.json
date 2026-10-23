@@ -1810,11 +1810,11 @@
     },
     {
       "path": "site/books.html",
-      "sha256": "4aa270a5c10e3f5adfddd956199338253b4c01e890ea95e15c59ee198c0b82ea"
+      "sha256": "f666fc6c1ce729e40e17a709277a3e10a6e2d1e7fb4c4f9516df37a4a081fe10"
     },
     {
       "path": "site/contact.html",
-      "sha256": "d73a88958efd25f47038106d674c0adcc97e3bde3afe3416fc71037c3b0ec654"
+      "sha256": "f8e44e27a5c08647c14c055a228e9d28f977be97a830d6b86c4c76a3a9370234"
     },
     {
       "path": "site/customer-resources.html",
@@ -1862,7 +1862,7 @@
     },
     {
       "path": "site/gravity-inventory-center.html",
-      "sha256": "f188f59d0434b9fc2956e5696d6fbfa69588818e34f4073cadd3ad62dfd250ed"
+      "sha256": "feb0de9fa87f46c2c37658c2822b9ec9fa15f3a79e1d0b9101c341e6434a345f"
     },
     {
       "path": "site/gravity-numbers-lab.html",
@@ -1890,7 +1890,7 @@
     },
     {
       "path": "site/gravity-shift-lab.html",
-      "sha256": "57cdae081fa5de71c7042112e477750752e09cbc64a1aafb0c0f2e86400acf24"
+      "sha256": "6d0dd7bd07038604bda78f04d685dfc41f5682d393c9607c579fdb902ad6e861"
     },
     {
       "path": "site/gravity-shift-lab.webmanifest",
@@ -1902,7 +1902,7 @@
     },
     {
       "path": "site/gravity-sop-foundry.html",
-      "sha256": "e284ea69976fe21e016b4a97301c8f4909983c68be62680664d7d8673bd0da24"
+      "sha256": "2a9bf7035ed5adb071b900d945160e8ba794aedc3b111a26d962b51f950abbe8"
     },
     {
       "path": "site/gravity-sop-library-set.html",
@@ -1926,7 +1926,7 @@
     },
     {
       "path": "site/gravity-work-study-lab.html",
-      "sha256": "6a905010827d027381d45209d6590b2a8f9b7436445df56f92249c55f278b1cf"
+      "sha256": "5e66d12a35aedecff8d2b01b8b5098dd50069602fc1766e36759eb680843f009"
     },
     {
       "path": "site/guest-service-complaints-recovery-workbook.html",
@@ -1946,7 +1946,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "64f99e352f5e1119a04440a7830c2031adeef7687d55229bf7b52aa681026dc5"
+      "sha256": "7ec66803e574fd28ac3e2875e809e5e115108691323146501573efceeb33970f"
     },
     {
       "path": "site/installation-improvement.html",
@@ -2274,7 +2274,7 @@
     },
     {
       "path": "site/start-here.html",
-      "sha256": "75f67536d7e5b584f6dbb5a62ed659d1da9e163a7263a6c020c5ef98ae9aab59"
+      "sha256": "2f47df15d7ec8e0374a93294cc7d6ac6aa9c9ddbc4ed3353c9412185ec14e145"
     },
     {
       "path": "site/support.html",
@@ -2310,7 +2310,7 @@
     },
     {
       "path": "site/windows-programs.html",
-      "sha256": "4f9fcee3c45fa4ba3dc6d63e06ae6531bb24d365674f35f27cd14004bcb2d422"
+      "sha256": "33f119592da6c5d689706454a5adf888dec8d3fcd890905edfdd4c84b770df39"
     },
     {
       "path": "site/work-study-prebeta-build.txt",
