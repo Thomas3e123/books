@@ -42,6 +42,7 @@ for (const p of pages) {
   assert(!/rel="canonical"[^>]*thomasmonroebooks\.com/i.test(body), 'Old canonical in ' + p);
 }
 // Protect the previously repaired navigation and download-host links.
+// Controlled staging QA deployment requested on 2026-10-23; production remains untouched.
 const navPages = [
   'index.html','start-here.html','books.html','contact.html',
   'windows-programs.html','gravity-sop-foundry.html','gravity-shift-lab.html',
