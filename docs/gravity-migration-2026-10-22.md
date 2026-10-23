@@ -87,3 +87,7 @@ If the new site breaks: leave the old `thomasmonroebooks.com` source and Netlify
 ### Not yet authorized/completed
 
 The branch, audit, or staging preview **does not** establish that the production domain moved, that database/forms histories were imported, that the Windows applications passed native testing, or that customer accounts are synchronized. These are separate verification tasks.
+
+## Approved isolated preview build — 2026-10-22
+
+Owner approved one coordinated Gravity preview deployment after the successful green Foundry employee-isolation workflow run. Trigger only the existing draft/alias preview workflow against Netlify site `fa5d39a0-bef9-4ff1-9c28-57d585d741d7`. Do not publish to the permanent domain, change DNS, merge into `main`, or modify the TMB Netlify site. AI credentials and live registration/authentication remain separate acceptance gates. A draft preview is not evidence that those services work.
