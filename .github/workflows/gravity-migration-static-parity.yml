@@ -1,0 +1,29 @@
+name: Gravity migration - all-page live static parity, NO DEPLOY
+on:
+  push:
+    branches:
+      - 'audit/gravity-parity-2026-10-22'
+    paths:
+      - 'scripts/migration-live-static-parity.cjs'
+      - '.github/workflows/gravity-migration-static-parity.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: GET-only compare every HTML page on live TMB and Gravity preview
+        run: node scripts/migration-live-static-parity.cjs
+      - name: Save page-by-page comparison
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Gravity-TMB-live-all-pages-comparison-no-deploy
+          path: gravity-live-static-parity.json
+          retention-days: 30
