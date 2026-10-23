@@ -1367,7 +1367,7 @@ function setup(){
   input.addEventListener('input',queueLiveGenerate);
   [level,size].forEach(function(el){el.addEventListener('change',function(){if(input.value.trim())generate();});});
   [dark,light].forEach(function(el){el.addEventListener('input',function(){if(input.value.trim())queueLiveGenerate();});});
-  presets.forEach(function(btn){btn.addEventListener('click',function(){input.value=btn.getAttribute('data-qr-preset');generate();input.focus();});});
+  presets.forEach(function(btn){btn.addEventListener('click',function(){var value=btn.getAttribute('data-qr-preset')||'';input.value=value.charAt(0)==='/'&&value.charAt(1)!=='/'?new URL(value,window.location.origin).href:value;generate();input.focus();});});
   copy.addEventListener('click',async function(){
     var text=(input.value||'').trim(); if(!text){status.textContent='Nothing to copy yet.';return;}
     try{await navigator.clipboard.writeText(text);status.textContent='QR content copied to your clipboard.';}
