@@ -67,6 +67,16 @@ class FakeRepo {
  check(status.status===200&&status.body.counts.training===1,'manager status preserves training count');
  const second=await req('POST','manager/create',{employeePin:'6381',snapshot:{restaurantName:'Second Example Restaurant',publishedSops:[]}});
  check(second.status===201&&second.body.workspaceCode!==code,'separate restaurant workspaces');
+ const crossManager=await req('GET','manager/events',undefined,managerKey);
+ check(crossManager.status===200&&crossManager.body.training.length===1,'original manager retains first restaurant records');
+ const secondStaffLogin=await req('POST','login',{code:second.body.workspaceCode,pin:'6381'});
+ check(secondStaffLogin.status===200&&secondStaffLogin.body.token,'second restaurant staff can authenticate independently');
+ const originalWithSecondStaff=await req('GET','published-sops',undefined,secondStaffLogin.body.token);
+ check(originalWithSecondStaff.status===200&&originalWithSecondStaff.body.data.restaurant==='Second Example Restaurant'&&originalWithSecondStaff.body.data.sops.length===0,'second staff token cannot read first restaurant content');
+ const managerAsStaff=await req('GET','published-sops',undefined,managerKey);
+ check(managerAsStaff.status===401,'manager credential is not an employee session');
+ const staffAsManager=await req('POST','manager/sync',{snapshot},token);
+ check(staffAsManager.status===401,'staff session cannot modify published manager snapshot');
  const secondEvents=await req('GET','manager/events',undefined,second.body.managerKey);
  check(secondEvents.status===200&&secondEvents.body.training.length===0&&secondEvents.body.messages.length===0,'restaurant data isolated');
  const otherSops=await req('GET','published-sops',undefined,(await req('POST','login',{code:second.body.workspaceCode,pin:'6381'})).body.token);
