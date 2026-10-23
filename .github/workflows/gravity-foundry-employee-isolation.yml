@@ -1,0 +1,28 @@
+name: Gravity Foundry employee isolation - offline only
+on:
+  push:
+    branches:
+      - audit/gravity-parity-2026-10-22
+    paths:
+      - '.github/workflows/gravity-foundry-employee-isolation.yml'
+      - 'scripts/test-gravity-foundry-employee-isolation.cjs'
+      - 'functions/foundry-hosted/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  isolated-mock-tests:
+    name: Mock restaurant isolation, authentication and training (no deploy)
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check syntax
+        run: |
+          node --check scripts/test-gravity-foundry-employee-isolation.cjs
+          node --check functions/foundry-hosted/core.mjs
+      - name: Run fully offline mocked restaurant tests
+        run: node scripts/test-gravity-foundry-employee-isolation.cjs
