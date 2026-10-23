@@ -2,7 +2,7 @@ import { getDatabase } from '@netlify/database';
 import { createHash, randomBytes, randomUUID } from 'node:crypto';
 
 const db=getDatabase();
-const allowedGravityOrigins=new Set(['https://gravity-leadership-system.netlify.app','https://gravityleadershipsystem.com','https://www.gravityleadershipsystem.com']);
+const allowedGravityOrigins=new Set(['https://gravity-migration--gravity-leadership-system.netlify.app','https://gravity-leadership-system.netlify.app','https://gravityleadershipsystem.com','https://www.gravityleadershipsystem.com']);
 const gravityOrigin=url=>allowedGravityOrigins.has(url.origin)?url.origin:'https://gravity-leadership-system.netlify.app';
 const HOURS=12;
 const MAX_BYTES=2_500_000;
