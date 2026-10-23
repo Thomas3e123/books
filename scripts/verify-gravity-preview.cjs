@@ -41,6 +41,22 @@ for (const p of pages) {
   assert(body.includes('gravity-migration-preview-notice'), 'Missing staging banner: ' + p);
   assert(!/rel="canonical"[^>]*thomasmonroebooks\.com/i.test(body), 'Old canonical in ' + p);
 }
+// Protect the previously repaired navigation and download-host links.
+const navPages = [
+  'index.html','start-here.html','books.html','contact.html',
+  'windows-programs.html','gravity-sop-foundry.html','gravity-shift-lab.html',
+  'gravity-inventory-center.html','gravity-work-study-lab.html'
+];
+for (const file of navPages) {
+  const body = fs.readFileSync(path.join(site, file), 'utf8');
+  const nav = body.match(/<nav\\b[^>]*(?:id=[\"']site-nav[\"']|data-menu)[^>]*>[\\s\\S]*?<\\/nav>/i);
+  assert(nav, 'Missing primary navigation on ' + file);
+  for (const route of ['/windows-programs','/testing-room','/start-here']) {
+    const count = (nav[0].match(new RegExp('href=[\"\\\\\']' + route + '[\"\\\\\']','g')) || []).length;
+    assert(count === 1, 'Expected exactly one ' + route + ' link on ' + file + ', found ' + count);
+  }
+  assert(!body.includes('https://gravity-leadership-system.netlify.app/assets/downloads/windows/manuals/current/'), 'Windows manual links must be relative on ' + file);
+}
 console.log(JSON.stringify({result:'PASS (static staging gates only)',htmlPages:pages.length,criticalFiles:required.length,notes:[
  'No backend, database, Windows-native, Netlify Form migration or customer QR end-to-end claim.',
  'Preview must remain noindex and must not be used as production.',
