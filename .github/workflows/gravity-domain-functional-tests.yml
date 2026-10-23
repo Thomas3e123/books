@@ -1,0 +1,30 @@
+name: Gravity domain backend acceptance tests - no deployment
+on:
+  push:
+    branches:
+      - audit/gravity-parity-2026-10-22
+    paths:
+      - '.github/workflows/gravity-domain-functional-tests.yml'
+      - 'scripts/test-gravity-domain-functions.cjs'
+      - 'functions/gravity-guide/**'
+      - 'functions/gravity-tts/**'
+      - 'functions/testing-room/**'
+      - 'functions/work-study-link/**'
+      - 'functions/work-study-transcribe/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-tests:
+    name: Offline CORS and pairing-domain validation, no Netlify build
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Run function acceptance checks without external requests
+        run: node scripts/test-gravity-domain-functions.cjs
