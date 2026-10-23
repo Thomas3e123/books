@@ -1,7 +1,7 @@
 'use strict';
 const {app,BrowserWindow,protocol,net,shell}=require('electron');
 const fs=require('node:fs'),path=require('node:path');
-const SCHEME='gravityfoundry',HOST='app',HOSTED='https://thomasmonroebooks.com';
+const SCHEME='gravityfoundry',HOST='app',HOSTED='https://gravityleadershipsystem.com';
 const SMOKE=process.env.GRAVITY_FOUNDRY_SMOKE==='1';
 protocol.registerSchemesAsPrivileged([{scheme:SCHEME,privileges:{standard:true,secure:true,supportFetchAPI:true,stream:true,corsEnabled:true,codeCache:true}}]);
 const baseURL=SCHEME+'://'+HOST;
