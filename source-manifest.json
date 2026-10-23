@@ -114,7 +114,7 @@
     },
     {
       "path": "site/apps/sop-foundry/employee-connection.html",
-      "sha256": "69658d7c5cfa551bb18e54eed94c5c78990175b26bb093332c55eb0159350d9c"
+      "sha256": "94f695aef1e81849c63e5b5e4ad26ecd244729d2553c99cd5f7bfa529e266beb"
     },
     {
       "path": "site/apps/sop-foundry/employee-connection.js",
@@ -1618,7 +1618,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "4ab97f974e840029d904a622f748da496cd0095ae251693f03a345d5d3d1107b"
+      "sha256": "85807a72a68c2183be6ef92869d887bf2648e97f9b1db27c62fa1b218b8370b5"
     },
     {
       "path": "site/assets/js/testing-room.js",
@@ -1862,7 +1862,7 @@
     },
     {
       "path": "site/gravity-inventory-center.html",
-      "sha256": "50d471d49f8199dff368365069a83d9ae00a59f29eec9cabcac44bd838a1a2d0"
+      "sha256": "f188f59d0434b9fc2956e5696d6fbfa69588818e34f4073cadd3ad62dfd250ed"
     },
     {
       "path": "site/gravity-numbers-lab.html",
@@ -1890,7 +1890,7 @@
     },
     {
       "path": "site/gravity-shift-lab.html",
-      "sha256": "d65c7f56914d316d5da8c4ae659d26e1c2286a3960ef0c890db1bf6fea154271"
+      "sha256": "57cdae081fa5de71c7042112e477750752e09cbc64a1aafb0c0f2e86400acf24"
     },
     {
       "path": "site/gravity-shift-lab.webmanifest",
@@ -1902,7 +1902,7 @@
     },
     {
       "path": "site/gravity-sop-foundry.html",
-      "sha256": "fee1feaa2b10b9ccc7607aa348b1a0d39e24b1629aee9d7751a7fc9d7b8d445e"
+      "sha256": "e284ea69976fe21e016b4a97301c8f4909983c68be62680664d7d8673bd0da24"
     },
     {
       "path": "site/gravity-sop-library-set.html",
@@ -1926,7 +1926,7 @@
     },
     {
       "path": "site/gravity-work-study-lab.html",
-      "sha256": "b3b68c46cfbb8bd492f00c076ae6b0bafd079cce067a63e8b67accdbe561a196"
+      "sha256": "6a905010827d027381d45209d6590b2a8f9b7436445df56f92249c55f278b1cf"
     },
     {
       "path": "site/guest-service-complaints-recovery-workbook.html",
@@ -2310,7 +2310,7 @@
     },
     {
       "path": "site/windows-programs.html",
-      "sha256": "e80cd092df0c248ae6e3ade4295123b7ea289f6dcb48dae04358ef26ac9a8e03"
+      "sha256": "4f9fcee3c45fa4ba3dc6d63e06ae6531bb24d365674f35f27cd14004bcb2d422"
     },
     {
       "path": "site/work-study-prebeta-build.txt",
@@ -2362,11 +2362,11 @@
     },
     {
       "path": "functions/testing-room/index.mjs",
-      "sha256": "8d1a162a3df7deb8a6df890d961ac70d64be058f49ba431a1cb62b88567e147e"
+      "sha256": "5e6d86d68492e55cad22bdad8bba2c2ac20addf148cfa0a2b4bd16969781c090"
     },
     {
       "path": "functions/work-study-link/index.mjs",
-      "sha256": "22c2e37a61c438faec6eb89d840e8506192101e63124651e6ee52446fab9d32d"
+      "sha256": "c23c2d03054e0ccd1ed6cbe620a0c5bc223e7933787e0a32812c930f159708d3"
     },
     {
       "path": "functions/work-study-process-file/work-study-process-file.js",
