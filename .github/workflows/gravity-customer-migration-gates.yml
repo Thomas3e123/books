@@ -1,0 +1,43 @@
+name: Gravity customer migration gates - no deployment
+on:
+  push:
+    branches:
+      - audit/gravity-parity-2026-10-22
+    paths:
+      - '.github/workflows/gravity-customer-migration-gates.yml'
+      - 'scripts/audit-gravity-customer-services.cjs'
+      - 'site/register.html'
+      - 'site/review.html'
+      - 'functions/gravity-guide/**'
+      - 'functions/gravity-tts/**'
+      - 'functions/testing-room/**'
+      - 'functions/work-study-link/**'
+      - 'functions/work-study-transcribe/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    name: Inspect form detection, release assets, manuals and hostname risks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate migrated function syntax without deploying
+        run: |
+          node --check functions/gravity-guide/guide-core.mjs
+          node --check functions/gravity-tts/gravity-tts.js
+          node --check functions/testing-room/index.mjs
+          node --check functions/work-study-link/index.mjs
+          node --check functions/work-study-transcribe/work-study-transcribe.js
+      - name: Run read-only migration blockers analysis
+        run: node scripts/audit-gravity-customer-services.cjs
+      - name: Save detailed audit results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gravity-customer-migration-blockers
+          path: gravity-customer-service-gates.json
+          retention-days: 30
