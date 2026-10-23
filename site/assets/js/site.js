@@ -309,10 +309,11 @@
   // Founding Year registration gate for downloadable digital products.
   var REG_ACCESS_KEY = 'gravity_founding_year_download_access_v1';
   var PENDING_DOWNLOAD_KEY = 'gravity_pending_download_v1';
-  // Preserve registration handoff for the three official Windows Beta assets.
+  // Accept current and future official Gravity Windows releases without opening
+  // the handoff to arbitrary third-party URLs or other GitHub repositories.
   function isOfficialWindowsBetaDownload(url) {
     return url.origin === 'https://github.com' && !url.search && !url.hash &&
-      /^\/Thomas3e123\/books\/releases\/download\/windows-beta-2026-10-13\/Gravity_(SOP_Foundry|Shift_Lab|Inventory_Center)_Windows_Beta_2026-10-12_x64_HELP_GLOSSARY_READY\.zip$/.test(url.pathname);
+      /^\/Thomas3e123\/books\/releases\/download\/[^/]+\/Gravity_(SOP_Foundry|Shift_Lab|Inventory_Center|Work_Study_Lab)_[A-Za-z0-9._-]+\.(?:zip|exe)$/i.test(url.pathname);
   }
   var isRegistrationThanks = (location.pathname || '').toLowerCase().indexOf('/registration-thanks') >= 0;
   if (isRegistrationThanks) {
