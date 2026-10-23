@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - audit/gravity-parity-2026-10-22
+      - feature/gravity-migration-phase1-2026-10-22
     paths:
       - '.github/workflows/gravity-foundry-employee-isolation.yml'
       - 'scripts/test-gravity-foundry-employee-isolation.cjs'
