@@ -1350,7 +1350,7 @@
     },
     {
       "path": "site/assets/js/gravity-qr.js",
-      "sha256": "bd0db42ed8496dbf84fe5252d8c7902d608e8160fcc3c651887ca6c3754369c0"
+      "sha256": "1f54896913ad9e3079e546c55a04ce0e3d67e51790eb01a2b1aa5ffb6eb306a4"
     },
     {
       "path": "site/assets/js/gravity-shift-first-schedule-tour-v1.js",
@@ -1978,7 +1978,7 @@
     },
     {
       "path": "site/qr-code-generator.html",
-      "sha256": "991c95f6474d301e5f0d25d2ebb86aa76455b87ed5ecdad51ff5b2e61ac91a09"
+      "sha256": "7c14ba70c0e1123d402ad037ef22c31801a09e1fcdb8256ee76cfbe95c2b8394"
     },
     {
       "path": "site/quiet-gravity.html",
