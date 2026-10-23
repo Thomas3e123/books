@@ -49,7 +49,7 @@ const navPages = [
 ];
 for (const file of navPages) {
   const body = fs.readFileSync(path.join(site, file), 'utf8');
-  const nav = body.match(/<nav\\b[^>]*(?:id=[\"']site-nav[\"']|data-menu)[^>]*>[\\s\\S]*?<\\/nav>/i);
+  const nav = [...body.matchAll(/<nav[^>]*>[\s\S]*?<\/nav>/gi)].map(m => m[0]).find(html => /id=["']site-nav["']|data-menu/.test(html));
   assert(nav, 'Missing primary navigation on ' + file);
   for (const route of ['/windows-programs','/testing-room','/start-here']) {
     const links = [...nav[0].matchAll(/href=["']([^"']+)["']/g)].map(m => m[1]);
