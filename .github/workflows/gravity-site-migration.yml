@@ -58,7 +58,7 @@ jobs:
             exit 0
           fi
           export NETLIFY_AUTH_TOKEN="$token"
-          npx --yes netlify-cli@23.11.0 deploy --site "$GRAVITY_NETLIFY_SITE_ID" --dir site --functions functions --context deploy-preview --alias gravity-migration --message "INTERNAL GRAVITY MIGRATION PREVIEW - not customer ready" --json > /tmp/gravity-preview-deploy.json
+          npx --yes netlify-cli@26 deploy --site "$GRAVITY_NETLIFY_SITE_ID" --dir site --functions functions --context deploy-preview --alias gravity-migration --message "INTERNAL GRAVITY MIGRATION PREVIEW - not customer ready" --json > /tmp/gravity-preview-deploy.json
           node -e 'const o=require("/tmp/gravity-preview-deploy.json"); console.log(JSON.stringify({site_id:o.site_id,deploy_id:o.deploy_id,url:o.deploy_url||o.url},null,2))'
       - name: Upload static QA evidence
         if: always()
