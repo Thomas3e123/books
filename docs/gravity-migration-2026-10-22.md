@@ -127,3 +127,7 @@ User requested a retry of the existing isolated staging branch deploy. Invoke th
 ## October 24 — Shift Lab hero obstruction and redundant entry correction
 
 The latest screenshot showed the default Shift Lab link still at the oversized introductory hero with decorative gears overlapping explanation text. Stage the direct-workspace-by-default correction from commit `76711052f09f4c6bb7c99fb64551dfb72a0da4ac`. Preserve the original hero for optional `?intro=1` and retain a subdued clockwork motif in the scheduling workspace. Preview alias only; no customer publication or production changes.
+
+## October 24 — Shift Lab guided tour action overlap fix
+
+Staging alias QA: Shift Lab's 31-step guided tour actions were inaccessible behind the fixed preview notice and Gravity Guide launcher. Commit `0affed9cfb115ee892049db76586d3d13a97d470` moves the tour panel to the top, makes its actions sticky, and temporarily hides overlapping launchers only while the tour is active. Deploy to isolated gravity-migration preview alias; do not publish or change original TMB. Verify controls remain accessible at common desktop and mobile heights.
