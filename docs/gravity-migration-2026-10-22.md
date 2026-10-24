@@ -119,3 +119,7 @@ Deploy the current migration branch to the **gravity-migration preview alias onl
 ## October 24 — Shift Lab direct workspace entry staging deployment
 
 Rebuild the isolated `gravity-migration` preview alias with Shift Lab direct-entry fix (commit `3231ff7337675d9aebbffe5ee88a3fd8b879f619`). QA that `/gravity-shift-lab` enters the scheduling workspace without a second click, retaining steampunk clockwork visuals and the crimson guided-tour outline. Never publish production, change DNS, enable continuous builds, or change Thomas Monroe Books.
+
+## October 24 — explicit redeploy retry (Shift Lab)
+
+User requested a retry of the existing isolated staging branch deploy. Invoke the path-filtered Gravity migration GitHub Actions workflow by this documentation change. Target the `gravity-migration` alias of site `fa5d39a0-bef9-4ff1-9c28-57d585d741d7` only; do not touch the public production site, original TMB, DNS, or continuous build settings. Verify `/gravity-shift-lab` enters the workspace and inspect the deployed content.
