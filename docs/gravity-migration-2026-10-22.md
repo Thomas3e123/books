@@ -115,3 +115,7 @@ Request isolated staging alias build after changing first-SOP tour highlight to 
 ## October 24 — Shift Lab visual QA deploy
 
 Deploy the current migration branch to the **gravity-migration preview alias only** to verify new Shift Lab steampunk clockwork artwork and the crimson guided-tour focus outline. Do not deploy to production, enable continuous builds, modify TMB, or modify DNS. Test staging before release.
+
+## October 24 — Shift Lab direct workspace entry staging deployment
+
+Rebuild the isolated `gravity-migration` preview alias with Shift Lab direct-entry fix (commit `3231ff7337675d9aebbffe5ee88a3fd8b879f619`). QA that `/gravity-shift-lab` enters the scheduling workspace without a second click, retaining steampunk clockwork visuals and the crimson guided-tour outline. Never publish production, change DNS, enable continuous builds, or change Thomas Monroe Books.
