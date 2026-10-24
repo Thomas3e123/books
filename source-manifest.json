@@ -302,7 +302,7 @@
     },
     {
       "path": "site/apps/sop-foundry/workroom.html",
-      "sha256": "e2e6c1cff0674f656756e0eaf389b90106f6ff780077fa6cf13e8dbf7994bd6f"
+      "sha256": "e50fb8e7bbeef6e13fd64c7a10910caf5efa37430e9b6f3ba3dd3953d167e5f1"
     },
     {
       "path": "site/assets/css/book-reader.css",
@@ -1354,7 +1354,7 @@
     },
     {
       "path": "site/assets/js/gravity-shift-first-schedule-tour-v1.js",
-      "sha256": "08ab14e89d7e67e17bb6b33e7ee874626f99a06b741c05924d5a5a92e172c76f"
+      "sha256": "b6e1edebfbf8fbebc22291754e86a4c63d441f5b47ff4e3d8cedd7b1c19c0b39"
     },
     {
       "path": "site/assets/js/gravity-shift-lab.js",
@@ -1890,7 +1890,7 @@
     },
     {
       "path": "site/gravity-shift-lab.html",
-      "sha256": "9449c71243847636d3ffc21d98fd4be1801495496376c90ca7381df16810cc13"
+      "sha256": "dcf41c4348b801d56d85ba4d9ed1bcb351a095800620df740a1c4689f580e27e"
     },
     {
       "path": "site/gravity-shift-lab.webmanifest",
