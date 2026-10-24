@@ -99,3 +99,7 @@ The owner confirmed installation of `NETLIFY_AUTH_TOKEN` as a GitHub Actions rep
 ## October 24 isolated preview verification
 
 Request a new **staging alias only** build to verify the updated SOP Foundry Build Room guided tour, About / Help, and manual menu. Do not publish production or modify the original Thomas Monroe Books site. Confirm the generated deployment ID and preview route before reporting success.
+
+## October 24: repair SOP Foundry onboarding boot
+
+The first SOP tour and embedded Help failed to mount because their script-element IDs collided with the dynamically created container IDs. Fixed both collisions in the isolated migration branch. Rebuild the staging alias only for verification; keep production and Thomas Monroe Books unchanged.
