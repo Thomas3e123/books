@@ -95,3 +95,7 @@ Owner approved one coordinated Gravity preview deployment after the successful g
 ## Controlled preview workflow retry after GitHub secret installation
 
 The owner confirmed installation of `NETLIFY_AUTH_TOKEN` as a GitHub Actions repository secret and authorized a single draft/alias preview deployment to Gravity site `fa5d39a0-bef9-4ff1-9c28-57d585d741d7`. This documentation-only staging commit triggers the existing `gravity-site-migration.yml` path-filtered workflow. The workflow must use the *alias* deployment, never `--prod`. No DNS edits, TMB deployment, or `main` changes are authorized. Inspect workflow logs for an actual Netlify deploy ID; a green workflow check alone is insufficient.
+
+## October 24 isolated preview verification
+
+Request a new **staging alias only** build to verify the updated SOP Foundry Build Room guided tour, About / Help, and manual menu. Do not publish production or modify the original Thomas Monroe Books site. Confirm the generated deployment ID and preview route before reporting success.
