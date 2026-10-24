@@ -123,3 +123,7 @@ Rebuild the isolated `gravity-migration` preview alias with Shift Lab direct-ent
 ## October 24 — explicit redeploy retry (Shift Lab)
 
 User requested a retry of the existing isolated staging branch deploy. Invoke the path-filtered Gravity migration GitHub Actions workflow by this documentation change. Target the `gravity-migration` alias of site `fa5d39a0-bef9-4ff1-9c28-57d585d741d7` only; do not touch the public production site, original TMB, DNS, or continuous build settings. Verify `/gravity-shift-lab` enters the workspace and inspect the deployed content.
+
+## October 24 — Shift Lab hero obstruction and redundant entry correction
+
+The latest screenshot showed the default Shift Lab link still at the oversized introductory hero with decorative gears overlapping explanation text. Stage the direct-workspace-by-default correction from commit `76711052f09f4c6bb7c99fb64551dfb72a0da4ac`. Preserve the original hero for optional `?intro=1` and retain a subdued clockwork motif in the scheduling workspace. Preview alias only; no customer publication or production changes.
