@@ -309,5 +309,11 @@ if(!db){add('guide','Gravity Guide is temporarily unavailable. Use Start Here, G
 
 
 <script src="assets/js/gravity-shift-first-schedule-tour-v1.js?v=20261018-tour-v1"></script>
+<script id="shift-direct-entry-v1">
+/* Open the scheduling workspace immediately; retain the original clockwork hero above it. */
+(()=>{function enter(){if(location.hash||location.search.includes('intro=1'))return;const workspace=document.getElementById('shift-lab');if(!workspace)return;requestAnimationFrame(()=>requestAnimationFrame(()=>workspace.scrollIntoView({behavior:'instant',block:'start'})));}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',enter,{once:true});else enter();
+})();
+</script>
 </body>
 </html>
