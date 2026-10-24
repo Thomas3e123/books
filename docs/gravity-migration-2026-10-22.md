@@ -131,3 +131,7 @@ The latest screenshot showed the default Shift Lab link still at the oversized i
 ## October 24 — Shift Lab guided tour action overlap fix
 
 Staging alias QA: Shift Lab's 31-step guided tour actions were inaccessible behind the fixed preview notice and Gravity Guide launcher. Commit `0affed9cfb115ee892049db76586d3d13a97d470` moves the tour panel to the top, makes its actions sticky, and temporarily hides overlapping launchers only while the tour is active. Deploy to isolated gravity-migration preview alias; do not publish or change original TMB. Verify controls remain accessible at common desktop and mobile heights.
+
+## October 24 — cache-busted Shift Lab tour overlay release
+
+The prior overlay repair could not reach customers with the unchanged script URL version. Updated Shift Lab's first-schedule tour asset query to `20261024-tour-overlay-fix` to invalidate browser/service-worker URL caches. Trigger isolated preview alias redeployment for visual QA; do not publish production or alter TMB.
