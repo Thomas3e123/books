@@ -107,3 +107,7 @@ The first SOP tour and embedded Help failed to mount because their script-elemen
 ## October 24: Build Room visible tour and preview notice QA
 
 Stage a new isolated gravity-migration alias build to check First SOP Guided Tour positioned immediately below the Build Room header and the nonblocking staging preview notice. Inspect tour mounting, help/menu operation and viewport on desktop/mobile before customer release. Do not change the public TMB site or publish Gravity production.
+
+## October 24: guided-tour visual QA corrections
+
+Request isolated staging alias build after changing first-SOP tour highlight to crimson and conditional Resume Tour visibility and synchronizing the Build Room section with tour steps. Validate all seven steps in browser. Keep public domains, production deploy, and original TMB site unchanged.
