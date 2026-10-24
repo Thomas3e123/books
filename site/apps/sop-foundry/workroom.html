@@ -126,4 +126,20 @@ function mount(){if(document.getElementById('gravity-foundry-first-tour'))return
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});else mount();
 })();
 </script>
+<script id="gravity-foundry-help-hub">
+(()=>{'use strict';
+const help=[
+['Getting started','Start from an approved Gravity master, import existing procedures as drafts, or create a blank SOP. You can mix all three methods. Use the First SOP Guided Tour whenever you want to learn by doing.'],
+['Editing an SOP','Use a clear purpose, station, responsibility, step-by-step method, checks, corrective actions and applicable safety requirements. Save the draft before leaving. Open field help where available for practical examples.'],
+['Review and approval','Check the saved revision for accuracy before approving. The manager is responsible for deciding whether an SOP is ready. The tour and Gravity assistance never approve or publish automatically.'],
+['Publishing and employee training','Only approved and deliberately published employee material appears in the Employee Library. The SOP revisor—not the assistant—decides whether a change requires retraining or a knowledge check.'],
+['Revisions and history','Keep earlier versions for accountability. Explain what changed and why, and check that employees see the current published copy.'],
+['Employee Connection','Use Employee Connection for hosted staff access, QR links, synchronizing published material, and retrieving employee activity and training. Set a private Employee Library PIN before creating a hosted workspace.'],
+['Storage and backups','Build Room working data is browser-local. Make backups and verify restore files before relying on any device as the only copy. Hosted employee synchronization is not a backup of manager drafts.'],
+['Windows version','The downloadable Windows program, user manuals, and more detailed workflow explanations are available on the SOP Foundry information page.']
+];
+function init(){if(document.getElementById('gravity-foundry-help-hub'))return;const root=document.getElementById('gravity-foundry-first-tour');if(!root)return;const style=document.createElement('style');style.textContent='#gravity-foundry-help-hub{color:#222;margin:9px 14px 18px;max-width:920px;font:14px/1.5 system-ui,sans-serif}#gravity-foundry-help-hub>details{border:1px solid #d7c699;background:#fffaf0;border-radius:12px;padding:10px 14px}#gravity-foundry-help-hub summary{font-weight:700;cursor:pointer}#gravity-foundry-help-hub .gfh-grid{display:grid;gap:7px;margin-top:12px}#gravity-foundry-help-hub .gfh-grid details{border-bottom:1px solid #ddd;padding:7px 0}#gravity-foundry-help-hub .gfh-grid summary{font-weight:600}#gravity-foundry-help-hub p{margin:7px 0;color:#24303a}#gravity-foundry-help-hub a{color:#154a6c}';document.head.appendChild(style);const box=document.createElement('section');box.id='gravity-foundry-help-hub';box.setAttribute('aria-label','Build Room help and instructions');const outer=document.createElement('details');const summary=document.createElement('summary');summary.textContent='? Help & first-time instructions';outer.appendChild(summary);const intro=document.createElement('p');intro.textContent='Open only the explanation you need. Your current work stays on screen; nothing here changes an SOP.';outer.appendChild(intro);const grid=document.createElement('div');grid.className='gfh-grid';help.forEach(([title,body])=>{const d=document.createElement('details');const q=document.createElement('summary');q.textContent=title;const p=document.createElement('p');p.textContent=body;d.append(q,p);grid.appendChild(d)});outer.appendChild(grid);const extra=document.createElement('p');const a=document.createElement('a');a.href='/gravity-sop-foundry';a.textContent='Detailed overview, manuals and Windows download information';extra.appendChild(a);outer.appendChild(extra);box.appendChild(outer);root.insertAdjacentElement('afterend',box)}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
 </body></html>
