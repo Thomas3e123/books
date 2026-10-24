@@ -103,3 +103,7 @@ Request a new **staging alias only** build to verify the updated SOP Foundry Bui
 ## October 24: repair SOP Foundry onboarding boot
 
 The first SOP tour and embedded Help failed to mount because their script-element IDs collided with the dynamically created container IDs. Fixed both collisions in the isolated migration branch. Rebuild the staging alias only for verification; keep production and Thomas Monroe Books unchanged.
+
+## October 24: Build Room visible tour and preview notice QA
+
+Stage a new isolated gravity-migration alias build to check First SOP Guided Tour positioned immediately below the Build Room header and the nonblocking staging preview notice. Inspect tour mounting, help/menu operation and viewport on desktop/mobile before customer release. Do not change the public TMB site or publish Gravity production.
