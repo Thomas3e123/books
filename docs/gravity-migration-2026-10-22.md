@@ -111,3 +111,7 @@ Stage a new isolated gravity-migration alias build to check First SOP Guided Tou
 ## October 24: guided-tour visual QA corrections
 
 Request isolated staging alias build after changing first-SOP tour highlight to crimson and conditional Resume Tour visibility and synchronizing the Build Room section with tour steps. Validate all seven steps in browser. Keep public domains, production deploy, and original TMB site unchanged.
+
+## October 24 — Shift Lab visual QA deploy
+
+Deploy the current migration branch to the **gravity-migration preview alias only** to verify new Shift Lab steampunk clockwork artwork and the crimson guided-tour focus outline. Do not deploy to production, enable continuous builds, modify TMB, or modify DNS. Test staging before release.
