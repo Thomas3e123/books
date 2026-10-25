@@ -25,7 +25,7 @@ function walk(dir){
   // Some embedded workrooms also carry styling and a minimizer script for the preview banner.
   html=html.replace(/<style id="gravity-preview-banner-repair">[\s\S]*?<\/style>/g,'');
   html=html.replace(/<script>(?:(?!<\/script>)[\s\S])*?getElementById\('gravity-migration-preview-notice'\)(?:(?!<\/script>)[\s\S])*?<\/script>/g,'');
-  html=html.replace(/<meta name="robots" content="noindex,nofollow"\s*\/>\s*/gi,'');
+  html=html.replace(/<meta\s+name=["']robots["']\s+content=["']noindex,nofollow["']\s*\/?>\s*/gi,'');
   // Preserve page-specific index directives, canonical URLs and publisher attribution.
   if(/gravity-migration-preview-notice|GRAVITY MIGRATION PREVIEW — NOT LIVE FOR CUSTOMERS/.test(html))throw Error('Preview warning remained: '+full);
   fs.writeFileSync(full,html);pages++;
