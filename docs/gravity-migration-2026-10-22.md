@@ -155,3 +155,11 @@ Verified directly against both Netlify site form inventories:
 - Existing SOP Foundry Employee Connection uses `@netlify/database` on a separate project; no evidence yet that original employee data exists in the destination database. Freeze no data; delete none; test workspace continuity using a non-production test workspace only.
 
 **Release gate:** registration and Employee Connection migration remain unresolved, despite equal form field definitions. Preserve the legacy site and its data until a verified transfer/access plan is complete.
+
+## October 25 — final access audit: download-gate security limitation
+
+Read-only inspection confirmed that registration HTML posts as a Netlify Form to `/registration-thanks`, and that the browser-side download gate currently sets `gravity_founding_year_download_access_v1=registered` whenever `/registration-thanks` is visited. **The current implementation does not prove a successful registration submission before granting browser-local access.** This is an application behavior limitation, not a database migration, and must not be represented to customers as authenticated download access. Static download files are also publicly URL-addressable; do not promise enforced membership or secure download entitlements on this scheme.
+
+Live verification attempt: the current browser/web fetch mechanisms could not access the public staging alias, so they could not submit a synthetic registration, establish PDF/ZIP HTTP responses, or render mobile viewports. The Netlify form metadata shows a destination form registered with zero submissions; this alone does not prove end-to-end POST handling. Avoid contaminating actual opt-in/consent counts with automated synthetic accounts. No production or customer records changed.
+
+**Release decision:** website navigation/file parity is progressing; registration is a lightweight form and browser-local convenience gate, not actual identity proof. Before public transition, either explicitly accept this low-friction model with accurate copy and reliable post-submit UX, or separately design authenticated access. Preserve original form submissions and consent history; no automatic import or re-registration assumptions. Employee Connection customer data migration not required per owner, but new-workspace test remains necessary.
