@@ -44,7 +44,7 @@ for (const p of pages) {
 // Protect the previously repaired navigation and download-host links.
 // Controlled staging QA deployment requested on 2026-10-23; production remains untouched.
 const navPages = [
-  'index.html','start-here.html','books.html','contact.html',
+  'index.html','start-here.html','books.html','contact.html','gravity-assist.html','register.html',
   'windows-programs.html','gravity-sop-foundry.html','gravity-shift-lab.html',
   'gravity-inventory-center.html','gravity-work-study-lab.html'
 ];
