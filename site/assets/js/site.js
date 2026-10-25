@@ -315,11 +315,51 @@
     return url.origin === 'https://github.com' && !url.search && !url.hash &&
       /^\/Thomas3e123\/books\/releases\/download\/[^/]+\/Gravity_(SOP_Foundry|Shift_Lab|Inventory_Center|Work_Study_Lab)_[A-Za-z0-9._-]+\.(?:zip|exe)$/i.test(url.pathname);
   }
+  // Founding Year lightweight form: grant browser-local download convenience only
+  // after Netlify accepts a real submission. This is not user authentication.
+  if (registrationForm) {
+    registrationForm.addEventListener('submit', async function (event) {
+      event.preventDefault();
+      if (!registrationForm.reportValidity() || registrationForm.dataset.submitting === '1') return;
+      var submit = registrationForm.querySelector('[type="submit"]');
+      var originalLabel = submit ? submit.textContent : '';
+      var notice = registrationForm.querySelector('[data-registration-feedback]');
+      if (!notice) {
+        notice = document.createElement('p');
+        notice.setAttribute('data-registration-feedback', '');
+        notice.setAttribute('role', 'status');
+        notice.setAttribute('aria-live', 'polite');
+        registrationForm.appendChild(notice);
+      }
+      registrationForm.dataset.submitting = '1';
+      if (submit) { submit.disabled = true; submit.textContent = 'Submitting registration…'; }
+      notice.textContent = '';
+      try {
+        var payload = new URLSearchParams(new FormData(registrationForm));
+        payload.set('form-name', 'gravity-registration');
+        var response = await fetch('/', {
+          method: 'POST',
+          body: payload.toString(),
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          credentials: 'same-origin'
+        });
+        if (!response.ok) throw new Error('Registration was not accepted (' + response.status + ').');
+        storageSet(REG_ACCESS_KEY, 'registered');
+        location.assign('/registration-thanks');
+      } catch (error) {
+        notice.textContent = 'Registration could not be confirmed. Please try again. Your details remain in the form.';
+      } finally {
+        registrationForm.dataset.submitting = '';
+        if (submit) { submit.disabled = false; submit.textContent = originalLabel; }
+      }
+    });
+  }
   var isRegistrationThanks = (location.pathname || '').toLowerCase().indexOf('/registration-thanks') >= 0;
   if (isRegistrationThanks) {
     storageSet(WELCOME_KEY, '1');
-    storageSet(REG_ACCESS_KEY, 'registered');
-    send('registration_complete', { registration_type: 'founding_year_download_access' });
+    // A direct visit to this page is not proof of a submitted registration.
+    // Registration access is granted only after a successful Netlify Forms POST.
+    if (storageGet(REG_ACCESS_KEY) === 'registered') send('registration_complete', { registration_type: 'founding_year_download_access' });
     var continueDownload = document.querySelector('[data-gravity-continue-download]');
     var pendingDownload = storageGet(PENDING_DOWNLOAD_KEY);
     if (continueDownload && pendingDownload) {
