@@ -22,6 +22,9 @@ function walk(dir){
   if(!full.endsWith('.html'))continue;
   let html=fs.readFileSync(full,'utf8');
   html=html.replace(/<div id="gravity-migration-preview-notice"[^>]*>[\s\S]*?<\/div>/g,'');
+  // Some embedded workrooms also carry styling and a minimizer script for the preview banner.
+  html=html.replace(/<style id="gravity-preview-banner-repair">[\s\S]*?<\/style>/g,'');
+  html=html.replace(/<script>(?:(?!<\/script>)[\s\S])*?getElementById\('gravity-migration-preview-notice'\)(?:(?!<\/script>)[\s\S])*?<\/script>/g,'');
   html=html.replace(/<meta name="robots" content="noindex,nofollow"\s*\/>\s*/gi,'');
   // Preserve page-specific index directives, canonical URLs and publisher attribution.
   if(/gravity-migration-preview-notice|GRAVITY MIGRATION PREVIEW — NOT LIVE FOR CUSTOMERS/.test(html))throw Error('Preview warning remained: '+full);
