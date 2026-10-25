@@ -139,3 +139,7 @@ The prior overlay repair could not reach customers with the unchanged script URL
 ## October 24 — Inventory Center next-program static QA
 
 Checked 29 first-inventory guided steps against the current Inventory Center application's HTML: all 29 target element IDs exist. Verified application references for manuals, tour script, backup, restore and main views. Discovered nine hard-coded absolute links to the Gravity production host from the inventory application (tool navigation and manual); changed them to relative same-origin routes to avoid accidentally leaving the isolated staging site while testing (`94c226d826447d4df6ffb227e7c6d55a4343e3bd`). The explicit migration-warning link to the existing TMB site remains intentional. Trigger staging alias only. Dynamic 29-step completion, inventory posting, backup/restore integrity, barcode hardware, offline support and Windows parity are not certified by source inspection; do not mark release ready.
+
+## October 24 — Voice credential rotation staging verification
+
+The owner reports replacement of the expired `OPENAI_API_KEY` in the isolated Gravity Netlify project. Redeploy the existing migration branch to the `gravity-migration` staging alias using GitHub Actions, without touching production. Verify live `gravity-tts` Cedar and `gravity-guide` requests return success before claiming restoration; check Work Study and Ask Gravity separately. Do not include or expose credentials in commits or logs.
