@@ -1,0 +1,39 @@
+name: Gravity production candidate — offline QA only
+on:
+  push:
+    branches:
+      - 'feature/gravity-migration-phase1-*'
+    paths:
+      - 'scripts/prepare-gravity-production-candidate.cjs'
+      - '.github/workflows/gravity-production-candidate-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Prepare offline candidate
+        run: node scripts/prepare-gravity-production-candidate.cjs
+      - name: Verify no staging banners or staging indexing blocks
+        run: |
+          node - <<'NODE'
+          const fs=require('fs'),p='build/gravity-production-candidate';
+          for(const file of ['index.html','register.html','books.html','windows-programs.html','gravity-work-study-lab.html']){
+            const html=fs.readFileSync(p+'/'+file,'utf8');
+            if(html.includes('gravity-migration-preview-notice')||html.includes('name="robots" content="noindex,nofollow"'))throw Error('Staging marker on '+file);
+          }
+          if(!fs.readFileSync(p+'/robots.txt','utf8').includes('Allow: /'))throw Error('Indexing still blocked');
+          console.log('OFFLINE CANDIDATE PASS — NOT DEPLOYED');
+          NODE
+      - name: Retain review-only build
+        uses: actions/upload-artifact@v4
+        with:
+          name: Gravity-production-candidate-UNPUBLISHED
+          path: build/gravity-production-candidate/
+          retention-days: 14
