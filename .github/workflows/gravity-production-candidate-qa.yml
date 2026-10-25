@@ -24,10 +24,23 @@ jobs:
         run: |
           node - <<'NODE'
           const fs=require('fs'),p='build/gravity-production-candidate';
-          for(const file of ['index.html','register.html','books.html','windows-programs.html','gravity-work-study-lab.html']){
-            const html=fs.readFileSync(p+'/'+file,'utf8');
-            if(html.includes('gravity-migration-preview-notice')||html.includes('name="robots" content="noindex,nofollow"'))throw Error('Staging marker on '+file);
-          }
+          const path=require('path');
+          let pages=0, brokenLinks=[];
+          function scan(dir){for(const entry of fs.readdirSync(dir,{withFileTypes:true})){
+            const filename=path.join(dir,entry.name);
+            if(entry.isDirectory()){scan(filename);continue;}
+            if(!filename.endsWith('.html'))continue;
+            pages++;
+            const html=fs.readFileSync(filename,'utf8');
+            if(html.includes('gravity-migration-preview-notice')||html.includes('GRAVITY MIGRATION PREVIEW — NOT LIVE FOR CUSTOMERS')||/name=["']robots["'][^>]*noindex,nofollow/i.test(html))throw Error('Staging marker on '+filename);
+            for(const match of html.matchAll(/(?:href|src)=["'](\/assets\/[^"'?#]+\.(?:pdf|zip|docx|xlsx|js|css))["'?#]/gi)){
+              const target=path.join(p,decodeURIComponent(match[1]).slice(1));
+              if(!fs.existsSync(target))brokenLinks.push(filename+': '+match[1]);
+            }
+          }}
+          scan(p);
+          if(pages<100)throw Error('Incomplete HTML candidate: '+pages);
+          if(brokenLinks.length)throw Error('Missing local linked assets: '+brokenLinks.slice(0,15).join('; '));
           if(!fs.readFileSync(p+'/robots.txt','utf8').includes('Allow: /'))throw Error('Indexing still blocked');
           console.log('OFFLINE CANDIDATE PASS — NOT DEPLOYED');
           NODE
