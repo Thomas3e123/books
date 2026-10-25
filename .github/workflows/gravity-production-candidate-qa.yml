@@ -44,6 +44,33 @@ jobs:
           if(!fs.readFileSync(p+'/robots.txt','utf8').includes('Allow: /'))throw Error('Indexing still blocked');
           console.log('OFFLINE CANDIDATE PASS — NOT DEPLOYED');
           NODE
+      - name: Prepare noindex review alias from production candidate
+        run: |
+          cp -a build/gravity-production-candidate build/gravity-release-review
+          printf 'User-agent: *\\nDisallow: /\\n' > build/gravity-release-review/robots.txt
+          node - <<'NODE'
+          const fs=require('fs'),path='build/gravity-release-review/_headers';
+          let headers=fs.readFileSync(path,'utf8');
+          headers=headers.replace(/^\\/\\*\\s*$/m,'/*\\n  X-Robots-Tag: noindex, nofollow');
+          fs.writeFileSync(path,headers);
+          if(!headers.includes('X-Robots-Tag: noindex, nofollow'))throw Error('Review alias must be noindex');
+          NODE
+      - name: Deploy unpublished review alias (never production)
+        shell: bash
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          ALT_NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+          ALT_NETLIFY_ACCESS_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+        run: |
+          set -euo pipefail
+          token="${NETLIFY_AUTH_TOKEN:-${ALT_NETLIFY_TOKEN:-${ALT_NETLIFY_ACCESS_TOKEN:-}}}"
+          if [ -z "$token" ]; then
+            echo 'Review alias not deployed: Netlify deployment token unavailable.'
+            exit 0
+          fi
+          export NETLIFY_AUTH_TOKEN="$token"
+          npx --yes netlify-cli@26 deploy --site fa5d39a0-bef9-4ff1-9c28-57d585d741d7 --dir build/gravity-release-review --functions functions --context deploy-preview --alias gravity-release-review --message "GRAVITY RELEASE REVIEW ONLY / NOINDEX / NOT PRODUCTION" --json > /tmp/gravity-release-review.json
+          node -e 'const v=require("/tmp/gravity-release-review.json");console.log(JSON.stringify({url:v.deploy_url||v.url,id:v.deploy_id},null,2))'
       - name: Retain review-only build
         uses: actions/upload-artifact@v4
         with:
