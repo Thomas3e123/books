@@ -59,6 +59,25 @@ for (const file of navPages) {
   }
   assert(!body.includes('https://gravity-leadership-system.netlify.app/assets/downloads/windows/manuals/current/'), 'Windows manual links must be relative on ' + file);
 }
+
+// Verify local book/Windows downloads resolve on the packaged staging site.
+const downloadAudit = {};
+for (const page of ['books.html','windows-programs.html']) {
+  const html = fs.readFileSync(path.join(site,page),'utf8');
+  const links = [...html.matchAll(/(?:href|src)=["']([^"']+)["']/gi)].map(m=>m[1]);
+  const local = links.filter(link=>/\.(?:pdf|docx|zip|exe)(?:[?#]|$)/i.test(link) && !/^(?:https?:)?\/\//i.test(link));
+  for(const link of local) {
+    const relative = decodeURIComponent(link.split(/[?#]/)[0]).replace(/^\/+/, '');
+    const resolved = path.resolve(site,relative);
+    assert(resolved.startsWith(site+path.sep) && fs.existsSync(resolved), 'Missing linked download on '+page+': '+link);
+  }
+  downloadAudit[page] = local.length;
+}
+const registration = fs.readFileSync(path.join(site,'register.html'),'utf8');
+assert(registration.includes('name="gravity-registration"') && registration.includes('data-netlify="true"'), 'Registration form missing Netlify form markup');
+assert(fs.existsSync(path.join(site,'assets/js/registration-identity.js')), 'Registration identity script missing');
+console.log('Download and registration markup gates:',JSON.stringify(downloadAudit));
+
 console.log(JSON.stringify({result:'PASS (static staging gates only)',htmlPages:pages.length,criticalFiles:required.length,notes:[
  'No backend, database, Windows-native, Netlify Form migration or customer QR end-to-end claim.',
  'Preview must remain noindex and must not be used as production.',
