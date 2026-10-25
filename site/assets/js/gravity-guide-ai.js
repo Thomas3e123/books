@@ -67,7 +67,54 @@ function voiceStatus(text){const el=document.getElementById('gravity-guide-voice
 function unlockNeuralAudio(){const C=window.AudioContext||window.webkitAudioContext;if(!C)return false;try{if(!audioCtx)audioCtx=new C();if(audioCtx.state==='suspended')audioCtx.resume().catch(()=>{});return true}catch(_){return false}}
 function stopNeuralAudio(){speechToken++;if(resolveSpeech){resolveSpeech();resolveSpeech=null}if(sourceNode){try{sourceNode.onended=null;sourceNode.stop(0)}catch(_){}try{sourceNode.disconnect()}catch(_){}sourceNode=null}}
 async function playNeuralBlob(blob,voice,token){if(token!==speechToken)return;if(!unlockNeuralAudio())throw new Error('Web Audio is unavailable');if(audioCtx.state==='suspended')await audioCtx.resume();const raw=await blob.arrayBuffer();const buffer=await audioCtx.decodeAudioData(raw.slice(0));if(token!==speechToken)return;return new Promise((resolve,reject)=>{try{resolveSpeech=resolve;const s=audioCtx.createBufferSource();sourceNode=s;s.buffer=buffer;s.connect(audioCtx.destination);s.onended=()=>{if(sourceNode===s)sourceNode=null;resolveSpeech=null;resolve()};s.start(0);voiceStatus(voiceLabel(voice)+' neural voice')}catch(e){reject(e)}})}
-async function speak(text,force=false){if((!force&&!voiceOn())||!text)return;stopNeuralAudio();const token=speechToken;const all=cleanText(text).slice(0,2800),voice=getVoice();const cut=all.length>320?(all.lastIndexOf('. ',260)>90?all.lastIndexOf('. ',260)+1:Math.min(210,all.length)):all.length;const part=all.slice(0,cut);voiceStatus('Generating '+voiceLabel(voice)+'…');try{const key=await hash(voice+'|.98|'+part),fake=new Request(location.origin+'/__gravity_voice_cache__/'+key+'.mp3');let blob=null,cache=null;if('caches'in window){try{cache=await caches.open('gravity-neural-voice-v2');const hit=await cache.match(fake);if(hit)blob=await hit.blob()}catch(_){cache=null}}if(!blob){const r=await fetch('/.netlify/functions/gravity-tts',{method:'POST',signal:AbortSignal.timeout(30000),headers:{'Content-Type':'application/json'},body:JSON.stringify({text:part,voice,speed:.98})});if(!r.ok){let detail='';try{detail=(await r.json()).error||''}catch(_){detail=await r.text().catch(()=>'')}throw new Error(detail||('TTS HTTP '+r.status))}const ct=(r.headers.get('content-type')||'').toLowerCase();if(!ct.includes('audio'))throw new Error('TTS did not return audio');blob=await r.blob();if(cache){try{await cache.put(fake,new Response(blob,{headers:{'Content-Type':'audio/mpeg'}}))}catch(_){}}}await playNeuralBlob(blob,voice,token)}catch(e){if(token!==speechToken)return;console.warn('Gravity neural voice unavailable:',e);voiceStatus(voiceLabel(voice)+' neural voice unavailable')}}
+async function speechBlob(part,voice,token){
+ const key=await hash(voice+'|.98|'+part);
+ if(token!==speechToken)return null;
+ const request=new Request(location.origin+'/__gravity_voice_cache__/'+key+'.mp3');
+ let cache=null,blob=null;
+ try{if('caches'in window){cache=await caches.open('gravity-neural-voice-v2');const hit=await cache.match(request);if(hit)blob=await hit.blob()}}catch(_){cache=null}
+ if(!blob){
+  const r=await fetch('/.netlify/functions/gravity-tts',{method:'POST',signal:AbortSignal.timeout(30000),headers:{'Content-Type':'application/json'},body:JSON.stringify({text:part,voice,speed:.98})});
+  if(!r.ok)throw new Error('TTS HTTP '+r.status);
+  if(!(r.headers.get('content-type')||'').toLowerCase().includes('audio'))throw new Error('Invalid audio response');
+  blob=await r.blob();
+  if(cache)cache.put(request,new Response(blob,{headers:{'Content-Type':'audio/mpeg'}})).catch(()=>{});
+ }
+ return token===speechToken?blob:null;
+}
+function speechParts(text){
+ let rest=cleanText(text).replace(/\s+/g,' ').trim().slice(0,2800),out=[];
+ while(rest){
+  const limit=out.length?600:210;
+  if(rest.length<=limit){out.push(rest);break}
+  let cut=rest.lastIndexOf('. ',limit);
+  if(cut<limit*.45)cut=rest.lastIndexOf(' ',limit);
+  if(cut<limit*.45)cut=limit;
+  else if(rest.slice(cut,cut+2)==='. ')cut++;
+  out.push(rest.slice(0,cut).trim());rest=rest.slice(cut).trim();
+ }
+ return out.filter(Boolean);
+}
+async function speak(text,force=false){
+ if((!force&&!voiceOn())||!text)return;
+ stopNeuralAudio();
+ const token=speechToken,voice=getVoice(),parts=speechParts(text);
+ if(!parts.length)return;
+ voiceStatus('Preparing '+voiceLabel(voice)+'…');
+ try{
+  let current=speechBlob(parts[0],voice,token);
+  let next=parts.length>1?speechBlob(parts[1],voice,token):null;
+  for(let i=0;i<parts.length;i++){
+   const blob=await current;
+   if(token!==speechToken)return;
+   if(!blob)throw new Error('Audio interrupted');
+   const following=i+2<parts.length?speechBlob(parts[i+2],voice,token):null;
+   await playNeuralBlob(blob,voice,token);
+   if(token!==speechToken)return;
+   current=next;next=following;
+  }
+ }catch(e){if(token!==speechToken)return;console.warn('Gravity neural voice unavailable',e);voiceStatus(voiceLabel(voice)+' neural voice unavailable')}
+}
 function localFallback(q){if(/employee.*(phone|code|pin|access)|(?:phone|code|pin).*employee/i.test(q))return 'Hosted employee access is live. Open your restaurant link at /e/CODE, or open Employee Access and enter your restaurant code and employee PIN. Ask your manager for those details. Managers publish the employee library; their working copy remains local.';if(/schedule|labor|coverage/i.test(q))return 'Start with Gravity Shift Lab for schedule building, availability, coverage, planned labor and safer shift validation. It supports explicit OFF and overnight shifts and blocks ambiguous or invalid time ranges. If you only need a calculation, use Gravity Numbers Lab.';if(/sop|procedure|poster|training/i.test(q))return 'Start with Gravity SOP Foundry. It works from the controlled 525-SOP library, separates working and published copies, supports training and editable posters, and keeps retraining decisions with the manager.';if(/inventory|barcode|reorder|receiv/i.test(q))return 'Start with Gravity Inventory Center. Use the guided Profile → Locations → Items → Starting Stock → Daily Changes → Count & Verify → Reorder → Review & Backup process, with barcode choices and backup controls.';if(/book|read/i.test(q))return 'Open Gravity Book Reader to read current digital Gravity books aloud. Founding Year registration is required for the substantive book content.';return 'I could not reach the AI service. You can still use Start Here, Gravity Assist, Books, the SOP Library, or the Help Center.'}
 async function ask(q){q=String(q||'').trim();if(!q)return;add('user',q);history.push('Visitor: '+q);const t=add('guide','Thinking…');try{const r=await fetch('/.netlify/functions/gravity-guide',{method:'POST',signal:AbortSignal.timeout(25000),headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q,page:location.pathname,history:history.slice(-6)})});if(!r.ok)throw new Error('guide');const j=await r.json(),ans=String(j.answer||'').trim();if(!ans)throw new Error('Empty guide response');t.remove();add('guide',ans,actions(q,ans));history.push('Gravity Guide: '+ans);history=history.slice(-8);speak(ans)}catch(e){const ans='The AI service is unavailable. This is saved guidance: '+localFallback(q);t.remove();add('guide',ans,actions(q,ans));history.push('Gravity Guide: '+ans);speak(ans)}}
 function setup(){const form=document.querySelector(FORM),root=document.querySelector(ROOT);if(!form||!root)return;if(localStorage.getItem(ONKEY)===null)localStorage.setItem(ONKEY,'on');const footer=root.querySelector('.gg-footer');if(footer&&!document.getElementById('gravity-guide-voice')){const wrap=document.createElement('span');wrap.className='gg-voice-tools';wrap.innerHTML='<label class="gg-sr-only" for="gravity-guide-voice">Gravity voice</label><select id="gravity-guide-voice" title="AI-generated neural voice"><option value="cedar">Cedar</option><option value="marin">Marin</option></select><button type="button" class="gg-text-btn" id="gravity-guide-voice-test">Test voice</button><button type="button" class="gg-text-btn" id="gravity-guide-voice-toggle"></button><small id="gravity-guide-voice-status">Neural voice ready</small>';footer.firstElementChild?.replaceWith(wrap);const sel=wrap.querySelector('#gravity-guide-voice'),test=wrap.querySelector('#gravity-guide-voice-test'),btn=wrap.querySelector('#gravity-guide-voice-toggle');sel.value=getVoice();sel.onchange=()=>{stopNeuralAudio();localStorage.setItem(VKEY,sel.value);voiceStatus(voiceLabel(sel.value)+' selected')};const paint=()=>btn.textContent=voiceOn()?'Voice: On':'Voice: Off';paint();btn.onclick=()=>{unlockNeuralAudio();localStorage.setItem(ONKEY,voiceOn()?'off':'on');if(!voiceOn())stopNeuralAudio();paint();voiceStatus(voiceOn()?'Neural voice ready':'Voice off')};test.onclick=()=>{unlockNeuralAudio();speak('This is the Gravity Guide natural neural voice.',true)}}form.addEventListener('submit',e=>{e.preventDefault();e.stopImmediatePropagation();unlockNeuralAudio();const inp=form.querySelector('input[name="question"]')||form.querySelector('input');const q=inp?.value||'';if(inp)inp.value='';document.querySelector('#gravity-guide-starters')?.setAttribute('hidden','');ask(q)},true);root.addEventListener('click',e=>{const b=e.target.closest('[data-gg-question]');if(!b)return;e.preventDefault();e.stopImmediatePropagation();unlockNeuralAudio();document.querySelector('#gravity-guide-starters')?.setAttribute('hidden','');ask(b.dataset.ggQuestion||b.textContent)},true);root.querySelector('#gravity-guide-reset')?.addEventListener('click',()=>{history=[];stopNeuralAudio()})}
