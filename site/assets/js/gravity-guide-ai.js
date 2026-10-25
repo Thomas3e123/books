@@ -116,7 +116,54 @@ async function speak(text,force=false){
  }catch(e){if(token!==speechToken)return;console.warn('Gravity neural voice unavailable',e);voiceStatus(voiceLabel(voice)+' neural voice unavailable')}
 }
 function localFallback(q){if(/employee.*(phone|code|pin|access)|(?:phone|code|pin).*employee/i.test(q))return 'Hosted employee access is live. Open your restaurant link at /e/CODE, or open Employee Access and enter your restaurant code and employee PIN. Ask your manager for those details. Managers publish the employee library; their working copy remains local.';if(/schedule|labor|coverage/i.test(q))return 'Start with Gravity Shift Lab for schedule building, availability, coverage, planned labor and safer shift validation. It supports explicit OFF and overnight shifts and blocks ambiguous or invalid time ranges. If you only need a calculation, use Gravity Numbers Lab.';if(/sop|procedure|poster|training/i.test(q))return 'Start with Gravity SOP Foundry. It works from the controlled 525-SOP library, separates working and published copies, supports training and editable posters, and keeps retraining decisions with the manager.';if(/inventory|barcode|reorder|receiv/i.test(q))return 'Start with Gravity Inventory Center. Use the guided Profile → Locations → Items → Starting Stock → Daily Changes → Count & Verify → Reorder → Review & Backup process, with barcode choices and backup controls.';if(/book|read/i.test(q))return 'Open Gravity Book Reader to read current digital Gravity books aloud. Founding Year registration is required for the substantive book content.';return 'I could not reach the AI service. You can still use Start Here, Gravity Assist, Books, the SOP Library, or the Help Center.'}
-async function ask(q){q=String(q||'').trim();if(!q)return;add('user',q);history.push('Visitor: '+q);const t=add('guide','Thinking…');try{const r=await fetch('/.netlify/functions/gravity-guide',{method:'POST',signal:AbortSignal.timeout(25000),headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q,page:location.pathname,history:history.slice(-6)})});if(!r.ok)throw new Error('guide');const j=await r.json(),ans=String(j.answer||'').trim();if(!ans)throw new Error('Empty guide response');t.remove();add('guide',ans,actions(q,ans));history.push('Gravity Guide: '+ans);history=history.slice(-8);speak(ans)}catch(e){const ans='The AI service is unavailable. This is saved guidance: '+localFallback(q);t.remove();add('guide',ans,actions(q,ans));history.push('Gravity Guide: '+ans);speak(ans)}}
-function setup(){const form=document.querySelector(FORM),root=document.querySelector(ROOT);if(!form||!root)return;if(localStorage.getItem(ONKEY)===null)localStorage.setItem(ONKEY,'on');const footer=root.querySelector('.gg-footer');if(footer&&!document.getElementById('gravity-guide-voice')){const wrap=document.createElement('span');wrap.className='gg-voice-tools';wrap.innerHTML='<label class="gg-sr-only" for="gravity-guide-voice">Gravity voice</label><select id="gravity-guide-voice" title="AI-generated neural voice"><option value="cedar">Cedar</option><option value="marin">Marin</option></select><button type="button" class="gg-text-btn" id="gravity-guide-voice-test">Test voice</button><button type="button" class="gg-text-btn" id="gravity-guide-voice-toggle"></button><small id="gravity-guide-voice-status">Neural voice ready</small>';footer.firstElementChild?.replaceWith(wrap);const sel=wrap.querySelector('#gravity-guide-voice'),test=wrap.querySelector('#gravity-guide-voice-test'),btn=wrap.querySelector('#gravity-guide-voice-toggle');sel.value=getVoice();sel.onchange=()=>{stopNeuralAudio();localStorage.setItem(VKEY,sel.value);voiceStatus(voiceLabel(sel.value)+' selected')};const paint=()=>btn.textContent=voiceOn()?'Voice: On':'Voice: Off';paint();btn.onclick=()=>{unlockNeuralAudio();localStorage.setItem(ONKEY,voiceOn()?'off':'on');if(!voiceOn())stopNeuralAudio();paint();voiceStatus(voiceOn()?'Neural voice ready':'Voice off')};test.onclick=()=>{unlockNeuralAudio();speak('This is the Gravity Guide natural neural voice.',true)}}form.addEventListener('submit',e=>{e.preventDefault();e.stopImmediatePropagation();unlockNeuralAudio();const inp=form.querySelector('input[name="question"]')||form.querySelector('input');const q=inp?.value||'';if(inp)inp.value='';document.querySelector('#gravity-guide-starters')?.setAttribute('hidden','');ask(q)},true);root.addEventListener('click',e=>{const b=e.target.closest('[data-gg-question]');if(!b)return;e.preventDefault();e.stopImmediatePropagation();unlockNeuralAudio();document.querySelector('#gravity-guide-starters')?.setAttribute('hidden','');ask(b.dataset.ggQuestion||b.textContent)},true);root.querySelector('#gravity-guide-reset')?.addEventListener('click',()=>{history=[];stopNeuralAudio()})}
+// Short, varied acknowledgments for requests that are still processing.
+// Reuse the same Cedar audio cache; never assert that a lookup has finished.
+const ACKNOWLEDGMENTS=[
+ 'Hold on. Let me check.',
+ 'Just a second. I will check.',
+ 'I will work on that now.',
+ 'Okay, yes. I will find out.',
+ 'I am getting your answer as we speak.',
+ 'Let me look into that.',
+ 'I will take a look.',
+ 'Let me work through that.',
+ 'Let me see what I can find.',
+ 'One moment while I look into it.'
+];
+let recentAck=[],askSequence=0;
+function nextAcknowledgment(){
+ const candidates=ACKNOWLEDGMENTS.filter(x=>!recentAck.includes(x));
+ const pool=candidates.length?candidates:ACKNOWLEDGMENTS;
+ const chosen=pool[Math.floor(Math.random()*pool.length)];
+ recentAck.push(chosen);if(recentAck.length>5)recentAck.shift();
+ return chosen;
+}
+async function ask(q){
+ q=String(q||'').trim();if(!q)return;
+ const turn=++askSequence;
+ stopNeuralAudio();
+ add('user',q);history.push('Visitor: '+q);
+ const t=add('guide','Thinking…');
+ let pending=true;
+ const timer=setTimeout(()=>{
+  if(!pending||turn!==askSequence||!voiceOn())return;
+  // This is an optional conversational cue, not proof a lookup is complete.
+  speak(nextAcknowledgment());
+ },2200);
+ try{
+  const r=await fetch('/.netlify/functions/gravity-guide',{method:'POST',signal:AbortSignal.timeout(25000),headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q,page:location.pathname,history:history.slice(-6)})});
+  if(!r.ok)throw new Error('guide');
+  const j=await r.json(),ans=String(j.answer||'').trim();
+  if(!ans)throw new Error('Empty guide response');
+  if(turn!==askSequence)return;
+  t.remove();add('guide',ans,actions(q,ans));history.push('Gravity Guide: '+ans);
+  history=history.slice(-8);speak(ans);
+ }catch(e){
+  if(turn!==askSequence)return;
+  const ans='The AI service is unavailable. This is saved guidance: '+localFallback(q);
+  t.remove();add('guide',ans,actions(q,ans));history.push('Gravity Guide: '+ans);speak(ans);
+ }finally{pending=false;clearTimeout(timer)}
+}
+function setup(){const form=document.querySelector(FORM),root=document.querySelector(ROOT);if(!form||!root)return;if(localStorage.getItem(ONKEY)===null)localStorage.setItem(ONKEY,'on');const footer=root.querySelector('.gg-footer');if(footer&&!document.getElementById('gravity-guide-voice')){const wrap=document.createElement('span');wrap.className='gg-voice-tools';wrap.innerHTML='<label class="gg-sr-only" for="gravity-guide-voice">Gravity voice</label><select id="gravity-guide-voice" title="AI-generated neural voice"><option value="cedar">Cedar</option><option value="marin">Marin</option></select><button type="button" class="gg-text-btn" id="gravity-guide-voice-test">Test voice</button><button type="button" class="gg-text-btn" id="gravity-guide-voice-toggle"></button><small id="gravity-guide-voice-status">Neural voice ready</small>';footer.firstElementChild?.replaceWith(wrap);const sel=wrap.querySelector('#gravity-guide-voice'),test=wrap.querySelector('#gravity-guide-voice-test'),btn=wrap.querySelector('#gravity-guide-voice-toggle');sel.value=getVoice();sel.onchange=()=>{stopNeuralAudio();localStorage.setItem(VKEY,sel.value);voiceStatus(voiceLabel(sel.value)+' selected')};const paint=()=>btn.textContent=voiceOn()?'Voice: On':'Voice: Off';paint();btn.onclick=()=>{unlockNeuralAudio();localStorage.setItem(ONKEY,voiceOn()?'off':'on');if(!voiceOn())stopNeuralAudio();paint();voiceStatus(voiceOn()?'Neural voice ready':'Voice off')};test.onclick=()=>{unlockNeuralAudio();speak('This is the Gravity Guide natural neural voice.',true)}}form.addEventListener('submit',e=>{e.preventDefault();e.stopImmediatePropagation();unlockNeuralAudio();const inp=form.querySelector('input[name="question"]')||form.querySelector('input');const q=inp?.value||'';if(inp)inp.value='';document.querySelector('#gravity-guide-starters')?.setAttribute('hidden','');ask(q)},true);root.addEventListener('click',e=>{const b=e.target.closest('[data-gg-question]');if(!b)return;e.preventDefault();e.stopImmediatePropagation();unlockNeuralAudio();document.querySelector('#gravity-guide-starters')?.setAttribute('hidden','');ask(b.dataset.ggQuestion||b.textContent)},true);root.querySelector('#gravity-guide-reset')?.addEventListener('click',()=>{askSequence++;history=[];stopNeuralAudio()})}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup);else setup();
 })();
