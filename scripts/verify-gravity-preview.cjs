@@ -62,7 +62,7 @@ for (const file of navPages) {
 
 // Verify local book/Windows downloads resolve on the packaged staging site.
 const downloadAudit = {};
-for (const page of ['books.html','windows-programs.html']) {
+for (const page of ['books.html','windows-programs.html','gravity-fulfillment-center.html','free-resources.html']) {
   const html = fs.readFileSync(path.join(site,page),'utf8');
   const links = [...html.matchAll(/(?:href|src)=["']([^"']+)["']/gi)].map(m=>m[1]);
   const local = links.filter(link=>/\.(?:pdf|docx|zip|exe)(?:[?#]|$)/i.test(link) && !/^(?:https?:)?\/\//i.test(link));
