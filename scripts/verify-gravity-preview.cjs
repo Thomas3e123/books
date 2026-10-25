@@ -78,6 +78,16 @@ assert(registration.includes('name="gravity-registration"') && registration.incl
 assert(fs.existsSync(path.join(site,'assets/js/registration-identity.js')), 'Registration identity script missing');
 console.log('Download and registration markup gates:',JSON.stringify(downloadAudit));
 
+
+// Baseline mobile structural checks for critical public routes (not visual-device certification).
+for (const page of ['index.html','register.html','windows-programs.html','gravity-sop-foundry.html','gravity-shift-lab.html','gravity-inventory-center.html','gravity-work-study-lab.html','testing-room.html']) {
+  const html = fs.readFileSync(path.join(site,page),'utf8');
+  assert(/<meta[^>]+name=["']viewport["'][^>]+content=["'][^"']*width=device-width/i.test(html), 'Missing responsive viewport on '+page);
+  assert(/data-menu-toggle/.test(html) && /data-menu/.test(html), 'Missing accessible mobile navigation structure on '+page);
+}
+const navigationJs=fs.readFileSync(path.join(site,'assets/js/site.js'),'utf8');
+assert(navigationJs.includes("menuToggle.setAttribute('aria-expanded'") && navigationJs.includes("nav.classList.toggle('open'"), 'Mobile menu open/close logic missing');
+
 console.log(JSON.stringify({result:'PASS (static staging gates only)',htmlPages:pages.length,criticalFiles:required.length,notes:[
  'No backend, database, Windows-native, Netlify Form migration or customer QR end-to-end claim.',
  'Preview must remain noindex and must not be used as production.',
