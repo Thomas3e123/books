@@ -143,3 +143,15 @@ Checked 29 first-inventory guided steps against the current Inventory Center app
 ## October 24 — Voice credential rotation staging verification
 
 The owner reports replacement of the expired `OPENAI_API_KEY` in the isolated Gravity Netlify project. Redeploy the existing migration branch to the `gravity-migration` staging alias using GitHub Actions, without touching production. Verify live `gravity-tts` Cedar and `gravity-guide` requests return success before claiming restoration; check Work Study and Ask Gravity separately. Do not include or expose credentials in commits or logs.
+
+## October 25 — Customer-registration continuity audit (read-only)
+
+Verified directly against both Netlify site form inventories:
+- Thomas Monroe Books `gravity-registration`: **15 stored submissions** on original Netlify project, not 15 proven Identity accounts; do not mislabel form submissions as account records. The destination Gravity Netlify project has **0** recorded `gravity-registration` submissions.
+- Both registration forms have the same 16 named fields, including consent, provider/method, contact and operation profile fields. A copied HTML form does not migrate those stored submissions.
+- Source `site/register.html` submits as a Netlify Form to `/registration-thanks`; the optional social-provider script only pre-populates the form after an Identity login when available. Consequently the 15 form submissions do not establish 15 existing login accounts.
+- Exact user identities/consent and deduplication cannot be audited using current Netlify integration: it offers form metadata/counts but not a submission-list read or import. No submissions were copied or modified. Preserve original Netlify project and submissions; obtain a secure original-project CSV export and approved destination handling before considering records migrated.
+- Do not submit duplicate registrations for existing customers or activate social sign-in on the new project without verifying provider configuration and access continuity.
+- Existing SOP Foundry Employee Connection uses `@netlify/database` on a separate project; no evidence yet that original employee data exists in the destination database. Freeze no data; delete none; test workspace continuity using a non-production test workspace only.
+
+**Release gate:** registration and Employee Connection migration remain unresolved, despite equal form field definitions. Preserve the legacy site and its data until a verified transfer/access plan is complete.
