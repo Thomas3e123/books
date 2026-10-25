@@ -1826,7 +1826,7 @@
     },
     {
       "path": "site/gravity-assist.html",
-      "sha256": "29f15ede43280fa7f384e25817938a8b62665500919f1b6682e035e613c133bc"
+      "sha256": "b244d6a0e46ea2c77b4df56e1d37954637e6c0a11f8cb3e8934c1106cbb3bde9"
     },
     {
       "path": "site/gravity-aware.html",
@@ -1990,7 +1990,7 @@
     },
     {
       "path": "site/register.html",
-      "sha256": "0445c52d504c3303ef57852a7d9ef9afe3169f593b8d608268cdc42025e8fa9b"
+      "sha256": "a4bee4b6a9a0ad00d19ac5e3f9c14b851c40fa29b7bc362fe7e3605aed03ba26"
     },
     {
       "path": "site/registration-thanks.html",
