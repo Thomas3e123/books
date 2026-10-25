@@ -177,3 +177,7 @@ Release gates outstanding: existing Netlify Form registration submissions are no
 ## Cedar voice latency pilot — October 25
 
 Changed only the migration branch `site/assets/js/gravity-guide-ai.js` in commit `4861e330`. Gravity now synthesizes a short first speech segment (~210 characters), queues subsequent segments (~600 characters) while the first plays, and plays all speech sequentially. Full written answer unchanged, Cedar remains default, voice cancellation still uses the speech token, and Cache API reuse remains. JavaScript syntax parsing passed. This is a **staging-only pilot**, not yet empirically latency tested, and must be validated for speech completion, punctuation, interruption, audio gaps, simultaneous requests, and actual first-sound delay. No voice-performance guarantee until tested. Do not merge to main or release without passing pilot QA.
+
+## Cedar varied acknowledgment pilot — October 25
+
+Staging change `495eb1fc`: if a guide request is still awaiting the answer after 2.2 seconds and voice is on, play a short varied acknowledgment selected from ten phrases with last-five anti-repeat rotation. The actual answer interrupts the cue when available and immediately speaks; written response remains independent. Audio uses the existing TTS endpoint/cache; **first-time acknowledgments are not pre-recorded and may have network latency**. Requires live QA for overlap, interruption, speed, and phone access; do not treat as production-ready yet.
