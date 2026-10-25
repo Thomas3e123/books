@@ -47,13 +47,15 @@ jobs:
       - name: Prepare noindex review alias from production candidate
         run: |
           cp -a build/gravity-production-candidate build/gravity-release-review
-          printf 'User-agent: *\\nDisallow: /\\n' > build/gravity-release-review/robots.txt
           node - <<'NODE'
           const fs=require('fs'),path='build/gravity-release-review/_headers';
+          fs.writeFileSync('build/gravity-release-review/robots.txt','User-agent: *'+String.fromCharCode(10)+'Disallow: /'+String.fromCharCode(10));
           let headers=fs.readFileSync(path,'utf8');
-          headers=headers.replace(/^\\/\\*\\s*$/m,'/*\\n  X-Robots-Tag: noindex, nofollow');
-          fs.writeFileSync(path,headers);
-          if(!headers.includes('X-Robots-Tag: noindex, nofollow'))throw Error('Review alias must be noindex');
+          const lines=headers.split(String.fromCharCode(10));
+          const i=lines.findIndex(line=>line.trim()==='/*');
+          if(i<0)throw Error('Missing wildcard headers stanza');
+          lines.splice(i+1,0,'  X-Robots-Tag: noindex, nofollow');
+          fs.writeFileSync(path,lines.join(String.fromCharCode(10)));
           NODE
       - name: Deploy unpublished review alias (never production)
         shell: bash
