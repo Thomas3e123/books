@@ -1,0 +1,36 @@
+name: Gravity LIVE domain — final HTTPS, www, MX and Foundry verification (READ ONLY)
+on:
+  push:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths: ['.github/workflows/gravity-domain-https-final-check-2026-10-26.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  custom-domain-live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test DNS, apex HTTPS certificate, www redirect, Google Workspace MX and Foundry health
+        env:
+          GRAVITY_DNS_EXPECT_CUTOVER: '1'
+        run: node scripts/check-gravity-domain-dns.cjs
+      - name: Verify public pages are currently blocked from search indexing until final approval
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://gravityleadershipsystem.com'
+          for page in / /books /book-reader /register /gravity-report /windows-programs; do
+            headers=$(mktemp)
+            code=$(curl --max-time 25 --fail --silent --show-error --location -D "$headers" -o /dev/null -w '%{http_code}' "$base$page")
+            test "$code" = 200
+            grep -qi '^x-robots-tag: noindex, nofollow' "$headers" || { echo "FAIL: noindex absent from $page"; exit 1; }
+            echo "GRAVITY LIVE DOMAIN OK, NOINDEX STILL ACTIVE $page"
+            rm -f "$headers"
+          done
+          curl --fail --silent --show-error --max-time 25 "$base/robots.txt" | grep -Fq 'Disallow: /'
+          echo 'GRAVITY LIVE HTTPS AND NOINDEX VERIFIED. DO NOT PUBLICLY INDEX SITE WITHOUT FURTHER APPROVAL.'
