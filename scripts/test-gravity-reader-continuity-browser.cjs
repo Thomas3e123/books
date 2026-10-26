@@ -35,6 +35,8 @@ async function checkCatalog(browser,host){
     status:document.getElementById('reader-status').textContent
   }),book.id));
  }
+ const v3=results.find(x=>x.id==='sop-library-v3');
+ assert.match(v3?.first||'',/^V3-001\s*\|/,'SOP Library Volume 3 must skip its long contents list');
  assert.deepEqual(errors,[],'Reader page errors');
  console.log('READER ALL BOOK OPENING RESULTS '+JSON.stringify({host,count:books.length,results}));
  await ctx.close();
