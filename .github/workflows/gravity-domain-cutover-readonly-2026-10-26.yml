@@ -1,0 +1,29 @@
+name: Gravity domain — Squarespace DNS and HTTPS read-only cutover verification
+on:
+  push:
+    branches:
+      - 'feature/gravity-migration-phase1-2026-10-22'
+    paths:
+      - 'scripts/check-gravity-domain-dns.cjs'
+      - '.github/workflows/gravity-domain-cutover-readonly-2026-10-26.yml'
+  workflow_dispatch:
+    inputs:
+      after_dns_change:
+        description: 'Set true only after Squarespace website DNS was updated. Fails if DNS or HTTPS are not ready.'
+        required: false
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  verify-domain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Read authoritative DNS and Google Workspace MX without changes
+        env:
+          GRAVITY_DNS_EXPECT_CUTOVER: ${{ github.event.inputs.after_dns_change == 'true' && '1' || '0' }}
+        run: node scripts/check-gravity-domain-dns.cjs
