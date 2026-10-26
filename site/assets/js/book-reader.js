@@ -103,6 +103,11 @@ function mainContentOffset(text){
    if(!hasProse)continue;
    return lines.slice(0,i).join('\n').length+1;
  }
+ // Volumes built as procedural libraries may begin with SOP IDs rather than
+ // chapters or narrative introductions. Skip their TOC by finding the first
+ // actual controlled procedure heading (not the "V3-001 - ..." contents row).
+ const firstSop=lines.findIndex((line,i)=>i>toc&&i<1800&&/^V3-001\s*\|\s*[^\n]+$/.test(line.trim()));
+ if(firstSop>toc)return lines.slice(0,firstSop).join('\n').length+1;
  return 0;
 }
 
