@@ -4,6 +4,7 @@ on:
     branches: ['feature/gravity-migration-phase1-2026-10-22']
     paths:
       - '.github/workflows/gravity-final-production-readiness-2026-10.yml'
+      - 'scripts/audit-gravity-launch-links.cjs'
   workflow_dispatch:
 permissions:
   contents: read
@@ -79,6 +80,26 @@ jobs:
             H="$(curl --fail --silent --show-error --retry 3 --retry-delay 2 --max-time 25 "$BASE/foundry-hosted/health")"
             HEALTH="$H" node -e 'const j=JSON.parse(process.env.HEALTH);if(j.ok!==true)process.exit(1)'
             echo "RELEASE ALIAS HOSTED HEALTH PASS $BASE"
+          done
+      - name: Diagnose live Book Reader asset and hosted backend version (read-only)
+        if: always()
+        shell: bash
+        run: |
+          set +e
+          for BASE in https://gravity-migration--gravity-leadership-system.netlify.app https://gravity-release-review--gravity-leadership-system.netlify.app https://gravity-leadership-system.netlify.app; do
+            echo "GRAVITY_DIAG_BASE $BASE"
+            for PAGE in /book-reader /assets/js/book-reader.js /assets/css/book-reader.css /foundry-hosted/health /gravity-report/articles.json; do
+              TMP="$(mktemp)"
+              RESP="$(mktemp)"
+              HTTP="$(curl -sS -L --max-time 18 -o "$RESP" -D "$TMP" -w '%{http_code}' "$BASE$PAGE")"
+              echo "GRAVITY_DIAG $PAGE HTTP $HTTP; bytes $(wc -c < "$RESP"); alias $BASE"
+              if [ "$PAGE" = "/book-reader" ]; then
+                grep -o 'book-reader.js?v=[^"]*' "$RESP" | head -1 || true
+                if grep -q 'reader-available-books' "$RESP"; then echo "GRAVITY_DIAG 15-book touch picker HTML PRESENT"; else echo "GRAVITY_DIAG 15-book touch picker HTML MISSING"; fi
+              fi
+              if [ "$PAGE" = "/foundry-hosted/health" ] && [ "$HTTP" != "200" ]; then head -c 200 "$RESP"; echo; fi
+              rm -f "$TMP" "$RESP"
+            done
           done
       - name: Verify Cedar reader catalog and book-text availability on both aliases
         run: node scripts/test-gravity-book-reader-live.cjs
