@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/gravity-production-deep-readonly-qa-2026-10-26.yml'
       - 'scripts/verify-gravity-prod-precutover-live.cjs'
+      - 'scripts/audit-gravity-live-downloads.cjs'
   workflow_dispatch:
 permissions:
   contents: read
