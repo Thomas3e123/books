@@ -19,6 +19,19 @@ jobs:
         env:
           GRAVITY_DNS_EXPECT_CUTOVER: '1'
         run: node scripts/check-gravity-domain-dns.cjs
+      - name: Diagnose HTTPS certificate and redirect for apex and WWW independently
+        if: always()
+        shell: bash
+        run: |
+          set +e
+          for host in gravityleadershipsystem.com www.gravityleadershipsystem.com; do
+            echo "GRAVITY_TLS_DIAG_HOST $host"
+            dig +short "$host" A
+            dig +short "$host" CNAME
+            curl --silent --show-error --location --max-time 20 --head --output /dev/null --write-out 'GRAVITY_TLS_RESULT %{url_effective} HTTP=%{http_code} SSL_VERIFY=%{ssl_verify_result} REMOTE_IP=%{remote_ip}\n' "https://$host/" 2>&1 | head -20
+            echo "GRAVITY_TLS_DIAG_END $host"
+          done
+          curl --silent --show-error --max-time 20 --output /dev/null --write-out 'GRAVITY_FOUNDRY_APEX_HEALTH %{http_code}\n' https://gravityleadershipsystem.com/foundry-hosted/health
       - name: Verify public pages are currently blocked from search indexing until final approval
         shell: bash
         run: |
