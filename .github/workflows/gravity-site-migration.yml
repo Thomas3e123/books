@@ -6,6 +6,8 @@ on:
       - 'feature/gravity-migration-phase1-*'
     paths:
       - '.github/workflows/gravity-site-migration.yml'
+      - 'functions/gravity-report/**'
+      - 'scripts/test-gravity-report.mjs'
       - 'site/apps/sop-foundry/staff-posters.js'
       - 'site/apps/sop-foundry/hosted-bridge.js'
       - 'site/apps/sop-foundry/room-gate.js'
@@ -43,6 +45,7 @@ jobs:
           node scripts/update-manifest.cjs
           npm run build
           node scripts/verify-gravity-preview.cjs
+          node scripts/test-gravity-report.mjs
       - name: Verify Employee Connection contract using disposable in-memory data
         run: node scripts/test-gravity-employee-connection.cjs
       - name: Preserve reproducible preview source on migration branch
