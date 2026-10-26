@@ -1,6 +1,7 @@
 'use strict';
 /* Isolated Employee Connection contract test. All workspaces and PINs exist in memory only. */
 const assert=require('node:assert/strict');
+async function main(){
 const {createHostedFoundryHandler}=await import('../functions/foundry-hosted/core.mjs');
 class MemoryRepo {
  constructor(){this.workspaces=[];this.sessions=new Map();this.activity=[];this.messages=[];this.training=[]}
@@ -18,7 +19,6 @@ class MemoryRepo {
 }
 const repo=new MemoryRepo(),handler=createHostedFoundryHandler(repo),origin='https://staging-test.invalid';
 async function call(path,method='GET',data,token){const headers={};if(data!==undefined)headers['content-type']='application/json';if(token)headers.authorization='Bearer '+token;const req=new Request(origin+'/foundry-hosted/'+path,{method,headers,body:data===undefined?undefined:JSON.stringify(data)});const res=await handler(req);return {status:res.status,json:await res.json()}}
-(async()=>{
  assert.equal((await call('health')).status,200);
  assert.equal((await call('manager/create','POST',{employeePin:'0000'})).status,400);
  const sop={id:'test-sop',title:'Disposable handwashing standard',revision:'1',purpose:'Wash hands safely.',role:'Employee',steps:['Use running water.','Apply soap.','Scrub hands.'],checks:'Hands cleaned.',correction:'Wash again.',trainingRequirement:'review'};
@@ -47,4 +47,5 @@ async function call(path,method='GET',data,token){const headers={};if(data!==und
  assert.equal((await call('training','POST',{sopId:'test-sop',revision:'1',name:'Tester',acknowledge:true,answers},token)).status,409);
  assert.equal((await call('manager/status','GET',undefined,'bad-key')).status,401);
  console.log('PASS: 20 isolated Employee Connection contract assertions; no persistent workspace or customer data touched.');
-})().catch(e=>{console.error(e);process.exitCode=1});
+}
+main().catch(e=>{console.error(e);process.exitCode=1});
