@@ -1,0 +1,22 @@
+name: Gravity Book Reader — live staging and release-review QA
+on:
+  push:
+    branches:
+      - 'feature/gravity-migration-phase1-*'
+    paths:
+      - 'scripts/test-gravity-book-reader-live.cjs'
+      - '.github/workflows/gravity-book-reader-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reader-http-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test actual book reader on isolated Gravity deployments
+        run: node scripts/test-gravity-book-reader-live.cjs
