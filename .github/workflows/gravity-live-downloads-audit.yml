@@ -1,4 +1,4 @@
-name: Gravity published preview - test all download URLs, NO DEPLOY
+name: Gravity release-review - test all download URLs, NO DEPLOY
 on:
   push:
     branches:
@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: '22'
       - name: Read-only HEAD checks for all local download targets
-        run: node scripts/audit-gravity-live-downloads.cjs
+        run: GRAVITY_AUDIT_HOST=https://gravity-release-review--gravity-leadership-system.netlify.app node scripts/audit-gravity-live-downloads.cjs
       - name: Preserve missing file and status evidence
         if: always()
         uses: actions/upload-artifact@v4
