@@ -45,6 +45,10 @@ function walk(dir){
  }
 }
 walk(destination);
+const {ensureMenus,auditMenus}=require('./gravity-navigation-consistency.cjs');
+const menuReport=ensureMenus(destination);
+auditMenus(destination);
+console.log('Candidate menu coverage: '+JSON.stringify(menuReport));
 const headersFile=path.join(destination,'_headers');
 let headers=fs.readFileSync(headersFile,'utf8');
 headers=headers.replace(/^  X-Robots-Tag: noindex, nofollow\r?\n/gm,'');
