@@ -31,7 +31,7 @@
   <input id="reader-seek" type="range" min="0" max="100" value="0" step="1" aria-label="Seek through current narrated part">
   <span id="reader-time">0:00 / 0:00</span>
 </div>
-<div class="reader-volume"><label for="reader-volume">Playback volume</label><input id="reader-volume" type="range" min="0" max="100" value="100" step="5"></div>
+<div class="reader-volume"><label for="reader-volume">Independent Narration Volume <output id="reader-volume-level" for="reader-volume">100%</output></label><input id="reader-volume" type="range" min="0" max="100" value="100" step="5" aria-label="Narration volume"></div>
 <fieldset class="reader-eq" aria-label="Audio tone controls">
   <legend>Adjust Narration Tone</legend>
   <div class="reader-eq-row"><label for="reader-bass">Bass <output id="reader-bass-level" for="reader-bass">0 dB</output></label><input id="reader-bass" type="range" min="-12" max="12" value="0" step="1"></div>
