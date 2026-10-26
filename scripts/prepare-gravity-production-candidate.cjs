@@ -9,6 +9,10 @@ const fs=require('node:fs'),path=require('node:path');
 const root=path.resolve(__dirname,'..');
 const source=path.join(root,'site');
 const destination=path.join(root,'build','gravity-production-candidate');
+// The proposed public Gravity domain is a build target, NOT evidence that DNS is connected.
+const publicOrigin='https://gravityleadershipsystem.com';
+const stagingOrigins=['https://gravity-migration--gravity-leadership-system.netlify.app','https://gravity-leadership-system.netlify.app'];
+const privatePage=/^(?:apps\/|testing-room-manager\.html$|registration-thanks\.html$|gravity-report-thanks\.html$|review-thanks\.html$)/i;
 if(!fs.existsSync(path.join(source,'gravity-shift-lab.html')))throw Error('Gravity staging source missing');
 if(destination===source||source.startsWith(destination+path.sep))throw Error('Unsafe output directory');
 fs.mkdirSync(path.dirname(destination),{recursive:true});
@@ -25,8 +29,17 @@ function walk(dir){
   // Some embedded workrooms also carry styling and a minimizer script for the preview banner.
   html=html.replace(/<style id="gravity-preview-banner-repair">[\s\S]*?<\/style>/g,'');
   html=html.replace(/<script>(?:(?!<\/script>)[\s\S])*?getElementById\('gravity-migration-preview-notice'\)(?:(?!<\/script>)[\s\S])*?<\/script>/g,'');
+  // Remove the blanket preview noindex from public pages, but KEEP private employee,
+  // manager and receipt pages out of the public search index after launch.
   html=html.replace(/<meta\s+name=["']robots["']\s+content=["']noindex,nofollow["']\s*\/?>\s*/gi,'');
-  // Preserve page-specific index directives, canonical URLs and publisher attribution.
+  const relative=path.relative(source,full).split(path.sep).join('/');
+  if(privatePage.test(relative)){
+    html=html.replace(/<meta\b[^>]*name=["']robots["'][^>]*>/gi,'');
+    html=html.replace(/(<head\b[^>]*>)/i,'$1\n<meta name="robots" content="noindex,nofollow"/>');
+  }
+  // Production metadata must agree with the candidate sitemap, not the preview host.
+  for(const previewOrigin of stagingOrigins)html=html.split(previewOrigin).join(publicOrigin);
+  // Preserve Gravity publisher attribution and the original TMB website where intentional.
   if(/gravity-migration-preview-notice|GRAVITY MIGRATION PREVIEW — NOT LIVE FOR CUSTOMERS/.test(html))throw Error('Preview warning remained: '+full);
   fs.writeFileSync(full,html);pages++;
  }
