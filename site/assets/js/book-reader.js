@@ -7,6 +7,7 @@ let catalog=[],chunks=[],idx=0,current='',loadToken=0;
 let audioCtx=null,sourceNode=null,activeResolve=null,loopActive=false,playing=false,paused=false,runToken=0,mode='';
 let gainNode=null,bassNode=null,trebleNode=null,decodedBuffer=null,decodedForPart=-1,playedSeconds=0,sourceStartedAt=0,sourceOffset=0,partDuration=0;
 let contentPart=0,sleepAt=0,savingAllowed=false;
+let wakeSentinel=null,wakeRequestGeneration=0;
 const LASTBOOK='gravity_reader_last_book_v2', PREFS='gravity_reader_preferences_v2';
 const progressKey=id=>'gravity_reader_checkpoint_v2_'+id;
 function readStorage(key){try{return localStorage.getItem(key)}catch{return null}}
@@ -40,8 +41,45 @@ function saveCheckpoint(){
  writeStorage(LASTBOOK,current);
 }
 function storePrefs(){
- const prefs={skipFront:$('reader-skip-front')?.checked!==false,continuous:$('reader-continuous')?.checked!==false,volume:Number($('reader-volume')?.value??100),bass:Number($('reader-bass')?.value??0),treble:Number($('reader-treble')?.value??0),voice:$('reader-voice')?.value||'cedar',speed:$('reader-speed')?.value||'0.98'};
+ const prefs={skipFront:$('reader-skip-front')?.checked!==false,continuous:$('reader-continuous')?.checked!==false,volume:Number($('reader-volume')?.value??100),bass:Number($('reader-bass')?.value??0),treble:Number($('reader-treble')?.value??0),keepAwake:$('reader-keep-awake')?.checked!==false,voice:$('reader-voice')?.value||'cedar',speed:$('reader-speed')?.value||'0.98'};
  writeStorage(PREFS,JSON.stringify(prefs));
+}
+function wakeMessage(message){
+ const info=$('reader-awake-status');if(info)info.textContent=message;
+}
+function releaseScreenWake(){
+ wakeRequestGeneration++;
+ const held=wakeSentinel;wakeSentinel=null;
+ if(held)held.release().catch(()=>{});
+ if($('reader-keep-awake')?.checked===false)wakeMessage('Screen wake lock is off.');
+ else wakeMessage('Screen wake lock is inactive while not listening.');
+}
+async function holdScreenWake(){
+ if(!$('reader-keep-awake')?.checked||!playing||document.hidden)return;
+ if(wakeSentinel)return;
+ if(!navigator.wakeLock||typeof navigator.wakeLock.request!=='function'){
+   wakeMessage('This browser cannot prevent screen sleep. Keep your device awake manually.');
+   return;
+ }
+ const generation=++wakeRequestGeneration;
+ try{
+   const held=await navigator.wakeLock.request('screen');
+   if(generation!==wakeRequestGeneration||!playing||document.hidden||!$('reader-keep-awake')?.checked){
+     held.release().catch(()=>{});
+     return;
+   }
+   wakeSentinel=held;wakeMessage('Screen kept awake while listening. This may increase battery use.');
+   held.addEventListener('release',()=>{
+     if(wakeSentinel===held){
+       wakeSentinel=null;
+       wakeMessage(document.hidden?'Screen wake lock released while this tab is hidden.':'Screen wake lock was released by the device.');
+     }
+   });
+ }catch(error){
+   if(generation===wakeRequestGeneration){
+     wakeMessage('Screen wake lock not allowed by this browser or device. Check your screen timeout setting.');
+   }
+ }
 }
 function mainContentOffset(text){
  const lines=String(text||'').replace(/\r/g,'').split('\n');
@@ -202,6 +240,7 @@ function paint(){
 function hardStop(message){
  saveCheckpoint();
  runToken++;playing=false;paused=false;loopActive=false;
+ releaseScreenWake();
  // Store the playback location BEFORE stopping the WebAudio source.
  playedSeconds=currentTime();
  stopNeuralSource();
@@ -252,6 +291,7 @@ async function runReader(){
  if(loopActive||!chunks.length)return;
  if(!unlockNeuralAudio()){status('Your browser does not support Gravity neural audio.');return;}
  loopActive=true;const token=++runToken;playing=true;paused=false;
+ holdScreenWake();
  $('reader-play').textContent='Pause';
  status('Reading with '+(($('reader-voice').value==='marin')?'Marin':'Cedar')+' neural voice.');
  while(token===runToken&&playing&&idx<chunks.length){
@@ -261,7 +301,7 @@ async function runReader(){
   }catch(e){
    if(token!==runToken)break;
    console.warn('Gravity Reader neural voice unavailable:',e);
-   playing=false;paused=false;$('reader-play').textContent='Play';
+   playing=false;paused=false;$('reader-play').textContent='Play';releaseScreenWake();
    status('Neural voice is unavailable. '+(e?.message||'Please try again')+'. No device voice was substituted.');
    saveCheckpoint();break;
   }
@@ -269,12 +309,12 @@ async function runReader(){
    // Save the NEXT part before requesting its audio, avoiding repeats when reopening.
    idx++;playedSeconds=0;partDuration=0;decodedBuffer=null;decodedForPart=-1;paint();saveCheckpoint();
    if(!$('reader-continuous')?.checked){
-     playing=false;paused=false;$('reader-play').textContent='Play';
+     playing=false;paused=false;$('reader-play').textContent='Play';releaseScreenWake();
      status('Part completed. Press Play to continue with Part '+(idx+1)+'.');
      break;
    }
   }else{
-   playing=false;paused=false;$('reader-play').textContent='Play';
+   playing=false;paused=false;$('reader-play').textContent='Play';releaseScreenWake();
    status('End of book. Your listening position is saved.');
    saveCheckpoint();break;
   }
@@ -285,6 +325,7 @@ function pause(){
  if(!playing)return;
  playing=false;paused=true;
  playedSeconds=currentTime();
+ releaseScreenWake();
  saveCheckpoint();
  if(audioCtx)audioCtx.suspend().catch(()=>{});
  $('reader-play').textContent='Resume';status('Paused at '+formatTime(playedSeconds)+'.');
@@ -293,6 +334,7 @@ function pause(){
 function resume(){
  if(!paused){runReader();return;}
  paused=false;playing=true;$('reader-play').textContent='Pause';
+ holdScreenWake();
  status('Continuing from '+formatTime(playedSeconds)+'.');
  if(audioCtx&&audioCtx.state==='suspended')audioCtx.resume().catch(()=>{hardStop('Neural audio could not resume.');});
  if(!loopActive)runReader();
@@ -333,8 +375,11 @@ function tick(){
  }
 }
 setInterval(tick,1000);
-window.addEventListener('pagehide',saveCheckpoint);
-document.addEventListener('visibilitychange',()=>{if(document.hidden)saveCheckpoint();});
+window.addEventListener('pagehide',()=>{saveCheckpoint();releaseScreenWake();});
+document.addEventListener('visibilitychange',()=>{
+ if(document.hidden){saveCheckpoint();releaseScreenWake();}
+ else if(playing)holdScreenWake();
+});
 
 function updateBookButtons(){
   const box=$('reader-book-buttons');if(!box)return;
@@ -381,6 +426,8 @@ async function init(){
  if(savedPrefs.speed&&[...$('reader-speed').options].some(o=>o.value===savedPrefs.speed))$('reader-speed').value=savedPrefs.speed;
  $('reader-skip-front').checked=savedPrefs.skipFront!==false;
  $('reader-continuous').checked=savedPrefs.continuous!==false;
+ $('reader-keep-awake').checked=savedPrefs.keepAwake!==false;
+ wakeMessage('Screen wake lock activates only during playback, if supported.');
  $('reader-volume').value=String(Math.max(0,Math.min(100,Number(savedPrefs.volume??100))));
  $('reader-bass').value=String(Math.max(-12,Math.min(12,Number(savedPrefs.bass??0))));
  $('reader-treble').value=String(Math.max(-12,Math.min(12,Number(savedPrefs.treble??0))));
@@ -404,6 +451,7 @@ async function init(){
  };
  $('reader-skip-front').onchange=storePrefs;
  $('reader-continuous').onchange=storePrefs;
+ $('reader-keep-awake').onchange=()=>{storePrefs();if($('reader-keep-awake').checked){if(playing)holdScreenWake();}else releaseScreenWake();};
  $('reader-skip-now').onclick=skipFrontMatter;
  $('reader-volume').oninput=()=>{
    // This gain stage is the independent narration volume. EQ changes do not touch it.
