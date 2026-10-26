@@ -1,29 +1,50 @@
-# Gravity public launch — release decision and rollback checklist
-Date: 2026-10-25 | Scope: proposed Gravity public site only | **NO LAUNCH AUTHORIZATION**
- 
-## Evidence received
-- Owner screenshot: GitHub Actions workflow "Gravity production candidate — offline QA only", run #4, commit `71849d4`, green success indicator. This demonstrates offline artifact preparation/static checks passed. It is NOT a live production deploy, mobile test, backend integration test, or DNS switch.
-- Owner successfully submitted a form on the Gravity migration preview and downloaded one book. Netlify destination `gravity-registration` metadata was previously confirmed at 1 submission; original TMB form had 15 submissions. No automated customer-record migration occurred.
-- Navigation/static asset and Windows GitHub release links reviewed in earlier migration checks. Availability of a release asset is NOT proof Windows install or functional parity.
- 
-## Required before owner is asked to authorize launch
-- [ ] Inspect generated artifact from successful run #4 for index, book/download, sign-in, menus, CSS, JS, all program entry paths; confirm candidate not empty and preview-specific banner/index restriction absent.
-- [ ] Preview candidate via a separate **non-public, access-controlled** deploy and complete customer registration (new test submission), download and redirect tests; ensure form routing and serverless functions use the intended new Netlify project. Do not turn off staging noindex on a public-facing review URL.
-- [ ] Phone viewport/real mobile user test of menu, registration, Books, main four programs, and Testing Room. Mark Work Study Lab beta features separately from website launch basics.
-- [ ] Test new Employee Connection workspace creation, sync, and employee login against new staging backend, using disposable test records only. No production employees or QR codes exist yet.
-- [ ] Confirm publisher/author language and public business address/email in metadata; remove testing copy only on release build, not staging branch.
-- [ ] Determine whether original 15 Netlify registration submissions need consent-preserving export/import, or if records remain on legacy Netlify as a permanent archive. Preserve timestamps and subscription consent. **No silent imports**.
-- [ ] Determine whether Google/Facebook social login should be supported; if unavailable, don't advertise it. Normal email form is primary route.
-- [ ] Check proper release host/canonical domain, SSL, Netlify Forms, environment variables, TTS, serverless functions, redirects, robots and sitemap. Do not reveal credentials.
-- [ ] Record production Netlify deployment ID, build commit, page sample HTTP status, rollback deploy ID, and DNS before/after snapshot.
+# Gravity public launch — evidence, remaining gates and rollback plan
+Last verified: 2026-10-25 (Central), GitHub Actions timestamps 2026-10-26 UTC.
+Scope: Gravity migration branch only. **NO PRODUCTION LAUNCH, CUSTOM DOMAIN CHANGE OR TMB MAIN BRANCH CHANGE AUTHORIZED.**
 
-## Controlled cutover plan (requires explicit owner approval)
-1. Preserve original TMB Netlify deploy and custom domain as rollback target. Do not delete or disconnect legacy project.
-2. Freeze independent content changes briefly; record branch commit and production deploy IDs for both sites.
-3. Promote verified Gravity candidate through a **separately approved production deployment**, verify on default Netlify domain first, and confirm database/forms/AI functions.
-4. Change domain routing only after separately approving desired domains and SEO redirects; maintain TMB attribution/legacy URL preservation.
-5. Immediately smoke-test homepage, registration/form receipt, download, navigation, Windows links, SOP Employee Connection, Ask Gravity and Cedar voice.
-6. If critical smoke checks fail, restore recorded known-good deploy/domain mapping and re-test; preserve and reconcile any registrations submitted during transition. Rollbacks of code do **not** automatically roll back database mutations or submitted forms.
- 
-## Current disposition
-**HOLD — release candidate static QA green; launch authorization NOT granted.** Most important outstanding proof: real-device mobile, candidate live preview, employee backend, and registration/consent preservation decision. Existing `thomasmonroebooks.com` remains untouched.
+## Latest independently verified deployment states
+
+| Asset | State | Identifier |
+| --- | --- | --- |
+| Legacy TMB site | Ready; untouched | Netlify site `1548e212-4cfe-4751-ab81-f46936249304`, current production deploy `6ad7b614109e5fdf878475f8` |
+| New Gravity project | Existing production deploy unchanged | Netlify site `fa5d39a0-bef9-4ff1-9c28-57d585d741d7`, current production deploy `6adae16a6c1e94ead73d9e7b` |
+| Gravity migration preview | Green staging workflow #40263726970 | `https://gravity-migration--gravity-leadership-system.netlify.app/` |
+| Gravity **offline** production candidate | Green candidate QA workflow #40265069303 | GitHub Actions release candidate artifact; **not published** |
+| Gravity review alias | Ready; nonindexed via HTTP X-Robots-Tag and robots.txt | Deploy `6adecb6baefd5047dbb2beae`; `https://gravity-release-review--gravity-leadership-system.netlify.app/` |
+
+IMPORTANT: Review alias is **not password-protected**, even though it is noindex. Do not enter real staff data or represent it as a private/customer-ready deployment.
+
+## Customer registrations and data protection
+- Original TMB `gravity-registration`: **15** Netlify form submissions (latest count checked 2026-10-25 Central). They remain on the legacy site, together with original Netlify consent/timestamp records.
+- New Gravity `gravity-registration`: **2** submissions, verified through Netlify after owner's mobile test.
+- No registration import, deletion, merge, or backfill has been performed.
+- Default preservation recommendation: retain the original TMB Netlify project and its 15 submissions as a readable archive, without silently importing people/consents into the new system. Any later consent-preserving export/import requires separate explicit approval.
+
+## Test evidence completed
+- User mobile acceptance: site and menu navigation, book download, Netlify-received registration, Cedar acknowledgment, Employee Access login, SOPs, recipes, posters, training, and saved sample SOP all reported working.
+- Employee Connection server: disposable live staging workspace creation, PIN validation, login, published SOP/recipe/poster read, quiz/acknowledgment, messages/activity, manager status, revision sync, stale training prevention — integration workflow #40258873709 passed. No actual River or customer records used.
+- Candidate offline QA workflow #40265069303 passed: generated >100 HTML files, asset existence, no red migration banner, public canonical metadata intended for `https://gravityleadershipsystem.com`, same-domain sitemap, public index directives, and **intentional noindex on employee, manager, receipt and internal app pages**.
+- Review alias: successful HTTP responses/noindex header for home, Books, registration, employee home and posters; successful live `foundry-hosted/health` on both staging and release review aliases.
+- Candidate review previously returned function HTTP 502 because the build job had omitted `npm ci` / `@netlify/database` dependencies. Added dependency install and validated successful hosted function health in workflow #40265069303.
+
+## Must resolve before authorizing a public launch
+- [ ] **Destination domain and SSL**: the intended `gravityleadershipsystem.com` is embedded in the offline candidate, but the Netlify project currently lists only its default `netlify.app` URL as primary. Confirm ownership, custom-domain attachment, DNS plan, TLS, redirects, and final canonical host **before** production publication. Do not silently replace `thomasmonroebooks.com`.
+- [ ] **Final customer-facing candidate acceptance**: validate complete registration flow, book download, redirect, Windows download/manual links, all Gravity tool entrypoints, Ask Gravity voice, and employee operations on the **release-review** alias (the owner's previous acceptance was on migration staging).
+- [ ] **Remaining mobile features**: direct real-device navigation/use of Shift Lab, Inventory Center, Work Study Lab, Gravity Assist, and Testing Room; flag Work Study Lab beta separately from baseline website launch readiness.
+- [ ] **Social authentication and business mailbox**: Google/Facebook registration remains hidden; do not market those choices unless separately proven. Verify `thomas.butler@gravityleadershipsystem.com` receives mail end to end.
+- [ ] **Consent handling decision**: owner explicitly approves keeping 15 original TMB registrations archived or requests documented consent-preserving migration. Never overwrite or delete existing consent records.
+- [ ] **Review-access policy**: review alias is noindex but publicly accessible. Limit use to synthetic test data until access controls and launch posture are explicitly agreed.
+- [ ] **Real launch permissions**: obtain explicit owner approval for public deployment and separately for any DNS/domain cutover. Preserve Netlify IDs, deployment IDs, last known-good commit, forms/export and rollback plan.
+- [ ] **Final post-release smoke check**: HTTPS, menus, registration/form delivery, book downloads, Ask Gravity/Cedar, API functions, employee login, apps, resources and Windows links.
+
+## Controlled production cutover and rollback (NOT AUTHORIZED)
+1. Freeze changing content briefly; record verified source commit, offline artifact hash, legacy TMB deploy ID `6ad7b614109e5fdf878475f8`, and Gravity existing production deploy ID `6adae16a6c1e94ead73d9e7b`.
+2. Preserve **legacy TMB custom domain/project, 15 registrations, timestamps and newsletter consent** as the safe fallback; verify export is possible without removing anything.
+3. Obtain explicit approval for Gravity production deploy. Publish reviewed candidate only to **new** Gravity project; verify default Netlify host and forms/functions **before** configuring custom domain.
+4. Approve and apply the exact domain/DNS mapping separately, confirm SSL, canonical host and safe forwarding of old links with retained TMB publisher attribution.
+5. Immediately run smoke tests and inspect real registration receipt count. If essential functions fail, restore the known-good Gravity deploy and (if domain changed) original DNS/host mapping. Treat submitted forms and database writes as **non-rollbackable data** to preserve/reconcile separately.
+
+## Current launch disposition
+**HOLD — technical production-candidate and noindex review alias QA passed, but public domain configuration and the remaining release-specific mobile/functional acceptance and owner authorization are outstanding.**
+
+**The River remains the first planned live operational pilot *after* approved launch; its branded private edition must remain segregated from the generic customer edition.**
