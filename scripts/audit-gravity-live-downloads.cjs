@@ -26,17 +26,27 @@ const pending=[...targets],res=[];
   while(pending.length){
    const [url,pages]=pending.shift()||[];
    if(!url)continue;
-   try{
-    const r=await fetch(url,{method:'HEAD',redirect:'follow',headers:{'user-agent':'GravityReadOnlyAssetsAudit/1.0'},signal:AbortSignal.timeout(25000)});
-    const result={url:new URL(url).pathname,status:r.status,ok:r.ok,contentType:r.headers.get('content-type')||'',contentLength:r.headers.get('content-length'),pages:[...pages].slice(0,4)};
-    if(r.ok && /text\/html/i.test(result.contentType)&&!/\.(?:html)$/i.test(url)){
-      result.ok=false;result.issue='download request returned HTML; likely SPA fallback or missing asset';
-    }
-    res.push(result);
-   }catch(err){res.push({url:new URL(url).pathname,ok:false,error:String(err).slice(0,200),pages:[...pages].slice(0,4)})}
+   let result=null;
+   // Edge/CDN HEAD requests can occasionally time out even for existing files.
+   // Retry bounded transport errors and 5xx only; do not mask real 404/HTML failures.
+   for(let attempt=1;attempt<=3;attempt++){
+     try{
+       const r=await fetch(url,{method:'HEAD',redirect:'follow',headers:{'user-agent':'GravityReadOnlyAssetsAudit/1.0'},signal:AbortSignal.timeout(attempt===3?40000:25000)});
+       result={url:new URL(url).pathname,status:r.status,ok:r.ok,contentType:r.headers.get('content-type')||'',contentLength:r.headers.get('content-length'),pages:[...pages].slice(0,4),attempts:attempt};
+       if(r.ok && /text\/html/i.test(result.contentType)&&!/\.(?:html)$/i.test(url)){
+         result.ok=false;result.issue='download request returned HTML; likely SPA fallback or missing asset';
+       }
+       if(r.status>=500&&attempt<3){await new Promise(resolve=>setTimeout(resolve,1000*attempt));continue;}
+       break;
+     }catch(err){
+       result={url:new URL(url).pathname,ok:false,error:String(err).slice(0,200),pages:[...pages].slice(0,4),attempts:attempt};
+       if(attempt<3)await new Promise(resolve=>setTimeout(resolve,1000*attempt));
+     }
+   }
+   res.push(result);
   }
  }
- await Promise.all(Array.from({length:7},()=>worker()));
+ await Promise.all(Array.from({length:4},()=>worker()));
  res.sort((a,b)=>a.url.localeCompare(b.url));
  const missing=res.filter(x=>!x.ok),report={site:host,checkedAt:new Date().toISOString(),mode:'GET-free HEAD-only checks; no deploy and no forms',htmlPagesScanned:html.length,localDownloadUrls:targets.size,externalGitHubReleaseUrls:githubLinks.size,results:res,failures:missing};
  fs.writeFileSync('gravity-live-downloads-audit.json',JSON.stringify(report,null,2));
