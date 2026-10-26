@@ -15,3 +15,18 @@
 .reader-book-buttons button{display:block;width:100%;min-height:44px;text-align:left;padding:10px 12px;border:1px solid #c9bca3;border-radius:8px;background:#fff;color:#183042;font:650 14px/1.35 system-ui,sans-serif;cursor:pointer}
 .reader-book-buttons button:hover,.reader-book-buttons button[aria-pressed="true"]{background:#143345;color:#fff;border-color:#143345}
 @media(max-width:860px){.reader-panel{position:static}.reader-controls select{min-height:50px}.reader-book-buttons{max-height:340px}}
+
+/* Accessible listening transport: usable without rotating a phone. */
+.reader-listening-settings{display:grid;gap:8px;padding:12px;border:1px solid #d2c3a4;border-radius:10px;background:#f9f4e8}
+.reader-check{display:flex!important;align-items:flex-start;gap:9px;font:650 14px/1.4 system-ui,sans-serif}
+.reader-check input{flex:0 0 20px;width:20px;height:20px;margin:0;accent-color:#274b56}
+.reader-transport{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.reader-transport button{white-space:normal;min-height:46px;font-size:13px;line-height:1.25;padding:9px 8px;touch-action:manipulation}
+.reader-seek,.reader-volume,.reader-sleep{display:grid;gap:6px;font:650 13px/1.4 system-ui,sans-serif}
+.reader-seek input,.reader-volume input{width:100%;min-height:34px;cursor:pointer;accent-color:#183a47}
+.reader-seek input:disabled{cursor:not-allowed;opacity:.6}
+#reader-time{display:block;color:#506173;font-variant-numeric:tabular-nums;font-weight:700}
+.reader-saved{background:#ecf4ef;border:1px solid #bfdbcd;padding:9px 10px;border-radius:9px;color:#1a3b37;font:600 13px/1.45 system-ui,sans-serif}
+#reader-skip-now{min-height:44px;white-space:normal}
+.reader-buttons button:focus-visible,.reader-check input:focus-visible,.reader-seek input:focus-visible,.reader-volume input:focus-visible{outline:3px solid #9f6229;outline-offset:2px}
+@media(max-width:420px){.reader-panel{padding:14px}.reader-controls{gap:12px}.reader-transport button{font-size:13px}}
