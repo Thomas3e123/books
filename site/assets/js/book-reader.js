@@ -92,7 +92,14 @@ function mainContentOffset(text){
    if(!heading.test(lines[i].trim()))continue;
    // Genuine chapter/narrative headings are followed by prose, not rows of a contents list.
    const next=lines.slice(i+1,i+12).map(x=>x.trim()).filter(Boolean);
-   const hasProse=next.some(x=>x.length>=65&&!/\.{3,}\s*\d+\s*$/.test(x)&&!/^(?:part|chapter)\s+\w+.*\d+\s*$/i.test(x));
+   // Do not confuse a TOC entry ("Chapter 1 — ...") with the actual chapter:
+   // within a contents list, its next line is typically another chapter/part.
+   const followsAnotherEntry=/^(?:chapter\s+\d+|part\s+(?:[ivx]+|\d+|one|two|three)|quiet mirror|appendix\s+|contents|conclusion\b|about\b|selected notes\b)/i.test(next[0]||'');
+   if(followsAnotherEntry)continue;
+   const isNarrative=line=>line.length>=48&&
+      !/\.{3,}\s*\d+\s*$/.test(line)&&
+      !/^(?:chapter\s+\d+|part\s+|quiet mirror|appendix\s+|contents|conclusion\b|about\b|selected notes\b|[\d.]+\s+[A-Z])/i.test(line);
+   const hasProse=next.slice(0,9).some(isNarrative);
    if(!hasProse)continue;
    return lines.slice(0,i).join('\n').length+1;
  }
