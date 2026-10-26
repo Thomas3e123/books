@@ -1,0 +1,72 @@
+name: Gravity HTTPS — renew managed certificate to cover WWW (DNS/TMB untouched)
+on:
+  push:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths: ['.github/workflows/gravity-www-tls-renewal-2026-10-26.yml']
+permissions:
+  contents: read
+jobs:
+  www-certificate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      A: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      B: ${{ secrets.NETLIFY_TOKEN }}
+      C: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+    steps:
+      - name: Check exact DNS, existing certificate coverage and request ONE renewal only if WWW missing
+        shell: bash
+        run: |
+          set -euo pipefail
+          site='fa5d39a0-bef9-4ff1-9c28-57d585d741d7'
+          token="${A:-${B:-${C:-}}}"
+          if [ -z "$token" ]; then echo 'ERROR: credential missing; no renew performed'; exit 1; fi
+          a="$(dig +short gravityleadershipsystem.com A | sort -u)"
+          cname="$(dig +short www.gravityleadershipsystem.com CNAME | sed 's/\\.$//' | sort -u)"
+          mx="$(dig +short gravityleadershipsystem.com MX)"
+          test "$a" = '75.2.60.5' || { echo "ERROR apex DNS unexpected: $a"; exit 1; }
+          test "$cname" = 'gravity-leadership-system.netlify.app' || { echo "ERROR www DNS unexpected: $cname"; exit 1; }
+          echo "$mx" | grep -q 'smtp.google.com.' || { echo "ERROR Google MX missing"; exit 1; }
+          echo 'GRAVITY DNS and Google Workspace MX pass; renewal will not alter DNS'
+          api="https://api.netlify.com/api/v1/sites/$site/ssl"
+          before="$(mktemp)"
+          http="$(curl --silent --show-error --max-time 20 -H "Authorization: Bearer $token" -o "$before" -w '%{http_code}' "$api")"
+          test "$http" = 200 || { echo "ERROR Netlify certificate inspect returned $http"; exit 1; }
+          export CERT_BEFORE="$before"
+          node - <<'NODE'
+          const fs=require('fs'),x=JSON.parse(fs.readFileSync(process.env.CERT_BEFORE,'utf8'));
+          if(x.state!=='issued'||!Array.isArray(x.domains)||!x.domains.includes('gravityleadershipsystem.com'))throw Error('Existing apex certificate not healthy');
+          console.log('GRAVITY_OLD_CERT '+JSON.stringify({state:x.state,domains:x.domains,expires:x.expires_at}));
+          NODE
+          if CERT_BEFORE="$before" node -e "const x=require(process.env.CERT_BEFORE);process.exit(x.domains.includes('www.gravityleadershipsystem.com')?0:1)"; then
+            echo 'GRAVITY_WWW_TLS_ALREADY_COVERED, no certificate change needed'
+            exit 0
+          fi
+          echo 'Existing Let’s Encrypt certificate lacks www; requesting ONE Netlify-managed renewal'
+          after="$(mktemp)"
+          renewHttp="$(curl --silent --show-error --max-time 45 -X POST -H "Authorization: Bearer $token" -H 'Accept: application/json' -o "$after" -w '%{http_code}' "$api/renew")"
+          if [ "$renewHttp" != 200 ] && [ "$renewHttp" != 202 ]; then
+            echo "GRAVITY_WWW_TLS_RENEWAL_HTTP $renewHttp"
+            head -c 350 "$after";echo
+            exit 1
+          fi
+          CERT_AFTER="$after" node - <<'NODE'
+          const fs=require('fs'),x=JSON.parse(fs.readFileSync(process.env.CERT_AFTER,'utf8'));
+          console.log('GRAVITY_WWW_RENEW_RESULT '+JSON.stringify({state:x.state,domains:x.domains,expires:x.expires_at}));
+          NODE
+          for waitSec in 5 10 15 20 20; do
+            sleep "$waitSec"
+            now="$(mktemp)"
+            curl --fail --silent --show-error --max-time 20 -H "Authorization: Bearer $token" "$api" -o "$now"
+            if CERT_AFTER="$now" node -e "const x=require(process.env.CERT_AFTER);process.exit(x.state==='issued'&&x.domains.includes('www.gravityleadershipsystem.com')?0:1)"; then
+              echo 'GRAVITY_WWW_TLS_CERT_ISSUED_AND_COVERS_WWW'
+              if curl --silent --show-error --fail --location --max-time 20 -o /dev/null https://www.gravityleadershipsystem.com/; then
+                echo 'GRAVITY_WWW_TLS_VALID_HTTP_AND_REDIRECT_OK'
+                exit 0
+              fi
+            fi
+            echo 'GRAVITY_WWW_TLS_ISSUANCE_PENDING'
+            rm -f "$now"
+          done
+          echo 'Renewal submitted but www HTTPS not confirmed yet. Inspect Domain management > HTTPS; no DNS/TMB changes.'
+          exit 1
