@@ -11,7 +11,7 @@ for(const file of html){
  for(const m of source.matchAll(/\bhref\s*=\s*(["'])(.*?)\1/gi)){
   const href=m[2];if(!/\.(?:pdf|zip|docx|exe)(?:[#?]|$)/i.test(href))continue;
   let u;try{u=new URL(href,host+'/'+page)}catch{continue}
-  if(u.hostname==='gravity-leadership-system.netlify.app'){
+  if(u.hostname===new URL(host).hostname){
     u.hash='';u.search='';
     const k=u.toString();if(!targets.has(k))targets.set(k,new Set());
     targets.get(k).add(page);
