@@ -1,0 +1,26 @@
+name: Gravity Book Reader — mobile browser reproduction
+on:
+  push:
+    branches:
+      - 'feature/gravity-migration-phase1-*'
+    paths:
+      - 'scripts/test-gravity-book-reader-browser.cjs'
+      - '.github/workflows/gravity-book-reader-browser-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mobile-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Confirm browser and install test runner
+        run: |
+          which google-chrome || which chromium
+          npm install --no-save --no-package-lock playwright-core@1.56.1
+      - name: Exercise Book Reader with and without Founding Year access
+        run: node scripts/test-gravity-book-reader-browser.cjs
