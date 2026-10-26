@@ -1,0 +1,24 @@
+name: Gravity prelaunch link audit — offline only
+on:
+  push:
+    branches:
+      - 'feature/gravity-migration-phase1-*'
+    paths:
+      - 'scripts/audit-gravity-launch-links.cjs'
+      - '.github/workflows/gravity-prelaunch-link-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build local candidate — no deploy
+        run: node scripts/prepare-gravity-production-candidate.cjs
+      - name: Enumerate all internal links and local downloads
+        run: node scripts/audit-gravity-launch-links.cjs
