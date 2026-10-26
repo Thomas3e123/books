@@ -1,0 +1,30 @@
+name: Gravity domain — read-only DNS preflight
+on:
+  push:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths: ['.github/workflows/gravity-domain-dns-readonly-audit.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  dns-readonly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Inspect public Gravity DNS without changing anything
+        shell: bash
+        run: |
+          set -u
+          echo 'GRAVITY DNS PRE-FLIGHT - READ ONLY (does not change domain, SSL, mail or hosting)'
+          if ! command -v dig >/dev/null; then echo 'dig unavailable'; exit 0; fi
+          for TYPE in NS A AAAA MX CAA; do
+            echo "GRAVITY-DNS $TYPE"
+            dig +time=3 +tries=1 +short gravityleadershipsystem.com "$TYPE" || true
+          done
+          for TYPE in CNAME A; do
+            echo "GRAVITY-DNS WWW $TYPE"
+            dig +time=3 +tries=1 +short www.gravityleadershipsystem.com "$TYPE" || true
+          done
+          echo "GRAVITY-DNS GOOGLE-TXT-PRESENCE"
+          dig +time=3 +tries=1 +short gravityleadershipsystem.com TXT | sed -E 's/(google-site-verification=)[^"]+/\1<redacted>/g; s/(v=spf1).*/\1 (present; value redacted)/' | head -30 || true
+          echo 'GRAVITY DNS PRE-FLIGHT COMPLETE. NO RECORDS CHANGED.'
