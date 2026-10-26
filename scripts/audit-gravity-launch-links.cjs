@@ -3,6 +3,29 @@ const fs=require('node:fs'),path=require('node:path');
 const root=path.resolve(__dirname,'..');
 const directory=path.resolve(root,process.env.GRAVITY_AUDIT_DIR||'build/gravity-production-candidate');
 const known=new Map();
+// Netlify functions are server-side routes, NOT files in the publish directory.
+// Validate against the shipped function declaration and original approved editorial
+// inventory rather than classifying 200-function URLs as missing static HTML.
+const reportFunction=path.join(root,'functions','gravity-report','index.mjs');
+const reportModule=fs.existsSync(reportFunction)?fs.readFileSync(reportFunction,'utf8'):'';
+const requiredPatterns=["'/gravity-report/feed.xml'","'/gravity-report/sitemap.xml'","'/gravity-report/articles.json'","'/gravity-report/:slug'"];
+const dynamicReportConfigured=requiredPatterns.every(route=>reportModule.includes(route));
+const reportInventory=path.join(root,'functions','gravity-report','articles.json');
+const editorial=fs.existsSync(reportInventory)?JSON.parse(fs.readFileSync(reportInventory,'utf8')):{articles:[]};
+const knownReportSlugs=new Set(editorial.articles.map(a=>a.slug));
+for(const chunk of ['issues-11-15.json','issues-16-20.json','issues-21-25.json','issues-26-30.json']){
+ const file=path.join(root,'functions','gravity-report',chunk);
+ if(!fs.existsSync(file))continue;
+ for(const draft of JSON.parse(fs.readFileSync(file,'utf8')))
+   knownReportSlugs.add(draft.title.toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''));
+}
+function managedReportRoute(ref){
+ if(!dynamicReportConfigured)return false;
+ if(['/gravity-report/feed.xml','/gravity-report/sitemap.xml','/gravity-report/articles.json'].includes(ref))return true;
+ const m=ref.match(/^\\/gravity-report\\/([^/]+)$/);
+ return !!m&&knownReportSlugs.has(m[1]);
+}
+
 function normalized(u){
  try{const obj=new URL(u,'https://gravityleadershipsystem.com/');
  if(!['https:','http:'].includes(obj.protocol)||!['gravityleadershipsystem.com','www.gravityleadershipsystem.com','gravity-release-review--gravity-leadership-system.netlify.app','gravity-migration--gravity-leadership-system.netlify.app'].includes(obj.hostname))return null;
@@ -14,6 +37,7 @@ for(const line of fs.readFileSync(path.join(directory,'_redirects'),'utf8').spli
  if(t[0].startsWith('/')&&t[1].startsWith('/')&&/^(200|301|302)!?$/.test(t[2]))known.set(t[0],t[1]);
 }
 function exists(ref){
+ if(managedReportRoute(ref))return true;
  if(ref==='/'||ref==='')return fs.existsSync(path.join(directory,'index.html'));
  let curr=ref;
  for(let attempt=0;attempt<4;attempt++){
@@ -53,5 +77,5 @@ function visit(folder){
 }
 visit(directory);
 const missing=[...new Set(broken.map(x=>x.path))].sort();
-console.log(JSON.stringify({pages:pages.length,distinctReferences:checked.size,brokenPaths:missing.length,brokenInstances:broken.length,missing:missing.slice(0,100),examples:broken.slice(0,40)},null,2));
+console.log(JSON.stringify({pages:pages.length,distinctReferences:checked.size,dynamicReportConfigured,knownReportArticleCount:knownReportSlugs.size,brokenPaths:missing.length,brokenInstances:broken.length,missing:missing.slice(0,100),examples:broken.slice(0,40)},null,2));
 if(process.argv.includes('--strict')&&broken.length)process.exitCode=1;
