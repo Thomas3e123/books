@@ -32,6 +32,37 @@ jobs:
             echo "GRAVITY_TLS_DIAG_END $host"
           done
           curl --silent --show-error --max-time 20 --output /dev/null --write-out 'GRAVITY_FOUNDRY_APEX_HEALTH %{http_code}\n' https://gravityleadershipsystem.com/foundry-hosted/health
+      - name: Read current Netlify TLS certificate coverage (NO WRITES)
+        if: always()
+        env:
+          TOKEN_A: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          TOKEN_B: ${{ secrets.NETLIFY_TOKEN }}
+          TOKEN_C: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+        shell: bash
+        run: |
+          set +e
+          token="${TOKEN_A:-${TOKEN_B:-${TOKEN_C:-}}}"
+          if [ -z "$token" ]; then echo 'NETLIFY_CERT_LOOKUP_SKIPPED: no token configured'; exit 0; fi
+          file=$(mktemp)
+          code=$(curl --silent --show-error --max-time 20 --output "$file" -w '%{http_code}' -H "Authorization: Bearer $token" -H 'Accept: application/json' "https://api.netlify.com/api/v1/sites/fa5d39a0-bef9-4ff1-9c28-57d585d741d7/ssl")
+          if [ "$code" = 200 ]; then
+            CERT_FILE="$file" node - <<'NODE'
+          const fs=require('fs');
+          const x=JSON.parse(fs.readFileSync(process.env.CERT_FILE,'utf8'));
+          const summary={state:x.state,domains:x.domains,created_at:x.created_at,updated_at:x.updated_at,expires_at:x.expires_at};
+          console.log('NETLIFY_SITE_CERTIFICATE '+JSON.stringify(summary));
+          NODE
+          else
+            echo "NETLIFY_SITE_CERTIFICATE_LOOKUP_HTTP $code"
+            head -c 300 "$file"
+            echo
+          fi
+          rm -f "$file"
+          echo 'SNI CERTIFICATE LEAF SUBJECTS (NO SECRETS)'
+          for host in gravityleadershipsystem.com www.gravityleadershipsystem.com; do
+            echo "$host"
+            echo | timeout 15 openssl s_client -servername "$host" -connect "$host:443" 2>/dev/null | openssl x509 -noout -subject -dates -ext subjectAltName 2>&1 | head -16
+          done
       - name: Verify public pages are currently blocked from search indexing until final approval
         shell: bash
         run: |
