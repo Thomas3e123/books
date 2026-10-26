@@ -40,3 +40,8 @@
 #reader-eq-reset{min-height:44px;white-space:normal}
 .reader-eq-note{font-size:12px;line-height:1.45;color:#59615a;margin:0}
 .reader-sleep select{width:100%;min-height:48px;padding:10px;border:1px solid #a8987d;border-radius:9px;background:#fff;color:#172333;font:600 15px system-ui,sans-serif}
+
+.reader-awake{display:grid;gap:7px;padding:12px;border:1px solid #bfdbcd;border-radius:10px;background:#f1f7f4}
+.reader-awake p{margin:0;color:#294b46;font:500 12px/1.45 system-ui,sans-serif}
+.reader-awake .reader-check{cursor:pointer}
+.reader-awake input[type="checkbox"]{cursor:pointer}
