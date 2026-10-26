@@ -22,8 +22,9 @@ for(const chunk of ['issues-11-15.json','issues-16-20.json','issues-21-25.json',
 function managedReportRoute(ref){
  if(!dynamicReportConfigured)return false;
  if(['/gravity-report/feed.xml','/gravity-report/sitemap.xml','/gravity-report/articles.json'].includes(ref))return true;
- const m=ref.match(new RegExp('^/gravity-report/([^/]+)
- return !!m&&knownReportSlugs.has(m[1]);
+ if(!ref.startsWith('/gravity-report/'))return false;
+ const slug=ref.slice('/gravity-report/'.length);
+ return !slug.includes('/')&&knownReportSlugs.has(slug);
 }
 
 function normalized(u){
