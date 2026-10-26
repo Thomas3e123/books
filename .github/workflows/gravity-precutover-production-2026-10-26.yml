@@ -1,0 +1,151 @@
+name: Gravity production — approved PRE-CUTOVER NOINDEX (TMB/DNS untouched)
+on:
+  push:
+    branches:
+      - 'feature/gravity-migration-phase1-2026-10-22'
+    paths:
+      - '.github/workflows/gravity-precutover-production-2026-10-26.yml'
+  workflow_dispatch:
+
+# The owner approved preparing and verifying production before domain DNS cutover
+# on October 26, 2026. This workflow is deliberately NOINDEX until a separate
+# later Squarespace DNS/public launch approval. It deploys only to the new Gravity site.
+permissions:
+  contents: read
+concurrency:
+  group: gravity-new-site-production-precutover
+  cancel-in-progress: false
+
+jobs:
+  promote-verified-gravity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    env:
+      GRAVITY_SITE_ID: fa5d39a0-bef9-4ff1-9c28-57d585d741d7
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_TOKEN_FALLBACK: ${{ secrets.NETLIFY_TOKEN }}
+      NETLIFY_ACCESS_TOKEN_FALLBACK: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+    steps:
+      - name: Checkout ONLY the isolated Gravity migration branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Verify immutable intended destination and branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = 'feature/gravity-migration-phase1-2026-10-22'
+          test "$GRAVITY_SITE_ID" = 'fa5d39a0-bef9-4ff1-9c28-57d585d741d7'
+          test "$GRAVITY_SITE_ID" != '1548e212-4cfe-4751-ab81-f46936249304'
+          echo "GRAVITY RELEASE SOURCE $GITHUB_SHA"
+          echo "GRAVITY DESTINATION ONLY $GRAVITY_SITE_ID"
+      - name: Build candidate and run source, function, editorial and customer safety gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm ci
+          node scripts/update-manifest.cjs
+          npm run build
+          node scripts/verify-gravity-preview.cjs
+          node scripts/test-gravity-report.mjs
+          node scripts/test-gravity-domain-functions.cjs
+          node scripts/check-gravity-first-use-qr.cjs
+          node scripts/test-gravity-employee-connection.cjs
+          node scripts/audit-gravity-customer-services.cjs
+          node scripts/prepare-gravity-production-candidate.cjs
+          node scripts/audit-gravity-launch-links.cjs --strict
+      - name: Create pre-cutover snapshot that is NOT search-indexable yet
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp -a build/gravity-production-candidate build/gravity-precutover-production
+          node - <<'NODE'
+          const fs=require('fs');
+          const root='build/gravity-precutover-production';
+          const h=root+'/_headers';
+          let headers=fs.readFileSync(h,'utf8');
+          const lines=headers.split(/\r?\n/);
+          const idx=lines.findIndex(x=>x.trim()==='/*');
+          if(idx<0)throw Error('Missing wildcard headers');
+          if(!lines.includes('  X-Robots-Tag: noindex, nofollow'))lines.splice(idx+1,0,'  X-Robots-Tag: noindex, nofollow');
+          headers=lines.join('\n');
+          fs.writeFileSync(h,headers);
+          fs.writeFileSync(root+'/robots.txt','User-agent: *\nDisallow: /\n');
+          for(const p of ['index.html','books.html','register.html','book-reader.html','gravity-report.html','windows-programs.html']){
+           const source=fs.readFileSync(root+'/'+p,'utf8');
+           if(source.includes('gravity-migration-preview-notice'))throw Error('Preview-only UI remained: '+p);
+          }
+          if(!headers.includes('X-Robots-Tag: noindex, nofollow'))throw Error('Precutover noindex missing');
+          if(!fs.readFileSync(root+'/robots.txt','utf8').includes('Disallow: /'))throw Error('No robots disallow');
+          console.log('PRE-CUTOVER NOINDEX PASS, production copy separate from future public indexed candidate');
+          NODE
+          echo "PUBLIC DOMAIN DNS IS NOT MODIFIED BY THIS WORKFLOW"
+      - name: Deploy ONLY to NEW Gravity Netlify production, not Squarespace DNS
+        shell: bash
+        run: |
+          set -euo pipefail
+          token="${NETLIFY_AUTH_TOKEN:-${NETLIFY_TOKEN_FALLBACK:-${NETLIFY_ACCESS_TOKEN_FALLBACK:-}}}"
+          test -n "$token" || { echo 'ERROR: Netlify deploy credential unavailable; no deployment'; exit 1; }
+          export NETLIFY_AUTH_TOKEN="$token"
+          npx --yes netlify-cli@26 deploy --prod --site "$GRAVITY_SITE_ID" --dir build/gravity-precutover-production --functions functions --message "GRAVITY PRODUCTION PRE-CUTOVER / NOINDEX / approved 2026-10-26 / source $GITHUB_SHA" --json > /tmp/gravity-approved-precutover-deploy.json
+          node - <<'NODE'
+          const fs=require('fs');
+          const x=JSON.parse(fs.readFileSync('/tmp/gravity-approved-precutover-deploy.json','utf8'));
+          const id=x.deploy_id||x.id;
+          if(!id)throw Error('No Netlify production deploy ID returned');
+          console.log('GRAVITY PRE-CUTOVER PRODUCTION DEPLOY '+JSON.stringify({id,site:x.site_id||null,url:x.deploy_url||x.url||null,source:process.env.GITHUB_SHA}));
+          fs.writeFileSync('gravity-precutover-production-deploy.json',JSON.stringify({id,site:x.site_id||process.env.GRAVITY_SITE_ID,source:process.env.GITHUB_SHA,precutoverNoindex:true},null,2));
+          NODE
+      - name: Assert Gravity production HTTP, SEO locks, author articles, database health and TMB isolation
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE='https://gravity-leadership-system.netlify.app'
+          for p in / /books /book-reader /register /start-here /windows-programs /gravity-report /gravity-sop-foundry /gravity-shift-lab /gravity-inventory-center /gravity-work-study-lab /testing-room /apps/sop-foundry/employee-app; do
+            response="$(mktemp)" headers="$(mktemp)"
+            curl --fail --silent --show-error --retry 6 --retry-all-errors --retry-delay 3 --max-time 30 --location --dump-header "$headers" --output "$response" "$BASE$p"
+            grep -qi '^x-robots-tag: noindex, nofollow' "$headers" || { echo "ERROR: noindex missing for $p"; exit 1; }
+            grep -qi '<html' "$response" || { echo "ERROR: not HTML $p"; exit 1; }
+            echo "GRAVITY PROD HTTP AND NOINDEX PASS $p"
+            rm -f "$response" "$headers"
+          done
+          curl --fail --silent --show-error --location "$BASE/robots.txt" | grep -Fq 'Disallow: /'
+          curl --fail --silent --show-error --location "$BASE/book-reader" | grep -q 'reader-available-books'
+          curl --fail --silent --show-error --location "$BASE/assets/js/book-reader.js" | grep -q 'reader-keep-awake'
+          echo 'GRAVITY PRODUCTION READER CANDIDATE PASS'
+          for attempt in 1 2 3 4 5 6; do
+            HEALTH="$(mktemp)"
+            CODE="$(curl --silent --show-error --max-time 22 --output "$HEALTH" --write-out '%{http_code}' "$BASE/foundry-hosted/health")"
+            if [ "$CODE" = 200 ] && HEALTH_FILE="$HEALTH" node -e 'const fs=require("fs"),j=JSON.parse(fs.readFileSync(process.env.HEALTH_FILE,"utf8"));if(j.ok!==true)process.exit(1)'; then
+              echo "GRAVITY NEW PRODUCTION FOUNDARY DATABASE PASS"; rm -f "$HEALTH"; break
+            fi
+            echo "GRAVITY NEW PRODUCTION FOUNDRY HEALTH NOT READY HTTP $CODE attempt $attempt"
+            head -c 250 "$HEALTH" || true; echo
+            rm -f "$HEALTH"
+            if [ "$attempt" = 6 ]; then echo 'ERROR: production hosted database health failed; do not change DNS';exit 1; fi
+            sleep 4
+          done
+          for endpoint in /gravity-report/articles.json /gravity-report/feed.xml /gravity-report/why-do-my-restaurant-managers-keep-making-excuses; do
+            code="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' "$BASE$endpoint")"
+            test "$code" = 200 || { echo "ERROR: published report missing $endpoint -> $code";exit 1; }
+          done
+          for target in https://thomasmonroebooks.com/ https://gravity-migration--gravity-leadership-system.netlify.app/; do
+            code="$(curl --silent --show-error --location --output /dev/null --write-out '%{http_code}' --max-time 30 "$target")"
+            test "$code" = 200 || { echo "ERROR: baseline site unavailable: $target $code";exit 1; }
+          done
+          echo 'PRE-CUTOVER GRAVITY PRODUCTION HTTP, FUNCTION, EDITORIAL, AND TMB BASELINES PASS'
+          echo 'SQUARESPACE DNS UNTOUCHED. GOOGLE WORKSPACE MX UNTOUCHED.'
+      - name: Preserve exact deployment identity and release gates
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Gravity-production-precutover-verification-NOINDEX
+          path: |
+            gravity-precutover-production-deploy.json
+            gravity-customer-service-gates.json
+          retention-days: 30
