@@ -1,3 +1,4 @@
+# Re-publish only the isolated gravity-migration alias after custom-domain attachment; never production.
 name: Gravity website migration — isolated, noindex preview
 on:
   push:
