@@ -426,6 +426,7 @@ async function init(){
    // EQ reset intentionally retains the independent narration volume.
  };
  $('reader-play').onclick=()=>{unlockNeuralAudio();if(playing)pause();else if(paused)resume();else runReader();};
+ $('reader-pause').onclick=pause;
  $('reader-stop').onclick=()=>hardStop('Stopped. Your precise place is saved.');
  $('reader-back').onclick=()=>seekWithinPart(currentTime()-15);
  $('reader-forward').onclick=()=>seekWithinPart(currentTime()+15);
