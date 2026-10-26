@@ -181,3 +181,7 @@ Changed only the migration branch `site/assets/js/gravity-guide-ai.js` in commit
 ## Cedar varied acknowledgment pilot — October 25
 
 Staging change `495eb1fc`: if a guide request is still awaiting the answer after 2.2 seconds and voice is on, play a short varied acknowledgment selected from ten phrases with last-five anti-repeat rotation. The actual answer interrupts the cue when available and immediately speaks; written response remains independent. Audio uses the existing TTS endpoint/cache; **first-time acknowledgments are not pre-recorded and may have network latency**. Requires live QA for overlap, interruption, speed, and phone access; do not treat as production-ready yet.
+
+## Cedar 8-second delay follow-up
+
+Netlify request logs showed successful Gravity Guide and TTS requests with multiple-second spacing, indicating working services but no evidence of fast audio-start latency. Updated staging `gravity-guide-ai.js` to request and browser-cache a single selected short Cedar acknowledgment shortly after the page loads, instead of first generating the phrase after the user has already waited 2.2 seconds. It is only played if the real answer remains pending; it may incur one extra TTS request per fresh session, and its preload may not finish before a very rapid first question. Acknowledgment must not interrupt or prolong delivery of the real answer. Javascript syntax check passed; **first-sound latency not yet proven**. User should test after staging preview deploy, inspect transition and measure voice startup. Public production unchanged.
