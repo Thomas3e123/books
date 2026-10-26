@@ -67,9 +67,9 @@ function voiceStatus(text){const el=document.getElementById('gravity-guide-voice
 function unlockNeuralAudio(){const C=window.AudioContext||window.webkitAudioContext;if(!C)return false;try{if(!audioCtx)audioCtx=new C();if(audioCtx.state==='suspended')audioCtx.resume().catch(()=>{});return true}catch(_){return false}}
 function stopNeuralAudio(){speechToken++;if(resolveSpeech){resolveSpeech();resolveSpeech=null}if(sourceNode){try{sourceNode.onended=null;sourceNode.stop(0)}catch(_){}try{sourceNode.disconnect()}catch(_){}sourceNode=null}}
 async function playNeuralBlob(blob,voice,token){if(token!==speechToken)return;if(!unlockNeuralAudio())throw new Error('Web Audio is unavailable');if(audioCtx.state==='suspended')await audioCtx.resume();const raw=await blob.arrayBuffer();const buffer=await audioCtx.decodeAudioData(raw.slice(0));if(token!==speechToken)return;return new Promise((resolve,reject)=>{try{resolveSpeech=resolve;const s=audioCtx.createBufferSource();sourceNode=s;s.buffer=buffer;s.connect(audioCtx.destination);s.onended=()=>{if(sourceNode===s)sourceNode=null;resolveSpeech=null;resolve()};s.start(0);voiceStatus(voiceLabel(voice)+' neural voice')}catch(e){reject(e)}})}
-async function speechBlob(part,voice,token){
+async function speechBlob(part,voice,token,preload=false){
  const key=await hash(voice+'|.98|'+part);
- if(token!==speechToken)return null;
+ if(token!==speechToken&&!preload)return null;
  const request=new Request(location.origin+'/__gravity_voice_cache__/'+key+'.mp3');
  let cache=null,blob=null;
  try{if('caches'in window){cache=await caches.open('gravity-neural-voice-v2');const hit=await cache.match(request);if(hit)blob=await hit.blob()}}catch(_){cache=null}
@@ -78,9 +78,9 @@ async function speechBlob(part,voice,token){
   if(!r.ok)throw new Error('TTS HTTP '+r.status);
   if(!(r.headers.get('content-type')||'').toLowerCase().includes('audio'))throw new Error('Invalid audio response');
   blob=await r.blob();
-  if(cache)cache.put(request,new Response(blob,{headers:{'Content-Type':'audio/mpeg'}})).catch(()=>{});
+  if(cache){const saving=cache.put(request,new Response(blob,{headers:{'Content-Type':'audio/mpeg'}})).catch(()=>{});if(preload)await saving;}
  }
- return token===speechToken?blob:null;
+ return token===speechToken||preload?blob:null;
 }
 function speechParts(text){
  let rest=cleanText(text).replace(/\s+/g,' ').trim().slice(0,2800),out=[];
@@ -136,7 +136,7 @@ function warmAcknowledgment(){
  preparedAck=ACKNOWLEDGMENTS[Math.floor(Math.random()*ACKNOWLEDGMENTS.length)];
  // Prepare one small Cedar clip while the user reads or composes a question.
  // No audible playback until a request genuinely needs an acknowledgment.
- ackWarmPromise=speechBlob(preparedAck,getVoice(),speechToken).catch(()=>null);
+ ackWarmPromise=speechBlob(preparedAck,getVoice(),speechToken,true).catch(()=>null);
 }
 
 function nextAcknowledgment(){
