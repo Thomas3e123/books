@@ -32,7 +32,7 @@ function walk(dir){
   // Remove the blanket preview noindex from public pages, but KEEP private employee,
   // manager and receipt pages out of the public search index after launch.
   html=html.replace(/<meta\s+name=["']robots["']\s+content=["']noindex,nofollow["']\s*\/?>\s*/gi,'');
-  const relative=path.relative(source,full).split(path.sep).join('/');
+  const relative=path.relative(destination,full).split(path.sep).join('/');
   if(privatePage.test(relative)){
     html=html.replace(/<meta\b[^>]*name=["']robots["'][^>]*>/gi,'');
     html=html.replace(/(<head\b[^>]*>)/i,'$1\n<meta name="robots" content="noindex,nofollow"/>');
