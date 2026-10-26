@@ -7,6 +7,7 @@ import a16 from '../functions/gravity-report/issues-16-20.json' with {type:'json
 import a21 from '../functions/gravity-report/issues-21-25.json' with {type:'json'};
 import a26 from '../functions/gravity-report/issues-26-30.json' with {type:'json'};
 const drafts=[...a11,...a16,...a21,...a26];
+const ORIGIN='https://gravityleadershipsystem.com';
 const slug=t=>t.toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const url=d=>'/gravity-report/'+(d.slug??slug(d.title));
 const leadWords=d=>(d.lead+' '+d.sections.map(x=>x[1].join(' ')).join(' ')).split(/\s+/).length;
@@ -28,7 +29,7 @@ const RealDate=globalThis.Date;
 async function at(iso,path){
  const m=new RealDate(iso);
  globalThis.Date=class MockDate extends RealDate{constructor(...args){super(...(args.length?args:[m.toISOString()]));}static now(){return m.valueOf();}};
- try{return await handler(new Request('https://thomasmonroebooks.com'+path),{});}finally{globalThis.Date=RealDate;}
+ try{return await handler(new Request(ORIGIN+path),{});}finally{globalThis.Date=RealDate;}
 }
 let r=await at('2026-10-20T18:30:00Z','/gravity-report/articles.json');
 let schedule=await r.json();
@@ -36,6 +37,17 @@ assert.equal(schedule.articles.length,30);
 assert.equal(schedule.articles.filter(x=>x.released).length,5);
 assert(schedule.articles.filter(x=>!x.released).every(x=>x.summary===null),'Unpublished summary leaked');
 for(let i=0;i<5;i++)assert.equal(schedule.articles[i].release_date,'2026-10-20');
+// Verify all five preserved, originally approved full articles are already
+// retrievable on their published dates and point to the NEW Gravity domain.
+for(const article of firstTen.articles.slice(0,5)){
+ const response=await at('2026-10-26T17:00:00Z',url(article));
+ assert.equal(response.status,200,'Published full article is unavailable: '+article.title);
+ const html=await response.text();
+ assert(html.includes(article.article_html),'Approved original article body changed or missing: '+article.title);
+ assert(html.includes('<link rel="canonical" href="'+ORIGIN+url(article)+'">'),'Article canonical is not Gravity: '+article.title);
+ assert(!html.includes('rel="canonical" href="https://thomasmonroebooks.com'),'Legacy host in article canonical');
+}
+
 const expectedInitial=['2026-10-27','2026-10-30','2026-11-03','2026-11-06','2026-11-10'];
 assert.deepEqual(schedule.articles.slice(5,10).map(x=>x.release_date),expectedInitial);
 const projected=schedule.articles.slice(10);
@@ -60,13 +72,18 @@ for(const a of projected){
  assert(body.includes('datePublished')&&body.includes(a.title.replace(/&/g,'&amp;')),'Article metadata missing: '+a.issue);
 }
 r=await at('2026-10-20T18:30:00Z','/gravity-report/feed.xml');
-assert.equal(((await r.text()).match(/<item>/g)||[]).length,5);
+const initialRss=await r.text();
+assert.equal((initialRss.match(/<item>/g)||[]).length,5);
+assert(initialRss.includes(ORIGIN+'/gravity-report/'),'RSS links must resolve to Gravity');
+assert(!initialRss.includes('https://thomasmonroebooks.com'),'RSS must not point to old TMB');
 r=await at('2026-11-13T15:00:00Z','/gravity-report/feed.xml');
 assert.equal(((await r.text()).match(/<item>/g)||[]).length,11);
 r=await at('2027-01-19T15:00:00Z','/gravity-report/feed.xml');
 assert.equal(((await r.text()).match(/<item>/g)||[]).length,30);
 r=await at('2026-10-20T18:30:00Z','/gravity-report/sitemap.xml');
-assert.equal(((await r.text()).match(/<lastmod>/g)||[]).length,5);
+const initialMap=await r.text();
+assert.equal((initialMap.match(/<lastmod>/g)||[]).length,5);
+assert(initialMap.includes(ORIGIN+'/gravity-report/'),'Article sitemap links must resolve to Gravity');
 r=await at('2027-01-19T15:00:00Z','/gravity-report/sitemap.xml');
 assert.equal(((await r.text()).match(/<lastmod>/g)||[]).length,30);
 console.log('GRAVITY_REPORT_CHECKS=PASS complete=30 published_now=5 scheduled=25 dates=30 future_gate=PASS timezone=America/Chicago rss=PASS sitemap=PASS opt_in=present');
