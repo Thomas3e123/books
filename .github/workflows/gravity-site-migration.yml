@@ -5,6 +5,7 @@ on:
       - 'feature/gravity-migration-phase1-*'
     paths:
       - '.github/workflows/gravity-site-migration.yml'
+      - 'site/apps/sop-foundry/staff-posters.js'
       - 'scripts/prepare-gravity-preview.cjs'
       - 'scripts/verify-gravity-preview.cjs'
       - 'docs/gravity-migration-2026-10-22.md'
