@@ -305,6 +305,38 @@
       "sha256": "e50fb8e7bbeef6e13fd64c7a10910caf5efa37430e9b6f3ba3dd3953d167e5f1"
     },
     {
+      "path": "site/assets/audio/gravity-ack/cedar-01.mp3",
+      "sha256": "52845c2c4361b759d5eb036eb0b4d047da72d9a77029381bdae74377546b6980"
+    },
+    {
+      "path": "site/assets/audio/gravity-ack/cedar-02.mp3",
+      "sha256": "129bb026faa472702b401cfb989693ee4a8b75ea70d25cf1ffa0dd586e65f618"
+    },
+    {
+      "path": "site/assets/audio/gravity-ack/cedar-03.mp3",
+      "sha256": "789298223a8025bd2de32eb3634e706a0b849d55b0c7667183cedd8dfebc4a2e"
+    },
+    {
+      "path": "site/assets/audio/gravity-ack/cedar-04.mp3",
+      "sha256": "50289260cc02ecf2711e24c37db4462919ef1e4b331f06e45b3bb855242b1a63"
+    },
+    {
+      "path": "site/assets/audio/gravity-ack/cedar-05.mp3",
+      "sha256": "17f869bb0bad1f60ff8bb08888da3c9be19ab74b2d862d9a1994d8f2936e2f16"
+    },
+    {
+      "path": "site/assets/audio/gravity-ack/cedar-06.mp3",
+      "sha256": "cc455486f42ad398ee63128b45d724279f468b7dd082394c172422cabf4f1abb"
+    },
+    {
+      "path": "site/assets/audio/gravity-ack/cedar-07.mp3",
+      "sha256": "eb3070eab5eb7587796b07f3a2f676ff2e49ec9e892c8cf90a774bae7f0cefc3"
+    },
+    {
+      "path": "site/assets/audio/gravity-ack/cedar-08.mp3",
+      "sha256": "a45e5d70eff4224fdfae3f78c9bc0d9fd535525332f41f6265a2bb9aed24c447"
+    },
+    {
       "path": "site/assets/css/book-reader.css",
       "sha256": "2ac57db81a4d9b50957623544e8d3153689eed3a7a28d515d659264ea07668de"
     },
@@ -1342,7 +1374,7 @@
     },
     {
       "path": "site/assets/js/gravity-guide-ai.js",
-      "sha256": "73727924a78bd16cce224ade18b649867641d35098e84291ba47b389452fab00"
+      "sha256": "679d96e44bb320c29ce58b1fd291020df16065896bbe8a971e8340139f4a1c7a"
     },
     {
       "path": "site/assets/js/gravity-guide-registry.js",
@@ -1946,7 +1978,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "7ec66803e574fd28ac3e2875e809e5e115108691323146501573efceeb33970f"
+      "sha256": "2153cdc3dbe963baf37c81149c2eb967d8237bf147e9c0be18b00a37a9e7500c"
     },
     {
       "path": "site/installation-improvement.html",
