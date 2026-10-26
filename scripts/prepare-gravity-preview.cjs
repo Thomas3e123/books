@@ -28,7 +28,7 @@ function visit(dir) {
     htmlCount++;
     // Every page uses the same current Ask Gravity implementation and cache-busting version.
     // Updating only index.html left secondary pages loading the old voice experience.
-    html = html.replace(/(gravity-guide-ai\.js\?v=)[^"'\\s<>]+/g, '$1' + '20261025-cedar-prereply-2');
+    html = html.replace(/(gravity-guide-ai\.js\?v=)[^"'\\s<>]+/g, '$1' + '20261025-cedar-prereply-3');
     html = html.replace(/(<script\b[^>]*id=["']gravity-business-identity["'][^>]*>)([\s\S]*?)(<\/script>)/g, (_, open, body, close) => {
       const data = JSON.parse(body);
       if (!Array.isArray(data['@graph'])) throw new Error('Missing identity graph in ' + file);
