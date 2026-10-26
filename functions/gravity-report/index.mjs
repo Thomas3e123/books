@@ -3,7 +3,9 @@ import volume11 from './issues-11-15.json' with {type:'json'};
 import volume16 from './issues-16-20.json' with {type:'json'};
 import volume21 from './issues-21-25.json' with {type:'json'};
 import volume26 from './issues-26-30.json' with {type:'json'};
-const SITE='https://thomasmonroebooks.com';
+// This function is copied from the original TMB publication; keep publisher credit,
+// but point article canonicals, RSS GUIDs and article sitemap at Gravity's permanent domain.
+const SITE='https://gravityleadershipsystem.com';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const slugify=t=>t.toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 function extraReleaseDate(issue){
