@@ -22,7 +22,7 @@ jobs:
           token="${A:-${B:-${C:-}}}"
           if [ -z "$token" ]; then echo 'ERROR: credential missing; no renew performed'; exit 1; fi
           a="$(dig +short gravityleadershipsystem.com A | sort -u)"
-          cname="$(dig +short www.gravityleadershipsystem.com CNAME | sed 's/\\.$//' | sort -u)"
+          cname="$(dig +short www.gravityleadershipsystem.com CNAME | sed 's/[.]$//' | sort -u)"
           mx="$(dig +short gravityleadershipsystem.com MX)"
           test "$a" = '75.2.60.5' || { echo "ERROR apex DNS unexpected: $a"; exit 1; }
           test "$cname" = 'gravity-leadership-system.netlify.app' || { echo "ERROR www DNS unexpected: $cname"; exit 1; }
