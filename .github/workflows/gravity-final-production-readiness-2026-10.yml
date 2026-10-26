@@ -44,10 +44,10 @@ jobs:
           if(!fs.readFileSync(p+'/sitemap.xml','utf8').includes('https://gravityleadershipsystem.com/'))throw Error('Missing canonical site');
           console.log('FINAL RELEASE STATIC PAGE CHECK PASS; NOT DEPLOYED');
           NODE
-      - name: Audit all internal links and public candidate downloads STRICT
-        run: node scripts/audit-gravity-launch-links.cjs --strict
       - name: Audit customer-facing form and backend wiring
         run: node scripts/audit-gravity-customer-services.cjs
+      - name: Audit all internal links and public candidate downloads STRICT
+        run: node scripts/audit-gravity-launch-links.cjs --strict
       - name: Preserve static release report without deployment
         if: always()
         uses: actions/upload-artifact@v4
