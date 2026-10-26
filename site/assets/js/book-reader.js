@@ -108,6 +108,16 @@ function mainContentOffset(text){
 
 const $=id=>document.getElementById(id);
 const status=t=>{const el=$('reader-status');if(el)el.textContent=t;};
+// Dedicated Pause control: the Play button never turns into a second Pause.
+function updateTransport(){
+ const play=$('reader-play'),pauseButton=$('reader-pause');
+ if(play){
+   play.textContent=paused?'Resume':playing?'Playing…':'Play';
+   play.disabled=playing||!chunks.length;
+   play.setAttribute('aria-label',paused?'Resume book narration':playing?'Narration playing':'Play book narration');
+ }
+ if(pauseButton)pauseButton.disabled=!playing;
+}
 
 function isReaderBoilerplate(t){
   t=String(t||'').trim();
@@ -242,6 +252,7 @@ function paint(){
  $('reader-percent').textContent=chunks.length?Math.round((idx+1)/chunks.length*100)+'%':'0%';
  $('reader-prev').disabled=idx<=0;
  $('reader-next').disabled=idx>=chunks.length-1;
+ updateTransport();
  showPosition();
 }
 function hardStop(message){
@@ -252,7 +263,7 @@ function hardStop(message){
  playedSeconds=currentTime();
  stopNeuralSource();
  if(audioCtx&&audioCtx.state==='suspended')audioCtx.resume().catch(()=>{});
- if($('reader-play'))$('reader-play').textContent='Play';
+ updateTransport();
  mode='';showPosition();
  if(message)status(message);
 }
@@ -299,7 +310,7 @@ async function runReader(){
  if(!unlockNeuralAudio()){status('Your browser does not support Gravity neural audio.');return;}
  loopActive=true;const token=++runToken;playing=true;paused=false;
  holdScreenWake();
- $('reader-play').textContent='Pause';
+ updateTransport();
  status('Reading with '+(($('reader-voice').value==='marin')?'Marin':'Cedar')+' neural voice.');
  while(token===runToken&&playing&&idx<chunks.length){
   try{
@@ -308,7 +319,7 @@ async function runReader(){
   }catch(e){
    if(token!==runToken)break;
    console.warn('Gravity Reader neural voice unavailable:',e);
-   playing=false;paused=false;$('reader-play').textContent='Play';releaseScreenWake();
+   playing=false;paused=false;updateTransport();releaseScreenWake();
    status('Neural voice is unavailable. '+(e?.message||'Please try again')+'. No device voice was substituted.');
    saveCheckpoint();break;
   }
@@ -316,12 +327,12 @@ async function runReader(){
    // Save the NEXT part before requesting its audio, avoiding repeats when reopening.
    idx++;playedSeconds=0;partDuration=0;decodedBuffer=null;decodedForPart=-1;paint();saveCheckpoint();
    if(!$('reader-continuous')?.checked){
-     playing=false;paused=false;$('reader-play').textContent='Play';releaseScreenWake();
+     playing=false;paused=false;updateTransport();releaseScreenWake();
      status('Part completed. Press Play to continue with Part '+(idx+1)+'.');
      break;
    }
   }else{
-   playing=false;paused=false;$('reader-play').textContent='Play';releaseScreenWake();
+   playing=false;paused=false;updateTransport();releaseScreenWake();
    status('End of book. Your listening position is saved.');
    saveCheckpoint();break;
   }
@@ -335,12 +346,12 @@ function pause(){
  releaseScreenWake();
  saveCheckpoint();
  if(audioCtx)audioCtx.suspend().catch(()=>{});
- $('reader-play').textContent='Resume';status('Paused at '+formatTime(playedSeconds)+'.');
+ updateTransport();status('Paused at '+formatTime(playedSeconds)+'.');
  showPosition();
 }
 function resume(){
  if(!paused){runReader();return;}
- paused=false;playing=true;$('reader-play').textContent='Pause';
+ paused=false;playing=true;updateTransport();
  holdScreenWake();
  status('Continuing from '+formatTime(playedSeconds)+'.');
  if(audioCtx&&audioCtx.state==='suspended')audioCtx.resume().catch(()=>{hardStop('Neural audio could not resume.');});
@@ -480,7 +491,7 @@ async function init(){
    updateLevels();storePrefs();
    // EQ reset intentionally retains the independent narration volume.
  };
- $('reader-play').onclick=()=>{unlockNeuralAudio();if(playing)pause();else if(paused)resume();else runReader();};
+ $('reader-play').onclick=()=>{unlockNeuralAudio();if(paused)resume();else if(!playing)runReader();};
  $('reader-pause').onclick=pause;
  $('reader-stop').onclick=()=>hardStop('Stopped. Your precise place is saved.');
  $('reader-back').onclick=()=>seekWithinPart(currentTime()-15);
@@ -501,7 +512,7 @@ async function init(){
    status(minutes?'Sleep timer set for '+minutes+' minutes.':'Sleep timer turned off.');
  };
  status(catalog.length+' Gravity books available. Choose a book to begin.');
- showPosition();
+ updateTransport();showPosition();
  // Reopening restores the most recently selected book, its part and offset.
  // Do NOT autoplay without a user's gesture; mobile browsers require a tap.
  const last=readStorage(LASTBOOK);
