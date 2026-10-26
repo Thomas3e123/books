@@ -2370,7 +2370,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "b6d5bb67d523b961a3d03f987ddcbbe0468c6d56b5b592fc42b6134be02324d1"
+      "sha256": "ea7469c302ec09e23f8116eb487af037b7ebda989f168ff920c55ffbe70bb2c2"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",
