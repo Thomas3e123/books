@@ -1350,7 +1350,7 @@
     },
     {
       "path": "site/assets/js/book-reader.js",
-      "sha256": "752f44b921334fa8e333102206f056bbadd873cc71497619593d5b1f4f89e27f"
+      "sha256": "0787b88843c14bb517924413ecb26614e6daf1a8ccdee86c04a1f00df1da22d4"
     },
     {
       "path": "site/assets/js/gravity-aware-study.js",
@@ -1838,7 +1838,7 @@
     },
     {
       "path": "site/book-reader.html",
-      "sha256": "a0fdc4c71fb1b5f23d223e03e3213a6c0a1a26f5ed26cb484fa1f5ccc25e6380"
+      "sha256": "5c07eb680da02da60e083a7832571edb642bdc82e526bbb1c25c5d55ec51aaa9"
     },
     {
       "path": "site/books.html",
