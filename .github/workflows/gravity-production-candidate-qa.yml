@@ -110,9 +110,15 @@ jobs:
             echo "Review alias HTTP/noindex PASS: $page"
             rm -f "$headers" "$body"
           done
-          health="$(curl --fail --silent --show-error "$base/foundry-hosted/health")"
-          HEALTH_JSON="$health" node -e 'const x=JSON.parse(process.env.HEALTH_JSON);if(x.ok!==true)process.exit(1)'
-          echo 'Review alias hosted backend health PASS'
+          # Netlify functions may return a transient 502 immediately after a new deploy.
+          # Do not mask a sustained outage: compare the existing migration alias and retry.
+          for alias in "https://gravity-migration--gravity-leadership-system.netlify.app" "$base"; do
+            health_file="$(mktemp)"
+            curl --fail --silent --show-error --retry 5 --retry-delay 3 --retry-all-errors --max-time 20 --output "$health_file" "$alias/foundry-hosted/health"
+            HEALTH_FILE="$health_file" node -e 'const fs=require("fs"),x=JSON.parse(fs.readFileSync(process.env.HEALTH_FILE,"utf8"));if(x.ok!==true)process.exit(1)'
+            echo "Hosted backend health PASS: $alias"
+            rm -f "$health_file"
+          done
       - name: Retain review-only build
         uses: actions/upload-artifact@v4
         with:
