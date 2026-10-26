@@ -89,6 +89,8 @@ for (const page of ['index.html','register.html','windows-programs.html','gravit
 const navigationJs=fs.readFileSync(path.join(site,'assets/js/site.js'),'utf8');
 assert(navigationJs.includes("menuToggle.setAttribute('aria-expanded'") && navigationJs.includes("nav.classList.toggle('open'"), 'Mobile menu open/close logic missing');
 
+const menuAudit=require('./gravity-navigation-consistency.cjs').auditMenus(site);
+assert(menuAudit.allNavigable&&menuAudit.total===pages.length,'Not all HTML pages have navigable site menu');
 console.log(JSON.stringify({result:'PASS (static staging gates only)',htmlPages:pages.length,criticalFiles:required.length,notes:[
  'No backend, database, Windows-native, Netlify Form migration or customer QR end-to-end claim.',
  'Preview must remain noindex and must not be used as production.',
