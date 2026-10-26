@@ -1,0 +1,31 @@
+name: Gravity NEW production — deep read-only verification (NO DEPLOY)
+on:
+  push:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths:
+      - '.github/workflows/gravity-production-deep-readonly-qa-2026-10-26.yml'
+      - 'scripts/verify-gravity-prod-precutover-live.cjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  production-readonly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - name: Check all 15 full book texts, 5 original articles, reader, Cedar, DB, embargo and SEO locks
+        run: node scripts/verify-gravity-prod-precutover-live.cjs
+      - name: Verify every production-hosted download/manually linked PDF is real — HEAD only
+        env:
+          GRAVITY_AUDIT_HOST: https://gravity-leadership-system.netlify.app
+        run: node scripts/audit-gravity-live-downloads.cjs
+      - name: Preserve verified read-only download report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Gravity-production-deep-readonly-verification
+          path: gravity-live-downloads-audit.json
+          retention-days: 30
