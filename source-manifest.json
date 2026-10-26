@@ -162,7 +162,7 @@
     },
     {
       "path": "site/apps/sop-foundry/hosted-bridge.js",
-      "sha256": "67a58a52728f95f0b8a67aac26e6026c7a8d1426c757f39a02bce7500f7c0e24"
+      "sha256": "68b5480988d65f5887df4e70f41c5c0fd4ea359c142feafbe759300a60f094e7"
     },
     {
       "path": "site/apps/sop-foundry/images/gravity-color-field.png",
@@ -214,7 +214,7 @@
     },
     {
       "path": "site/apps/sop-foundry/room-gate.js",
-      "sha256": "fab8bf21338d3d04147edea6440a855d14a5d071102ba6bad39f6d4dd7701643"
+      "sha256": "de1eb8b2362bb8b962c267dd560b493c8653176a4c89239323067f05911946f0"
     },
     {
       "path": "site/apps/sop-foundry/room-settings.html",
