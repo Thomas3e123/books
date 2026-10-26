@@ -37,7 +37,8 @@ function visit(folder){
   if(!item.name.endsWith('.html'))continue;
   const relative=path.relative(directory,file);pages.push(relative);
   const source=fs.readFileSync(file,'utf8');
-  const base='https://gravityleadershipsystem.com/'+path.relative(directory,path.dirname(file)).replaceAll(path.sep,'/')+'/';
+  const folder=path.relative(directory,path.dirname(file)).replaceAll(path.sep,'/');
+  const base='https://gravityleadershipsystem.com/'+(folder?folder+'/':'');
   for(const match of source.matchAll(/\b(?:href|src|action)\s*=\s*["']([^"']+)["']/gi)){
    const raw=match[1].trim();
    if(!raw||raw.startsWith('#')||raw.startsWith('data:')||raw.includes('{{'))continue;
