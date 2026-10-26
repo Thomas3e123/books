@@ -30,3 +30,13 @@
 #reader-skip-now{min-height:44px;white-space:normal}
 .reader-buttons button:focus-visible,.reader-check input:focus-visible,.reader-seek input:focus-visible,.reader-volume input:focus-visible{outline:3px solid #9f6229;outline-offset:2px}
 @media(max-width:420px){.reader-panel{padding:14px}.reader-controls{gap:12px}.reader-transport button{font-size:13px}}
+
+.reader-eq{display:grid;gap:12px;margin:0;min-width:0;padding:12px;border:1px solid #c9b78c;border-radius:10px;background:#f8f6f1}
+.reader-eq legend{padding:0 6px;color:#143345;font:750 14px/1.4 system-ui,sans-serif}
+.reader-eq-row{display:grid;gap:6px}
+.reader-eq-row label,.reader-volume label{display:flex;justify-content:space-between;align-items:center;gap:8px;font:650 13px/1.35 system-ui,sans-serif}
+.reader-eq-row input{width:100%;min-height:34px;accent-color:#183a47}
+.reader-eq output,.reader-volume output{font-variant-numeric:tabular-nums;font-weight:800;color:#1d5060;white-space:nowrap}
+#reader-eq-reset{min-height:44px;white-space:normal}
+.reader-eq-note{font-size:12px;line-height:1.45;color:#59615a;margin:0}
+.reader-sleep select{width:100%;min-height:48px;padding:10px;border:1px solid #a8987d;border-radius:9px;background:#fff;color:#172333;font:600 15px system-ui,sans-serif}
