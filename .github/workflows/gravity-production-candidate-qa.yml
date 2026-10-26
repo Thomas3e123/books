@@ -5,6 +5,8 @@ on:
       - 'feature/gravity-migration-phase1-*'
     paths:
       - 'scripts/prepare-gravity-production-candidate.cjs'
+      - 'site/book-reader.html'
+      - 'site/assets/css/book-reader.css'
       - 'scripts/gravity-navigation-consistency.cjs'
       - '.github/workflows/gravity-production-candidate-qa.yml'
   workflow_dispatch:
