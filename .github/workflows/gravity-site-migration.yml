@@ -110,6 +110,8 @@ jobs:
           status="$(curl --silent --show-error --output /tmp/gls-missing-workspace.json --write-out '%{http_code}' "$base/foundry-hosted/workspace/$code")"
           test "$status" = 404 || { echo "Expected missing workspace HTTP 404; got $status"; exit 1; }
           echo "Hosted workspace lookup negative-path PASS"
+      - name: One-time live synthetic employee integration test
+        run: node scripts/test-gravity-employee-live.cjs
       - name: Upload static QA evidence
         if: always()
         uses: actions/upload-artifact@v4
