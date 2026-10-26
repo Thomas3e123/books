@@ -1,7 +1,7 @@
 'use strict';
 /**
  * Controlled migration preview only. Never run this against the TMB production
- * branch: it intentionally changes URLs and inserts an unmistakable test banner.
+ * branch: it changes staging URLs and enforces noindex without an obstructive banner.
  * Source data, employee records and function credentials are not touched.
  */
 const fs = require('node:fs');
@@ -14,7 +14,6 @@ const oldOrigin = 'https://thomasmonroebooks.com';
 // Do not route customers or metadata at the unavailable future domain.
 const newOrigin = 'https://gravity-leadership-system.netlify.app';
 const email = 'thomas.butler@gravityleadershipsystem.com';
-const banner = '<div id="gravity-migration-preview-notice" role="note" style="position:fixed;right:12px;bottom:12px;top:auto;z-index:30;max-width:min(420px,calc(100vw - 24px));box-sizing:border-box;background:#611818;color:#fff;text-align:left;padding:9px 13px;border:1px solid #fff5;border-radius:9px;box-shadow:0 8px 24px #0006;font:600 12px/1.35 Arial,sans-serif">GRAVITY MIGRATION PREVIEW — NOT LIVE FOR CUSTOMERS. Use <a style="color:#fff;text-decoration:underline" href="https://thomasmonroebooks.com/">the existing website</a> for registrations, downloads and employee access.</div>';
 let htmlCount = 0;
 let replacedIdentities = 0;
 let modifiedCount = 0;
@@ -61,15 +60,8 @@ function visit(dir) {
     }
     if (entry.name === 'gravity-report.html')
       html = html.replace(/Thomas Monroe Books · Written by Thomas Butler/g, 'The Gravity System · Written by Thomas Butler');
-    // Never permit a staging copy to appear as another live customer destination.
-    if (html.includes('gravity-migration-preview-notice')) {
-      // Older preview used an in-flow warning that pushed navigation down and reduced menu visibility.
-      html = html.replace(/<div id="gravity-migration-preview-notice"[\s\S]*?<\/div>/, banner);
-    } else {
-      const updated = html.replace(/(<body\b[^>]*>)/i, '$1' + banner);
-      if (updated === html) throw new Error('No <body> in ' + file);
-      html = updated;
-    }
+    // Remove obsolete fixed red preview banner; staging remains noindex via meta, headers and robots.txt.
+    html = html.replace(/<div id="gravity-migration-preview-notice"[\s\S]*?<\/div>/g, '');
     if (!html.includes('name="robots" content="noindex,nofollow"')) {
       html = html.replace(/(<head\b[^>]*>)/i, '$1\n<meta name="robots" content="noindex,nofollow"/>\n');
     }
