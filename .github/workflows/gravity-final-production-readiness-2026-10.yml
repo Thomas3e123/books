@@ -1,0 +1,101 @@
+name: Gravity final production readiness — AUDIT ONLY, NO DEPLOY
+on:
+  push:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths:
+      - '.github/workflows/gravity-final-production-readiness-2026-10.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  static-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Verify clean migration source and code
+        run: |
+          set -e
+          npm ci
+          node scripts/update-manifest.cjs
+          npm run build
+          node scripts/verify-gravity-preview.cjs
+          node scripts/test-gravity-domain-functions.cjs
+          node scripts/check-gravity-first-use-qr.cjs
+          node scripts/test-gravity-employee-connection.cjs
+      - name: Build exact public release candidate OFFLINE only
+        run: |
+          node scripts/prepare-gravity-production-candidate.cjs
+          node - <<'NODE'
+          const fs=require('fs'),p='build/gravity-production-candidate';
+          const critical=['index.html','books.html','register.html','book-reader.html','contact.html','windows-programs.html','gravity-sop-foundry.html','gravity-shift-lab.html','gravity-inventory-center.html','gravity-work-study-lab.html','testing-room.html'];
+          for(const page of critical){
+            const s=fs.readFileSync(p+'/'+page,'utf8');
+            if(s.includes('gravity-migration-preview-notice'))throw Error('Preview banner: '+page);
+            if(s.includes('gravity-leadership-system.netlify.app'))throw Error('Staging hostname in '+page);
+            if(/<meta[^>]*name=["']robots["'][^>]*noindex/.test(s))throw Error('Public page noindex: '+page);
+          }
+          if(!fs.readFileSync(p+'/robots.txt','utf8').includes('Allow: /'))throw Error('Public robots disabled');
+          if(!fs.readFileSync(p+'/sitemap.xml','utf8').includes('https://gravityleadershipsystem.com/'))throw Error('Missing canonical site');
+          console.log('FINAL RELEASE STATIC PAGE CHECK PASS; NOT DEPLOYED');
+          NODE
+      - name: Audit all internal links and public candidate downloads STRICT
+        run: node scripts/audit-gravity-launch-links.cjs --strict
+      - name: Audit customer-facing form and backend wiring
+        run: node scripts/audit-gravity-customer-services.cjs
+      - name: Preserve static release report without deployment
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Gravity-final-release-static-audit-NO-DEPLOY
+          path: |
+            gravity-customer-service-gates.json
+          retention-days: 14
+
+  live-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - name: Read-only staging and release-review checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          for BASE in https://gravity-migration--gravity-leadership-system.netlify.app https://gravity-release-review--gravity-leadership-system.netlify.app; do
+            for URL in / /books /book-reader /register /start-here /windows-programs /gravity-assist /gravity-sop-foundry /gravity-shift-lab /gravity-inventory-center /gravity-work-study-lab /testing-room /apps/sop-foundry/employee-app; do
+              TMP="$(mktemp)"
+              CODE="$(curl --silent --show-error --retry 3 --retry-delay 2 --max-time 25 -L -D "$TMP" -o /dev/null -w '%{http_code}' "$BASE$URL")"
+              if [ "$CODE" != 200 ]; then echo "FAIL HTTP $CODE $BASE$URL"; exit 1; fi
+              if ! grep -qi 'x-robots-tag: noindex, nofollow' "$TMP"; then echo "FAIL noindex $BASE$URL"; exit 1; fi
+              rm -f "$TMP"
+            done
+            echo "RELEASE ALIAS HTTP/NOINDEX PASS $BASE"
+            H="$(curl --fail --silent --show-error --retry 3 --retry-delay 2 --max-time 25 "$BASE/foundry-hosted/health")"
+            HEALTH="$H" node -e 'const j=JSON.parse(process.env.HEALTH);if(j.ok!==true)process.exit(1)'
+            echo "RELEASE ALIAS HOSTED HEALTH PASS $BASE"
+          done
+      - name: Verify Cedar reader catalog and book-text availability on both aliases
+        run: node scripts/test-gravity-book-reader-live.cjs
+  mobile-reader:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - name: Install mobile Chromium test tool
+        run: |
+          which google-chrome
+          npm install --no-save --no-package-lock playwright-core@1.56.1
+      - name: Verify registration gate and title chooser in real mobile browser
+        run: node scripts/test-gravity-book-reader-browser.cjs
+      - name: Verify all 15 books, auto-play continuation, pause, EQ, sleep and resume
+        run: |
+          node scripts/test-gravity-reader-transport-browser.cjs
+          node scripts/test-gravity-reader-continuity-browser.cjs
