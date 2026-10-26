@@ -20,6 +20,8 @@ async function check(browser,host){
   const loaded=await page.evaluate(()=>({title:document.querySelector('#reader-book-title').textContent,excerpt:document.querySelector('#reader-text').textContent.slice(0,120),status:document.querySelector('#reader-status').textContent,nextDisabled:document.querySelector('#reader-next').disabled}));
   console.log('READER-LOADED '+JSON.stringify({host,...loaded,errors}));
   if(registered.options<15||registered.readerHidden||registered.readerDisplay==='none'||loaded.excerpt.length<40)throw Error('Reader broken on '+host);
+  const chosen=await page.evaluate(()=>({selected:document.querySelector('#reader-book').value,collapsed:!document.querySelector('#reader-available-books').open}));
+  if(chosen.selected!=='quiet-gravity'||!chosen.collapsed)throw Error('Book choice did not update UI: '+JSON.stringify(chosen));
   await context.close();
 }
 (async()=>{
