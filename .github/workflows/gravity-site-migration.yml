@@ -47,6 +47,17 @@ jobs:
             git pull --rebase origin "$GITHUB_REF_NAME"
             git push origin "HEAD:$GITHUB_REF_NAME"
           fi
+      - name: Verify prerecorded Cedar clips in deploy package
+        shell: bash
+        run: |
+          set -euo pipefail
+          for i in 01 02 03 04 05 06 07 08; do
+            file="site/assets/audio/gravity-ack/cedar-${i}.mp3"
+            test -s "$file" || { echo "Missing Cedar clip: $file"; exit 1; }
+          done
+          grep -q 'playImmediateAck()' site/assets/js/gravity-guide-ai.js
+          grep -q 'cedar-prereply' site/index.html
+          echo 'All prerecorded Cedar clips and voice frontend present'
       - name: Deploy a DRAFT preview to the NEW Gravity Netlify project only
         shell: bash
         run: |
