@@ -163,23 +163,33 @@ function preloadAck(){
  try{
   if(!localAckAudio)localAckAudio=new Audio();
   localAckAudio.preload='auto';
-  localAckAudio.src=ACK_AUDIO_ROOT+'cedar-'+String(nextAckIndex+1).padStart(2,'0')+'.mp3';
+  const file=ACK_AUDIO_ROOT+'cedar-'+String(nextAckIndex+1).padStart(2,'0')+'.mp3';
+  if(localAckAudio.getAttribute('src')!==file)localAckAudio.src=file;
   localAckAudio.load();
- }catch(_){}
+  localAckAudio.addEventListener('error',()=>{voiceStatus('Opening audio unavailable; Cedar answer will still play')},{once:true});
+ }catch(e){console.warn('Gravity acknowledgement preload failed',e)}
 }
 function playImmediateAck(){
- if(!voiceOn()||!localAckAudio)return;
+ if(!voiceOn())return;
+ if(!localAckAudio)preloadAck();
+ if(!localAckAudio)return;
+ const clip=localAckAudio;
  try{
-  localAckAudio.currentTime=0;
-  localAckAudio.play().catch(()=>{});
- }catch(_){}
+  clip.currentTime=0;
+  const playing=clip.play();
+  if(playing&&playing.catch)playing.catch(e=>{
+   console.warn('Gravity prerecorded acknowledgement playback failed',e);
+   voiceStatus('Opening audio blocked; preparing Cedar answer');
+  });
+ }catch(e){console.warn('Gravity acknowledgement playback exception',e)}
  nextAckIndex=(nextAckIndex+1+Math.floor(Math.random()*(ACK_COUNT-1)))%ACK_COUNT;
 }
 function stopImmediateAck(){
  if(!localAckAudio)return;
  try{localAckAudio.pause();localAckAudio.currentTime=0}catch(_){}
+ // Never reload in the middle of speech; prepare the next clip after stopping.
+ if(voiceOn())preloadAck();
 }
-
 function warmAcknowledgment(){
  if(!voiceOn()||ackWarmPromise)return;
  preparedAck=ACKNOWLEDGMENTS[Math.floor(Math.random()*ACKNOWLEDGMENTS.length)];
