@@ -189,3 +189,7 @@ Netlify request logs showed successful Gravity Guide and TTS requests with multi
 ## Cedar audio-wait acknowledgement — October 25
 
 Identified actual logic issue: the previous acknowledgment timer only watched the answer-text HTTP request; for fast text responses, it never fired, yet audio synthesis then took ~8 seconds. Staging change `541257af` now starts a cached Cedar cue 1.3 seconds into **audio synthesis**, with cancellation as soon as answer audio is ready. The cue prefetch remains speculative and may not finish; first-sound latency still requires user testing. Speech and cue overlap must be checked before release. No public production deploy.
+
+## Immediate Cedar prerecorded cue pilot — 2026-10-25
+
+GitHub workflow `.github/workflows/gravity-cedar-acknowledgments.yml` was added to generate 8 Cedar MP3 clips under `site/assets/audio/gravity-ack/` using the existing TTS endpoint (CI result not independently verified yet). Migration-only Gravity Guide now preloads local Cedar MP3, begins playback on the Ask click when voice is on, and stops the cue **only when the real speech actually starts**, bridging the observed 7–8 second audio generation delay. Voice off skips cue. The assets MUST exist in deployed build, otherwise no prereply is heard. Validate successful recording CI run, MP3 existence and playback, cancellation, full real speech, browser autoplay, and latency before public release. No change to production branch.
