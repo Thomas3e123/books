@@ -74,6 +74,10 @@ function visit(dir) {
   }
 }
 visit(site);
+const {ensureMenus,auditMenus}=require('./gravity-navigation-consistency.cjs');
+const menuReport=ensureMenus(site);
+auditMenus(site);
+console.log('Gravity menu coverage: '+JSON.stringify(menuReport));
 const headersPath = path.join(site, '_headers');
 let headers = fs.readFileSync(headersPath, 'utf8');
 if (!headers.includes('X-Robots-Tag: noindex, nofollow')) {
