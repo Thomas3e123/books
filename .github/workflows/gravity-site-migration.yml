@@ -9,6 +9,8 @@ on:
       - 'site/apps/sop-foundry/hosted-bridge.js'
       - 'site/apps/sop-foundry/room-gate.js'
       - 'scripts/prepare-gravity-preview.cjs'
+      - 'site/book-reader.html'
+      - 'site/assets/css/book-reader.css'
       - 'scripts/gravity-navigation-consistency.cjs'
       - 'scripts/verify-gravity-preview.cjs'
       - 'docs/gravity-migration-2026-10-22.md'
