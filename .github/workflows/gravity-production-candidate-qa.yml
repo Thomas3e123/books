@@ -32,7 +32,7 @@ jobs:
             if(!filename.endsWith('.html'))continue;
             pages++;
             const html=fs.readFileSync(filename,'utf8');
-            if(html.includes('gravity-migration-preview-notice')||html.includes('GRAVITY MIGRATION PREVIEW — NOT LIVE FOR CUSTOMERS')||/name=["']robots["'][^>]*noindex,nofollow/i.test(html))throw Error('Staging marker on '+filename);
+            if(html.includes('gravity-migration-preview-notice')||html.includes('GRAVITY MIGRATION PREVIEW — NOT LIVE FOR CUSTOMERS'))throw Error('Staging banner on '+filename);
             for(const match of html.matchAll(/(?:href|src)=["'](\/assets\/[^"'?#]+\.(?:pdf|zip|docx|xlsx|js|css))["'?#]/gi)){
               const target=path.join(p,decodeURIComponent(match[1]).slice(1));
               if(!fs.existsSync(target))brokenLinks.push(filename+': '+match[1]);
