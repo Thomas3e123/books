@@ -221,5 +221,5 @@ async function chooseFolder(){if(!window.showDirectoryPicker)return flash('Direc
 async function saveToFolder(){if(!dirHandle)return flash('Choose a folder first.');try{let perm=await dirHandle.requestPermission({mode:'readwrite'});if(perm!=='granted')return flash('Write permission was not granted.');let fh=await dirHandle.getFileHandle('gravity-recipe-works-full-backup.json',{create:true}),w=await fh.createWritable();await w.write(JSON.stringify(state,null,2));await w.close();markBackup();render()}catch(e){flash('Could not save to that folder. Use Download Full Backup instead.')}}
 function render(){buttons();summary();syncProfile();({library,build,test:testing,governance,revisions,adoption,outputs,storage}[current]||library)()}
 load();
-})();</script><script src="assets/js/gravity-guide-ai.js?v=20261025-cedar-prereply-2"></script>
+})();</script><script src="assets/js/gravity-guide-ai.js?v=20261025-cedar-prereply-3"></script>
 </body></html>
