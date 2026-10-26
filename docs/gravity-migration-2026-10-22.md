@@ -185,3 +185,7 @@ Staging change `495eb1fc`: if a guide request is still awaiting the answer after
 ## Cedar 8-second delay follow-up
 
 Netlify request logs showed successful Gravity Guide and TTS requests with multiple-second spacing, indicating working services but no evidence of fast audio-start latency. Updated staging `gravity-guide-ai.js` to request and browser-cache a single selected short Cedar acknowledgment shortly after the page loads, instead of first generating the phrase after the user has already waited 2.2 seconds. It is only played if the real answer remains pending; it may incur one extra TTS request per fresh session, and its preload may not finish before a very rapid first question. Acknowledgment must not interrupt or prolong delivery of the real answer. Javascript syntax check passed; **first-sound latency not yet proven**. User should test after staging preview deploy, inspect transition and measure voice startup. Public production unchanged.
+
+## Cedar audio-wait acknowledgement — October 25
+
+Identified actual logic issue: the previous acknowledgment timer only watched the answer-text HTTP request; for fast text responses, it never fired, yet audio synthesis then took ~8 seconds. Staging change `541257af` now starts a cached Cedar cue 1.3 seconds into **audio synthesis**, with cancellation as soon as answer audio is ready. The cue prefetch remains speculative and may not finish; first-sound latency still requires user testing. Speech and cue overlap must be checked before release. No public production deploy.
