@@ -197,3 +197,7 @@ GitHub workflow `.github/workflows/gravity-cedar-acknowledgments.yml` was added 
 ## October 25 — prerecorded voice deployment diagnosis
 
 Eight Cedar MP3 assets exist on the migration branch at `site/assets/audio/gravity-ack/cedar-01.mp3` through `cedar-08.mp3`, but their generation happened in a CI `[skip ci]` commit and the preview deployment is triggered only by specific paths. A live preview could therefore still be serving an older build without these files. Additionally, the homepage script URL had an old fixed cache-busting query, potentially retaining outdated JavaScript. Commit `505c0a1e` updates the homepage script version. This docs change is intentionally triggering the isolated **staging** deployment with the prerecorded clips now committed. Before calling this fixed, independently confirm staging deploy success and 200 responses for actual Cedar MP3 files, then test audible prereply. Neither successful backend TTS responses nor a branch file's existence proves a deployed clip.
+
+## Cedar prerecorded immediate cue diagnostic — October 25
+
+Commit `42dff24f` adds playback failure reporting and ensures the next prerecorded clip is preloaded after the previous clip stops. This does **not** establish that actual staging URLs serve the MP3s; live deployment and browser test are mandatory. This doc update triggers isolated preview build, without production promotion.
