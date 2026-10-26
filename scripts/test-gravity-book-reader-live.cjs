@@ -19,7 +19,7 @@ async function audit(base){
   for(const el of ['reader-gate','reader-app','reader-book','reader-voice','reader-speed','reader-play','reader-stop','reader-prev','reader-next','reader-text','reader-status','site-nav'])
     assert.ok(html.includes('id="'+el+'"'),'Reader control missing: '+el);
   assert.match(html,/assets\/js\/book-reader\.js\?v=/,'Reader script not loaded');
-  assert.match(html,/name="viewport"[^>]+width=device-width/,'Mobile viewport missing');
+  assert.ok((html.match(/<meta[^>]*>/gi)||[]).some(tag=>/name=["']viewport["']/.test(tag)&&/width=device-width/.test(tag)),'Mobile viewport missing');
   const js=await (await get(base,'/assets/js/book-reader.js')).text();
   for(const feature of ['chunkText(','cleanReaderText(','gravity_reader_progress_','reader-play','reader-stop','reader-prev','reader-next','gravity-tts','pause()','resume()'])
     assert.ok(js.includes(feature),'Reader logic missing: '+feature);
