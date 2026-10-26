@@ -30,7 +30,7 @@ const menu='<div id="gravity-site-menu-access"><details><summary>Site Menu</summ
 const nativeMenu=html=>
  /<nav\b[^>]*\bid=["']site-nav["']/i.test(html)&&
  /<button\b[^>]*data-menu-toggle/i.test(html)&&
- !/body\s+\.site-header\s+#site-nav\s*,\s*body\s+\.site-header\s+\.menu-toggle[^{}]*display\s*:\s*none\s*!important/i.test(html);
+ !/body\s+\.site-header\s+#site-nav\s*,\s*body\s+\.site-header\s+\.menu-toggle[^}]*display\s*:\s*none\s*!important/i.test(html);
 function ensureMenus(dir){
  let total=0,native=0,inserted=0,existing=0,missing=[];
  function visit(folder){
@@ -66,7 +66,7 @@ function auditMenus(dir){
    total++;const html=fs.readFileSync(full,'utf8');
    const hasFallback=html.includes('id="gravity-site-menu-access"');
    if(!hasFallback&&!nativeMenu(html))noMenu.push(path.relative(dir,full));
-   if(/body\s+\.site-header\s+#site-nav\s*,\s*body\s+\.site-header\s+\.menu-toggle[^{}]*display\s*:\s*none\s*!important/i.test(html)&&!hasFallback)hiddenWithoutFallback.push(path.relative(dir,full));
+   if(/body\s+\.site-header\s+#site-nav\s*,\s*body\s+\.site-header\s+\.menu-toggle[^}]*display\s*:\s*none\s*!important/i.test(html)&&!hasFallback)hiddenWithoutFallback.push(path.relative(dir,full));
  }}
  visit(dir);
  if(noMenu.length||hiddenWithoutFallback.length)throw Error('Gravity navigation incomplete. Missing: '+noMenu.slice(0,15).join(', ')+'; hidden: '+hiddenWithoutFallback.slice(0,15).join(', '));
