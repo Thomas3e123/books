@@ -3,7 +3,7 @@
 // Does not trigger downloads, browser actions, form submissions or deployments.
 const fs=require('node:fs'),path=require('node:path');
 const site=path.resolve(__dirname,'..','site');
-const host='https://gravity-leadership-system.netlify.app';
+const host=(process.env.GRAVITY_AUDIT_HOST||'https://gravity-leadership-system.netlify.app').replace(/\/$/,'');
 const html=[];function walk(dir){for(const item of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,item.name);if(item.isDirectory())walk(p);else if(item.name.endsWith('.html'))html.push(p);}}walk(site);
 const targets=new Map();const githubLinks=new Map();
 for(const file of html){
