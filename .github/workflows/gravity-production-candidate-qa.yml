@@ -5,6 +5,7 @@ on:
       - 'feature/gravity-migration-phase1-*'
     paths:
       - 'scripts/prepare-gravity-production-candidate.cjs'
+      - 'scripts/gravity-navigation-consistency.cjs'
       - '.github/workflows/gravity-production-candidate-qa.yml'
   workflow_dispatch:
 permissions:
