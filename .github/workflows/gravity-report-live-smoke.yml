@@ -1,0 +1,22 @@
+name: Gravity Report — verify published articles and RSS (NO DEPLOY)
+on:
+  push:
+    branches:
+      - 'feature/gravity-migration-phase1-2026-10-22'
+    paths:
+      - '.github/workflows/gravity-report-live-smoke.yml'
+      - 'scripts/qa-gravity-report-live.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  live-editorial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate five published approved articles, RSS, sitemap and embargo — read only
+        run: node scripts/qa-gravity-report-live.mjs
