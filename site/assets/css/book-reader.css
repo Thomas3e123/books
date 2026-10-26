@@ -4,3 +4,14 @@
 .reader-shell[hidden],.reader-gate[hidden]{display:none!important}
 
 .reader-shell{display:grid;grid-template-columns:minmax(250px,330px) minmax(0,1fr);gap:22px;align-items:start}.reader-panel,.reader-stage{background:#fffdf8;border:1px solid #d9d0c1;border-radius:16px;padding:20px;box-shadow:0 12px 34px rgba(35,31,25,.08)}.reader-panel{position:sticky;top:94px}.reader-controls{display:grid;gap:11px}.reader-controls label{font-weight:800}.reader-controls select,.reader-controls button{width:100%}.reader-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.reader-status{padding:10px 12px;border-radius:10px;background:#f1eadf;color:#4d463d;font-weight:700}.reader-text{font:1.08rem/1.75 Georgia,"Times New Roman",serif;white-space:pre-wrap;min-height:340px}.reader-progress{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px;color:#6f685f}.reader-gate{padding:22px;border:1px solid #b89b63;border-radius:14px;background:#fff8e9}.reader-voice-note{font-size:.8rem;color:#6f685f}.reader-book-title{margin:0}.reader-navline{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.reader-navline button{min-width:110px}@media(max-width:860px){.reader-shell{grid-template-columns:1fr}.reader-panel{position:static}.reader-text{min-height:260px}}
+
+/* Native mobile select controls can render as a 19px-high field. Provide a
+   legible accessible picker and large, visible book-title buttons instead. */
+.reader-controls select{box-sizing:border-box;display:block;min-height:48px;padding:10px 12px;border:1px solid #a8987d;border-radius:9px;background:#fff;color:#172333;font:600 16px/1.4 system-ui,sans-serif;-webkit-appearance:menulist;appearance:auto}
+.reader-available-books{border:1px solid #c9b78c;border-radius:10px;padding:6px 9px;background:#faf6ed;color:#1c2d37}
+.reader-available-books summary{min-height:44px;padding:12px 7px;cursor:pointer;font:750 14px/1.45 system-ui,sans-serif}
+.reader-available-books summary:focus-visible,.reader-book-buttons button:focus-visible{outline:3px solid #9f6229;outline-offset:2px}
+.reader-book-buttons{display:grid;gap:5px;max-height:290px;overflow-y:auto;overscroll-behavior:contain;padding:6px 0 10px}
+.reader-book-buttons button{display:block;width:100%;min-height:44px;text-align:left;padding:10px 12px;border:1px solid #c9bca3;border-radius:8px;background:#fff;color:#183042;font:650 14px/1.35 system-ui,sans-serif;cursor:pointer}
+.reader-book-buttons button:hover,.reader-book-buttons button[aria-pressed="true"]{background:#143345;color:#fff;border-color:#143345}
+@media(max-width:860px){.reader-panel{position:static}.reader-controls select{min-height:50px}.reader-book-buttons{max-height:340px}}
