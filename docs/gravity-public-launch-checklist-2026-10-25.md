@@ -27,6 +27,12 @@ IMPORTANT: Review alias is **not password-protected**, even though it is noindex
 - Review alias: successful HTTP responses/noindex header for home, Books, registration, employee home and posters; successful live `foundry-hosted/health` on both staging and release review aliases.
 - Candidate review previously returned function HTTP 502 because the build job had omitted `npm ci` / `@netlify/database` dependencies. Added dependency install and validated successful hosted function health in workflow #40265069303.
 
+### Book Reader — extended mobile QA (October 26, 2026)
+- GitHub Actions workflow #40279272279, **rerun completed SUCCESS**: simulated mobile-browser playback, one dedicated Pause control, Play/Resume labeling, +15/-15 seconds, volume independent of bass/treble, saved exact seconds and last book, Screen Wake Lock lifecycle, and all 15 book text entrypoints.
+- Synthetic audio tests verified **continuous ON** automatically moves from part 1 to part 2 and plays both, and **continuous OFF** stops cleanly before the next part; this passed on migration staging and release review.
+- Front-matter skip inspected for all 15 books; fixed SOP Library Volume 3 long contents list so listening starts at first controlled SOP (`V3-001`).
+- **Still needs real-phone acceptance**: Cedar actual speech, continuous playback through a natural chapter/part boundary, pause/resume audibility, and screen-lock behavior on owner's device. Browser tests use mocked WAV audio, not paid Cedar speech, and do not prove uninterrupted phone background audio.
+
 ## Must resolve before authorizing a public launch
 - [ ] **Destination domain and SSL**: the intended `gravityleadershipsystem.com` is embedded in the offline candidate, but the Netlify project currently lists only its default `netlify.app` URL as primary. Confirm ownership, custom-domain attachment, DNS plan, TLS, redirects, and final canonical host **before** production publication. Do not silently replace `thomasmonroebooks.com`.
 - [ ] **Final customer-facing candidate acceptance**: validate complete registration flow, book download, redirect, Windows download/manual links, all Gravity tool entrypoints, Ask Gravity voice, and employee operations on the **release-review** alias (the owner's previous acceptance was on migration staging).
