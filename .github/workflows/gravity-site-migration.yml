@@ -35,6 +35,8 @@ jobs:
           node scripts/update-manifest.cjs
           npm run build
           node scripts/verify-gravity-preview.cjs
+      - name: Verify Employee Connection contract using disposable in-memory data
+        run: node scripts/test-gravity-employee-connection.cjs
       - name: Preserve reproducible preview source on migration branch
         shell: bash
         run: |
