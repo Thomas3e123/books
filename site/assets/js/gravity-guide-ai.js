@@ -104,7 +104,29 @@ async function speak(text,force=false){
  try{
   let current=speechBlob(parts[0],voice,token);
   let next=parts.length>1?speechBlob(parts[1],voice,token):null;
+  // The guide answer often arrives before 2.2s, so an AI-wait acknowledgment
+  // never plays. Fill *audio-generation* silence with the cached Cedar phrase.
+  let firstReady=false,ackStarted=false;
+  const acknowledgmentTimer=setTimeout(async ()=>{
+   if(firstReady||token!==speechToken||!voiceOn()||!ackWarmPromise)return;
+   const cue=await ackWarmPromise;
+   if(!cue||firstReady||token!==speechToken)return;
+   ackStarted=true;
+   playNeuralBlob(cue,voice,token).catch(()=>{});
+  },1300);
+  try{
   for(let i=0;i<parts.length;i++){
+   if(i===0){
+    // Speech playback takes precedence over any introductory cue.
+    current=current.then(blob=>{
+     firstReady=true;clearTimeout(acknowledgmentTimer);
+     if(ackStarted&&sourceNode){
+      try{sourceNode.onended=null;sourceNode.stop(0);sourceNode.disconnect()}catch(_){}
+      sourceNode=null;resolveSpeech=null;
+     }
+     return blob;
+    });
+   }
    const blob=await current;
    if(token!==speechToken)return;
    if(!blob)throw new Error('Audio interrupted');
@@ -113,6 +135,7 @@ async function speak(text,force=false){
    if(token!==speechToken)return;
    current=next;next=following;
   }
+  }finally{clearTimeout(acknowledgmentTimer)}
  }catch(e){if(token!==speechToken)return;console.warn('Gravity neural voice unavailable',e);voiceStatus(voiceLabel(voice)+' neural voice unavailable')}
 }
 function localFallback(q){if(/employee.*(phone|code|pin|access)|(?:phone|code|pin).*employee/i.test(q))return 'Hosted employee access is live. Open your restaurant link at /e/CODE, or open Employee Access and enter your restaurant code and employee PIN. Ask your manager for those details. Managers publish the employee library; their working copy remains local.';if(/schedule|labor|coverage/i.test(q))return 'Start with Gravity Shift Lab for schedule building, availability, coverage, planned labor and safer shift validation. It supports explicit OFF and overnight shifts and blocks ambiguous or invalid time ranges. If you only need a calculation, use Gravity Numbers Lab.';if(/sop|procedure|poster|training/i.test(q))return 'Start with Gravity SOP Foundry. It works from the controlled 525-SOP library, separates working and published copies, supports training and editable posters, and keeps retraining decisions with the manager.';if(/inventory|barcode|reorder|receiv/i.test(q))return 'Start with Gravity Inventory Center. Use the guided Profile → Locations → Items → Starting Stock → Daily Changes → Count & Verify → Reorder → Review & Backup process, with barcode choices and backup controls.';if(/book|read/i.test(q))return 'Open Gravity Book Reader to read current digital Gravity books aloud. Founding Year registration is required for the substantive book content.';return 'I could not reach the AI service. You can still use Start Here, Gravity Assist, Books, the SOP Library, or the Help Center.'}
