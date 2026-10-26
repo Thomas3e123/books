@@ -48,7 +48,11 @@ function sitemap(items){return '<?xml version="1.0" encoding="UTF-8"?><urlset xm
 export default async function handler(req){
  if(!['GET','HEAD'].includes(req.method))return new Response('Method not allowed',{status:405,headers:{Allow:'GET, HEAD'}});
  const p=new URL(req.url).pathname.replace(/\/$/,'');const t=stamp(),ready=ALL_ARTICLES.filter(a=>released(a,t));
+ const hostname=new URL(req.url).hostname;
  const common={'Cache-Control':'public, max-age=0, must-revalidate','X-Content-Type-Options':'nosniff'};
+ // Edge _headers rules do not apply to function responses. Suppress indexing
+ // on staging, release review and the duplicate Netlify host explicitly.
+ if(hostname.endsWith('.netlify.app'))common['X-Robots-Tag']='noindex, nofollow';
  if(p==='/gravity-report/articles.json'){const schedule=ALL_ARTICLES.map(a=>({issue:a.issue,title:a.title,slug:a.slug,release_date:a.release_date,category:a.category,released:released(a,t),summary:released(a,t)?a.summary:null}));return new Response(JSON.stringify({as_of_central:t,articles:schedule}),{headers:{...common,'Content-Type':'application/json; charset=utf-8'}});}
  if(p==='/gravity-report/feed.xml')return new Response(rss(ready),{headers:{...common,'Content-Type':'application/rss+xml; charset=utf-8'}});
  if(p==='/gravity-report/sitemap.xml')return new Response(sitemap(ready),{headers:{...common,'Content-Type':'application/xml; charset=utf-8'}});
