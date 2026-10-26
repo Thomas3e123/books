@@ -101,7 +101,7 @@ jobs:
           for page in / /books /register /testing-room /gravity-sop-foundry /gravity-shift-lab /gravity-inventory-center /gravity-work-study-lab /e; do
             output="$(mktemp)"
             curl --fail --silent --show-error --location "$base$page" -o "$output"
-            node -e 'const fs=require("fs"),s=fs.readFileSync(process.argv[1],"utf8");if(!/<meta\\b[^>]*name=["\\x27]viewport["\\x27]/i.test(s)&&!/<meta\\b[^>]*content=["\\x27][^"\\x27]*width=device-width/i.test(s))process.exit(1)' "$output"
+            node -e 'const fs=require("fs"),s=fs.readFileSync(process.argv[1],"utf8"),metas=s.match(/<meta\\b[^>]*>/gi)||[];if(!metas.some(m=>/name=["\\x27]viewport["\\x27]/i.test(m)&&/width=device-width/i.test(m)))process.exit(1)' "$output"
             echo "Responsive viewport markup PASS: $page"
             rm -f "$output"
           done
