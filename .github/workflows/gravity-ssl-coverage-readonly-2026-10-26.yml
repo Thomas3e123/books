@@ -1,0 +1,43 @@
+name: Gravity HTTPS — inspect Netlify domain aliases and issued cert (NO CHANGE)
+on:
+  push:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths: ['.github/workflows/gravity-ssl-coverage-readonly-2026-10-26.yml']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      A: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      B: ${{ secrets.NETLIFY_TOKEN }}
+      C: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+    steps:
+      - name: Read site alias configuration, certificate domains, redirect and MX
+        shell: bash
+        run: |
+          set -euo pipefail
+          token="${A:-${B:-${C:-}}}"
+          test -n "$token" || exit 1
+          site='fa5d39a0-bef9-4ff1-9c28-57d585d741d7'
+          mkdir -p /tmp/ssl-gravity
+          for endpoint in sites/$site sites/$site/ssl; do
+            outfile="/tmp/ssl-gravity/$(echo "$endpoint" | tr '/' '_').json"
+            curl --fail --silent --show-error --max-time 25 -H "Authorization: Bearer $token" "https://api.netlify.com/api/v1/$endpoint" -o "$outfile"
+          done
+          node - <<'NODE'
+          const fs=require('fs');
+          const site=JSON.parse(fs.readFileSync('/tmp/ssl-gravity/sites_fa5d39a0-bef9-4ff1-9c28-57d585d741d7.json','utf8'));
+          const cert=JSON.parse(fs.readFileSync('/tmp/ssl-gravity/sites_fa5d39a0-bef9-4ff1-9c28-57d585d741d7_ssl.json','utf8'));
+          console.log('GRAVITY_NETLIFY_CONFIG '+JSON.stringify({name:site.name,custom_domain:site.custom_domain,domain_aliases:site.domain_aliases,ssl_url:site.ssl_url,force_ssl:site.force_ssl,processing:site.processing}));
+          console.log('GRAVITY_NETLIFY_CERT '+JSON.stringify({state:cert.state,domains:cert.domains,created_at:cert.created_at,updated_at:cert.updated_at,expires_at:cert.expires_at,renewal_error_message:cert.renewal_error_message}));
+          NODE
+          for host in gravityleadershipsystem.com www.gravityleadershipsystem.com; do
+            echo "GRAVITY_TLS_SNI $host"
+            echo | timeout 10 openssl s_client -servername "$host" -connect "$host:443" 2>/dev/null | openssl x509 -noout -subject -ext subjectAltName 2>&1 | head -10
+            curl --silent --show-error --max-time 20 --location --head --output /dev/null --write-out 'GRAVITY_HTTPS %{url_effective} status=%{http_code} verify=%{ssl_verify_result} remote_ip=%{remote_ip}\n' "https://$host/" || true
+          done
+          echo 'GOOGLE_MX' 
+          dig +short gravityleadershipsystem.com MX
+          echo 'NO CUSTOMER RECORDS OR DNS CHANGED'
