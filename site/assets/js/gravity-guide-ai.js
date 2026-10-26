@@ -130,9 +130,18 @@ const ACKNOWLEDGMENTS=[
  'Let me see what I can find.',
  'One moment while I look into it.'
 ];
-let recentAck=[],askSequence=0;
+let recentAck=[],askSequence=0,preparedAck='',ackWarmPromise=null;
+function warmAcknowledgment(){
+ if(!voiceOn()||ackWarmPromise)return;
+ preparedAck=ACKNOWLEDGMENTS[Math.floor(Math.random()*ACKNOWLEDGMENTS.length)];
+ // Prepare one small Cedar clip while the user reads or composes a question.
+ // No audible playback until a request genuinely needs an acknowledgment.
+ ackWarmPromise=speechBlob(preparedAck,getVoice(),speechToken).catch(()=>null);
+}
+
 function nextAcknowledgment(){
  const candidates=ACKNOWLEDGMENTS.filter(x=>!recentAck.includes(x));
+ if(preparedAck&&candidates.includes(preparedAck)){const chosen=preparedAck;preparedAck='';recentAck.push(chosen);if(recentAck.length>5)recentAck.shift();return chosen;}
  const pool=candidates.length?candidates:ACKNOWLEDGMENTS;
  const chosen=pool[Math.floor(Math.random()*pool.length)];
  recentAck.push(chosen);if(recentAck.length>5)recentAck.shift();
@@ -148,7 +157,9 @@ async function ask(q){
  const timer=setTimeout(()=>{
   if(!pending||turn!==askSequence||!voiceOn())return;
   // This is an optional conversational cue, not proof a lookup is complete.
-  speak(nextAcknowledgment());
+  const phrase=nextAcknowledgment();
+  if(ackWarmPromise){ackWarmPromise.then(()=>{if(pending&&turn===askSequence)speak(phrase)});}
+  else speak(phrase);
  },2200);
  try{
   const r=await fetch('/.netlify/functions/gravity-guide',{method:'POST',signal:AbortSignal.timeout(25000),headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q,page:location.pathname,history:history.slice(-6)})});
@@ -164,6 +175,6 @@ async function ask(q){
   t.remove();add('guide',ans,actions(q,ans));history.push('Gravity Guide: '+ans);speak(ans);
  }finally{pending=false;clearTimeout(timer)}
 }
-function setup(){const form=document.querySelector(FORM),root=document.querySelector(ROOT);if(!form||!root)return;if(localStorage.getItem(ONKEY)===null)localStorage.setItem(ONKEY,'on');const footer=root.querySelector('.gg-footer');if(footer&&!document.getElementById('gravity-guide-voice')){const wrap=document.createElement('span');wrap.className='gg-voice-tools';wrap.innerHTML='<label class="gg-sr-only" for="gravity-guide-voice">Gravity voice</label><select id="gravity-guide-voice" title="AI-generated neural voice"><option value="cedar">Cedar</option><option value="marin">Marin</option></select><button type="button" class="gg-text-btn" id="gravity-guide-voice-test">Test voice</button><button type="button" class="gg-text-btn" id="gravity-guide-voice-toggle"></button><small id="gravity-guide-voice-status">Neural voice ready</small>';footer.firstElementChild?.replaceWith(wrap);const sel=wrap.querySelector('#gravity-guide-voice'),test=wrap.querySelector('#gravity-guide-voice-test'),btn=wrap.querySelector('#gravity-guide-voice-toggle');sel.value=getVoice();sel.onchange=()=>{stopNeuralAudio();localStorage.setItem(VKEY,sel.value);voiceStatus(voiceLabel(sel.value)+' selected')};const paint=()=>btn.textContent=voiceOn()?'Voice: On':'Voice: Off';paint();btn.onclick=()=>{unlockNeuralAudio();localStorage.setItem(ONKEY,voiceOn()?'off':'on');if(!voiceOn())stopNeuralAudio();paint();voiceStatus(voiceOn()?'Neural voice ready':'Voice off')};test.onclick=()=>{unlockNeuralAudio();speak('This is the Gravity Guide natural neural voice.',true)}}form.addEventListener('submit',e=>{e.preventDefault();e.stopImmediatePropagation();unlockNeuralAudio();const inp=form.querySelector('input[name="question"]')||form.querySelector('input');const q=inp?.value||'';if(inp)inp.value='';document.querySelector('#gravity-guide-starters')?.setAttribute('hidden','');ask(q)},true);root.addEventListener('click',e=>{const b=e.target.closest('[data-gg-question]');if(!b)return;e.preventDefault();e.stopImmediatePropagation();unlockNeuralAudio();document.querySelector('#gravity-guide-starters')?.setAttribute('hidden','');ask(b.dataset.ggQuestion||b.textContent)},true);root.querySelector('#gravity-guide-reset')?.addEventListener('click',()=>{askSequence++;history=[];stopNeuralAudio()})}
+function setup(){const form=document.querySelector(FORM),root=document.querySelector(ROOT);if(!form||!root)return;if(localStorage.getItem(ONKEY)===null)localStorage.setItem(ONKEY,'on');setTimeout(warmAcknowledgment,400);const footer=root.querySelector('.gg-footer');if(footer&&!document.getElementById('gravity-guide-voice')){const wrap=document.createElement('span');wrap.className='gg-voice-tools';wrap.innerHTML='<label class="gg-sr-only" for="gravity-guide-voice">Gravity voice</label><select id="gravity-guide-voice" title="AI-generated neural voice"><option value="cedar">Cedar</option><option value="marin">Marin</option></select><button type="button" class="gg-text-btn" id="gravity-guide-voice-test">Test voice</button><button type="button" class="gg-text-btn" id="gravity-guide-voice-toggle"></button><small id="gravity-guide-voice-status">Neural voice ready</small>';footer.firstElementChild?.replaceWith(wrap);const sel=wrap.querySelector('#gravity-guide-voice'),test=wrap.querySelector('#gravity-guide-voice-test'),btn=wrap.querySelector('#gravity-guide-voice-toggle');sel.value=getVoice();sel.onchange=()=>{stopNeuralAudio();localStorage.setItem(VKEY,sel.value);voiceStatus(voiceLabel(sel.value)+' selected')};const paint=()=>btn.textContent=voiceOn()?'Voice: On':'Voice: Off';paint();btn.onclick=()=>{unlockNeuralAudio();localStorage.setItem(ONKEY,voiceOn()?'off':'on');if(!voiceOn())stopNeuralAudio();paint();voiceStatus(voiceOn()?'Neural voice ready':'Voice off')};test.onclick=()=>{unlockNeuralAudio();speak('This is the Gravity Guide natural neural voice.',true)}}form.addEventListener('submit',e=>{e.preventDefault();e.stopImmediatePropagation();unlockNeuralAudio();const inp=form.querySelector('input[name="question"]')||form.querySelector('input');const q=inp?.value||'';if(inp)inp.value='';document.querySelector('#gravity-guide-starters')?.setAttribute('hidden','');ask(q)},true);root.addEventListener('click',e=>{const b=e.target.closest('[data-gg-question]');if(!b)return;e.preventDefault();e.stopImmediatePropagation();unlockNeuralAudio();document.querySelector('#gravity-guide-starters')?.setAttribute('hidden','');ask(b.dataset.ggQuestion||b.textContent)},true);root.querySelector('#gravity-guide-reset')?.addEventListener('click',()=>{askSequence++;history=[];stopNeuralAudio()})}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup);else setup();
 })();
