@@ -151,6 +151,33 @@ function resume(){
   loopActive=false;unlockNeuralAudio();runReader();
 }
 
+function updateBookButtons(){
+  const box=$('reader-book-buttons');if(!box)return;
+  box.querySelectorAll('button[data-book-id]').forEach(button=>{
+    button.setAttribute('aria-pressed',String(button.dataset.bookId===current));
+  });
+}
+function renderBookButtons(){
+  const box=$('reader-book-buttons'),panel=$('reader-available-books');if(!box||!panel)return;
+  box.replaceChildren();
+  for(const book of catalog){
+    const button=document.createElement('button');
+    button.type='button';button.dataset.bookId=book.id;button.textContent=book.title;
+    button.setAttribute('aria-pressed','false');
+    button.onclick=async()=>{
+      const sel=$('reader-book');if(sel)sel.value=book.id;
+      await loadBook(book.id);
+      updateBookButtons();
+      panel.open=false;
+    };
+    box.appendChild(button);
+  }
+  const summary=panel.querySelector('summary');
+  if(summary)summary.textContent='Browse '+catalog.length+' Gravity books — tap a title';
+  if(window.matchMedia?.('(max-width:860px)').matches)panel.open=true;
+  updateBookButtons();
+}
+
 async function init(){
   if(localStorage.getItem(REG)!=='registered'){$('reader-app').hidden=true;$('reader-gate').hidden=false;return;}
   $('reader-gate').hidden=true;$('reader-app').hidden=false;
@@ -161,9 +188,10 @@ async function init(){
   }catch(_){/* Embedded catalog keeps the reader usable if catalog fetch fails. */}
   const sel=$('reader-book');
   sel.innerHTML='<option value="">Choose a Gravity book…</option>'+catalog.map(b=>`<option value="${b.id}">${b.title}</option>`).join('');
+  renderBookButtons();
   if(!catalog.length){status('No books are available in the reader catalog.');return;}
   $('reader-voice').value=localStorage.getItem(VKEY)||'cedar';
-  sel.onchange=()=>loadBook(sel.value);$('reader-voice').onchange=()=>{hardStop('Voice changed. Press Play to continue.');localStorage.setItem(VKEY,$('reader-voice').value)};$('reader-speed').onchange=()=>hardStop('Speed changed. Press Play to continue.');
+  sel.onchange=async()=>{await loadBook(sel.value);updateBookButtons();};$('reader-voice').onchange=()=>{hardStop('Voice changed. Press Play to continue.');localStorage.setItem(VKEY,$('reader-voice').value)};$('reader-speed').onchange=()=>hardStop('Speed changed. Press Play to continue.');
   $('reader-play').onclick=()=>{unlockNeuralAudio();if(playing)pause();else if(paused)resume();else runReader();};
   $('reader-stop').onclick=()=>hardStop('Stopped. Your place is saved.');
   $('reader-prev').onclick=()=>{hardStop();if(idx>0){idx--;paint();status('Moved back one part.');}};
@@ -180,7 +208,7 @@ window.addEventListener('gravity-reader-read',async e=>{
   }
   unlockNeuralAudio();
   const sel=$('reader-book');if(sel)sel.value=id;
-  try{await loadBook(id);if(e.detail?.autoplay!==false)await runReader();}
+  try{await loadBook(id);updateBookButtons();if(e.detail?.autoplay!==false)await runReader();}
   catch(err){console.warn('Gravity Reader request failed:',err);status('I could not open that book. Choose it from the Book list and try again.');}
 });
 
