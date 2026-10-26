@@ -25,6 +25,10 @@ jobs:
         run: |
           npm ci
           node -e 'require.resolve("@netlify/database");console.log("Database function dependency available")'
+      - name: Refresh source integrity manifest for reviewed candidate
+        run: |
+          node scripts/update-manifest.cjs
+          npm run build
       - name: Prepare offline candidate
         run: node scripts/prepare-gravity-production-candidate.cjs
       - name: Verify no staging banners or staging indexing blocks
