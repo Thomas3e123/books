@@ -62,6 +62,8 @@ function visit(dir) {
       html = html.replace(/Thomas Monroe Books · Written by Thomas Butler/g, 'The Gravity System · Written by Thomas Butler');
     // Remove obsolete fixed red preview banner; staging remains noindex via meta, headers and robots.txt.
     html = html.replace(/<div id="gravity-migration-preview-notice"[\s\S]*?<\/div>/g, '');
+    // Legacy Work Room preview had a second CSS/script banner repair block.
+    html = html.replace(/<style id="gravity-preview-banner-repair">[\s\S]*?<\/style>\s*<script>document\.addEventListener\('DOMContentLoaded',[\s\S]*?<\/script>/g, '');
     if (!html.includes('name="robots" content="noindex,nofollow"')) {
       html = html.replace(/(<head\b[^>]*>)/i, '$1\n<meta name="robots" content="noindex,nofollow"/>\n');
     }
