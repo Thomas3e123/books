@@ -91,6 +91,25 @@ jobs:
             echo "Current Cedar frontend PASS: $page"
           done
           echo 'LIVE Gravity prereply assets PASS'
+      - name: Live Employee Connection health and public mobile smoke checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://gravity-migration--gravity-leadership-system.netlify.app"
+          health="$(curl --fail --silent --show-error --location "$base/foundry-hosted/health")"
+          HEALTH_JSON="$health" node -e 'const x=JSON.parse(process.env.HEALTH_JSON);if(x.ok!==true||!String(x.service).includes("Foundry"))process.exit(1);console.log("Live hosted employee health PASS")'
+          for page in / /books /register /testing-room /gravity-sop-foundry /gravity-shift-lab /gravity-inventory-center /gravity-work-study-lab /e; do
+            output="$(mktemp)"
+            curl --fail --silent --show-error --location "$base$page" -o "$output"
+            node -e 'const fs=require("fs"),s=fs.readFileSync(process.argv[1],"utf8");if(!/<meta\\b[^>]*name=["\\x27]viewport["\\x27]/i.test(s)&&!/<meta\\b[^>]*content=["\\x27][^"\\x27]*width=device-width/i.test(s))process.exit(1)' "$output"
+            echo "Responsive viewport markup PASS: $page"
+            rm -f "$output"
+          done
+          # Negative lookup checks that the hosted router and database path respond, without creating records.
+          code="ZZZZZZ"
+          status="$(curl --silent --show-error --output /tmp/gls-missing-workspace.json --write-out '%{http_code}' "$base/foundry-hosted/workspace/$code")"
+          test "$status" = 404 || { echo "Expected missing workspace HTTP 404; got $status"; exit 1; }
+          echo "Hosted workspace lookup negative-path PASS"
       - name: Upload static QA evidence
         if: always()
         uses: actions/upload-artifact@v4
