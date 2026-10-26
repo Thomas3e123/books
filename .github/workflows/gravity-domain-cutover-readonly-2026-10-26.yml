@@ -1,3 +1,4 @@
+# Read-only public DNS check after customer added website A and www CNAME on Oct 26.
 name: Gravity domain — Squarespace DNS and HTTPS read-only cutover verification
 on:
   push:
