@@ -82,7 +82,8 @@ console.log('Download and registration markup gates:',JSON.stringify(downloadAud
 // Baseline mobile structural checks for critical public routes (not visual-device certification).
 for (const page of ['index.html','register.html','windows-programs.html','gravity-sop-foundry.html','gravity-shift-lab.html','gravity-inventory-center.html','gravity-work-study-lab.html','testing-room.html']) {
   const html = fs.readFileSync(path.join(site,page),'utf8');
-  assert(/<meta\b[^>]*name=["']viewport["'][^>]*>/i.test(html) && /<meta\b[^>]*name=["']viewport["'][^>]*content=["'][^"']*width=device-width/i.test(html), 'Missing responsive viewport on '+page);
+  const viewportTag = [...html.matchAll(/<meta\b[^>]*>/gi)].map(m=>m[0]).find(tag=>/\bname=["']viewport["']/i.test(tag));
+  assert(viewportTag && /\bcontent=["'][^"']*width=device-width/i.test(viewportTag), 'Missing responsive viewport on '+page);
   assert(/data-menu-toggle/.test(html) && /data-menu/.test(html), 'Missing accessible mobile navigation structure on '+page);
 }
 const navigationJs=fs.readFileSync(path.join(site,'assets/js/site.js'),'utf8');
