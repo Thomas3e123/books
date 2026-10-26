@@ -4,6 +4,8 @@ on:
     branches: ['feature/gravity-migration-phase1-2026-10-22']
     paths:
       - '.github/workflows/gravity-final-production-readiness-2026-10.yml'
+      - 'functions/gravity-report/**'
+      - 'scripts/test-gravity-report.mjs'
       - 'scripts/audit-gravity-launch-links.cjs'
   workflow_dispatch:
 permissions:
@@ -25,6 +27,7 @@ jobs:
           node scripts/update-manifest.cjs
           npm run build
           node scripts/verify-gravity-preview.cjs
+          node scripts/test-gravity-report.mjs
           node scripts/test-gravity-domain-functions.cjs
           node scripts/check-gravity-first-use-qr.cjs
           node scripts/test-gravity-employee-connection.cjs
