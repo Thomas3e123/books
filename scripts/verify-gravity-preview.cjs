@@ -18,7 +18,7 @@ const headers = fs.readFileSync(path.join(site, '_headers'), 'utf8');
 const robots = fs.readFileSync(path.join(site, 'robots.txt'), 'utf8');
 const redirects = fs.readFileSync(path.join(site, '_redirects'), 'utf8');
 const assert = (good, message) => { if (!good) throw new Error(message); };
-assert(homepage.includes('gravity-migration-preview-notice'), 'Missing migration-preview warning on home');
+assert(!homepage.includes('gravity-migration-preview-notice'), 'Obstructive migration banner remains on homepage');
 assert(homepage.includes('The Gravity Restaurant Leadership System'), 'Missing Gravity business identity');
 assert(homepage.includes('https://gravity-leadership-system.netlify.app'), 'Absolute staging URLs must resolve on the preview host');
 assert(homepage.includes('Published by Thomas Monroe Books') || homepage.includes('published by Thomas Monroe Books'), 'Lost book-publisher attribution');
@@ -38,7 +38,7 @@ walk(site);
 assert(pages.length > 100, 'Missing pages');
 for (const p of pages) {
   const body = fs.readFileSync(p,'utf8');
-  assert(body.includes('gravity-migration-preview-notice'), 'Missing staging banner: ' + p);
+  assert(!body.includes('gravity-migration-preview-notice'), 'Obstructive staging banner remains on ' + p);
   assert(!/rel="canonical"[^>]*thomasmonroebooks\.com/i.test(body), 'Old canonical in ' + p);
 }
 // Protect the previously repaired navigation and download-host links.
