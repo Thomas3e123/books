@@ -176,6 +176,10 @@ function playImmediateAck(){
  const clip=localAckAudio;
  try{
   clip.currentTime=0;
+  // The prerecorded opening phrases were noticeably slower than Cedar's normal answer.
+  // Increase only the short acknowledgment speed; preserve the original pitch.
+  clip.playbackRate=1.12;
+  clip.preservesPitch=true;
   const playing=clip.play();
   if(playing&&playing.catch)playing.catch(e=>{
    console.warn('Gravity prerecorded acknowledgement playback failed',e);
