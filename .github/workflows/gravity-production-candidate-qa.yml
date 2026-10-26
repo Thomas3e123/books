@@ -6,6 +6,7 @@ on:
     paths:
       - 'scripts/prepare-gravity-production-candidate.cjs'
       - 'site/book-reader.html'
+      - 'site/assets/js/book-reader.js'
       - 'site/assets/css/book-reader.css'
       - 'scripts/gravity-navigation-consistency.cjs'
       - '.github/workflows/gravity-production-candidate-qa.yml'
