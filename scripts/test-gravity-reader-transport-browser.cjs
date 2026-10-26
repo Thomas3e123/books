@@ -37,6 +37,7 @@ async function check(browser,host){
  await page.locator('#reader-book-buttons button[data-book-id="quiet-gravity"]').click();
  await page.waitForFunction(()=>document.getElementById('reader-status').textContent.includes('Press Play'),{timeout:18000});
  const beginning=await page.evaluate(()=>({part:document.getElementById('reader-part').textContent,first:document.getElementById('reader-text').textContent.slice(0,110),status:document.getElementById('reader-status').textContent}));
+ assert.match(beginning.first,/^Introduction\b/i,'Skip front matter must begin at narrative Introduction, not an index of chapter titles');
  await page.locator('#reader-volume').fill('25');
  await page.locator('#reader-bass').fill('6');
  await page.locator('#reader-treble').fill('-5');
