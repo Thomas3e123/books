@@ -42,7 +42,20 @@ jobs:
           if(pages<100)throw Error('Incomplete HTML candidate: '+pages);
           if(brokenLinks.length)throw Error('Missing local linked assets: '+brokenLinks.slice(0,15).join('; '));
           if(!fs.readFileSync(p+'/robots.txt','utf8').includes('Allow: /'))throw Error('Indexing still blocked');
-          console.log('OFFLINE CANDIDATE PASS — NOT DEPLOYED');
+          const domain='https://gravityleadershipsystem.com';
+          for(const name of ['index.html','books.html','register.html','about.html','gravity-assist.html']){
+            const html=fs.readFileSync(path.join(p,name),'utf8');
+            if(html.includes('gravity-leadership-system.netlify.app'))throw Error('Staging identity leaked into public '+name);
+            if(!html.includes(domain))throw Error('Public domain missing on '+name);
+            if(/<meta[^>]+name=["']robots["'][^>]+noindex/i.test(html))throw Error('Public page unexpectedly noindex: '+name);
+          }
+          for(const name of ['apps/sop-foundry/employee-access.html','apps/sop-foundry/employee-app.html','apps/sop-foundry/workroom.html','apps/sop-foundry/staff-posters.html','testing-room-manager.html']){
+            const html=fs.readFileSync(path.join(p,name),'utf8');
+            if(!/<meta[^>]+name=["']robots["'][^>]+noindex/i.test(html))throw Error('Private page must remain noindex: '+name);
+          }
+          const sitemap=fs.readFileSync(path.join(p,'sitemap.xml'),'utf8');
+          if(!sitemap.includes(domain+'/')||sitemap.includes('thomasmonroebooks.com')||sitemap.includes('gravity-leadership-system.netlify.app'))throw Error('Candidate sitemap host mismatch');
+          console.log('OFFLINE CANDIDATE PASS — public canonical, private-page indexing and assets verified; NOT DEPLOYED');
           NODE
       - name: Prepare noindex review alias from production candidate
         run: |
@@ -56,6 +69,16 @@ jobs:
           if(i<0)throw Error('Missing wildcard headers stanza');
           lines.splice(i+1,0,'  X-Robots-Tag: noindex, nofollow');
           fs.writeFileSync(path,lines.join(String.fromCharCode(10)));
+          // Review alias must keep navigation on this isolated, non-indexed deployment.
+          const dir='build/gravity-release-review',target='https://gravity-release-review--gravity-leadership-system.netlify.app';
+          function rewrite(folder){for(const item of fs.readdirSync(folder,{withFileTypes:true})){
+            const p=require('path').join(folder,item.name);
+            if(item.isDirectory()){rewrite(p);continue;}
+            if(!/\.(html|xml)$/.test(p))continue;
+            const before=fs.readFileSync(p,'utf8');
+            fs.writeFileSync(p,before.replaceAll('https://gravityleadershipsystem.com',target));
+          }}
+          rewrite(dir);
           NODE
       - name: Deploy unpublished review alias (never production)
         shell: bash
@@ -73,6 +96,23 @@ jobs:
           export NETLIFY_AUTH_TOKEN="$token"
           npx --yes netlify-cli@26 deploy --site fa5d39a0-bef9-4ff1-9c28-57d585d741d7 --dir build/gravity-release-review --functions functions --context deploy-preview --alias gravity-release-review --message "GRAVITY RELEASE REVIEW ONLY / NOINDEX / NOT PRODUCTION" --json > /tmp/gravity-release-review.json
           node -e 'const v=require("/tmp/gravity-release-review.json");console.log(JSON.stringify({url:v.deploy_url||v.url,id:v.deploy_id},null,2))'
+      - name: Validate public review alias without publishing
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://gravity-release-review--gravity-leadership-system.netlify.app"
+          for page in / /books /register /apps/sop-foundry/employee-app /apps/sop-foundry/staff-posters; do
+            headers="$(mktemp)"
+            body="$(mktemp)"
+            curl --fail --silent --show-error --location --retry 3 --retry-delay 2 --dump-header "$headers" --output "$body" "$base$page"
+            grep -qi '^x-robots-tag: noindex, nofollow' "$headers" || { echo "MISSING noindex header: $page"; exit 1; }
+            grep -qi '<html' "$body" || { echo "Invalid HTML: $page"; exit 1; }
+            echo "Review alias HTTP/noindex PASS: $page"
+            rm -f "$headers" "$body"
+          done
+          health="$(curl --fail --silent --show-error "$base/foundry-hosted/health")"
+          HEALTH_JSON="$health" node -e 'const x=JSON.parse(process.env.HEALTH_JSON);if(x.ok!==true)process.exit(1)'
+          echo 'Review alias hosted backend health PASS'
       - name: Retain review-only build
         uses: actions/upload-artifact@v4
         with:
