@@ -18,6 +18,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Install required Netlify function dependencies
+        run: |
+          npm ci
+          node -e 'require.resolve("@netlify/database");console.log("Database function dependency available")'
       - name: Prepare offline candidate
         run: node scripts/prepare-gravity-production-candidate.cjs
       - name: Verify no staging banners or staging indexing blocks
