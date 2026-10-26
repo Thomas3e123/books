@@ -359,24 +359,69 @@ function renderBookButtons(){
 }
 
 async function init(){
-  if(localStorage.getItem(REG)!=='registered'){$('reader-app').hidden=true;$('reader-gate').hidden=false;return;}
-  $('reader-gate').hidden=true;$('reader-app').hidden=false;
-  catalog=EMBEDDED_CATALOG.slice();
-  try{
-    const r=await fetch('/assets/reader/catalog.json?v=20260923-reader2',{cache:'no-store'});
-    if(r.ok){const remote=await r.json();if(Array.isArray(remote.books)&&remote.books.length)catalog=remote.books;}
-  }catch(_){/* Embedded catalog keeps the reader usable if catalog fetch fails. */}
-  const sel=$('reader-book');
-  sel.innerHTML='<option value="">Choose a Gravity book…</option>'+catalog.map(b=>`<option value="${b.id}">${b.title}</option>`).join('');
-  renderBookButtons();
-  if(!catalog.length){status('No books are available in the reader catalog.');return;}
-  $('reader-voice').value=localStorage.getItem(VKEY)||'cedar';
-  sel.onchange=async()=>{await loadBook(sel.value);updateBookButtons();};$('reader-voice').onchange=()=>{hardStop('Voice changed. Press Play to continue.');localStorage.setItem(VKEY,$('reader-voice').value)};$('reader-speed').onchange=()=>hardStop('Speed changed. Press Play to continue.');
-  $('reader-play').onclick=()=>{unlockNeuralAudio();if(playing)pause();else if(paused)resume();else runReader();};
-  $('reader-stop').onclick=()=>hardStop('Stopped. Your place is saved.');
-  $('reader-prev').onclick=()=>{hardStop();if(idx>0){idx--;paint();status('Moved back one part.');}};
-  $('reader-next').onclick=()=>{hardStop();if(idx<chunks.length-1){idx++;paint();status('Moved forward one part.');}};
-  status(catalog.length+' Gravity books available. Choose a book to begin.');
+ if(readStorage(REG)!=='registered'){$('reader-app').hidden=true;$('reader-gate').hidden=false;return;}
+ $('reader-gate').hidden=true;$('reader-app').hidden=false;
+ catalog=EMBEDDED_CATALOG.slice();
+ try{
+  const r=await fetch('/assets/reader/catalog.json?v=20260923-reader2',{cache:'no-store'});
+  if(r.ok){const remote=await r.json();if(Array.isArray(remote.books)&&remote.books.length)catalog=remote.books;}
+ }catch(_){/* Embedded catalog keeps the reader usable if catalog fetch fails. */}
+ const sel=$('reader-book');
+ sel.innerHTML='<option value="">Choose a Gravity book…</option>'+catalog.map(b=>`<option value="${b.id}">${b.title}</option>`).join('');
+ renderBookButtons();
+ if(!catalog.length){status('No books are available in the reader catalog.');return;}
+ let savedPrefs={};try{savedPrefs=JSON.parse(readStorage(PREFS)||'{}')||{}}catch(_){}
+ $('reader-voice').value=['cedar','marin'].includes(savedPrefs.voice)?savedPrefs.voice:(readStorage(VKEY)||'cedar');
+ if(!['cedar','marin'].includes($('reader-voice').value))$('reader-voice').value='cedar';
+ if(savedPrefs.speed&&[...$('reader-speed').options].some(o=>o.value===savedPrefs.speed))$('reader-speed').value=savedPrefs.speed;
+ $('reader-skip-front').checked=savedPrefs.skipFront!==false;
+ $('reader-continuous').checked=savedPrefs.continuous!==false;
+ $('reader-volume').value=String(Math.max(0,Math.min(100,Number(savedPrefs.volume??100))));
+ sel.onchange=async()=>{await loadBook(sel.value);updateBookButtons();};
+ $('reader-voice').onchange=()=>{
+   hardStop('Voice changed. Press Play to continue.');
+   decodedBuffer=null;decodedForPart=-1;partDuration=0;
+   writeStorage(VKEY,$('reader-voice').value);storePrefs();
+ };
+ $('reader-speed').onchange=()=>{
+   hardStop('Speed changed. Press Play to continue.');
+   decodedBuffer=null;decodedForPart=-1;partDuration=0;storePrefs();
+ };
+ $('reader-skip-front').onchange=storePrefs;
+ $('reader-continuous').onchange=storePrefs;
+ $('reader-skip-now').onclick=skipFrontMatter;
+ $('reader-volume').oninput=()=>{
+   if(gainNode)gainNode.gain.value=Number($('reader-volume').value)/100;
+   storePrefs();
+ };
+ $('reader-play').onclick=()=>{unlockNeuralAudio();if(playing)pause();else if(paused)resume();else runReader();};
+ $('reader-stop').onclick=()=>hardStop('Stopped. Your precise place is saved.');
+ $('reader-back').onclick=()=>seekWithinPart(currentTime()-15);
+ $('reader-forward').onclick=()=>seekWithinPart(currentTime()+15);
+ $('reader-restart-part').onclick=()=>seekWithinPart(0);
+ $('reader-start-over').onclick=()=>{
+   if(!chunks.length)return;
+   const shouldSkip=$('reader-skip-front').checked&&contentPart>0;
+   jumpPart(shouldSkip?contentPart:0);
+   status(shouldSkip?'Started over after front matter. Press Play.':'Started book over. Press Play.');
+ };
+ $('reader-prev').onclick=()=>{if(idx>0)jumpPart(idx-1);};
+ $('reader-next').onclick=()=>{if(idx<chunks.length-1)jumpPart(idx+1);};
+ $('reader-seek').onchange=()=>seekWithinPart(Number($('reader-seek').value)/10);
+ $('reader-sleep').onchange=()=>{
+   const minutes=Number($('reader-sleep').value)||0;
+   sleepAt=minutes?Date.now()+minutes*60000:0;
+   status(minutes?'Sleep timer set for '+minutes+' minutes.':'Sleep timer turned off.');
+ };
+ status(catalog.length+' Gravity books available. Choose a book to begin.');
+ showPosition();
+ // Reopening restores the most recently selected book, its part and offset.
+ // Do NOT autoplay without a user's gesture; mobile browsers require a tap.
+ const last=readStorage(LASTBOOK);
+ if(last&&catalog.some(b=>b.id===last)){
+   sel.value=last;
+   await loadBook(last);updateBookButtons();
+ }
 }
 
 window.addEventListener('gravity-reader-read',async e=>{
