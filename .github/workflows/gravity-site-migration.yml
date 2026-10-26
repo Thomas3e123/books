@@ -71,6 +71,21 @@ jobs:
           export NETLIFY_AUTH_TOKEN="$token"
           npx --yes netlify-cli@26 deploy --site "$GRAVITY_NETLIFY_SITE_ID" --dir site --functions functions --context deploy-preview --alias gravity-migration --message "INTERNAL GRAVITY MIGRATION PREVIEW - not customer ready" --json > /tmp/gravity-preview-deploy.json
           node -e 'const o=require("/tmp/gravity-preview-deploy.json"); console.log(JSON.stringify({site_id:o.site_id,deploy_id:o.deploy_id,url:o.deploy_url||o.url},null,2))'
+      - name: Verify live migration audio and script over HTTPS
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://gravity-migration--gravity-leadership-system.netlify.app"
+          for i in 01 02 03 04 05 06 07 08; do
+            url="$base/assets/audio/gravity-ack/cedar-${i}.mp3"
+            curl --fail --silent --show-error --location --retry 4 --retry-delay 2 --retry-all-errors --output "/tmp/cedar-${i}.mp3" "$url"
+            test "$(wc -c < "/tmp/cedar-${i}.mp3")" -gt 1000 || { echo "Cedar clip too small: $url"; exit 1; }
+            file --mime-type "/tmp/cedar-${i}.mp3" | grep -q 'audio/' || { echo "Not recognized as audio: $url"; exit 1; }
+            echo "HTTP audio PASS: cedar-${i}.mp3"
+          done
+          curl --fail --silent --show-error --location "$base/assets/js/gravity-guide-ai.js?v=20261025-cedar-prereply-1" | grep -q 'playImmediateAck()'
+          curl --fail --silent --show-error --location "$base/" | grep -q '20261025-cedar-prereply-1'
+          echo 'LIVE Gravity prereply assets PASS'
       - name: Upload static QA evidence
         if: always()
         uses: actions/upload-artifact@v4
