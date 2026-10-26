@@ -85,7 +85,7 @@ jobs:
           done
           curl --fail --silent --show-error --location "$base/assets/js/gravity-guide-ai.js?v=20261025-cedar-prereply-1" | grep -q 'playImmediateAck()'
           for page in / /books /about /start-here; do
-            curl --fail --silent --show-error --location "$base$page" | grep -q '20261025-cedar-prereply-2' || { echo "Stale Ask Gravity on $page"; exit 1; }
+            curl --fail --silent --show-error --location "$base$page" | grep -q '20261025-cedar-prereply-3' || { echo "Stale Ask Gravity on $page"; exit 1; }
             echo "Current Cedar frontend PASS: $page"
           done
           echo 'LIVE Gravity prereply assets PASS'
