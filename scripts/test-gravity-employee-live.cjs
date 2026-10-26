@@ -38,5 +38,5 @@ async function call(path,method='GET',data,token){
  assert.equal((await call('manager/sync','POST',{snapshot:{...snapshot,publishedSops:[{...snapshot.publishedSops[0],revision:'2'}]}},managerKey)).status,200);
  assert.equal((await call('training','POST',{sopId:'qa-'+testId,revision:'1',name:'QA Disposable Employee',acknowledge:true,answers},token)).status,409);
  console.log('PASS: Live Netlify staging employee connection create, login, snapshot, quiz, messages, assistant, manager sync, revision controls.');
- console.log('Synthetic workspace retained for QA; no credentials printed or real customers affected.');
+ console.log('MOBILE QA WORKSPACE CODE: '+workspaceCode);console.log('MOBILE QA EMPLOYEE PIN: '+pin);console.log('Synthetic workspace only. Rotate or retire this test PIN after mobile acceptance.');
 })().catch(e=>{console.error('LIVE EMPLOYEE TEST FAILED:',e.message);process.exitCode=1});
