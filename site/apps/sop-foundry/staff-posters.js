@@ -8,5 +8,33 @@ function detail(){const p=posters.find(x=>x.id===selected);if(!p){$('detail').in
 function route(){let h=location.hash.slice(1);try{h=decodeURIComponent(h)}catch{}if(h.startsWith('from-poster-'))h='';selected=h||filtered()[0]?.id||posters[0]?.id||'';renderList();detail();}
 $('search').oninput=()=>{const list=renderList();clearTimeout(searchTimer);searchTimer=setTimeout(()=>{const q=$('search').value.trim();if(q)window.gravityEmployee?.track('search',{sourceKind:'poster',query:q,results:list.length,sourceStation:$('station').value==='All stations'?'':$('station').value})},650)};
 $('station').onchange=()=>{renderList();window.gravityEmployee?.track('search',{sourceKind:'poster',query:'poster-station:'+($('station').value||'All stations'),results:filtered().length,sourceStation:$('station').value==='All stations'?'':$('station').value})};$('list').onclick=e=>{const b=e.target.closest('[data-id]');if(b)location.hash=encodeURIComponent(b.dataset.id)};window.addEventListener('hashchange',route);
-Promise.all([fetch('/api/published-posters',{cache:'no-store'}).then(async r=>{const d=await r.json();if(!r.ok)throw Error(d.error);return d}),fetch('/api/published-sops',{cache:'no-store'}).then(async r=>{const d=await r.json();if(!r.ok)throw Error(d.error);return d})]).then(([pd,sd])=>{posters=pd.posters||[];sops=sd.data?.sops||[];$('buildLink').hidden=!pd.canBuild;const stations=[...new Set(posters.map(p=>p.station).filter(Boolean))].sort();stations.forEach(st=>$('station').append(new Option(st,st)));const profile=window.gravityEmployee?.getProfile?.()||{};if(profile.homeStation&&stations.includes(profile.homeStation))$('station').value=profile.homeStation;route()}).catch(e=>$('detail').innerHTML=`<h2>Poster Library unavailable</h2><p class="error">${esc(e.message)}</p>`);
+async function readLibrary(url,label){
+ const response=await fetch(url,{cache:'no-store'});
+ let data;
+ try{data=await response.json()}catch{throw Error(label+' returned an unreadable response (HTTP '+response.status+').')}
+ if(!response.ok)throw Error(data.error||label+' is unavailable (HTTP '+response.status+').');
+ return data;
+}
+async function loadPosters(){
+ try{
+  // Related SOPs are optional: a failure in the SOP lookup must never hide published posters.
+  const pd=await readLibrary('/api/published-posters','Poster library');
+  posters=Array.isArray(pd.posters)?pd.posters:[];
+  $('buildLink').hidden=!pd.canBuild;
+  const stations=[...new Set(posters.map(p=>p.station).filter(Boolean))].sort();
+  stations.forEach(st=>$('station').append(new Option(st,st)));
+  const profile=window.gravityEmployee?.getProfile?.()||{};
+  if(profile.homeStation&&stations.includes(profile.homeStation))$('station').value=profile.homeStation;
+  route();
+  try{
+   const sd=await readLibrary('/api/published-sops','Related SOPs');
+   sops=Array.isArray(sd.data?.sops)?sd.data.sops:[];
+   if(selected)detail();
+  }catch(e){console.warn('Related SOP cross-links unavailable; poster library remains usable',e)}
+ }catch(e){
+  console.error('Poster library request failed',e);
+  $('detail').innerHTML='<h2>Poster Library unavailable</h2><p class="error">'+esc(e.message)+'</p><p>Please return to Employee Access and sign in again if your session expired.</p>';
+ }
+}
+loadPosters();
 })();
