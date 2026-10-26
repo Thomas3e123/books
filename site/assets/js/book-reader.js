@@ -5,7 +5,7 @@ const VKEY='gravity_voice_name_v1';
 const EMBEDDED_CATALOG=[{"id": "quiet-gravity", "title": "Quiet Gravity", "text": "/assets/reader/quiet-gravity.txt", "pdf": "/assets/downloads/quiet-gravity-gravity-elite-2026-09-11-155-pages.pdf", "characters": 375229}, {"id": "owners-chair", "title": "The Owner’s Chair", "text": "/assets/reader/owners-chair.txt", "pdf": "/assets/downloads/the-owners-chair-gravity-elite-2026-09-11-212-pages.pdf", "characters": 296838}, {"id": "systems-of-service", "title": "Systems of Service", "text": "/assets/reader/systems-of-service.txt", "pdf": "/assets/downloads/systems-of-service-gravity-elite-v2-2026-09-11-253-pages.pdf", "characters": 512298}, {"id": "employee-training-sop-tracker", "title": "Employee Training & SOP Tracker", "text": "/assets/reader/employee-training-sop-tracker.txt", "pdf": "/assets/downloads/employee-training-sop-tracker-gravity-elite-v2-2026-09-12-257-interior-pages.pdf", "characters": 263507}, {"id": "labor-control-scheduling-planner", "title": "Labor Control & Scheduling Planner", "text": "/assets/reader/labor-control-scheduling-planner.txt", "pdf": "/assets/downloads/labor-control-scheduling-planner-gravity-elite-v2-2026-09-12-371-interior-372-digital-pages.pdf", "characters": 424801}, {"id": "sop-station-operations-builder", "title": "Restaurant SOP & Station Operations Builder", "text": "/assets/reader/sop-station-operations-builder.txt", "pdf": "/assets/downloads/restaurant-sop-station-operations-builder-gravity-elite-v3-2026-09-13-258-pages.pdf", "characters": 336866}, {"id": "food-cost-waste-inventory", "title": "Food Cost, Waste & Inventory Control", "text": "/assets/reader/food-cost-waste-inventory.txt", "pdf": "/assets/downloads/food-cost-waste-inventory-control-318-pages.pdf", "characters": 402216}, {"id": "hiring-retention", "title": "Hiring, Interviewing & Employee Retention Tracker", "text": "/assets/reader/hiring-retention.txt", "pdf": "/assets/downloads/hiring-interviewing-employee-retention-tracker-gravity-elite-208-pages.pdf", "characters": 177964}, {"id": "guest-recovery", "title": "Guest Service, Complaints & Recovery Workbook", "text": "/assets/reader/guest-recovery.txt", "pdf": "/assets/downloads/guest-service-complaints-recovery-workbook-gravity-elite-2026-09-13-191-pages.pdf", "characters": 131467}, {"id": "ai-prompts", "title": "Restaurant AI Prompts & Systems Workbook — 325 Prompts", "text": "/assets/reader/ai-prompts.txt", "pdf": "/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_325_PROMPTS_2026-10-20.pdf", "characters": 207351}, {"id": "sop-library-v1", "title": "Gravity Restaurant SOP Library — Volume 1", "text": "/assets/reader/sop-library-v1.txt", "pdf": "/assets/downloads/gravity-restaurant-sop-library-volume-1-gravity-elite-v2-2026-09-13-369-pages.pdf", "characters": 702569}, {"id": "sop-library-v2", "title": "Gravity Restaurant SOP Library — Volume 2", "text": "/assets/reader/sop-library-v2.txt", "pdf": "/assets/downloads/gravity-restaurant-sop-library-volume-2-gravity-elite-v2-2026-09-13-370-pages.pdf", "characters": 699870}, {"id": "sop-library-v3", "title": "Gravity Restaurant SOP Library — Volume 3", "text": "/assets/reader/sop-library-v3.txt", "pdf": "/assets/downloads/gravity-restaurant-sop-library-volume-3-specialty-advanced-hard-to-find-sops.pdf", "characters": 853112}, {"id": "bar-pour-cost", "title": "Restaurant Bar & Beverage Pour Cost Control", "text": "/assets/reader/bar-pour-cost.txt", "pdf": "/assets/downloads/GRAVITY_Restaurant_Bar_Beverage_Pour_Cost_Control_v1.0.pdf", "characters": 344492}, {"id": "bar-inventory", "title": "Restaurant Bar & Beverage Inventory & Ordering", "text": "/assets/reader/bar-inventory.txt", "pdf": "/assets/downloads/GRAVITY_Restaurant_Bar_Beverage_Inventory_Ordering_v1.0.pdf", "characters": 100731}];
 let catalog=[],chunks=[],idx=0,current='',loadToken=0;
 let audioCtx=null,sourceNode=null,activeResolve=null,loopActive=false,playing=false,paused=false,runToken=0,mode='';
-let gainNode=null,decodedBuffer=null,decodedForPart=-1,playedSeconds=0,sourceStartedAt=0,sourceOffset=0,partDuration=0;
+let gainNode=null,bassNode=null,trebleNode=null,decodedBuffer=null,decodedForPart=-1,playedSeconds=0,sourceStartedAt=0,sourceOffset=0,partDuration=0;
 let contentPart=0,sleepAt=0,savingAllowed=false;
 const LASTBOOK='gravity_reader_last_book_v2', PREFS='gravity_reader_preferences_v2';
 const progressKey=id=>'gravity_reader_checkpoint_v2_'+id;
@@ -40,7 +40,7 @@ function saveCheckpoint(){
  writeStorage(LASTBOOK,current);
 }
 function storePrefs(){
- const prefs={skipFront:$('reader-skip-front')?.checked!==false,continuous:$('reader-continuous')?.checked!==false,volume:Number($('reader-volume')?.value||100),voice:$('reader-voice')?.value||'cedar',speed:$('reader-speed')?.value||'0.98'};
+ const prefs={skipFront:$('reader-skip-front')?.checked!==false,continuous:$('reader-continuous')?.checked!==false,volume:Number($('reader-volume')?.value??100),bass:Number($('reader-bass')?.value??0),treble:Number($('reader-treble')?.value??0),voice:$('reader-voice')?.value||'cedar',speed:$('reader-speed')?.value||'0.98'};
  writeStorage(PREFS,JSON.stringify(prefs));
 }
 function mainContentOffset(text){
@@ -119,8 +119,13 @@ function unlockNeuralAudio(){
  try{
   if(!audioCtx||audioCtx.state==='closed'){
     audioCtx=new C();
-    gainNode=audioCtx.createGain();gainNode.connect(audioCtx.destination);
-    gainNode.gain.value=Number($('reader-volume')?.value||100)/100;
+    gainNode=audioCtx.createGain();
+    bassNode=audioCtx.createBiquadFilter();bassNode.type='lowshelf';bassNode.frequency.value=180;
+    trebleNode=audioCtx.createBiquadFilter();trebleNode.type='highshelf';trebleNode.frequency.value=3200;
+    bassNode.connect(trebleNode);trebleNode.connect(gainNode);gainNode.connect(audioCtx.destination);
+    gainNode.gain.value=Number($('reader-volume')?.value??100)/100;
+    bassNode.gain.value=Number($('reader-bass')?.value??0);
+    trebleNode.gain.value=Number($('reader-treble')?.value??0);
   }
   if(audioCtx.state==='suspended')audioCtx.resume().catch(()=>{});
   return true;
@@ -146,7 +151,7 @@ async function playDecodedAudio(buffer,token){
    activeResolve=resolve;
    sourceOffset=offset;sourceStartedAt=audioCtx.currentTime;
    const source=audioCtx.createBufferSource();sourceNode=source;
-   source.buffer=buffer;source.connect(gainNode||audioCtx.destination);
+   source.buffer=buffer;source.connect(bassNode||gainNode||audioCtx.destination);
    source.onended=()=>{
      if(sourceNode!==source)return;
      playedSeconds=buffer.duration;sourceNode=null;activeResolve=null;
@@ -377,6 +382,16 @@ async function init(){
  $('reader-skip-front').checked=savedPrefs.skipFront!==false;
  $('reader-continuous').checked=savedPrefs.continuous!==false;
  $('reader-volume').value=String(Math.max(0,Math.min(100,Number(savedPrefs.volume??100))));
+ $('reader-bass').value=String(Math.max(-12,Math.min(12,Number(savedPrefs.bass??0))));
+ $('reader-treble').value=String(Math.max(-12,Math.min(12,Number(savedPrefs.treble??0))));
+ const updateLevels=()=>{
+   $('reader-volume-level').textContent=$('reader-volume').value+'%';
+   for(const band of ['bass','treble']){
+     const value=Number($('reader-'+band).value);
+     $('reader-'+band+'-level').textContent=(value>0?'+':'')+value+' dB';
+   }
+ };
+ updateLevels();
  sel.onchange=async()=>{await loadBook(sel.value);updateBookButtons();};
  $('reader-voice').onchange=()=>{
    hardStop('Voice changed. Press Play to continue.');
@@ -391,8 +406,24 @@ async function init(){
  $('reader-continuous').onchange=storePrefs;
  $('reader-skip-now').onclick=skipFrontMatter;
  $('reader-volume').oninput=()=>{
+   // This gain stage is the independent narration volume. EQ changes do not touch it.
    if(gainNode)gainNode.gain.value=Number($('reader-volume').value)/100;
-   storePrefs();
+   updateLevels();storePrefs();
+ };
+ $('reader-bass').oninput=()=>{
+   if(bassNode)bassNode.gain.value=Number($('reader-bass').value);
+   updateLevels();storePrefs();
+ };
+ $('reader-treble').oninput=()=>{
+   if(trebleNode)trebleNode.gain.value=Number($('reader-treble').value);
+   updateLevels();storePrefs();
+ };
+ $('reader-eq-reset').onclick=()=>{
+   $('reader-bass').value='0';$('reader-treble').value='0';
+   if(bassNode)bassNode.gain.value=0;
+   if(trebleNode)trebleNode.gain.value=0;
+   updateLevels();storePrefs();
+   // EQ reset intentionally retains the independent narration volume.
  };
  $('reader-play').onclick=()=>{unlockNeuralAudio();if(playing)pause();else if(paused)resume();else runReader();};
  $('reader-stop').onclick=()=>hardStop('Stopped. Your precise place is saved.');
