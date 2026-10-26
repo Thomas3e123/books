@@ -1,7 +1,8 @@
 (()=>{'use strict';
 const previousFetch=window.fetch.bind(window),SESSION='gravityFoundryHostedSessionV1',CONN='gravityFoundryHostedManagerV1',BRAND='gravityFoundryHostedBrandV1';
 const employeeFiles=new Set(['employee-app.html','staff-sops.html','staff-recipes.html','staff-posters.html','staff-message.html','training.html']);
-const file=location.pathname.split('/').pop()||'';
+const routeFile=location.pathname.split('/').pop()||'';
+const file=routeFile&&!routeFile.includes('.')?routeFile+'.html':routeFile;
 const isEmployeePage=()=>employeeFiles.has(file)||(file==='assistant.html'&&new URLSearchParams(location.search).get('room')!=='build');
 function read(key){try{return JSON.parse(localStorage.getItem(key)||'null')}catch{return null}}
 function write(key,value){localStorage.setItem(key,JSON.stringify(value))}
