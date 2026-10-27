@@ -14,7 +14,7 @@
     },
     {
       "path": "site/about.html",
-      "sha256": "104db1b993bdea75c843cc2cb376d731bd9ba0012819073ebe7af0290879603d"
+      "sha256": "90799877824c77b5680ce1ef248e3fce6b37418ca1d21ffbf5f6347e2516818d"
     },
     {
       "path": "site/apps/inventory-center/assets/css/inventory.css",
@@ -1922,7 +1922,7 @@
     },
     {
       "path": "site/gravity-report.html",
-      "sha256": "469d1e034e55ce44197c23498c3d4b1c39757209fd96fa13060672097d9e387e"
+      "sha256": "2297e8566de39d0f5986a31497f7bc2d64d82681fa2ef2bf19de652c0b2eb09e"
     },
     {
       "path": "site/gravity-shift-lab-sw.js",
@@ -1986,7 +1986,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "a7dad97b746eadb50921fc4ac83a8653c9854701e5995fd5912cc3cc68ff3776"
+      "sha256": "2b725e6245c5f53f1dc28b559215c81aea29e71cef5b066caec6d82a3a3c23b3"
     },
     {
       "path": "site/installation-improvement.html",
