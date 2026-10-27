@@ -1,0 +1,75 @@
+name: Gravity — Shift Lab and Inventory cost integrity QA (NO DEPLOY)
+on:
+  push:
+    branches:
+      - feature/gravity-migration-phase1-2026-10-22
+    paths:
+      - 'site/assets/js/gravity-labor-cost-engine.js'
+      - 'site/assets/js/gravity-shift-lab.js'
+      - 'site/gravity-shift-lab.html'
+      - 'site/apps/inventory-center/assets/js/inventory-outflow-cost.js'
+      - 'site/apps/inventory-center/assets/js/inventory-center.js'
+      - 'site/apps/inventory-center/assets/js/inventory-validation.js'
+      - 'site/apps/inventory-center/index.html'
+      - 'scripts/test-gravity-labor-cost-engine.cjs'
+      - 'scripts/test-gravity-inventory-outflow.cjs'
+      - 'source-manifest.json'
+      - '.github/workflows/gravity-labor-inventory-qa-2026-10-27.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  math-and-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify complete source manifest
+        run: npm run build
+      - name: Ensure manifest generated from the tree is identical
+        run: |
+          npm run manifest
+          git diff --exit-code -- source-manifest.json
+      - name: Check JavaScript syntax
+        run: |
+          node --check site/assets/js/gravity-labor-cost-engine.js
+          node --check site/assets/js/gravity-shift-lab.js
+          node --check site/apps/inventory-center/assets/js/inventory-outflow-cost.js
+          node --check site/apps/inventory-center/assets/js/inventory-center.js
+          node --check site/apps/inventory-center/assets/js/inventory-validation.js
+      - name: Independently exercise labor forecast arithmetic and inputs
+        run: node scripts/test-gravity-labor-cost-engine.cjs
+      - name: Independently exercise inventory historical outflow and categories
+        run: node scripts/test-gravity-inventory-outflow.cjs
+      - name: Verify page wiring, privacy, optional historic fields and attribution safety
+        run: |
+          node - <<'NODE'
+          const fs=require('node:fs'),assert=require('node:assert/strict');
+          const sh=fs.readFileSync('site/gravity-shift-lab.html','utf8');
+          const sc=fs.readFileSync('site/assets/js/gravity-shift-lab.js','utf8');
+          const inv=fs.readFileSync('site/apps/inventory-center/index.html','utf8');
+          const ic=fs.readFileSync('site/apps/inventory-center/assets/js/inventory-center.js','utf8');
+          const v=fs.readFileSync('site/apps/inventory-center/assets/js/inventory-validation.js','utf8');
+          assert(sh.includes('id="manager-hourly-burden"'));
+          assert(sh.includes('id="lab-private-budget"'));
+          assert(sh.includes('id="lab-cost-basis"'));
+          assert(sh.indexOf('src="assets/js/gravity-labor-cost-engine.js')<sh.indexOf('src="assets/js/gravity-shift-lab.js'));
+          assert(sc.includes('profile.hourlyBurdenPercent'));
+          assert(sc.includes('GravityLaborCostEngine.projected'));
+          assert(sc.includes("payIsLocked()?'Labor budget dollars"));
+          assert(sc.includes("profile.managementLaborMode==='exclude'?0"));
+          assert(inv.includes('id="move-reason-code"'));
+          assert(inv.includes('Outflow value'));
+          assert(inv.indexOf('src="assets/js/inventory-outflow-cost.js')<inv.indexOf('src="assets/js/inventory-center.js'));
+          assert(ic.includes('GravityInventoryOutflow.movementOutflowValue(x)'));
+          assert(ic.includes('reasonCode:reasonCode'));
+          assert(ic.includes('Outflow Cost (Waste/Spill/Spoilage/Damage/Comp Only)'));
+          assert(v.includes('m.reasonCode!==undefined'));
+          for(const page of [sh,inv])assert(/name="robots" content="noindex,nofollow"/.test(page),'Keep staging indexing blocked');
+          const head=fs.readFileSync('site/_headers','utf8');
+          assert(head.includes('X-Robots-Tag: noindex, nofollow'));
+          console.log('GRAVITY_QA_PAGE_WIRING_AND_PRIVACY PASS — NO DEPLOY, no customer data or TMB changes');
+          NODE
