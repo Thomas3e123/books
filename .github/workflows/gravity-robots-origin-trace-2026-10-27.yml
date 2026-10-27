@@ -59,4 +59,14 @@ jobs:
           NODE
             rm -f "$tmp"
           done
+          for p in "/sites/$SITE_ID/files/netlify.toml" "/sites/$SITE_ID/files/_headers" "/sites/$SITE_ID/files/index.html"; do
+            tmp="$(mktemp)"
+            status=$(curl -sS --max-time 20 -H "Authorization: Bearer $token" -H 'Content-Type: application/vnd.bitballoon.v1.raw' -o "$tmp" -w '%{http_code}' "$origin$p")
+            echo "SOURCE_FILE_HTTP $p $status SIZE $(wc -c < "$tmp")"
+            if [ "$status" = 200 ]; then
+              if [[ "$p" == *netlify.toml ]];then echo NETLIFY_TOML_START;head -c 2500 "$tmp";echo;echo NETLIFY_TOML_END;fi
+              if [[ "$p" == *_headers ]];then echo HEADERS_SOURCE_START;head -c 1500 "$tmp";echo;echo HEADERS_SOURCE_END;fi
+            fi
+            rm -f "$tmp"
+          done
           echo 'ORIGIN_TRACE_COMPLETE_READ_ONLY'
