@@ -1,3 +1,4 @@
+# Release candidate includes the verified unnumbered Gravity move announcement.
 name: Gravity PUBLIC launch — publish CURRENT site to canonical domain (TMB untouched)
 on:
   push:
