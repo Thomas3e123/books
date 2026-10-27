@@ -13,6 +13,9 @@ fs.cpSync(source,dest,{recursive:true});
 for(const name of fs.readdirSync(dest).filter(x=>x.endsWith('.html'))){
  const file=path.join(dest,name),html=fs.readFileSync(file,'utf8');
  const fixed=html.replace(/href=(["'])(\/[^"']*)\1/g,(match,q,route)=>{
+   // Published user manuals are website resources, not packaged app assets.
+   if(route.startsWith('/assets/downloads/windows/manuals/current/'))
+     return 'href='+q+'https://gravityleadershipsystem.com'+route+q;
    if(route.startsWith('/assets/')||route.startsWith('/apps/sop-foundry/'))return match;
    return 'href='+q+'https://gravityleadershipsystem.com'+route+q;
  });
