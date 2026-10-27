@@ -76,7 +76,7 @@ function defaultSections(){ return ['Management','Dish Pit','Prep','Cook Line','
 function defaultAvailability(){ return ['','','','','','','']; }
 function defaultProfile(){
   return {
-    restaurant:'',store:'',targetHours:'',targetPercent:'',conflictMode:'warn',payLockHash:'',managementLaborMode:'include',managerSalaryAllocation:'',contactVisibility:'scheduler',publishCycle:'1',
+    restaurant:'',store:'',targetHours:'',targetPercent:'',conflictMode:'warn',payLockHash:'',managementLaborMode:'include',managerSalaryAllocation:'',hourlyBurdenPercent:'',contactVisibility:'scheduler',publishCycle:'1',
     openTimes:['','','','','','',''],
     openAllowance:[0,0,0,0,0,0,0],
     closeTimes:['10p','10p','10p','10p','10p','11p','11p'],
@@ -120,6 +120,7 @@ profile.closeAllowance=(profile.closeAllowance||[1.5,1.5,1.5,1.5,1.5,1.5,1.5]).s
 profile.payLockHash=profile.payLockHash||'';
 profile.managementLaborMode=profile.managementLaborMode||'include';
 profile.managerSalaryAllocation=profile.managerSalaryAllocation||'';
+profile.hourlyBurdenPercent=profile.hourlyBurdenPercent==null?'':String(profile.hourlyBurdenPercent);
 profile.contactVisibility=profile.contactVisibility||'scheduler';
 profile.publishCycle=String(profile.publishCycle||'1');
 payUnlocked=!profile.payLockHash;
@@ -416,7 +417,7 @@ function scheduleRuleSummary(emp,date,dayIndex){
 }
 function recalc(){
   syncProfileFromRows();
-  var totalH=0,totalD=0,ot=0,counts=[0,0,0,0,0,0,0],hoursList=[],hardConflicts=0,softConflicts=0,sectionMatrix={};
+  var totalH=0,totalD=0,hourlyWageCost=0,ot=0,counts=[0,0,0,0,0,0,0],hoursList=[],hardConflicts=0,softConflicts=0,sectionMatrix={};
   profile.sections.forEach(function(s){sectionMatrix[s]=[0,0,0,0,0,0,0];}); sectionMatrix.Unassigned=[0,0,0,0,0,0,0];
   body.querySelectorAll('tr[data-employee-id]').forEach(function(tr){
     var emp=getEmployee(tr.dataset.employeeId),wage=parseFloat(emp&&emp.wage)||0,rowH=0;
@@ -435,14 +436,25 @@ function recalc(){
       if(c){cell.classList.add(c.level==='hard'?'conflict-hard':'conflict-soft');alert.textContent=c.msg;if(c.level==='hard')hardConflicts++;else softConflicts++;}
     });
     tr.querySelector('.lab-total').textContent=rowH.toFixed(1)+'h';tr.querySelector('.lab-total').classList.toggle('lab-warn',rowH>40);
-    var rowCost=(Math.min(rowH,40)*wage)+(Math.max(0,rowH-40)*wage*1.5);var isMgmt=String(emp&&emp.homeSection||'').toLowerCase()==='management';if(!(isMgmt&&profile.managementLaborMode==='exclude'))totalD+=rowCost;totalH+=rowH;if(rowH>40)ot++;if(emp&&emp.maxWeeklyHours&&rowH>Number(emp.maxWeeklyHours)){hardConflicts++;tr.querySelector('.lab-total').title='Over employee custom maximum of '+emp.maxWeeklyHours+' hours';}if(rowH>0)hoursList.push(rowH);
+    var rowCost=(Math.min(rowH,40)*wage)+(Math.max(0,rowH-40)*wage*1.5);var isMgmt=String(emp&&emp.homeSection||'').toLowerCase()==='management';if(!(isMgmt&&profile.managementLaborMode==='exclude'))hourlyWageCost+=rowCost;totalH+=rowH;if(rowH>40)ot++;if(emp&&emp.maxWeeklyHours&&rowH>Number(emp.maxWeeklyHours)){hardConflicts++;tr.querySelector('.lab-total').title='Over employee custom maximum of '+emp.maxWeeklyHours+' hours';}if(rowH>0)hoursList.push(rowH);
   });
-  if(profile.managementLaborMode!=='exclude')totalD+=Number(profile.managerSalaryAllocation||0);
+  var salaryAllocation=profile.managementLaborMode==='exclude'?0:Math.max(0,Number(profile.managerSalaryAllocation||0));
+  var sales=parseFloat($('lab-sales').value)||0;
+  var targetP=parseFloat($('lab-target-percent').value)||0;
+  var laborProjection=GravityLaborCostEngine.projected({hourlyWages:hourlyWageCost,salaryAllocation:salaryAllocation,
+    hourlyBurdenPercent:profile.hourlyBurdenPercent,forecastSales:sales||null,targetPercent:targetP>100?null:(targetP||null)});
+  var totalD=laborProjection.total;
   $('g-hours').textContent=totalH.toFixed(1);if(payIsLocked()){$('g-dollars').textContent='🔒 Locked';$('g-dollars').classList.add('locked-value');if($('g-dollars-lock-note'))$('g-dollars-lock-note').textContent='• manager only';}else{$('g-dollars').textContent=money(totalD);$('g-dollars').classList.remove('locked-value');if($('g-dollars-lock-note'))$('g-dollars-lock-note').textContent='';}$('g-ot').textContent=ot;
-  var sales=parseFloat($('lab-sales').value)||0;$('g-percent').textContent=sales?((totalD/sales)*100).toFixed(1)+'%':'—';
-  var targetH=parseFloat($('lab-target-hours').value)||0,targetP=parseFloat($('lab-target-percent').value)||0,msgs=[];
+  $('g-percent').textContent=laborProjection.laborPercent!==null?laborProjection.laborPercent.toFixed(1)+'%':'—';
+  var targetH=parseFloat($('lab-target-hours').value)||0,msgs=[];
+  if(targetP>100)msgs.push('Labor target must be 0–100%');
+  var basisText=laborProjection.burdenConfigured?'Includes manager-set estimated burden on hourly wages; salary allocation is not burdened again.':'Employer payroll taxes and benefits NOT included. Unlock Manager Settings to enter an optional hourly burden estimate.';
+  $('lab-cost-basis').textContent=basisText+' Scheduled shift times do not automatically deduct unpaid breaks. Estimates are not actual payroll.';
+  var budgetText=laborProjection.budgetDollars!==null?'Target labor dollars: '+money(laborProjection.budgetDollars)+' • Estimated cost: '+money(totalD)+' • Variance: '+money(laborProjection.budgetVariance):'Enter forecast sales and labor target % to compare an estimated dollar budget.';
+  $('lab-private-budget').textContent=payIsLocked()?'Labor budget dollars and manager wage details are protected.':budgetText;
+
   if(targetH&&totalH>targetH)msgs.push('Hours '+(totalH-targetH).toFixed(1)+' over target');
-  if(targetP&&sales&&totalD/sales*100>targetP)msgs.push('Labor % over target');
+  if(laborProjection.budgetVariance!==null&&laborProjection.budgetVariance>0)msgs.push('Estimated labor dollars over target');
   if(hoursList.length>1){var max=Math.max.apply(null,hoursList),min=Math.min.apply(null,hoursList);if(max-min>20)msgs.push('Wide hours spread');}
   if(hardConflicts)msgs.push(hardConflicts+' hard conflict'+(hardConflicts>1?'s':''));
   if(softConflicts)msgs.push(softConflicts+' review item'+(softConflicts>1?'s':''));
@@ -456,7 +468,7 @@ function recalc(){
     var managementBasis=profile.managementLaborMode==='exclude'?'excluded':'included'+(Number(profile.managerSalaryAllocation||0)?' + protected salary allocation':'');
     var managerSummary=payIsLocked()
       ? ' • Manager pay details locked • Management labor: '+managementBasis
-      : ' • '+totalH.toFixed(1)+' scheduled hours • '+money(totalD)+' estimated labor'+(sales?' • '+((totalD/sales)*100).toFixed(1)+'% of forecast sales':'')+' • Management labor: '+managementBasis;
+      : ' • '+totalH.toFixed(1)+' scheduled hours • '+money(totalD)+' estimated labor'+(sales?' • '+((totalD/sales)*100).toFixed(1)+'% of forecast sales':'')+' • Employer hourly burden: '+(laborProjection.burdenConfigured?'included (estimated)':'excluded')+' • Management labor: '+managementBasis;
     $('lab-print-summary').innerHTML='<strong>'+esc(restaurant)+'</strong>'+(profile.store?' • '+esc(profile.store):'')+(week?' • Week of '+esc(week):'')+'<span class="manager-private">'+managerSummary+'</span>';
   }
   updateScheduleStatus();
@@ -704,8 +716,21 @@ async function printSchedule(mode){
 }
 
 function requireManagerUnlock(message){if(!payLockConfigured()){openPayLockDialog('setup');$('lab-status').textContent=message||'Set Manager Pay Lock first.';return false;}if(payIsLocked()){openPayLockDialog('unlock');$('lab-status').textContent=message||'Unlock Manager Pay Lock first.';return false;}return true;}
-function openManagerSettings(){if(!requireManagerUnlock('Unlock Manager Pay Lock to change labor-basis or contact-privacy settings.'))return;$('manager-labor-mode').value=profile.managementLaborMode||'include';$('manager-salary-allocation').value=profile.managerSalaryAllocation||'';$('contact-visibility').value=profile.contactVisibility||'scheduler';$('manager-settings-status').textContent='';$('manager-settings-dialog').showModal();}
-function saveManagerSettings(){profile.managementLaborMode=$('manager-labor-mode').value||'include';profile.managerSalaryAllocation=$('manager-salary-allocation').value||'';profile.contactVisibility=$('contact-visibility').value||'scheduler';persistProfile();$('manager-settings-dialog').close();recalc();$('lab-status').textContent='Protected labor and contact-privacy settings saved.';}
+function openManagerSettings(){if(!requireManagerUnlock('Unlock Manager Pay Lock to change labor-basis or contact-privacy settings.'))return;$('manager-labor-mode').value=profile.managementLaborMode||'include';$('manager-salary-allocation').value=profile.managerSalaryAllocation||'';$('manager-hourly-burden').value=profile.hourlyBurdenPercent||'';$('contact-visibility').value=profile.contactVisibility||'scheduler';$('manager-settings-status').textContent='';$('manager-settings-dialog').showModal();}
+function saveManagerSettings(){
+  var rawBurden=$('manager-hourly-burden').value.trim(),rawSalary=$('manager-salary-allocation').value.trim();
+  var burden=rawBurden===''?null:Number(rawBurden),salary=rawSalary===''?0:Number(rawSalary);
+  if((burden!==null&&(!Number.isFinite(burden)||burden<0||burden>100))||!Number.isFinite(salary)||salary<0){
+    $('manager-settings-status').textContent='Enter a valid weekly salary of zero or more and an hourly burden between 0 and 100%, or leave burden blank.';
+    return;
+  }
+  profile.managementLaborMode=$('manager-labor-mode').value||'include';
+  profile.managerSalaryAllocation=rawSalary;
+  profile.hourlyBurdenPercent=rawBurden;
+  profile.contactVisibility=$('contact-visibility').value||'scheduler';
+  persistProfile();$('manager-settings-dialog').close();recalc();
+  $('lab-status').textContent='Protected labor cost-basis and contact privacy settings saved.';
+}
 function phoneCanShow(){return profile.contactVisibility==='scheduler'||(profile.contactVisibility==='manager'&&!payIsLocked());}
 function phoneHTML(emp){if(profile.contactVisibility==='hidden')return '<span class="contact-hidden">Phone hidden by restaurant setting</span>';if(profile.contactVisibility==='manager'&&payIsLocked())return '<span class="contact-hidden">Phone manager-only</span>';if(!emp.phone)return '<span class="contact-hidden">No phone saved</span>';var clean=String(emp.phone).replace(/[^0-9+]/g,'');return '<span class="coverage-phone"><a href="tel:'+esc(clean)+'">Call '+esc(emp.phone)+'</a> • <a href="sms:'+esc(clean)+'">Text</a></span>';}
 function hoursForEmployeeInWeek(empId,wk){var w=schedules[wk]||weekData(),arr=(w.shifts&&w.shifts[empId])||[],sum=0;arr.forEach(function(v,i){sum+=shiftHours(v,i);});return sum;}
