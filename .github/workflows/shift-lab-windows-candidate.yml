@@ -1,7 +1,7 @@
 name: Gravity Shift Lab Windows Candidate
 on:
   push:
-    branches: [main]
+    branches: [main, 'feature/gravity-migration-phase1-2026-10-22']
     paths:
       - 'windows/gravity-shift-lab/**'
       - 'site/gravity-shift-lab.html'
