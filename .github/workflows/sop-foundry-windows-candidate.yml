@@ -1,3 +1,4 @@
+# Reverify website navigation correction on refreshed source integrity manifest.
 name: Gravity SOP Foundry Windows Candidate
 on:
   push:
