@@ -100,7 +100,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          token="${NETLIFY_AUTH_TOKEN:-${ALT_NETLIFY_TOKEN:-${ALT_NETLIFY_ACCESS_TOKEN:-}}"
+          token="${NETLIFY_AUTH_TOKEN:-${ALT_NETLIFY_TOKEN:-${ALT_NETLIFY_ACCESS_TOKEN:-}}}"
           test -n "$token" || { echo 'NO NETLIFY AUTH — no deployment'; exit 1; }
           export NETLIFY_AUTH_TOKEN="$token"
           npx --yes netlify-cli@26 deploy --prod --site "$GRAVITY_SITE_ID" --dir build/gravity-production-candidate --functions functions --message "GRAVITY PUBLIC LAUNCH approved by owner Oct 27 2026 / canonical domain / source $GITHUB_SHA / TMB untouched" --json > /tmp/gravity-public-live.json
