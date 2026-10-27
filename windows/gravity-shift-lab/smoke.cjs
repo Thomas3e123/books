@@ -65,6 +65,10 @@ async function run(win) {
     get('manager-settings-save').click();
     if(Math.abs(parseFloat(get('g-percent').textContent)-10.4)>0.05)fail('Exclude management must yield 10.4%, found '+get('g-percent').textContent);
     get('lab-manager-settings').click();
+    set(get('manager-labor-mode'),'salary-only','change');
+    get('manager-settings-save').click();
+    if(Math.abs(parseFloat(get('g-percent').textContent)-13.4)>0.05)fail('Salary-only labor percentage unexpected: '+get('g-percent').textContent);
+    get('lab-manager-settings').click();
     set(get('manager-labor-mode'),'include','change');
     get('manager-settings-save').click();
     if(Math.abs(parseFloat(get('g-percent').textContent)-15.4)>0.05)fail('Include manager and $300 salary must yield 15.4%, found '+get('g-percent').textContent);
