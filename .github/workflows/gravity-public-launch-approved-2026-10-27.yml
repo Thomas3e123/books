@@ -103,79 +103,16 @@ jobs:
           token="${NETLIFY_AUTH_TOKEN:-${ALT_NETLIFY_TOKEN:-${ALT_NETLIFY_ACCESS_TOKEN:-}}}"
           test -n "$token" || { echo 'NO NETLIFY AUTH — no deployment'; exit 1; }
           export NETLIFY_AUTH_TOKEN="$token"
-          # The Gravity release candidate was already prepared and verified.
-          # Netlify CLI v21+ rebuilds by default, which can select the staging publish directory
-          # and restore its wildcard noindex header. Prevent that second build.
+          # CLI 21+ rebuilds unless --no-build is set, potentially selecting staging "site/".
+          # Use the independently built public candidate, whose wildcard noindex was removed.
           test -f build/gravity-production-candidate/_headers
-          if grep -A 1 '^/\* --prod --site "$GRAVITY_SITE_ID" --dir build/gravity-production-candidate --functions functions --message "GRAVITY PUBLIC LAUNCH approved by owner Oct 27 2026 / canonical domain / source $GITHUB_SHA / TMB untouched" --json > /tmp/gravity-public-live.json
           node - <<'NODE'
-          const fs=require('fs');
-          const x=JSON.parse(fs.readFileSync('/tmp/gravity-public-live.json','utf8'));
-          const id=x.deploy_id||x.id;
-          if(!id||x.site_id&&x.site_id!=='fa5d39a0-bef9-4ff1-9c28-57d585d741d7')throw Error('Unexpected deploy target');
-          fs.writeFileSync('gravity-public-launch-2026-10-27.json',JSON.stringify({
-            deployId:id,siteId:'fa5d39a0-bef9-4ff1-9c28-57d585d741d7',
-            commit:process.env.GITHUB_SHA,publicOrigin:'https://gravityleadershipsystem.com',
-            launchedIndexable:true,originalTMBSiteUntouched:true
-          },null,2));
-          console.log('GRAVITY_PUBLIC_DEPLOY_CREATED',id);
+          const fs=require('node:fs');
+          const h=fs.readFileSync('build/gravity-production-candidate/_headers','utf8');
+          const stanza=h.split(/\r?\n\/\*\r?\n/)[1]?.split(/\r?\n(?=\/)/)[0]||'';
+          if(/X-Robots-Tag:\s*noindex/i.test(stanza))throw Error('Wildcard public noindex still configured');
+          console.log('PUBLIC_INDEXING_HEADER_BUILD_GATE_PASS');
           NODE
-      - name: Verify current LIVE website and protected private routes (READ-ONLY)
-        shell: bash
-        run: |
-          set -euo pipefail
-          base=https://gravityleadershipsystem.com
-          for p in / /start-here /books /register /book-reader /gravity-assist /gravity-report /operating-systems /gravity-shift-lab /gravity-inventory-center /gravity-work-study-lab /windows-programs /testing-room; do
-            headfile=$(mktemp);bodyfile=$(mktemp)
-            curl --fail --silent --show-error --retry 5 --retry-all-errors --retry-delay 3 --max-time 28 -L -D "$headfile" -o "$bodyfile" "$base$p"
-            grep -qi '<html' "$bodyfile" || { echo "NOT HTML $p";exit 1; }
-            if grep -qi '^x-robots-tag: noindex' "$headfile"; then echo "PUBLIC STILL NOINDEX $p";exit 1;fi
-            if grep -Eqi '<meta[^>]+name=["'\''"]robots["'\''"][^>]+noindex' "$bodyfile"; then echo "META NOINDEX ON PUBLIC $p";exit 1;fi
-            if grep -qi 'gravity-migration-preview-notice' "$bodyfile";then echo "PREVIEW BANNER IN PRODUCTION $p";exit 1;fi
-            echo "GRAVITY_PUBLIC_PAGE_PASS $p"
-            rm -f "$headfile" "$bodyfile"
-          done
-          for p in /apps/sop-foundry/employee-app /testing-room-manager /registration-thanks; do
-            headfile=$(mktemp)
-            curl --fail --silent --show-error --max-time 25 -L -D "$headfile" -o /dev/null "$base$p"
-            grep -qi '^x-robots-tag: noindex' "$headfile" || { echo "PRIVATE HEADER MISSING $p";exit 1; }
-            echo "GRAVITY_PRIVATE_NOINDEX_PASS $p"
-          done
-          curl --fail --silent --show-error --max-time 25 "$base/robots.txt" | grep -Fq 'Allow: /'
-          curl --fail --silent --show-error --max-time 25 "$base/robots.txt" | grep -Fq 'Sitemap: https://gravityleadershipsystem.com/sitemap.xml'
-          curl --fail --silent --show-error --max-time 25 "$base/sitemap.xml" | grep -Fq 'https://gravityleadershipsystem.com/'
-          for p in /gravity-report/articles.json /gravity-report/feed.xml /gravity-report/why-do-my-restaurant-managers-keep-making-excuses; do
-            curl --fail --silent --show-error --retry 5 --retry-all-errors --retry-delay 3 --max-time 25 -o /dev/null "$base$p"
-            echo "GRAVITY_REPORT_PASS $p"
-          done
-          for attempt in 1 2 3 4 5 6; do
-            if curl --fail --silent --show-error --max-time 25 "$base/foundry-hosted/health" -o /tmp/gravity-health && HEALTH_FILE=/tmp/gravity-health node -e 'const j=require(process.env.HEALTH_FILE);if(j.ok!==true)process.exit(1)';then
-              echo 'FOUNDRY_DATABASE_HEALTH_PASS';break
-            fi
-            if [ "$attempt" = 6 ];then echo 'FOUNDRY_BACKEND_HEALTH_FAILED';exit 1;fi
-            sleep 4
-          done
-          for host in gravityleadershipsystem.com www.gravityleadershipsystem.com; do
-            verify=$(curl --fail --silent --show-error --location --max-time 25 -o /dev/null -w '%{http_code} %{url_effective} %{ssl_verify_result}' "https://$host/")
-            test "$verify" = '200 https://gravityleadershipsystem.com/ 0'
-            echo "CANONICAL_SSL_PASS $host"
-          done
-          dig +short gravityleadershipsystem.com MX | grep -q smtp.google.com
-          curl --fail --silent --show-error --max-time 25 https://thomasmonroebooks.com/ -o /dev/null
-          echo 'GRAVITY_PUBLIC_LAUNCH_PASS: indexable canonical new site, correct www, published current features, Foundry, report, Google Workspace MX; TMB preserved.'
-      - name: Preserve immutable release identity
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: Gravity-PUBLIC-LAUNCH-2026-10-27-evidence
-          path: |
-            gravity-public-launch-2026-10-27.json
-            gravity-customer-service-gates.json
-          retention-days: 60
- build/gravity-production-candidate/_headers | grep -q 'X-Robots-Tag'; then
-            echo 'REJECT: production wildcard robots directive present'; exit 1
-          fi
-          echo 'DEPLOYING_PREBUILT_PRODUCTION_CANDIDATE_ONLY'
           npx --yes netlify-cli@26 deploy --no-build --prod --site "$GRAVITY_SITE_ID" --dir build/gravity-production-candidate --functions functions --message "GRAVITY PUBLIC LAUNCH approved by owner Oct 27 2026 / canonical domain / source $GITHUB_SHA / TMB untouched" --json > /tmp/gravity-public-live.json
           node - <<'NODE'
           const fs=require('fs');
