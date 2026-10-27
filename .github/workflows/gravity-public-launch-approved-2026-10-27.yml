@@ -167,15 +167,19 @@ jobs:
             grep -qi '^x-robots-tag: noindex' "$headfile" || { echo "PRIVATE HEADER MISSING $p";exit 1; }
             echo "GRAVITY_PRIVATE_NOINDEX_PASS $p"
           done
-          curl --fail --silent --show-error --max-time 25 "$base/robots.txt" | grep -Fq 'Allow: /'
-          curl --fail --silent --show-error --max-time 25 "$base/robots.txt" | grep -Fq 'Sitemap: https://gravityleadershipsystem.com/sitemap.xml'
-          curl --fail --silent --show-error --max-time 25 "$base/sitemap.xml" | grep -Fq 'https://gravityleadershipsystem.com/'
+          # Download first, then inspect: curl | grep -q under pipefail exits 23
+          # when grep finds an early match and closes the pipe on large sitemaps.
+          curl --fail --silent --show-error --max-time 25 "$base/robots.txt" -o /tmp/gravity-robots-check.txt
+          curl --fail --silent --show-error --max-time 25 "$base/sitemap.xml" -o /tmp/gravity-sitemap-check.xml
+          grep -Fq 'Allow: /' /tmp/gravity-robots-check.txt
+          grep -Fq 'Sitemap: https://gravityleadershipsystem.com/sitemap.xml' /tmp/gravity-robots-check.txt
+          grep -Fq 'https://gravityleadershipsystem.com/' /tmp/gravity-sitemap-check.xml
           for p in /gravity-report/articles.json /gravity-report/feed.xml /gravity-report/why-do-my-restaurant-managers-keep-making-excuses; do
             curl --fail --silent --show-error --retry 5 --retry-all-errors --retry-delay 3 --max-time 25 -o /dev/null "$base$p"
             echo "GRAVITY_REPORT_PASS $p"
           done
           for attempt in 1 2 3 4 5 6; do
-            if curl --fail --silent --show-error --max-time 25 "$base/foundry-hosted/health" -o /tmp/gravity-health && HEALTH_FILE=/tmp/gravity-health node -e 'const j=require(process.env.HEALTH_FILE);if(j.ok!==true)process.exit(1)';then
+            if curl --fail --silent --show-error --max-time 25 "$base/foundry-hosted/health" -o /tmp/gravity-health && HEALTH_FILE=/tmp/gravity-health node -e 'const j=JSON.parse(require("node:fs").readFileSync(process.env.HEALTH_FILE,"utf8"));if(j.ok!==true)process.exit(1)';then
               echo 'FOUNDRY_DATABASE_HEALTH_PASS';break
             fi
             if [ "$attempt" = 6 ];then echo 'FOUNDRY_BACKEND_HEALTH_FAILED';exit 1;fi
