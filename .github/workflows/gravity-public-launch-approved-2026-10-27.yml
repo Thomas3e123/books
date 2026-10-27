@@ -69,6 +69,9 @@ jobs:
           for(const route of ['/apps/*','/e','/e/*','/testing-room-manager','/testing-room-manager.html','/registration-thanks','/registration-thanks.html','/gravity-report-thanks','/gravity-report-thanks.html','/review-thanks','/review-thanks.html']){
             hdr+=route+'\n  X-Robots-Tag: noindex, nofollow\n';
           }
+          // One-release diagnostic proves the exact public header artifact reaches the CDN.
+          // It is a benign header and does not change search or authentication policy.
+          hdr=hdr.replace(/^\/\*\s*$/m,'/*\\n  X-Gravity-Public-Build: canonical-20261027');
           fs.writeFileSync(hdrPath,hdr);
           fs.writeFileSync(path.join(root,'robots.txt'),
             'User-agent: *\nAllow: /\nDisallow: /apps/\nDisallow: /e/\nDisallow: /testing-room-manager\nDisallow: /registration-thanks\nDisallow: /gravity-report-thanks\nDisallow: /review-thanks\nSitemap: https://gravityleadershipsystem.com/sitemap.xml\n');
@@ -118,7 +121,15 @@ jobs:
           if(/X-Robots-Tag:\s*noindex/i.test(stanza))throw Error('Wildcard public noindex still configured');
           console.log('PUBLIC_INDEXING_HEADER_BUILD_GATE_PASS');
           NODE
-          npx --yes netlify-cli@26 deploy --no-build --prod --site "$GRAVITY_SITE_ID" --dir build/gravity-production-candidate --functions functions --message "GRAVITY PUBLIC LAUNCH approved by owner Oct 27 2026 / canonical domain / source $GITHUB_SHA / TMB untouched" --json > /tmp/gravity-public-live.json
+          # Deploy outside the repository. This prevents any leftover project-level
+          # staging config (publish=site) from being discovered by Netlify CLI.
+          # The production candidate already passed all source and protection gates.
+          release_dir="$(mktemp -d)"
+          cp -a build/gravity-production-candidate/. "$release_dir/"
+          (
+            cd "$release_dir"
+            npx --yes netlify-cli@26 deploy --no-build --prod --site "$GRAVITY_SITE_ID" --dir . --functions "$GITHUB_WORKSPACE/functions" --message "GRAVITY PUBLIC isolated candidate Oct 27 2026 / source $GITHUB_SHA / TMB untouched" --json > /tmp/gravity-public-live.json
+          )
           node - <<'NODE'
           const fs=require('fs');
           const x=JSON.parse(fs.readFileSync('/tmp/gravity-public-live.json','utf8'));
@@ -136,6 +147,10 @@ jobs:
         run: |
           set -euo pipefail
           base=https://gravityleadershipsystem.com
+          # If this is missing, the Netlify CDN is not serving our verified _headers.
+          release_hdr=$(curl --fail --silent --show-error --location --max-time 25 -I "$base/")
+          echo "$release_hdr" | tr -d '\r' | grep -qi '^x-gravity-public-build: canonical-20261027' || { echo 'CDN DID NOT PROCESS EXPECTED PUBLIC HEADER ARTIFACT';exit 1; }
+          echo 'PUBLIC_HEADER_PROVENANCE_VERIFIED'
           for p in / /start-here /books /register /book-reader /gravity-assist /gravity-report /operating-systems /gravity-shift-lab /gravity-inventory-center /gravity-work-study-lab /windows-programs /testing-room; do
             headfile=$(mktemp);bodyfile=$(mktemp)
             curl --fail --silent --show-error --retry 5 --retry-all-errors --retry-delay 3 --max-time 28 -L -D "$headfile" -o "$bodyfile" "$base$p"
