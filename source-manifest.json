@@ -1,6 +1,94 @@
 {
   "files": [
     {
+      "path": "functions/foundry-hosted/core.mjs",
+      "sha256": "3e0f9f465f9cd603b481edb025316b003e38950a6e56620121b2cffc65398ae2"
+    },
+    {
+      "path": "functions/foundry-hosted/index.mjs",
+      "sha256": "91a0c3d20c33f039dc9afe17ec91414cfe1db5aadc2ebb7645b45bc9ceb4971f"
+    },
+    {
+      "path": "functions/gravity-guide/gravity-guide.js",
+      "sha256": "f17f2c839ef794ad9a98f816915ffd9f7710ec9d484a8f959c30ceaa5c65a6fa"
+    },
+    {
+      "path": "functions/gravity-guide/guide-core.mjs",
+      "sha256": "3086557a743f4341d2b33cb5647c8b5d5a1ef13f32c0a71b853253c3a3aefdac"
+    },
+    {
+      "path": "functions/gravity-report/articles.json",
+      "sha256": "f41dea13820b9a3afbc2fada4d9df590413dc856c90f983f3bcee2dfdd7213a4"
+    },
+    {
+      "path": "functions/gravity-report/index.mjs",
+      "sha256": "ec4415ea781bca8295741710eb55ec58f0af38ff5951550a3302ec876eca8dc4"
+    },
+    {
+      "path": "functions/gravity-report/issues-11-15.json",
+      "sha256": "3657d2280fcbf816615437301b883f0173a1487007f896eddff3c04772a4d200"
+    },
+    {
+      "path": "functions/gravity-report/issues-16-20.json",
+      "sha256": "2a8388dfaa59dfdb6b1e83cc495a659f5abc0486fcd8efe53a7ef47f65878868"
+    },
+    {
+      "path": "functions/gravity-report/issues-21-25.json",
+      "sha256": "1709165f114e95db0d52cfc6298b6666621f0c82a77570f4e1d5e266d3fa86ed"
+    },
+    {
+      "path": "functions/gravity-report/issues-26-30.json",
+      "sha256": "a765119af4deceb383ad4097e17eaa65b73cc7bec25904a11cbd5d827716f8df"
+    },
+    {
+      "path": "functions/gravity-tts/gravity-tts.js",
+      "sha256": "d7f0611754891745c013fadd710cefd433d7695637ecddb38716951e42753759"
+    },
+    {
+      "path": "functions/testing-room/index.mjs",
+      "sha256": "5e6d86d68492e55cad22bdad8bba2c2ac20addf148cfa0a2b4bd16969781c090"
+    },
+    {
+      "path": "functions/work-study-link/index.mjs",
+      "sha256": "c23c2d03054e0ccd1ed6cbe620a0c5bc223e7933787e0a32812c930f159708d3"
+    },
+    {
+      "path": "functions/work-study-process-file/work-study-process-file.js",
+      "sha256": "103f192ed8b1d5523cff8fd43e20a7a7e461548ed9541eb37c9307430ca60b4a"
+    },
+    {
+      "path": "functions/work-study-transcribe/work-study-transcribe.js",
+      "sha256": "1dbe974f8ae85d87832429d0985f6e5620d4a5c022b8f1c7d7e222a92bca2223"
+    },
+    {
+      "path": "netlify/database/migrations/20261010070000_foundry_hosted_employee.sql",
+      "sha256": "d74a490a1162ce65fdab380a1c0cf5df03c41b864a7f935463252ead5f0f793a"
+    },
+    {
+      "path": "netlify/database/migrations/20261014133000_gravity_testing_room.sql",
+      "sha256": "3e09357ab78ae8a8f604b7adbca320c164e860f893015b2213c4d149b37e9b4a"
+    },
+    {
+      "path": "netlify/database/migrations/20261014134500_gravity_testing_groups.sql",
+      "sha256": "e7a210491092d9c36466e1dcc09d37c539f5c450f04f6946c8cdea2cd25d9864"
+    },
+    {
+      "path": "netlify/database/migrations/20261017183000_work_study_device_link.sql",
+      "sha256": "669c62119f05d2de6706396617192b865d41415b7687adf46b288c8a8777388d"
+    },
+    {
+      "path": "netlify.toml",
+      "sha256": "389153ef57900cf413fa28f2cafb316372feea8fc6fca745084b23c9b0d55285"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "806f5cde89646bfb9981b8712e7e052e4ed74448e9b9f288ceb518f1b78fccf1"
+    },
+    {
+      "path": "package.json",
+      "sha256": "f847681ea2eb9c7600ee1e3efece34108fc8e65660d9edd19c180eb08b097653"
+    },
+    {
       "path": "site/404.html",
       "sha256": "c8b78ee7e9ef78d4342bbc0f8635235d2f3e18c15a72c2c290d36e80d7c2d4b7"
     },
@@ -34,15 +122,19 @@
     },
     {
       "path": "site/apps/inventory-center/assets/js/inventory-center.js",
-      "sha256": "5649c30ee125f6420144c6b4e48c38faa6021a12deec23e9432ea6a3bf55429f"
+      "sha256": "59bba6b4a2c99f0d82cda3f436e48f518f7a8134329c8ec003866d66ab14d475"
+    },
+    {
+      "path": "site/apps/inventory-center/assets/js/inventory-outflow-cost.js",
+      "sha256": "640640a6bb499dc8b6b48c35bedfb4a738f80b958d0d877229f7bf1383073212"
     },
     {
       "path": "site/apps/inventory-center/assets/js/inventory-validation.js",
-      "sha256": "9195c52a46357c8057233549b6d738f9a03cd6bed786847ac0860f9335981247"
+      "sha256": "f5b0b73dd2c6b80ff87bd3fd40c7e6ed3d61b8e092ec11f64f795c7e707f533c"
     },
     {
       "path": "site/apps/inventory-center/index.html",
-      "sha256": "1ed8f9caf567bc417dd3e99c417eb40b1dcc95fb44453967ab5d0729af6a453f"
+      "sha256": "dd18abd4085dced058882eca977a022becc4caff454544f2327c8972baf2c9e0"
     },
     {
       "path": "site/apps/inventory-center/web.css",
@@ -1381,6 +1473,10 @@
       "sha256": "a4b59acd58fbb40763ef6f1e78b16f5f4b6893cce7388fadd71da8a3c53c402e"
     },
     {
+      "path": "site/assets/js/gravity-labor-cost-engine.js",
+      "sha256": "dba2c05effc3d6e22c03e7d51a1e136e5eedab618a475f1a657a2f66f15fb653"
+    },
+    {
       "path": "site/assets/js/gravity-qr.js",
       "sha256": "1f54896913ad9e3079e546c55a04ce0e3d67e51790eb01a2b1aa5ffb6eb306a4"
     },
@@ -1390,7 +1486,7 @@
     },
     {
       "path": "site/assets/js/gravity-shift-lab.js",
-      "sha256": "52d6b37c3ccb086fd3ad96ddf1922d65d609fae7a7ad1b6cc1cb6210b036520d"
+      "sha256": "df00d1f3cacd8fbaf997d9aca3ed33069cea1dd2707c3a3c652a788492e1e8d5"
     },
     {
       "path": "site/assets/js/gravity-sop-foundry.js",
@@ -1922,7 +2018,7 @@
     },
     {
       "path": "site/gravity-shift-lab.html",
-      "sha256": "714694a22c87a9df392f78ee849529fb528140a66acce656a54ca1ba4aae8d5c"
+      "sha256": "00527cd0d74bfe93914948fa6dbc180ff2c5824230f37a9816cb6cd00bbebf65"
     },
     {
       "path": "site/gravity-shift-lab.webmanifest",
@@ -2347,94 +2443,6 @@
     {
       "path": "site/work-study-prebeta-build.txt",
       "sha256": "ec6076e8c54e56d01e3d6ce8b0614cefc1a3419dc1c54aab19f93963317dd8ae"
-    },
-    {
-      "path": "functions/foundry-hosted/core.mjs",
-      "sha256": "3e0f9f465f9cd603b481edb025316b003e38950a6e56620121b2cffc65398ae2"
-    },
-    {
-      "path": "functions/foundry-hosted/index.mjs",
-      "sha256": "91a0c3d20c33f039dc9afe17ec91414cfe1db5aadc2ebb7645b45bc9ceb4971f"
-    },
-    {
-      "path": "functions/gravity-guide/gravity-guide.js",
-      "sha256": "f17f2c839ef794ad9a98f816915ffd9f7710ec9d484a8f959c30ceaa5c65a6fa"
-    },
-    {
-      "path": "functions/gravity-guide/guide-core.mjs",
-      "sha256": "3086557a743f4341d2b33cb5647c8b5d5a1ef13f32c0a71b853253c3a3aefdac"
-    },
-    {
-      "path": "functions/gravity-report/articles.json",
-      "sha256": "f41dea13820b9a3afbc2fada4d9df590413dc856c90f983f3bcee2dfdd7213a4"
-    },
-    {
-      "path": "functions/gravity-report/index.mjs",
-      "sha256": "ec4415ea781bca8295741710eb55ec58f0af38ff5951550a3302ec876eca8dc4"
-    },
-    {
-      "path": "functions/gravity-report/issues-11-15.json",
-      "sha256": "3657d2280fcbf816615437301b883f0173a1487007f896eddff3c04772a4d200"
-    },
-    {
-      "path": "functions/gravity-report/issues-16-20.json",
-      "sha256": "2a8388dfaa59dfdb6b1e83cc495a659f5abc0486fcd8efe53a7ef47f65878868"
-    },
-    {
-      "path": "functions/gravity-report/issues-21-25.json",
-      "sha256": "1709165f114e95db0d52cfc6298b6666621f0c82a77570f4e1d5e266d3fa86ed"
-    },
-    {
-      "path": "functions/gravity-report/issues-26-30.json",
-      "sha256": "a765119af4deceb383ad4097e17eaa65b73cc7bec25904a11cbd5d827716f8df"
-    },
-    {
-      "path": "functions/gravity-tts/gravity-tts.js",
-      "sha256": "d7f0611754891745c013fadd710cefd433d7695637ecddb38716951e42753759"
-    },
-    {
-      "path": "functions/testing-room/index.mjs",
-      "sha256": "5e6d86d68492e55cad22bdad8bba2c2ac20addf148cfa0a2b4bd16969781c090"
-    },
-    {
-      "path": "functions/work-study-link/index.mjs",
-      "sha256": "c23c2d03054e0ccd1ed6cbe620a0c5bc223e7933787e0a32812c930f159708d3"
-    },
-    {
-      "path": "functions/work-study-process-file/work-study-process-file.js",
-      "sha256": "103f192ed8b1d5523cff8fd43e20a7a7e461548ed9541eb37c9307430ca60b4a"
-    },
-    {
-      "path": "functions/work-study-transcribe/work-study-transcribe.js",
-      "sha256": "1dbe974f8ae85d87832429d0985f6e5620d4a5c022b8f1c7d7e222a92bca2223"
-    },
-    {
-      "path": "netlify/database/migrations/20261010070000_foundry_hosted_employee.sql",
-      "sha256": "d74a490a1162ce65fdab380a1c0cf5df03c41b864a7f935463252ead5f0f793a"
-    },
-    {
-      "path": "netlify/database/migrations/20261014133000_gravity_testing_room.sql",
-      "sha256": "3e09357ab78ae8a8f604b7adbca320c164e860f893015b2213c4d149b37e9b4a"
-    },
-    {
-      "path": "netlify/database/migrations/20261014134500_gravity_testing_groups.sql",
-      "sha256": "e7a210491092d9c36466e1dcc09d37c539f5c450f04f6946c8cdea2cd25d9864"
-    },
-    {
-      "path": "netlify/database/migrations/20261017183000_work_study_device_link.sql",
-      "sha256": "669c62119f05d2de6706396617192b865d41415b7687adf46b288c8a8777388d"
-    },
-    {
-      "path": "netlify.toml",
-      "sha256": "389153ef57900cf413fa28f2cafb316372feea8fc6fca745084b23c9b0d55285"
-    },
-    {
-      "path": "package.json",
-      "sha256": "f847681ea2eb9c7600ee1e3efece34108fc8e65660d9edd19c180eb08b097653"
-    },
-    {
-      "path": "package-lock.json",
-      "sha256": "806f5cde89646bfb9981b8712e7e052e4ed74448e9b9f288ceb518f1b78fccf1"
     }
   ]
 }
