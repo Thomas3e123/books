@@ -1,0 +1,170 @@
+name: Gravity PUBLIC launch — publish CURRENT site to canonical domain (TMB untouched)
+on:
+  push:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths: ['.github/workflows/gravity-public-launch-approved-2026-10-27.yml']
+permissions:
+  contents: read
+concurrency:
+  group: gravity-public-production-launch
+  cancel-in-progress: false
+jobs:
+  publish-current-gravity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 29
+    env:
+      GRAVITY_SITE_ID: fa5d39a0-bef9-4ff1-9c28-57d585d741d7
+      TMB_SITE_ID: 1548e212-4cfe-4751-ab81-f46936249304
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      ALT_NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+      ALT_NETLIFY_ACCESS_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Lock down destination to NEW Gravity project only
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = 'feature/gravity-migration-phase1-2026-10-22'
+          test "$GRAVITY_SITE_ID" = 'fa5d39a0-bef9-4ff1-9c28-57d585d741d7'
+          test "$GRAVITY_SITE_ID" != "$TMB_SITE_ID"
+          echo "APPROVED_CURRENT_GRAVITY_SITE_SOURCE $GITHUB_SHA"
+          echo "PUBLIC_DOMAIN https://gravityleadershipsystem.com"
+          echo "TMB_UNCHANGED Site $TMB_SITE_ID"
+      - name: Verify CURRENT Gravity source, relevant program math and all major customer functions
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm ci
+          node scripts/update-manifest.cjs
+          npm run build
+          git diff --exit-code -- source-manifest.json
+          node scripts/verify-gravity-preview.cjs
+          node scripts/test-gravity-report.mjs
+          node scripts/test-gravity-domain-functions.cjs
+          node scripts/check-gravity-first-use-qr.cjs
+          node scripts/test-gravity-employee-connection.cjs
+          node scripts/test-gravity-labor-cost-engine.cjs
+          node scripts/test-gravity-inventory-outflow.cjs
+          node scripts/audit-gravity-customer-services.cjs
+      - name: Build indexable public candidate from current Gravity branch (not TMB)
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/prepare-gravity-production-candidate.cjs
+          node scripts/audit-gravity-launch-links.cjs --strict
+          node - <<'NODE'
+          const fs=require('fs'),path=require('path');
+          const root='build/gravity-production-candidate';
+          const hdrPath=path.join(root,'_headers');
+          let hdr=fs.readFileSync(hdrPath,'utf8');
+          if(hdr.includes('  X-Robots-Tag: noindex, nofollow\n'))throw Error('Wildcard noindex still enabled');
+          hdr+='\n# Public Gravity site: preserve indexing protection on private employee, manager and receipt screens.\n';
+          for(const route of ['/apps/*','/e','/e/*','/testing-room-manager','/testing-room-manager.html','/registration-thanks','/registration-thanks.html','/gravity-report-thanks','/gravity-report-thanks.html','/review-thanks','/review-thanks.html']){
+            hdr+=route+'\n  X-Robots-Tag: noindex, nofollow\n';
+          }
+          fs.writeFileSync(hdrPath,hdr);
+          fs.writeFileSync(path.join(root,'robots.txt'),
+            'User-agent: *\nAllow: /\nDisallow: /apps/\nDisallow: /e/\nDisallow: /testing-room-manager\nDisallow: /registration-thanks\nDisallow: /gravity-report-thanks\nDisallow: /review-thanks\nSitemap: https://gravityleadershipsystem.com/sitemap.xml\n');
+          const sitemap=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');
+          if(!sitemap.includes('https://gravityleadershipsystem.com/')||sitemap.includes('gravity-leadership-system.netlify.app'))throw Error('Incorrect sitemap/canonical host');
+          const pages=['index.html','start-here.html','books.html','register.html','gravity-assist.html','gravity-report.html','gravity-shift-lab.html','gravity-inventory-center.html','gravity-work-study-lab.html','windows-programs.html','operating-systems.html','contact.html'];
+          for(const file of pages){
+            const html=fs.readFileSync(path.join(root,file),'utf8');
+            if(html.includes('gravity-migration-preview-notice')||html.includes('gravity-leadership-system.netlify.app'))throw Error('Preview content remains on '+file);
+            if(/<meta[^>]*name=["']robots["'][^>]*noindex/i.test(html))throw Error('Public content still noindex '+file);
+            if(!html.includes('https://gravityleadershipsystem.com'))throw Error('Missing Gravity canonical host '+file);
+          }
+          for(const file of ['apps/sop-foundry/employee-app.html','apps/sop-foundry/workroom.html','testing-room-manager.html','registration-thanks.html']){
+            const html=fs.readFileSync(path.join(root,file),'utf8');
+            if(!/<meta[^>]*name=["']robots["'][^>]*noindex/.test(html))throw Error('Private screen exposed in search '+file);
+          }
+          console.log('PUBLIC_CANDIDATE_PASS: fresh Gravity source, current tools, public indexable pages, private screens noindex, canonical sitemap');
+          NODE
+      - name: Verify WWW, apex HTTPS, and Google Workspace MX BEFORE production switch
+        shell: bash
+        run: |
+          set -euo pipefail
+          for host in gravityleadershipsystem.com www.gravityleadershipsystem.com; do
+            line=$(curl --fail --silent --show-error --location --max-time 25 -o /dev/null -w '%{http_code} %{url_effective} %{ssl_verify_result}' "https://$host/")
+            echo "SSL_PRECHECK $host $line"
+            test "$line" = '200 https://gravityleadershipsystem.com/ 0'
+          done
+          dig +short gravityleadershipsystem.com MX | grep -q smtp.google.com
+      - name: Publish this reviewed snapshot to EXISTING new Gravity production only
+        shell: bash
+        run: |
+          set -euo pipefail
+          token="${NETLIFY_AUTH_TOKEN:-${ALT_NETLIFY_TOKEN:-${ALT_NETLIFY_ACCESS_TOKEN:-}}"
+          test -n "$token" || { echo 'NO NETLIFY AUTH — no deployment'; exit 1; }
+          export NETLIFY_AUTH_TOKEN="$token"
+          npx --yes netlify-cli@26 deploy --prod --site "$GRAVITY_SITE_ID" --dir build/gravity-production-candidate --functions functions --message "GRAVITY PUBLIC LAUNCH approved by owner Oct 27 2026 / canonical domain / source $GITHUB_SHA / TMB untouched" --json > /tmp/gravity-public-live.json
+          node - <<'NODE'
+          const fs=require('fs');
+          const x=JSON.parse(fs.readFileSync('/tmp/gravity-public-live.json','utf8'));
+          const id=x.deploy_id||x.id;
+          if(!id||x.site_id&&x.site_id!=='fa5d39a0-bef9-4ff1-9c28-57d585d741d7')throw Error('Unexpected deploy target');
+          fs.writeFileSync('gravity-public-launch-2026-10-27.json',JSON.stringify({
+            deployId:id,siteId:'fa5d39a0-bef9-4ff1-9c28-57d585d741d7',
+            commit:process.env.GITHUB_SHA,publicOrigin:'https://gravityleadershipsystem.com',
+            launchedIndexable:true,originalTMBSiteUntouched:true
+          },null,2));
+          console.log('GRAVITY_PUBLIC_DEPLOY_CREATED',id);
+          NODE
+      - name: Verify current LIVE website and protected private routes (READ-ONLY)
+        shell: bash
+        run: |
+          set -euo pipefail
+          base=https://gravityleadershipsystem.com
+          for p in / /start-here /books /register /book-reader /gravity-assist /gravity-report /operating-systems /gravity-shift-lab /gravity-inventory-center /gravity-work-study-lab /windows-programs /testing-room; do
+            headfile=$(mktemp);bodyfile=$(mktemp)
+            curl --fail --silent --show-error --retry 5 --retry-all-errors --retry-delay 3 --max-time 28 -L -D "$headfile" -o "$bodyfile" "$base$p"
+            grep -qi '<html' "$bodyfile" || { echo "NOT HTML $p";exit 1; }
+            if grep -qi '^x-robots-tag: noindex' "$headfile"; then echo "PUBLIC STILL NOINDEX $p";exit 1;fi
+            if grep -Eqi '<meta[^>]+name=["'\''"]robots["'\''"][^>]+noindex' "$bodyfile"; then echo "META NOINDEX ON PUBLIC $p";exit 1;fi
+            if grep -qi 'gravity-migration-preview-notice' "$bodyfile";then echo "PREVIEW BANNER IN PRODUCTION $p";exit 1;fi
+            echo "GRAVITY_PUBLIC_PAGE_PASS $p"
+            rm -f "$headfile" "$bodyfile"
+          done
+          for p in /apps/sop-foundry/employee-app /testing-room-manager /registration-thanks; do
+            headfile=$(mktemp)
+            curl --fail --silent --show-error --max-time 25 -L -D "$headfile" -o /dev/null "$base$p"
+            grep -qi '^x-robots-tag: noindex' "$headfile" || { echo "PRIVATE HEADER MISSING $p";exit 1; }
+            echo "GRAVITY_PRIVATE_NOINDEX_PASS $p"
+          done
+          curl --fail --silent --show-error --max-time 25 "$base/robots.txt" | grep -Fq 'Allow: /'
+          curl --fail --silent --show-error --max-time 25 "$base/robots.txt" | grep -Fq 'Sitemap: https://gravityleadershipsystem.com/sitemap.xml'
+          curl --fail --silent --show-error --max-time 25 "$base/sitemap.xml" | grep -Fq 'https://gravityleadershipsystem.com/'
+          for p in /gravity-report/articles.json /gravity-report/feed.xml /gravity-report/why-do-my-restaurant-managers-keep-making-excuses; do
+            curl --fail --silent --show-error --retry 5 --retry-all-errors --retry-delay 3 --max-time 25 -o /dev/null "$base$p"
+            echo "GRAVITY_REPORT_PASS $p"
+          done
+          for attempt in 1 2 3 4 5 6; do
+            if curl --fail --silent --show-error --max-time 25 "$base/foundry-hosted/health" -o /tmp/gravity-health && HEALTH_FILE=/tmp/gravity-health node -e 'const j=require(process.env.HEALTH_FILE);if(j.ok!==true)process.exit(1)';then
+              echo 'FOUNDRY_DATABASE_HEALTH_PASS';break
+            fi
+            if [ "$attempt" = 6 ];then echo 'FOUNDRY_BACKEND_HEALTH_FAILED';exit 1;fi
+            sleep 4
+          done
+          for host in gravityleadershipsystem.com www.gravityleadershipsystem.com; do
+            verify=$(curl --fail --silent --show-error --location --max-time 25 -o /dev/null -w '%{http_code} %{url_effective} %{ssl_verify_result}' "https://$host/")
+            test "$verify" = '200 https://gravityleadershipsystem.com/ 0'
+            echo "CANONICAL_SSL_PASS $host"
+          done
+          dig +short gravityleadershipsystem.com MX | grep -q smtp.google.com
+          curl --fail --silent --show-error --max-time 25 https://thomasmonroebooks.com/ -o /dev/null
+          echo 'GRAVITY_PUBLIC_LAUNCH_PASS: indexable canonical new site, correct www, published current features, Foundry, report, Google Workspace MX; TMB preserved.'
+      - name: Preserve immutable release identity
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Gravity-PUBLIC-LAUNCH-2026-10-27-evidence
+          path: |
+            gravity-public-launch-2026-10-27.json
+            gravity-customer-service-gates.json
+          retention-days: 60
