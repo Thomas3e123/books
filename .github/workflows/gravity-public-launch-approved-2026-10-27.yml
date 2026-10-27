@@ -71,7 +71,7 @@ jobs:
           }
           // One-release diagnostic proves the exact public header artifact reaches the CDN.
           // It is a benign header and does not change search or authentication policy.
-          hdr=hdr.replace(/^\/\*\s*$/m,'/*\\n  X-Gravity-Public-Build: canonical-20261027');
+          hdr=hdr.replace(/^\/\*\s*$/m,'/*\n  X-Gravity-Public-Build: canonical-20261027');
           fs.writeFileSync(hdrPath,hdr);
           fs.writeFileSync(path.join(root,'robots.txt'),
             'User-agent: *\nAllow: /\nDisallow: /apps/\nDisallow: /e/\nDisallow: /testing-room-manager\nDisallow: /registration-thanks\nDisallow: /gravity-report-thanks\nDisallow: /review-thanks\nSitemap: https://gravityleadershipsystem.com/sitemap.xml\n');
