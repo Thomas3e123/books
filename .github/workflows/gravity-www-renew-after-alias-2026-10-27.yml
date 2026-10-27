@@ -1,0 +1,40 @@
+name: Gravity HTTPS — renew cert ONCE after WWW alias registration
+on:
+  push:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths: ['.github/workflows/gravity-www-renew-after-alias-2026-10-27.yml']
+permissions:
+  contents: read
+jobs:
+  renew-with-guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+      NETLIFY_ACCESS_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - name: Request only one certificate renewal when both Gravity hostnames have correct ownership and DNS
+        run: node scripts/renew-gravity-www-certificate-after-alias.cjs
+      - name: Test HTTPS SNI, canonical redirect, main site, Google MX and indexing policy
+        shell: bash
+        run: |
+          set -euo pipefail
+          for host in gravityleadershipsystem.com www.gravityleadershipsystem.com; do
+            echo "VERIFY_HOST $host"
+            response=$(curl --silent --show-error --location --max-time 25 --head --output /dev/null --write-out '%{http_code} %{url_effective} %{ssl_verify_result}' "https://$host/")
+            echo "RESULT $response"
+            if [[ "$response" != '200 https://gravityleadershipsystem.com/ 0' ]]; then
+              echo "CERT_OR_CANONICAL_REDIRECT_NOT_VERIFIED"; exit 1
+            fi
+            echo | timeout 15 openssl s_client -servername "$host" -connect "$host:443" 2>/dev/null | openssl x509 -noout -subject -ext subjectAltName | head -15
+          done
+          mx="$(dig +short gravityleadershipsystem.com MX)"
+          echo "$mx" | grep -q smtp.google.com
+          code=$(curl -sS --max-time 20 -D /tmp/headers -o /dev/null -w '%{http_code}' 'https://gravityleadershipsystem.com/')
+          test "$code" = 200
+          grep -qi '^x-robots-tag: noindex, nofollow' /tmp/headers
+          echo 'WWW_APEX_CANONICAL_CERT_GOOGLE_MX_NOINDEX ALL_PASS'
