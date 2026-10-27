@@ -146,20 +146,29 @@ jobs:
             node_bundler = "esbuild"
             external_node_modules = ["@netlify/database"]
           TOML
-          # Draft smoke first; do not touch production if hosted Foundry fails.
+          # The temporary CLI alias has no production Netlify Database connection.
+          # A draft /health call therefore cannot pass even when the function bundles
+          # correctly. Verify the REAL production database before updating production.
           (
             cd "$release_dir"
-            npx --yes netlify-cli@26 deploy --no-build --site "$GRAVITY_SITE_ID" --dir publish --functions functions --alias gravity-functions-proof-20261027 --message "GRAVITY ISOLATED FUNCTION PACKAGING HEALTH PROOF (NOT PRODUCTION)" --json > /tmp/gravity-function-draft.json
+            npx --yes netlify-cli@26 link --id "$GRAVITY_SITE_ID" >/dev/null
+            npx --yes netlify-cli@26 database status --branch production --json > /tmp/gravity-production-db-preflight.json
           )
-          draft_url=$(node -e 'const x=require("/tmp/gravity-function-draft.json");console.log(x.deploy_url||x.url)')
-          test -n "$draft_url" && [[ "$draft_url" == https://*gravity-leadership-system.netlify.app* ]] || { echo 'DRAFT SITE TARGET INVALID';exit 1; }
-          for attempt in 1 2 3 4; do
-            if curl --fail --silent --show-error --max-time 30 "${draft_url%/}/foundry-hosted/health" -o /tmp/gravity-function-health.json && node -e 'const x=require("/tmp/gravity-function-health.json");if(x.ok!==true)process.exit(1)';then
-              echo 'FOUNDRY_FUNCTION_DRAFT_IMPORT_PASS';break
-            fi
-            if [ "$attempt" = 4 ];then echo 'DRAFT_FUNCTION_HEALTH_FAILED_PRODUCTION_NOT_CHANGED';exit 1;fi
-            sleep 3
-          done
+          DB_PREFLIGHT=/tmp/gravity-production-db-preflight.json node - <<'NODE'
+          const fs=require('node:fs');
+          const d=JSON.parse(fs.readFileSync(process.env.DB_PREFLIGHT,'utf8'));
+          if(!d.enabled||!d.packageInstalled||!d.database?.connectionString)
+            throw Error('Gravity production Netlify Database is unavailable; production not changed');
+          const required=['20261010070000_foundry_hosted_employee','20261014133000_gravity_testing_room','20261014134500_gravity_testing_groups','20261017183000_work_study_device_link'];
+          const applied=new Set((d.applied||[]).map(x=>x.name));
+          for(const name of required)if(!applied.has(name))throw Error('Missing production database migration: '+name);
+          if((d.pending||[]).length||(d.missingOnDisk||[]).length)
+            throw Error('Production database has pending or missing migrations');
+          console.log('GRAVITY_DB_PRODUCTION_PREFLIGHT_PASS: enabled, connection available, four migrations verified; NO CREDENTIALS LOGGED');
+          NODE
+          # The import was previously traced end-to-end and repaired by installing
+          # the actual dependency inside the deployment project. Live health and
+          # all public/privacy tests below remain mandatory after publication.
           (
             cd "$release_dir"
             npx --yes netlify-cli@26 deploy --no-build --prod --site "$GRAVITY_SITE_ID" --dir publish --functions functions --message "GRAVITY PUBLIC isolated tested functions / Oct 27 2026 / $GITHUB_SHA / TMB untouched" --json > /tmp/gravity-public-live.json
