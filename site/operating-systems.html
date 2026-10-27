@@ -30,7 +30,20 @@
 .gg-starters[hidden]{display:none!important;}
 
 </style>
-<style id="gravity-guide-voice-css">.gg-voice-tools{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.gg-voice-tools select{max-width:82px;border:1px solid var(--gg-border);border-radius:8px;background:#fff;padding:5px 6px;color:var(--gg-text);font-size:12px}.gg-voice-tools small{font-size:10px;color:var(--gg-muted)}@media(max-width:420px){.gg-voice-tools small{display:none}}</style><link href="/assets/css/gravity-refinement.css?v=20261010-repair" rel="stylesheet"/></head>
+<style id="gravity-guide-voice-css">.gg-voice-tools{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.gg-voice-tools select{max-width:82px;border:1px solid var(--gg-border);border-radius:8px;background:#fff;padding:5px 6px;color:var(--gg-text);font-size:12px}.gg-voice-tools small{font-size:10px;color:var(--gg-muted)}@media(max-width:420px){.gg-voice-tools small{display:none}}</style><link href="/assets/css/gravity-refinement.css?v=20261010-repair" rel="stylesheet"/><style id="gravity-cost-review-css">
+.gravity-cost-review{scroll-margin-top:80px}
+.gravity-cost-review-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.gravity-cost-review-card{background:#fffdf8;border:1px solid #d8cdbb;border-radius:14px;padding:clamp(20px,3vw,34px);box-shadow:0 7px 24px rgba(24,33,29,.06)}
+.gravity-cost-review-card h3{margin:10px 0 15px;font-size:clamp(1.35rem,2.2vw,1.8rem);line-height:1.26}
+.gravity-cost-review-card p,.gravity-cost-review-card li{line-height:1.7}
+.gravity-cost-review-card ol{padding-left:21px;margin:18px 0}
+.gravity-cost-review-card li{margin:8px 0}
+.gravity-cost-review-caution{border-left:4px solid #a47543;background:#f7f0e5;padding:11px 13px}
+.gravity-cost-review-links{display:flex;gap:10px 20px;flex-wrap:wrap}
+.gravity-cost-review-links a{font-weight:700}
+.gravity-cost-review-footer{padding:18px 4px 0;margin-bottom:0;line-height:1.65}
+@media(max-width:780px){.gravity-cost-review-grid{grid-template-columns:1fr}}
+</style></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <div class="announcement"><span><strong>FOUNDING YEAR ACCESS:</strong> Completed digital resources at $0 through October 1, 2027. No credit card or subscription.</span><a class="announcement-why" href="/support#why-free">Access details</a></div>
@@ -110,7 +123,45 @@
 </div>
 </details></div>
 </section>
-<section class="section dark system-finder-section" id="system-finder"><div class="container"><div class="section-head center"><div class="eyebrow">Start with the problem, not the system name</div><h2>Which system is actually worth your time?</h2><p>You are not expected to download everything. Find the problem that sounds most like your restaurant and start there.</p></div><div class="need-finder"><a class="need-item" href="#guest-relationship-retention"><span>We lose regular guests or complaints are not followed through.</span><strong>Guest Relationship &amp; Retention</strong></a><a class="need-item" href="#performance-profitability"><span>Sales are okay, but I cannot clearly explain the profit.</span><strong>Restaurant Performance &amp; Profitability</strong></a><a class="need-item" href="#standards-intelligence"><span>We have too many versions, policies, or systems and nobody knows what is current.</span><strong>Standards &amp; Intelligence Center</strong></a><a class="need-item" href="#risk-continuity"><span>We are not truly ready for an outage, emergency, disruption, or reopening.</span><strong>Risk &amp; Continuity</strong></a><a class="need-item" href="#growth-sales"><span>We need more profitable sales, catering, events, or local demand.</span><strong>Growth &amp; Sales Building</strong></a><a class="need-item" href="#manager-development"><span>Our managers need clearer authority, coaching, judgment, and development.</span><strong>Manager Development</strong></a><a class="need-item" href="#implementation-verification"><span>We start changes, but they do not stick.</span><strong>Implementation &amp; Verification</strong></a><a class="need-item" href="#sales-intelligence"><span>Forecasts and staffing miss because local events and patterns are not being used.</span><strong>Sales Intelligence &amp; Forecasting</strong></a><a class="need-item" href="#food-cost-inventory"><span>Food cost, inventory, waste, portions, receiving, or purchasing are out of control.</span><strong>Food Cost, Inventory &amp; Purchasing</strong></a><a class="need-item" href="#labor-workforce"><span>Labor %, overtime, coverage, scheduling, or productivity keep missing.</span><strong>Labor &amp; Workforce Control</strong></a><a class="need-item" href="#food-safety-sanitation"><span>Food-safety records and accountability are inconsistent.</span><strong>Food Safety &amp; Sanitation</strong></a><a class="need-item" href="#training-certification"><span>Training depends too much on who happens to be the trainer.</span><strong>Employee Training &amp; Certification</strong></a><a class="need-item" href="#facilities-maintenance"><span>Equipment, repairs, preventive maintenance, and facility condition are reactive.</span><strong>Facilities &amp; Maintenance</strong></a><a class="need-item" href="#cash-loss-prevention"><span>Cash, deposits, discounts, voids, refunds, or payment exceptions need tighter control.</span><strong>Cash Controls &amp; Loss Prevention</strong></a><a class="need-item" href="#hiring-retention"><span>Hiring, turnover, attendance, employee concerns, or retention are unstable.</span><strong>Hiring, Retention &amp; Employee Relations</strong></a></div></div></section><section class="section" id="choose">
+<section class="section dark system-finder-section" id="system-finder"><div class="container"><div class="section-head center"><div class="eyebrow">Start with the problem, not the system name</div><h2>Which system is actually worth your time?</h2><p>You are not expected to download everything. Find the problem that sounds most like your restaurant and start there.</p></div><div class="need-finder"><a class="need-item" href="#guest-relationship-retention"><span>We lose regular guests or complaints are not followed through.</span><strong>Guest Relationship &amp; Retention</strong></a><a class="need-item" href="#performance-profitability"><span>Sales are okay, but I cannot clearly explain the profit.</span><strong>Restaurant Performance &amp; Profitability</strong></a><a class="need-item" href="#standards-intelligence"><span>We have too many versions, policies, or systems and nobody knows what is current.</span><strong>Standards &amp; Intelligence Center</strong></a><a class="need-item" href="#risk-continuity"><span>We are not truly ready for an outage, emergency, disruption, or reopening.</span><strong>Risk &amp; Continuity</strong></a><a class="need-item" href="#growth-sales"><span>We need more profitable sales, catering, events, or local demand.</span><strong>Growth &amp; Sales Building</strong></a><a class="need-item" href="#manager-development"><span>Our managers need clearer authority, coaching, judgment, and development.</span><strong>Manager Development</strong></a><a class="need-item" href="#implementation-verification"><span>We start changes, but they do not stick.</span><strong>Implementation &amp; Verification</strong></a><a class="need-item" href="#sales-intelligence"><span>Forecasts and staffing miss because local events and patterns are not being used.</span><strong>Sales Intelligence &amp; Forecasting</strong></a><a class="need-item" href="#food-cost-inventory"><span>Food cost, inventory, waste, portions, receiving, or purchasing are out of control.</span><strong>Food Cost, Inventory &amp; Purchasing</strong></a><a class="need-item" href="#labor-workforce"><span>Labor %, overtime, coverage, scheduling, or productivity keep missing.</span><strong>Labor &amp; Workforce Control</strong></a><a class="need-item" href="#food-safety-sanitation"><span>Food-safety records and accountability are inconsistent.</span><strong>Food Safety &amp; Sanitation</strong></a><a class="need-item" href="#training-certification"><span>Training depends too much on who happens to be the trainer.</span><strong>Employee Training &amp; Certification</strong></a><a class="need-item" href="#facilities-maintenance"><span>Equipment, repairs, preventive maintenance, and facility condition are reactive.</span><strong>Facilities &amp; Maintenance</strong></a><a class="need-item" href="#cash-loss-prevention"><span>Cash, deposits, discounts, voids, refunds, or payment exceptions need tighter control.</span><strong>Cash Controls &amp; Loss Prevention</strong></a><a class="need-item" href="#hiring-retention"><span>Hiring, turnover, attendance, employee concerns, or retention are unstable.</span><strong>Hiring, Retention &amp; Employee Relations</strong></a></div></div></section><section class="section alt gravity-cost-review" id="major-cost-controls" aria-labelledby="gravity-cost-review-title">
+<div class="container">
+<div class="section-head center">
+<div class="eyebrow">How the controls work</div>
+<h2 id="gravity-cost-review-title">Control food and labor costs with evidence, not guesswork.</h2>
+<p>Gravity connects operating knowledge with forms, workbooks, and dedicated tools. It does not need to replace your existing POS or accounting software. Results depend on accurate records, practical decisions, and consistent manager follow-through.</p>
+</div>
+<div class="gravity-cost-review-grid">
+<article class="gravity-cost-review-card" aria-labelledby="gravity-food-review-title">
+<div class="eyebrow">01 · Food cost &amp; inventory</div>
+<h3 id="gravity-food-review-title">Compare expected usage with actual results.</h3>
+<p>Use sales and recipe standards to estimate what the restaurant should have used. Compare that estimate with purchases, physical counts, transfers, and recorded waste to investigate the difference.</p>
+<ol>
+<li><strong>Record:</strong> Verify invoices, receiving, waste, and inventory counts.</li>
+<li><strong>Compare:</strong> Review theoretical versus actual cost and usage where reliable input data is available.</li>
+<li><strong>Investigate:</strong> Check portions, pricing, count accuracy, receiving mistakes, and unrecorded movement.</li>
+<li><strong>Verify:</strong> Apply one correction and compare subsequent periods.</li>
+</ol>
+<p class="gravity-cost-review-caution"><strong>Important:</strong> A variance is evidence of a discrepancy—not proof of theft or an automatically identified cause.</p>
+<p class="gravity-cost-review-links"><a href="#food-cost-inventory">Explore the Food Cost system →</a> <a href="/gravity-inventory-center">Open Inventory Center</a></p>
+</article>
+<article class="gravity-cost-review-card" aria-labelledby="gravity-labor-review-title">
+<div class="eyebrow">02 · Labor cost &amp; scheduling</div>
+<h3 id="gravity-labor-review-title">Budget labor before publishing the schedule.</h3>
+<p>Start with a realistic sales forecast, target labor dollars, average wage assumptions, and service requirements. Review planned staffing and overtime exposure, then compare the schedule with actual results.</p>
+<ol>
+<li><strong>Forecast:</strong> Estimate demand using recent sales and known local events.</li>
+<li><strong>Plan:</strong> Set a labor budget and coverage standards before assigning shifts.</li>
+<li><strong>Review:</strong> Check hours, roles, skill coverage, overtime risk, and expected service levels.</li>
+<li><strong>Improve:</strong> Use separate work-study observations to investigate bottlenecks and task duration.</li>
+</ol>
+<p class="gravity-cost-review-caution"><strong>Important:</strong> Forecasts and budgets guide decisions; they cannot guarantee exact staffing needs or savings. Shift Lab and Work Study Lab are separate tools.</p>
+<p class="gravity-cost-review-links"><a href="#labor-workforce">Explore the Labor system →</a> <a href="/gravity-shift-lab">Open Shift Lab</a> <a href="/gravity-work-study-lab.html">Open Work Study Lab</a></p>
+</article>
+</div>
+<p class="gravity-cost-review-footer"><strong>Find the problem. Prove the cause. Correct it. Verify it holds.</strong> Start with one pressure point, a small set of tools, a named manager, and a measurable follow-up.</p>
+</div>
+</section>
+<section class="section" id="choose">
 <div class="container">
 <div class="section-head center">
 <div class="eyebrow">The operating layer</div>
