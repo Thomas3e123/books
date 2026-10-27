@@ -1,0 +1,20 @@
+name: Gravity public robots — post-deploy private response diagnostic
+on:
+  push:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths: ['.github/workflows/gravity-private-robots-diagnostic.yml']
+permissions:
+  contents: read
+jobs:
+  trace:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Read private-response headers and status without changing deployment
+        run: |
+          set -u
+          for p in /assets/reader/bar-inventory.txt /assets/reader/ /registration-thanks /testing-room-manager /apps/sop-foundry/employee-app / /robots.txt; do
+            echo "CHECK $p"
+            curl -sSL --max-time 20 -o /dev/null -D /tmp/headers -w 'HTTP=%{http_code} FINAL=%{url_effective}\n' "https://gravityleadershipsystem.com$p"
+            tr -d '\r' < /tmp/headers | grep -Ei '^(HTTP/|x-robots-tag:|content-type:|location:|cache-control:)' | tail -15 || true
+          done
