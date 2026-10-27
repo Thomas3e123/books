@@ -21,6 +21,26 @@ function fromEditorialDraft(d){
 const ALL_ARTICLES=[...data.articles,...[...volume11,...volume16,...volume21,...volume26].map(fromEditorialDraft)];
 if(ALL_ARTICLES.length!==30 || new Set(ALL_ARTICLES.map(a=>a.slug)).size!==30 ||
  ALL_ARTICLES.some((a,i)=>a.issue!==i+1))throw Error('Gravity Report publication inventory invalid');
+
+// Standalone transition announcement. This is not a numbered issue and
+// must never shift the existing thirty-article Tuesday/Friday release plan.
+const SPECIAL_MOVE={
+  special:true,issue:null,slug:'gravity-has-a-new-home',
+  title:'Gravity Has a New Home',
+  category:'GRAVITY NEWS',
+  release_date:'2026-10-27',release_time:'00:00',
+  summary:'The Gravity Restaurant Leadership System now has its own website while Thomas Monroe Books remains its publishing home.',
+  article_html:[
+    '<p>The Gravity Restaurant Leadership System has moved to its own dedicated website: <a href="https://gravityleadershipsystem.com/">gravityleadershipsystem.com</a>.</p>',
+    '<p>Previously available through Thomas Monroe Books, Gravity now has a home specifically for restaurant leadership resources, operating systems, downloadable workbooks, training programs, and management tools.</p>',
+    '<h2>What changes—and what stays the same</h2>',
+    '<p>The address is new, but the purpose is not. Gravity helps owners and managers understand what is happening in their restaurants, select practical controls, address real problems, and measure whether improvements hold. You can begin with one problem instead of installing every system at once.</p>',
+    '<p>Thomas Monroe Books continues as the publishing home for the books and workbooks behind Gravity. It has not been renamed. Existing book and publisher credits remain.</p>',
+    '<h2>Founding Year access continues</h2>',
+    '<p>Released digital resources remain available for $0 through October 1, 2027, without a credit card. Print books are sold separately. Registration is required for most downloads.</p>',
+    '<p><strong>Visit the new home:</strong> <a href="https://gravityleadershipsystem.com/">The Gravity Restaurant Leadership System</a>. For practical operating questions, continue reading <a href="/gravity-report">The Gravity Report</a>; its twice-weekly educational series continues on the existing schedule.</p>'
+  ].join('')
+};
 function stamp(){
  const z=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
  const g=k=>z.find(x=>x.type===k).value;
@@ -32,7 +52,7 @@ function articlePage(a){
  const schema=JSON.stringify({'@context':'https://schema.org','@type':'Article',headline:a.title,description,datePublished:a.release_date,author:{'@type':'Person',name:'Thomas Butler'},publisher:{'@type':'Organization',name:'Thomas Monroe Books'},mainEntityOfPage:url}).replace(/</g,'\\u003c');
  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(a.title)} | The Gravity Report</title><meta name="description" content="${esc(description)}"><meta property="og:type" content="article"><meta property="og:title" content="${esc(a.title)}"><meta property="og:description" content="${esc(description)}"><link rel="canonical" href="${url}"><link rel="icon" href="/assets/images/gravity-system-mark.svg"><link rel="stylesheet" href="/assets/css/styles.css?v=20260918-final-consolidation-v1"><script type="application/ld+json">${schema}</script><style>
 .report-wrap{max-width:835px;margin:auto;padding:42px 20px 90px}.report-wrap h1{font-size:clamp(2rem,4vw,3rem);line-height:1.16;color:#173340}.report-byline{color:#53616a}.report-content{background:#fffdf8;padding:clamp(20px,5vw,54px);border:1px solid #dacfbd;border-radius:14px}.report-content h2{margin:2em 0 .6em;color:#173340}.report-content p{font-size:1.08rem;line-height:1.8;margin:0 0 1.15em}.report-nav{display:flex;flex-wrap:wrap;gap:18px;padding-top:25px;border-top:1px solid #ddd}.report-eyebrow{color:#896424;text-transform:uppercase;font-weight:700;letter-spacing:.1em}
-</style></head><body><header class="site-header"><div class="top-gold"></div><div class="container header-inner"><a class="brand" href="/"><img src="/assets/images/gravity-system-mark.svg" width="620" height="620" alt=""><span class="brand-system-copy"><strong>The Gravity System</strong><small>Published by Thomas Monroe Books</small></span></a><button class="menu-toggle" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false"><span>Menu</span></button><nav class="nav" id="site-nav" data-menu aria-label="Main navigation"><a href="/">Home</a><a href="/gravity-report">Gravity Report</a><a href="/knowledge-center">Knowledge Center</a><a href="/books">Books</a><a href="/contact">Contact</a><a class="btn btn-red" href="/start-here">Start Here</a></nav></div></header><main id="main" class="report-wrap"><article><p class="report-eyebrow">The Gravity Report · Issue ${String(a.issue).padStart(2,'0')} · ${esc(a.category)}</p><h1>${esc(a.title)}</h1><p class="report-byline">By Thomas Butler · <time datetime="${a.release_date}">${a.release_date}</time></p><div class="report-content">${a.article_html}<nav class="report-nav"><a href="/gravity-report">← All articles</a><a href="/gravity-report#subscribe">Email updates</a><a href="/knowledge-center">Knowledge Center</a></nav></div></article></main><footer class="site-footer"><div class="container"><p>Thomas Monroe Books · <a href="/privacy">Privacy</a> · <a href="/contact">Contact</a></p></div></footer><script defer src="/assets/js/site.js?v=20261020-report"></script></body></html>`;
+</style></head><body><header class="site-header"><div class="top-gold"></div><div class="container header-inner"><a class="brand" href="/"><img src="/assets/images/gravity-system-mark.svg" width="620" height="620" alt=""><span class="brand-system-copy"><strong>The Gravity System</strong><small>Published by Thomas Monroe Books</small></span></a><button class="menu-toggle" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false"><span>Menu</span></button><nav class="nav" id="site-nav" data-menu aria-label="Main navigation"><a href="/">Home</a><a href="/gravity-report">Gravity Report</a><a href="/knowledge-center">Knowledge Center</a><a href="/books">Books</a><a href="/contact">Contact</a><a class="btn btn-red" href="/start-here">Start Here</a></nav></div></header><main id="main" class="report-wrap"><article><p class="report-eyebrow">The Gravity Report · ${a.special?'Special announcement · October 27, 2026':'Issue '+String(a.issue).padStart(2,'0')+' · '+esc(a.category)}</p><h1>${esc(a.title)}</h1><p class="report-byline">By Thomas Butler · <time datetime="${a.release_date}">${a.release_date}</time></p><div class="report-content">${a.article_html}<nav class="report-nav"><a href="/gravity-report">← All articles</a><a href="/gravity-report#subscribe">Email updates</a><a href="/knowledge-center">Knowledge Center</a></nav></div></article></main><footer class="site-footer"><div class="container"><p>Thomas Monroe Books · <a href="/privacy">Privacy</a> · <a href="/contact">Contact</a></p></div></footer><script defer src="/assets/js/site.js?v=20261020-report"></script></body></html>`;
 }
 function publicationUtc(a){
  const noon=new Date(a.release_date+'T12:00:00Z');
@@ -54,9 +74,9 @@ export default async function handler(req){
  // on staging, release review and the duplicate Netlify host explicitly.
  if(hostname.endsWith('.netlify.app'))common['X-Robots-Tag']='noindex, nofollow';
  if(p==='/gravity-report/articles.json'){const schedule=ALL_ARTICLES.map(a=>({issue:a.issue,title:a.title,slug:a.slug,release_date:a.release_date,category:a.category,released:released(a,t),summary:released(a,t)?a.summary:null}));return new Response(JSON.stringify({as_of_central:t,articles:schedule}),{headers:{...common,'Content-Type':'application/json; charset=utf-8'}});}
- if(p==='/gravity-report/feed.xml')return new Response(rss(ready),{headers:{...common,'Content-Type':'application/rss+xml; charset=utf-8'}});
- if(p==='/gravity-report/sitemap.xml')return new Response(sitemap(ready),{headers:{...common,'Content-Type':'application/xml; charset=utf-8'}});
- const a=ALL_ARTICLES.find(x=>x.slug===p.split('/').at(-1));
+ if(p==='/gravity-report/feed.xml')return new Response(rss(released(SPECIAL_MOVE,t)?[SPECIAL_MOVE,...ready]:ready),{headers:{...common,'Content-Type':'application/rss+xml; charset=utf-8'}});
+ if(p==='/gravity-report/sitemap.xml')return new Response(sitemap(released(SPECIAL_MOVE,t)?[SPECIAL_MOVE,...ready]:ready),{headers:{...common,'Content-Type':'application/xml; charset=utf-8'}});
+ const a=p==='/gravity-report/'+SPECIAL_MOVE.slug?SPECIAL_MOVE:ALL_ARTICLES.find(x=>x.slug===p.split('/').at(-1));
  if(!a||!released(a,t))return new Response('<!doctype html><html><head><meta name="robots" content="noindex"></head><body><h1>Article not available yet</h1><a href="/gravity-report">The Gravity Report</a></body></html>',{status:404,headers:{...common,'Content-Type':'text/html; charset=utf-8','X-Robots-Tag':'noindex'}});
  return new Response(req.method==='HEAD'?null:articlePage(a),{headers:{...common,'Content-Type':'text/html; charset=utf-8'}});
 }
