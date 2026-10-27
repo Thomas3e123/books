@@ -11,8 +11,8 @@ let html=fs.readFileSync(path.join(out,'index.html'),'utf8');
 html=html.replace('href="/assets/images/gravity-system-mark.svg"','href="assets/images/gravity-system-mark.svg"')
 .replace('<strong>Web workspace</strong>','<strong>Windows workspace</strong>')
 .replace('Your working inventory stays in this browser unless you export or restore a backup.','Your inventory is stored on this Windows computer. Use Create Backup regularly and keep a copy somewhere safe.')
-.replace('href="/gravity-inventory-center"','href="https://thomasmonroebooks.com/gravity-inventory-center"');
-html=html.replace(/(href=["'])\/(?!\/)/g,'$1https://thomasmonroebooks.com/');
+.replace('href="/gravity-inventory-center"','href="https://gravityleadershipsystem.com/gravity-inventory-center"');
+html=html.replace(/(href=["'])\/(?!\/)/g,'$1https://gravityleadershipsystem.com/');
 fs.writeFileSync(path.join(out,'index.html'),html);
 for(const p of ['assets/js/inventory-validation.js','assets/js/inventory-center.js','assets/css/inventory.css','web.css']){
  if(!fs.existsSync(path.join(out,p)))throw Error('Missing inventory website dependency: '+p);
