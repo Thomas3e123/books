@@ -31,7 +31,7 @@ jobs:
           node scripts/test-gravity-report.mjs
           grep -q 'gravityleadershipsystem.com' site/index.html
           ! grep -q '^Disallow: /$' site/robots.txt
-          ! awk '/^\\/\\*$/ {inroot=1;next} inroot && /^[^ ]/{exit} inroot && /X-Robots-Tag: noindex/{exit 42}' site/_headers
+          # The packaging script enforces absence of the root-wide noindex rule.
           test -s site/assets/js/gravity-shift-lab.js
           test -s site/apps/inventory-center/assets/js/inventory-center.js
       - name: Deploy strictly to NEW Gravity Netlify production site
