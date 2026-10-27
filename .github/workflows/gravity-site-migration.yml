@@ -12,6 +12,8 @@ on:
       - 'site/apps/sop-foundry/hosted-bridge.js'
       - 'site/apps/sop-foundry/room-gate.js'
       - 'scripts/prepare-gravity-preview.cjs'
+      - 'site/gravity-shift-lab.html'
+      - 'site/assets/js/gravity-shift-lab.js'
       - 'site/book-reader.html'
       - 'site/assets/js/book-reader.js'
       - 'site/assets/css/book-reader.css'
