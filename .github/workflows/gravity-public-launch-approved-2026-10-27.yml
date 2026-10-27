@@ -132,13 +132,19 @@ jobs:
           # ERR_MODULE_NOT_FOUND @netlify/database.
           cp -a functions "$release_dir/functions"
           cp package.json package-lock.json "$release_dir/"
-          ln -s "$GITHUB_WORKSPACE/node_modules" "$release_dir/node_modules"
+          mkdir -p "$release_dir/netlify/database"
+          cp -a netlify/database/migrations "$release_dir/netlify/database/"
+          # Real installation, not a symlink outside the deployment root.
+          # A symlink caused @netlify/database to be excluded from packaged functions.
+          ( cd "$release_dir" && npm ci --omit=dev --ignore-scripts --no-audit --no-fund )
+          ( cd "$release_dir" && node -e 'console.log("BUNDLE_DEPENDENCY_RESOLVES",require.resolve("@netlify/database"))' )
           cat > "$release_dir/netlify.toml" <<'TOML'
           [build]
             publish = "publish"
           [functions]
             directory = "functions"
             node_bundler = "esbuild"
+            external_node_modules = ["@netlify/database"]
           TOML
           # Draft smoke first; do not touch production if hosted Foundry fails.
           (
