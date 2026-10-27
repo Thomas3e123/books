@@ -1,0 +1,35 @@
+name: Gravity HTTPS — add WWW domain alias ONLY (no DNS or deployment)
+on:
+  push:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths: ['.github/workflows/gravity-www-register-alias-once-2026-10-27.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  register-www-alias:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+      NETLIFY_ACCESS_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Register exactly one Netlify WWW alias after protecting primary domain and Google Workspace DNS
+        run: node scripts/register-gravity-www-alias-once.cjs
+      - name: Fresh www hostname certificate and canonical redirect check
+        if: always()
+        shell: bash
+        run: |
+          set +e
+          sleep 5
+          for h in gravityleadershipsystem.com www.gravityleadershipsystem.com; do
+            curl --silent --show-error --location --max-time 20 --head --output /dev/null --write-out "POST_ALIAS host=$h final=%{url_effective} code=%{http_code} ssl_verify=%{ssl_verify_result}\n" "https://$h/"
+            echo | timeout 12 openssl s_client -connect "$h:443" -servername "$h" 2>/dev/null | openssl x509 -noout -subject -ext subjectAltName 2>&1 | head -11
+          done
+          dig +short gravityleadershipsystem.com MX
+          echo 'No Netlify deploy, external DNS, Google Workspace email, or TMB settings changed.'
