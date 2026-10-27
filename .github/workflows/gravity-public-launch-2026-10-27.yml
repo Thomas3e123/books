@@ -42,7 +42,7 @@ jobs:
           export NETLIFY_AUTH_TOKEN="$token"
           npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC SEO, new-home transition / migration branch only / TMB untouched" --json > /tmp/gls-production-deploy.json
           node -e 'const d=require("/tmp/gls-production-deploy.json"); console.log(JSON.stringify({site_id:d.site_id,deploy_id:d.deploy_id,deploy_url:d.deploy_url,url:d.url},null,2));if(d.site_id!=="fa5d39a0-bef9-4ff1-9c28-57d585d741d7")process.exit(1)'
-      - name: Confirm public indexing headers and private exclusion
+      - name: Confirm public indexing and protected asset robots headers
         run: |
           set -euo pipefail
           base=https://gravityleadershipsystem.com
