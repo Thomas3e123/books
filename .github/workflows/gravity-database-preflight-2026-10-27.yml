@@ -1,0 +1,52 @@
+name: Gravity hosted database status — safe read-only production preflight
+on:
+  push:
+    branches: [feature/gravity-migration-phase1-2026-10-22]
+    paths: ['.github/workflows/gravity-database-preflight-2026-10-27.yml']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      SITE_ID: fa5d39a0-bef9-4ff1-9c28-57d585d741d7
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      ALT_NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Inspect linked Gravity database status without exposing connection information
+        shell: bash
+        run: |
+          set -euo pipefail
+          token="${NETLIFY_AUTH_TOKEN:-${ALT_NETLIFY_TOKEN:-}}"
+          test -n "$token"
+          export NETLIFY_AUTH_TOKEN="$token"
+          npm ci --omit=dev --no-audit --ignore-scripts
+          echo 'CHECKING_GRAVITY_DATABASE_ONLY'
+          npx --yes netlify-cli@26 link --id "$SITE_ID"
+          echo 'NETLIFY_LINKED_TO_EXACT_GRAVITY_SITE'
+          set +e
+          npx --yes netlify-cli@26 database status --branch production --json >/tmp/gdb-status.json 2>/tmp/gdb-status.stderr
+          status=$?
+          set -e
+          echo "DB_CLI_EXIT_STATUS $status"
+          DB_FILE=/tmp/gdb-status.json STDERR=/tmp/gdb-status.stderr node - <<'NODE'
+          const fs=require('node:fs');
+          let content=fs.readFileSync(process.env.DB_FILE,'utf8'),obj={};
+          try{obj=JSON.parse(content)}catch(e){console.log('DB_JSON_UNAVAILABLE',content.length);}
+          const scrub=(k,v)=>{
+            if(/credential|connection|password|secret|token|url|key/i.test(k))return '[REDACTED]';
+            if(typeof v==='string')return v.length>180?v.slice(0,180):v;
+            if(Array.isArray(v))return v.slice(0,12).map((w)=>typeof w==='object'?Object.fromEntries(Object.entries(w||{}).map(([k,v])=>[k,scrub(k,v)])):w);
+            if(v&&typeof v==='object')return Object.fromEntries(Object.entries(v).slice(0,30).map(([k,w])=>[k,scrub(k,w)]));
+            return v;
+          };
+          console.log('DB_STATUS_SAFE',JSON.stringify(scrub('root',obj)).slice(0,4000));
+          const stderr=fs.readFileSync(process.env.STDERR,'utf8');
+          console.log('DB_STDERR_CLASS',stderr.split('\n').filter(x=>/not found|not enabled|not configured|unavailable|not supported|Error:/i.test(x)).map(x=>x.replace(/postgres(?:ql)?:\/\/[^\s]+/g,'[REDACTED]')).slice(-5).join(';').slice(0,600));
+          NODE
+          echo 'READ_ONLY_PREFLIGHT_COMPLETE'
