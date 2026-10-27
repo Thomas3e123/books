@@ -35,7 +35,7 @@ jobs:
           site_json="$(mktemp)"
           curl -fsS --max-time 25 -H "Authorization: Bearer $token" "$base/$site" -o "$site_json"
           SITE_FILE="$site_json" node - <<'NODE'
-          const s=require(process.env.SITE_FILE);
+          const fs=require('node:fs');const s=JSON.parse(fs.readFileSync(process.env.SITE_FILE,'utf8'));
           for(const key of ['id','name','custom_domain','domain_aliases','force_ssl','processing','managed_dns','prerender','headers','branch','deploy_id','published_deploy'])
             console.log('SITE_METADATA '+key+' '+JSON.stringify(key==='published_deploy'?s[key]?.id:s[key]));
           NODE
