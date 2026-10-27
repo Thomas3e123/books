@@ -1,0 +1,29 @@
+name: Gravity PUBLIC launch — diagnose Netlify HTTP response SEO state (READ ONLY)
+on:
+  push:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths: ['.github/workflows/gravity-postlaunch-seo-headers-diagnostic-2026-10-27.yml']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - name: Read HTTPS headers, first HTML robots tags, published robots and sitemap without changing anything
+        run: |
+          set +e
+          for BASE in https://gravityleadershipsystem.com https://gravity-leadership-system.netlify.app https://6ae0aa29e84d203e63a4b0e6--gravity-leadership-system.netlify.app; do
+            for page in / /start-here /apps/sop-foundry/employee-app /registration-thanks /robots.txt /sitemap.xml; do
+              h="$(mktemp)" body="$(mktemp)"
+              code="$(curl -sSL --max-time 24 -D "$h" -o "$body" -w '%{http_code}' "$BASE$page")"
+              echo "URL_DIAG $BASE$page CODE=$code BYTES=$(wc -c < "$body")"
+              tr -d '\r' < "$h" | grep -Ei '^(HTTP/|x-robots-tag:|cache-control:|location:|age:|server:|x-nf-|content-type:|x-netlify-)' | tail -14
+              if [[ "$page" == *.txt ]]; then head -15 "$body";fi
+              if [[ "$page" == / || "$page" == /start-here || "$page" == /apps/sop-foundry/employee-app ]]; then
+                grep -oiE '<meta[^>]+name=["'\''"]robots["'\''"][^>]+>' "$body" | head -6
+                grep -oiE '<link[^>]+rel=["'\''"]canonical["'\''"][^>]+>' "$body" | head -2
+              fi
+              rm -f "$h" "$body"
+            done
+          done
