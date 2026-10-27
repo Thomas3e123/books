@@ -1,6 +1,5 @@
 # HTML and discovery files must always revalidate in the browser.
 /*
-  X-Robots-Tag: noindex, nofollow
   Cache-Control: public, max-age=0, must-revalidate
   Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' mailto:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com
   Permissions-Policy: camera=(), microphone=(), geolocation=()
@@ -43,3 +42,16 @@
 # Book Reader catalog and text can change as books are revised; always revalidate.
 /assets/reader/*
   Cache-Control: public, max-age=0, must-revalidate
+
+# Non-public operational screens and account flows must not appear in search results.
+/apps/sop-foundry/employee-app*
+  X-Robots-Tag: noindex, nofollow
+
+/testing-room-manager*
+  X-Robots-Tag: noindex, nofollow
+
+/registration-thanks*
+  X-Robots-Tag: noindex, nofollow
+
+/assets/reader/*
+  X-Robots-Tag: noindex, nofollow
