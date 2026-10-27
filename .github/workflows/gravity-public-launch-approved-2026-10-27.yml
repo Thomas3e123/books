@@ -125,10 +125,38 @@ jobs:
           # staging config (publish=site) from being discovered by Netlify CLI.
           # The production candidate already passed all source and protection gates.
           release_dir="$(mktemp -d)"
-          cp -a build/gravity-production-candidate/. "$release_dir/"
+          mkdir -p "$release_dir/publish"
+          cp -a build/gravity-production-candidate/. "$release_dir/publish/"
+          # Keep functions and their Node dependency resolver INSIDE the isolated
+          # project. Absolute functions outside this root produced a deployed 502:
+          # ERR_MODULE_NOT_FOUND @netlify/database.
+          cp -a functions "$release_dir/functions"
+          cp package.json package-lock.json "$release_dir/"
+          ln -s "$GITHUB_WORKSPACE/node_modules" "$release_dir/node_modules"
+          cat > "$release_dir/netlify.toml" <<'TOML'
+          [build]
+            publish = "publish"
+          [functions]
+            directory = "functions"
+            node_bundler = "esbuild"
+          TOML
+          # Draft smoke first; do not touch production if hosted Foundry fails.
           (
             cd "$release_dir"
-            npx --yes netlify-cli@26 deploy --no-build --prod --site "$GRAVITY_SITE_ID" --dir . --functions "$GITHUB_WORKSPACE/functions" --message "GRAVITY PUBLIC isolated candidate Oct 27 2026 / source $GITHUB_SHA / TMB untouched" --json > /tmp/gravity-public-live.json
+            npx --yes netlify-cli@26 deploy --no-build --site "$GRAVITY_SITE_ID" --dir publish --functions functions --alias gravity-functions-proof-20261027 --message "GRAVITY ISOLATED FUNCTION PACKAGING HEALTH PROOF (NOT PRODUCTION)" --json > /tmp/gravity-function-draft.json
+          )
+          draft_url=$(node -e 'const x=require("/tmp/gravity-function-draft.json");console.log(x.deploy_url||x.url)')
+          test -n "$draft_url" && [[ "$draft_url" == https://*gravity-leadership-system.netlify.app* ]] || { echo 'DRAFT SITE TARGET INVALID';exit 1; }
+          for attempt in 1 2 3 4; do
+            if curl --fail --silent --show-error --max-time 30 "${draft_url%/}/foundry-hosted/health" -o /tmp/gravity-function-health.json && node -e 'const x=require("/tmp/gravity-function-health.json");if(x.ok!==true)process.exit(1)';then
+              echo 'FOUNDRY_FUNCTION_DRAFT_IMPORT_PASS';break
+            fi
+            if [ "$attempt" = 4 ];then echo 'DRAFT_FUNCTION_HEALTH_FAILED_PRODUCTION_NOT_CHANGED';exit 1;fi
+            sleep 3
+          done
+          (
+            cd "$release_dir"
+            npx --yes netlify-cli@26 deploy --no-build --prod --site "$GRAVITY_SITE_ID" --dir publish --functions functions --message "GRAVITY PUBLIC isolated tested functions / Oct 27 2026 / $GITHUB_SHA / TMB untouched" --json > /tmp/gravity-public-live.json
           )
           node - <<'NODE'
           const fs=require('fs');
