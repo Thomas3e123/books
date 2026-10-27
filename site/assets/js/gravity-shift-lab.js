@@ -76,7 +76,7 @@ function defaultSections(){ return ['Management','Dish Pit','Prep','Cook Line','
 function defaultAvailability(){ return ['','','','','','','']; }
 function defaultProfile(){
   return {
-    restaurant:'',store:'',targetHours:'',targetPercent:'',conflictMode:'warn',payLockHash:'',managementLaborMode:'include',managerSalaryAllocation:'',hourlyBurdenPercent:'',contactVisibility:'scheduler',publishCycle:'1',
+    restaurant:'',store:'',targetHours:'',targetPercent:'',conflictMode:'warn',payLockHash:'',managementLaborMode:'include',managerSalaryAllocation:'',hourlyBurdenPercent:'',contactVisibility:'scheduler',publishCycle:'1',lastViewedWeek:'',
     openTimes:['','','','','','',''],
     openAllowance:[0,0,0,0,0,0,0],
     closeTimes:['10p','10p','10p','10p','10p','11p','11p'],
@@ -123,6 +123,7 @@ profile.managerSalaryAllocation=profile.managerSalaryAllocation||'';
 profile.hourlyBurdenPercent=profile.hourlyBurdenPercent==null?'':String(profile.hourlyBurdenPercent);
 profile.contactVisibility=profile.contactVisibility||'scheduler';
 profile.publishCycle=String(profile.publishCycle||'1');
+profile.lastViewedWeek=/^\d{4}-\d{2}-\d{2}$/.test(String(profile.lastViewedWeek||''))?String(profile.lastViewedWeek):'';
 payUnlocked=!profile.payLockHash;
 
 function sectionOptions(selected,homeLabel){
@@ -299,6 +300,8 @@ function saveCurrentWeek(silent){
     $('lab-status').textContent='Schedule could not be saved. Do not close Gravity Shift Lab until the storage problem is resolved or a workspace backup is created.';
     return false;
   }
+  profile.lastViewedWeek=wk;
+  if(!persistProfile())console.warn('Last-viewed week preference could not be saved; scheduled shifts were saved.');
   updateScheduleStatus();
   if(!silent)$('lab-status').textContent=rec.status==='revised'?'Week saved. This schedule changed after publishing and needs a new employee QR before posting.':'Week saved on this device.';
   return true;
@@ -436,7 +439,7 @@ function recalc(){
       if(c){cell.classList.add(c.level==='hard'?'conflict-hard':'conflict-soft');alert.textContent=c.msg;if(c.level==='hard')hardConflicts++;else softConflicts++;}
     });
     tr.querySelector('.lab-total').textContent=rowH.toFixed(1)+'h';tr.querySelector('.lab-total').classList.toggle('lab-warn',rowH>40);
-    var rowCost=(Math.min(rowH,40)*wage)+(Math.max(0,rowH-40)*wage*1.5);var isMgmt=String(emp&&emp.homeSection||'').toLowerCase()==='management';if(!(isMgmt&&profile.managementLaborMode==='exclude'))hourlyWageCost+=rowCost;totalH+=rowH;if(rowH>40)ot++;if(emp&&emp.maxWeeklyHours&&rowH>Number(emp.maxWeeklyHours)){hardConflicts++;tr.querySelector('.lab-total').title='Over employee custom maximum of '+emp.maxWeeklyHours+' hours';}if(rowH>0)hoursList.push(rowH);
+    var rowCost=(Math.min(rowH,40)*wage)+(Math.max(0,rowH-40)*wage*1.5);var isMgmt=String(emp&&emp.homeSection||'').toLowerCase()==='management';if(!(isMgmt&&(profile.managementLaborMode==='exclude'||profile.managementLaborMode==='salary-only')))hourlyWageCost+=rowCost;totalH+=rowH;if(rowH>40)ot++;if(emp&&emp.maxWeeklyHours&&rowH>Number(emp.maxWeeklyHours)){hardConflicts++;tr.querySelector('.lab-total').title='Over employee custom maximum of '+emp.maxWeeklyHours+' hours';}if(rowH>0)hoursList.push(rowH);
   });
   var salaryAllocation=profile.managementLaborMode==='exclude'?0:Math.max(0,Number(profile.managerSalaryAllocation||0));
   var sales=parseFloat($('lab-sales').value)||0;
@@ -465,7 +468,7 @@ function recalc(){
   renderSectionCoverage(sectionMatrix);
   var restaurant=$('lab-restaurant').value||'Employee Schedule',week=$('lab-week').value;$('lab-title').textContent=restaurant+(week?' • Week of '+week:'');
   if($('lab-print-summary')){
-    var managementBasis=profile.managementLaborMode==='exclude'?'excluded':'included'+(Number(profile.managerSalaryAllocation||0)?' + protected salary allocation':'');
+    var managementBasis=profile.managementLaborMode==='exclude'?'excluded':profile.managementLaborMode==='salary-only'?'salaried only (Management section hourly excluded)':'included'+(Number(profile.managerSalaryAllocation||0)?' + protected salary allocation':'');
     var managerSummary=payIsLocked()
       ? ' • Manager pay details locked • Management labor: '+managementBasis
       : ' • '+totalH.toFixed(1)+' scheduled hours • '+money(totalD)+' estimated labor'+(sales?' • '+((totalD/sales)*100).toFixed(1)+'% of forecast sales':'')+' • Employer hourly burden: '+(laborProjection.burdenConfigured?'included (estimated)':'excluded')+' • Management labor: '+managementBasis;
@@ -759,13 +762,13 @@ async function maybeOpenEmployeeSnapshot(){var params=new URLSearchParams(locati
 
 function applyProfile(){
   $('lab-restaurant').value=profile.restaurant||'';$('lab-store').value=profile.store||'';$('lab-target-hours').value=profile.targetHours||'';$('lab-target-percent').value=profile.targetPercent||'';$('lab-conflict-mode').value=profile.conflictMode||'warn';
-  if(!$('lab-week').value){var now=new Date(),sun=new Date(now);sun.setDate(now.getDate()-now.getDay());$('lab-week').value=isoDate(sun);}
+  if(!$('lab-week').value){var now=new Date(),sun=new Date(now);sun.setDate(now.getDate()-now.getDay());$('lab-week').value=profile.lastViewedWeek||isoDate(sun);}
   updatePayPrivacyUI();if($('publish-cycle'))$('publish-cycle').value=profile.publishCycle||'1';updateScheduleStatus();
 }
 
 ['lab-restaurant','lab-store','lab-target-hours','lab-target-percent','lab-conflict-mode'].forEach(function(id){$(id).addEventListener('input',function(){syncProfileFromRows();recalc();});});
 $('lab-sales').addEventListener('input',function(){recalc();saveCurrentWeek(true);});
-$('lab-week').addEventListener('change',function(){renderWeek();$('lab-status').textContent=schedules[$('lab-week').value]?'Saved week loaded.':'New week. Employee profiles and recurring rules carried forward.';});
+$('lab-week').addEventListener('change',function(){profile.lastViewedWeek=$('lab-week').value;persistProfile();renderWeek();$('lab-status').textContent=schedules[$('lab-week').value]?'Saved week loaded.':'New week. Employee profiles and recurring rules carried forward.';});
 $('lab-add').addEventListener('click',function(){var e=normalizeEmployee({});profile.employees.push(e);persistProfile();addEmployee(e,[],[]);saveCurrentWeek(true);});
 $('lab-save').addEventListener('click',function(){syncProfileFromRows();var c=recalc();saveCurrentWeek(false);if(c.hard)$('lab-status').textContent+=' Warning: '+c.hard+' hard availability/time-off conflict'+(c.hard>1?'s':'')+' remain.';});
 $('lab-print').addEventListener('click',function(){printSchedule('employee');});
