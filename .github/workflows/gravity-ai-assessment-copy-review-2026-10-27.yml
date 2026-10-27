@@ -1,0 +1,60 @@
+name: Gravity — AI assessment and cost-control copy QA (NO DEPLOY)
+on:
+  push:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths:
+      - 'site/start-here.html'
+      - 'site/operating-systems.html'
+      - 'source-manifest.json'
+      - '.github/workflows/gravity-ai-assessment-copy-review-2026-10-27.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  review-copy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify complete source manifest and static build (NO DEPLOY)
+        run: npm run build
+      - name: Review source attribution, product-claim safety, responsive CSS, links, and noindex
+        run: |
+          node - <<'NODE'
+          const fs=require('node:fs');
+          const assert=require('node:assert/strict');
+          const start=fs.readFileSync('site/start-here.html','utf8');
+          const sys=fs.readFileSync('site/operating-systems.html','utf8');
+          const routes=fs.readFileSync('site/_redirects','utf8');
+          const hdr=fs.readFileSync('site/_headers','utf8');
+          const n=(s,q)=>s.split(q).length-1;
+          assert.equal(n(start,'id="gravity-ai-assessment-title"'),1,'Assessment should appear exactly once');
+          assert(start.includes('Google AI Mode conversation about Gravity'),'Missing provenance label');
+          assert(start.includes('not</strong> an official Google endorsement'),'Do not imply Google endorsement');
+          assert(start.includes('independent restaurant performance studies are not yet available'),'Need evidence limitations');
+          assert(start.includes('Gravity does not promise guaranteed results'),'Need results caveat');
+          assert(start.includes('logic is sound because it connects thinking'),'AI assessment quote missing');
+          assert(start.includes('/operating-systems#major-cost-controls'),'Missing contextual jump link');
+          assert.equal(n(sys,'id="major-cost-controls"'),1,'Cost section must be unique');
+          assert.equal(n(sys,'id="gravity-food-review-title"'),1,'Food section must be unique');
+          assert.equal(n(sys,'id="gravity-labor-review-title"'),1,'Labor section must be unique');
+          assert(sys.includes('A variance is evidence of a discrepancy'),'Cannot claim theft is proven');
+          assert(sys.includes('cannot guarantee exact staffing needs or savings'),'Cannot promise labor savings');
+          assert(sys.includes('Shift Lab and Work Study Lab are separate tools.'),'Do not conflate applications');
+          assert(sys.includes('grid-template-columns:1fr'),'Mobile layout must be single column');
+          assert(!/thegravitysystem\.com/i.test(start+sys),'Wrong third-party domain');
+          for(const frag of ['id="food-cost-inventory"','id="labor-workforce"'])assert(sys.includes(frag),'Missing in-page anchor '+frag);
+          for(const path of ['/gravity-inventory-center','/gravity-shift-lab'])assert(routes.includes(path+' '),'Local route missing: '+path);
+          assert(fs.existsSync('site/gravity-work-study-lab.html'),'Work Study route missing');
+          assert(start.includes('name="robots" content="noindex,nofollow"') || start.includes('name="robots" content="noindex,nofollow"'.replace(/"/g,"'")),'Start Here must remain noindex before public approval');
+          assert(sys.includes('name="robots" content="noindex,nofollow"') || sys.includes('name="robots" content="noindex,nofollow"'.replace(/"/g,"'")),'Operating Systems must remain noindex before public approval');
+          assert(hdr.includes('X-Robots-Tag: noindex, nofollow'),'Header noindex must remain');
+          console.log('GRAVITY_AI_MODE_COPY_REVIEW PASS — attribution, no guaranteed results, correct links, responsive page, NOINDEX; no deploy made');
+          NODE
+      - name: Confirm only gravity copy and manifest changes vs parent commit
+        run: |
+          echo 'Static site QA is a review, not a deployment or launch approval.'
+          echo 'The existing TMB Netlify project, domain and Google Workspace DNS remain untouched.'
