@@ -1398,7 +1398,7 @@
     },
     {
       "path": "site/assets/js/gravity-shift-lab.js",
-      "sha256": "df00d1f3cacd8fbaf997d9aca3ed33069cea1dd2707c3a3c652a788492e1e8d5"
+      "sha256": "abbea18823254c1bb5b990111070f7422615b8aa04b61c096c55812ec173e678"
     },
     {
       "path": "site/assets/js/gravity-sop-foundry.js",
@@ -1930,7 +1930,7 @@
     },
     {
       "path": "site/gravity-shift-lab.html",
-      "sha256": "00527cd0d74bfe93914948fa6dbc180ff2c5824230f37a9816cb6cd00bbebf65"
+      "sha256": "73fdcf829ac4eb7531a452ea867e2b4b8101815195033dc27ac6bba8d51a4097"
     },
     {
       "path": "site/gravity-shift-lab.webmanifest",
