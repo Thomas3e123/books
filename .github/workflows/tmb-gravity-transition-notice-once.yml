@@ -1,4 +1,4 @@
-name: TMB publisher-only notice — one-shot preserved production snapshot
+name: TMB publisher-only notice — one-shot preserved production snapshot (Oct 27 launch)
 on:
   push:
     branches: [main]
