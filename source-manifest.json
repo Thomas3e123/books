@@ -1946,7 +1946,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "32821b81ff2ed28ddd1d22d5fd2ce5a50ffba5ab3a19bc09fbde7ae3f63db446"
+      "sha256": "c7924a91381c5dc7fc8f0f0678430da0ee75b153bae4a367b3421a4aadba3b11"
     },
     {
       "path": "site/installation-improvement.html",
@@ -2262,7 +2262,7 @@
     },
     {
       "path": "site/sitemap.xml",
-      "sha256": "58f1bce3b04a8657676e2b179898e55fba82ee58fe7ee07ec2478248848fb988"
+      "sha256": "f586193439e2be45c48b4d016f06ad16602b6784db8d86c861e6964aa482c7ce"
     },
     {
       "path": "site/standards-library.html",
