@@ -58,6 +58,10 @@ jobs:
           assert(sh.includes('id="lab-cost-basis"'));
           assert(sh.indexOf('src="assets/js/gravity-labor-cost-engine.js')<sh.indexOf('src="assets/js/gravity-shift-lab.js'));
           assert(sc.includes('profile.hourlyBurdenPercent'));
+          assert(sh.includes('value="salary-only"'),'Management salary-only option missing');
+          assert(sc.includes("profile.managementLaborMode==='salary-only'"),'Salary-only management cost calculation missing');
+          assert(sc.includes('profile.lastViewedWeek'),'Last selected week must persist');
+          assert(sc.includes("profile.lastViewedWeek||isoDate(sun)"),'Reopen last selected schedule week');
           assert(sc.includes('GravityLaborCostEngine.projected'));
           assert(sc.includes("payIsLocked()?'Labor budget dollars"));
           assert(sc.includes("profile.managementLaborMode==='exclude'?0"));
