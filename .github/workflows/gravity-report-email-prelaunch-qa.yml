@@ -1,0 +1,53 @@
+name: Gravity Report email — draft pack and sender DNS audit (NO SEND)
+on:
+  push:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths:
+      - '.github/workflows/gravity-report-email-prelaunch-qa.yml'
+      - 'scripts/build-gravity-report-email.cjs'
+      - 'scripts/audit-gravity-report-email-dns.cjs'
+  workflow_dispatch:
+    inputs:
+      week:
+        description: 'Monday date of newsletter issue, YYYY-MM-DD'
+        required: false
+        default: '2026-10-26'
+permissions:
+  contents: read
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - name: Check Workspace sender DNS authentication — read only
+        run: node scripts/audit-gravity-report-email-dns.cjs
+      - name: Generate branded HTML and plain text weekly draft without sending
+        env:
+          CHOSEN_WEEK: ${{ github.event.inputs.week || '2026-10-26' }}
+        run: |
+          node scripts/build-gravity-report-email.cjs "--week=$CHOSEN_WEEK"
+          node - <<'NODE'
+          const fs=require('fs'),path=require('path');
+          const week=process.env.CHOSEN_WEEK;
+          const root=path.join('build/gravity-report-email',week);
+          const m=JSON.parse(fs.readFileSync(path.join(root,'campaign.json'),'utf8'));
+          const html=fs.readFileSync(path.join(root,'weekly.html'),'utf8');
+          const txt=fs.readFileSync(path.join(root,'weekly.txt'),'utf8');
+          if(!m.articles.length || m.articles.length>2)throw Error('Wrong editorial list');
+          if(m.sendFrom!=='The Gravity Report <thomas.butler@gravityleadershipsystem.com>')throw Error('Sender mismatch');
+          if(m.messageStatus!=='DRAFT ONLY')throw Error('Unsafe sending status');
+          if(!html.includes('{$unsubscribe}')||!txt.includes('{$unsubscribe}'))throw Error('No unsubscribe placeholder');
+          if(!html.includes('[[ADD BUSINESS MAILING ADDRESS BEFORE SENDING]]'))throw Error('Postal compliance check missing');
+          for(const a of m.articles)if(!html.includes(a.url)||!txt.includes(a.url))throw Error('Article link missing');
+          if(week==='2026-10-26'&&m.articles.map(x=>x.issue).join(',')!=='6,7')throw Error('First new weekly release must contain issue 6 and issue 7');
+          console.log('GRAVITY_REPORT_EMAIL_PACK_QA PASS — no SMTP, API send, mailing list import or subscriber data access');
+          NODE
+      - name: Retain review-only campaign files
+        uses: actions/upload-artifact@v4
+        with:
+          name: Gravity-Report-EMAIL-DRAFT-NOT-SENT
+          path: build/gravity-report-email/
+          retention-days: 30
