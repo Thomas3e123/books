@@ -30,7 +30,10 @@ walk(site);
 const headersFile=path.join(site,'_headers');
 let headers=fs.readFileSync(headersFile,'utf8');
 headers=headers.replace(/(\/\*\s*\n)\s*X-Robots-Tag:\s*noindex,\s*nofollow\s*\n/i,'$1');
-const disallowPaths=['/apps/sop-foundry/employee-app*','/testing-room-manager*','/registration-thanks*','/assets/reader/*'];
+// Netlify _headers does not reliably merge duplicate path blocks: add the
+// reader noindex to its ORIGINAL cache-control rule instead of appending one.
+headers=headers.replace(/(\/assets\/reader\/\*\r?\n)(?!  X-Robots-Tag:)/, '$1  X-Robots-Tag: noindex, nofollow\n');
+const disallowPaths=['/apps/sop-foundry/employee-app*','/testing-room-manager*','/registration-thanks*'];
 for(const route of disallowPaths) {
  if (!headers.includes(route+'\n')) headers+='\n'+route+'\n  X-Robots-Tag: noindex, nofollow\n';
 }
