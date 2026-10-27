@@ -8,10 +8,15 @@ fs.rmSync(output,{force:true,recursive:true});
 const dest=path.join(output,'apps/sop-foundry');
 fs.mkdirSync(path.dirname(dest),{recursive:true});
 fs.cpSync(source,dest,{recursive:true});
-// A homepage link is a website link, not a local Windows-app route.
+// Windows protocol serves bundled Foundry pages locally; links to the wider
+// Gravity site must open the secure public website, not a missing app-local path.
 for(const name of fs.readdirSync(dest).filter(x=>x.endsWith('.html'))){
  const file=path.join(dest,name),html=fs.readFileSync(file,'utf8');
- fs.writeFileSync(file,html.replace(/href=(["'])\/\1/g,(_match,q)=>'href='+q+'https://gravityleadershipsystem.com/'+q),'utf8');
+ const fixed=html.replace(/href=(["'])(\/[^"']*)\1/g,(match,q,route)=>{
+   if(route.startsWith('/assets/')||route.startsWith('/apps/sop-foundry/'))return match;
+   return 'href='+q+'https://gravityleadershipsystem.com'+route+q;
+ });
+ fs.writeFileSync(file,fixed,'utf8');
 }
 const image=path.join(root,'site/assets/images/gravity-system-mark.svg');
 const target=path.join(output,'assets/images/gravity-system-mark.svg');
