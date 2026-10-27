@@ -1,2 +1,8 @@
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /apps/sop-foundry/employee-app
+Disallow: /testing-room-manager
+Disallow: /registration-thanks
+Disallow: /assets/reader/
+
+Sitemap: https://gravityleadershipsystem.com/sitemap.xml
