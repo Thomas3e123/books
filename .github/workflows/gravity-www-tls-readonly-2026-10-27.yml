@@ -1,0 +1,39 @@
+name: Gravity WWW HTTPS cert and redirect — READ ONLY
+on:
+  push:
+    branches: [feature/gravity-migration-phase1-2026-10-22]
+    paths: ['.github/workflows/gravity-www-tls-readonly-2026-10-27.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  live-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Inspect apex and www DNS, hostname TLS cert and canonical redirect (NO CHANGES)
+        shell: bash
+        run: |
+          set +e
+          for h in gravityleadershipsystem.com www.gravityleadershipsystem.com; do
+            echo "=== $h DNS ==="
+            dig +short "$h" A
+            dig +short "$h" CNAME
+            echo "=== $h HTTPS ==="
+            curl --silent --show-error --location --max-time 22 --head --output /dev/null --write-out "CHECK host=$h final=%{url_effective} http=%{http_code} verify=%{ssl_verify_result}\n" "https://$h/"
+            echo "curl_exit=$?"
+            echo "=== $h certificate domains ==="
+            timeout 20 openssl s_client -connect "$h:443" -servername "$h" </dev/null 2>/dev/null | openssl x509 -noout -subject -ext subjectAltName -dates 2>&1 | head -14
+          done
+          echo "=== MX ==="
+          dig +short gravityleadershipsystem.com MX
+          echo "=== FINAL www validation ==="
+          out=$(curl -sS -L --max-time 22 --head --output /dev/null --write-out '%{http_code} %{url_effective} %{ssl_verify_result}' 'https://www.gravityleadershipsystem.com/' 2>&1)
+          rc=$?
+          echo "WWW_FINAL curlExit=$rc $out"
+          if [ "$rc" -eq 0 ] && [[ "$out" =~ ^2[0-9][0-9]\ https://gravityleadershipsystem\.com/?\ 0$ ]]; then
+            echo "RESULT: WWW_VALID_CERT_AND_CANONICAL_REDIRECT_CONFIRMED"
+          else
+            echo "RESULT: WWW_NOT_YET_VERIFIED"
+            exit 1
+          fi
