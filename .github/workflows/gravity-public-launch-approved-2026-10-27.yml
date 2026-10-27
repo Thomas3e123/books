@@ -84,6 +84,10 @@ jobs:
             const html=fs.readFileSync(path.join(root,file),'utf8');
             if(!/<meta[^>]*name=["']robots["'][^>]*noindex/.test(html))throw Error('Private screen exposed in search '+file);
           }
+          const home=fs.readFileSync(path.join(root,'index.html'),'utf8');
+          if(!home.includes('gravity-has-a-new-home'))throw Error('October 27 new-home homepage announcement missing');
+          const report=fs.readFileSync('functions/gravity-report/index.mjs','utf8');
+          if(!report.includes('gravity-has-a-new-home'))throw Error('Special editorial route unavailable');
           console.log('PUBLIC_CANDIDATE_PASS: fresh Gravity source, current tools, public indexable pages, private screens noindex, canonical sitemap');
           NODE
       - name: Verify WWW, apex HTTPS, and Google Workspace MX BEFORE production switch
