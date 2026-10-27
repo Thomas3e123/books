@@ -1,7 +1,7 @@
 name: Gravity Inventory Center Windows Candidate
 on:
   push:
-    branches: [main, gravity-inventory-windows-sync-20261019]
+    branches: [main, gravity-inventory-windows-sync-20261019, 'feature/gravity-migration-phase1-2026-10-22']
     paths:
       - 'windows/gravity-inventory-center/**'
       - 'site/apps/inventory-center/**'
