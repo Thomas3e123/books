@@ -9,8 +9,8 @@ const src=fs.readFileSync(path.join(website,'gravity-shift-lab.html'),'utf8');
 // Rebase only packaged asset URLs; external/public links remain unchanged.
 const rebased=src.replace(/(\b(?:src|href)=["'])\/assets\//g,'$1assets/')
   // Only JS/CSS/images are bundled. Manuals and links to other tools belong on the website.
-  .replace(/(\bhref=["'])assets\/downloads\//g,'$1https://thomasmonroebooks.com/assets/downloads/')
-  .replace(/(\bhref=["'])\/(?!\/)/g,'$1https://thomasmonroebooks.com/');
+  .replace(/(\bhref=["'])assets\/downloads\//g,'$1https://gravityleadershipsystem.com/assets/downloads/')
+  .replace(/(\bhref=["'])\/(?!\/)/g,'$1https://gravityleadershipsystem.com/');
 fs.writeFileSync(path.join(out,'gravity-shift-lab.html'),rebased,'utf8');
 for(const sub of ['assets/js','assets/css','assets/images']){const from=path.join(website,sub);if(fs.existsSync(from))fs.cpSync(from,path.join(out,sub),{recursive:true})}
 const html=fs.readFileSync(path.join(out,'gravity-shift-lab.html'),'utf8');
