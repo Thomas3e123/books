@@ -1,0 +1,14 @@
+'use strict';
+const assert=require('node:assert/strict');
+const m=require('../site/apps/inventory-center/assets/js/inventory-outflow-cost.js');
+assert.equal(m.movementOutflowValue({type:'waste',qty:2,unitCost:9}),18);
+assert.equal(m.movementOutflowValue({type:'spoilage',qty:2.5,unitCost:3.20}),8);
+assert.equal(m.movementOutflowValue({type:'comp',qty:1.25,unitCost:4.99}),6.24);
+for(const type of ['receiving','transfer','count-adjustment','adjustment-minus','cost-change'])assert.equal(m.movementOutflowValue({type,qty:9,unitCost:300}),null,'Do not call '+type+' proven food waste');
+assert.equal(m.movementOutflowValue({type:'damage',qty:2}),null,'Historic missing cost must not be silently replaced with current cost');
+assert.equal(m.movementOutflowValue({type:'waste',qty:0,unitCost:0}),0);
+assert.equal(m.movementOutflowValue({type:'waste',qty:-2,unitCost:9}),null);
+assert.equal(m.normalizeReasonCode('prep'),'PREP');
+assert.equal(m.normalizeReasonCode('<script>'),'');
+assert.equal(m.normalizeReasonCode(''),'');
+console.log('PASS: inventory outflow historical cost, loss types, no inferred cause, safe reason categorization');
