@@ -1,0 +1,24 @@
+name: Gravity launch announcement — LIVE content verification
+on:
+  push:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths: ['.github/workflows/gravity-launch-announcement-live-check.yml']
+permissions:
+  contents: read
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verify homepage, About and full public Gravity Report announcement
+        run: |
+          set -euo pipefail
+          base=https://gravityleadershipsystem.com
+          curl -fsSL --max-time 30 "$base/" -o /tmp/home.html
+          curl -fsSL --max-time 30 "$base/about" -o /tmp/about.html
+          curl -fsSL --max-time 30 "$base/gravity-report/gravity-has-a-new-home" -o /tmp/story.html
+          grep -iq 'gravity-has-a-new-home' /tmp/home.html
+          grep -iq 'gravity-has-a-new-home' /tmp/about.html
+          grep -iq 'Gravity Has a New Home' /tmp/story.html
+          ! grep -iqE 'name=["\x27]robots["\x27][^>]*content=["\x27]noindex' /tmp/story.html
+          echo "GRAVITY_NEW_HOME_LIVE_ANNOUNCEMENT_PASS"
