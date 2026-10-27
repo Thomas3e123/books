@@ -1,0 +1,102 @@
+name: TMB publisher-only notice — one-shot preserved production snapshot
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tmb-gravity-transition-notice-once.yml']
+permissions:
+  contents: read
+concurrency:
+  group: tmb-publisher-one-shot-2026-10-27
+  cancel-in-progress: false
+jobs:
+  publish-notice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      TMB_SITE_ID: 1548e212-4cfe-4751-ab81-f46936249304
+      GRAVITY_SITE_ID: fa5d39a0-bef9-4ff1-9c28-57d585d741d7
+      EXPECTED_TMB_DEPLOY: 6ad7b614109e5fdf878475f8
+      PRESERVED_SOURCE_SHA: 31de5c9ac72d30bc9c021020e7334327eb525d11
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      ALT_NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+      ALT_NETLIFY_ACCESS_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Enforce publisher-only target and published snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = main
+          test "$TMB_SITE_ID" != "$GRAVITY_SITE_ID"
+          token="${NETLIFY_AUTH_TOKEN:-${ALT_NETLIFY_TOKEN:-${ALT_NETLIFY_ACCESS_TOKEN:-}}}"
+          test -n "$token" || { echo 'No Netlify token; TMB left untouched'; exit 1; }
+          export NETLIFY_AUTH_TOKEN="$token"
+          curl -fsS --max-time 20 -H "Authorization: Bearer $token" "https://api.netlify.com/api/v1/sites/$TMB_SITE_ID" > /tmp/tmb-site-before.json
+          node - <<'NODE'
+          const fs=require('node:fs');const s=JSON.parse(fs.readFileSync('/tmp/tmb-site-before.json','utf8'));
+          if(s.id!==process.env.TMB_SITE_ID || s.published_deploy?.id!==process.env.EXPECTED_TMB_DEPLOY)
+            throw Error('TMB production has changed since reviewed snapshot; reject replacement.');
+          console.log('TMB_SNAPSHOT_GUARD_PASS',s.published_deploy.id);
+          NODE
+      - name: Build only the single notice on the exact currently published TMB source commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git cat-file -e "$PRESERVED_SOURCE_SHA^{commit}"
+          git worktree add --detach /tmp/tmb-publisher-notice "$PRESERVED_SOURCE_SHA"
+          cd /tmp/tmb-publisher-notice
+          node - <<'NODE'
+          const fs=require('node:fs');
+          const file='site/index.html',html=fs.readFileSync(file,'utf8');
+          const anchor='<main id="main">';
+          if(html.split(anchor).length!==2 || !html.includes('Published by Thomas Monroe Books'))throw Error('Unexpected historical TMB homepage; stop.');
+          if(html.includes('Gravity has moved to its own website'))throw Error('Notice already exists');
+          const note='<aside class="container" aria-label="Gravity\\'s new website" style="margin-top:18px"><div style="border:1px solid #d3c5ac;border-left:4px solid #8c4242;border-radius:12px;padding:16px 20px;background:#faf7f0;color:#263029;line-height:1.65"><strong>Gravity has moved to its own website.</strong> The Gravity Restaurant Leadership System now lives at <a href="https://gravityleadershipsystem.com/" style="font-weight:700">gravityleadershipsystem.com</a>. <strong>Thomas Monroe Books remains the publisher</strong> of the books and workbooks behind Gravity. <a href="https://gravityleadershipsystem.com/gravity-report/gravity-has-a-new-home">Read the transition announcement →</a></div></aside>';
+          fs.writeFileSync(file,html.replace(anchor,anchor+note));
+          NODE
+          npm ci
+          node scripts/update-manifest.cjs
+          npm run build
+          git diff --name-only | grep -v -E '^(site/index.html|source-manifest.json)$' > /tmp/tmb-unexpected.txt || true
+          test ! -s /tmp/tmb-unexpected.txt || { echo 'Unexpected TMB source changes:';cat /tmp/tmb-unexpected.txt;exit 1; }
+          echo 'TMB_NOTICE_SCOPE_PASS: only homepage notice plus regenerated integrity manifest'
+      - name: Re-check TMB published deploy lease immediately before upload
+        shell: bash
+        run: |
+          set -euo pipefail
+          token="${NETLIFY_AUTH_TOKEN:-${ALT_NETLIFY_TOKEN:-${ALT_NETLIFY_ACCESS_TOKEN:-}}}"
+          curl -fsS --max-time 20 -H "Authorization: Bearer $token" "https://api.netlify.com/api/v1/sites/$TMB_SITE_ID" > /tmp/tmb-site-again.json
+          node - <<'NODE'
+          const s=JSON.parse(require('node:fs').readFileSync('/tmp/tmb-site-again.json','utf8'));
+          if(s.published_deploy?.id!==process.env.EXPECTED_TMB_DEPLOY)throw Error('Concurrent TMB deploy detected; stop');
+          NODE
+      - name: Publish preserved publisher source plus one homepage notice only — never Gravity site
+        shell: bash
+        run: |
+          set -euo pipefail
+          token="${NETLIFY_AUTH_TOKEN:-${ALT_NETLIFY_TOKEN:-${ALT_NETLIFY_ACCESS_TOKEN:-}}}"
+          export NETLIFY_AUTH_TOKEN="$token"
+          cd /tmp/tmb-publisher-notice
+          npx --yes netlify-cli@26 deploy --no-build --prod --site "$TMB_SITE_ID" --dir site --functions functions --message "TMB publisher-only new Gravity website notice / preserved source $PRESERVED_SOURCE_SHA" --json > /tmp/tmb-notice-deploy.json
+          node - <<'NODE'
+          const s=JSON.parse(require('node:fs').readFileSync('/tmp/tmb-notice-deploy.json','utf8'));
+          if(s.site_id!==process.env.TMB_SITE_ID)throw Error('Wrong TMB deployment destination');
+          console.log('TMB_NOTICE_DEPLOYED',s.deploy_id||s.id);
+          NODE
+      - name: Confirm the original publisher is functioning and notice visible
+        shell: bash
+        run: |
+          set -euo pipefail
+          for p in / /books /register /book-reader /gravity-report; do
+            curl --fail --silent --show-error --location --retry 4 --retry-delay 2 --retry-all-errors --max-time 25 "https://thomasmonroebooks.com$p" -o /tmp/tmb-verified-page
+            echo "TMB_ROUTE_PASS $p"
+          done
+          curl --fail --silent --show-error --location --retry 4 --retry-delay 2 --retry-all-errors https://thomasmonroebooks.com/ -o /tmp/tmb-verified-home
+          grep -Fq 'Gravity has moved to its own website.' /tmp/tmb-verified-home
+          grep -Fq 'Thomas Monroe Books remains the publisher' /tmp/tmb-verified-home
+          echo 'TMB_PUBLISHER_NOTICE_LIVE_PASS'
