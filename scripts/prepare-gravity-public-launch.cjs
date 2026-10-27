@@ -44,7 +44,7 @@ const sitemap=path.join(site,'sitemap.xml');
 if (fs.existsSync(sitemap)) fs.writeFileSync(sitemap,fs.readFileSync(sitemap,'utf8').split(old).join(canonical));
 const assert=(ok,msg)=>{if(!ok)throw Error(msg)};
 assert(publicPages>100,'Unusually few public pages: '+publicPages);
-assert(!/\/\*\s*\n\s*X-Robots-Tag:\s*noindex/i.test(headers),'Wildcard robots block remained');
+assert(!/^\/\*\s*\n\s*X-Robots-Tag:\s*noindex/im.test(headers),'Wildcard robots block remained');
 assert(!fs.readFileSync(path.join(site,'robots.txt'),'utf8').includes('Disallow: /\n'),'All crawling blocked');
 for(const rel of ['index.html','about.html','start-here.html','gravity-report.html']) {
  const html=fs.readFileSync(path.join(site,rel),'utf8');
