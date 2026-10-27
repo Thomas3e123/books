@@ -39,4 +39,27 @@ jobs:
           for(const key of ['id','name','custom_domain','domain_aliases','force_ssl','processing','managed_dns','prerender','headers','branch','deploy_id','published_deploy'])
             console.log('SITE_METADATA '+key+' '+JSON.stringify(key==='published_deploy'?s[key]?.id:s[key]));
           NODE
+          echo 'DEPLOYED_FILE_MANIFEST_INSPECTION'
+          manifest="$(mktemp)"
+          file_status=$(curl -sS --max-time 30 -H "Authorization: Bearer $token" -o "$manifest" -w '%{http_code}' "$base/$site/files?per_page=10000")
+          echo "MANIFEST_STATUS $file_status"
+          if [ "$file_status" = 200 ]; then
+            MANIFEST_FILE="$manifest" node - <<'NODE'
+          const fs=require('node:fs');
+          const items=JSON.parse(fs.readFileSync(process.env.MANIFEST_FILE,'utf8'));
+          for(const name of ['/_headers','/index.html','/about.html','/robots.txt','/gravity-report.html']){
+            const entry=items.find(f=>f.path===name||f.id===name);
+            console.log('DEPLOY_FILE',name,entry?JSON.stringify({sha:entry.sha,size:entry.size,mime_type:entry.mime_type}):'NOT_LISTED');
+          }
+          console.log('TOTAL_FILE_ENTRIES',items.length);
+          NODE
+          fi
+          echo 'OTHER_DEPLOY_ENDPOINTS_DIAGNOSTIC'
+          for p in "/sites/$site/files/index.html" "/deploys/6ae0aa29e84d203e63a4b0e6/files/_headers"; do
+            tmp="$(mktemp)"
+            status=$(curl -sS --max-time 20 -H "Authorization: Bearer $token" -o "$tmp" -w '%{http_code}' "https://api.netlify.com/api/v1$p")
+            echo "FILE_ENDPOINT $p HTTP $status"
+            if [ "$status" = 200 ];then head -c 300 "$tmp";echo;fi
+            rm -f "$tmp"
+          done
           echo 'MUTATIONS NONE'
