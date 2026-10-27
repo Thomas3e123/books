@@ -1,0 +1,42 @@
+name: Gravity live noindex source — inspect deployed _headers (READ ONLY)
+on:
+  push:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths: ['.github/workflows/gravity-live-headers-source-readonly-2026-10-27.yml']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      TOKEN_A: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      TOKEN_B: ${{ secrets.NETLIFY_TOKEN }}
+      TOKEN_C: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+    steps:
+      - name: Inspect deployed header file and site-level metadata; NO WRITES
+        shell: bash
+        run: |
+          set -euo pipefail
+          token="${TOKEN_A:-${TOKEN_B:-${TOKEN_C:-}}}"
+          test -n "$token"
+          site='fa5d39a0-bef9-4ff1-9c28-57d585d741d7'
+          base='https://api.netlify.com/api/v1/sites'
+          hdr="$(mktemp)"
+          code=$(curl -sS --max-time 25 -H "Authorization: Bearer $token" -H 'Content-Type: application/vnd.bitballoon.v1.raw' -o "$hdr" -w '%{http_code}' "$base/$site/files/_headers")
+          echo "DEPLOYED_HEADERS_STATUS $code"
+          if [ "$code" = 200 ]; then
+            if grep -qi '^  X-Robots-Tag: noindex, nofollow' "$hdr"; then echo 'DEPLOYED_HEADERS_WILDCARD_NOINDEX_PRESENT'; else echo 'DEPLOYED_HEADERS_WILDCARD_NOINDEX_ABSENT'; fi
+            echo 'DEPLOYED_HEADERS_PREFIX'
+            head -12 "$hdr"
+            echo 'DEPLOYED_HEADERS_ROBOT_STANZAS'
+            grep -nEi '(X-Robots|^/apps|^/e|^/registration|^/testing-room|^/\*)' "$hdr" | head -55
+          fi
+          site_json="$(mktemp)"
+          curl -fsS --max-time 25 -H "Authorization: Bearer $token" "$base/$site" -o "$site_json"
+          SITE_FILE="$site_json" node - <<'NODE'
+          const s=require(process.env.SITE_FILE);
+          for(const key of ['id','name','custom_domain','domain_aliases','force_ssl','processing','managed_dns','prerender','headers','branch','deploy_id','published_deploy'])
+            console.log('SITE_METADATA '+key+' '+JSON.stringify(key==='published_deploy'?s[key]?.id:s[key]));
+          NODE
+          echo 'MUTATIONS NONE'
