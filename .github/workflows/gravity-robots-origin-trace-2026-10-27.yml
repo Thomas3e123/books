@@ -1,0 +1,62 @@
+name: Gravity robots header origin trace — LIVE READ ONLY
+on:
+  push:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths: ['.github/workflows/gravity-robots-origin-trace-2026-10-27.yml']
+permissions:
+  contents: read
+jobs:
+  trace:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      SITE_ID: fa5d39a0-bef9-4ff1-9c28-57d585d741d7
+      EXPECTED_DEPLOY: 6ae0df1c53469a01a71b519a
+      TOKEN_A: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      TOKEN_B: ${{ secrets.NETLIFY_TOKEN }}
+      TOKEN_C: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+    steps:
+      - name: Trace actual live response and Netlify deployment metadata, without mutating anything
+        shell: bash
+        run: |
+          set -euo pipefail
+          token="${TOKEN_A:-${TOKEN_B:-${TOKEN_C:-}}}"
+          test -n "$token"
+          origin=https://api.netlify.com/api/v1
+          for base in https://gravityleadershipsystem.com https://gravity-leadership-system.netlify.app; do
+            for p in / /index.html /about /gravity-report /robots.txt /sitemap.xml /assets/css/site.css /apps/sop-foundry/employee-app; do
+              tmp="$(mktemp)"
+              status=$(curl --silent --show-error --max-time 20 -D "$tmp" -o /dev/null -w '%{http_code}' "$base$p")
+              echo "LIVE_HEADER $base$p STATUS $status"
+              tr -d '\r' < "$tmp" | grep -Ei '^(x-robots-tag:|x-nf-request-id:|cache-control:|location:)' || true
+              rm -f "$tmp"
+            done
+          done
+          for path in "/sites/$SITE_ID" "/deploys/$EXPECTED_DEPLOY" "/sites/$SITE_ID/deploys/$EXPECTED_DEPLOY" "/sites/$SITE_ID/headers" "/deploys/$EXPECTED_DEPLOY/headers" "/sites/$SITE_ID/deploys/$EXPECTED_DEPLOY/headers"; do
+            tmp="$(mktemp)"
+            status=$(curl --silent --show-error --max-time 25 -H "Authorization: Bearer $token" -o "$tmp" -w '%{http_code}' "$origin$path")
+            echo "API_STATUS $path HTTP $status"
+            if [ "$status" = 200 ]; then
+              TRACE_FILE="$tmp" TRACE_PATH="$path" node - <<'NODE'
+          const fs=require('node:fs'),j=JSON.parse(fs.readFileSync(process.env.TRACE_FILE,'utf8'));
+          if(Array.isArray(j))console.log('API_ARRAY',process.env.TRACE_PATH,'size',j.length,'first_keys',Object.keys(j[0]||{}));
+          else {
+            const keys=Object.keys(j).filter(x=>/header|rule|redirect|processing|deploy|config|prerender|lock|force_ssl|context|branch|published/.test(x));
+            console.log('API_FILTERED_KEYS',process.env.TRACE_PATH,JSON.stringify(Object.fromEntries(keys.map(k=>[k,k==='published_deploy'?j[k]?.id:j[k]]))).slice(0,2400));
+          }
+          NODE
+            fi
+            rm -f "$tmp"
+          done
+          for page in 1 2 3 4 5 6; do
+            tmp="$(mktemp)"
+            status=$(curl --silent --show-error --max-time 25 -H "Authorization: Bearer $token" -o "$tmp" -w '%{http_code}' "$origin/sites/$SITE_ID/files?per_page=100&page=$page")
+            echo "FILES_PAGE_HTTP $page $status"
+            if [ "$status" != 200 ]; then rm -f "$tmp";break;fi
+            MANIFEST="$tmp" PAGE="$page" node - <<'NODE'
+          const fs=require('node:fs'),x=JSON.parse(fs.readFileSync(process.env.MANIFEST,'utf8'));
+          console.log('FILES_PAGE',process.env.PAGE,'count',x.length,'headerFiles',JSON.stringify(x.filter(y=>/headers|netlify\.toml|index\.html|robots\.txt/.test(y.path)).map(y=>({path:y.path,sha:y.sha})).slice(0,15)));
+          NODE
+            rm -f "$tmp"
+          done
+          echo 'ORIGIN_TRACE_COMPLETE_READ_ONLY'
