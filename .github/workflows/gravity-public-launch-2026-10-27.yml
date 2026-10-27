@@ -1,0 +1,60 @@
+name: Gravity public site — isolated production publish and robots verification
+on:
+  push:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths: ['.github/workflows/gravity-public-launch-2026-10-27.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  gravity-public:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SITE_ID: fa5d39a0-bef9-4ff1-9c28-57d585d741d7
+      TOKEN_A: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      TOKEN_B: ${{ secrets.NETLIFY_TOKEN }}
+      TOKEN_C: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Verify source and produce isolated PUBLIC package
+        run: |
+          set -euo pipefail
+          npm ci
+          npm run manifest
+          npm run build
+          node scripts/prepare-gravity-public-launch.cjs
+          node scripts/test-gravity-report.mjs
+          grep -q 'gravityleadershipsystem.com' site/index.html
+          ! grep -q '^Disallow: /$' site/robots.txt
+          ! awk '/^\\/\\*$/ {inroot=1;next} inroot && /^[^ ]/{exit} inroot && /X-Robots-Tag: noindex/{exit 42}' site/_headers
+          test -s site/assets/js/gravity-shift-lab.js
+          test -s site/apps/inventory-center/assets/js/inventory-center.js
+      - name: Deploy strictly to NEW Gravity Netlify production site
+        run: |
+          set -euo pipefail
+          token="${TOKEN_A:-${TOKEN_B:-${TOKEN_C:-}}}"
+          if [ -z "$token" ]; then echo 'FAILED: No Netlify deployment token'; exit 1; fi
+          export NETLIFY_AUTH_TOKEN="$token"
+          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC SEO, new-home transition / migration branch only / TMB untouched" --json > /tmp/gls-production-deploy.json
+          node -e 'const d=require("/tmp/gls-production-deploy.json"); console.log(JSON.stringify({site_id:d.site_id,deploy_id:d.deploy_id,deploy_url:d.deploy_url,url:d.url},null,2));if(d.site_id!=="fa5d39a0-bef9-4ff1-9c28-57d585d741d7")process.exit(1)'
+      - name: Confirm public indexing headers and private exclusion
+        run: |
+          set -euo pipefail
+          base=https://gravityleadershipsystem.com
+          for p in / /about /start-here /gravity-report; do
+            hdr=$(mktemp); html=$(mktemp)
+            curl -fsSL --retry 4 --retry-delay 3 --max-time 25 -D "$hdr" "$base$p" -o "$html"
+            if grep -iq '^x-robots-tag:.*noindex' "$hdr";then echo "FAILED public header: $p"; exit 1;fi
+            if grep -iqE '<meta[^>]+content=["\x27]noindex' "$html";then echo "FAILED public meta: $p";exit 1;fi
+            echo "PUBLIC INDEX OK $p"
+            rm -f "$hdr" "$html"
+          done
+          curl -fsSL "$base/robots.txt" | tee /tmp/gravity-robots.txt
+          ! grep -q '^Disallow: /$' /tmp/gravity-robots.txt
+          curl -fsSI "$base/assets/reader/bar-inventory.txt" | grep -iq '^x-robots-tag:.*noindex'
+          echo 'GRAVITY_PUBLIC_DEPLOY_AND_INDEX_VERIFIED'
