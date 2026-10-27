@@ -1,4 +1,5 @@
 # Release candidate includes the verified unnumbered Gravity move announcement.
+## Re-run verified candidate after synchronized Gravity source SHA-256 manifest.
 name: Gravity PUBLIC launch — publish CURRENT site to canonical domain (TMB untouched)
 on:
   push:
