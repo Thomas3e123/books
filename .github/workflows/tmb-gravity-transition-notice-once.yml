@@ -1,4 +1,6 @@
 name: TMB publisher-only notice — one-shot preserved production snapshot (Oct 27 launch)
+# Reattempt after owner switched TMB to Accepting deploys on 2026-10-28.
+# Deploy remains snapshot-guarded and modifies only the historical TMB homepage notice.
 on:
   push:
     branches: [main]
