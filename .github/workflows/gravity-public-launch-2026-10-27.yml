@@ -33,6 +33,8 @@ jobs:
           node --check site/assets/js/gravity-report-reading.js
           node --check functions/gravity-report/index.mjs
           node scripts/test-gravity-report-reading.mjs
+          grep -Fq 'Read the full article on Gravity:' site/assets/js/gravity-report-reading.js
+          grep -Fq 'https://www.facebook.com/sharer/sharer.php?u=' functions/gravity-report/index.mjs
           grep -Fq 'id="report-search"' site/gravity-report.html
           grep -Fq 'gravity-report-reading.css' site/gravity-report.html
           grep -Fq 'Publisher and Editor of The Gravity Report' site/index.html
@@ -51,7 +53,7 @@ jobs:
           token="${TOKEN_A:-${TOKEN_B:-${TOKEN_C:-}}}"
           if [ -z "$token" ]; then echo 'FAILED: No Netlify deployment token'; exit 1; fi
           export NETLIFY_AUTH_TOKEN="$token"
-          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC Report readable article and catalog optimization / TMB untouched" --json > /tmp/gls-production-deploy.json
+          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC Report sharing and readable article experience / TMB untouched" --json > /tmp/gls-production-deploy.json
           node -e 'const d=require("/tmp/gls-production-deploy.json"); console.log(JSON.stringify({site_id:d.site_id,deploy_id:d.deploy_id,deploy_url:d.deploy_url,url:d.url},null,2));if(d.site_id!=="fa5d39a0-bef9-4ff1-9c28-57d585d741d7")process.exit(1)'
       - name: Confirm public indexing and protected asset robots headers
         run: |
@@ -87,7 +89,13 @@ jobs:
           test -s /tmp/gravity-report-reader-js
           curl -fsSL "$base/assets/css/gravity-report-reading.css?v=20261028-readability-v1" -o /tmp/gravity-report-reader-css
           test -s /tmp/gravity-report-reader-css
-          echo 'GRAVITY_REPORT_READING_LIVE_PASS'
+          grep -Fq 'data-report-share="post"' /tmp/gravity-report-article-live.html
+          grep -Fq 'data-report-share="link"' /tmp/gravity-report-article-live.html
+          grep -Fq 'data-report-url="https://gravityleadershipsystem.com/gravity-report/' /tmp/gravity-report-article-live.html
+          grep -Fq '<meta property="og:image"' /tmp/gravity-report-article-live.html
+          grep -Fq 'Read the full article on Gravity:' /tmp/gravity-report-reader-js
+          grep -Fq "url='https://gravityleadershipsystem.com'+href" /tmp/gravity-report-reader-js
+          echo 'GRAVITY_REPORT_READING_AND_SHARING_LIVE_PASS'
           curl -fsSL "$base/robots.txt" | tee /tmp/gravity-robots.txt
           ! grep -q '^Disallow: /$' /tmp/gravity-robots.txt
           curl -fsSI "$base/assets/reader/bar-inventory.txt" | grep -iq '^x-robots-tag:.*noindex'
