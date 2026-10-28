@@ -72,8 +72,55 @@ jobs:
           assert(ic.includes('reasonCode:reasonCode'));
           assert(ic.includes('Outflow Cost (Waste/Spill/Spoilage/Damage/Comp Only)'));
           assert(v.includes('m.reasonCode!==undefined'));
-          for(const page of [sh,inv])assert(/name="robots" content="noindex,nofollow"/.test(page),'Keep staging indexing blocked');
+          // The repository retains preview-stage noindex tags. Public deployment
+          // packaging removes them on public pages while preserving private tags.
+          for(const page of [sh,inv])assert(/name="robots" content="noindex,nofollow"/.test(page),'Preview-stage source missing noindex');
           const head=fs.readFileSync('site/_headers','utf8');
-          assert(head.includes('X-Robots-Tag: noindex, nofollow'));
-          console.log('GRAVITY_QA_PAGE_WIRING_AND_PRIVACY PASS — NO DEPLOY, no customer data or TMB changes');
+          assert(head.includes('X-Robots-Tag: noindex, nofollow'),'Sensitive paths need explicit noindex');
+          assert(!/^\/\*\s*\n\s*X-Robots-Tag:\s*noindex/im.test(head),'Public wildcard must not be noindex');
+          console.log('GRAVITY_QA_PAGE_WIRING_AND_PRIVACY PASS — NO DEPLOY');
+          NODE
+      - name: Exercise additional financial boundaries and loss-category assumptions
+        run: |
+          node - <<'NODE'
+          const assert=require('node:assert/strict');
+          const L=require('./site/assets/js/gravity-labor-cost-engine.js');
+          const I=require('./site/apps/inventory-center/assets/js/inventory-outflow-cost.js');
+          const tol=(a,b)=>assert(Math.abs(a-b)<0.000001, a+' != '+b);
+          const p=L.projected({hourlyWages:2400,salaryAllocation:600,forecastSales:15000,targetPercent:25});
+          tol(p.total,3000);tol(p.laborPercent,20);tol(p.budgetVariance,-750);
+          assert.equal(p.burdenConfigured,false,'Never assume a preset tax/burden percentage');
+          const loaded=L.projected({hourlyWages:2400,salaryAllocation:600,hourlyBurdenPercent:12.5,forecastSales:15000,targetPercent:25});
+          tol(loaded.total,3300);tol(loaded.employerBurden,300);
+          tol(loaded.salaryAllocation,600);
+          assert.equal(L.projected({hourlyWages:100,forecastSales:0}).laborPercent,null,'Do not divide labor by zero sales');
+          for(const v of ['bad','-4','Infinity','101'])assert.throws(()=>L.projected({hourlyWages:100,hourlyBurdenPercent:v}));
+          for(const t of ['waste','spill','spoilage','damage','comp'])tol(I.movementOutflowValue({type:t,qty:4,unitCost:2.25}),9);
+          for(const t of ['count-adjustment','receiving','transfer'])assert.equal(I.movementOutflowValue({type:t,qty:4,unitCost:2.25}),null);
+          assert.equal(I.movementOutflowValue({type:'waste',qty:2,unitCost:''}),null,'Missing historical cost must remain unknown');
+          assert.equal(I.movementOutflowValue({type:'damage',qty:2,unitCost:-5}),null);
+          console.log('GRAVITY_CHARTER_MATH_BOUNDARIES PASS — explicit assumptions, no invented theft or burden');
+          NODE
+      - name: Verify separate PUBLIC packaging without deploying or touching TMB
+        run: |
+          set -euo pipefail
+          node scripts/prepare-gravity-public-launch.cjs
+          node scripts/update-gravity-footer.cjs
+          node - <<'NODE'
+          const assert=require('node:assert/strict'),fs=require('node:fs');
+          for(const path of ['site/index.html','site/about.html','site/start-here.html','site/gravity-report.html','site/gravity-shift-lab.html','site/apps/inventory-center/index.html']) {
+            const html=fs.readFileSync(path,'utf8');
+            assert(!/<meta[^>]+content=["']noindex/i.test(html),'Unexpected public noindex: '+path);
+            assert(!html.includes('gravity-leadership-system.netlify.app'),'Unexpected preview canonical: '+path);
+          }
+          for(const path of ['site/testing-room-manager.html','site/apps/sop-foundry/employee-app.html']) {
+            assert(/noindex,nofollow/.test(fs.readFileSync(path,'utf8')),'Private page must remain noindex: '+path);
+          }
+          const h=fs.readFileSync('site/_headers','utf8');
+          assert(!/^\/\*\s*\n\s*X-Robots-Tag:\s*noindex/im.test(h),'Public wildcard noindex');
+          const r=fs.readFileSync('site/robots.txt','utf8');
+          assert(!r.includes('Disallow: /\n'),'Public site crawling disabled');
+          assert(r.includes('Disallow: /testing-room-manager'),'Missing private disallow');
+          assert(fs.readFileSync('site/index.html','utf8').includes('Publisher and Editor of The Gravity Report'),'Editorial attribution missing');
+          console.log('GRAVITY_CHARTER_PUBLIC_PACKAGING PASS — public SEO, sensitive paths protected, TMB untouched, NO DEPLOY');
           NODE
