@@ -3,7 +3,7 @@
 const REG='gravity_founding_year_download_access_v1';
 const VKEY='gravity_voice_name_v1';
 const EMBEDDED_CATALOG=[{"id": "quiet-gravity", "title": "Quiet Gravity", "text": "/assets/reader/quiet-gravity.txt", "pdf": "/assets/downloads/quiet-gravity-gravity-elite-2026-09-11-155-pages.pdf", "characters": 375229}, {"id": "owners-chair", "title": "The Owner’s Chair", "text": "/assets/reader/owners-chair.txt", "pdf": "/assets/downloads/the-owners-chair-gravity-elite-2026-09-11-212-pages.pdf", "characters": 296838}, {"id": "systems-of-service", "title": "Systems of Service", "text": "/assets/reader/systems-of-service.txt", "pdf": "/assets/downloads/systems-of-service-gravity-elite-v2-2026-09-11-253-pages.pdf", "characters": 512298}, {"id": "employee-training-sop-tracker", "title": "Employee Training & SOP Tracker", "text": "/assets/reader/employee-training-sop-tracker.txt", "pdf": "/assets/downloads/employee-training-sop-tracker-gravity-elite-v2-2026-09-12-257-interior-pages.pdf", "characters": 263507}, {"id": "labor-control-scheduling-planner", "title": "Labor Control & Scheduling Planner", "text": "/assets/reader/labor-control-scheduling-planner.txt", "pdf": "/assets/downloads/labor-control-scheduling-planner-gravity-elite-v2-2026-09-12-371-interior-372-digital-pages.pdf", "characters": 424801}, {"id": "sop-station-operations-builder", "title": "Restaurant SOP & Station Operations Builder", "text": "/assets/reader/sop-station-operations-builder.txt", "pdf": "/assets/downloads/restaurant-sop-station-operations-builder-gravity-elite-v3-2026-09-13-258-pages.pdf", "characters": 336866}, {"id": "food-cost-waste-inventory", "title": "Food Cost, Waste & Inventory Control", "text": "/assets/reader/food-cost-waste-inventory.txt", "pdf": "/assets/downloads/food-cost-waste-inventory-control-318-pages.pdf", "characters": 402216}, {"id": "hiring-retention", "title": "Hiring, Interviewing & Employee Retention Tracker", "text": "/assets/reader/hiring-retention.txt", "pdf": "/assets/downloads/hiring-interviewing-employee-retention-tracker-gravity-elite-208-pages.pdf", "characters": 177964}, {"id": "guest-recovery", "title": "Guest Service, Complaints & Recovery Workbook", "text": "/assets/reader/guest-recovery.txt", "pdf": "/assets/downloads/guest-service-complaints-recovery-workbook-gravity-elite-2026-09-13-191-pages.pdf", "characters": 131467}, {"id": "ai-prompts", "title": "Restaurant AI Prompts & Systems Workbook — 325 Prompts", "text": "/assets/reader/ai-prompts.txt", "pdf": "/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_325_PROMPTS_2026-10-20.pdf", "characters": 207351}, {"id": "sop-library-v1", "title": "Gravity Restaurant SOP Library — Volume 1", "text": "/assets/reader/sop-library-v1.txt", "pdf": "/assets/downloads/gravity-restaurant-sop-library-volume-1-gravity-elite-v2-2026-09-13-369-pages.pdf", "characters": 702569}, {"id": "sop-library-v2", "title": "Gravity Restaurant SOP Library — Volume 2", "text": "/assets/reader/sop-library-v2.txt", "pdf": "/assets/downloads/gravity-restaurant-sop-library-volume-2-gravity-elite-v2-2026-09-13-370-pages.pdf", "characters": 699870}, {"id": "sop-library-v3", "title": "Gravity Restaurant SOP Library — Volume 3", "text": "/assets/reader/sop-library-v3.txt", "pdf": "/assets/downloads/gravity-restaurant-sop-library-volume-3-specialty-advanced-hard-to-find-sops.pdf", "characters": 853112}, {"id": "bar-pour-cost", "title": "Restaurant Bar & Beverage Pour Cost Control", "text": "/assets/reader/bar-pour-cost.txt", "pdf": "/assets/downloads/GRAVITY_Restaurant_Bar_Beverage_Pour_Cost_Control_v1.0.pdf", "characters": 344492}, {"id": "bar-inventory", "title": "Restaurant Bar & Beverage Inventory & Ordering", "text": "/assets/reader/bar-inventory.txt", "pdf": "/assets/downloads/GRAVITY_Restaurant_Bar_Beverage_Inventory_Ordering_v1.0.pdf", "characters": 100731}];
-let catalog=[],chunks=[],idx=0,current='',loadToken=0;
+let catalog=[],reportArticles=[],chunks=[],idx=0,current='',loadToken=0;
 let audioCtx=null,sourceNode=null,activeResolve=null,loopActive=false,playing=false,paused=false,runToken=0,mode='';
 let gainNode=null,bassNode=null,trebleNode=null,decodedBuffer=null,decodedForPart=-1,playedSeconds=0,sourceStartedAt=0,sourceOffset=0,partDuration=0;
 let contentPart=0,sleepAt=0,savingAllowed=false;
@@ -286,12 +286,12 @@ async function loadBook(id){
  const book=catalog.find(x=>x.id===id);
  if(!book){status('Choose a book to begin.');return;}
  status('Loading '+book.title+'…');
- let r;try{r=await fetch(book.text+'?v=20261010-sync',{cache:'no-store'});}
+ let r;try{r=await fetch(book.text+(book.text.includes('?')?'&':'?')+'v=20261028-report-reader',{cache:'no-store'});}
  catch(_){if(token===loadToken)status('This book could not be loaded. Check your connection and try again.');return;}
  if(token!==loadToken)return;
  if(!r.ok){status('This book could not be loaded.');return;}
  let text=await r.text();if(token!==loadToken)return;
- const mainStart=mainContentOffset(text);
+ const mainStart=book.kind==='report'?0:mainContentOffset(text);
  const front=mainStart>0?chunkText(text.slice(0,mainStart)):[];
  const body=mainStart>0?chunkText(text.slice(mainStart)):chunkText(text);
  chunks=[...front,...body];contentPart=front.length;
@@ -413,7 +413,7 @@ function updateBookButtons(){
 function renderBookButtons(){
   const box=$('reader-book-buttons'),panel=$('reader-available-books');if(!box||!panel)return;
   box.replaceChildren();
-  for(const book of catalog){
+  for(const book of catalog.filter(b=>b.kind!=='report')){
     const button=document.createElement('button');
     button.type='button';button.dataset.bookId=book.id;button.textContent=book.title;
     button.setAttribute('aria-pressed','false');
@@ -426,9 +426,29 @@ function renderBookButtons(){
     box.appendChild(button);
   }
   const summary=panel.querySelector('summary');
-  if(summary)summary.textContent='Browse '+catalog.length+' Gravity books — tap a title';
+  if(summary)summary.textContent='Browse '+catalog.filter(b=>b.kind!=='report').length+' Gravity books — tap a title';
   if(window.matchMedia?.('(max-width:860px)').matches)panel.open=true;
   updateBookButtons();
+}
+
+function renderReportButtons(){
+ const panel=$('reader-available-articles'),box=$('reader-article-buttons');
+ if(!panel||!box)return;
+ box.replaceChildren();
+ for(const article of reportArticles){
+  const button=document.createElement('button');
+  button.type='button';button.dataset.bookId=article.id;button.textContent=article.title;
+  button.setAttribute('aria-pressed',String(article.id===current));
+  button.onclick=async()=>{
+   const sel=$('reader-book');if(sel)sel.value=article.id;
+   await loadBook(article.id);updateBookButtons();panel.open=false;
+  };
+  box.appendChild(button);
+ }
+ const summary=panel.querySelector('summary');
+ if(summary)summary.textContent='Listen to The Gravity Report — '+reportArticles.length+' published article'+(reportArticles.length===1?'':'s');
+ const status=$('reader-article-count');
+ if(status)status.textContent=reportArticles.length+' published Gravity Report article'+(reportArticles.length===1?' is':'s are')+' available to listen to. New articles appear here on their scheduled release dates.';
 }
 
 async function init(){
@@ -439,9 +459,30 @@ async function init(){
   const r=await fetch('/assets/reader/catalog.json?v=20260923-reader2',{cache:'no-store'});
   if(r.ok){const remote=await r.json();if(Array.isArray(remote.books)&&remote.books.length)catalog=remote.books;}
  }catch(_){/* Embedded catalog keeps the reader usable if catalog fetch fails. */}
+ // Only released issues enter the audio catalog; the endpoint is public,
+ // while the existing Book Reader registration gate still protects the narration room.
+ reportArticles=[];
+ try{
+  const response=await fetch('/gravity-report/articles.json',{cache:'no-store'});
+  if(response.ok){
+   const payload=await response.json();
+   if(Array.isArray(payload.articles)){
+    reportArticles=payload.articles.filter(a=>a.released&&/^[-a-z0-9]+$/.test(a.slug)&&Number.isInteger(a.issue)&&a.issue>0).map(a=>({
+     id:'gravity-report-'+a.slug,
+     kind:'report',
+     title:'Issue '+String(a.issue).padStart(2,'0')+' · '+a.title,
+     text:'/gravity-report/reader-text?slug='+encodeURIComponent(a.slug),
+     original:'/gravity-report/'+a.slug
+    }));
+    catalog=catalog.concat(reportArticles);
+   }
+  }
+ }catch(_){const note=$('reader-article-count');if(note)note.textContent='Articles cannot be listed right now. The books remain available.';}
  const sel=$('reader-book');
- sel.innerHTML='<option value="">Choose a Gravity book…</option>'+catalog.map(b=>`<option value="${b.id}">${b.title}</option>`).join('');
- renderBookButtons();
+ sel.innerHTML='<option value="">Choose a book or article…</option>'+
+   '<optgroup label="Gravity Books">'+catalog.filter(b=>b.kind!=='report').map(b=>`<option value="${b.id}">${b.title}</option>`).join('')+'</optgroup>'+
+   '<optgroup label="The Gravity Report — Published Articles">'+reportArticles.map(b=>`<option value="${b.id}">${b.title}</option>`).join('')+'</optgroup>';
+ renderBookButtons();renderReportButtons();
  if(!catalog.length){status('No books are available in the reader catalog.');return;}
  let savedPrefs={};try{savedPrefs=JSON.parse(readStorage(PREFS)||'{}')||{}}catch(_){}
  $('reader-voice').value=['cedar','marin'].includes(savedPrefs.voice)?savedPrefs.voice:(readStorage(VKEY)||'cedar');
@@ -516,10 +557,16 @@ async function init(){
    sleepAt=minutes?Date.now()+minutes*60000:0;
    status(minutes?'Sleep timer set for '+minutes+' minutes.':'Sleep timer turned off.');
  };
- status(catalog.length+' Gravity books available. Choose a book to begin.');
+ status(catalog.filter(b=>b.kind!=='report').length+' Gravity books and '+reportArticles.length+' published articles available. Choose a title to begin.');
  updateTransport();showPosition();
  // Reopening restores the most recently selected book, its part and offset.
  // Do NOT autoplay without a user's gesture; mobile browsers require a tap.
+ const deepSlug=new URLSearchParams(location.search).get('article');
+ if(deepSlug){
+  const article=reportArticles.find(a=>a.id==='gravity-report-'+deepSlug);
+  if(article){sel.value=article.id;await loadBook(article.id);updateBookButtons();return;}
+  status('This report article is not yet available for listening, or the issue list could not be loaded.');
+ }
  const last=readStorage(LASTBOOK);
  if(last&&catalog.some(b=>b.id===last)){
    sel.value=last;
