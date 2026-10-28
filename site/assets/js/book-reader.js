@@ -452,12 +452,15 @@ function renderReportButtons(){
 }
 
 async function init(){
- if(readStorage(REG)!=='registered'){$('reader-app').hidden=true;$('reader-gate').hidden=false;return;}
- $('reader-gate').hidden=true;$('reader-app').hidden=false;
- catalog=EMBEDDED_CATALOG.slice();
+ const booksUnlocked=readStorage(REG)==='registered';
+ // The Gravity Report is public to listen to. Book titles retain the registration gate.
+ $('reader-gate').hidden=booksUnlocked;
+ $('reader-app').hidden=false;
+ $('reader-available-books').hidden=!booksUnlocked;
+ catalog=booksUnlocked?EMBEDDED_CATALOG.slice():[];
  try{
   const r=await fetch('/assets/reader/catalog.json?v=20260923-reader2',{cache:'no-store'});
-  if(r.ok){const remote=await r.json();if(Array.isArray(remote.books)&&remote.books.length)catalog=remote.books;}
+  if(booksUnlocked&&r.ok){const remote=await r.json();if(Array.isArray(remote.books)&&remote.books.length)catalog=remote.books;}
  }catch(_){/* Embedded catalog keeps the reader usable if catalog fetch fails. */}
  // Only released issues enter the audio catalog; the endpoint is public,
  // while the existing Book Reader registration gate still protects the narration room.
@@ -483,7 +486,7 @@ async function init(){
    '<optgroup label="Gravity Books">'+catalog.filter(b=>b.kind!=='report').map(b=>`<option value="${b.id}">${b.title}</option>`).join('')+'</optgroup>'+
    '<optgroup label="The Gravity Report — Published Articles">'+reportArticles.map(b=>`<option value="${b.id}">${b.title}</option>`).join('')+'</optgroup>';
  renderBookButtons();renderReportButtons();
- if(!catalog.length){status('No books are available in the reader catalog.');return;}
+ if(!catalog.length){status('Published Gravity Report articles are temporarily unavailable. Try again shortly.');return;}
  let savedPrefs={};try{savedPrefs=JSON.parse(readStorage(PREFS)||'{}')||{}}catch(_){}
  $('reader-voice').value=['cedar','marin'].includes(savedPrefs.voice)?savedPrefs.voice:(readStorage(VKEY)||'cedar');
  if(!['cedar','marin'].includes($('reader-voice').value))$('reader-voice').value='cedar';
