@@ -49,15 +49,27 @@ function stamp(){
 function released(a,t){return t>=a.release_date+'T'+a.release_time;}
 function shareControls(a,position){
  const link=SITE+'/gravity-report/'+a.slug;
+ const encodedLink=encodeURIComponent(link),encodedTitle=encodeURIComponent(a.title);
+ const shortText=encodeURIComponent(a.title+' — The Gravity Report by Thomas Butler');
+ const message=encodeURIComponent(a.title+'\n\nRead the article on Gravity:\n'+link);
+ const emailSubject=encodeURIComponent(a.title+' | The Gravity Report');
+ const emailBody=encodeURIComponent('I thought you might find this article useful:\n\n'+a.title+'\n\n'+link+'\n\nThe Gravity Report · By Thomas Butler');
  return `<section class="report-share" data-report-title="${esc(a.title)}" data-report-summary="${esc(a.summary)}" data-report-url="${esc(link)}" aria-label="Share this article">
  <h2>Share this article</h2>
- <p>Copy a ready-to-post Facebook status, copy the full article with credit, or share its link.</p>
+ <p>Copy a ready-to-paste post for Facebook, Instagram, Threads, LinkedIn or anywhere you write, or share the article link directly. Every copy includes the original Gravity article address.</p>
  <div class="report-share-buttons">
- <button type="button" data-report-share="post">Copy Facebook post</button>
+ <button type="button" data-report-share="post">Copy social post</button>
  <button type="button" data-report-share="full">Copy article text</button>
  <button type="button" data-report-share="link">Copy link</button>
- <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(link)}" target="_blank" rel="noopener noreferrer" aria-label="Share article link on Facebook (opens a new tab)">Share to Facebook ↗</a>
- <button type="button" data-report-share="native" hidden>Share…</button>
+ <a href="https://www.facebook.com/sharer/sharer.php?u=${encodedLink}" target="_blank" rel="noopener noreferrer" aria-label="Share article link on Facebook (opens a new tab)">Facebook ↗</a>
+ <a href="https://x.com/intent/tweet?text=${shortText}&amp;url=${encodedLink}" target="_blank" rel="noopener noreferrer" aria-label="Share article link on X (opens a new tab)">X ↗</a>
+ <a href="https://www.linkedin.com/sharing/share-offsite/?url=${encodedLink}" target="_blank" rel="noopener noreferrer" aria-label="Share article link on LinkedIn (opens a new tab)">LinkedIn ↗</a>
+ <details class="report-share-more"><summary>More ways to share</summary><div class="report-share-more-links">
+ <a href="https://api.whatsapp.com/send?text=${message}" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+ <a href="mailto:?subject=${emailSubject}&amp;body=${emailBody}">Email ↗</a>
+ <a href="https://www.reddit.com/submit?url=${encodedLink}&amp;title=${encodedTitle}" target="_blank" rel="noopener noreferrer">Reddit ↗</a>
+ <button type="button" data-report-share="native" hidden>Share with an app…</button>
+ </div></details>
  </div><p class="report-share-status" role="status" aria-live="polite"></p>
  </section>`;
 }
