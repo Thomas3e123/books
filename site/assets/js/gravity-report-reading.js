@@ -123,6 +123,7 @@ function catalog(){
  function secondary(label,url){var a=node('a',null,label);a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('aria-label','Share on '+label+' (opens new tab)');links.appendChild(a)}
  secondary('WhatsApp','https://api.whatsapp.com/send?text='+encodeURIComponent(a.title+'\n'+url));
  secondary('Reddit','https://www.reddit.com/submit?url='+encodeURIComponent(url)+'&title='+encodeURIComponent(a.title));
+ secondary('Bluesky','https://bsky.app/intent/compose?text='+encodeURIComponent(a.title+'\n'+url));
  var email=node('a',null,'Email');
  email.href='mailto:?subject='+encodeURIComponent(a.title+' | The Gravity Report')+'&body='+encodeURIComponent('Read this article from Gravity:\n'+url);
  links.appendChild(email);more.appendChild(links);tools.appendChild(more);
