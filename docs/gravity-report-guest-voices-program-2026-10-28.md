@@ -9,6 +9,18 @@ Invite respected restaurant operators, working GMs, hospitality teachers, credib
 
 **A follower count earns someone a look; it never earns them publication.** Audience relevance, credible operating experience, evidence quality, practical tests, respectful treatment of employees, transparency, and originality matter more.
 
+## Guest Voices must include frontline employees
+
+Do not make high-follower restaurant owners the only possible contributors. A crew member, longtime server, line cook, dishwasher, shift lead, union representative where relevant, or restaurant training specialist may provide essential evidence that an owner cannot see from the office. An employee with a small following can be a better contributor than an influencer with a large one.
+
+**Recruit for range of experience:** Employee Voice (first-person work and fairness), Manager Voice (constraints, response and accountability), Owner Voice (business sustainability and hiring decisions), and Independent Expert (legal, compensation, research and operations). A guest can offer a viewpoint without speaking for an entire workforce. Invite thoughtful exchange; never require contributors to endorse Gravity.
+
+**Employee protections:** Do not require employee contributors to name their employer, expose coworkers' pay, disclose protected employee data, or seek their employer's permission to discuss lawfully protected workplace matters. Check for retaliation or job risk before asking for identifiable contributions. Offer anonymous/pseudonymous publication only with documented editorial verification and safe consent; never invent anonymous testimony. Secure publication and AI narration rights separately; an employee can decline identification or recording. Follow applicable labor law and protect the right of covered workers to discuss pay and working conditions.
+
+**Priority employee-led subjects:** Wage compression and the new-hire pay surprise; invisible extra responsibilities; inconsistent rules across shifts; schedule instability; training without support; guest abuse; safety concerns that never get fixed; how recognition and fair advancement work in practice.
+
+**Guest screening principle:** Credibility and useful operational evidence outweigh reach. A contributor with a large following may extend distribution, but follower counts must not dictate editorial conclusions.
+
 ## The weekly publication promise
 
 Publish **three articles per week total**, not three plus any guest articles:
