@@ -2386,7 +2386,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "0251c00170a0567d80d0a7a3c3570b35881cf6e29eb644ae5f03866abfed1642"
+      "sha256": "e8943184b9764fb8935f52df5df9b15fa07f94878d8deec105b6ca4926b2cef7"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",
