@@ -30,6 +30,13 @@ assert(js.includes('Read the full article on Gravity:'),'Copied Facebook caption
 assert(js.includes('socialPost(title,summary,url)')&&js.includes('fullArticleText(title,url)'),'Both sharing copy formats required');
 assert(js.includes("data-report-share='post'")||js.includes("'data-report-share','post'"),'Facebook copying option missing on catalog');
 assert(css.includes('.report-share-buttons')&&css.includes('.report-card-share'),'Share controls must be readable on mobile');
+for(const key of ['x.com/intent/tweet','linkedin.com/sharing/share-offsite','api.whatsapp.com/send','reddit.com/submit','bsky.app/intent/compose','mailto:?']){
+ assert(js.includes(key),'Catalog network missing: '+key);
+ assert(fs.readFileSync('functions/gravity-report/index.mjs','utf8').includes(key),'Article network missing: '+key);
+}
+assert(js.includes('Copy social post'),'Cross-platform copy-to-post label missing');
+assert(css.includes('report-share-more')&&css.includes('report-card-more'),'Share extras must be grouped for readability');
+
 
 
 const RealDate=globalThis.Date;
@@ -54,6 +61,12 @@ assert(a.html.includes('data-report-share="link"'),'Article has no copy-link but
 assert(a.html.includes('https://www.facebook.com/sharer/sharer.php?u='),'Article has no direct Facebook share link');
 assert(a.html.includes('data-report-url="'+url+'/gravity-report/'+slug1+'"'),'Article sharing URL does not link back to Gravity');
 assert(a.html.includes('<meta property="og:image"'),'Facebook preview image metadata missing');
+for(const key of ['x.com/intent/tweet','linkedin.com/sharing/share-offsite','api.whatsapp.com/send','reddit.com/submit','bsky.app/intent/compose','mailto:?']){
+ assert(a.html.includes(key),'Article share link missing: '+key);
+}
+assert(a.html.includes('Copy social post'),'Cross-platform article button missing');
+assert(a.html.includes('More ways to share'),'Secondary share options missing');
+
 assert(a.html.includes('<meta property="og:url" content="'+url+'/gravity-report/'+slug1+'">'),'Facebook URL metadata must be canonical');
 
 assert(a.html.includes('rel="next"'),'Published next article link missing');
