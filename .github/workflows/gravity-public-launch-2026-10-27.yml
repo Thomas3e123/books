@@ -1,4 +1,4 @@
-name: Gravity public site — isolated production publish and robots verification
+name: Gravity public site — isolated production publish and brand verification
 on:
   push:
     branches: ['feature/gravity-migration-phase1-2026-10-22']
