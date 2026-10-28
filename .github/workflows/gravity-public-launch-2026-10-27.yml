@@ -33,6 +33,8 @@ jobs:
           node --check site/assets/js/gravity-report-reading.js
           node --check functions/gravity-report/index.mjs
           node scripts/test-gravity-report-reading.mjs
+          node --check site/assets/js/book-reader.js
+          node scripts/test-gravity-report-listening.mjs
           grep -Fq 'Read the full article on Gravity:' site/assets/js/gravity-report-reading.js
           grep -Fq 'https://www.facebook.com/sharer/sharer.php?u=' functions/gravity-report/index.mjs
           grep -Fq 'id="report-search"' site/gravity-report.html
@@ -53,7 +55,7 @@ jobs:
           token="${TOKEN_A:-${TOKEN_B:-${TOKEN_C:-}}}"
           if [ -z "$token" ]; then echo 'FAILED: No Netlify deployment token'; exit 1; fi
           export NETLIFY_AUTH_TOKEN="$token"
-          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC Report sharing and readable article experience / TMB untouched" --json > /tmp/gls-production-deploy.json
+          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC Report multi-platform sharing and Gravity Reader audio / TMB untouched" --json > /tmp/gls-production-deploy.json
           node -e 'const d=require("/tmp/gls-production-deploy.json"); console.log(JSON.stringify({site_id:d.site_id,deploy_id:d.deploy_id,deploy_url:d.deploy_url,url:d.url},null,2));if(d.site_id!=="fa5d39a0-bef9-4ff1-9c28-57d585d741d7")process.exit(1)'
       - name: Confirm public indexing and protected asset robots headers
         run: |
@@ -95,6 +97,23 @@ jobs:
           grep -Fq '<meta property="og:image"' /tmp/gravity-report-article-live.html
           grep -Fq 'Read the full article on Gravity:' /tmp/gravity-report-reader-js
           grep -Fq "url='https://gravityleadershipsystem.com'+href" /tmp/gravity-report-reader-js
+          # Check Report-to-Reader audio, reading controls, and share links on the production host.
+          curl -fsSL "$base/book-reader" -o /tmp/gravity-reader-live.html
+          grep -Fq 'Gravity Reader' /tmp/gravity-reader-live.html
+          grep -Fq 'id="reader-available-articles"' /tmp/gravity-reader-live.html
+          curl -fsSL "$base/assets/js/book-reader.js?v=20261028-gravity-report-audio-v1" -o /tmp/gravity-book-reader-js
+          grep -Fq "kind:'report'" /tmp/gravity-book-reader-js
+          curl -fsSL "$base/gravity-report/reader-text?slug=why-do-my-restaurant-managers-keep-making-excuses" -o /tmp/gravity-article-narration.txt
+          grep -Fq 'By Thomas Butler' /tmp/gravity-article-narration.txt
+          grep -Fq 'gravityleadershipsystem.com/gravity-report' /tmp/gravity-article-narration.txt
+          grep -Fq 'Listen in Gravity Reader' /tmp/gravity-report-article-live.html
+          grep -Fq 'id="report-reading-theme"' /tmp/gravity-report-article-live.html
+          grep -Fq 'id="report-reading-font"' /tmp/gravity-report-article-live.html
+          grep -Fq 'https://www.linkedin.com/sharing/share-offsite/' /tmp/gravity-report-article-live.html
+          grep -Fq 'https://x.com/intent/tweet' /tmp/gravity-report-article-live.html
+          grep -Fq 'https://api.whatsapp.com/send' /tmp/gravity-report-article-live.html
+          grep -Fq 'https://bsky.app/intent/compose' /tmp/gravity-report-article-live.html
+          echo 'GRAVITY_REPORT_AUDIO_AND_SOCIAL_LINKS_LIVE_PASS'
           echo 'GRAVITY_REPORT_READING_AND_SHARING_LIVE_PASS'
           curl -fsSL "$base/robots.txt" | tee /tmp/gravity-robots.txt
           ! grep -q '^Disallow: /$' /tmp/gravity-robots.txt
