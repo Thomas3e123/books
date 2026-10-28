@@ -35,6 +35,7 @@ jobs:
           node scripts/test-gravity-report-reading.mjs
           node --check site/assets/js/book-reader.js
           node scripts/test-gravity-report-listening.mjs
+          node scripts/test-gravity-report-guest-voices.mjs
           grep -Fq 'Read the full article on Gravity:' site/assets/js/gravity-report-reading.js
           grep -Fq 'https://www.facebook.com/sharer/sharer.php?u=' functions/gravity-report/index.mjs
           grep -Fq 'id="report-search"' site/gravity-report.html
@@ -55,7 +56,7 @@ jobs:
           token="${TOKEN_A:-${TOKEN_B:-${TOKEN_C:-}}}"
           if [ -z "$token" ]; then echo 'FAILED: No Netlify deployment token'; exit 1; fi
           export NETLIFY_AUTH_TOKEN="$token"
-          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC Report multi-platform sharing and Gravity Reader audio / TMB untouched" --json > /tmp/gls-production-deploy.json
+          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC curated guest contributor invitation / TMB untouched" --json > /tmp/gls-production-deploy.json
           node -e 'const d=require("/tmp/gls-production-deploy.json"); console.log(JSON.stringify({site_id:d.site_id,deploy_id:d.deploy_id,deploy_url:d.deploy_url,url:d.url},null,2));if(d.site_id!=="fa5d39a0-bef9-4ff1-9c28-57d585d741d7")process.exit(1)'
       - name: Confirm public indexing and protected asset robots headers
         run: |
@@ -113,6 +114,12 @@ jobs:
           grep -Fq 'https://x.com/intent/tweet' /tmp/gravity-report-article-live.html
           grep -Fq 'https://api.whatsapp.com/send' /tmp/gravity-report-article-live.html
           grep -Fq 'https://bsky.app/intent/compose' /tmp/gravity-report-article-live.html
+          curl -fsSL "$base/gravity-report-guests" -o /tmp/gravity-guest-voices.html
+          grep -Fq 'Guest Voices: Real Experience Worth Sharing' /tmp/gravity-guest-voices.html
+          grep -Fq 'mailto:thomas.butler@gravityleadershipsystem.com' /tmp/gravity-guest-voices.html
+          grep -Fq 'does not guarantee acceptance or publication' /tmp/gravity-guest-voices.html
+          grep -Fq 'href="/gravity-report-guests"' /tmp/gravity-report-catalog-live.html
+          echo 'GRAVITY_GUEST_VOICES_LIVE_PASS'
           echo 'GRAVITY_REPORT_AUDIO_AND_SOCIAL_LINKS_LIVE_PASS'
           echo 'GRAVITY_REPORT_READING_AND_SHARING_LIVE_PASS'
           curl -fsSL "$base/robots.txt" | tee /tmp/gravity-robots.txt
