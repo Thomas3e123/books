@@ -41,7 +41,7 @@ function shareActions(){
   function say(message){if(status)status.textContent=message}
   if(kind==='native'){
    if(typeof navigator.share!=='function')return;
-   try{await navigator.share({title:title,text:summary,url:url});say('Share sheet opened.')}catch(e){if(e.name!=='AbortError')say('Sharing unavailable. Use Copy link or Copy Facebook post instead.')}
+   try{await navigator.share({title:title,text:summary,url:url});say('Share sheet opened.')}catch(e){if(e.name!=='AbortError')say('Sharing unavailable. Use Copy link or Copy social post instead.')}
    return;
   }
   var value=kind==='post'?socialPost(title,summary,url):kind==='full'?fullArticleText(title,url):kind==='link'?url:'';
@@ -49,7 +49,7 @@ function shareActions(){
   var original=btn.textContent;btn.disabled=true;
   try{
    if(await clipboardText(value)){
-    say(kind==='post'?'Facebook post copied. Paste it into a Facebook status and edit as you like.':kind==='full'?'Article text copied with attribution and the original link.':'Article link copied.');
+    say(kind==='post'?'Social post copied. Paste into Facebook, Instagram, Threads, LinkedIn, X or another platform and edit as you like.':kind==='full'?'Article text copied with attribution and the original Gravity link.':'Gravity article link copied.');
     btn.textContent='Copied ✓';
     setTimeout(function(){btn.textContent=original},1900);
    }else{
@@ -106,11 +106,27 @@ function catalog(){
  action.setAttribute('data-report-summary',a.summary||'');
  var link=node('a',null,'Read full article →');link.href=href;action.appendChild(link);
  var tools=node('div','report-card-share');
- var copy=node('button',null,'Copy Facebook post');copy.type='button';copy.setAttribute('data-report-share','post');
- var fb=node('a',null,'Share on Facebook ↗');
- fb.href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url);
- fb.target='_blank';fb.rel='noopener noreferrer';fb.setAttribute('aria-label','Share '+a.title+' on Facebook (new tab)');
- tools.appendChild(copy);tools.appendChild(fb);action.appendChild(tools);
+ var copy=node('button',null,'Copy social post');copy.type='button';copy.setAttribute('data-report-share','post');
+ tools.appendChild(copy);
+ function shareAnchor(label,target){
+  var a=node('a',null,label);a.href=target;
+  if(target.slice(0,7)!=='mailto:'){a.target='_blank';a.rel='noopener noreferrer'}
+  a.setAttribute('aria-label','Share '+a.title+' on '+label.replace(' ↗','')+(a.target?' (opens new tab)':''));
+  tools.appendChild(a);
+ }
+ shareAnchor('Facebook ↗','https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url));
+ shareAnchor('X ↗','https://x.com/intent/tweet?text='+encodeURIComponent(a.title+' — The Gravity Report')+'&url='+encodeURIComponent(url));
+ shareAnchor('LinkedIn ↗','https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(url));
+ var more=node('details','report-card-more'),sum=node('summary',null,'More');
+ more.appendChild(sum);
+ var links=node('div','report-card-more-links');
+ function secondary(label,url){var a=node('a',null,label);a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('aria-label','Share on '+label+' (opens new tab)');links.appendChild(a)}
+ secondary('WhatsApp','https://api.whatsapp.com/send?text='+encodeURIComponent(a.title+'\n'+url));
+ secondary('Reddit','https://www.reddit.com/submit?url='+encodeURIComponent(url)+'&title='+encodeURIComponent(a.title));
+ var email=node('a',null,'Email');
+ email.href='mailto:?subject='+encodeURIComponent(a.title+' | The Gravity Report')+'&body='+encodeURIComponent('Read this article from Gravity:\n'+url);
+ links.appendChild(email);more.appendChild(links);tools.appendChild(more);
+ action.appendChild(tools);
  var status=node('span','report-share-status');status.setAttribute('role','status');status.setAttribute('aria-live','polite');action.appendChild(status);
 }
  function setCard(card,a){
