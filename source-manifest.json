@@ -350,7 +350,7 @@
     },
     {
       "path": "site/assets/css/gravity-report-reading.css",
-      "sha256": "c253bd65033e546cefd00738e8ffa0042690748624ddb07f153025ecb83a9525"
+      "sha256": "4730e20457dd897da4770587bd3478f8789c63bcefa03d2301dda26879dd6576"
     },
     {
       "path": "site/assets/css/gravity-sop-foundry.css",
@@ -1398,7 +1398,7 @@
     },
     {
       "path": "site/assets/js/gravity-report-reading.js",
-      "sha256": "13097da7663d9ea9ed6905ec320074a09e9d5ee7a9d010358f4009ea77f1e106"
+      "sha256": "b4a9079c011c0cb3fb90ff8c942ef2277046e49e530e9a5d56fc3025b579a039"
     },
     {
       "path": "site/assets/js/gravity-shift-first-schedule-tour-v1.js",
@@ -1854,7 +1854,7 @@
     },
     {
       "path": "site/book-reader.html",
-      "sha256": "0d84f64918164ee21e6ebc91a4eea4268a0d627d68a9a39bdf2016d53f19983a"
+      "sha256": "6469151538e11d24adf22c156fd1c733a7502c6a8213aaf67c72519b8d730960"
     },
     {
       "path": "site/books.html",
