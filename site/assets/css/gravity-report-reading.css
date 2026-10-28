@@ -57,6 +57,25 @@
 .report-catalog .report-card .report-share-status{display:block;margin:6px 0;font-size:.81rem}
 @media(max-width:600px){.report-share{padding:14px}.report-share-buttons button,.report-share-buttons a{flex:1 1 calc(50% - 10px)}}
 @media print{.report-share{display:none!important}.report-card-share{display:none!important}}
+/* Accessible reading palettes and fonts; applied to the content only, not site navigation. */
+.report-theme-label,.report-font-label{display:inline-flex;align-items:center;gap:7px;color:#263743;font:700 .87rem/1.3 system-ui,-apple-system,"Segoe UI",sans-serif}
+.report-theme-label select,.report-font-label select{min-height:42px;max-width:165px;background:#fffdf8;border:1px solid #b2aaa0;border-radius:8px;padding:7px;color:#19323c;font:600 .9rem system-ui,-apple-system,"Segoe UI",sans-serif}
+.report-theme-label select:focus-visible,.report-font-label select:focus-visible{outline:3px solid #bd8a33;outline-offset:3px}
+.report-listen,.report-listen-link{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:44px;padding:9px 15px;border:1px solid #2b5947;border-radius:9px;background:#245744;color:#fff!important;font:750 .94rem/1.3 system-ui,-apple-system,"Segoe UI",sans-serif;text-decoration:none!important}
+.report-listen:hover,.report-listen-link:hover{background:#1c4234}
+.report-listen:focus-visible,.report-listen-link:focus-visible{outline:3px solid #bd8a33;outline-offset:3px}
+.report-listen-link{margin-left:12px;font-size:.85rem;min-height:38px;padding:7px 11px}
+.report-content[data-reading-font="sans"] .report-body{font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;letter-spacing:0;line-height:1.8}
+.report-content[data-reading-font="sans"] .report-body h2{font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+.report-content[data-reading-theme="sepia"]{background:#f1e4cb;color:#3b2b1f;border-color:#ba9d7e}
+.report-content[data-reading-theme="sepia"] .report-body p,.report-content[data-reading-theme="sepia"] .report-body h2,.report-content[data-reading-theme="sepia"] .report-body>p:first-child{color:#37281f}
+.report-content[data-reading-theme="sepia"] .report-toc,.report-content[data-reading-theme="sepia"] .report-share{background:#e7d7bb;border-color:#bca68d;color:#38291c}
+.report-content[data-reading-theme="contrast"]{background:#fff;color:#101010;border-color:#000}
+.report-content[data-reading-theme="contrast"] .report-body p,.report-content[data-reading-theme="contrast"] .report-body h2,.report-content[data-reading-theme="contrast"] .report-body>p:first-child{color:#090909}
+.report-content[data-reading-theme="contrast"] .report-body a,.report-content[data-reading-theme="contrast"] .report-nav a{color:#053b85;text-decoration:underline;text-decoration-thickness:2px}
+.report-content[data-reading-theme="contrast"] .report-toc,.report-content[data-reading-theme="contrast"] .report-share{background:#fff;border:2px solid #000;color:#111}
+.report-content[data-reading-theme="contrast"] .report-share p{color:#111}
+@media(max-width:600px){.report-theme-label,.report-font-label{flex:1 1 100%;justify-content:space-between}.report-theme-label select,.report-font-label select{width:60%;max-width:none}.report-listen{flex:1 1 100%}.report-listen-link{display:flex;margin:11px 0 0}}
 .report-reader-controls :focus-visible,.report-toc a:focus-visible,.report-nav a:focus-visible,.report-return:focus-visible{outline:3px solid #bd8a33;outline-offset:3px}
 .report-catalog .report-top{padding:clamp(38px,6vw,68px) 0}
 .report-catalog .report-top h1{max-width:22ch}
