@@ -1,0 +1,47 @@
+name: Gravity source manifest sync - isolated no-deploy verification
+on:
+  push:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths: ['.github/workflows/gravity-source-manifest-repair-2026-10-28.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: gravity-manifest-repair-isolated
+  cancel-in-progress: false
+jobs:
+  source-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Rebuild manifest from exact repository source and verify all hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm ci
+          npm run manifest
+          npm run build
+          echo 'SOURCE_MANIFEST_REGEN_AND_VERIFY_OK'
+          git diff --stat -- source-manifest.json || true
+      - name: Commit only corrected manifest to the Gravity feature branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = 'feature/gravity-migration-phase1-2026-10-22'
+          if git diff --quiet -- source-manifest.json; then
+            echo 'SOURCE_MANIFEST_ALREADY_CURRENT'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- source-manifest.json
+          test "$(git diff --cached --name-only)" = 'source-manifest.json'
+          git commit -m 'chore(gravity): synchronize reviewed source hashes with current branch'
+          git push origin "HEAD:refs/heads/$GITHUB_REF_NAME"
+          echo 'SOURCE_MANIFEST_COMMITTED_ONLY; NO DEPLOY; TMB UNTOUCHED'
