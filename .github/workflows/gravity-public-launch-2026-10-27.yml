@@ -28,7 +28,10 @@ jobs:
           npm run manifest
           npm run build
           node scripts/prepare-gravity-public-launch.cjs
+          node scripts/update-gravity-footer.cjs
           node scripts/test-gravity-report.mjs
+          grep -Fq 'Publisher and Editor of The Gravity Report' site/index.html
+          grep -Fq 'Publisher and Editor of The Gravity Report' site/gravity-report.html
           grep -q 'gravityleadershipsystem.com' site/index.html
           ! grep -q '^Disallow: /$' site/robots.txt
           # The packaging script enforces absence of the root-wide noindex rule.
@@ -40,7 +43,7 @@ jobs:
           token="${TOKEN_A:-${TOKEN_B:-${TOKEN_C:-}}}"
           if [ -z "$token" ]; then echo 'FAILED: No Netlify deployment token'; exit 1; fi
           export NETLIFY_AUTH_TOKEN="$token"
-          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC SEO, new-home transition / migration branch only / TMB untouched" --json > /tmp/gls-production-deploy.json
+          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC footer editorial credit / preserved SEO / TMB untouched" --json > /tmp/gls-production-deploy.json
           node -e 'const d=require("/tmp/gls-production-deploy.json"); console.log(JSON.stringify({site_id:d.site_id,deploy_id:d.deploy_id,deploy_url:d.deploy_url,url:d.url},null,2));if(d.site_id!=="fa5d39a0-bef9-4ff1-9c28-57d585d741d7")process.exit(1)'
       - name: Confirm public indexing and protected asset robots headers
         run: |
@@ -51,7 +54,10 @@ jobs:
             curl -fsSL --retry 4 --retry-delay 3 --max-time 25 -D "$hdr" "$base$p" -o "$html"
             if grep -iq '^x-robots-tag:.*noindex' "$hdr";then echo "FAILED public header: $p"; exit 1;fi
             if grep -iqE '<meta[^>]+content=["\x27]noindex' "$html";then echo "FAILED public meta: $p";exit 1;fi
-            echo "PUBLIC INDEX OK $p"
+            if [[ "$p" == "/" || "$p" == "/about" || "$p" == "/gravity-report" ]]; then
+              grep -Fq 'Publisher and Editor of The Gravity Report' "$html" || { echo "Missing editorial footer on $p"; exit 1; }
+            fi
+            echo "PUBLIC INDEX AND FOOTER OK $p"
             rm -f "$hdr" "$html"
           done
           curl -fsSL "$base/robots.txt" | tee /tmp/gravity-robots.txt
