@@ -69,6 +69,32 @@ Avoid duplicating published article subjects word-for-word. These titles may be 
 
 The intended effect is not fear, mystique or clickbait. It is recognition followed by relief, clearer reasoning and a next step grounded in evidence. Example: **“You're accountable for the result, but nobody gave you authority over the decision.”** That opening can lead directly to a usable owner/GM decision-rights checklist.
 
+## Gravity Field Sheets — we took the notes for you
+
+**Reader promise:** “Read the article. We've taken the notes. Take the Field Sheet to your next shift.”
+
+The reader should be able to absorb the article without pausing to write everything down. The companion **Gravity Field Sheet** carries the article's essential takeaways, a usable procedure, what to look for, and how to verify a result. It is a **prepared aid**, not a blank worksheet disguised as a download.
+
+**Every eligible practical article and Field Note should have a one-page Field Sheet** (two pages only when needed to maintain legibility). Make it free, directly printable, phone-readable, and available in the article beside “Listen in Gravity Reader.” Do not require registration for educational Field Sheets. Ship sheets only when genuinely useful; recognition/reflective essays may offer a one-page Reflection Sheet instead. No false implication that the library is complete before each sheet is created and reviewed.
+
+Required content, **pre-filled by Gravity**:
+1. **THE PROBLEM, NAMED** — one sentence recognizing what the manager is experiencing.
+2. **THE THREE THINGS TO REMEMBER** — distilled article findings, not filler or an article recap.
+3. **WHAT TO NOTICE** — observable signals; distinguish facts from possible explanations.
+4. **TRY THIS NEXT SHIFT** — brief, numbered, safe, realistic actions that need no program purchase.
+5. **WHAT TO RECORD** — tiny structured observations such as time, station, count, status; only this section needs blank spaces.
+6. **HOW TO KNOW IF IT HELPED** — a simple before/after or verification check, including a “not enough evidence” result.
+7. **RETURN TO THE ARTICLE** — article title, author credit, canonical Gravity URL and optional scan-to-read/listen QR.
+8. **Safety and boundaries** — preserve privacy, applicable laws, employee dignity, and manager judgment.
+
+**Design standards:** 10.5–12pt print body type, 1.35+ print line spacing when space allows, high-contrast off-white/white, sans-serif headings, readable serif or sans body, no ink-heavy decorative backgrounds, generous margins, monochrome-print legibility, WCAG-conscious contrast, no clipped footer/QR, editable source retained. Confirm letter-size printing and mobile display. Mark revision/date and article ID so sheets can be corrected without confusion.
+
+**Editorial gate:** A reviewer must be able to reconstruct the intended exercise from the Field Sheet alone and verify it matches the published article. Use article-scope links; never link to unreleased material. Distinguish sample or hypothetical numbers from real evidence. Review and correct the sheet when its article is updated.
+
+**Example — The Schedule That Lies by Addition:** The sheet arrives with a station-by-15-minute grid, explanation of a coverage gap, three prompts to check break overlap and skill coverage, and a simple recheck. The manager fills in only their real shift information. **The article gives understanding; the Field Sheet preserves the useful details so the manager does not have to.**
+
+**Suggested on-page button:** “Get the Field Sheet — we took the notes for you.”
+
 ## What makes Gravity's articles different
 
 Each original piece needs:
