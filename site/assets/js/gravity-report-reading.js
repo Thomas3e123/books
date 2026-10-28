@@ -109,10 +109,10 @@ function catalog(){
  var copy=node('button',null,'Copy social post');copy.type='button';copy.setAttribute('data-report-share','post');
  tools.appendChild(copy);
  function shareAnchor(label,target){
-  var a=node('a',null,label);a.href=target;
-  if(target.slice(0,7)!=='mailto:'){a.target='_blank';a.rel='noopener noreferrer'}
-  a.setAttribute('aria-label','Share '+a.title+' on '+label.replace(' ↗','')+(a.target?' (opens new tab)':''));
-  tools.appendChild(a);
+  var buttonLink=node('a',null,label);buttonLink.href=target;
+  if(target.slice(0,7)!=='mailto:'){buttonLink.target='_blank';buttonLink.rel='noopener noreferrer'}
+  buttonLink.setAttribute('aria-label','Share '+a.title+' on '+label.replace(' ↗','')+(buttonLink.target?' (opens new tab)':''));
+  tools.appendChild(buttonLink);
  }
  shareAnchor('Facebook ↗','https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url));
  shareAnchor('X ↗','https://x.com/intent/tweet?text='+encodeURIComponent(a.title+' — The Gravity Report')+'&url='+encodeURIComponent(url));
