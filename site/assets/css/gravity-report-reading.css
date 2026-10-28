@@ -29,6 +29,25 @@
 .report-reading-progress{position:fixed;top:0;left:0;height:4px;width:0;background:#8b2e40;z-index:10000;pointer-events:none}
 .report-reader-footer{max-width:68ch;margin:20px auto 0;font:.92rem/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--gr-muted)}
 .report-reader-footer a{color:#76283e}
+
+/* Article social sharing: plain text is copied, and every resulting link returns to Gravity. */
+.report-share{max-width:68ch;margin:0 auto 20px;padding:18px 20px;border:1px solid #d7cec0;border-radius:12px;background:#f7f3eb;color:#243b45;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.report-share h2{font:750 1.14rem/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;color:#173340;margin:0 0 7px}
+.report-share p{font:.92rem/1.52 system-ui,-apple-system,"Segoe UI",sans-serif;color:#48545a;margin:0 0 13px}
+.report-share-buttons{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.report-share-buttons button,.report-share-buttons a{display:inline-flex;justify-content:center;align-items:center;text-decoration:none;border:1px solid #803343;background:#803343;color:#fff;padding:10px 12px;font:700 .88rem/1.25 system-ui,-apple-system,"Segoe UI",sans-serif;border-radius:8px;min-height:44px;cursor:pointer}
+.report-share-buttons a{background:#fff;color:#723145}
+.report-share-buttons button:hover,.report-share-buttons a:hover{filter:brightness(.94)}
+.report-share-buttons button:focus-visible,.report-share-buttons a:focus-visible,.report-card-share button:focus-visible,.report-card-share a:focus-visible{outline:3px solid #bd8a33;outline-offset:3px}
+.report-share-buttons button:disabled{opacity:.72;cursor:default}
+.report-share-status{font:.88rem/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;color:#295345;margin-top:9px}
+.report-share-status:empty{display:none}
+.report-card-share{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}
+.report-card-share button{appearance:none;border:1px solid #8d4955;border-radius:7px;background:#fffdf8;color:#672b3b;padding:7px 10px;min-height:39px;font:750 .85rem/1.25 system-ui,-apple-system,"Segoe UI",sans-serif;cursor:pointer}
+.report-card-share a{font:.85rem/1.35 system-ui,-apple-system,"Segoe UI",sans-serif}
+.report-catalog .report-card .report-share-status{display:block;margin:6px 0;font-size:.81rem}
+@media(max-width:600px){.report-share{padding:14px}.report-share-buttons button,.report-share-buttons a{flex:1 1 calc(50% - 10px)}}
+@media print{.report-share{display:none!important}.report-card-share{display:none!important}}
 .report-reader-controls :focus-visible,.report-toc a:focus-visible,.report-nav a:focus-visible,.report-return:focus-visible{outline:3px solid #bd8a33;outline-offset:3px}
 .report-catalog .report-top{padding:clamp(38px,6vw,68px) 0}
 .report-catalog .report-top h1{max-width:22ch}
