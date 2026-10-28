@@ -57,7 +57,7 @@ for(const rel of ['index.html','about.html','start-here.html','gravity-report.ht
  assert(!/<meta\b[^>]*\bcontent\s*=\s*["']noindex/i.test(html),rel+' remains noindex');
  assert(!html.includes(old),rel+' retains staging host');
 }
-assert(home.includes('Restaurant Leadership, Systems &amp; Operations'),'Homepage top banner not updated');
+assert(fs.readFileSync(path.join(site,'index.html'),'utf8').includes('Restaurant Leadership, Systems &amp; Operations'),'Homepage top banner not updated');
 const announcement=fs.readFileSync(path.join(root,'functions/gravity-report/index.mjs'),'utf8');
 assert(announcement.includes('gravity-has-a-new-home'),'Gravity Report transition article is missing');
 console.log(JSON.stringify({mode:'GRAVITY PUBLIC ONLY',publicPages,privatePages,removedStagingNoindexTags:removed,canonical},null,2));
