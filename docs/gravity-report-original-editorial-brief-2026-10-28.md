@@ -95,6 +95,55 @@ Required content, **pre-filled by Gravity**:
 
 **Suggested on-page button:** “Get the Field Sheet — we took the notes for you.”
 
+## Who Gravity Report is for: employees, supervisors, managers and owners
+
+**Editorial correction (October 28, 2026): Gravity Report is not a management-only publication.** Restaurant employees are not merely examples within an owner's story. Cooks, servers, hosts, dishwashers, bussers, bartenders, prep workers, shift leaders and other hourly team members deserve useful articles addressed **directly to them**. The Report should explain what it feels like on both sides of an operational problem, without making either side a villain.
+
+**Coverage commitment:** Across each editorial batch, deliberately include employee-first topics alongside owner/manager-focused work. At least one of the three weekly articles should be relevant and directly useful to employees; more can be when warranted. Do not force a generic quota into an already fixed 30-article schedule without reviewing its content; establish this standard for new additions and give existing management articles a helpful employee lens where substantive revisions are approved. The Wednesday Field Note can alternate employee, manager and shared-experience perspectives. Guest Voices must include frontline experience and worker expertise, not just owners with follower counts.
+
+### Flagship recognition topic: “When Five Years of Loyalty Pays the Same as Day One”
+
+**The lived experience:** An employee has worked faithfully for years and discovers that an incoming employee in a comparable position starts at the same or a higher rate. The employee may stop volunteering, become less engaged, seek new employment, or leave. Do **not** assert that everyone responds this way or label it “quiet quitting” automatically; disengagement, job search and resignation are distinct outcomes. Do not portray the new employee as at fault.
+
+**Existing compensation terms:** *Pay/wage compression* describes the small pay gap between newer and more experienced workers. *Pay inversion* describes a newer worker making more than a similarly situated, more experienced one. Neither term alone proves unlawful discrimination or that pay must always increase with tenure. Compare actual responsibilities, experience, performance, shift premiums, qualifications, market conditions and applicable law before concluding that a specific difference is unjustified.
+
+**Recognition headline options:**
+- “You Trained the New Hire. Then You Learned They Make More.”
+- “When Five Years of Loyalty Pays the Same as Day One.”
+- “The Employee Who Didn't Quit First—They Stopped Believing It Would Get Better.”
+- “When a Restaurant Pays to Recruit but Forgets to Retain.”
+
+**Do not invent a real person's experience, wages, protected information, or a causal claim about a particular restaurant.** The first article may use a **clearly labeled hypothetical scenario** and link to credible pay-compression research; publish real stories only with documented permission. Separate what the employee knows, what they infer, and what they need to verify.
+
+**Employee-first article structure:** First name the unfairness they may be feeling without assuming intent. Explain compression/inversion in ordinary language. Offer a safe, respectful method: document one's own tenure, role, training and responsibilities; request a pay review based on contributions and the role's current range; ask for review criteria and a decision date; consider other lawful options if the employer declines. Explain that covered U.S. private-sector employees generally have legal protection to discuss wages with coworkers, subject to coverage and exceptions; never advise secretly accessing a coworker's private payroll records. Make clear that no one is obligated to share their wages.
+
+**Owner/manager-first article structure:** Explain why recruiting rates might move faster than internal raises. Require a structured and confidential internal equity review whenever starting rates rise: compare like-for-like roles and responsibilities, ask whether current experienced staff also need adjustment, document consistent criteria, set review dates, hear concerns without retaliation, and provide transparent explanations where possible. Do not assume market pressure excuses an inequity; do not assume every difference is wrong. Consult qualified HR/payroll/legal support for discrimination risks and local rules.
+
+### Two pre-filled Field Sheets for the same issue
+
+**Employee Field Sheet: “Preparing for a Fair Pay Conversation”** — ready-written plain-language explanation of compression, three things to remember, prompts to document one's OWN qualifications and contributions, optional questions for a supervisor (“How is my rate assessed?”; “When can we review it?”), request/follow-up checklist, and realistic next steps. Only a few blanks for personal notes; no request for coworkers' confidential records, no requirement to identify or report colleagues.
+
+**Manager/Owner Field Sheet: “New Hire Pay vs. Existing Team Review”** — ready-written compensation-equity review checklist, comparison dimensions (same role, skill, responsibility, experience, shift differential, current hiring rate), confidential review notes, fairness checks, options for an adjustment plan, communication and follow-up dates. Do not expose individual employee compensation to other employees or to public tools.
+
+**Shared conclusion:** Real loyalty should not automatically be assumed to justify any particular salary, but the person who has helped train the team deserves to have their work fairly evaluated against the current job market and consistent standards. A hiring offer is not only a recruiting decision; it can reveal a retention problem already present.
+
+### Other employee-first recognition topics
+
+- “The Employee Who Is Always Asked to Cover Everyone Else's Mistakes.”
+- “The New Hire Got Training. The Veteran Just Got More Responsibilities.”
+- “When Your Schedule Changes but Your Childcare Cannot.”
+- “The Quiet Cost of Being the Person Who Always Says Yes.”
+- “You Reported the Broken Equipment. Now You're the One Being Blamed.”
+- “When Working Harder Becomes the Only Reward for Working Well.”
+- “The Shift Where Nobody Wants to Ask a Question.”
+- “You Don't Hate Your Job. You're Tired of Not Knowing the Rules.”
+- “What Fair Recognition Looks Like When a Restaurant Can't Raise Every Wage Immediately.”
+- “The Employee Who Never Complained—Until the Exit Interview.”
+
+**People and privacy protection:** Employees deserve meaningful value without creating an account, being recorded as a monitoring subject, or submitting identifiable workplace grievances to Gravity. Anonymous reader questions require human moderation, no identifying details, and explicit informed consent before publication. No employment retaliation, pay-discussion suppression, or promises that a conversation will guarantee a raise.
+
+**Research and factual review:** SHRM (pay compression and new-hire rates): https://www.shrm.org/mena/topics-tools/news/benefits-compensation/to-new-workers-earn-current-staff ; ADP (salary compression): https://www.adp.com/resources/articles-and-insights/articles/s/salary-compression.aspx ; University of Texas at Dallas (compression vs. inversion): https://hr.utdallas.edu/employees/employment-and-compensation/staff-compensation-and-classification/compensation-standards-and-practices/ ; NLRB employee pay-discussion guidance (coverage varies): https://www.nlrb.gov/about-nlrb/rights-we-protect/your-rights/your-rights-to-discuss-wages . Recheck authority and local rules before a public legal claim.
+
 ## What makes Gravity's articles different
 
 Each original piece needs:
