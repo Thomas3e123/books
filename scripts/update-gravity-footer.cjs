@@ -7,7 +7,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const site = path.resolve(__dirname, '..', 'site');
-const desired = '© 2026 Thomas Monroe Books. Publisher of The Gravity System and publisher and editor of The Gravity Report. All rights reserved.';
+const desired = '© 2026 Thomas Monroe Books. Publisher of The Gravity System. Publisher and Editor of The Gravity Report. All rights reserved.';
 const oldFooter = /(?:©|&copy;|&#169;|&#x[aA]9;)\s*2026\s+Thomas Monroe Books\.\s*(?:Publisher of The Gravity System\.\s*)?All\s+rights reserved\./g;
 let scanned = 0, filesChanged = 0, creditsUpdated = 0;
 function walk(dir) {
