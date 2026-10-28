@@ -68,6 +68,7 @@ function shareControls(a,position){
  <a href="https://api.whatsapp.com/send?text=${message}" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
  <a href="mailto:?subject=${emailSubject}&amp;body=${emailBody}">Email ↗</a>
  <a href="https://www.reddit.com/submit?url=${encodedLink}&amp;title=${encodedTitle}" target="_blank" rel="noopener noreferrer">Reddit ↗</a>
+ <a href="https://bsky.app/intent/compose?text=${message}" target="_blank" rel="noopener noreferrer">Bluesky ↗</a>
  <button type="button" data-report-share="native" hidden>Share with an app…</button>
  </div></details>
  </div><p class="report-share-status" role="status" aria-live="polite"></p>
