@@ -350,7 +350,7 @@
     },
     {
       "path": "site/assets/css/gravity-report-reading.css",
-      "sha256": "6bfac1ad22a9ea4f47098771d3affcf9680c7442444316db6fd975526ac2a932"
+      "sha256": "c253bd65033e546cefd00738e8ffa0042690748624ddb07f153025ecb83a9525"
     },
     {
       "path": "site/assets/css/gravity-sop-foundry.css",
@@ -1398,7 +1398,7 @@
     },
     {
       "path": "site/assets/js/gravity-report-reading.js",
-      "sha256": "77378a73cfad838fca55d1f540e87f20ea3c6e1bcf158c4daa05a1ba5dfb197e"
+      "sha256": "ae154616a5bf5790f5dbbab098a287e5f29195d0e0a05a6b021f9b0ace816996"
     },
     {
       "path": "site/assets/js/gravity-shift-first-schedule-tour-v1.js",
@@ -2386,7 +2386,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "e78467a30adc32c5bc646da7bd3efbf3fb39dfda00267a6273dbdc25fa66d469"
+      "sha256": "b7ddcc3ca3e0e3ea6acc154a091e1996ff37546fb674a9c11e74fd289cd60ca3"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",
