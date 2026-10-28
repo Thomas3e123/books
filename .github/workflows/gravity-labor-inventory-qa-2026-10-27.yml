@@ -101,6 +101,20 @@ jobs:
           assert.equal(I.movementOutflowValue({type:'damage',qty:2,unitCost:-5}),null);
           console.log('GRAVITY_CHARTER_MATH_BOUNDARIES PASS — explicit assumptions, no invented theft or burden');
           NODE
+      - name: Confirm customer feedback and real-world retest entry points
+        run: |
+          node - <<'NODE'
+          const assert=require('node:assert/strict'),fs=require('node:fs');
+          const html=fs.readFileSync('site/testing-room.html','utf8');
+          for(const s of ['id="join-btn"','id="msg-body"','data-kind="problem"','data-kind="confusing"','data-kind="idea"','data-kind="worked"','/gravity-shift-lab','/gravity-inventory-center']) {
+            assert(html.includes(s),'Customer feedback/testing entry missing: '+s);
+          }
+          const policy=fs.readFileSync('docs/gravity-charter-release-review.md','utf8');
+          assert(policy.includes('Customer-assisted improvement'),'Missing customer feedback release policy');
+          const audit=fs.readFileSync('docs/gravity-charter-audit-shift-inventory-2026-10-28.md','utf8');
+          assert(audit.includes('Customer-assisted acceptance'),'Missing real-world acceptance scenarios');
+          console.log('GRAVITY_CUSTOMER_FEEDBACK_ENTRYPOINT PASS — checks source availability, not genuine customer acceptance');
+          NODE
       - name: Verify separate PUBLIC packaging without deploying or touching TMB
         run: |
           set -euo pipefail
