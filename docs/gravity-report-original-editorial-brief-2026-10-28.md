@@ -32,6 +32,43 @@ Trial for four weeks and evaluate actual usefulness: reading completion, meaning
 
 **Reader promise:** 'We will publish freely, but we will not fill your inbox.'
 
+## The Quiet Gravity recognition principle — name what managers already feel
+
+A distinctive editorial purpose is to **put an accurate name to a situation a working restaurant manager has experienced but never quite been able to describe**. Readers should sometimes think: *“I've lived through that. I didn't know there was a name for it.”* This recognizes the experience before offering a method.
+
+**Do not pass newly coined names off as established clinical, scientific, or industry terminology.** We can create memorable Gravity descriptions and state plainly that they are editorial shorthand, while distinguishing existing researched terms where appropriate. Never infer an employee's motives, invent a manager's testimony, or claim universal patterns.
+
+Each recognition-led article should use this structure:
+1. **The familiar moment:** a specific, believable shift situation without inventing a real person's story.
+2. **A useful name:** short, clear, memorable, and accurately explained.
+3. **The hidden mechanism:** two or three plausible factors, clearly separated from verified causes.
+4. **Why ordinary fixes miss it:** what managers tend to measure versus what the problem actually requires.
+5. **A real-world signal:** what evidence could confirm or contradict the diagnosis.
+6. **An action the manager can try without buying a tool:** a modest exercise and a fair way to involve employees.
+7. **The verification:** how to know whether the intervention changed what mattered.
+8. **A humane closing:** the reader understands the problem better, without being blamed for having it.
+
+### Recognition-led article concepts (editorial names, not established diagnoses)
+
+| Recognition name | The familiar experience | What an article should investigate |
+|---|---|---|
+| **The Manager's Invisible Second Shift** | A manager goes home but mentally keeps solving unfinished handoffs. | Unclosed decisions, weak shift transitions, unclear ownership; build a real close-out boundary. |
+| **Responsibility Without Authority** | A GM is accountable for results but cannot approve the decisions needed to improve them. | Decision rights, escalation times, owner/GM agreements. |
+| **The Reliable Employee Trap** | The strongest worker is asked to rescue every weak station, then becomes exhausted or resentful. | Skill coverage, staffing design, cross-training rather than punishment. |
+| **The Standard That Changes With the Manager** | Employees follow one shift leader's expectations and get corrected by the next. | Conflicting instructions, revision control and manager alignment. |
+| **The Quiet Handoff Failure** | Everything appears complete at close, but the opening team discovers unfinished work. | Observable definitions of done, verified handoffs, ownership. |
+| **The Busy-but-Behind Shift** | Everyone looks active while orders, dishes or prep continue falling behind. | Throughput, queue arrivals, task priority, bottlenecks. |
+| **The Problem Nobody Reports Twice** | An employee raised an issue once, nothing happened, and no one raises it again. | Feedback-loop closure, non-retaliation, response visibility. |
+| **The Schedule That Lies by Addition** | There are enough scheduled hours but no qualified station coverage during the rush. | Capabilities by time block, break overlap, qualification. |
+| **The Manager Who Fixes Everything** | The operation runs only while one manager is personally present. | Missing systems, training, delegated authority and repeatable standards. |
+| **The Apology That Replaces a Fix** | The same guest complaint gets sincerely apologized for each week. | Root cause, corrective action verification, repeat incident patterns. |
+| **The Training That Vanishes Under Pressure** | Staff demonstrate a procedure correctly in training but revert during a rush. | Workstation design, reinforcement, workload, procedure usability. |
+| **The Numbers That Don't Match the Floor** | Dashboard results look excellent while the actual shift feels unstable. | Measurement boundaries, data quality, hidden workload, wrong denominators. |
+
+Avoid duplicating published article subjects word-for-word. These titles may be used as a distinctive opening, a companion essay, or a future edition after checking the original 30-article series. The psychological recognition moment is the **hook**, but the practical investigation is the **value**.
+
+The intended effect is not fear, mystique or clickbait. It is recognition followed by relief, clearer reasoning and a next step grounded in evidence. Example: **“You're accountable for the result, but nobody gave you authority over the decision.”** That opening can lead directly to a usable owner/GM decision-rights checklist.
+
 ## What makes Gravity's articles different
 
 Each original piece needs:
