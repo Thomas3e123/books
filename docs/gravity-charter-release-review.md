@@ -4,7 +4,7 @@
 **Scope:** Gravity products, software releases, AI capabilities, SOP and training changes, data collection, public claims, official Gravity publications, and material partnerships. Thomas Monroe Books' independent publishing business should use its own publishing standards; official Gravity-branded material remains subject to this review.
 
 ## Why this exists
-A successful build or deployment is not evidence that a feature is appropriate, safe, accurate, understandable, or useful. The charter applies to real release decisions, not merely positioning.
+A successful build or deployment is not evidence that a feature is appropriate, safe, accurate, understandable, or useful. The charter applies to real release decisions, not merely positioning. A release cannot be expected to be perfect at first contact with real restaurants. **Customer participation is an essential part of completing and sustaining Gravity's improvements.** Responsible release means the product is safe and sufficiently reliable for its stated stage, its limitations are clearly described, and a functioning path exists to hear, investigate, correct, retest, and learn from customers.
 
 ## When a review is required
 Perform a documented review before:
@@ -25,6 +25,10 @@ Routine copy fixes and defect corrections may receive expedited review unless th
 **Reviewer (person):**  
 **Related evidence, tests, reports, or demos:**  
 **Prior version / backup / rollback plan:**  
+**Release stage (internal / invited beta / public beta / general release):**  
+**Known limitations, risks, and customer-facing disclosures:**  
+**Customer testing and feedback channel:**  
+**Support and correction owner:**  
 
 | Charter gate | Required review and evidence | Result (Pass / Needs work / Not applicable) |
 |---|---|---|
@@ -38,6 +42,27 @@ Routine copy fixes and defect corrections may receive expedited review unless th
 | 8. Boundaries | Does it conflict with what Gravity explicitly rejects? | |
 | 9. Alternatives | Is a simpler or safer path available? | |
 | 10. Decision | Approve, revise, defer, or reject, with reason and accountable sign-off. | |
+| 11. Customer evidence | Which real customers or restaurant users tested realistic tasks; what did they find and what remains unresolved? | |
+| 12. Learning loop | Can customers easily report problems and suggestions, and can we acknowledge, classify, act, and follow up? | |
+
+## Customer-assisted improvement — a required part of Gravity
+
+**The customer is not an obstacle to a perfect release; the customer is a partner in making Gravity better.** We cannot fully learn how tools perform in the variety of real restaurants without actual owners, managers, and employees using them and telling us where they fail or confuse people.
+
+The standard is **responsible readiness, not an unrealistic guarantee of perfection**:
+
+- **Internal test:** Complete fundamental functional, calculations, data-integrity, and privacy checks before any external trial.
+- **Invited/public beta:** May contain clearly documented noncritical defects and incomplete refinements. Tell customers what is being tested, what may be unreliable, how their data is handled, and how to send feedback. Never mislabel a beta as fully validated.
+- **General release:** Require demonstrated reliability of key workflows, clear instructions, appropriate privacy/security protections, a correction/rollback path, and recorded customer testing for the product's core tasks. Minor imperfections can remain if disclosed or tracked and do not defeat its purpose.
+- **Do not release:** Known data-loss, unsafe calculations or recommendations, serious access-control/privacy failures, legally dangerous instructions, or defects that defeat the tool's primary purpose. Customer testing must not be used as a substitute for basic safety and integrity work.
+
+**Customer feedback cycle:** INVITE → OBSERVE → RECORD → TRIAGE → INVESTIGATE → CORRECT → RETEST WITH CUSTOMER → VERIFY → DOCUMENT → IMPROVE.
+
+Use Gravity's existing **Testing Room** (`/testing-room`) for opt-in feedback where it is available, and offer a contact route if the Testing Room itself fails. The review owner must check the manager-side inbox, acknowledge useful reports, classify severity and reproducibility, assign ownership, protect personal information, and record follow-up. Avoid soliciting confidential employee/payroll data or customer personal data in public reports. Do not claim customers' tests passed unless they actually occurred.
+
+**Customer review measures** may include successful completion of key workflows, confusing steps, repeated defects, fix verification, accessibility issues, and whether the change made day-to-day work easier. Do not treat popularity, praise, or raw message counts as proof of product quality. Customers should be free to report criticism without pressure.
+
+**Accountability:** Gravity remains responsible for verifying and repairing its products. A customer does not assume responsibility for the correctness, security, or safety of a beta merely by providing feedback.
 
 ### Mandatory special checks
 - **Labor / inventory:** No unannounced default burden assumption; distinguish inventory variance from theft; protect the manager's control over decisions.
@@ -53,9 +78,14 @@ Routine copy fixes and defect corrections may receive expedited review unless th
 **Accountable reviewer and approval date:**  
 **Evidence of verification after release:**  
 **Follow-up owner / due date:**  
+**Customer feedback reviewed (date, channel, findings):**  
+**Open customer-reported issues and severity:**  
+**Customer retest and disposition:**  
 
 ## Non-negotiables
 - A checklist is not proof: attach actual test evidence and articulate remaining uncertainty.
+- A product need not be flawless to be useful, but its release stage and known limitations must be honest, with an operational feedback and correction path.
+- Customers' real-world reviews are integral to improving Gravity, but cannot waive hard safety, privacy, financial integrity, or data-preservation requirements.
 - Failing a charter gate is not cured by a green build, popularity, or potential revenue.
 - Specialized security, legal, employment, or financial review remains separately necessary where applicable.
 - A Charter Review does **not** amend the charter. Charter changes require the separate founder/successor approval and change record specified in Section XIV.
