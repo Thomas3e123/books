@@ -5,6 +5,60 @@
 function $(s,root){return (root||document).querySelector(s)}
 function all(s,root){return Array.from((root||document).querySelectorAll(s))}
 function node(tag,cls,txt){var el=document.createElement(tag);if(cls)el.className=cls;if(txt!=null)el.textContent=txt;return el}
+function socialPost(title,summary,url){
+ var plain=String(summary||'').replace(/\s+/g,' ').trim();
+ if(plain.length>360){plain=plain.slice(0,356);plain=plain.slice(0,Math.max(240,plain.lastIndexOf(' ')))+'…'}
+ return 'A restaurant management question worth examining:\n\n'+title+'\n\n'+plain+'\n\nRead the full article in The Gravity Report:\n'+url+'\n\nBy Thomas Butler · Published by Thomas Monroe Books';
+}
+function fullArticleText(title,url){
+ var body=$('.report-content .report-body');if(!body)return '';
+ var date=$('.report-byline time');
+ var parts=[title,'By Thomas Butler · Published and edited by Thomas Monroe Books'+(date?' · '+date.textContent:''),''];
+ all('h2,p,li,blockquote',body).forEach(function(el){var t=el.textContent.trim();if(t)parts.push(t,'')});
+ parts.push('Original article: '+url,'The Gravity Report | gravityleadershipsystem.com');
+ return parts.join('\n').trim();
+}
+async function clipboardText(txt){
+ if(navigator.clipboard&&navigator.clipboard.writeText){
+  try{await navigator.clipboard.writeText(txt);return true}catch(_){}
+ }
+ var t=document.createElement('textarea');
+ t.value=txt;t.setAttribute('readonly','');t.style.position='fixed';t.style.top='-3000px';t.style.left='-3000px';
+ document.body.appendChild(t);t.focus();t.select();
+ var ok=false;try{ok=document.execCommand('copy')}catch(_){}
+ t.remove();return ok;
+}
+function shareActions(){
+ if(typeof navigator.share==='function')all('[data-report-share="native"]').forEach(function(el){el.hidden=false});
+ document.addEventListener('click',async function(event){
+  var btn=event.target.closest('[data-report-share]');if(!btn)return;
+  var root=btn.closest('[data-report-url]');if(!root)return;
+  var kind=btn.getAttribute('data-report-share');
+  var title=root.getAttribute('data-report-title')||'The Gravity Report';
+  var summary=root.getAttribute('data-report-summary')||'';
+  var url=root.getAttribute('data-report-url')||location.href;
+  var status=$('.report-share-status',root);
+  function say(message){if(status)status.textContent=message}
+  if(kind==='native'){
+   if(typeof navigator.share!=='function')return;
+   try{await navigator.share({title:title,text:summary,url:url});say('Share sheet opened.')}catch(e){if(e.name!=='AbortError')say('Sharing unavailable. Use Copy link or Copy Facebook post instead.')}
+   return;
+  }
+  var value=kind==='post'?socialPost(title,summary,url):kind==='full'?fullArticleText(title,url):kind==='link'?url:'';
+  if(!value)return;
+  var original=btn.textContent;btn.disabled=true;
+  try{
+   if(await clipboardText(value)){
+    say(kind==='post'?'Facebook post copied. Paste it into a Facebook status and edit as you like.':kind==='full'?'Article text copied with attribution and the original link.':'Article link copied.');
+    btn.textContent='Copied ✓';
+    setTimeout(function(){btn.textContent=original},1900);
+   }else{
+    window.prompt('Select and copy this text:',value);
+    say('Automatic copying is unavailable. Select and copy the text in the dialog.');
+   }
+  }finally{btn.disabled=false}
+ });
+}
 function article(){
  var body=$('.report-content .report-body'),content=$('.report-content');if(!body||!content)return;
  var controls=$('.report-reader-controls'),size=19,base=window.matchMedia('(max-width:600px)').matches?18:19;
@@ -44,7 +98,21 @@ function catalog(){
  var liveHeading=$('.report-available-heading'),future=$('.report-upcoming-group'),futureList=$('[data-report-upcoming]');
  var futureSummary=$('.report-upcoming-count'),empty=$('.report-search-empty');
  if(!future||!futureList)return;
- function addLink(card,a){var action=$('[data-report-action]',card);if(!action)return;action.textContent='';var link=node('a',null,'Read full article →');link.href='/gravity-report/'+encodeURIComponent(a.slug);action.appendChild(link)}
+ function addLink(card,a){
+ var action=$('[data-report-action]',card);if(!action)return;action.textContent='';
+ var href='/gravity-report/'+encodeURIComponent(a.slug),url=location.origin+href;
+ action.setAttribute('data-report-url',url);
+ action.setAttribute('data-report-title',a.title);
+ action.setAttribute('data-report-summary',a.summary||'');
+ var link=node('a',null,'Read full article →');link.href=href;action.appendChild(link);
+ var tools=node('div','report-card-share');
+ var copy=node('button',null,'Copy Facebook post');copy.type='button';copy.setAttribute('data-report-share','post');
+ var fb=node('a',null,'Share on Facebook ↗');
+ fb.href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url);
+ fb.target='_blank';fb.rel='noopener noreferrer';fb.setAttribute('aria-label','Share '+a.title+' on Facebook (new tab)');
+ tools.appendChild(copy);tools.appendChild(fb);action.appendChild(tools);
+ var status=node('span','report-share-status');status.setAttribute('role','status');status.setAttribute('aria-live','polite');action.appendChild(status);
+}
  function setCard(card,a){
   var state=$('[data-report-state]',card);
   if(a.released){if(state)state.textContent='Published '+a.release_date;addLink(card,a);host.appendChild(card)}
@@ -82,5 +150,5 @@ function catalog(){
  if(input)input.addEventListener('input',filter);
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
-function start(){article();catalog()}
+function start(){shareActions();article();catalog()}
 })();
