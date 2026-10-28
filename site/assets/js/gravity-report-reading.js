@@ -8,7 +8,7 @@ function node(tag,cls,txt){var el=document.createElement(tag);if(cls)el.classNam
 function socialPost(title,summary,url){
  var plain=String(summary||'').replace(/\s+/g,' ').trim();
  if(plain.length>360){plain=plain.slice(0,356);plain=plain.slice(0,Math.max(240,plain.lastIndexOf(' ')))+'…'}
- return 'A restaurant management question worth examining:\n\n'+title+'\n\n'+plain+'\n\nRead the full article in The Gravity Report:\n'+url+'\n\nBy Thomas Butler · Published by Thomas Monroe Books';
+ return 'A restaurant management question worth examining:\n\n'+title+'\n\n'+plain+'\n\nRead the full article on Gravity:\n'+url+'\n\nThe Gravity Report · By Thomas Butler · Published by Thomas Monroe Books';
 }
 function fullArticleText(title,url){
  var body=$('.report-content .report-body');if(!body)return '';
@@ -100,7 +100,7 @@ function catalog(){
  if(!future||!futureList)return;
  function addLink(card,a){
  var action=$('[data-report-action]',card);if(!action)return;action.textContent='';
- var href='/gravity-report/'+encodeURIComponent(a.slug),url=location.origin+href;
+ var href='/gravity-report/'+encodeURIComponent(a.slug),url='https://gravityleadershipsystem.com'+href;
  action.setAttribute('data-report-url',url);
  action.setAttribute('data-report-title',a.title);
  action.setAttribute('data-report-summary',a.summary||'');
