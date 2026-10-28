@@ -16,6 +16,22 @@ Trial for four weeks and evaluate actual usefulness: reading completion, meaning
 
 **Editorial positioning:** Rather than generic advice to 'hold people accountable,' use operational evidence that a working manager can check on the next shift. Every Field Note is independently useful without an account or a software download.
 
+## Email communication standard — earn the subscription
+
+**Three new pieces on the website per week does not mean three emails per week.** The editorial schedule is a content commitment; the email newsletter should be a separate, deliberately lower-frequency product.
+
+- **One useful weekly digest maximum**, covering the week's newest issues and Field Note (when active), with a brief actionable takeaway and links to read or listen on Gravity. Do not send a message whenever a new page is published.
+- **No daily newsletter, repeated sales pitch, fake urgency, countdown sequence, or 'we noticed you haven't read' pressure campaigns.** Do not call a newsletter 'free advice' if it is primarily an advertisement.
+- **Explicit opt-in only.** Explain frequency and purpose at signup. Never add download registrants to marketing without separate consent.
+- Every real newsletter must include a **working unsubscribe**. Honor unsubscribes promptly, without requiring login or reasons.
+- A future **monthly digest option** is reasonable only after mailing-system preferences and unsubscribes are implemented and tested; do not display an unsupported frequency option.
+- Allow critical transactional or security notices to reach affected customers when genuinely necessary, but do not disguise routine promotion as important service information.
+- Prioritize value: one question, what evidence matters, an exercise to try, and links to the full articles on Gravity. Avoid overwhelming the inbox.
+- Measure **unsubscribes, complaints and useful engagement** as carefully as opens. Open rates alone are unreliable and may be inflated by automated email privacy features.
+- The signup form is currently a collection endpoint; **verify that a proper consent-aware sending system, suppression list and unsubscribe flow exist before the first actual newsletter send**. Never imply that a scheduled newsletter is already operating solely because the form accepts submissions.
+
+**Reader promise:** 'We will publish freely, but we will not fill your inbox.'
+
 ## What makes Gravity's articles different
 
 Each original piece needs:
