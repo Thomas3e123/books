@@ -109,6 +109,7 @@ jobs:
           for(const s of ['id="join-btn"','id="msg-body"','data-kind="problem"','data-kind="confusing"','data-kind="idea"','data-kind="worked"','/gravity-shift-lab','/gravity-inventory-center']) {
             assert(html.includes(s),'Customer feedback/testing entry missing: '+s);
           }
+          for(const snippet of ['id="gravity-field-test-guide"','Use practice employees, fictional wages','Open Shift Lab','Open Inventory Center','contact Gravity']) assert(html.includes(snippet),'Customer trial guide missing: '+snippet);
           const policy=fs.readFileSync('docs/gravity-charter-release-review.md','utf8');
           assert(policy.includes('Customer-assisted improvement'),'Missing customer feedback release policy');
           const audit=fs.readFileSync('docs/gravity-charter-audit-shift-inventory-2026-10-28.md','utf8');
