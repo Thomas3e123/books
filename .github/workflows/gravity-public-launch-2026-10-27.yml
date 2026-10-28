@@ -36,6 +36,8 @@ jobs:
           grep -q 'gravityleadershipsystem.com' site/index.html
           ! grep -q '^Disallow: /$' site/robots.txt
           # The packaging script enforces absence of the root-wide noindex rule.
+          grep -Fq 'id="gravity-field-test-guide"' site/testing-room.html
+          grep -Fq 'Protect private information' site/testing-room.html
           test -s site/assets/js/gravity-shift-lab.js
           test -s site/apps/inventory-center/assets/js/inventory-center.js
       - name: Deploy strictly to NEW Gravity Netlify production site
@@ -44,7 +46,7 @@ jobs:
           token="${TOKEN_A:-${TOKEN_B:-${TOKEN_C:-}}}"
           if [ -z "$token" ]; then echo 'FAILED: No Netlify deployment token'; exit 1; fi
           export NETLIFY_AUTH_TOKEN="$token"
-          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC header branding + editorial footer / TMB untouched" --json > /tmp/gls-production-deploy.json
+          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC customer field-testing guide + charter review / TMB untouched" --json > /tmp/gls-production-deploy.json
           node -e 'const d=require("/tmp/gls-production-deploy.json"); console.log(JSON.stringify({site_id:d.site_id,deploy_id:d.deploy_id,deploy_url:d.deploy_url,url:d.url},null,2));if(d.site_id!=="fa5d39a0-bef9-4ff1-9c28-57d585d741d7")process.exit(1)'
       - name: Confirm public indexing and protected asset robots headers
         run: |
@@ -62,6 +64,10 @@ jobs:
             echo "PUBLIC INDEX AND FOOTER OK $p"
             rm -f "$hdr" "$html"
           done
+          curl -fsSL "$base/testing-room" -o /tmp/gravity-customer-testing.html
+          grep -Fq 'id="gravity-field-test-guide"' /tmp/gravity-customer-testing.html
+          grep -Fq 'Protect private information' /tmp/gravity-customer-testing.html
+          echo 'CUSTOMER_TESTING_GUIDE_LIVE_PASS'
           curl -fsSL "$base/robots.txt" | tee /tmp/gravity-robots.txt
           ! grep -q '^Disallow: /$' /tmp/gravity-robots.txt
           curl -fsSI "$base/assets/reader/bar-inventory.txt" | grep -iq '^x-robots-tag:.*noindex'
