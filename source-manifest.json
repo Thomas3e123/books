@@ -14,7 +14,7 @@
     },
     {
       "path": "site/about.html",
-      "sha256": "d3bebf67ec1786a2889489fb23d4558f2baede68219f65da918795cf0f3bfaac"
+      "sha256": "90799877824c77b5680ce1ef248e3fce6b37418ca1d21ffbf5f6347e2516818d"
     },
     {
       "path": "site/apps/inventory-center/assets/css/inventory.css",
@@ -347,6 +347,10 @@
     {
       "path": "site/assets/css/gravity-refinement.css",
       "sha256": "38b264e51db352484979051d654229db08a966de17d26342ab2b980ab5c7c1fa"
+    },
+    {
+      "path": "site/assets/css/gravity-report-reading.css",
+      "sha256": "76c664f8b24ff9315f839beca925f16436389b4b32bf0ab4badf9b7e995c2eaf"
     },
     {
       "path": "site/assets/css/gravity-sop-foundry.css",
@@ -1393,6 +1397,10 @@
       "sha256": "1f54896913ad9e3079e546c55a04ce0e3d67e51790eb01a2b1aa5ffb6eb306a4"
     },
     {
+      "path": "site/assets/js/gravity-report-reading.js",
+      "sha256": "155ba876e1fa957a15e2f58c248be639e604c1dc951ff779caad0321e5d19f81"
+    },
+    {
       "path": "site/assets/js/gravity-shift-first-schedule-tour-v1.js",
       "sha256": "d788100e3173fca4a710313b63a432c0c8d05e811556330683c3b33d3e437400"
     },
@@ -1922,7 +1930,7 @@
     },
     {
       "path": "site/gravity-report.html",
-      "sha256": "74c43ed896f5b23e8d3b7c282549b7510907675fac5374e856aabdc198f95232"
+      "sha256": "026c73d497f6a173b0fc7729388094189fd3e1d3c019e93fb32dcd9c6773b87a"
     },
     {
       "path": "site/gravity-shift-lab-sw.js",
@@ -1986,7 +1994,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "496d91d731a163924cd736892e1240b221312758627ec4f14941b0f1945b6bf8"
+      "sha256": "2b725e6245c5f53f1dc28b559215c81aea29e71cef5b066caec6d82a3a3c23b3"
     },
     {
       "path": "site/installation-improvement.html",
@@ -2294,7 +2302,7 @@
     },
     {
       "path": "site/robots.txt",
-      "sha256": "b71fee1c7ce6a83c5881618bafa30935d55153fc1979ac06cd76c3f56644516d"
+      "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
     },
     {
       "path": "site/sales-intelligence-forecasting.html",
@@ -2314,7 +2322,7 @@
     },
     {
       "path": "site/start-here.html",
-      "sha256": "96a2e46f07308117454861e8ca81f224baead000ed91bdd64d4133e6a6babb95"
+      "sha256": "d323703521333c471fac2c951f1d6abdb39a355f2550bfd7562c7ebe6efe49b4"
     },
     {
       "path": "site/support.html",
@@ -2378,7 +2386,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "701d7a9cf38533c0a9e9081e4200fb540aa57b49b61446488e26b1a20de7cfed"
+      "sha256": "0251c00170a0567d80d0a7a3c3570b35881cf6e29eb644ae5f03866abfed1642"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",
