@@ -10,7 +10,7 @@
     },
     {
       "path": "site/_redirects",
-      "sha256": "a83637151135ae10fcfdf094af9b3cd9917db6b9475be089262b02aaf61a73b2"
+      "sha256": "784db2f50e8f104ccc803acc06affd5f48d3b93602b4b44771651eac9e058de5"
     },
     {
       "path": "site/about.html",
@@ -343,6 +343,10 @@
     {
       "path": "site/assets/css/book-reader.css",
       "sha256": "9c8992f3dc4830ef3480ed4263fa9960ea9aae9135d156fed62e305d3c9004ca"
+    },
+    {
+      "path": "site/assets/css/gravity-action-plan.css",
+      "sha256": "994815e8296b47a967f85cbce4ba026e7dd9120834f3b86606eb6f5b4b079db5"
     },
     {
       "path": "site/assets/css/gravity-refinement.css",
@@ -1361,6 +1365,14 @@
       "sha256": "538dc6c8a6b7eb1be9c52bee1aa082c083c3c4f51f093bbe2536ba8004618f20"
     },
     {
+      "path": "site/assets/js/gravity-action-plan-core.mjs",
+      "sha256": "63e6fcc4adb06b15132b897d4529365e0eb1083a01a1d3f45e20680575ce2f70"
+    },
+    {
+      "path": "site/assets/js/gravity-action-plan.mjs",
+      "sha256": "8e7757de1bde1dc5be8a0ee5dc8ad4c89f1ac5f62146dc19026a5097838bb085"
+    },
+    {
       "path": "site/assets/js/gravity-aware-study.js",
       "sha256": "ebe62879adadbe45a5fd7ea21380826e13304cf7b51d7ec2676845119a22fa61"
     },
@@ -1873,8 +1885,12 @@
       "sha256": "e327cabd94002800e406578a814b6c30dbdb0c8f37f055564e0d26b84cb6061a"
     },
     {
+      "path": "site/gravity-action-plan.html",
+      "sha256": "46328f3b6ea1e7d886836530d99fe0a7e527be75e91d35edd919f42fbd3d8ffc"
+    },
+    {
       "path": "site/gravity-assist.html",
-      "sha256": "35d2b1c2ed4784fada23e64aa5819c4517b88c1c74c2f47d6623f450249f7d73"
+      "sha256": "858680ea80ed0c617285777339c826aca682b618da98b936d99d6b8d86367792"
     },
     {
       "path": "site/gravity-aware.html",
@@ -1925,12 +1941,16 @@
       "sha256": "673a31d7c9635507f0c6e698506c0c3af29b7304b61409488256b38a32f0f775"
     },
     {
+      "path": "site/gravity-report-guests.html",
+      "sha256": "3fa33a0174b36650af89f68781300ec1c141ed3f689f61b1c1dc38961b0a16a7"
+    },
+    {
       "path": "site/gravity-report-thanks.html",
       "sha256": "942665eb9334fd83b6a094772ea64188954ac077837b7accab4b0c0d87f08a32"
     },
     {
       "path": "site/gravity-report.html",
-      "sha256": "026c73d497f6a173b0fc7729388094189fd3e1d3c019e93fb32dcd9c6773b87a"
+      "sha256": "973b180107232e4cef8149156a92da37bf93bd976b0444ba12893fa36b04ad07"
     },
     {
       "path": "site/gravity-shift-lab-sw.js",
@@ -2373,6 +2393,14 @@
       "sha256": "91a0c3d20c33f039dc9afe17ec91414cfe1db5aadc2ebb7645b45bc9ceb4971f"
     },
     {
+      "path": "functions/gravity-action-plan/index.mjs",
+      "sha256": "318d24fd32e963e21a43ae5fd5eda82b6cd57ec18034e4637dd761d7e2a47efb"
+    },
+    {
+      "path": "functions/gravity-action-plan/sources.mjs",
+      "sha256": "abab793777a6fb1d5853c404d40195b8cb2f04b7eabc45d9d77412cbdab78e88"
+    },
+    {
       "path": "functions/gravity-guide/gravity-guide.js",
       "sha256": "f17f2c839ef794ad9a98f816915ffd9f7710ec9d484a8f959c30ceaa5c65a6fa"
     },
@@ -2446,11 +2474,11 @@
     },
     {
       "path": "package.json",
-      "sha256": "f847681ea2eb9c7600ee1e3efece34108fc8e65660d9edd19c180eb08b097653"
+      "sha256": "98560671fa0e1c9a473b5f3bbbe95040e6245421c4d5bddba142fcca0dfe335d"
     },
     {
       "path": "package-lock.json",
-      "sha256": "806f5cde89646bfb9981b8712e7e052e4ed74448e9b9f288ceb518f1b78fccf1"
+      "sha256": "e4e1af9f6322648c1e2c79222c321cb328c7290e5622e93fe24b4254cb2f51f8"
     }
   ]
 }
