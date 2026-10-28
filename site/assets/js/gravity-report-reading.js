@@ -65,6 +65,27 @@ function article(){
  try{var saved=Number(localStorage.getItem('gravityReportTextSize'));if(Number.isFinite(saved)&&saved>=16&&saved<=26)size=saved;else size=base}catch(_){size=base}
  function apply(){content.style.setProperty('--gr-text-size',size+'px');if(controls){var label=$('.report-size-status',controls);if(label)label.textContent='Text '+size+'px'}}
  apply();
+ // Reader presentation choices are local to this browser, never tracked.
+ var theme=$('#report-reading-theme'),font=$('#report-reading-font');
+ function preference(key,allowed,fallback){
+  try{var val=localStorage.getItem(key);return allowed.includes(val)?val:fallback}catch(_){return fallback}
+ }
+ if(theme){
+  theme.value=preference('gravityReportReadingTheme',['paper','sepia','contrast'],'paper');
+  function setTheme(){
+   content.setAttribute('data-reading-theme',theme.value);
+   try{localStorage.setItem('gravityReportReadingTheme',theme.value)}catch(_){}
+  }
+  theme.addEventListener('change',setTheme);setTheme();
+ }
+ if(font){
+  font.value=preference('gravityReportReadingFont',['serif','sans'],'serif');
+  function setFont(){
+   content.setAttribute('data-reading-font',font.value);
+   try{localStorage.setItem('gravityReportReadingFont',font.value)}catch(_){}
+  }
+  font.addEventListener('change',setFont);setFont();
+ }
  if(controls){
   var buttons=all('button[data-report-font]',controls);
   buttons.forEach(function(btn){btn.addEventListener('click',function(){
@@ -105,6 +126,9 @@ function catalog(){
  action.setAttribute('data-report-title',a.title);
  action.setAttribute('data-report-summary',a.summary||'');
  var link=node('a',null,'Read full article →');link.href=href;action.appendChild(link);
+ var listen=node('a','report-listen-link','Listen to article');
+ listen.href='/book-reader?article='+encodeURIComponent(a.slug);
+ action.appendChild(listen);
  var tools=node('div','report-card-share');
  var copy=node('button',null,'Copy social post');copy.type='button';copy.setAttribute('data-report-share','post');
  tools.appendChild(copy);
