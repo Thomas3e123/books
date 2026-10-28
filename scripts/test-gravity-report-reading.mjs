@@ -25,6 +25,13 @@ assert(css.includes('@media(max-width:600px)'),'Mobile breakpoint missing');
 assert(css.includes('@media print'),'Print-friendly article view missing');
 assert(css.includes('max-width:68ch'),'Readable text measure missing');
 
+assert(js.includes("url='https://gravityleadershipsystem.com'+href"),'Catalog sharing must use canonical Gravity domain');
+assert(js.includes('Read the full article on Gravity:'),'Copied Facebook caption must invite readers back to Gravity');
+assert(js.includes('socialPost(title,summary,url)')&&js.includes('fullArticleText(title,url)'),'Both sharing copy formats required');
+assert(js.includes("data-report-share='post'")||js.includes("'data-report-share','post'"),'Facebook copying option missing on catalog');
+assert(css.includes('.report-share-buttons')&&css.includes('.report-card-share'),'Share controls must be readable on mobile');
+
+
 const RealDate=globalThis.Date;
 async function at(iso,path){
  const moment=new RealDate(iso);
@@ -40,6 +47,15 @@ for(const item of ['class="report-article"','class="report-body"','class="report
  assert(a.html.includes(item),'Missing reader element '+item);
 }
 assert(a.html.includes('Publisher and Editor of The Gravity Report'),'Publisher credit lost');
+
+assert(a.html.includes('data-report-share="post"'),'Article has no copy Facebook post button');
+assert(a.html.includes('data-report-share="full"'),'Article has no copy full article button');
+assert(a.html.includes('data-report-share="link"'),'Article has no copy-link button');
+assert(a.html.includes('https://www.facebook.com/sharer/sharer.php?u='),'Article has no direct Facebook share link');
+assert(a.html.includes('data-report-url="'+url+'/gravity-report/'+slug1+'"'),'Article sharing URL does not link back to Gravity');
+assert(a.html.includes('<meta property="og:image"'),'Facebook preview image metadata missing');
+assert(a.html.includes('<meta property="og:url" content="'+url+'/gravity-report/'+slug1+'">'),'Facebook URL metadata must be canonical');
+
 assert(a.html.includes('rel="next"'),'Published next article link missing');
 assert(!a.html.includes('rel="prev"'),'Issue one must not have a predecessor');
 a=await page('2026-10-28T15:00:00Z',slug6);
