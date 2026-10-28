@@ -30,6 +30,11 @@ jobs:
           node scripts/prepare-gravity-public-launch.cjs
           node scripts/update-gravity-footer.cjs
           node scripts/test-gravity-report.mjs
+          node --check site/assets/js/gravity-report-reading.js
+          node --check functions/gravity-report/index.mjs
+          node scripts/test-gravity-report-reading.mjs
+          grep -Fq 'id="report-search"' site/gravity-report.html
+          grep -Fq 'gravity-report-reading.css' site/gravity-report.html
           grep -Fq 'Publisher and Editor of The Gravity Report' site/index.html
           grep -Fq 'Restaurant Leadership, Systems &amp; Operations' site/index.html
           grep -Fq 'Publisher and Editor of The Gravity Report' site/gravity-report.html
@@ -46,7 +51,7 @@ jobs:
           token="${TOKEN_A:-${TOKEN_B:-${TOKEN_C:-}}}"
           if [ -z "$token" ]; then echo 'FAILED: No Netlify deployment token'; exit 1; fi
           export NETLIFY_AUTH_TOKEN="$token"
-          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC customer field-testing guide + charter review / TMB untouched" --json > /tmp/gls-production-deploy.json
+          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC Report readable article and catalog optimization / TMB untouched" --json > /tmp/gls-production-deploy.json
           node -e 'const d=require("/tmp/gls-production-deploy.json"); console.log(JSON.stringify({site_id:d.site_id,deploy_id:d.deploy_id,deploy_url:d.deploy_url,url:d.url},null,2));if(d.site_id!=="fa5d39a0-bef9-4ff1-9c28-57d585d741d7")process.exit(1)'
       - name: Confirm public indexing and protected asset robots headers
         run: |
@@ -68,6 +73,21 @@ jobs:
           grep -Fq 'id="gravity-field-test-guide"' /tmp/gravity-customer-testing.html
           grep -Fq 'Protect private information' /tmp/gravity-customer-testing.html
           echo 'CUSTOMER_TESTING_GUIDE_LIVE_PASS'
+          # Verify article-reader experience and issue catalog on the real public host.
+          curl -fsSL "$base/gravity-report" -o /tmp/gravity-report-catalog-live.html
+          grep -Fq 'id="report-search"' /tmp/gravity-report-catalog-live.html
+          grep -Fq 'data-report-upcoming' /tmp/gravity-report-catalog-live.html
+          grep -Fq 'gravity-report-reading.css' /tmp/gravity-report-catalog-live.html
+          curl -fsSL "$base/gravity-report/why-do-my-restaurant-managers-keep-making-excuses" -o /tmp/gravity-report-article-live.html
+          grep -Fq 'class="report-body"' /tmp/gravity-report-article-live.html
+          grep -Fq 'data-report-font="increase"' /tmp/gravity-report-article-live.html
+          grep -Fq 'class="report-toc"' /tmp/gravity-report-article-live.html
+          grep -Fq 'Publisher and Editor of The Gravity Report' /tmp/gravity-report-article-live.html
+          curl -fsSL "$base/assets/js/gravity-report-reading.js?v=20261028-readability-v1" -o /tmp/gravity-report-reader-js
+          test -s /tmp/gravity-report-reader-js
+          curl -fsSL "$base/assets/css/gravity-report-reading.css?v=20261028-readability-v1" -o /tmp/gravity-report-reader-css
+          test -s /tmp/gravity-report-reader-css
+          echo 'GRAVITY_REPORT_READING_LIVE_PASS'
           curl -fsSL "$base/robots.txt" | tee /tmp/gravity-robots.txt
           ! grep -q '^Disallow: /$' /tmp/gravity-robots.txt
           curl -fsSI "$base/assets/reader/bar-inventory.txt" | grep -iq '^x-robots-tag:.*noindex'
