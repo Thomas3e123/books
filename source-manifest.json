@@ -1370,7 +1370,7 @@
     },
     {
       "path": "site/assets/js/gravity-action-plan.mjs",
-      "sha256": "368822fe776c4911ec270e795a5a0144f59afc8122e800a2b9e194275db34c91"
+      "sha256": "51cbb368f4ec1c39f0c26595353c40c2d6770a72616224b09865b8e0a57c2d2d"
     },
     {
       "path": "site/assets/js/gravity-aware-study.js",
@@ -1886,7 +1886,7 @@
     },
     {
       "path": "site/gravity-action-plan.html",
-      "sha256": "39f02eb4a9959fd05ba8be29cf78dd485d29d8f00d3bde5d99dc790effe2e4d4"
+      "sha256": "b0477fbd97fca801051d67a569a47a3a0fa2cdd9d73c95faba74299394e26a99"
     },
     {
       "path": "site/gravity-assist.html",

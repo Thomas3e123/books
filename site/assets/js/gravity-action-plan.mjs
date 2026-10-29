@@ -1,4 +1,4 @@
-import {topics,validateInput,createTemplate,validatePlan,reviews} from './gravity-action-plan-core.mjs';
+import {topics,validateInput,createTemplate,validatePlan,reviews} from './gravity-action-plan-core.mjs?v=plain-list-2';
 const $=id=>document.getElementById(id),KEY='gravity.actionPlan.v1';let state=null,busy=false;
 const localDate=new Date();$('start').value=[localDate.getFullYear(),String(localDate.getMonth()+1).padStart(2,'0'),String(localDate.getDate()).padStart(2,'0')].join('-');
 const status=message=>{$('status').textContent=message};
