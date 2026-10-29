@@ -577,6 +577,18 @@
       "sha256": "bde6c68ac3d7240c368c2e844e0bcf2afea1788726250e3847fd7723ced89cb5"
     },
     {
+      "path": "site/assets/downloads/gravity-field-sheet-03-manager-follow-through.pdf",
+      "sha256": "fb4a20933a96e5eacf4c708fd54ba51625c990779473444e4b5dc7c65e2b3d75"
+    },
+    {
+      "path": "site/assets/downloads/gravity-field-sheet-04-food-waste.pdf",
+      "sha256": "8549999eea7446f233581c77152a34ad3023cd1bbb2ac8544f48112348fd17c0"
+    },
+    {
+      "path": "site/assets/downloads/gravity-field-sheet-05-employee-retention.pdf",
+      "sha256": "37c9b7af76d5de452dcaba8c45dabe5177f228ab61d2ae3e46a2a7e44d25300b"
+    },
+    {
       "path": "site/assets/downloads/gravity-restaurant-sop-library-volume-1-gravity-elite-v2-2026-09-13-369-pages.pdf",
       "sha256": "58999c628bb11c3679c1730bb423d08bf5f76cffdd692849ad6f9a88d8506cfc"
     },
@@ -1942,7 +1954,7 @@
     },
     {
       "path": "site/gravity-report.html",
-      "sha256": "9d96d72f23f4bbbb1834951eb9be2de213d6f6a031533e20d19be099abf333b7"
+      "sha256": "e30c8264c57dfb7d0f54a95af8afa8c82fec24e38f6b9141c17f3f433dccebb8"
     },
     {
       "path": "site/gravity-shift-lab-sw.js",
@@ -2398,7 +2410,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "75291c9ebd87b3e550071da31ff65c6e177e87e8e52162b3c2fe76bfdc4c9913"
+      "sha256": "0f0dd3d9aac5056aa6f23711473b7cfb9337ebe3032cab5e4cd00d5de71d540f"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",
