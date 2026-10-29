@@ -25,6 +25,21 @@ assert(css.includes('@media(max-width:600px)'),'Mobile breakpoint missing');
 assert(css.includes('@media print'),'Print-friendly article view missing');
 assert(css.includes('max-width:68ch'),'Readable text measure missing');
 
+assert(home.includes('The stories behind restaurant life. The systems that make it better.'),'Editorial magazine promise missing');
+assert(home.includes('Interesting enough to read. Useful enough to keep.'),'Reader-facing identity missing');
+for(const id of ['report-feature','report-series','report-field-sheets','report-community','report-working-side']){
+ assert(home.includes('id="'+id+'"'),'Magazine navigation target missing: '+id);
+}
+assert(home.includes('A new series in development')&&home.includes('These articles are not published yet.'),'Cause & Effect preview must not impersonate a published series');
+assert(home.includes('/gravity-report/why-cant-i-keep-good-restaurant-employees'),'Published human-interest lead story must link to actual article');
+assert(home.includes('/gravity-report/why-is-my-restaurant-food-cost-so-high'),'Working Side must have a verified existing article');
+assert(home.includes('https://gravityleadershipsystem.com/gravity-report'),'Magazine canonical URL must use the permanent Gravity domain');
+assert(home.includes('Gravity Field Sheets')&&home.includes('first downloadable sheets are being developed'),'Unreleased worksheets must not be advertised as ready');
+assert(home.includes('Guest Voices')&&home.includes('/gravity-report-guests'),'Guest contribution path must be preserved');
+assert(css.includes('.report-feature-grid')&&css.includes('.report-series-preview')&&css.includes('.report-utility-grid'),'Magazine responsive layout missing');
+assert(js.includes('The same excuse. The same problem.')&&js.includes('The food cost number is a warning light'),'Social copy should be specific rather than generic');
+
+
 assert(js.includes("url='https://gravityleadershipsystem.com'+href"),'Catalog sharing must use canonical Gravity domain');
 assert(js.includes('Read the full article on Gravity:'),'Copied Facebook caption must invite readers back to Gravity');
 assert(js.includes('socialPost(title,summary,url)')&&js.includes('fullArticleText(title,url)'),'Both sharing copy formats required');
