@@ -43,6 +43,11 @@ jobs:
           grep -Fq 'id="report-feature"' site/gravity-report.html
           grep -Fq 'id="report-series"' site/gravity-report.html
           grep -Fq 'id="report-field-sheets"' site/gravity-report.html
+          grep -Fq 'Gravity already took the notes.' site/gravity-report.html
+          test -s site/assets/downloads/gravity-field-sheet-01-manager-excuses.pdf
+          test -s site/assets/downloads/gravity-field-sheet-02-food-cost.pdf
+          grep -Fq 'gravity-field-sheet-01-manager-excuses.pdf' functions/gravity-report/index.mjs
+          grep -Fq 'gravity-field-sheet-02-food-cost.pdf' functions/gravity-report/index.mjs
           grep -Fq 'gravity-report-reading.css' site/gravity-report.html
           grep -Fq 'Publisher and Editor of The Gravity Report' site/index.html
           grep -Fq 'Restaurant Leadership, Systems &amp; Operations' site/index.html
@@ -128,6 +133,15 @@ jobs:
           grep -Fq 'id="report-feature"' /tmp/gravity-report-catalog-live.html
           grep -Fq 'id="report-series"' /tmp/gravity-report-catalog-live.html
           grep -Fq 'id="report-field-sheets"' /tmp/gravity-report-catalog-live.html
+          grep -Fq 'Gravity already took the notes.' /tmp/gravity-report-catalog-live.html
+          grep -Fq 'gravity-field-sheet-01-manager-excuses.pdf' /tmp/gravity-report-catalog-live.html
+          grep -Fq 'gravity-field-sheet-02-food-cost.pdf' /tmp/gravity-report-catalog-live.html
+          grep -Fq 'gravity-field-sheet-01-manager-excuses.pdf' /tmp/gravity-report-article-live.html
+          for sheet in gravity-field-sheet-01-manager-excuses.pdf gravity-field-sheet-02-food-cost.pdf; do
+            curl -fsSL --retry 3 "$base/assets/downloads/$sheet" -o "/tmp/$sheet"
+            test "$(head -c 5 "/tmp/$sheet")" = '%PDF-'
+            echo "GRAVITY_FIELD_SHEET_LIVE_PASS $sheet"
+          done
           grep -Fq 'These articles are not published yet.' /tmp/gravity-report-catalog-live.html
           grep -Fq 'href="/gravity-report/why-cant-i-keep-good-restaurant-employees"' /tmp/gravity-report-catalog-live.html
           grep -Fq '.report-feature-grid' /tmp/gravity-report-reader-css
