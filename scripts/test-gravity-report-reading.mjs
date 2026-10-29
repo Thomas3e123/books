@@ -47,7 +47,7 @@ assert(home.includes('A new series in development')&&home.includes('These articl
 assert(home.includes('/gravity-report/why-cant-i-keep-good-restaurant-employees'),'Published human-interest lead story must link to actual article');
 assert(home.includes('/gravity-report/why-is-my-restaurant-food-cost-so-high'),'Working Side must have a verified existing article');
 assert(home.includes('https://gravityleadershipsystem.com/gravity-report'),'Magazine canonical URL must use the permanent Gravity domain');
-assert(home.includes('Gravity Field Sheets')&&home.includes('first downloadable sheets are being developed'),'Unreleased worksheets must not be advertised as ready');
+assert(home.includes('Gravity Field Sheets')&&home.includes('The first two Field Sheets are available below.')&&home.includes('not every article has a download yet'),'Show the two verified downloads without claiming the entire Field Sheet library is ready');
 assert(home.includes('Guest Voices')&&home.includes('/gravity-report-guests'),'Guest contribution path must be preserved');
 assert(css.includes('.report-feature-grid')&&css.includes('.report-series-preview')&&css.includes('.report-utility-grid'),'Magazine responsive layout missing');
 assert(js.includes('The same excuse. The same problem.')&&js.includes('The food cost number is a warning light'),'Social copy should be specific rather than generic');
