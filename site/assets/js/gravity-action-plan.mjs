@@ -4,6 +4,36 @@ const localDate=new Date();$('start').value=[localDate.getFullYear(),String(loca
 const status=message=>{$('status').textContent=message};
 const readInput=()=>validateInput(Object.fromEntries(new FormData($('plan-form'))));
 const setBusy=value=>{busy=value;$('build').disabled=value;$('ai-build').disabled=value};
+// Keep all answers in the form, but show only the current question.
+const questionSteps=[...document.querySelectorAll('.question-step')];let questionIndex=0;
+const nextLabels=['Next: Who will lead it?','Next: What have you seen?','Next: What should happen?','Next: What could affect it?','Next: Choose your timing','Next: Check my answers'];
+function summarizeAnswers(){
+ const summary=$('answer-summary');summary.replaceChildren();
+ for(const [id,label] of [['topic','Problem area'],['problem','Problem'],['owner','Who will lead it'],['restaurant','Restaurant'],['baseline','What you have seen'],['goal','Desired result'],['context','Things to consider'],['start','Start date'],['pace','Time to put it into practice']]){
+  const field=$(id);summary.append(node('dt',label),node('dd',field.tagName==='SELECT'?field.selectedOptions[0].textContent:field.value.trim()||'Not supplied — settle this during review'));
+ }
+}
+function showQuestion(index,focus=true){
+ questionIndex=index;questionSteps.forEach((step,i)=>{step.hidden=i!==index});
+ $('step-progress').textContent='Step '+(index+1)+' of '+questionSteps.length;
+ $('step-back').hidden=index===0;$('step-next').hidden=index===questionSteps.length-1;
+ $('step-next').textContent=nextLabels[index]||'Next';$('step-skip').hidden=![2,3,4].includes(index);$('step-error').textContent='';
+ if(index===questionSteps.length-1)summarizeAnswers();
+ if(focus){const legend=questionSteps[index].querySelector('legend');legend.tabIndex=-1;legend.focus();}
+}
+function validQuestion(){
+ for(const field of questionSteps[questionIndex].querySelectorAll('input,select,textarea')){
+  field.setCustomValidity('');
+  if(field.id==='problem'&&field.value.trim().length<15)field.setCustomValidity('Describe what keeps happening in at least 15 characters. You can follow the example below.');
+  if(field.id==='owner'&&!field.value.trim())field.setCustomValidity('Type a role such as Closing manager, or Me — manager.');
+  if(!field.reportValidity()){$('step-error').textContent=field.validationMessage;return false;}
+ }return true;
+}
+$('step-next').onclick=()=>{if(validQuestion())showQuestion(Math.min(questionIndex+1,questionSteps.length-1))};
+$('step-back').onclick=()=>showQuestion(Math.max(0,questionIndex-1));
+$('step-skip').onclick=()=>{questionSteps[questionIndex].querySelector('textarea').value='';showQuestion(questionIndex+1)};
+$('plan-form').addEventListener('input',e=>{if(e.target.setCustomValidity)e.target.setCustomValidity('')});
+showQuestion(0,false);
 function invalidate(){if(!state)return;state.reviewed=false;$('reviewed').checked=false;status('Draft changed. Review the edits and save or download a backup.');}
 function node(tag,text,className){const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(className)el.className=className;return el}
 function edit(text,set,tag='p'){const el=node(tag,text,'edit');el.contentEditable='plaintext-only';el.setAttribute('role','textbox');el.setAttribute('aria-label','Edit '+text.slice(0,65));el.addEventListener('input',()=>{set(el.textContent.slice(0,5000));invalidate()});return el}
@@ -20,7 +50,7 @@ function render(){
  heading(root,'The smallest useful set of working aids');root.append(node('p','Suggested owning system: '+t.system));const tools=node('ol');for(const name of t.tools)tools.append(node('li',name+' — draft aid to customize; not a newly approved Gravity form.'));root.append(tools);const work=node('a','Continue in '+t.workspaceName);work.href=t.workspace;root.append(work);root.append(node('p','This link opens the workspace. It does not transfer this plan automatically.','hint'));
  heading(root,'Implementation steps');const steps=node('ol');plan.steps.forEach((s,i)=>{const li=node('li');li.append(edit(s.timing,v=>s.timing=v,'h4'),edit(s.action,v=>s.action=v),node('strong','Evidence to keep'),edit(s.evidence,v=>s.evidence=v));steps.append(li)});root.append(steps);
  for(const [key,title] of [['checklist','Working checklist'],['training','Short training aid'],['assumptions','Assumptions and limits'],['questions','Questions to settle']]){
-  heading(root,title);const list=node('ul');plan[key].forEach((value,i)=>{const li=node('li');li.append(edit(value,v=>plan[key][i]=v));if(key==='checklist'){const label=node('label',undefined,'check');const cb=node('input');cb.type='checkbox';cb.checked=!!state.checked[i];cb.setAttribute('aria-label','Record checklist item '+(i+1)+' complete');cb.onchange=()=>{state.checked[i]=cb.checked;status('Checklist updated. Save or download to keep this change.')};label.append(cb,node('span','Recorded complete by manager'));li.append(label)}list.append(li)});root.append(list);
+  heading(root,title);if(key==='checklist')root.append(node('p','Use these boxes later, after the work has actually been completed. Reading the plan does not complete the work.','hint'));const list=node('ul');plan[key].forEach((value,i)=>{const li=node('li');li.append(edit(value,v=>plan[key][i]=v));if(key==='checklist'){const label=node('label',undefined,'check');const cb=node('input');cb.type='checkbox';cb.checked=!!state.checked[i];cb.setAttribute('aria-label','Record checklist item '+(i+1)+' complete');cb.onchange=()=>{state.checked[i]=cb.checked;status('Checklist updated. Save or download to keep this change.')};label.append(cb,node('span','Recorded complete by manager'));li.append(label)}list.append(li)});root.append(list);
  }
  heading(root,'Open-item handoff');root.append(node('p','Record only operational information. Leave confidential details in the restaurant’s authorized system.'));
  for(const [i,item] of state.handoff.entries()){
@@ -33,7 +63,7 @@ function render(){
 }
 const blankItem=()=>({issue:'To be recorded',control:'Confirm approved temporary control',owner:'Assign owner',due:'Set deadline',evidence:'Record how closure will be verified'});
 function setPlan(input,plan,mode){state={version:1,input,plan:validatePlan(plan),mode,reviewed:false,notes:'',decision:'pending',checked:[],handoff:[blankItem()]};render();status(mode==='ai'?'AI draft ready. Check every step, assumptions, and unanswered question.':'Guided template ready. It uses your problem, owner, dates, baseline, and selected Gravity guidance. Customize it before use.');$('output-title').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'})}
-$('plan-form').onsubmit=e=>{e.preventDefault();try{setPlan(readInput(),createTemplate(readInput()),'template')}catch(err){status(err.message)}};
+$('plan-form').onsubmit=e=>{e.preventDefault();if(questionIndex<questionSteps.length-1){if(validQuestion())showQuestion(questionIndex+1);return}for(let i=0;i<questionSteps.length-1;i++){const invalid=[...questionSteps[i].querySelectorAll('input,textarea,select')].some(field=>!field.checkValidity());if(invalid){showQuestion(i);validQuestion();return}}try{const input=readInput();setPlan(input,createTemplate(input),'template')}catch(err){$('step-error').textContent=err.message;status(err.message)}};
 $('ai-build').onclick=async()=>{
  if(busy||!$('plan-form').reportValidity())return;let input;try{input=readInput()}catch(e){status(e.message);return}setBusy(true);status('Connecting to AI drafting…');
  try{
@@ -46,8 +76,8 @@ $('ai-build').onclick=async()=>{
   if(!result)throw Error('No completed AI draft was received. Use the guided template.');setPlan(input,result.plan,'ai');
  }catch(e){status(e.name==='TimeoutError'?'AI drafting timed out. Your inputs are unchanged. Use the guided template.':e.message)}finally{setBusy(false)}
 };
-$('example').onclick=()=>{$('topic').value='closing';$('problem').value='Closing tasks are marked complete, but the opening manager finds unfinished work three mornings a week.';$('owner').value='Closing manager';$('baseline').value='Example only: three mornings in one week had unfinished closing work.';$('goal').value='No unfinished item reaches opening without an accepted handoff, owner, and deadline.';status('Example filled in. Replace example observations with verified facts before using the plan.')};
-$('pace').onchange=()=>{$('pace-help').textContent=$('pace').value==='60'?'60 days: extra learning and practice. Day 30 is midpoint correction; Day 60 is the final decision.':'30 days: concentrated implementation with a final decision on Day 30.'};
+$('example').onclick=()=>{$('topic').value='closing';$('problem').value='Closing tasks are marked complete, but the opening manager finds unfinished work three mornings a week.';$('owner').value='Closing manager';$('baseline').value='Example only: three mornings in one week had unfinished closing work.';$('goal').value='No unfinished item reaches opening without an accepted handoff, owner, and deadline.';$('restaurant').value='Practice restaurant';$('context').value='Fictional example: two new closers need practice with the approved closing routine.';questionSteps.forEach(step=>step.querySelectorAll('input,textarea').forEach(field=>field.setCustomValidity('')));showQuestion(0);status('Fictional example loaded. Click Next to walk through each answer, then build the draft. Replace example facts before using it at work.')};
+$('pace').onchange=()=>{$('pace-help').textContent=$('pace').value==='60'?'60 days: more time for learning and practice. Check and correct at Day 30; final review at Day 60.':'30 days: faster implementation. Use this when the team can make time for concentrated work; final review at Day 30.'};
 $('reviewed').onchange=()=>{if(state)state.reviewed=$('reviewed').checked};$('review-notes').oninput=()=>{if(state){state.notes=$('review-notes').value;invalidate()}};$('decision').onchange=()=>{if(state){state.decision=$('decision').value;invalidate()}};
 function snapshot(){if(!state)throw Error('Build a plan first.');return {...state,savedAt:new Date().toISOString()}}
 $('save').onclick=()=>{try{localStorage.setItem(KEY,JSON.stringify(snapshot()));status('Saved on this browser profile. Download a backup for recovery or another device.')}catch{status('Could not save on this device. Your draft is still visible. Download a backup now.')}};
@@ -64,7 +94,7 @@ function validateBackup(raw){
  for(const item of raw.handoff)for(const key of ['issue','control','owner','due','evidence'])if(typeof item[key]!=='string'||item[key].length>5000)throw Error('Invalid handoff item.');
  return {...raw,input,plan};
 }
-function load(raw){const next=validateBackup(raw);state=next;for(const [key,value] of Object.entries(state.input))if($(key))$(key).value=value;$('pace').onchange();render();status('Plan restored. Check dates and current procedures before using it. No cloud records were changed.')}
+function load(raw){const next=validateBackup(raw);state=next;for(const [key,value] of Object.entries(state.input))if($(key))$(key).value=value;$('pace').onchange();showQuestion(questionSteps.length-1,false);render();status('Plan restored. Check dates and current procedures before using it. No cloud records were changed.')}
 $('load').onclick=()=>{try{const raw=localStorage.getItem(KEY);if(!raw){status('No saved plan was found on this browser profile.');return}load(JSON.parse(raw))}catch{status('Saved plan could not be loaded. The current draft is unchanged. Restore a valid backup.')}};
 $('restore').onchange=async()=>{try{const file=$('restore').files[0];if(!file)return;if(file.size>200000)throw Error('Backup too large.');load(JSON.parse(await file.text()))}catch(e){status('Could not restore backup: '+e.message+' Current draft unchanged.')}finally{$('restore').value=''}};
 $('clear').onclick=()=>{if(!confirm('Clear the saved plan and this workspace? Download a backup first if you need to keep it.'))return;try{localStorage.removeItem(KEY)}catch{status('Could not clear device storage. Current workspace kept.');return}state=null;$('plan-document').replaceChildren();$('result').hidden=true;$('empty').hidden=false;status('Saved plan and working output cleared. Problem inputs remain available.')};
