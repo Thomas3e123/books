@@ -244,6 +244,21 @@ Every installment includes:
 
 **Publishing guardrail:** Fit approved installments within the established **three-articles-per-week** total, with **one optional weekly email digest maximum**, rather than adding extra releases. Keep previously scheduled articles intact until separately reviewed and approved. Guest contributions must meet evidence, consent and editorial-independence standards.
 
+### Optional special premiere — an on-demand Cause & Effect collection
+
+**Proposal, not a release authorization:** Consider a single larger *Quiet Gravity: Cause & Effect* premiere (possibly around 20 **fully written and individually approved** pieces) to give visitors a substantial series to explore at their own pace. Treat this as a special opening of a complete library, not the new weekly cadence. A draft outline or story captured in conversation does **not** count as a release-ready article. No publication date, issue count or launch message should be claimed until those assets exist and pass review.
+
+- Build one clear landing page with grouped topics (employee dignity, personal life and family, work ethic and accountability, owner/manager standards, loyalty and resilience) and prominent reading/listening links.
+- Every published article must have editorial QA, verified credits and permissions, mobile reading, released-only audio, appropriate sharing metadata and a useful prepared Field Sheet where warranted.
+- Make the approved articles available at once **on the website**, but invite the audience in through a small selection of featured articles rather than dumping twenty simultaneous social posts into their feeds.
+- Announce the collection once and then spotlight one article at a time over subsequent weeks. Continue the regular three-piece weekly rhythm for newly created work and **one subscriber email per week maximum**, including launch week.
+- Preserve the original thirty-issue schedule and avoid premature publication of guest material, unapproved case histories or article fragments.
+- If fewer than twenty are finished, lead with a smaller polished premiere instead of filling a target count with weaker material.
+
+**Reader experience:** “All the stories are here when you want them. We'll help you find the right one when you need it.” This supports binge reading without turning Gravity into a high-pressure newsletter.
+
+
+
 ## What makes Gravity's articles different
 
 Each original piece needs:
