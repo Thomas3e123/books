@@ -259,6 +259,35 @@ Every installment includes:
 
 
 
+## Editorial identity — a magazine with a pulse and an operating reference library
+
+**Thomas Butler's direction:** Before readers decide The Gravity Report is a dry, by-the-book business publication, give it a recognizable human voice, surprising truths, memorable real-world scenes, employee and family perspectives, and stories people actually want to share. At the same time, be capable of rigorous, detailed, no-nonsense operational instruction whenever a restaurant needs that depth.
+
+**Promise:** *Interesting enough to read. Useful enough to keep.*  
+**Operating principle:** *Lead with the story. Earn attention with truth. Deliver substance. Leave readers with something they can use.*
+
+### Two complementary reading experiences, under one brand
+
+**Discover / The Human Side:** story-first *Quiet Gravity: Cause & Effect*, thought-provoking recognition pieces, real-life moments, respectful disagreement, and guest perspectives. Clear, vivid openings are welcome; sensationalism, invented facts, employee shaming and emotional manipulation are not.
+
+**Solve / The Working Side:** deep practical explanations of scheduling, payroll, compensation, cost, workflow, guest recovery, training, safety, management protocol and decision rights. Precise enough for serious owners and managers to return to as a reference; include detailed steps, examples, assumptions and verification, with accompanying Gravity Field Sheets where useful.
+
+Do not label the operational content "boring" on the customer-facing site. Its thoroughness is a benefit when a person needs it. **The publication should have personality at the entrance and depth behind every door.** Employees, hourly workers, shift leads, managers, owners and their families all belong in the reading audience.
+
+### Suggested editorial presentation (proposal, not deployed)
+
+- The home of the Report should feature a **strong narrative lead story**, not a wall of instructional article titles.
+- Introduce browse paths: **Stories That Stay With You**, **Problems You Can Fix**, **Field Sheets**, **Guest Voices**, and **Listen in Gravity Reader**. These are proposed labels, not live routes.
+- Use meaningful, specific headlines: “You Trained the New Hire. Then You Learned They Make More” for a human story; “Five People Scheduled. Nobody Qualified to Cover the Line” for an operations case. The article itself must back up the hook.
+- Make the contrast visible: recognition stories and owner/employee dilemmas next to rigorous operational guides with searchable categories. Do not bury important business references simply because they are less flashy.
+- Within the **three new articles a week**, vary *tone, subject and reader*, without creating rigid formulaic quotas. A story-driven piece, a practical field note and a deeper operations article is a useful default, not a rule that overrides quality.
+- Curate a premiere collection for binge-reading only after material is genuinely finished and reviewed. A large opening library does **not** mean twenty social posts or twenty emails on opening day. Keep **one optional subscriber email per week maximum**.
+- Test whether visitors can find both a compelling article and a detailed answer in under a few clicks; get feedback from both employees and owners.
+
+**Editorial warning:** Being entertaining is not the same as writing clickbait. Avoid fake controversies, forced drama, unsupported “always/never” outcomes, anonymous grievances posing as verified fact, and manufactured success stories. Keep story origins and uncertainty transparent; protect employee and guest privacy.
+
+**Possible one-line positioning:** “The stories behind restaurant life. The systems that make it better.”
+
 ## What makes Gravity's articles different
 
 Each original piece needs:
