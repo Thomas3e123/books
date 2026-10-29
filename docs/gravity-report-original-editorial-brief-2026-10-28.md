@@ -101,6 +101,18 @@ Required content, **pre-filled by Gravity**:
 
 **Coverage commitment:** Across each editorial batch, deliberately include employee-first topics alongside owner/manager-focused work. At least one of the three weekly articles should be relevant and directly useful to employees; more can be when warranted. Do not force a generic quota into an already fixed 30-article schedule without reviewing its content; establish this standard for new additions and give existing management articles a helpful employee lens where substantive revisions are approved. The Wednesday Field Note can alternate employee, manager and shared-experience perspectives. Guest Voices must include frontline experience and worker expertise, not just owners with follower counts.
 
+### Gravity's employee-pay and restaurant-viability principle
+
+**Gravity's position:** An employee should be paid what their work merits: the skill they demonstrate, the responsibility they carry, the quality and consistency of their performance, the contribution they make, and the relevant market and legal pay requirements. Compensation must be based on fair, explainable standards; neither a job title nor an employer's budget alone determines an employee's value. Tenure can reflect accumulated skills and contribution, but years served alone are not a substitute for evaluating the work. An employee should not have to threaten to quit to be valued fairly.
+
+**The owner's obligation:** Set equitable pay ranges, regularly evaluate employees against consistent criteria, recognize training and cross-station skill, and review existing employees *before* increasing recruitment offers. Address unexplained compression and inversion rather than waiting for the person affected to complain. New employees also deserve fair pay; existing and new employees should not be turned against one another.
+
+**If the store cannot afford to pay fairly, the problem belongs to the business to solve.** Investigate pricing, sales volume and mix, food and beverage cost, waste, purchasing, workflow, staffing deployment, management decisions, overhead and margins to determine why the operation cannot support fair compensation. Never present chronic underpayment as a sustainable operating system or simply tell employees to work harder. The financial cause is a hypothesis to investigate, not a claim that every underfunded restaurant has the same fault. When a correction cannot be immediate, management owes people candor, a concrete plan, a timetable and realistic decisions about the business's sustainability; never an invented promise of a raise.
+
+**Apply this lens to The Gravity Report:** Articles should identify when a compensation problem reflects deeper leadership or operating-system failure, offer useful employee-side and manager-side actions, and distinguish proven conditions from assumptions. A Field Sheet should include a preventive pay-equity checkpoint and a financial diagnostic path, not suggest that the burden falls solely on an employee asking for a raise.
+
+**Editorial line:** *“If the operation cannot support fair pay for the work it depends on, Gravity examines the operation—not whether the employee should settle for less.”*
+
 ### Flagship recognition topic: “When Five Years of Loyalty Pays the Same as Day One”
 
 **The lived experience:** An employee has worked faithfully for years and discovers that an incoming employee in a comparable position starts at the same or a higher rate. The employee may stop volunteering, become less engaged, seek new employment, or leave. Do **not** assert that everyone responds this way or label it “quiet quitting” automatically; disengagement, job search and resignation are distinct outcomes. Do not portray the new employee as at fault.
