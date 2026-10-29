@@ -156,6 +156,18 @@ Required content, **pre-filled by Gravity**:
 
 **Research and factual review:** SHRM (pay compression and new-hire rates): https://www.shrm.org/mena/topics-tools/news/benefits-compensation/to-new-workers-earn-current-staff ; ADP (salary compression): https://www.adp.com/resources/articles-and-insights/articles/s/salary-compression.aspx ; University of Texas at Dallas (compression vs. inversion): https://hr.utdallas.edu/employees/employment-and-compensation/staff-compensation-and-classification/compensation-standards-and-practices/ ; NLRB employee pay-discussion guidance (coverage varies): https://www.nlrb.gov/about-nlrb/rights-we-protect/your-rights/your-rights-to-discuss-wages . Recheck authority and local rules before a public legal claim.
 
+## The Manager's Protocol — the owner is not exempt
+
+**Thomas Butler's principle (captured for editorial review):** Every manager should follow known, documented guidelines for professional conduct and business operations. When the owner personally manages a restaurant, **the manager's protocol still applies to that owner**.
+
+A written Gravity Management Protocol should cover professional respect, employee treatment and pay, consistent scheduling and discipline, SOPs and safety, records and handoffs, decision rights, and accountability. Owner-level authority may differ from a hired manager's authority, but owning the business is not permission to ignore its management standards. Exceptions or policy changes should be justified, documented, lawful, and communicated—not made silently for the owner's convenience.
+
+**Quiet Gravity: Cause & Effect article:** “The Owner Who Didn't Have to Follow the Rules.” Explore how exceptions for the owner can weaken trust in standards and leadership.
+
+**Field Sheet:** “Two Hats, One Management Standard” — ask whether an owner acting as shift manager followed the same rules expected of a hired manager.
+
+**Potential implementation:** Gravity Owner–GM Governance and Agreement Pack / management training. This remains a proposal, not an already released policy.
+
 ## Signature series: Quiet Gravity — Cause & Effect
 
 **Public-facing title:** *Quiet Gravity: Cause & Effect*  
