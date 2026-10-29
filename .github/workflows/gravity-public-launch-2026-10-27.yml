@@ -44,6 +44,7 @@ jobs:
           grep -Fq 'id="report-series"' site/gravity-report.html
           grep -Fq 'id="report-field-sheets"' site/gravity-report.html
           grep -Fq 'Gravity already took the notes.' site/gravity-report.html
+          grep -Fq 'Five Field Sheets are available below.' site/gravity-report.html
           test -s site/assets/downloads/gravity-field-sheet-01-manager-excuses.pdf
           test -s site/assets/downloads/gravity-field-sheet-02-food-cost.pdf
           test -s site/assets/downloads/gravity-field-sheet-03-manager-follow-through.pdf
@@ -142,10 +143,12 @@ jobs:
           grep -Fq 'Gravity already took the notes.' /tmp/gravity-report-catalog-live.html
           grep -Fq 'gravity-field-sheet-01-manager-excuses.pdf' /tmp/gravity-report-catalog-live.html
           grep -Fq 'gravity-field-sheet-02-food-cost.pdf' /tmp/gravity-report-catalog-live.html
+          grep -Fq 'Five Field Sheets are available below.' /tmp/gravity-report-catalog-live.html
           grep -Fq 'gravity-field-sheet-03-manager-follow-through.pdf' /tmp/gravity-report-catalog-live.html
           grep -Fq 'gravity-field-sheet-04-food-waste.pdf' /tmp/gravity-report-catalog-live.html
           grep -Fq 'gravity-field-sheet-05-employee-retention.pdf' /tmp/gravity-report-catalog-live.html
           grep -Fq 'gravity-field-sheet-01-manager-excuses.pdf' /tmp/gravity-report-article-live.html
+          curl -fsSL "$base/gravity-report/how-do-i-get-restaurant-managers-to-follow-through" | grep -Fq 'gravity-field-sheet-03-manager-follow-through.pdf'
           for sheet in gravity-field-sheet-01-manager-excuses.pdf gravity-field-sheet-02-food-cost.pdf gravity-field-sheet-03-manager-follow-through.pdf gravity-field-sheet-04-food-waste.pdf gravity-field-sheet-05-employee-retention.pdf; do
             curl -fsSL --retry 3 "$base/assets/downloads/$sheet" -o "/tmp/$sheet"
             test "$(head -c 5 "/tmp/$sheet")" = '%PDF-'
