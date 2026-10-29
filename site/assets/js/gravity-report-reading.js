@@ -8,7 +8,8 @@ function node(tag,cls,txt){var el=document.createElement(tag);if(cls)el.classNam
 function socialPost(title,summary,url){
  var plain=String(summary||'').replace(/\s+/g,' ').trim();
  if(plain.length>360){plain=plain.slice(0,356);plain=plain.slice(0,Math.max(240,plain.lastIndexOf(' ')))+'…'}
- return 'A restaurant management question worth examining:\n\n'+title+'\n\n'+plain+'\n\nRead the full article on Gravity:\n'+url+'\n\nThe Gravity Report · By Thomas Butler · Published by Thomas Monroe Books';
+ var opening=/keep good restaurant employees/i.test(title)?'Good employees do not always tell you why they are leaving. Are we asking the right questions?':/food cost so high/i.test(title)?'The food cost number is a warning light—not the explanation.':/managers keep making excuses/i.test(title)?'The same excuse. The same problem. What is really happening underneath?':/managers to follow through/i.test(title)?'When the task was assigned but nothing changed, what did management miss?':/food waste/i.test(title)?'Why does the same food keep ending up in the trash?':title;
+ return opening+'\n\n'+(opening===title?'':title+'\n\n')+plain+'\n\nRead the full article on Gravity:\n'+url+'\n\nThe Gravity Report · By Thomas Butler · Published by Thomas Monroe Books';
 }
 function fullArticleText(title,url){
  var body=$('.report-content .report-body');if(!body)return '';
