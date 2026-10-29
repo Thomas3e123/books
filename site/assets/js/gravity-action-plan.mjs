@@ -41,28 +41,16 @@ function heading(root,text){root.append(node('h3',text))}
 function render(){
  const {input,plan}=state,t=topics[input.topic],root=$('plan-document');root.replaceChildren();
  $('empty').hidden=true;$('result').hidden=false;$('reviewed').checked=!!state.reviewed;$('review-notes').value=state.notes;$('decision').value=state.decision;
- $('mode-label').textContent=(state.mode==='ai'?'AI-generated draft':'Guided template')+' · Manager review required';
+ $('mode-label').textContent=(state.mode==='ai'?'AI-generated draft':'Draft plan')+' · Check before using';
  root.append(edit(plan.title,v=>plan.title=v,'h2'));
- root.append(node('p',[input.restaurant||'Restaurant not specified','Owner: '+input.owner,'Start: '+input.start,input.pace+'-day path'].join(' · '),'meta'));
- heading(root,'The problem');root.append(node('p',input.problem));if(input.context)root.append(node('p','Operating context: '+input.context));
- heading(root,'The result to work toward');root.append(edit(plan.objective,v=>plan.objective=v));
- heading(root,'Baseline and measures');root.append(node('p',input.baseline||'Baseline unknown — record actual observations before claiming improvement.'));root.append(edit(plan.measure,v=>plan.measure=v));
- heading(root,'The smallest useful set of working aids');root.append(node('p','Suggested owning system: '+t.system));const tools=node('ol');for(const name of t.tools)tools.append(node('li',name+' — draft aid to customize; not a newly approved Gravity form.'));root.append(tools);const work=node('a','Continue in '+t.workspaceName);work.href=t.workspace;root.append(work);root.append(node('p','This link opens the workspace. It does not transfer this plan automatically.','hint'));
- heading(root,'Implementation steps');const steps=node('ol');plan.steps.forEach((s,i)=>{const li=node('li');li.append(edit(s.timing,v=>s.timing=v,'h4'),edit(s.action,v=>s.action=v),node('strong','Evidence to keep'),edit(s.evidence,v=>s.evidence=v));steps.append(li)});root.append(steps);
- for(const [key,title] of [['checklist','Working checklist'],['training','Short training aid'],['assumptions','Assumptions and limits'],['questions','Questions to settle']]){
-  heading(root,title);if(key==='checklist')root.append(node('p','Use these boxes later, after the work has actually been completed. Reading the plan does not complete the work.','hint'));const list=node('ul');plan[key].forEach((value,i)=>{const li=node('li');li.append(edit(value,v=>plan[key][i]=v));if(key==='checklist'){const label=node('label',undefined,'check');const cb=node('input');cb.type='checkbox';cb.checked=!!state.checked[i];cb.setAttribute('aria-label','Record checklist item '+(i+1)+' complete');cb.onchange=()=>{state.checked[i]=cb.checked;status('Checklist updated. Save or download to keep this change.')};label.append(cb,node('span','Recorded complete by manager'));li.append(label)}list.append(li)});root.append(list);
- }
- heading(root,'Open-item handoff');root.append(node('p','Record only operational information. Leave confidential details in the restaurant’s authorized system.'));
- for(const [i,item] of state.handoff.entries()){
-  const box=node('div',undefined,'review-date');box.append(node('h4','Open item '+(i+1)));
-  for(const [key,label] of [['issue','What remains / why'],['control','Temporary control'],['owner','Next owner'],['due','Due date / time'],['evidence','Evidence required / closure record']]){box.append(node('strong',label),edit(item[key],v=>item[key]=v))}root.append(box);
- }
- const add=node('button','Add open item');add.type='button';add.onclick=()=>{if(state.handoff.length>=10){status('Keep this plan to ten open items. Start another plan if needed.');return}state.handoff.push(blankItem());invalidate();render()};root.append(add);
- heading(root,'Review dates');for(const r of reviews(input)){const box=node('div',undefined,'review-date');box.append(node('strong',r.label+' · '+r.date),node('p',r.purpose));root.append(box)}root.append(node('p','These dates do not create calendar reminders. Record the evidence before deciding whether to keep, change, retire, or expand the method.','hint'));
- heading(root,'Gravity source guidance');const links=node('div',undefined,'source-links');for(const [url,title] of [['/start-here','Start Here: installation pace and first tools'],['/'+t.source,t.name],['/restaurant-shift-handoff-checklist','Shift handoff: owners, deadlines, and verified closure']]){if([...links.children].some(a=>a.getAttribute('href')===url))continue;const a=node('a',title);a.href=url;links.append(a)}root.append(links,node('p','Source snapshot: October 28, 2026. Source links explain the basis; generated additions and your edits remain draft working aids.','hint'));
+ root.append(node('p','Person leading this: '+input.owner,'meta'));
+ const steps=node('ol',undefined,'plain-plan');
+ plan.steps.forEach(step=>{const li=node('li');li.append(edit(step.timing,v=>step.timing=v,'strong'),edit(step.action,v=>step.action=v));steps.append(li)});
+ root.append(steps);
+
 }
 const blankItem=()=>({issue:'To be recorded',control:'Confirm approved temporary control',owner:'Assign owner',due:'Set deadline',evidence:'Record how closure will be verified'});
-function setPlan(input,plan,mode){state={version:1,input,plan:validatePlan(plan),mode,reviewed:false,notes:'',decision:'pending',checked:[],handoff:[blankItem()]};render();status(mode==='ai'?'AI draft ready. Check every step, assumptions, and unanswered question.':'Guided template ready. It uses your problem, owner, dates, baseline, and selected Gravity guidance. Customize it before use.');$('output-title').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'})}
+function setPlan(input,plan,mode){state={version:1,input,plan:validatePlan(plan),mode,reviewed:false,notes:'',decision:'pending',checked:[],handoff:[blankItem()]};render();status(mode==='ai'?'AI draft ready. Check every step, assumptions, and unanswered question.':'Your draft plan is ready. Read the list and change anything that does not fit your restaurant.');$('output-title').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'})}
 $('plan-form').onsubmit=e=>{e.preventDefault();if(questionIndex<questionSteps.length-1){if(validQuestion())showQuestion(questionIndex+1);return}for(let i=0;i<questionSteps.length-1;i++){const invalid=[...questionSteps[i].querySelectorAll('input,textarea,select')].some(field=>!field.checkValidity());if(invalid){showQuestion(i);validQuestion();return}}try{const input=readInput();setPlan(input,createTemplate(input),'template')}catch(err){$('step-error').textContent=err.message;status(err.message)}};
 $('ai-build').onclick=async()=>{
  if(busy||!$('plan-form').reportValidity())return;let input;try{input=readInput()}catch(e){status(e.message);return}setBusy(true);status('Connecting to AI drafting…');
@@ -83,8 +71,9 @@ function snapshot(){if(!state)throw Error('Build a plan first.');return {...stat
 $('save').onclick=()=>{try{localStorage.setItem(KEY,JSON.stringify(snapshot()));status('Saved on this browser profile. Download a backup for recovery or another device.')}catch{status('Could not save on this device. Your draft is still visible. Download a backup now.')}};
 function download(name,content,type){const url=URL.createObjectURL(new Blob([content],{type}));const a=node('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 $('download').onclick=()=>download('gravity-action-plan-backup.json',JSON.stringify(snapshot(),null,2),'application/json');
-$('text-export').onclick=()=>{const copy=$('plan-document').cloneNode(true);copy.querySelectorAll('button').forEach(el=>el.remove());copy.querySelectorAll('label.check').forEach((el,i)=>el.replaceWith(node('p',state.checked[i]?'[Complete — manager recorded]':'[Not recorded complete]')));copy.querySelectorAll('p,h2,h3,h4,li,strong,a').forEach(el=>el.append(document.createTextNode('\n')));const doc=copy.textContent;download('gravity-action-plan.txt',`${state.mode==='ai'?'AI-GENERATED DRAFT':'GUIDED TEMPLATE'} — Manager review required\nManager review recorded: ${state.reviewed?'Yes':'No'}\n\n${doc}\n\nReview notes:\n${state.notes||'None recorded'}\nManager decision: ${state.decision}\n`,'text/plain;charset=utf-8')};
-$('print').onclick=()=>{const marker=node('p','Manager review recorded: '+(state.reviewed?'Yes':'No')+' · Current decision: '+state.decision);const notes=node('p','Review notes: '+(state.notes||'None recorded'));$('plan-document').prepend(marker);$('plan-document').append(notes);window.print();marker.remove();notes.remove()};
+$('text-export').onclick=()=>{const lines=state.plan.steps.map((step,i)=>`${i+1}. ${step.timing}\n${step.action}`).join('\n\n');download('gravity-action-plan.txt',`DRAFT — Check against your restaurant’s approved procedures before using.\n\n${state.plan.title}\nPerson leading this: ${state.input.owner}\n\n${lines}\n`,'text/plain;charset=utf-8')};
+$('print').onclick=()=>window.print();
+
 function validateBackup(raw){
  if(!raw||raw.version!==1||!['ai','template'].includes(raw.mode))throw Error('Unsupported backup.');
  const input=validateInput(raw.input),plan=validatePlan(raw.plan);

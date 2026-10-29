@@ -27,15 +27,50 @@ export function reviews(input){const guided=input.pace==='60';return [
  {day:30,label:guided?'Day 30 midpoint correction':'Day 30 final installation decision',purpose:guided?'Correct the method and training before broader execution.':'Review evidence and choose keep, change, retire, or expand.'},
  ...(guided?[{day:60,label:'Day 60 final installation decision',purpose:'Review evidence and choose keep, change, retire, or expand.'}]:[])
  ].map(r=>({...r,date:dateAt(input.start,r.day)}));}
+const plainPlans={
+ closing:[
+ ['Check the work before the closing crew leaves.','The closing manager walks through each station and checks the actual work against your restaurant’s closing list.'],
+ ['If something is unfinished, find out why.','Ask the employee to show you what happened. Check whether they understood the task, had enough time, and had working equipment.'],
+ ['Show anyone who needs help how to do the task.','Then have them do it while the manager watches. Make sure they can do it before expecting them to handle it alone.'],
+ ['Write down anything that must wait until tomorrow.','State what is unfinished, why, who will finish it, and when. Make sure the opening manager receives that information.'],
+ ['Keep a simple record for the next week.','Each morning, record which closing tasks were left unfinished. Look for problems that keep happening.'],
+ ['After one week, review what happened.','If unfinished work is decreasing, continue checking. If it isn’t, use those records to decide what needs changing.']
+ ],
+ handoff:[
+ ['Write down what the next manager needs to know.','Include unfinished work, equipment problems, and changes that affect the next shift. Use your restaurant’s approved records.'],
+ ['Give each unfinished task a person and a deadline.','Write who will finish it and when. Explain what the team should do in the meantime using your approved procedures.'],
+ ['Talk through the notes with the next manager.','Ask them to explain what needs doing and raise anything that is unclear.'],
+ ['Check whether the work was finished.','The manager responsible checks the actual result before marking the task done. Carry unfinished tasks forward.'],
+ ['After one week, check what is still being missed.','Read the shift notes together. Change unclear instructions and follow up on tasks that keep getting missed.']
+ ],
+ training:[
+ ['Choose the task the employee needs help with.','Use the current instructions approved by your restaurant. Check that managers are teaching the same method.'],
+ ['Show the employee how to do it.','Explain each step and what finished work should look like. Give them time to ask questions.'],
+ ['Let the employee practice while you watch.','Help where needed. Check unclear instructions, equipment, and workload before deciding why something went wrong.'],
+ ['Check that they can do the task on their own.','Watch the actual work. Signing a training sheet only confirms receipt; it does not show they can do the job.'],
+ ['Check again during the next week.','Write down what they can do and where they still need help. Give more practice where needed.']
+ ],
+ inventory:[
+ ['Count the items again.','Keep the earlier count and system balance. Check that both counts use the same units and include the same storage areas.'],
+ ['Check the records for anything missing.','Look at deliveries, waste, transfers, duplicate entries, and items entered under the wrong unit. A difference does not prove theft.'],
+ ['Write down what explains the difference.','Separate what you have confirmed from what you still need to check. Ask the manager to review unresolved differences.'],
+ ['Save a backup before making major changes.','Use the restaurant’s approved process. Keep the original records and explain each correction.'],
+ ['Check the same items at the next count.','See whether the difference happens again. Correct the counting or recording instructions if the same mistakes continue.']
+ ],
+ labor:[
+ ['Check when the restaurant needs help.','Look at expected business, work to finish, and the skills needed at each station.'],
+ ['Compare the schedule with what actually happened.','Check hours worked, labor cost, overtime, call-outs, and service problems. Use your restaurant’s agreed cost figures.'],
+ ['Find out why coverage did not match the work.','Talk with the shift manager. Consider training, equipment problems, unusual business, and the mix of skills on the shift.'],
+ ['Have the manager adjust the next schedule.','Keep the skills and coverage needed to serve guests. Write down what changed and why.'],
+ ['After the next week, check the results.','Compare hours and cost with service and workload. Keep changes that help, and correct changes that leave the team unable to do the work.']
+ ]
+};
+const plainTitles={closing:'Stop closing tasks from being marked done when they aren’t finished',handoff:'Make sure the next manager knows what needs doing',training:'Help employees learn the task and do it correctly',inventory:'Find out why inventory counts do not match',labor:'Match staffing to the work that needs doing'};
 export function createTemplate(input){const t=topics[input.topic],guided=input.pace==='60';return {
- title:t.name+' — action plan',objective:input.goal||'Define the restaurant-specific result before the pilot; do not invent a numerical target.',
+ title:plainTitles[input.topic],objective:input.goal||'Define the restaurant-specific result before the pilot; do not invent a numerical target.',
  assumptions:['This is a draft adapted from public Gravity guidance; the restaurant’s approved procedures still control.',...(input.baseline?[]:['A verified baseline has not been supplied. Measure it before claiming improvement.'])],
  questions:['Which approved procedure or standard governs this task?','What evidence will show the correction held under a busy shift?'],
- steps:[{timing:guided?'Days 1–10':'Days 1–5',action:'Measure and define: '+input.problem,evidence:input.baseline||'Record actual conditions and a baseline; separate facts from assumptions.'},
- {timing:guided?'Days 11–30':'Days 6–10',action:'Prepare the three working aids, confirm the standard, demonstrate the work, and pilot it with the team.',evidence:'Record training, observed practice, questions, and corrections.'},
- {timing:guided?'Days 31–46':'Days 11–20',action:'Use the aids on live shifts. '+t.checks[1],evidence:'The owner reviews completed records and follows open items to closure.'},
- {timing:guided?'Days 47–54':'Days 21–27',action:'Test the method during representative busy conditions; correct repeated problems with the team.',evidence:'Record what held, what failed, the cause supported by evidence, and the correction.'},
- {timing:guided?'Days 55–60':'Days 28–30',action:'Compare with the baseline and make the final keep/change/retire/expand decision.',evidence:t.measure}],
+ steps:plainPlans[input.topic].map(([timing,action])=>({timing,action,evidence:'Check the actual work and keep a short record of what happened.'})),
  checklist:t.checks,training:['Explain the approved standard and show the current procedure.','Demonstrate, let the employee practice, and observe the actual work.','Record what was demonstrated and what still needs support; receipt is not proof of competence.'],
  measure:input.baseline?'Compare the supplied baseline with later observations: '+t.measure:t.measure
  };}
