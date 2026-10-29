@@ -29,6 +29,7 @@ jobs:
           npm run build
           node scripts/prepare-gravity-public-launch.cjs
           node scripts/update-gravity-footer.cjs
+          # Editorial audience correction: Report is for employees, supervisors, managers and owners alike.
           node scripts/test-gravity-report.mjs
           node --check site/assets/js/gravity-report-reading.js
           node --check functions/gravity-report/index.mjs
