@@ -11,6 +11,19 @@ assert(home.includes('class="gravity-knowledge report-catalog"'),'Catalog body c
 assert(home.includes('gravity-report-reading.css'),'Catalog CSS missing');
 assert(home.includes('gravity-report-reading.js'),'Catalog script missing');
 assert(home.includes('id="report-search"'),'Search input missing');
+
+assert(home.includes('id="report-field-sheets"'),'Visible Field Sheet explainer missing');
+assert(home.includes('Gravity already took the notes.'),'Article notes promise is not clear');
+assert(home.includes('not a blank worksheet'),'Prefilled Field Sheet explanation missing');
+for(const name of ['gravity-field-sheet-01-manager-excuses.pdf','gravity-field-sheet-02-food-cost.pdf']){
+ assert(home.includes(name),'Catalog missing an available PDF download: '+name);
+ const file='site/assets/downloads/'+name;
+ const bytes=fs.readFileSync(file);
+ assert.equal(bytes.toString('ascii',0,8),'%PDF-1.4','Field Sheet is not a valid PDF: '+name);
+ assert(bytes.length>1000,'Field Sheet PDF is suspiciously small: '+name);
+}
+assert.equal((home.match(/id="report-field-sheets"/g)||[]).length,1,'Field Sheet anchor ID must be unique');
+
 assert(home.includes('class="report-upcoming-group"'),'Upcoming schedule expandable section missing');
 assert(home.includes('data-report-upcoming'),'Scheduled issue container missing');
 assert.equal((home.match(/<article class="report-card"/g)||[]).length,30,'All 30 issues must remain in the HTML');
@@ -70,6 +83,13 @@ for(const item of ['class="report-article"','class="report-body"','class="report
 }
 assert(a.html.includes('Publisher and Editor of The Gravity Report'),'Publisher credit lost');
 
+assert(a.html.includes('gravity-field-sheet-01-manager-excuses.pdf'),'Article 1 lacks its matching PDF Field Sheet');
+assert(a.html.includes('The notes are already taken'),'Article 1 does not explain that notes are prepared');
+const issue2=await page('2026-10-28T15:00:00Z','why-is-my-restaurant-food-cost-so-high');
+assert.equal(issue2.resp.status,200);
+assert(issue2.html.includes('gravity-field-sheet-02-food-cost.pdf'),'Article 2 lacks its matching PDF Field Sheet');
+
+
 assert(a.html.includes('data-report-share="post"'),'Article has no copy Facebook post button');
 assert(a.html.includes('data-report-share="full"'),'Article has no copy full article button');
 assert(a.html.includes('data-report-share="link"'),'Article has no copy-link button');
@@ -88,6 +108,7 @@ assert(a.html.includes('rel="next"'),'Published next article link missing');
 assert(!a.html.includes('rel="prev"'),'Issue one must not have a predecessor');
 a=await page('2026-10-28T15:00:00Z',slug6);
 assert.equal(a.resp.status,200,'Issue six should be published by 28 Oct');
+assert(!a.html.includes('class="report-field-callout"'),'Issue six should not suggest a Field Sheet that does not exist');
 assert(a.html.includes('rel="prev"'),'Issue six should have published previous');
 assert(!a.html.includes('rel="next"'),'Issue seven must remain unlinked before Oct 30');
 a=await page('2026-10-30T14:01:00Z',slug6);
