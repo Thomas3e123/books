@@ -156,6 +156,40 @@ Required content, **pre-filled by Gravity**:
 
 **Research and factual review:** SHRM (pay compression and new-hire rates): https://www.shrm.org/mena/topics-tools/news/benefits-compensation/to-new-workers-earn-current-staff ; ADP (salary compression): https://www.adp.com/resources/articles-and-insights/articles/s/salary-compression.aspx ; University of Texas at Dallas (compression vs. inversion): https://hr.utdallas.edu/employees/employment-and-compensation/staff-compensation-and-classification/compensation-standards-and-practices/ ; NLRB employee pay-discussion guidance (coverage varies): https://www.nlrb.gov/about-nlrb/rights-we-protect/your-rights/your-rights-to-discuss-wages . Recheck authority and local rules before a public legal claim.
 
+## Signature series: Quiet Gravity — Cause & Effect
+
+**Public-facing title:** *Quiet Gravity: Cause & Effect*  
+**Series line:** *The decisions people make at work. The consequences people carry home.*  
+**Series home:** The Gravity Report; no separate site or additional subscriber email.  
+**Editorial status:** Approved series concept/name, not yet a published series or a changed release schedule.
+
+### Editorial promise
+
+Name a management decision that can feel minor in the moment, show how it affects employees as people and the people around them, then examine possible long-term effects on the restaurant. Trace the pathway from **cause → employee experience → family/community effects → business consequences** without presenting speculation as inevitable results. Also show the effect of a better management decision.
+
+Every installment includes:
+- A recognizable scene, labeled clearly as firsthand experience, consented account or illustrative scenario.
+- The employee's perspective and human impact; management and operational constraints considered fairly.
+- An explicit **Cause / Effect / Better Choice** section that distinguishes what is known from what could occur.
+- Practical guidance and verification, not merely a moral lesson.
+- A ready-filled Gravity Field Sheet that preserves the notes for the reader; create employee and manager versions when both benefit.
+- Direct reading and listening links once the article is actually published.
+
+### Initial article sequence
+
+1. **He Wasn't Asking to Skip Work. He Was Asking to Be a Kid.** Homecoming basketball, family goodwill, fair shift coverage. *Cause:* rigid refusal versus considerate planning. *Possible effects:* employee trust and community reputation.
+2. **When the Crisis Came, Employees Remembered.** Author's experience of contrasting employee relationships during COVID. *Cause:* treatment over time. *Possible effects:* voluntary commitment during hardship; never claim loyalty alone determined survival.
+3. **You Trained the New Hire. Then You Found Out They Make More.** *Cause:* increasing recruitment rates without reviewing experienced workers' compensation. *Possible effects:* perceived unfairness, lost trust, retention difficulties.
+4. **The Employee Who Was Too Dependable.** Repeatedly relying on one worker to cover every gap. *Possible effects:* exhaustion, conflict with family responsibilities, operational fragility.
+5. **Your Schedule Doesn't End When Their Shift Ends.** Last-minute scheduling decisions. *Possible effects:* childcare, transportation, education and attendance challenges.
+6. **The Employee Who Stopped Speaking Up.** Dismissing repeated safety or operational concerns. *Possible effects:* unreported problems and loss of trust.
+7. **The Employee Everyone Praised but Nobody Promoted.** Appreciation without meaningful development. *Possible effects:* stalled growth and departure.
+8. **The Manager Who Enforced Rules Nobody Understood.** Rules detached from a real safety or service purpose. *Possible effects:* confusion, resentment and inconsistent compliance.
+9. **One Bad Shift Went Home With the Whole Family.** How workplace treatment is discussed beyond work, with no assumption every issue spreads widely.
+10. **The Restaurant People Want to Stand Behind.** Fairness and mutual commitment, with employee dignity valued independently of business benefit.
+
+**Publishing guardrail:** Fit approved installments within the established **three-articles-per-week** total, with **one optional weekly email digest maximum**, rather than adding extra releases. Keep previously scheduled articles intact until separately reviewed and approved. Guest contributions must meet evidence, consent and editorial-independence standards.
+
 ## What makes Gravity's articles different
 
 Each original piece needs:
