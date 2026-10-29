@@ -175,6 +175,19 @@ Every installment includes:
 - A ready-filled Gravity Field Sheet that preserves the notes for the reader; create employee and manager versions when both benefit.
 - Direct reading and listening links once the article is actually published.
 
+### Two departures — the day commitment ended and the day employment ended
+
+**Series principle:** When repeated mistreatment causes a capable employee to resign, the important loss may have begun long before their notice. The person may have **stopped believing in the employer without ever stopping the quality of their work**. They may still arrive, train others, follow standards, and perform dependably, leaving management surprised when the resignation comes. Avoid calling this poor performance or assuming managers can detect it from attendance and productivity.
+
+**The second loss:** If that employee eventually chooses to leave rather than accept continuing disrespect, the decision can reveal **self-respect, judgment, courage, and boundaries** that management failed to recognize. Those qualities may be precisely what a restaurant should have valued. A departure itself does not prove that every departing employee was high-performing; the article must examine the individual's actual contributions rather than making a universal claim.
+
+**The compounding cause and effect:** Poor treatment can cost a business more than headcount. Management may have lost the employee's trust first, then their experience, judgment, relationships, station knowledge, and the example they set for others. Because they continued doing good work, the owner may never have recognized how close the loss was until notice arrived.
+
+**Recognizable series statement:** “They didn't stop doing their job. They stopped believing the restaurant would ever do right by them.”  
+**Second statement:** “When they finally chose to leave, management may have discovered the strength of character it had been overlooking all along.”
+
+**Proposed article:** **“They Quit Believing in You Long Before They Quit Working for You.”** A two-perspective story showing the employee's private withdrawal of trust, outwardly professional work, the final boundary, and the business's avoidable loss. Respect the employee's reasons without claiming to know their private thoughts. Include a manager Field Sheet for verifying fairness, recognizing contribution, and inviting candid feedback **without monitoring employee behavior to predict exits**; and an employee Field Sheet for evaluating options and communicating boundaries without pressure or retaliation.
+
 ### Initial article sequence
 
 1. **He Wasn't Asking to Skip Work. He Was Asking to Be a Kid.** Homecoming basketball, family goodwill, fair shift coverage. *Cause:* rigid refusal versus considerate planning. *Possible effects:* employee trust and community reputation.
@@ -187,6 +200,7 @@ Every installment includes:
 8. **The Manager Who Enforced Rules Nobody Understood.** Rules detached from a real safety or service purpose. *Possible effects:* confusion, resentment and inconsistent compliance.
 9. **One Bad Shift Went Home With the Whole Family.** How workplace treatment is discussed beyond work, with no assumption every issue spreads widely.
 10. **The Restaurant People Want to Stand Behind.** Fairness and mutual commitment, with employee dignity valued independently of business benefit.
+11. **They Quit Believing in You Long Before They Quit Working for You.** Respect withdrawn before notice, professional work continuing, the overlooked value of a person willing to draw a boundary.
 
 **Publishing guardrail:** Fit approved installments within the established **three-articles-per-week** total, with **one optional weekly email digest maximum**, rather than adding extra releases. Keep previously scheduled articles intact until separately reviewed and approved. Guest contributions must meet evidence, consent and editorial-independence standards.
 
