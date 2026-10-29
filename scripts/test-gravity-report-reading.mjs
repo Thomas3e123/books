@@ -15,7 +15,7 @@ assert(home.includes('id="report-search"'),'Search input missing');
 assert(home.includes('id="report-field-sheets"'),'Visible Field Sheet explainer missing');
 assert(home.includes('Gravity already took the notes.'),'Article notes promise is not clear');
 assert(home.includes('not a blank worksheet'),'Prefilled Field Sheet explanation missing');
-for(const name of ['gravity-field-sheet-01-manager-excuses.pdf','gravity-field-sheet-02-food-cost.pdf']){
+for(const name of ['gravity-field-sheet-01-manager-excuses.pdf','gravity-field-sheet-02-food-cost.pdf','gravity-field-sheet-03-manager-follow-through.pdf','gravity-field-sheet-04-food-waste.pdf','gravity-field-sheet-05-employee-retention.pdf']){
  assert(home.includes(name),'Catalog missing an available PDF download: '+name);
  const file='site/assets/downloads/'+name;
  const bytes=fs.readFileSync(file);
@@ -47,7 +47,7 @@ assert(home.includes('A new series in development')&&home.includes('These articl
 assert(home.includes('/gravity-report/why-cant-i-keep-good-restaurant-employees'),'Published human-interest lead story must link to actual article');
 assert(home.includes('/gravity-report/why-is-my-restaurant-food-cost-so-high'),'Working Side must have a verified existing article');
 assert(home.includes('https://gravityleadershipsystem.com/gravity-report'),'Magazine canonical URL must use the permanent Gravity domain');
-assert(home.includes('Gravity Field Sheets')&&home.includes('The first two Field Sheets are available below.')&&home.includes('not every article has a download yet'),'Show the two verified downloads without claiming the entire Field Sheet library is ready');
+assert(home.includes('Gravity Field Sheets')&&home.includes('Five Field Sheets are available below.')&&home.includes('not every article has a download yet'),'Show five verified downloads without claiming every issue has a Field Sheet');
 assert(home.includes('Guest Voices')&&home.includes('/gravity-report-guests'),'Guest contribution path must be preserved');
 assert(css.includes('.report-feature-grid')&&css.includes('.report-series-preview')&&css.includes('.report-utility-grid'),'Magazine responsive layout missing');
 assert(js.includes('The same excuse. The same problem.')&&js.includes('The food cost number is a warning light'),'Social copy should be specific rather than generic');
@@ -88,6 +88,12 @@ assert(a.html.includes('The notes are already taken'),'Article 1 does not explai
 const issue2=await page('2026-10-28T15:00:00Z','why-is-my-restaurant-food-cost-so-high');
 assert.equal(issue2.resp.status,200);
 assert(issue2.html.includes('gravity-field-sheet-02-food-cost.pdf'),'Article 2 lacks its matching PDF Field Sheet');
+for(const [slug,sheet] of [['how-do-i-get-restaurant-managers-to-follow-through','gravity-field-sheet-03-manager-follow-through.pdf'],['how-do-i-stop-restaurant-food-waste','gravity-field-sheet-04-food-waste.pdf'],['why-cant-i-keep-good-restaurant-employees','gravity-field-sheet-05-employee-retention.pdf']]){
+ const article=await page('2026-10-28T15:00:00Z',slug);
+ assert.equal(article.resp.status,200,'Matching published article unavailable: '+slug);
+ assert(article.html.includes(sheet),'Article missing its companion download: '+sheet);
+}
+
 
 
 assert(a.html.includes('data-report-share="post"'),'Article has no copy Facebook post button');
