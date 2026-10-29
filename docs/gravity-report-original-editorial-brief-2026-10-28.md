@@ -168,6 +168,16 @@ A written Gravity Management Protocol should cover professional respect, employe
 
 **Potential implementation:** Gravity Owner–GM Governance and Agreement Pack / management training. This remains a proposal, not an already released policy.
 
+## Gravity work-ethic principle — lead by example, not by equal ability
+
+**Thomas Butler's management perspective:** “I lead by example, and I expect the same from every employee—not the same work abilities, but the same work ethic.”
+
+**What it means:** A manager should demonstrate the responsibility, care, reliability, cooperation, honesty, attention to standards, and willingness to do necessary work that they ask of others. Employees differ in experience, physical ability, training and speed. Work ethic should not be confused with identical output, never needing assistance, giving up breaks, or always being available. Give each person the tools, training, reasonable accommodation where applicable, and opportunity to contribute well in their role.
+
+**Cause & Effect angle:** “I Didn't Ask Them to Be as Fast as Me. I Asked Them to Care as Much.” Explain how managers model behavior, how fairness differs from identical performance, and why trust disappears when leaders demand discipline they do not practice. Examine work ethic through observable behaviors rather than assumptions about character or disability.
+
+**Field Sheet:** “Expect the Standard. Teach the Skill.” Two pre-filled sections: what the leader must demonstrate first; what a new employee is responsible for while learning. Include evidence-based coaching rather than labels such as “lazy.”
+
 ## Signature series: Quiet Gravity — Cause & Effect
 
 **Public-facing title:** *Quiet Gravity: Cause & Effect*  
