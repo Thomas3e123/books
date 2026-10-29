@@ -178,6 +178,24 @@ A written Gravity Management Protocol should cover professional respect, employe
 
 **Field Sheet:** “Expect the Standard. Teach the Skill.” Two pre-filled sections: what the leader must demonstrate first; what a new employee is responsible for while learning. Include evidence-based coaching rather than labels such as “lazy.”
 
+### Dishroom example — the help was offered before the closing rush
+
+**Thomas Butler's real-world management perspective:** The newest dishwasher may not have the experience or washing speed of a veteran, but can still be an equal contributor through attention, effort and responsible preparation. The manager's expectation is **not equal production**; it is reciprocal effort.
+
+**Recognition scene:** A dishwasher spends much of the early evening on their phone while work is available. The manager points out that dishes, sorting, soaking and station preparation need attention now—before the closing rush. Later, as the closing dishes arrive, the employee asks the manager to rescue the backlog. The manager's earlier guidance was already a form of help: a chance to prevent the problem, protect the closing team, and learn the habit of working ahead. Repeatedly doing the ignored work for that employee can conceal the cause instead of correcting it.
+
+**Important distinction:** This is **not** the employee who has been working steadily and is overwhelmed by volume, training needs, equipment trouble or unsafe coverage. Managers remain accountable for a safe, feasible close, appropriate staffing and break practices, and must give necessary hands-on help when the operation genuinely requires it. A phone policy must be clear, consistently applied, accommodate legitimate needs and comply with applicable rules. The coaching response to an avoidable backlog should be clear feedback and proportionate accountability, **not retaliation, humiliation, abandonment or withholding safety-critical assistance**.
+
+**What the employee can learn:** Be the best contributor possible *at your present skill level*. Don't wait for the rush to start working. Accept fair coaching while there's still time to act. The employee's role is to contribute; the manager's role is to teach, prepare, and support. Mutual commitment is not measured by equal speed.
+
+**What the manager must demonstrate:** Set clear expectations early; assign achievable preventive tasks; explain the downstream effect on the closing team; notice honest effort and help when employees have done their part. Do not solve the same preventable lapse indefinitely without addressing its cause.
+
+**Cause → effect → better choice:** Ignoring useful early coaching can create a late backlog and shift work unfairly to coworkers; preparing racks, sorting and keeping work moving can reduce that risk. Check actual work volume and staffing before assuming the employee alone caused the delay.
+
+**Proposed article:** **“I Offered to Help Before You Needed Rescuing.”** Alternate: **“You Don't Have to Be the Best Dishwasher. You Have to Give Your Best Effort.”**
+
+**Companion Field Sheet:** **“Work Ahead: The Dishroom Before the Rush”** — pre-filled station-readiness and teamwork prompts: scrape/sort/soak, dish flow, equipment ready, timing of rush, what to ask before the backlog, and when a manager must intervene. Do not treat an illustrative sequence as a substitute for site-specific food safety SOPs.
+
 ## Signature series: Quiet Gravity — Cause & Effect
 
 **Public-facing title:** *Quiet Gravity: Cause & Effect*  
