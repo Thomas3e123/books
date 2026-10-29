@@ -10,7 +10,7 @@
     },
     {
       "path": "site/_redirects",
-      "sha256": "a83637151135ae10fcfdf094af9b3cd9917db6b9475be089262b02aaf61a73b2"
+      "sha256": "0e3175b03ec38ce710870880e6248e138afd9991936201f5e6c324cde5575533"
     },
     {
       "path": "site/about.html",
@@ -350,7 +350,7 @@
     },
     {
       "path": "site/assets/css/gravity-report-reading.css",
-      "sha256": "4730e20457dd897da4770587bd3478f8789c63bcefa03d2301dda26879dd6576"
+      "sha256": "5611cef97990b5c77b5556d1d7c72d8949bfc350c3c9b37cdc1ffbe214b61575"
     },
     {
       "path": "site/assets/css/gravity-sop-foundry.css",
@@ -1398,7 +1398,7 @@
     },
     {
       "path": "site/assets/js/gravity-report-reading.js",
-      "sha256": "b4a9079c011c0cb3fb90ff8c942ef2277046e49e530e9a5d56fc3025b579a039"
+      "sha256": "1243323ac194674364639f5a04be0b13cfa6415b007237afba4ee6140933fba6"
     },
     {
       "path": "site/assets/js/gravity-shift-first-schedule-tour-v1.js",
@@ -1925,12 +1925,16 @@
       "sha256": "673a31d7c9635507f0c6e698506c0c3af29b7304b61409488256b38a32f0f775"
     },
     {
+      "path": "site/gravity-report-guests.html",
+      "sha256": "267ad768bb9f35fe669611466f422df5503b96d1ea617af10021e7663aac42be"
+    },
+    {
       "path": "site/gravity-report-thanks.html",
       "sha256": "942665eb9334fd83b6a094772ea64188954ac077837b7accab4b0c0d87f08a32"
     },
     {
       "path": "site/gravity-report.html",
-      "sha256": "026c73d497f6a173b0fc7729388094189fd3e1d3c019e93fb32dcd9c6773b87a"
+      "sha256": "46139daaebe7e40f022b66bec94e9b46d2fcb70409600bd75656827254b95c7e"
     },
     {
       "path": "site/gravity-shift-lab-sw.js",
@@ -2386,7 +2390,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "e3ad1336a7d439270c981070a07bd49a10365c5a9d3af28e6ccce3e77dc2b638"
+      "sha256": "648b280ac8a866a1a01c6cc8f67502f25842d7c66891d58d6ccb36d724d8b118"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",
