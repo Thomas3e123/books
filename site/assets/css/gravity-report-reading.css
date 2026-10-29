@@ -121,3 +121,54 @@
  .report-content .report-body h2{break-after:avoid}
  .report-content .report-body p{orphans:3;widows:3}
 }
+
+/* Gravity Report: editorial magazine front door, with operational depth behind it. */
+.report-catalog .report-top{padding:clamp(48px,7vw,92px) 0;background:radial-gradient(ellipse at 92% 16%,rgba(208,152,78,.25),transparent 42%),linear-gradient(130deg,#0b2733 0%,#1c3d45 62%,#643f35 100%)}
+.report-catalog .report-top h1{font-family:Georgia,"Times New Roman",serif;letter-spacing:-.045em}
+.report-catalog .report-top .report-top-line{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.4rem,2.7vw,2.35rem);line-height:1.33;color:#fff8eb;max-width:23ch;margin:22px 0}
+.report-catalog .report-top .report-top-caption{color:#f2d39f;font-weight:650;font-size:1.01rem}
+.report-catalog .report-top .report-schedule-note{font-size:.88rem;color:#dce8e5;max-width:720px;margin:22px 0 0}
+.report-catalog .report-top .hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.report-magazine{padding:26px 0 54px;background:#f7f2e9;color:#223b42}
+.report-lanes{display:flex;gap:9px;flex-wrap:wrap;border-bottom:1px solid #cfc4b2;padding-bottom:23px;margin-bottom:31px}
+.report-lanes a{display:inline-flex;gap:11px;align-items:center;justify-content:space-between;padding:12px 15px;border:1px solid #cbbfae;border-radius:100px;background:#fffdf8;color:#243e46;text-decoration:none;font:700 .87rem/1.3 system-ui,-apple-system,"Segoe UI",sans-serif}
+.report-lanes a:hover{background:#e7d8c3;border-color:#876f59}
+.report-feature-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(250px,1fr);gap:19px;scroll-margin-top:32px}
+.report-lead{padding:clamp(25px,4vw,48px);background:linear-gradient(150deg,#fefcf6,#efe2ce);border:1px solid #d4c3a7;border-top:6px solid #a94f4e;border-radius:18px;box-shadow:0 16px 45px rgba(40,39,34,.08)}
+.report-magazine-eyebrow{font:750 .76rem/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.11em;text-transform:uppercase;color:#934844}
+.report-lead h2{font:700 clamp(1.85rem,3.6vw,3.2rem)/1.16 Georgia,"Times New Roman",serif;letter-spacing:-.02em;color:#193640;margin:15px 0}
+.report-lead p{font-size:1.05rem;line-height:1.68;color:#354b53;max-width:55ch}
+.report-lead .report-lead-title{border-left:3px solid #ac655b;padding-left:13px;font-size:.99rem}
+.report-lead small{color:#52616a;font-size:.83rem}
+.report-feature-actions{display:flex;gap:11px;flex-wrap:wrap;margin:24px 0}
+.report-magazine-cta,.report-magazine-ghost{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 17px;border-radius:9px;font:750 .95rem/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;text-decoration:none!important}
+.report-magazine-cta{background:#79333d;color:#fff!important;border:1px solid #79333d}
+.report-magazine-cta:hover{background:#5d2631}
+.report-magazine-ghost{background:transparent;color:#61333a!important;border:1px solid #a98e82}
+.report-magazine-ghost:hover{background:#e7d8c3}
+.report-side-stories{display:grid;gap:19px;grid-template-rows:1fr 1fr}
+.report-side-card{background:#fffdf8;padding:clamp(19px,3vw,29px);border-radius:16px;border:1px solid #d9cfc1;display:flex;flex-direction:column;align-items:flex-start}
+.report-side-card h3{font:700 clamp(1.35rem,2.3vw,1.8rem)/1.3 Georgia,"Times New Roman",serif;color:#213d45;margin:11px 0}
+.report-side-card p{color:#495861;line-height:1.6;margin:0 0 16px}
+.report-side-card>a{margin-top:auto;color:#763039;font-weight:750;text-decoration:underline;text-underline-offset:3px}
+.report-series-preview{background:#14343f;color:#fff;padding:clamp(37px,5vw,60px) 0;scroll-margin-top:20px}
+.report-series-inner{display:flex;gap:35px;justify-content:space-between;align-items:center}
+.report-series-inner>div{max-width:800px}
+.report-series-preview .report-magazine-eyebrow{color:#e6ba83}
+.report-series-preview h2{font:700 clamp(2rem,4vw,3.1rem)/1.15 Georgia,"Times New Roman",serif;margin:10px 0 16px;color:#fffdf7}
+.report-series-preview p{color:#e9eee8;font-size:1.04rem;line-height:1.7}
+.report-series-preview .report-series-statement{font:italic 1.35rem/1.5 Georgia,"Times New Roman",serif;color:#f6d5a4}
+.report-series-preview .report-coming-note{font-size:.86rem;color:#f0dfca;max-width:75ch}
+.report-series-preview .report-magazine-ghost.light{color:#fff!important;border-color:#cfb594;white-space:normal;text-align:center;flex-shrink:0}
+.report-series-preview .report-magazine-ghost.light:hover{background:#31525a}
+.report-utility-area{background:#fffaf3;padding:clamp(35px,5vw,58px) 0}
+.report-utility-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.report-utility-grid article{padding:26px;background:#fff;border:1px solid #d9d3c9;border-radius:16px;scroll-margin-top:24px}
+.report-utility-grid h2{font:700 1.53rem/1.25 Georgia,"Times New Roman",serif;margin:12px 0;color:#193640}
+.report-utility-grid p{line-height:1.6;color:#44565b}
+.report-utility-grid a{color:#762d3b;text-decoration:underline;text-underline-offset:3px;font-weight:700}
+.report-magazine a:focus-visible,.report-series-preview a:focus-visible,.report-utility-area a:focus-visible{outline:3px solid #cb893c;outline-offset:4px}
+@media(max-width:900px){.report-feature-grid{grid-template-columns:1fr}.report-side-stories{grid-template-columns:1fr 1fr;grid-template-rows:auto}.report-series-inner{display:block}.report-series-inner .report-magazine-ghost{margin-top:14px}.report-utility-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.report-magazine{padding:18px 0 30px}.report-lanes{gap:8px}.report-lanes a{width:100%;min-height:44px}.report-side-stories,.report-utility-grid{grid-template-columns:1fr}.report-lead{padding:23px}.report-feature-actions>*{width:100%}.report-series-preview{padding:32px 0}.report-series-preview .report-magazine-ghost.light{display:flex}}
+@media(prefers-reduced-motion:reduce){.report-magazine *, .report-series-preview *, .report-utility-area *{scroll-behavior:auto}}
+@media print{.report-lanes,.report-feature-actions{display:none!important}.report-feature-grid,.report-side-stories,.report-utility-grid{display:block}.report-magazine,.report-series-preview,.report-utility-area{background:#fff!important;color:#000!important}.report-series-preview *{color:#000!important}}
