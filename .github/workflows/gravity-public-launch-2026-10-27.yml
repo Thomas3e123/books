@@ -46,8 +46,14 @@ jobs:
           grep -Fq 'Gravity already took the notes.' site/gravity-report.html
           test -s site/assets/downloads/gravity-field-sheet-01-manager-excuses.pdf
           test -s site/assets/downloads/gravity-field-sheet-02-food-cost.pdf
+          test -s site/assets/downloads/gravity-field-sheet-03-manager-follow-through.pdf
+          test -s site/assets/downloads/gravity-field-sheet-04-food-waste.pdf
+          test -s site/assets/downloads/gravity-field-sheet-05-employee-retention.pdf
           grep -Fq 'gravity-field-sheet-01-manager-excuses.pdf' functions/gravity-report/index.mjs
           grep -Fq 'gravity-field-sheet-02-food-cost.pdf' functions/gravity-report/index.mjs
+          grep -Fq 'gravity-field-sheet-03-manager-follow-through.pdf' functions/gravity-report/index.mjs
+          grep -Fq 'gravity-field-sheet-04-food-waste.pdf' functions/gravity-report/index.mjs
+          grep -Fq 'gravity-field-sheet-05-employee-retention.pdf' functions/gravity-report/index.mjs
           grep -Fq 'gravity-report-reading.css' site/gravity-report.html
           grep -Fq 'Publisher and Editor of The Gravity Report' site/index.html
           grep -Fq 'Restaurant Leadership, Systems &amp; Operations' site/index.html
@@ -65,7 +71,7 @@ jobs:
           token="${TOKEN_A:-${TOKEN_B:-${TOKEN_C:-}}}"
           if [ -z "$token" ]; then echo 'FAILED: No Netlify deployment token'; exit 1; fi
           export NETLIFY_AUTH_TOKEN="$token"
-          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC Field Sheet downloads 01-02 and prefilled notes explainer / TMB untouched" --json > /tmp/gls-production-deploy.json
+          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC Field Sheet downloads 01-05 and article companions / TMB untouched" --json > /tmp/gls-production-deploy.json
           node -e 'const d=require("/tmp/gls-production-deploy.json"); console.log(JSON.stringify({site_id:d.site_id,deploy_id:d.deploy_id,deploy_url:d.deploy_url,url:d.url},null,2));if(d.site_id!=="fa5d39a0-bef9-4ff1-9c28-57d585d741d7")process.exit(1)'
       - name: Confirm public indexing and protected asset robots headers
         run: |
@@ -136,8 +142,11 @@ jobs:
           grep -Fq 'Gravity already took the notes.' /tmp/gravity-report-catalog-live.html
           grep -Fq 'gravity-field-sheet-01-manager-excuses.pdf' /tmp/gravity-report-catalog-live.html
           grep -Fq 'gravity-field-sheet-02-food-cost.pdf' /tmp/gravity-report-catalog-live.html
+          grep -Fq 'gravity-field-sheet-03-manager-follow-through.pdf' /tmp/gravity-report-catalog-live.html
+          grep -Fq 'gravity-field-sheet-04-food-waste.pdf' /tmp/gravity-report-catalog-live.html
+          grep -Fq 'gravity-field-sheet-05-employee-retention.pdf' /tmp/gravity-report-catalog-live.html
           grep -Fq 'gravity-field-sheet-01-manager-excuses.pdf' /tmp/gravity-report-article-live.html
-          for sheet in gravity-field-sheet-01-manager-excuses.pdf gravity-field-sheet-02-food-cost.pdf; do
+          for sheet in gravity-field-sheet-01-manager-excuses.pdf gravity-field-sheet-02-food-cost.pdf gravity-field-sheet-03-manager-follow-through.pdf gravity-field-sheet-04-food-waste.pdf gravity-field-sheet-05-employee-retention.pdf; do
             curl -fsSL --retry 3 "$base/assets/downloads/$sheet" -o "/tmp/$sheet"
             test "$(head -c 5 "/tmp/$sheet")" = '%PDF-'
             echo "GRAVITY_FIELD_SHEET_LIVE_PASS $sheet"

@@ -19,6 +19,15 @@ assert(drafts.every(a=>a.sections.length===5&&a.sections.every(x=>x.length===2&&
 assert(drafts.every(a=>leadWords(a)>=350),'An editorial article is too short for release');
 assert(new Set([...firstTen.articles,...drafts].map(x=>slug(x.title))).size===30,'Duplicate article titles');
 assert.equal((front.match(/<article class="report-card"/g)||[]).length,30);
+assert.equal((front.match(/<div class="report-field-download">/g)||[]).length,5,'Exactly five downloadable Field Sheets on report landing');
+for(const [number,key] of [[3,'manager-follow-through'],[4,'food-waste'],[5,'employee-retention']]){
+ const filename=`gravity-field-sheet-${String(number).padStart(2,'0')}-${key}.pdf`;
+ assert(front.includes(filename),'Report landing missing Field Sheet '+number);
+ const bytes=fs.readFileSync('site/assets/downloads/'+filename);
+ assert(bytes.subarray(0,5).toString('latin1')==='%PDF-','Invalid PDF header: '+filename);
+ assert(bytes.includes(Buffer.from('%%EOF')),'Missing PDF EOF: '+filename);
+}
+
 assert.equal((front.match(/<a href="\/gravity-report\/[^"]+">Read full article →<\/a>/g)||[]).length,5);
 assert(front.includes('data-netlify="true"')&&front.includes('name="newsletter-consent"'));
 assert(config.path.includes('/gravity-report/:slug'));

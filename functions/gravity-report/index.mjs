@@ -90,7 +90,10 @@ function narrationText(a){
 }
 const GRAVITY_FIELD_SHEETS={
  1:{title:'The Missed Commitment',href:'/assets/downloads/gravity-field-sheet-01-manager-excuses.pdf'},
- 2:{title:'Find the Food-Cost Cause',href:'/assets/downloads/gravity-field-sheet-02-food-cost.pdf'}
+ 2:{title:'Find the Food-Cost Cause',href:'/assets/downloads/gravity-field-sheet-02-food-cost.pdf'},
+ 3:{title:'Close the Promise-to-Proof Loop',href:'/assets/downloads/gravity-field-sheet-03-manager-follow-through.pdf'},
+ 4:{title:'Trace Waste Back to the Decision',href:'/assets/downloads/gravity-field-sheet-04-food-waste.pdf'},
+ 5:{title:'Keep the Promise Before the Exit',href:'/assets/downloads/gravity-field-sheet-05-employee-retention.pdf'}
 };
 function fieldSheetPanel(a){
  const sheet=GRAVITY_FIELD_SHEETS[a.issue];
