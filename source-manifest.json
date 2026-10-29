@@ -569,6 +569,14 @@
       "sha256": "d1b6937568064934d38fc62c341bae291aba940236d8bfcefc9d9fd6df386de4"
     },
     {
+      "path": "site/assets/downloads/gravity-field-sheet-01-manager-excuses.pdf",
+      "sha256": "65f47b4f856c84a8d11595f72605ae95fd0da0cc9537d88f38dc784104fc3983"
+    },
+    {
+      "path": "site/assets/downloads/gravity-field-sheet-02-food-cost.pdf",
+      "sha256": "bde6c68ac3d7240c368c2e844e0bcf2afea1788726250e3847fd7723ced89cb5"
+    },
+    {
       "path": "site/assets/downloads/gravity-restaurant-sop-library-volume-1-gravity-elite-v2-2026-09-13-369-pages.pdf",
       "sha256": "58999c628bb11c3679c1730bb423d08bf5f76cffdd692849ad6f9a88d8506cfc"
     },
@@ -1934,7 +1942,7 @@
     },
     {
       "path": "site/gravity-report.html",
-      "sha256": "46139daaebe7e40f022b66bec94e9b46d2fcb70409600bd75656827254b95c7e"
+      "sha256": "9d96d72f23f4bbbb1834951eb9be2de213d6f6a031533e20d19be099abf333b7"
     },
     {
       "path": "site/gravity-shift-lab-sw.js",
@@ -2390,7 +2398,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "648b280ac8a866a1a01c6cc8f67502f25842d7c66891d58d6ccb36d724d8b118"
+      "sha256": "75291c9ebd87b3e550071da31ff65c6e177e87e8e52162b3c2fe76bfdc4c9913"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",
