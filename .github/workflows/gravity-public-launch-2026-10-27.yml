@@ -40,6 +40,9 @@ jobs:
           grep -Fq 'Read the full article on Gravity:' site/assets/js/gravity-report-reading.js
           grep -Fq 'https://www.facebook.com/sharer/sharer.php?u=' functions/gravity-report/index.mjs
           grep -Fq 'id="report-search"' site/gravity-report.html
+          grep -Fq 'id="report-feature"' site/gravity-report.html
+          grep -Fq 'id="report-series"' site/gravity-report.html
+          grep -Fq 'id="report-field-sheets"' site/gravity-report.html
           grep -Fq 'gravity-report-reading.css' site/gravity-report.html
           grep -Fq 'Publisher and Editor of The Gravity Report' site/index.html
           grep -Fq 'Restaurant Leadership, Systems &amp; Operations' site/index.html
@@ -57,7 +60,7 @@ jobs:
           token="${TOKEN_A:-${TOKEN_B:-${TOKEN_C:-}}}"
           if [ -z "$token" ]; then echo 'FAILED: No Netlify deployment token'; exit 1; fi
           export NETLIFY_AUTH_TOKEN="$token"
-          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC curated guest contributor invitation / TMB untouched" --json > /tmp/gls-production-deploy.json
+          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC story-first Report magazine front with operator library / TMB untouched" --json > /tmp/gls-production-deploy.json
           node -e 'const d=require("/tmp/gls-production-deploy.json"); console.log(JSON.stringify({site_id:d.site_id,deploy_id:d.deploy_id,deploy_url:d.deploy_url,url:d.url},null,2));if(d.site_id!=="fa5d39a0-bef9-4ff1-9c28-57d585d741d7")process.exit(1)'
       - name: Confirm public indexing and protected asset robots headers
         run: |
@@ -89,9 +92,9 @@ jobs:
           grep -Fq 'data-report-font="increase"' /tmp/gravity-report-article-live.html
           grep -Fq 'class="report-toc"' /tmp/gravity-report-article-live.html
           grep -Fq 'Publisher and Editor of The Gravity Report' /tmp/gravity-report-article-live.html
-          curl -fsSL "$base/assets/js/gravity-report-reading.js?v=20261028-readability-v1" -o /tmp/gravity-report-reader-js
+          curl -fsSL "$base/assets/js/gravity-report-reading.js?v=20261029-magazine-v1" -o /tmp/gravity-report-reader-js
           test -s /tmp/gravity-report-reader-js
-          curl -fsSL "$base/assets/css/gravity-report-reading.css?v=20261028-readability-v1" -o /tmp/gravity-report-reader-css
+          curl -fsSL "$base/assets/css/gravity-report-reading.css?v=20261029-magazine-v1" -o /tmp/gravity-report-reader-css
           test -s /tmp/gravity-report-reader-css
           grep -Fq 'data-report-share="post"' /tmp/gravity-report-article-live.html
           grep -Fq 'data-report-share="link"' /tmp/gravity-report-article-live.html
@@ -120,6 +123,16 @@ jobs:
           grep -Fq 'mailto:thomas.butler@gravityleadershipsystem.com' /tmp/gravity-guest-voices.html
           grep -Fq 'does not guarantee acceptance or publication' /tmp/gravity-guest-voices.html
           grep -Fq 'href="/gravity-report-guests"' /tmp/gravity-report-catalog-live.html
+          # Editorial landing must link only released articles, distinguish works in progress and preserve the operating catalog.
+          grep -Fq 'The stories behind restaurant life. The systems that make it better.' /tmp/gravity-report-catalog-live.html
+          grep -Fq 'id="report-feature"' /tmp/gravity-report-catalog-live.html
+          grep -Fq 'id="report-series"' /tmp/gravity-report-catalog-live.html
+          grep -Fq 'id="report-field-sheets"' /tmp/gravity-report-catalog-live.html
+          grep -Fq 'These articles are not published yet.' /tmp/gravity-report-catalog-live.html
+          grep -Fq 'href="/gravity-report/why-cant-i-keep-good-restaurant-employees"' /tmp/gravity-report-catalog-live.html
+          grep -Fq '.report-feature-grid' /tmp/gravity-report-reader-css
+          grep -Fq 'The same excuse. The same problem.' /tmp/gravity-report-reader-js
+          echo 'GRAVITY_REPORT_MAGAZINE_LIVE_PASS'
           echo 'GRAVITY_GUEST_VOICES_LIVE_PASS'
           echo 'GRAVITY_REPORT_AUDIO_AND_SOCIAL_LINKS_LIVE_PASS'
           echo 'GRAVITY_REPORT_READING_AND_SHARING_LIVE_PASS'
