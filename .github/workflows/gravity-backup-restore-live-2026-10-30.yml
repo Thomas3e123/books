@@ -1,0 +1,36 @@
+name: Gravity backup and restore — real production browser with synthetic data
+on:
+  push:
+    branches: [feature/gravity-migration-phase1-2026-10-22]
+    paths:
+      - .github/workflows/gravity-backup-restore-live-2026-10-30.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  backup-recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Install test browser
+        run: |
+          node --check scripts/qa-gravity-backup-restore-live.mjs
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+      - name: Export and restore synthetic Shift Lab and Inventory Center data in clean browsers
+        run: node scripts/qa-gravity-backup-restore-live.mjs
+      - name: Store audited evidence, even if the test fails
+        if: always()
+        run: |
+          set -euo pipefail
+          test -s docs/audits/gravity-backup-restore-live-2026-10-30.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/audits/gravity-backup-restore-live-2026-10-30.md
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "audit(gravity): record real backup import/export results [skip ci]"
+          git fetch --no-tags origin feature/gravity-migration-phase1-2026-10-22
+          git rebase origin/feature/gravity-migration-phase1-2026-10-22
+          git push origin HEAD:feature/gravity-migration-phase1-2026-10-22
