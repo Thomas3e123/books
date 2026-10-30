@@ -83,18 +83,31 @@ for(const item of ['class="report-article"','class="report-body"','class="report
 }
 assert(a.html.includes('Publisher and Editor of The Gravity Report'),'Publisher credit lost');
 
-assert(a.html.includes('gravity-field-sheet-01-manager-excuses.pdf'),'Article 1 lacks its matching PDF Field Sheet');
-assert(a.html.includes('The notes are already taken'),'Article 1 does not explain that notes are prepared');
+// Article and Field Sheet are separate resources with adjacent catalog links.
+// Preserve five public downloads while never linking a future issue prematurely.
+for(const [num,filename] of [
+ [1,'gravity-field-sheet-01-manager-excuses.pdf'],
+ [2,'gravity-field-sheet-02-food-cost.pdf'],
+ [3,'gravity-field-sheet-03-manager-follow-through.pdf'],
+ [4,'gravity-field-sheet-04-food-waste.pdf'],
+ [5,'gravity-field-sheet-05-employee-retention.pdf']
+]){
+ const card=home.match(new RegExp('<article class="report-card" id="report-'+num+'"[\\s\\S]*?<\\/article>'))?.[0];
+ assert(card,'Missing story card for Field Sheet '+num);
+ assert(card.includes('Read full article →'),'Story link missing from card '+num);
+ assert(card.includes('class="report-card-field-sheet"')&&card.includes(filename),'Matching PDF must sit beside story '+num);
+ assert(js.includes("'"+filename+"'"),'Catalog refresh must preserve companion PDF '+num);
+}
+assert(js.includes('if(sheet)')&&js.includes('if(a.released)'),'Only published stories with a completed PDF get a Field Sheet button');
+assert(!home.match(/id="report-6"[^]*?class="report-card-field-sheet"[^]*?<\\/article>/),'Unfinished Issue 06 PDF must not be linked');
 const issue2=await page('2026-10-28T15:00:00Z','why-is-my-restaurant-food-cost-so-high');
 assert.equal(issue2.resp.status,200);
-assert(issue2.html.includes('gravity-field-sheet-02-food-cost.pdf'),'Article 2 lacks its matching PDF Field Sheet');
 for(const [slug,sheet] of [['how-do-i-get-restaurant-managers-to-follow-through','gravity-field-sheet-03-manager-follow-through.pdf'],['how-do-i-stop-restaurant-food-waste','gravity-field-sheet-04-food-waste.pdf'],['why-cant-i-keep-good-restaurant-employees','gravity-field-sheet-05-employee-retention.pdf']]){
  const article=await page('2026-10-28T15:00:00Z',slug);
  assert.equal(article.resp.status,200,'Matching published article unavailable: '+slug);
- assert(article.html.includes(sheet),'Article missing its companion download: '+sheet);
+ assert(!article.html.includes(sheet),'Field Sheet belongs beside the story in the catalog, not in article: '+sheet);
 }
-
-
+assert(!a.html.includes('report-field-callout')&&!a.html.includes('gravity-field-sheet-01-manager-excuses.pdf'),'Field Sheet should not be embedded in the story');
 
 assert(a.html.includes('data-report-share="post"'),'Article has no copy Facebook post button');
 assert(a.html.includes('data-report-share="full"'),'Article has no copy full article button');
