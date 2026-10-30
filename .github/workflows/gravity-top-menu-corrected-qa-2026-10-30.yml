@@ -21,6 +21,8 @@ jobs:
         run: |
           node --check site/assets/js/site.js
           node --check scripts/qa-gravity-top-menu-corrected.mjs
+          grep -Fq '?v=20261030-unified-top-menu-v1' site/index.html
+          grep -Fq '<a href="/gravity-report">Gravity Report</a>' site/apps/sop-foundry/workroom.html
       - name: Install read-only browser QA dependency
         run: npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
       - name: Check all public top menus in real Chrome and sample the live host
