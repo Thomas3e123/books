@@ -1,0 +1,31 @@
+name: Gravity top menu — source inventory only
+on:
+  push:
+    branches: [feature/gravity-migration-phase1-2026-10-22]
+    paths:
+      - .github/workflows/gravity-top-menu-inventory-2026-10-30.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  inventory:
+    if: github.ref == 'refs/heads/feature/gravity-migration-phase1-2026-10-22'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Audit every HTML page's standard header
+        run: node scripts/audit-gravity-top-menu.cjs
+      - name: Save inventory as a repository report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/audits/gravity-top-menu-inventory-2026-10-30.md
+          if git diff --cached --quiet; then echo "NAV_INVENTORY_UNCHANGED"; exit 0; fi
+          git commit -m "audit(gravity): record all-page menu inventory [skip ci]"
+          git push origin HEAD:feature/gravity-migration-phase1-2026-10-22
