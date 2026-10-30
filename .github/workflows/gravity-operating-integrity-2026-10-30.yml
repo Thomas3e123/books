@@ -1,5 +1,5 @@
 name: Gravity operating tool integrity — synthetic local data QA, no deploy
-# Repeat with browser JavaScript exception tracing for Reader; no customer records touched.
+# Reader diagnostics capture browser initialization and script delivery regardless of catalog readiness.
 on:
   push:
     branches: [feature/gravity-migration-phase1-2026-10-22]
