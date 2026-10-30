@@ -31,6 +31,12 @@ jobs:
           node scripts/update-gravity-footer.cjs
           # Editorial audience correction: Report is for employees, supervisors, managers and owners alike.
           node scripts/test-gravity-report.mjs
+          # The private manager entrance remains hidden from ordinary navigation,
+          # but its server endpoint must require the manager key.
+          grep -Fq 'id="gravity-founder-shortcut"' site/testing-room.html
+          grep -Fq "MAX_GAP=650" site/testing-room.html
+          grep -Fq 'type="password"' site/testing-room-manager.html
+          grep -Fq 'timingSafeEqual' functions/testing-room/index.mjs
           # Every public page uses the same validated top-navigation script.
           # Focused programs intentionally retain a separate collapsed Site Menu.
           node --check site/assets/js/site.js
@@ -96,7 +102,7 @@ jobs:
           token="${TOKEN_A:-${TOKEN_B:-${TOKEN_C:-}}}"
           if [ -z "$token" ]; then echo 'FAILED: No Netlify deployment token'; exit 1; fi
           export NETLIFY_AUTH_TOKEN="$token"
-          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC complete menu parity across standard and compact pages / TMB untouched" --json > /tmp/gls-production-deploy.json
+          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC full site source verified; founder entrance repaired with server key gate / TMB untouched" --json > /tmp/gls-production-deploy.json
           node -e 'const d=require("/tmp/gls-production-deploy.json"); console.log(JSON.stringify({site_id:d.site_id,deploy_id:d.deploy_id,deploy_url:d.deploy_url,url:d.url},null,2));if(d.site_id!=="fa5d39a0-bef9-4ff1-9c28-57d585d741d7")process.exit(1)'
       - name: Confirm public indexing and protected asset robots headers
         run: |
@@ -191,4 +197,14 @@ jobs:
           curl -fsSL "$base/robots.txt" | tee /tmp/gravity-robots.txt
           ! grep -q '^Disallow: /$' /tmp/gravity-robots.txt
           curl -fsSI "$base/assets/reader/bar-inventory.txt" | grep -iq '^x-robots-tag:.*noindex'
+          # Validate the private manager entrance and unauthenticated API
+          # on the published host without using or exposing the actual key.
+          curl -fsSL "$base/testing-room" -o /tmp/gravity-founder-room-live.html
+          grep -Fq 'id="gravity-founder-shortcut"' /tmp/gravity-founder-room-live.html
+          grep -Fq 'MAX_GAP=650' /tmp/gravity-founder-room-live.html
+          curl -fsSL "$base/testing-room-manager" -o /tmp/gravity-founder-manager-live.html
+          grep -Fq 'type="password"' /tmp/gravity-founder-manager-live.html
+          code=$(curl --max-time 20 -sS -o /tmp/gravity-founder-deny.json -w '%{http_code}' "$base/testing-room/manager/testers")
+          if [ "$code" != "401" ]; then echo "Manager API did not require a key: HTTP $code"; exit 1; fi
+          echo 'GRAVITY_FOUNDER_ENTRY_AND_MANAGER_AUTH_LIVE_PASS'
           echo 'GRAVITY_PUBLIC_DEPLOY_AND_INDEX_VERIFIED'
