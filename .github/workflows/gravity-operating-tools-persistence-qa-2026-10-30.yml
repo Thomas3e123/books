@@ -1,0 +1,35 @@
+name: Gravity operating tools — real save/reload, cross-tool, Reader and services QA
+on:
+  push:
+    branches: [feature/gravity-migration-phase1-2026-10-22]
+    paths:
+      - .github/workflows/gravity-operating-tools-persistence-qa-2026-10-30.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  test-production-tools:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Install isolated browser test tooling
+        run: |
+          node --check scripts/qa-gravity-operating-tools-live.mjs
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+      - name: Exercise browser-local persistence, tool integration, Reader and server health
+        run: node scripts/qa-gravity-operating-tools-live.mjs
+      - name: Record actual results even on a test failure
+        if: always()
+        run: |
+          test -s docs/audits/gravity-operating-tools-live-2026-10-30.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/audits/gravity-operating-tools-live-2026-10-30.md
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "test(gravity): retain operating tool persistence findings [skip ci]"
+          git fetch --no-tags origin feature/gravity-migration-phase1-2026-10-22
+          git rebase origin/feature/gravity-migration-phase1-2026-10-22
+          git push origin HEAD:feature/gravity-migration-phase1-2026-10-22
