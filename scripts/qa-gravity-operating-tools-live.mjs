@@ -109,9 +109,8 @@ await task('Gravity Reader','Registration gate and synthetic registered book loa
   assert.equal(fresh.books,true,'Book titles should be locked for fresh browser');
   await p.evaluate(()=>localStorage.setItem('gravity_founding_year_download_access_v1','registered'));
   await p.reload({waitUntil:'domcontentloaded'});
-  await p.waitForFunction(()=>document.querySelectorAll('#reader-book option[value]').length>10,{timeout:18000});
-  await p.waitForTimeout(600);
-  const counts=await p.evaluate(()=>({books:document.querySelectorAll('#reader-book-buttons button').length,gate:document.querySelector('#reader-gate').hidden,options:document.querySelector('#reader-book').options.length,bookOptions:[...document.querySelectorAll('#reader-book option[value]')].filter(x=>x.value).length,summary:document.querySelector('#reader-available-books summary')?.textContent,bookHtml:document.querySelector('#reader-book-buttons')?.innerHTML.slice(0,220),status:document.querySelector('#reader-status')?.textContent.slice(0,150)}));
+  await p.waitForTimeout(2400);
+  const counts=await p.evaluate(()=>({books:document.querySelectorAll('#reader-book-buttons button').length,gate:document.querySelector('#reader-gate').hidden,appHidden:document.querySelector('#reader-app').hidden,options:document.querySelector('#reader-book').options.length,bookOptions:[...document.querySelectorAll('#reader-book option[value]')].filter(x=>x.value).length,summary:document.querySelector('#reader-available-books summary')?.textContent,bookHtml:document.querySelector('#reader-book-buttons')?.innerHTML.slice(0,220),status:document.querySelector('#reader-status')?.textContent.slice(0,150),scripts:[...document.querySelectorAll('script[src]')].map(x=>x.getAttribute('src')).filter(x=>x.includes('book-reader'))}));
   console.log('GRAVITY_READER_DIAGNOSTIC '+JSON.stringify({counts,pageErrors,bookScript}));
   assert.equal(counts.gate,true);
   assert.ok(counts.books>=10,'Registered book catalog is not populated: '+JSON.stringify({counts,pageErrors,bookScript}));
