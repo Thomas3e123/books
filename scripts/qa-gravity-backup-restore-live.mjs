@@ -36,7 +36,7 @@ await test('Shift Lab JSON backup restores employee and shift on a clean device'
   const file=await downloadPromise;await file.saveAs(backupFile);
   const backup=JSON.parse(fs.readFileSync(backupFile,'utf8'));
   assert.equal(backup.profile.restaurant,'Gravity Backup QA Only');
-  assert.equal(backup.profile.employees.find(e=>e.name==='QA Backup Employee').wage,21);
+  assert.equal(String(backup.profile.employees.find(e=>e.name==='QA Backup Employee').wage),'21');
  }finally{await ctx.close()}
  const restored=await open('/gravity-shift-lab');
  try{
@@ -46,6 +46,7 @@ await test('Shift Lab JSON backup restores employee and shift on a clean device'
   await p.waitForFunction(()=>document.querySelector('#lab-restaurant')?.value==='Gravity Backup QA Only',{timeout:15000});
   assert.equal(await p.locator('#lab-restaurant').inputValue(),'Gravity Backup QA Only');
   assert.equal(await p.locator('#lab-body tr .employee-name').first().inputValue(),'QA Backup Employee');
+  assert.equal(await p.locator('#lab-body tr .employee-wage').first().inputValue(),'21');
   assert.equal(await p.locator('#lab-body tr .shift-input[data-day="2"]').first().inputValue(),'10a-6p');
   await p.reload({waitUntil:'domcontentloaded'});
   assert.equal(await p.locator('#lab-body tr .employee-name').first().inputValue(),'QA Backup Employee');
