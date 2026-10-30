@@ -1,5 +1,6 @@
 # Reverify website navigation correction on refreshed source integrity manifest.
 name: Gravity SOP Foundry Windows Candidate
+# 2026-10-30: Re-run clean-Windows install and persisted-data smoke on current isolated Gravity branch. No release publication.
 on:
   push:
     # Any changed website source produces an isolated Windows candidate on every branch.
