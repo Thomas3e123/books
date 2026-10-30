@@ -6,11 +6,8 @@ Test scope: real Gravity production pages in fresh isolated headless Chrome cont
 | --- | --- | --- |
 | Shift Lab — Create synthetic employee, save schedule and survive reload | PASS | Browser-local data retained on reload; employee, wage, weekly sales, Monday shift verified; no server writes. |
 | Inventory Center — Create synthetic location and item, verify value and reload | PASS | Synthetic profile, location, item, count and $25 valuation persisted after reload; browser-only, no customer data. |
-| Gravity Reader — Registration gate and synthetic registered book loading | FAIL | page.waitForFunction: Timeout 30000ms exceeded. |
-| Service endpoints — Read-only TTS health and protected manager endpoint | FAIL | TTS health route should return HTTP 200
-
-500 !== 200
- |
+| Gravity Reader — Registration gate and synthetic registered book loading | FAIL | Quiet Gravity text did not appear: {"chars":55,"bookStatus":"Front matter skipped. Press Play for the book content.","bookFetch":[{"status":200,"url":"https://gravityleadershipsystem.com/assets/reader/quiet-gravity.txt?v=20261028-report-reader","type":"text/plain; charset=UTF-8"}],"pageErrors":["con |
+| Service endpoints — Read-only TTS health and protected manager endpoint | PASS | Voice configuration healthy and Cedar offered; anonymous manager data denied (401). No paid audio synthesis or sign-in performed. |
 | Downloads — Read-only check for five PDFs and a Windows manual | PASS | Five genuine PDF files and current Shift Lab Windows manual delivered successfully. Windows executable not launched. |
 
 ## Coverage limitations
@@ -21,4 +18,4 @@ Voice health GET proves configuration only, not audible synthesis latency, quali
 Windows ZIP installation and remote updates require an actual Windows virtual machine and are not tested by Chrome.
 Email form delivery and authenticated back-end persistent records require separate tests with an isolated test account or staging database.
 
-Critical failures: 2.
+Critical failures: 1.
