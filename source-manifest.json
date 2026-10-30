@@ -1686,7 +1686,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "6550188a046abd633213cf5ca819794bb91e41e3ed95c886843995ae88d7f5d2"
+      "sha256": "9e651251b465f51b81286f74cf2961c626962b078f0fb638497d38575a725f96"
     },
     {
       "path": "site/assets/js/testing-room.js",
@@ -1962,7 +1962,7 @@
     },
     {
       "path": "site/gravity-shift-lab.html",
-      "sha256": "73fdcf829ac4eb7531a452ea867e2b4b8101815195033dc27ac6bba8d51a4097"
+      "sha256": "d6e3e033cefc48a327dbc423a46d6ee5c47973e5a5e940bb4b7573843bd62dc6"
     },
     {
       "path": "site/gravity-shift-lab.webmanifest",
@@ -1974,7 +1974,7 @@
     },
     {
       "path": "site/gravity-sop-foundry.html",
-      "sha256": "a1bcd266366b9ac3b62f258f714aa57c4a3e354e13a8224128afb137e1f28ea0"
+      "sha256": "9eecd81ed52a2cd4fa860d5db95249857ed503d53f0feec19304dba2f07ce90c"
     },
     {
       "path": "site/gravity-sop-library-set.html",
