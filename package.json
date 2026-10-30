@@ -13,6 +13,7 @@
     "build": "node scripts/verify-source.cjs",
     "manifest": "node scripts/update-manifest.cjs",
     "dev": "node scripts/dev-action-plan.mjs",
-    "test:action-plan": "node --test scripts/test-gravity-action-plan.mjs"
+    "test:action-plan": "node --test scripts/test-gravity-action-plan.mjs",
+    "test:conversation": "node --test scripts/test-gravity-conversation.mjs"
   }
 }
