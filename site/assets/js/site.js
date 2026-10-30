@@ -9,6 +9,41 @@
   var menuToggle = document.querySelector('[data-menu-toggle]');
   var nav = document.querySelector('[data-menu]');
 
+  // One complete public-site menu, regardless of the page's original HTML.
+  // Only normalize the main site-header navigation. App workrooms, private
+  // manager screens, and their own internal controls are intentionally excluded.
+  var primaryMenu = [
+    ['/', 'Home'],
+    ['/gravity-report', 'Gravity Report'],
+    ['/gravity-assist', 'Gravity Assist'],
+    ['/operating-systems', 'Operating Systems'],
+    ['/gravity-aware', 'Gravity Aware'],
+    ['/books', 'Books'],
+    ['/book-reader', 'Gravity Reader'],
+    ['/restaurant-management-forms-checklists', 'Forms & Tools'],
+    ['/gravity-fulfillment-center', 'Fulfillment Center'],
+    ['/standards-library', 'SOP Library'],
+    ['/gravity-sop-foundry', 'SOP Foundry'],
+    ['/knowledge-center', 'Knowledge Center'],
+    ['/help-center', 'Help Center'],
+    ['/windows-programs', 'Windows Programs'],
+    ['/testing-room', 'Testing Room'],
+    ['/contact', 'Contact'],
+    ['/start-here', 'Start Here']
+  ];
+  if (nav && nav.id === 'site-nav' && nav.closest('header.site-header')) {
+    var fragment = document.createDocumentFragment();
+    primaryMenu.forEach(function (item) {
+      var link = document.createElement('a');
+      link.setAttribute('href', item[0]);
+      link.textContent = item[1];
+      if (item[0] === '/start-here') link.className = 'btn btn-red';
+      fragment.appendChild(link);
+    });
+    nav.replaceChildren(fragment);
+    // Keep the button in the existing header and let the shared toggle handle it.
+  }
+
   function setMenu(open) {
     if (!menuToggle || !nav) return;
     nav.classList.toggle('open', open);
@@ -76,9 +111,14 @@
     sectionTarget = 'operating-systems.html';
   }
   if (nav) {
+    var activePath = (location.pathname || '/').toLowerCase().replace(/\\.html$/i, '').replace(/\\/+$/, '') || '/';
     nav.querySelectorAll('a').forEach(function (link) {
       var target = (link.getAttribute('href') || '').split('#')[0].toLowerCase();
-      link.classList.toggle('active', target === sectionTarget);
+      // Keep a single meaningful active link; never mark unrelated pages active.
+      var selected = target === activePath || (activePath === '/index' && target === '/');
+      link.classList.toggle('active', selected);
+      if (selected) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
     });
   }
 
