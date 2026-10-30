@@ -1,0 +1,37 @@
+name: Gravity top menu — corrected every-page browser verification
+on:
+  push:
+    branches: [feature/gravity-migration-phase1-2026-10-22]
+    paths:
+      - .github/workflows/gravity-top-menu-corrected-qa-2026-10-30.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    if: github.ref == 'refs/heads/feature/gravity-migration-phase1-2026-10-22'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify JavaScript before browser checks
+        run: |
+          node --check site/assets/js/site.js
+          node --check scripts/qa-gravity-top-menu-corrected.mjs
+      - name: Install read-only browser QA dependency
+        run: npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+      - name: Check all public top menus in real Chrome and sample the live host
+        run: node scripts/qa-gravity-top-menu-corrected.mjs
+      - name: Store QA evidence on Gravity branch
+        if: always()
+        run: |
+          if [ ! -f docs/audits/gravity-top-menu-corrected-2026-10-30.md ]; then echo "Corrected audit was not completed"; exit 1; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/audits/gravity-top-menu-corrected-2026-10-30.md
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "audit(gravity): record all-page corrected navigation QA [skip ci]"
+          git push origin HEAD:feature/gravity-migration-phase1-2026-10-22
