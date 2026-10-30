@@ -99,7 +99,10 @@ for(const [num,filename] of [
  assert(js.includes("'"+filename+"'"),'Catalog refresh must preserve companion PDF '+num);
 }
 assert(js.includes('if(sheet)')&&js.includes('if(a.released)'),'Only published stories with a completed PDF get a Field Sheet button');
-assert(!home.match(/id="report-6"[^]*?class="report-card-field-sheet"[^]*?<\\/article>/),'Unfinished Issue 06 PDF must not be linked');
+const card6Start=home.indexOf('id="report-6"');
+const card6End=home.indexOf('</article>',card6Start);
+assert(card6Start>=0&&card6End>card6Start,'Issue 06 story card not found');
+assert(!home.slice(card6Start,card6End).includes('report-card-field-sheet'),'Unfinished Issue 06 PDF must not be linked');
 const issue2=await page('2026-10-28T15:00:00Z','why-is-my-restaurant-food-cost-so-high');
 assert.equal(issue2.resp.status,200);
 for(const [slug,sheet] of [['how-do-i-get-restaurant-managers-to-follow-through','gravity-field-sheet-03-manager-follow-through.pdf'],['how-do-i-stop-restaurant-food-waste','gravity-field-sheet-04-food-waste.pdf'],['why-cant-i-keep-good-restaurant-employees','gravity-field-sheet-05-employee-retention.pdf']]){
