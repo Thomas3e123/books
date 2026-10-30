@@ -34,7 +34,7 @@
     },
     {
       "path": "site/apps/inventory-center/assets/js/inventory-center.js",
-      "sha256": "59bba6b4a2c99f0d82cda3f436e48f518f7a8134329c8ec003866d66ab14d475"
+      "sha256": "67ad38975ca8af04441e9ae0d80ad0015fba0d3cd49c21699008bfbd107ea735"
     },
     {
       "path": "site/apps/inventory-center/assets/js/inventory-outflow-cost.js",
@@ -1413,6 +1413,10 @@
       "sha256": "dba2c05effc3d6e22c03e7d51a1e136e5eedab618a475f1a657a2f66f15fb653"
     },
     {
+      "path": "site/assets/js/gravity-local-recovery-v1.js",
+      "sha256": "f7232de90cdfcd7acfdc23b7ada5d90a89141d4c6521e040b09c828a8a3b844c"
+    },
+    {
       "path": "site/assets/js/gravity-qr.js",
       "sha256": "1f54896913ad9e3079e546c55a04ce0e3d67e51790eb01a2b1aa5ffb6eb306a4"
     },
@@ -1426,7 +1430,7 @@
     },
     {
       "path": "site/assets/js/gravity-shift-lab.js",
-      "sha256": "abbea18823254c1bb5b990111070f7422615b8aa04b61c096c55812ec173e678"
+      "sha256": "bf305b378063b00a0c4b17111a77407679482235b75b7f96d2f86571ee362d8c"
     },
     {
       "path": "site/assets/js/gravity-sop-foundry.js",
@@ -1942,7 +1946,7 @@
     },
     {
       "path": "site/gravity-recipe-works.html",
-      "sha256": "e78e3bceaeba6e5d670855d86cb2cd4212ed3cefc7319d593adfe41551787a27"
+      "sha256": "a57eb3866b74db7d9e98a05a23af6e2bec20ee27ab05753922b339a11451a18a"
     },
     {
       "path": "site/gravity-report-guests.html",
@@ -1962,7 +1966,7 @@
     },
     {
       "path": "site/gravity-shift-lab.html",
-      "sha256": "544f2a8d80aac3837aaab13d6b3c44806368eb0b0ccc1b51e09e58aab1031a5a"
+      "sha256": "477d8dd27eb5f4353afb83bbf612c89e43dac04cf4fabbe01b0627fe1ae2d8b0"
     },
     {
       "path": "site/gravity-shift-lab.webmanifest",
