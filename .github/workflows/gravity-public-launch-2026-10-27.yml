@@ -31,6 +31,16 @@ jobs:
           node scripts/update-gravity-footer.cjs
           # Editorial audience correction: Report is for employees, supervisors, managers and owners alike.
           node scripts/test-gravity-report.mjs
+          # Every public page uses the same validated top-navigation script.
+          # Focused programs intentionally retain a separate collapsed Site Menu.
+          node --check site/assets/js/site.js
+          grep -Fq "['/gravity-report', 'Gravity Report']" site/assets/js/site.js
+          grep -Fq "['/operating-systems', 'Operating Systems']" site/assets/js/site.js
+          for page in gravity-inventory-center gravity-shift-lab gravity-sop-foundry gravity-work-study-lab; do
+            grep -Fq 'id="gravity-site-menu-access"' "site/$page.html"
+            grep -Fq '<a href="/gravity-report">Gravity Report</a>' "site/$page.html"
+            grep -Fq '<a href="/operating-systems">Operating Systems</a>' "site/$page.html"
+          done
           node --check site/assets/js/gravity-report-reading.js
           node --check functions/gravity-report/index.mjs
           node scripts/test-gravity-report-reading.mjs
