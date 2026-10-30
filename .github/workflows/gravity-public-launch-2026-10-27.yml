@@ -27,6 +27,9 @@ jobs:
           npm ci
           npm run manifest
           npm run build
+          # Release gate: broken site assets, links, JS and private access
+          # must not pass unnoticed as the Gravity site expands.
+          GRAVITY_AUDIT_STRICT=1 node scripts/audit-gravity-comprehensive.mjs
           node scripts/prepare-gravity-public-launch.cjs
           node scripts/update-gravity-footer.cjs
           # Editorial audience correction: Report is for employees, supervisors, managers and owners alike.
