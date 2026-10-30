@@ -111,7 +111,9 @@
     sectionTarget = 'operating-systems.html';
   }
   if (nav) {
-    var activePath = (location.pathname || '/').toLowerCase().replace(/\\.html$/i, '').replace(/\\/+$/, '') || '/';
+    var activePath = (location.pathname || '/').toLowerCase();
+    if (activePath.slice(-5) === '.html') activePath = activePath.slice(0, -5);
+    while (activePath.length > 1 && activePath.endsWith('/')) activePath = activePath.slice(0, -1);
     nav.querySelectorAll('a').forEach(function (link) {
       var target = (link.getAttribute('href') || '').split('#')[0].toLowerCase();
       // Keep a single meaningful active link; never mark unrelated pages active.
