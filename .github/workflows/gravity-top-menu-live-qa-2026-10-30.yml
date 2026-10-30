@@ -1,0 +1,36 @@
+name: Gravity top menu — full live desktop/mobile verification
+on:
+  push:
+    branches: [feature/gravity-migration-phase1-2026-10-22]
+    paths:
+      - .github/workflows/gravity-top-menu-live-qa-2026-10-30.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  live-audit:
+    if: github.ref == 'refs/heads/feature/gravity-migration-phase1-2026-10-22'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser test dependency (not saved to site package)
+        run: npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+      - name: Run browser QA on all public page headers
+        run: node scripts/qa-gravity-live-top-menu.mjs
+      - name: Commit audit evidence to isolated Gravity branch
+        if: always()
+        run: |
+          if [ ! -f docs/audits/gravity-top-menu-live-2026-10-30.md ]; then
+            echo "No complete live audit was produced."
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/audits/gravity-top-menu-live-2026-10-30.md
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "audit(gravity): record desktop and mobile navigation results [skip ci]"
+          git push origin HEAD:feature/gravity-migration-phase1-2026-10-22
