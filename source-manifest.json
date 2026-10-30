@@ -46,7 +46,7 @@
     },
     {
       "path": "site/apps/inventory-center/index.html",
-      "sha256": "dd18abd4085dced058882eca977a022becc4caff454544f2327c8972baf2c9e0"
+      "sha256": "1eef1b435546cdfcc276e76e3454a20edda3875f4b1f33e9d4efe564288a4a6b"
     },
     {
       "path": "site/apps/inventory-center/web.css",
@@ -54,7 +54,7 @@
     },
     {
       "path": "site/apps/sop-foundry/access.html",
-      "sha256": "6617bf31b527feab3c2fa84ca730efe7fd691bf4e7365d5139a9a7c1c6c7eb07"
+      "sha256": "35e6556eb07572591fefe45185049d8d5fb46d62270c7f974c87b98ff01991cf"
     },
     {
       "path": "site/apps/sop-foundry/access.js",
@@ -62,7 +62,7 @@
     },
     {
       "path": "site/apps/sop-foundry/assistant.html",
-      "sha256": "0897bcc22bcefc8982d160b909b1485d3a71a8fa761b703a37888e75b791650d"
+      "sha256": "28561d9534540c2119329ae53017bf500906013de127a99e97328ff73f4c8c64"
     },
     {
       "path": "site/apps/sop-foundry/assistant.js",
@@ -90,7 +90,7 @@
     },
     {
       "path": "site/apps/sop-foundry/desktop-settings.html",
-      "sha256": "87264d23a14dbbd4eab06148b8c802c2cc6c314da35bd9c6f7f4191482050a17"
+      "sha256": "ebdc09d51c852032380a7318b80459e58921ab10c825fd9484df09ce50dcc239"
     },
     {
       "path": "site/apps/sop-foundry/desktop-settings.js",
@@ -98,7 +98,7 @@
     },
     {
       "path": "site/apps/sop-foundry/employee-access.html",
-      "sha256": "7e7a24d0b085fc7fb2315a064ca49587179332e6e77f1b899efc2596d742d76a"
+      "sha256": "930fae82d90b029eb458ca576e54418912180b1c0d26352d6561b2999fc3c5d0"
     },
     {
       "path": "site/apps/sop-foundry/employee-access.js",
@@ -110,7 +110,7 @@
     },
     {
       "path": "site/apps/sop-foundry/employee-app.html",
-      "sha256": "1aa0f243aa58286d0a78da97871b7518afffba6581cd23647b930a3e25bf942f"
+      "sha256": "95be18a7001791cfd9df88ee33edd5a18dd7ea6f5c9d5a0fb1d8c2d599bf8f32"
     },
     {
       "path": "site/apps/sop-foundry/employee-app.js",
@@ -118,7 +118,7 @@
     },
     {
       "path": "site/apps/sop-foundry/employee-connection.html",
-      "sha256": "2deafc6db7dbbe58f0cd946cf6bcbd9719b9bdacf35b0a28f85b73278b8321d9"
+      "sha256": "bdd274e348d860c0ee7dc07114aaf494c7f8488671834501c1d9490a4ca5aebd"
     },
     {
       "path": "site/apps/sop-foundry/employee-connection.js",
@@ -154,11 +154,11 @@
     },
     {
       "path": "site/apps/sop-foundry/help.html",
-      "sha256": "765b38c64c3e617a0bfc3412d76fc6641438cc54f1f1d9747a36e4d9a7921774"
+      "sha256": "35303a862026e499f54ce786a027786ddd9b33ba3afaa143dad61663fd04d4dc"
     },
     {
       "path": "site/apps/sop-foundry/history.html",
-      "sha256": "2385f06a72a6c6018ec54acf674969c3785be8c23cfeccdb27cb1c0d7ec6ab5b"
+      "sha256": "f201f4e226501575d8d1515f8f029dd2be05c823f6cea077d89fab0234faa9cf"
     },
     {
       "path": "site/apps/sop-foundry/history.js",
@@ -178,7 +178,7 @@
     },
     {
       "path": "site/apps/sop-foundry/import-export.html",
-      "sha256": "24f8fcdd7e4565afaee048ebafad33701d53b18ff11aa9b1848d44a71de9b19e"
+      "sha256": "c6062bc5cb16d19c931789990d7f0728480218aa80db2f525762db20514f79f2"
     },
     {
       "path": "site/apps/sop-foundry/import-export.js",
@@ -186,7 +186,7 @@
     },
     {
       "path": "site/apps/sop-foundry/manager-inbox.html",
-      "sha256": "62fdb57b66f639e52375505993c737e80e59e70a7fe10460fbaa39830b01072d"
+      "sha256": "cb102dc074e287039e7c5af927c2eded7662e15941249f59617f34d07a644d2e"
     },
     {
       "path": "site/apps/sop-foundry/manager-inbox.js",
@@ -202,7 +202,7 @@
     },
     {
       "path": "site/apps/sop-foundry/poster-studio.html",
-      "sha256": "cdc1b53449e63093b7f88b06f4cd13cbeb6054d17edee2f0ccaaf7f63f22eda9"
+      "sha256": "c86e3c7622515cc8f02c6fcf09100233e02861dbc142d6dfd8ffb7918236ea24"
     },
     {
       "path": "site/apps/sop-foundry/poster-studio.js",
@@ -222,7 +222,7 @@
     },
     {
       "path": "site/apps/sop-foundry/room-settings.html",
-      "sha256": "fce8c9f5c18e96d0f773c97765caba53bc904efa7f6c222791a0445515dfea3c"
+      "sha256": "903b434dd7521df538625fbac909df23b0fa8926d692b453a9ab1f9343db0378"
     },
     {
       "path": "site/apps/sop-foundry/room-settings.js",
@@ -230,11 +230,11 @@
     },
     {
       "path": "site/apps/sop-foundry/signal-interpretation-map.html",
-      "sha256": "2a52bbf07cba480122a18d5526b04909ac34b881f22c5e5aaacebf2c08752fa0"
+      "sha256": "b15c3f637246d6f20f2bad58705256e2c0b8b9e1bb20e5126a05f9b2280d23f8"
     },
     {
       "path": "site/apps/sop-foundry/signals.html",
-      "sha256": "a11d0e2df8f01eee5ba5a5bbb93b8c379666b4b6b092cb4d3a517d676b9ee5cc"
+      "sha256": "f9e9d5869e1ea227bf7fd093ce0dc1f46580198724c6b3d0c683492c707cb6c7"
     },
     {
       "path": "site/apps/sop-foundry/signals.js",
@@ -246,7 +246,7 @@
     },
     {
       "path": "site/apps/sop-foundry/staff-message.html",
-      "sha256": "d1dbe3b879c6d721d976ada8c1780f86eb6f17683ccd0b67d5bfc635f3586539"
+      "sha256": "9685abd060c27eb5586ba848d29484ad342d3eec9010245a51f4a5428b500037"
     },
     {
       "path": "site/apps/sop-foundry/staff-message.js",
@@ -254,7 +254,7 @@
     },
     {
       "path": "site/apps/sop-foundry/staff-posters.html",
-      "sha256": "631af37f8a5ccc12a5fa782030c49ae079a62c56f5f43807e5c0c84a15e67272"
+      "sha256": "d817fdefe144e10ee3f62ab73376be85550805dbd841e5aef614e4bde2b2de74"
     },
     {
       "path": "site/apps/sop-foundry/staff-posters.js",
@@ -262,7 +262,7 @@
     },
     {
       "path": "site/apps/sop-foundry/staff-recipes.html",
-      "sha256": "f515a15d4062e89c2c7ee58fee09ce680beff3cf4ba90269f1cea072438cb83b"
+      "sha256": "c1d7af623d73c828f626b759175a3a2b88b22aa7ae5b54a44f53ad9abbdfd2d5"
     },
     {
       "path": "site/apps/sop-foundry/staff-recipes.js",
@@ -270,7 +270,7 @@
     },
     {
       "path": "site/apps/sop-foundry/staff-sops.html",
-      "sha256": "a289d59ca5f4e2c7d09c18881e0070a925c572269bfe59c35842a3b9cdbb38b2"
+      "sha256": "7cf0ec168a66fd4591c4d307ecd6cd5cdfd8359159abee6d4dc00b92dbd4320d"
     },
     {
       "path": "site/apps/sop-foundry/staff-sops.js",
@@ -282,7 +282,7 @@
     },
     {
       "path": "site/apps/sop-foundry/training-records.html",
-      "sha256": "09ad64bdf625994b38ec9c2e95043a7b21b48851dc6cfab678fb3884228d0cf4"
+      "sha256": "1f2ed7143f526a36bdda2a879be70fc967b1bfa5f804df7ee4c66568d35de7e9"
     },
     {
       "path": "site/apps/sop-foundry/training-records.js",
@@ -290,7 +290,7 @@
     },
     {
       "path": "site/apps/sop-foundry/training.html",
-      "sha256": "de9966121afec5366148721c28900eecd7a7fedfc0ea9cb8f48303e68c313bc9"
+      "sha256": "8b00a65d1ce1184b225436b42a2a84544ab913bebf5694a26e22f55c3782b51b"
     },
     {
       "path": "site/apps/sop-foundry/training.js",
@@ -306,7 +306,7 @@
     },
     {
       "path": "site/apps/sop-foundry/workroom.html",
-      "sha256": "0ed69e4bccb79c75ddd94c0030315c822a98ec0e0c5a2c082a5b2396086ec0f3"
+      "sha256": "db1db3e9e5d8ede91e15ada2da471cb5dd818b538b01d1f5c0b3ebd52389cddb"
     },
     {
       "path": "site/assets/audio/gravity-ack/cedar-01.mp3",
@@ -462,7 +462,7 @@
     },
     {
       "path": "site/assets/downloads/GRAVITY_RECIPE_WORKS_OFFLINE_2026-09-19.html",
-      "sha256": "560f73ccf75bfec5f207b8f554b12411c3fec2d7683474621683db783696b1bd"
+      "sha256": "752d1cb9666599e10a49e2ecf941e098d64dd195147ecc9ad3842e52e53d9c73"
     },
     {
       "path": "site/assets/downloads/GRAVITY_Restaurant_Bar_Beverage_Inventory_Ordering_v1.0.pdf",
@@ -758,7 +758,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Inventory_Center_Windows_User_Manual.html",
-      "sha256": "23dd4fd50d614653fdbb61a42c8b96bdfacb13a92bb5958f3d128bb3d110f645"
+      "sha256": "f15db42adfa67cef4e3dff668165cfa57b33ad591da1947840b5fc7049eb4d24"
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Inventory_Center_Windows_User_Manual.pdf",
@@ -770,7 +770,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_SOP_Foundry_Windows_User_Manual.html",
-      "sha256": "fb90c54a7c2cdada16bf62728bc0d62b953fb0afb9cfd480ea43307215b17600"
+      "sha256": "a0712bac7b9f6c6db0958734beee1841a0003f3081dfbfc45914be56c84f3740"
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_SOP_Foundry_Windows_User_Manual.pdf",
@@ -782,7 +782,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Shift_Lab_Windows_User_Manual.html",
-      "sha256": "90c914df6c6e72a1de50dad5cec54fb6825150af11df44ae5e6cb33c1a5ca6bb"
+      "sha256": "44470acd808c7667f33979476de93849d595ca85d2a98200e9c51db37130ffff"
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Shift_Lab_Windows_User_Manual.pdf",
@@ -794,7 +794,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Work_Study_Lab_Windows_User_Manual.html",
-      "sha256": "82b78a01452819efacc912bfa8fadbf1a5f9375ff8989c8f17b1de6909e39082"
+      "sha256": "d3d31491f031fedd546fd441d56c270f0e66b6a66a74d67ff3a08ab3d9ab4ea1"
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Work_Study_Lab_Windows_User_Manual.pdf",
@@ -2366,7 +2366,7 @@
     },
     {
       "path": "site/testing-room-manager.html",
-      "sha256": "0d4259521ac6f77ec8bb597e828d9ea192d2fac7878124759c0ec93db2021d0e"
+      "sha256": "b768881baf920808b93a4dbbd302abe819447d8e2dc1b0f4910eff3f3f0d93a9"
     },
     {
       "path": "site/testing-room.html",
