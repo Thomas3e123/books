@@ -118,11 +118,28 @@ await task('Gravity Reader','Registration gate and synthetic registered book loa
   p.on('response',v=>{if(v.url().includes('quiet-gravity.txt'))bookFetch.push({status:v.status(),url:v.url(),type:v.headers()['content-type']})});
   await p.locator('#reader-book').selectOption('quiet-gravity');
   await p.waitForTimeout(3500);
-  const chars=await p.locator('#reader-text').evaluate(x=>x.textContent.length);
+  const firstChars=await p.locator('#reader-text').evaluate(x=>x.textContent.length);
   const bookStatus=await p.locator('#reader-status').innerText();
-  console.log('GRAVITY_READER_BOOK_LOAD '+JSON.stringify({chars,bookStatus,bookFetch,pageErrors}));
-  assert.ok(chars>100,'Quiet Gravity text did not appear: '+JSON.stringify({chars,bookStatus,bookFetch,pageErrors}));
-  return 'Fresh browser gated; simulated local access shows '+counts.books+' books; Quiet Gravity text loaded ('+chars+' chars). Does not test real sign-up backend.';
+  const firstPosition=await p.locator('#reader-part').innerText();
+  const canAdvance=await p.locator('#reader-next').isEnabled();
+  console.log('GRAVITY_READER_BOOK_LOAD '+JSON.stringify({firstChars,firstPosition,canAdvance,bookStatus,bookFetch,pageErrors}));
+  // The Reader intentionally chunks narration by section, so a short chapter
+  // heading alone can be a legitimate first part. Check the NEXT section and
+  // checkpoint durability rather than incorrectly requiring >100 characters
+  // in the first section.
+  assert.ok(firstChars>12,'Selected book is blank: '+JSON.stringify({firstChars,bookStatus,bookFetch,pageErrors}));
+  assert.ok(canAdvance,'Selected book has no next section after a short heading');
+  await p.locator('#reader-next').click();
+  const secondChars=await p.locator('#reader-text').evaluate(x=>x.textContent.length);
+  const secondPosition=await p.locator('#reader-part').innerText();
+  assert.ok(secondChars>100,'Next book section did not load: '+JSON.stringify({firstChars,secondChars,secondPosition,bookStatus,bookFetch,pageErrors}));
+  assert.notEqual(secondPosition,firstPosition,'Next control failed to advance the book');
+  const checkpoint=await p.evaluate(()=>localStorage.getItem('gravity_reader_progress_quiet-gravity'));
+  assert.ok(checkpoint,'Reader did not save its new position');
+  await p.reload({waitUntil:'domcontentloaded'});
+  await p.waitForFunction(()=>document.querySelector('#reader-book')?.value==='quiet-gravity'&&document.querySelector('#reader-text')?.textContent.length>100,{timeout:15000});
+  assert.equal(await p.locator('#reader-part').innerText(),secondPosition,'Saved book location did not resume after reload');
+  return 'Fresh browser gated; simulated local access lists '+counts.books+' books; book text loaded in successive sections, Next and reload-resume passed. No real signup backend tested.';
  }finally{await ctx.close();}
 });
 await task('Service endpoints','Read-only TTS health and protected manager endpoint',async()=>{
