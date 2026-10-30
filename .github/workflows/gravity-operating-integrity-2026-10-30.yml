@@ -1,0 +1,57 @@
+name: Gravity operating tool integrity — synthetic local data QA, no deploy
+on:
+  push:
+    branches: [feature/gravity-migration-phase1-2026-10-22]
+    paths:
+      - .github/workflows/gravity-operating-integrity-2026-10-30.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  synthetic-qa:
+    if: github.ref == 'refs/heads/feature/gravity-migration-phase1-2026-10-22'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser test runner and Netlify contract dependencies
+        run: |
+          npm ci
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          node --check scripts/qa-gravity-operating-tools-live.mjs
+      - name: Exercise labor, inventory, employee isolation, cross-domain and Report contracts
+        id: contracts
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          node scripts/test-gravity-labor-cost-engine.cjs
+          node scripts/test-gravity-inventory-outflow.cjs
+          node scripts/test-gravity-employee-connection.cjs
+          node scripts/test-gravity-foundry-employee-isolation.cjs
+          node scripts/test-gravity-domain-functions.cjs
+          node scripts/test-gravity-report.mjs
+      - name: Run live synthetic browser Save, Reload, Reader, TTS health and PDF checks
+        id: browser
+        continue-on-error: true
+        run: node scripts/qa-gravity-operating-tools-live.mjs
+      - name: Commit findings and prevent false overall PASS
+        if: always()
+        run: |
+          set -euo pipefail
+          test -s docs/audits/gravity-operating-tools-live-2026-10-30.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/audits/gravity-operating-tools-live-2026-10-30.md
+          if ! git diff --cached --quiet; then
+            git commit -m "audit(gravity): record isolated operating tool results [skip ci]"
+            git fetch --no-tags origin feature/gravity-migration-phase1-2026-10-22
+            git rebase origin/feature/gravity-migration-phase1-2026-10-22
+            git push origin HEAD:feature/gravity-migration-phase1-2026-10-22
+          fi
+          if [ "${{ steps.contracts.outcome }}" != "success" ] || [ "${{ steps.browser.outcome }}" != "success" ]; then
+            echo "At least one operating tool QA stage failed; see report and Actions logs."
+            exit 1
+          fi
