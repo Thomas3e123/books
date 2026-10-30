@@ -1,4 +1,5 @@
 name: Gravity operating tool integrity — synthetic local data QA, no deploy
+# Repeat after richer Reader diagnostics; all data remains in isolated browser profiles.
 on:
   push:
     branches: [feature/gravity-migration-phase1-2026-10-22]
