@@ -1,0 +1,42 @@
+name: Gravity top-menu cache refresh — one-time isolated source write
+on:
+  push:
+    branches: [feature/gravity-migration-phase1-2026-10-22]
+    paths:
+      - .github/workflows/gravity-menu-cache-refresh-2026-10-30.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  refresh:
+    if: github.ref == 'refs/heads/feature/gravity-migration-phase1-2026-10-22'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify source and apply version update on ALL public pages
+        run: |
+          set -euo pipefail
+          node --check site/assets/js/site.js
+          node scripts/refresh-gravity-nav-js-cache.cjs
+          node scripts/update-manifest.cjs
+          node scripts/verify-source.cjs
+          grep -Fq '?v=20261030-unified-top-menu-v1' site/gravity-report.html
+          grep -Fq '?v=20261030-unified-top-menu-v1' functions/gravity-report/index.mjs
+          node --check functions/gravity-report/index.mjs
+      - name: Commit only isolated Gravity HTML cache keys and manifest
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site functions/gravity-report/index.mjs source-manifest.json
+          if git diff --cached --quiet; then echo "Already current"; exit 0; fi
+          git diff --cached --name-only | tee /tmp/gravity-menu-changed-files.txt
+          if grep -Ev '^(site/[^/]+\.html|functions/gravity-report/index\.mjs|source-manifest\.json)$' /tmp/gravity-menu-changed-files.txt; then echo "Unexpected file changed, stopping"; exit 1; fi
+          git commit -m "fix(gravity): refresh immutable menu script URLs on all public pages [skip ci]"
+          git fetch --no-tags origin feature/gravity-migration-phase1-2026-10-22
+          git rebase origin/feature/gravity-migration-phase1-2026-10-22
+          git push origin HEAD:feature/gravity-migration-phase1-2026-10-22
