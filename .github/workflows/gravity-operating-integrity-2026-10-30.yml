@@ -23,6 +23,8 @@ jobs:
           npm ci
           npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
           node --check scripts/qa-gravity-operating-tools-live.mjs
+          node --check site/assets/js/book-reader.js
+          node --check scripts/test-gravity-report.mjs
       - name: Exercise labor, inventory, employee isolation, cross-domain and Report contracts
         id: contracts
         continue-on-error: true
