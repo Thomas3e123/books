@@ -114,9 +114,14 @@ await task('Gravity Reader','Registration gate and synthetic registered book loa
   console.log('GRAVITY_READER_DIAGNOSTIC '+JSON.stringify({counts,pageErrors,bookScript}));
   assert.equal(counts.gate,true);
   assert.ok(counts.books>=10,'Registered book catalog is not populated: '+JSON.stringify({counts,pageErrors,bookScript}));
+  const bookFetch=[];
+  p.on('response',v=>{if(v.url().includes('quiet-gravity.txt'))bookFetch.push({status:v.status(),url:v.url(),type:v.headers()['content-type']})});
   await p.locator('#reader-book').selectOption('quiet-gravity');
-  await p.waitForFunction(()=>document.querySelector('#reader-text').textContent.trim().length>100,{timeout:25000});
+  await p.waitForTimeout(3500);
   const chars=await p.locator('#reader-text').evaluate(x=>x.textContent.length);
+  const bookStatus=await p.locator('#reader-status').innerText();
+  console.log('GRAVITY_READER_BOOK_LOAD '+JSON.stringify({chars,bookStatus,bookFetch,pageErrors}));
+  assert.ok(chars>100,'Quiet Gravity text did not appear: '+JSON.stringify({chars,bookStatus,bookFetch,pageErrors}));
   return 'Fresh browser gated; simulated local access shows '+counts.books+' books; Quiet Gravity text loaded ('+chars+' chars). Does not test real sign-up backend.';
  }finally{await ctx.close();}
 });
@@ -127,7 +132,7 @@ await task('Service endpoints','Read-only TTS health and protected manager endpo
   const voiceText=await voice.text();
   const denied=await ctx.request.get(HOST+'/testing-room/manager/testers',{timeout:25000});
   assert.equal(denied.status(),401,'Private manager endpoint must deny anonymous reads');
-  assert.equal(voice.status(),200,'TTS health route should return HTTP 200');
+  assert.equal(voice.status(),200,'TTS health route returned HTTP '+voice.status()+': '+voiceText.slice(0,480));
   const info=JSON.parse(voiceText);
   assert.equal(info.ok,true);
   assert.equal(info.configured,true,'TTS provider configuration missing');
