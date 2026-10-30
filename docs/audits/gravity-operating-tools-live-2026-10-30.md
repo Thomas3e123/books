@@ -6,7 +6,7 @@ Test scope: real Gravity production pages in fresh isolated headless Chrome cont
 | --- | --- | --- |
 | Shift Lab — Create synthetic employee, save schedule and survive reload | PASS | Browser-local data retained on reload; employee, wage, weekly sales, Monday shift verified; no server writes. |
 | Inventory Center — Create synthetic location and item, verify value and reload | PASS | Synthetic profile, location, item, count and $25 valuation persisted after reload; browser-only, no customer data. |
-| Gravity Reader — Registration gate and synthetic registered book loading | FAIL | Registered book catalog is not populated |
+| Gravity Reader — Registration gate and synthetic registered book loading | FAIL | Registered book catalog is not populated: {"books":0,"gate":true,"options":16,"bookOptions":15,"summary":"Browse the 15 Gravity books — tap a title","bookHtml":"<p>Loading available books…</p>","status":"Choose a book to begin."} |
 | Service endpoints — Read-only TTS health and protected manager endpoint | PASS | Voice configuration healthy and Cedar offered; anonymous manager data denied (401). No paid audio synthesis or sign-in performed. |
 | Downloads — Read-only check for five PDFs and a Windows manual | PASS | Five genuine PDF files and current Shift Lab Windows manual delivered successfully. Windows executable not launched. |
 
