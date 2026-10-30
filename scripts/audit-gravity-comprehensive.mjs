@@ -101,3 +101,4 @@ const lines=[
 ];
 fs.mkdirSync(path.dirname(out),{recursive:true});fs.writeFileSync(out,lines.join('\n')+'\n');
 console.log(JSON.stringify({metrics,findings:counts,groups,report:path.relative(root,out)}));
+if(process.env.GRAVITY_AUDIT_STRICT==='1'&&counts.high>0)throw Error('Gravity site audit found '+counts.high+' high-severity broken source references or integrity failures.');
