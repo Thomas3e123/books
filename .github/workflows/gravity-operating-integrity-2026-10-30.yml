@@ -36,7 +36,7 @@ jobs:
           node scripts/test-gravity-foundry-employee-isolation.cjs
           node scripts/test-gravity-domain-functions.cjs
           node scripts/test-gravity-report.mjs
-      - name: Run live synthetic browser Save, Reload, Reader, TTS health and PDF checks
+      - name: Run live synthetic browser Save, Reload, Cross-Tool profile, Reader, TTS and PDF checks
         id: browser
         continue-on-error: true
         run: node scripts/qa-gravity-operating-tools-live.mjs
