@@ -93,6 +93,36 @@ await task('Inventory Center','Create synthetic location and item, verify value 
   return 'Synthetic profile, location, item, count and $25 valuation persisted after reload; browser-only, no customer data.';
  }finally{await ctx.close();}
 });
+await task('Gravity Assist','Shared restaurant profile reaches Shift Lab and Forms Personalizer',async()=>{
+ const ctx=await context();
+ try{
+  const assist=await ctx.newPage();
+  const a=await assist.goto(HOST+'/gravity-assist',{waitUntil:'domcontentloaded',timeout:30000});
+  assert.equal(a.status(),200);
+  await assist.locator('#ga-profile-edit').click();
+  await assist.locator('#ga-prof-name').fill('Gravity Synthetic Cross-Tool QA');
+  await assist.locator('#ga-prof-store').fill('104');
+  await assist.locator('#ga-prof-city').fill('Practice City');
+  await assist.locator('#ga-prof-state').fill('TN');
+  await assist.locator('#ga-profile-save').click();
+  const saved=await assist.evaluate(()=>JSON.parse(localStorage.getItem('gravityAssistRestaurantProfileV1')||'null'));
+  assert.equal(saved.name,'Gravity Synthetic Cross-Tool QA','Shared profile was not stored');
+  assert.equal(saved.store,'104');
+  const lab=await ctx.newPage();
+  const lr=await lab.goto(HOST+'/gravity-shift-lab',{waitUntil:'domcontentloaded',timeout:30000});
+  assert.equal(lr.status(),200);
+  await lab.waitForFunction(()=>document.querySelector('#lab-restaurant')?.value==='Gravity Synthetic Cross-Tool QA',{timeout:15000});
+  assert.equal(await lab.locator('#ga-prof-name').inputValue(),saved.name);
+  await lab.locator('#ga-profile-apply').click();
+  assert.equal(await lab.locator('#lab-restaurant').inputValue(),saved.name);
+  const forms=await ctx.newPage();
+  const fr=await forms.goto(HOST+'/gravity-forms-personalizer',{waitUntil:'domcontentloaded',timeout:30000});
+  assert.equal(fr.status(),200);
+  await forms.waitForFunction(()=>document.querySelector('#cust-restaurant')?.value==='Gravity Synthetic Cross-Tool QA',{timeout:15000});
+  assert.equal(await forms.locator('#ga-prof-name').inputValue(),saved.name);
+  return 'Synthetic restaurant profile saved in Assist and populated Shift Lab and Forms Personalizer in the same isolated browser. Cross-device sync was not tested.';
+ }finally{await ctx.close()}
+});
 await task('Gravity Reader','Registration gate and synthetic registered book loading',async()=>{
  const ctx=await context();
  try{
