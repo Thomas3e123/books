@@ -1,4 +1,5 @@
 name: Gravity Inventory Center Windows Candidate
+# 2026-10-30: Re-run clean-Windows install and persisted-data smoke on current isolated Gravity branch. No release publication.
 on:
   push:
     branches: [main, gravity-inventory-windows-sync-20261019, 'feature/gravity-migration-phase1-2026-10-22']
