@@ -1,0 +1,26 @@
+name: Gravity safe local recovery snapshots — Shift Lab and Inventory browser QA (NO DEPLOY)
+on:
+  push:
+    branches: [feature/gravity-migration-phase1-2026-10-22]
+    paths:
+      - .github/workflows/gravity-same-browser-recovery-qa-2026-10-30.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  local-recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Verify JavaScript and install browser
+        run: |
+          node --check site/assets/js/gravity-local-recovery-v1.js
+          node --check site/assets/js/gravity-shift-lab.js
+          node --check site/apps/inventory-center/assets/js/inventory-center.js
+          node --check scripts/test-gravity-same-browser-recovery.mjs
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+      - name: Exercise isolated IDB restore of schedules, private pay and inventory after localStorage deletion
+        run: node scripts/test-gravity-same-browser-recovery.mjs
