@@ -33,7 +33,7 @@ for(const file of html){
  if(!/<html\b/i.test(body)||!/<title\b/i.test(body))flag('high','HTML',rel,'Missing <html> or <title>');
  if(!/<meta\b[^>]*name=["']viewport["']/i.test(body))flag('medium','mobile',rel,'Missing viewport meta');
  const allIds=ids(body);
- for(const id of new Set(allIds.filter((x,i)=>allIds.indexOf(x)!==i&&!x.includes('('medium','duplicate-id',rel,id);
+ for(const id of new Set(allIds.filter((x,j)=>allIds.indexOf(x)!==j&&!x.startsWith('$'))))flag('medium','duplicate-id',rel,id);
  const refs=[...body.matchAll(/\s(href|src|poster|action)\s*=\s*["']([^"']+)["']/gi)];
  for(const v of refs){
   let kind=v[1].toLowerCase(),href=v[2].replaceAll('&amp;','&').trim();
