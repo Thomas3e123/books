@@ -118,4 +118,4 @@ const text=[
  'No files on the Thomas Monroe Books site are modified by this audit.'
 ];
 fs.mkdirSync(path.dirname(OUT),{recursive:true});fs.writeFileSync(OUT,text.join('\n')+'\n');
-console.log(JSON.stringify({checked,expected:root.length*2,issues:issues.length,open:mobileOpen,sourcePages:all.length,live:samples,report:OUT}));
+console.log(JSON.stringify({checked:checks,expected:root.length*2,issues:issues.length,open:mobileOpen,sourcePages:all.length,live:samples,report:OUT}));
