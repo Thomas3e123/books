@@ -21,6 +21,8 @@ jobs:
           set -euo pipefail
           node --check scripts/audit-gravity-comprehensive.mjs
           node scripts/audit-gravity-comprehensive.mjs
+          # Refresh the integrity ledger after the founder shortcut source edit.
+          node scripts/update-manifest.cjs
           node scripts/verify-source.cjs
       - name: Record actual findings without changing production
         if: always()
@@ -29,9 +31,9 @@ jobs:
           test -s docs/audits/gravity-full-site-sweep-2026-10-30.md
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/audits/gravity-full-site-sweep-2026-10-30.md
+          git add docs/audits/gravity-full-site-sweep-2026-10-30.md source-manifest.json
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m "audit(gravity): record comprehensive site findings [skip ci]"
+          git commit -m "audit(gravity): record site findings and repair outdated source integrity ledger [skip ci]"
           git fetch --no-tags origin feature/gravity-migration-phase1-2026-10-22
           git rebase origin/feature/gravity-migration-phase1-2026-10-22
           git push origin HEAD:feature/gravity-migration-phase1-2026-10-22
