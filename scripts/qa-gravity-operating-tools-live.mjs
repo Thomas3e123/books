@@ -104,9 +104,11 @@ await task('Gravity Reader','Registration gate and synthetic registered book loa
   await p.evaluate(()=>localStorage.setItem('gravity_founding_year_download_access_v1','registered'));
   await p.reload({waitUntil:'domcontentloaded'});
   await p.waitForFunction(()=>document.querySelectorAll('#reader-book option[value]').length>10,{timeout:18000});
-  const counts=await p.evaluate(()=>({books:document.querySelectorAll('#reader-book-buttons button').length,gate:document.querySelector('#reader-gate').hidden,options:document.querySelector('#reader-book').options.length}));
+  await p.waitForTimeout(600);
+  const counts=await p.evaluate(()=>({books:document.querySelectorAll('#reader-book-buttons button').length,gate:document.querySelector('#reader-gate').hidden,options:document.querySelector('#reader-book').options.length,bookOptions:[...document.querySelectorAll('#reader-book option[value]')].filter(x=>x.value).length,summary:document.querySelector('#reader-available-books summary')?.textContent,bookHtml:document.querySelector('#reader-book-buttons')?.innerHTML.slice(0,220),status:document.querySelector('#reader-status')?.textContent.slice(0,150)}));
+  console.log('GRAVITY_READER_DIAGNOSTIC '+JSON.stringify(counts));
   assert.equal(counts.gate,true);
-  assert.ok(counts.books>=10,'Registered book catalog is not populated');
+  assert.ok(counts.books>=10,'Registered book catalog is not populated: '+JSON.stringify(counts));
   await p.locator('#reader-book').selectOption('quiet-gravity');
   await p.waitForFunction(()=>document.querySelector('#reader-text').textContent.trim().length>100,{timeout:25000});
   const chars=await p.locator('#reader-text').evaluate(x=>x.textContent.length);
