@@ -23,7 +23,7 @@ var publishedEmployeeSnapshot=null;
 function uid(prefix){ return (prefix||'e')+'_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,7); }
 function esc(v){ return String(v==null?'':v).replace(/[&<>\"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 function loadJSON(k,fallback){ try{ var v=JSON.parse(localStorage.getItem(k)||'null'); return v==null?fallback:v; }catch(e){ return fallback; } }
-function saveJSON(k,v){ try{localStorage.setItem(k,JSON.stringify(v));return true;}catch(e){console.warn('Shift Lab local storage unavailable',e);return false;} }
+function saveJSON(k,v){ try{localStorage.setItem(k,JSON.stringify(v));if(k===PROFILE_KEY||k===SCHEDULE_KEY)window.dispatchEvent(new Event('gravity:local-data-saved'));return true;}catch(e){console.warn('Shift Lab local storage unavailable',e);return false;} }
 function payLockConfigured(){ return !!String(profile&&profile.payLockHash||''); }
 function payIsLocked(){ return payLockConfigured()&&!payUnlocked; }
 function fallbackHash(str){ var h=2166136261;str=String(str||'');for(var i=0;i<str.length;i++){h^=str.charCodeAt(i);h+=(h<<1)+(h<<4)+(h<<7)+(h<<8)+(h<<24);}return 'fallback-'+(h>>>0).toString(16); }
