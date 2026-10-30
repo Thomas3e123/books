@@ -77,7 +77,7 @@ for(const mobile of [false,true]){
 }
 // Confirm several representative pages on the actual public host without
 // flooding production with 242 browser requests or confusing rate-limits with broken links.
-const liveList=['/','/gravity-report','/gravity-report-guests','/windows-programs','/gravity-shift-lab'];
+const liveList=['/','/gravity-report','/gravity-report/why-do-my-restaurant-managers-keep-making-excuses','/gravity-report-guests','/windows-programs','/gravity-shift-lab','/apps/sop-foundry/access','/apps/inventory-center/index'];
 const context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true,isMobile:true});
 await context.route('**/*',route=>{const u=route.request().url();if(u.startsWith(LIVE))return route.continue();return route.abort()});
 for(const slug of liveList){
@@ -98,7 +98,7 @@ for(const slug of liveList){
 await context.close();await browser.close();server.close();
 const text=[
  '# Gravity menu corrective QA — 2026-10-30','',
- 'This test used real headless Chrome against every top-level Gravity HTML page in a local HTTP serving of the isolated production source, plus five low-volume smoke checks against the actual published host. App subpages, manuals and manager-only pages were inventoried separately.','',
+ 'This test used real headless Chrome against every top-level Gravity HTML page in a local HTTP serving of the isolated production source, plus eight low-volume smoke checks against the actual published host. App subpages, manuals and manager-only pages were inventoried separately.','',
  '| Measure | Result |','| --- | ---: |',
  '| Root HTML files | '+all.length+' |',
  '| Standard public-header pages | '+root.length+' |',
