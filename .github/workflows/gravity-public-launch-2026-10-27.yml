@@ -43,6 +43,7 @@ jobs:
           done
           node --check site/assets/js/gravity-report-reading.js
           node --check functions/gravity-report/index.mjs
+          node --check scripts/test-gravity-report-reading.mjs
           node scripts/test-gravity-report-reading.mjs
           node --check site/assets/js/book-reader.js
           node scripts/test-gravity-report-listening.mjs
