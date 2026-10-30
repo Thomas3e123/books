@@ -22,7 +22,7 @@ export function validateResponse(raw,input){
  const steps=raw.steps.map(s=>Object.fromEntries(['action','who','when','bringBack'].map(k=>[k,str(s[k],1000,k)])));
  if(steps.some(s=>!s.action||!s.who||!s.when||!s.bringBack))throw Error('Incomplete next step.');
  const ids=new Set(input.messages.filter(m=>m.role==='user').map(m=>m.id));
- const record=raw.record.map(r=>{if(!['reported','hypothesis','evidence-described','correction'].includes(r.kind)||!ids.has(r.sourceId))throw Error('Untraceable record.');return {kind:r.kind,text:str(r.text,1600,'record'),sourceId:r.sourceId}});
+ const record=raw.record.map(r=>{if(!['reported','hypothesis','evidence-described','correction'].includes(r.kind)||!ids.has(r.sourceId))throw Error('Untraceable record.');const source=input.messages.find(m=>m.role==='user'&&m.id===r.sourceId);return {kind:r.kind,text:source.text,summary:str(r.summary??r.text,1600,'working summary'),sourceId:r.sourceId}});
  if(record.some(r=>!r.text)||!['none','guestrecovery','waste','managerhandoff'].includes(raw.form))throw Error('Invalid record or form.');
  return {reply,question,steps,record,form:raw.form};
 }
@@ -50,10 +50,10 @@ export function validateBackup(raw){
  if(!raw||raw.version!==VERSION||!Array.isArray(raw.messages)||!Array.isArray(raw.record)||!Array.isArray(raw.history)||!Array.isArray(raw.tasks)||typeof raw.forms!=='object'||!raw.forms)throw Error('Not a conversation backup.');
  if(raw.messages.length>MAX_MESSAGES+1||raw.record.length>200||raw.history.length>200||raw.tasks.length>4)throw Error('Backup is too large.');
  for(const m of raw.messages){str(m.id,80,'message ID');str(m.text,6000,'message');if(!['user','assistant'].includes(m.role))throw Error('Invalid message.');if(m.answer){const upTo=raw.messages.slice(0,raw.messages.indexOf(m));validateResponse(m.answer,{messages:upTo})}}
- for(const r of raw.record){if(!['reported','hypothesis','evidence-described','correction'].includes(r.kind)||!raw.messages.some(m=>m.role==='user'&&m.id===r.sourceId))throw Error('Invalid record.');str(r.text,1600,'record');}
+ for(const r of raw.record){if(!['reported','hypothesis','evidence-described','correction'].includes(r.kind)||!raw.messages.some(m=>m.role==='user'&&m.id===r.sourceId))throw Error('Invalid record.');str(r.text,6000,'record');if(r.summary!==undefined)str(r.summary,1600,'working summary');}
  for(const task of raw.tasks)for(const k of ['action','who','when','bringBack'])str(task[k],1000,'task');
  if(raw.verification)for(const k of ['who','before','after','how','followup'])if(!str(raw.verification[k],2000,k))throw Error('Invalid verification.');
  for(const [key,value] of Object.entries(raw.forms)){if(!['guestrecovery','waste','managerhandoff'].includes(key)||!value||typeof value!=='object'||Array.isArray(value))throw Error('Invalid form.');for(const v of Object.values(value))str(v,5000,'form field')}
- return structuredClone(raw);
+ const next=structuredClone(raw);next.record=next.record.map(r=>{const original=next.messages.find(m=>m.role==='user'&&m.id===r.sourceId);return {...r,summary:r.summary??r.text,text:original.text}});return next;
 }
 export function csvCell(value){const s=String(value??'');return '"'+(/^[\s]*[=+@-]/.test(s)?"'"+s:s).replaceAll('"','""')+'"'}

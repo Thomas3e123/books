@@ -29,3 +29,12 @@ Disposition: prepared invited prototype at Thomas's request. Thomas's usability 
 13 conversation tests plus 12 existing action-plan tests pass. Includes correction history, verification reopening, no automatic resolution, source attribution, backup validation, real Document Studio hashes, spreadsheet formula escaping, request bounds, preview-only gate and mocked provider failure behavior. JavaScript syntax, source manifest and build verified.
 
 Live-provider/browser results will be appended after deployment. Mobile, print pagination, hostile-input model behavior and independent specialist review remain unverified. Do not describe mocked AI tests as real-provider validation.
+
+## Live evidence — October 30
+
+- Preview `2c63e9`: real OpenAI SDK request completed using the existing site's runtime model and key. The unknown-cause meal-comp example received a response that started with available records. First response was too long; instructions were tightened to ask the useful missing question first, keep the introduction short and put tasks only in the numbered fields.
+- A second real turn supplied the GM role and said reports lacked reasons. The response selected the existing Waste / Spill / Comp Log; its fields rendered and could be edited.
+- A corrected third account supplied a newly found cold-food comp report. The response acknowledged the correction, abandoned the unnecessary new-log step and investigated where food cooled. It did not call the problem solved.
+- Explicit save, full page reload and Continue saved conversation preserved the prior accounts, correction and edited form. The working record remained open without manager verification.
+- One AI summary incorrectly inferred the initial reporter was the owner. The record now quotes the original user message rather than presenting the model's summary as a fact; an optional working summary remains explicitly provisional in the backup. Instructions also forbid inferring an unspecified role. A regression test covers this distinction.
+- Fourteen conversation tests now pass (26 including the existing action-list suite). Later wording refinements and the exact-quote record require the final deployed retest. Actual team use, mobile, imported files, PDF printing, provider rate enforcement, and broader acceptance remain unverified. No customer problem is claimed solved.

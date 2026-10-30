@@ -1,5 +1,5 @@
-import {newCase,validateInput,addAnswer,recordVerification,validateBackup,csvCell,MAX_MESSAGES} from './gravity-conversation-core.mjs?v=conversation-2';
-import {forms,fieldLabels} from './gravity-conversation-forms.mjs?v=conversation-2';
+import {newCase,validateInput,addAnswer,recordVerification,validateBackup,csvCell,MAX_MESSAGES} from './gravity-conversation-core.mjs?v=conversation-3';
+import {forms,fieldLabels} from './gravity-conversation-forms.mjs?v=conversation-3';
 const $=id=>document.getElementById(id),KEY='gravity.conversation.v1';let state=newCase(),busy=false,available=false;
 const say=text=>{$('status').textContent=text};
 function node(tag,text,cls){const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(cls)el.className=cls;return el}
