@@ -1,0 +1,33 @@
+name: Gravity Testing Room founder entry — desktop, mobile, and server gate QA
+on:
+  push:
+    branches: [feature/gravity-migration-phase1-2026-10-22]
+    paths:
+      - .github/workflows/gravity-testing-room-founder-entry-qa.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  shortcut-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate the visitor gesture code and manager gate
+        run: |
+          node --check scripts/test-testing-room-founder-shortcut.mjs
+          node --check functions/testing-room/index.mjs
+      - name: Install browser test (no repository package changes)
+        run: npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+      - name: Test double-tap founder entry and separate manager login
+        run: node scripts/test-testing-room-founder-shortcut.mjs
+      - name: Verify unauthenticated live manager API is denied
+        run: |
+          set -euo pipefail
+          status=$(curl --max-time 30 --retry 2 -sS -o /tmp/gravity-manager-denied.json -w '%{http_code}' 'https://gravityleadershipsystem.com/testing-room/manager/testers')
+          echo "Manager API without key: HTTP $status"
+          if [ "$status" != 401 ]; then echo "FAILED: manager API did not return the expected 401"; exit 1; fi
+          ! grep -Fq '"testers":[' /tmp/gravity-manager-denied.json
