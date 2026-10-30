@@ -1,0 +1,276 @@
+# Gravity live top-menu verification — 2026-10-30
+
+Production URL: https://gravityleadershipsystem.com
+
+**Source scope:** 122 root HTML files; 121 expected standard top menus; 1 nonstandard root documents (reviewed separately).
+**Browser:** Headless Chrome, 1366px desktop and 390px mobile.
+**Navigation:** All 17 approved public destinations required, with no duplicates; menu must open on mobile.
+
+| Metric | Result |
+| --- | ---: |
+| Desktop + mobile page checks planned | 242 |
+| Completed DOM inspections | 184 |
+| Mobile menu opens | 94 of 121 |
+| Desktop navigation overflows | 0 |
+| Menu issues | 190 |
+| HTTP/browser errors | 58 |
+
+## Menu problems
+
+- **book-reader.html** (desktop): Stale 15 Systems label
+- **books.html** (desktop): Stale 15 Systems label
+- **about.html** (desktop): Stale 15 Systems label
+- **404.html** (desktop): Stale 15 Systems label
+- **contact.html** (desktop): Stale 15 Systems label
+- **customer-resources.html** (desktop): Stale 15 Systems label
+- **free-resources.html** (desktop): Stale 15 Systems label
+- **gravity-assist.html** (desktop): Stale 15 Systems label
+- **gravity-aware.html** (desktop): Stale 15 Systems label
+- **gravity-fulfillment-center.html** (desktop): Stale 15 Systems label
+- **gravity-document-studio.html** (desktop): Stale 15 Systems label
+- **gravity-forms-personalizer.html** (desktop): Stale 15 Systems label
+- **gravity-fulfillment-personalizer.html** (desktop): Stale 15 Systems label
+- **gravity-inventory-center.html** (desktop): Stale 15 Systems label
+- **gravity-numbers-lab.html** (desktop): Stale 15 Systems label
+- **gravity-quick-tools.html** (desktop): Stale 15 Systems label
+- **gravity-report-guests.html** (desktop): Missing menu items: /gravity-assist, /operating-systems, /gravity-aware, /book-reader, /restaurant-management-forms-checklists, /gravity-fulfillment-center, /standards-library, /apps/sop-foundry/access, /help-center
+- **gravity-report-guests.html** (desktop): Expected 17 menu links; got 8
+- **gravity-recipe-works.html** (desktop): Stale 15 Systems label
+- **gravity-report-thanks.html** (desktop): Stale 15 Systems label
+- **gravity-report.html** (desktop): Stale 15 Systems label
+- **gravity-signals-manager-guide.html** (desktop): Stale 15 Systems label
+- **gravity-sop-foundry.html** (desktop): Stale 15 Systems label
+- **gravity-sop-library-set.html** (desktop): Stale 15 Systems label
+- **gravity-shift-lab.html** (desktop): Stale 15 Systems label
+- **gravity-sop-library-volume-1.html** (desktop): Stale 15 Systems label
+- **gravity-sop-library-volume-3.html** (desktop): Stale 15 Systems label
+- **gravity-sop-library-volume-2.html** (desktop): Stale 15 Systems label
+- **gravity-system-field-guide.html** (desktop): Stale 15 Systems label
+- **gravity-work-study-lab.html** (desktop): Stale 15 Systems label
+- **guest-service-complaints-recovery-workbook.html** (desktop): Stale 15 Systems label
+- **help-center.html** (desktop): Stale 15 Systems label
+- **hiring-interviewing-employee-retention-tracker.html** (desktop): Stale 15 Systems label
+- **improvement-plans.html** (desktop): Stale 15 Systems label
+- **index.html** (desktop): Stale 15 Systems label
+- **installation-improvement.html** (desktop): Stale 15 Systems label
+- **intelligence-ai.html** (desktop): Stale 15 Systems label
+- **knowledge-center.html** (desktop): Stale 15 Systems label
+- **manager-readiness-leadership-development.html** (desktop): Stale 15 Systems label
+- **owner-gm-governance-agreement-pack.html** (desktop): Stale 15 Systems label
+- **operating-systems.html** (desktop): Stale 15 Systems label
+- **privacy.html** (desktop): Stale 15 Systems label
+- **qr-code-generator.html** (desktop): Stale 15 Systems label
+- **refund.html** (desktop): Stale 15 Systems label
+- **quiet-gravity.html** (desktop): Stale 15 Systems label
+- **register.html** (desktop): Stale 15 Systems label
+- **registration-thanks.html** (desktop): Stale 15 Systems label
+- **releases.html** (desktop): Stale 15 Systems label
+- **restaurant-ai-prompt-search.html** (desktop): Stale 15 Systems label
+- **restaurant-bar-beverage-inventory-ordering.html** (desktop): Stale 15 Systems label
+- **restaurant-bar-beverage-pour-cost-control.html** (desktop): Stale 15 Systems label
+- **restaurant-cleaning-checklist.html** (desktop): Stale 15 Systems label
+- **restaurant-closing-checklist.html** (desktop): Stale 15 Systems label
+- **restaurant-corrective-action-record.html** (desktop): Stale 15 Systems label
+- **restaurant-daily-prep-sheet.html** (desktop): Stale 15 Systems label
+- **restaurant-employee-onboarding-checklist.html** (desktop): Stale 15 Systems label
+- **restaurant-employee-schedule-publishing-guide.html** (desktop): Stale 15 Systems label
+- **restaurant-employee-training-acknowledgment-qualification-guide.html** (desktop): Stale 15 Systems label
+- **restaurant-employee-training-checklist.html** (desktop): Stale 15 Systems label
+- **restaurant-employee-training-sop-tracker.html** (desktop): Stale 15 Systems label
+- **restaurant-equipment-maintenance-log.html** (desktop): Stale 15 Systems label
+- **restaurant-existing-sop-library-import-guide.html** (desktop): Stale 15 Systems label
+- **restaurant-food-cost-calculator.html** (desktop): Stale 15 Systems label
+- **restaurant-food-cost-control.html** (desktop): Stale 15 Systems label
+- **restaurant-food-cost-percentage-formula.html** (desktop): Stale 15 Systems label
+- **restaurant-food-cost-variance.html** (desktop): Stale 15 Systems label
+- **restaurant-food-cost-waste-inventory-control.html** (desktop): Stale 15 Systems label
+- **restaurant-guest-complaint-recovery.html** (desktop): Stale 15 Systems label
+- **restaurant-inventory-barcode-local-purchasing-guide.html** (desktop): Stale 15 Systems label
+- **restaurant-inventory-count-variance-backup-guide.html** (desktop): Stale 15 Systems label
+- **restaurant-inventory-par-worksheet.html** (desktop): Stale 15 Systems label
+- **restaurant-inventory-setup-workflow-guide.html** (desktop): Stale 15 Systems label
+- **restaurant-inventory-waste-control.html** (desktop): Stale 15 Systems label
+- **restaurant-kitchen-closing-checklist.html** (desktop): Stale 15 Systems label
+- **restaurant-kitchen-opening-checklist.html** (desktop): Stale 15 Systems label
+- **restaurant-labor-cost-calculator.html** (desktop): Stale 15 Systems label
+- **restaurant-labor-control-scheduling-planner.html** (desktop): Stale 15 Systems label
+- **restaurant-labor-cost-control.html** (desktop): Stale 15 Systems label
+- **restaurant-labor-cost-percentage-formula.html** (desktop): Stale 15 Systems label
+- **restaurant-line-check-checklist.html** (desktop): Stale 15 Systems label
+- **restaurant-management-forms-checklists.html** (desktop): Stale 15 Systems label
+- **restaurant-manager-checklist.html** (desktop): Stale 15 Systems label
+- **restaurant-manager-interview-questions.html** (desktop): Stale 15 Systems label
+- **restaurant-manager-log-shift-handoff.html** (desktop): Stale 15 Systems label
+- **restaurant-manager-training-program.html** (desktop): Stale 15 Systems label
+- **restaurant-opening-checklist.html** (desktop): Stale 15 Systems label
+- **restaurant-operational-poster-qr-guide.html** (desktop): Stale 15 Systems label
+- **restaurant-portion-control-food-cost.html** (desktop): Stale 15 Systems label
+- **restaurant-pre-shift-checklist.html** (desktop): Stale 15 Systems label
+- **restaurant-pre-shift-meeting-checklist.html** (desktop): Stale 15 Systems label
+- **restaurant-receiving-food-cost-control.html** (desktop): Stale 15 Systems label
+- **404.html** (mobile): Stale 15 Systems label
+- **books.html** (mobile): Stale 15 Systems label
+- **about.html** (mobile): Stale 15 Systems label
+- **book-reader.html** (mobile): Stale 15 Systems label
+- **contact.html** (mobile): Stale 15 Systems label
+- **customer-resources.html** (mobile): Stale 15 Systems label
+- **gravity-assist.html** (mobile): Stale 15 Systems label
+- **free-resources.html** (mobile): Stale 15 Systems label
+- **gravity-aware.html** (mobile): Stale 15 Systems label
+- **gravity-document-studio.html** (mobile): Stale 15 Systems label
+- **gravity-fulfillment-center.html** (mobile): Stale 15 Systems label
+- **gravity-forms-personalizer.html** (mobile): Stale 15 Systems label
+- **gravity-fulfillment-personalizer.html** (mobile): Stale 15 Systems label
+- **gravity-inventory-center.html** (mobile): Stale 15 Systems label
+- **gravity-inventory-center.html** (mobile): Menu did not visibly open after clicking Menu
+- **gravity-numbers-lab.html** (mobile): Stale 15 Systems label
+- **gravity-quick-tools.html** (mobile): Stale 15 Systems label
+- **gravity-recipe-works.html** (mobile): Stale 15 Systems label
+- **gravity-report-guests.html** (mobile): Missing menu items: /gravity-assist, /operating-systems, /gravity-aware, /book-reader, /restaurant-management-forms-checklists, /gravity-fulfillment-center, /standards-library, /apps/sop-foundry/access, /help-center
+- **gravity-report-guests.html** (mobile): Expected 17 menu links; got 8
+- **gravity-report-thanks.html** (mobile): Stale 15 Systems label
+- **gravity-report.html** (mobile): Stale 15 Systems label
+- **gravity-signals-manager-guide.html** (mobile): Stale 15 Systems label
+- **gravity-shift-lab.html** (mobile): Stale 15 Systems label
+- **gravity-shift-lab.html** (mobile): Menu did not visibly open after clicking Menu
+- **gravity-sop-foundry.html** (mobile): Stale 15 Systems label
+- **gravity-sop-foundry.html** (mobile): Menu did not visibly open after clicking Menu
+- **gravity-sop-library-set.html** (mobile): Stale 15 Systems label
+- **gravity-sop-library-volume-1.html** (mobile): Stale 15 Systems label
+- **gravity-sop-library-volume-2.html** (mobile): Stale 15 Systems label
+- **gravity-sop-library-volume-3.html** (mobile): Stale 15 Systems label
+- **gravity-system-field-guide.html** (mobile): Stale 15 Systems label
+- **guest-service-complaints-recovery-workbook.html** (mobile): Stale 15 Systems label
+- **help-center.html** (mobile): Stale 15 Systems label
+- **gravity-work-study-lab.html** (mobile): Stale 15 Systems label
+- **gravity-work-study-lab.html** (mobile): Menu did not visibly open after clicking Menu
+- **hiring-interviewing-employee-retention-tracker.html** (mobile): Stale 15 Systems label
+- **improvement-plans.html** (mobile): Stale 15 Systems label
+- **installation-improvement.html** (mobile): Stale 15 Systems label
+- **index.html** (mobile): Stale 15 Systems label
+- **intelligence-ai.html** (mobile): Stale 15 Systems label
+- **knowledge-center.html** (mobile): Stale 15 Systems label
+- **manager-readiness-leadership-development.html** (mobile): Stale 15 Systems label
+- **operating-systems.html** (mobile): Stale 15 Systems label
+- **owner-gm-governance-agreement-pack.html** (mobile): Stale 15 Systems label
+- **privacy.html** (mobile): Stale 15 Systems label
+- **qr-code-generator.html** (mobile): Stale 15 Systems label
+- **quiet-gravity.html** (mobile): Stale 15 Systems label
+- **refund.html** (mobile): Stale 15 Systems label
+- **register.html** (mobile): Stale 15 Systems label
+- **registration-thanks.html** (mobile): Stale 15 Systems label
+- **releases.html** (mobile): Stale 15 Systems label
+- **restaurant-ai-prompt-search.html** (mobile): Stale 15 Systems label
+- **restaurant-bar-beverage-inventory-ordering.html** (mobile): Stale 15 Systems label
+- **restaurant-bar-beverage-pour-cost-control.html** (mobile): Stale 15 Systems label
+- **restaurant-cleaning-checklist.html** (mobile): Stale 15 Systems label
+- **restaurant-closing-checklist.html** (mobile): Stale 15 Systems label
+- **restaurant-corrective-action-record.html** (mobile): Stale 15 Systems label
+- **restaurant-daily-prep-sheet.html** (mobile): Stale 15 Systems label
+- **restaurant-employee-onboarding-checklist.html** (mobile): Stale 15 Systems label
+- **restaurant-employee-schedule-publishing-guide.html** (mobile): Stale 15 Systems label
+- **restaurant-employee-training-acknowledgment-qualification-guide.html** (mobile): Stale 15 Systems label
+- **restaurant-employee-training-checklist.html** (mobile): Stale 15 Systems label
+- **restaurant-employee-training-sop-tracker.html** (mobile): Stale 15 Systems label
+- **restaurant-equipment-maintenance-log.html** (mobile): Stale 15 Systems label
+- **restaurant-existing-sop-library-import-guide.html** (mobile): Stale 15 Systems label
+- **restaurant-food-cost-calculator.html** (mobile): Stale 15 Systems label
+- **restaurant-food-cost-control.html** (mobile): Stale 15 Systems label
+- **restaurant-food-cost-percentage-formula.html** (mobile): Stale 15 Systems label
+- **restaurant-food-cost-variance.html** (mobile): Stale 15 Systems label
+- **restaurant-food-cost-waste-inventory-control.html** (mobile): Stale 15 Systems label
+- **restaurant-guest-complaint-recovery.html** (mobile): Stale 15 Systems label
+- **restaurant-inventory-barcode-local-purchasing-guide.html** (mobile): Stale 15 Systems label
+- **restaurant-inventory-count-variance-backup-guide.html** (mobile): Stale 15 Systems label
+- **restaurant-inventory-par-worksheet.html** (mobile): Stale 15 Systems label
+- **restaurant-inventory-setup-workflow-guide.html** (mobile): Stale 15 Systems label
+- **restaurant-inventory-waste-control.html** (mobile): Stale 15 Systems label
+- **restaurant-kitchen-closing-checklist.html** (mobile): Stale 15 Systems label
+- **restaurant-kitchen-opening-checklist.html** (mobile): Stale 15 Systems label
+- **restaurant-labor-control-scheduling-planner.html** (mobile): Stale 15 Systems label
+- **restaurant-labor-cost-calculator.html** (mobile): Stale 15 Systems label
+- **restaurant-labor-cost-control.html** (mobile): Stale 15 Systems label
+- **restaurant-line-check-checklist.html** (mobile): Stale 15 Systems label
+- **restaurant-labor-cost-percentage-formula.html** (mobile): Stale 15 Systems label
+- **restaurant-management-forms-checklists.html** (mobile): Stale 15 Systems label
+- **restaurant-manager-checklist.html** (mobile): Stale 15 Systems label
+- **restaurant-manager-interview-questions.html** (mobile): Stale 15 Systems label
+- **restaurant-manager-log-shift-handoff.html** (mobile): Stale 15 Systems label
+- **restaurant-manager-training-program.html** (mobile): Stale 15 Systems label
+- **restaurant-opening-checklist.html** (mobile): Stale 15 Systems label
+- **restaurant-operational-poster-qr-guide.html** (mobile): Stale 15 Systems label
+- **restaurant-portion-control-food-cost.html** (mobile): Stale 15 Systems label
+- **restaurant-pre-shift-checklist.html** (mobile): Stale 15 Systems label
+- **restaurant-pre-shift-meeting-checklist.html** (mobile): Stale 15 Systems label
+- **restaurant-receiving-food-cost-control.html** (mobile): Stale 15 Systems label
+- **restaurant-recipe-costing-guide.html** (mobile): Stale 15 Systems label
+- **restaurant-sales-forecasting.html** (mobile): Stale 15 Systems label
+- **review.html** (mobile): Stale 15 Systems label
+- **review-thanks.html** (mobile): Stale 15 Systems label
+
+## HTTP / browser problems
+
+- **restaurant-recipe-costing-guide.html** (desktop): HTTP 403
+- **restaurant-sales-forecasting.html** (desktop): HTTP 403
+- **restaurant-schedule-validation-conflict-overtime-guide.html** (desktop): HTTP 403
+- **restaurant-server-side-work-checklist.html** (desktop): HTTP 403
+- **restaurant-server-training-checklist.html** (desktop): HTTP 403
+- **restaurant-shift-handoff-checklist.html** (desktop): HTTP 403
+- **restaurant-shift-manager-checklist.html** (desktop): HTTP 403
+- **restaurant-sop-station-operations-builder.html** (desktop): HTTP 403
+- **restaurant-sop-template-guide.html** (desktop): HTTP 403
+- **restaurant-sop-revision-control-guide.html** (desktop): HTTP 403
+- **restaurant-sop-training-retraining-guide.html** (desktop): HTTP 403
+- **restaurant-station-training-checklist.html** (desktop): HTTP 403
+- **restaurant-training-matrix-guide.html** (desktop): HTTP 403
+- **restaurant-staff-scheduling-guide.html** (desktop): HTTP 403
+- **restaurant-training-sign-off-checklist.html** (desktop): HTTP 403
+- **review-thanks.html** (desktop): HTTP 403
+- **restaurant-weekly-business-review.html** (desktop): HTTP 403
+- **restaurant-waste-spill-comp-log.html** (desktop): HTTP 403
+- **review.html** (desktop): HTTP 403
+- **standards-library.html** (desktop): HTTP 403
+- **standards.html** (desktop): HTTP 403
+- **sales-intelligence-forecasting.html** (desktop): HTTP 403
+- **start-here.html** (desktop): HTTP 403
+- **support.html** (desktop): HTTP 403
+- **systems-of-service.html** (desktop): HTTP 403
+- **system.html** (desktop): HTTP 403
+- **terms.html** (desktop): HTTP 403
+- **toolkit.html** (desktop): HTTP 403
+- **testing-room.html** (desktop): HTTP 403
+- **windows-programs.html** (desktop): HTTP 403
+- **the-owners-chair.html** (desktop): HTTP 403
+- **restaurant-schedule-validation-conflict-overtime-guide.html** (mobile): HTTP 403
+- **restaurant-server-side-work-checklist.html** (mobile): HTTP 403
+- **restaurant-server-training-checklist.html** (mobile): HTTP 403
+- **restaurant-shift-handoff-checklist.html** (mobile): HTTP 403
+- **restaurant-shift-manager-checklist.html** (mobile): HTTP 403
+- **restaurant-sop-revision-control-guide.html** (mobile): HTTP 403
+- **restaurant-sop-station-operations-builder.html** (mobile): HTTP 403
+- **restaurant-sop-template-guide.html** (mobile): HTTP 403
+- **restaurant-sop-training-retraining-guide.html** (mobile): HTTP 403
+- **restaurant-station-training-checklist.html** (mobile): HTTP 403
+- **restaurant-staff-scheduling-guide.html** (mobile): HTTP 403
+- **restaurant-training-matrix-guide.html** (mobile): HTTP 403
+- **restaurant-training-sign-off-checklist.html** (mobile): HTTP 403
+- **restaurant-waste-spill-comp-log.html** (mobile): HTTP 403
+- **restaurant-weekly-business-review.html** (mobile): HTTP 403
+- **standards-library.html** (mobile): HTTP 403
+- **sales-intelligence-forecasting.html** (mobile): HTTP 403
+- **start-here.html** (mobile): HTTP 403
+- **standards.html** (mobile): HTTP 403
+- **support.html** (mobile): HTTP 403
+- **system.html** (mobile): HTTP 403
+- **systems-of-service.html** (mobile): HTTP 403
+- **terms.html** (mobile): HTTP 403
+- **the-owners-chair.html** (mobile): HTTP 403
+- **testing-room.html** (mobile): HTTP 403
+- **windows-programs.html** (mobile): HTTP 403
+- **toolkit.html** (mobile): HTTP 403
+
+## Nonstandard root documents
+
+- testing-room-manager.html
+
+This is browser inspection of the currently deployed public host at the time of the test. Deployment commit must be verified separately against Netlify.
