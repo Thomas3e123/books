@@ -99,13 +99,18 @@ jobs:
           grep -Fq 'Protect private information' site/testing-room.html
           test -s site/assets/js/gravity-shift-lab.js
           test -s site/apps/inventory-center/assets/js/inventory-center.js
+          # Protect recipe drafts against accidental destructive restore or
+          # silently rejected browser writes; candidate browser QA must pass.
+          grep -Fq 'gravity-recipe-storage-warning' site/gravity-recipe-works.html
+          grep -Fq 'SAVE FAILED — Browser storage did not accept your changes' site/gravity-recipe-works.html
+          grep -Fq 'This will REPLACE all recipes, revisions, and governance records' site/gravity-recipe-works.html
       - name: Deploy strictly to NEW Gravity Netlify production site
         run: |
           set -euo pipefail
           token="${TOKEN_A:-${TOKEN_B:-${TOKEN_C:-}}}"
           if [ -z "$token" ]; then echo 'FAILED: No Netlify deployment token'; exit 1; fi
           export NETLIFY_AUTH_TOKEN="$token"
-          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY PUBLIC full site source verified; founder entrance repaired with server key gate / TMB untouched" --json > /tmp/gls-production-deploy.json
+          npx --yes netlify-cli@26 deploy --prod --no-build --site "$SITE_ID" --dir site --functions functions --message "GRAVITY Recipe Works restored-data safety guard QA pass / GLS only / TMB untouched" --json > /tmp/gls-production-deploy.json
           node -e 'const d=require("/tmp/gls-production-deploy.json"); console.log(JSON.stringify({site_id:d.site_id,deploy_id:d.deploy_id,deploy_url:d.deploy_url,url:d.url},null,2));if(d.site_id!=="fa5d39a0-bef9-4ff1-9c28-57d585d741d7")process.exit(1)'
       - name: Confirm public indexing and protected asset robots headers
         run: |
