@@ -2410,7 +2410,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "115ef95421f9350be21ba0395a89ffbe753e08e69ebd2b994eecef9a0b4bbf6c"
+      "sha256": "63224b7bbe019d6f2774135ffb35fd847b592eaf7027e4ea5d46177b2430dbdd"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",
