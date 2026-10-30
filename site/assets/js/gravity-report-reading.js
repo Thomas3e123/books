@@ -113,6 +113,15 @@ function article(){
   window.addEventListener('scroll',queue,{passive:true});window.addEventListener('resize',queue);queue();
  }
 }
+// Only publicly available files have a direct catalog download.
+// Never add a Field Sheet link for an unreleased article or unfinished PDF.
+var CATALOG_FIELD_SHEETS={
+ 1:'gravity-field-sheet-01-manager-excuses.pdf',
+ 2:'gravity-field-sheet-02-food-cost.pdf',
+ 3:'gravity-field-sheet-03-manager-follow-through.pdf',
+ 4:'gravity-field-sheet-04-food-waste.pdf',
+ 5:'gravity-field-sheet-05-employee-retention.pdf'
+};
 function catalog(){
  var host=$('[data-report-cards]');if(!host)return;
  var cards=all('.report-card[data-report-issue]',host);
@@ -127,6 +136,16 @@ function catalog(){
  action.setAttribute('data-report-title',a.title);
  action.setAttribute('data-report-summary',a.summary||'');
  var link=node('a',null,'Read full article →');link.href=href;action.appendChild(link);
+ // A separate PDF action beside the story, not embedded in the article.
+ var sheet=CATALOG_FIELD_SHEETS[Number(a.issue)];
+ if(sheet){
+  var field=node('a','report-card-field-sheet','↓ Field Sheet PDF');
+  field.href='/assets/downloads/'+sheet;
+  field.download='Gravity-Field-Sheet-'+String(a.issue).padStart(2,'0')+'.pdf';
+  field.type='application/pdf';
+  field.setAttribute('aria-label','Download matching Field Sheet for '+a.title+' (PDF)');
+  action.appendChild(field);
+ }
  var listen=node('a','report-listen-link','Listen to article');
  listen.href='/book-reader?article='+encodeURIComponent(a.slug);
  action.appendChild(listen);
