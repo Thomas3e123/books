@@ -1,0 +1,44 @@
+name: Gravity Recipe Works — live production save and restore data-loss regression tests
+on:
+  push:
+    branches: [feature/gravity-migration-phase1-2026-10-22]
+    paths:
+      - .github/workflows/gravity-recipe-safety-live-2026-10-30.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  recipe-production-safety:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Prepare production browser checks
+        run: |
+          node --check scripts/qa-gravity-recipe-safety-live.mjs
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+      - name: Verify data-loss fixes on published Gravity website
+        id: production
+        continue-on-error: true
+        run: node scripts/qa-gravity-recipe-safety-live.mjs
+      - name: Publish verification report to the Gravity development branch
+        if: always()
+        run: |
+          set -euo pipefail
+          test -s docs/audits/gravity-recipe-data-safety-live-2026-10-30.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/audits/gravity-recipe-data-safety-live-2026-10-30.md
+          if ! git diff --cached --quiet; then
+            git commit -m "audit(gravity): record live production recipe data safety results [skip ci]"
+            git fetch --no-tags origin feature/gravity-migration-phase1-2026-10-22
+            git rebase origin/feature/gravity-migration-phase1-2026-10-22
+            git push origin HEAD:feature/gravity-migration-phase1-2026-10-22
+          fi
+          if [ "${{ steps.production.outcome }}" != "success" ]; then
+            echo 'Production Recipe Works safety assertions failed; review report.'
+            exit 1
+          fi
