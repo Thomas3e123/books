@@ -6,6 +6,7 @@ Test scope: real Gravity production pages in fresh isolated headless Chrome cont
 | --- | --- | --- |
 | Shift Lab — Create synthetic employee, save schedule and survive reload | PASS | Browser-local data retained on reload; employee, wage, weekly sales, Monday shift verified; no server writes. |
 | Inventory Center — Create synthetic location and item, verify value and reload | PASS | Synthetic profile, location, item, count and $25 valuation persisted after reload; browser-only, no customer data. |
+| Gravity Assist — Shared restaurant profile reaches Shift Lab and Forms Personalizer | PASS | Synthetic restaurant profile saved in Assist and populated Shift Lab and Forms Personalizer in the same isolated browser. Cross-device sync was not tested. |
 | Gravity Reader — Registration gate and synthetic registered book loading | PASS | Fresh browser gated; simulated local access lists 15 books; book text loaded in successive sections, Next and reload-resume passed. No real signup backend tested. |
 | Service endpoints — Read-only TTS health and protected manager endpoint | PASS | Voice configuration healthy and Cedar offered; anonymous manager data denied (401). No paid audio synthesis or sign-in performed. |
 | Downloads — Read-only check for five PDFs and a Windows manual | PASS | Five genuine PDF files and current Shift Lab Windows manual delivered successfully. Windows executable not launched. |
