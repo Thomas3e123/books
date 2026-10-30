@@ -10,7 +10,7 @@ if(!mode||!window.indexedDB)return;
 const keys=mode==='shift'?['gravityShiftLabProfileV3','gravityShiftLabSchedulesV3']:['gravityInventoryCenter.v1'];
 const slot=mode==='shift'?'gravity-shift-lab':'gravity-inventory-center';
 let dbPromise=null,lastSignature='',timer=0,busy=false,queued=false,enabled=true;
-let button=null,status=null;
+let button=null,status=null,versions=null;
 function json(s){try{return JSON.parse(s||'null')}catch{return null}}
 function valid(value){
  if(mode==='shift'){
@@ -69,19 +69,38 @@ async function capture(){
  try{
   const value=data();
   if(!valid(value))return;
-  const signature=JSON.stringify(value);
+  const signature=await checksum(JSON.stringify(value));
   if(signature===lastSignature)return;
   const existing=await read();
   if(existing[0]&&existing[0].signature===signature){lastSignature=signature;return}
   const next=[{at:new Date().toISOString(),signature,value},...existing].slice(0,5);
   await write(next);
   lastSignature=signature;
-  if(button)button.disabled=false;
-  show('Automatic same-browser recovery snapshot saved ('+new Date(next[0].at).toLocaleString()+'). Download a separate backup file to protect against device loss.');
+  refreshOptions(next);
+  show('Same-browser recovery snapshot saved ('+new Date(next[0].at).toLocaleString()+'). Keep a separate downloaded backup: clearing site data deletes local snapshots.');
  }finally{
   busy=false;
   if(queued){queued=false;queue()}
  }
+}
+async function checksum(text){
+ const data=new TextEncoder().encode(text);
+ if(window.crypto?.subtle){const d=await crypto.subtle.digest('SHA-256',data);return [...new Uint8Array(d)].map(n=>n.toString(16).padStart(2,'0')).join('')}
+ let hash=2166136261;for(let i=0;i<text.length;i++){hash^=text.charCodeAt(i);hash=Math.imul(hash,16777619)}return 'fallback-'+(hash>>>0).toString(16);
+}
+function refreshOptions(items){
+ if(!versions||!button)return;
+ const selected=versions.value;
+ versions.replaceChildren();
+ items.forEach((item,index)=>{
+  const p=mode==='shift'?json(item.value[0]):json(item.value[0]);
+  const quantity=mode==='shift'?((p?.employees||[]).length+' employee profiles'):((p?.items||[]).length+' inventory items');
+  const opt=new Option('Copy '+(index+1)+' — '+new Date(item.at).toLocaleString()+' ('+quantity+')',item.signature);
+  versions.add(opt);
+ });
+ if(selected&&items.some(x=>x.signature===selected))versions.value=selected;
+ button.disabled=!items.length;
+ versions.disabled=!items.length;
 }
 async function secretMatches(profile){
  if(!profile.payLockHash)return true;
@@ -100,7 +119,7 @@ async function secretMatches(profile){
 }
 async function restore(){
  const items=await read();
- const snapshot=items[0];
+ const snapshot=items.find(s=>s.signature===versions?.value)||items[0];
  if(!snapshot||!Array.isArray(snapshot.value)||!valid(snapshot.value)){show('No valid local recovery snapshot was found. Use Restore Backup with your downloaded file.',true);return}
  if(mode==='shift'&&!(await secretMatches(json(snapshot.value[0])))){show('Manager credentials were not verified. Nothing was restored.',true);return}
  const warning='Restore the saved same-browser snapshot from '+new Date(snapshot.at).toLocaleString()+'? This will replace the current '+(mode==='shift'?'schedule and pay-protected manager profile':'inventory records')+' in this browser. Download a backup of current data first. Continue?';
@@ -135,9 +154,15 @@ function initUI(){
  status.id='gravity-local-recovery-status';
  status.style.cssText='font-size:13px;line-height:1.5;margin:8px 0;padding:6px 0';
  button.insertAdjacentElement('afterend',status);
- show('Same-browser recovery only; this is NOT cloud backup or cross-device synchronization. Keep downloaded backups separately.');
+ versions=document.createElement('select');
+ versions.id='gravity-local-recovery-version';
+ versions.setAttribute('aria-label','Select same-browser recovery snapshot');
+ versions.disabled=true;
+ versions.style.cssText='padding:8px;border-radius:8px;max-width:100%;margin:6px 8px';
+ button.insertAdjacentElement('afterend',versions);
+ show('Same-browser recovery only: clearing site data erases these snapshots. This is not a cloud backup or cross-device sync. Download separate backup files.');
  button.addEventListener('click',()=>restore().catch(e=>show('Local recovery could not be opened: '+e.message,true)));
- read().then(items=>{if(items.length){button.disabled=false;show('Same-browser snapshot available from '+new Date(items[0].at).toLocaleString()+'. Download backups for protection from device loss.')}})
+ read().then(items=>{refreshOptions(items);if(items.length)show('Local recovery copies available. Choose a dated copy. Clearing site data also deletes these copies; keep downloaded backups.');})
  .catch(e=>{enabled=false;show('Same-browser recovery unavailable: '+e.message+'. Use manual backup downloads.',true)});
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initUI,{once:true});else initUI();
