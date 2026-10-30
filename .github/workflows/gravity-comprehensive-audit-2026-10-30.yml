@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Inspect full isolated Gravity source (repaired syntax)
+      - name: Inspect full isolated Gravity source (verified parser and content)
         run: |
           set -euo pipefail
           node --check scripts/audit-gravity-comprehensive.mjs
