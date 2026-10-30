@@ -1386,15 +1386,15 @@
     },
     {
       "path": "site/assets/js/gravity-conversation-core.mjs",
-      "sha256": "a8dc697584a48c4bf10f60f055033060c33bf4125698344ab4eef493ec355fcb"
+      "sha256": "495a969d566f70f8310c398e751d1720735f80576256eab39d7af4a0df443a6f"
     },
     {
       "path": "site/assets/js/gravity-conversation-forms.mjs",
-      "sha256": "2b70943733a6c322d246a4b00cae346af401787924620301bb8309d43e6d2462"
+      "sha256": "556e2294c3f788ae21bbbe9cff7b639a9942dc28a942f4c243a243e16160361c"
     },
     {
       "path": "site/assets/js/gravity-conversation.mjs",
-      "sha256": "7c6677cc469b959d74c477f1520ba97e987f423fa3b224060f1b016e6f508cf3"
+      "sha256": "764f8fac17a48077a4d4d943d42ab28f7dfe88b2359907db0d5c14b1c6fe9ea9"
     },
     {
       "path": "site/assets/js/gravity-document-studio.js",
@@ -1914,7 +1914,7 @@
     },
     {
       "path": "site/gravity-conversation.html",
-      "sha256": "ab1d059cc5a540496233c1380c925006da2992aefa5bd5f74022bb44c7012a72"
+      "sha256": "1ec0e359a27df987ca870e15f15a3b7d1f87886fd7040ff6b1b42c3d72ff30af"
     },
     {
       "path": "site/gravity-document-studio.html",
@@ -2426,7 +2426,7 @@
     },
     {
       "path": "functions/gravity-conversation/instructions.mjs",
-      "sha256": "3d76410df6ba50ed87d11cee3b605b58fc1124b772f4cd2042e7273fab4b1c18"
+      "sha256": "74277c7ceea3dd0132b92b16272f31b8ae16ed70eac69c75f351dad42a9a9477"
     },
     {
       "path": "functions/gravity-guide/gravity-guide.js",

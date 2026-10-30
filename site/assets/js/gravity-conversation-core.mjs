@@ -29,11 +29,11 @@ export function validateResponse(raw,input){
 export function newCase(){return {version:VERSION,messages:[],record:[],tasks:[],forms:{},verification:null,history:[],savedAt:null}}
 export function addAnswer(current,input,response,now=new Date().toISOString()){
  const answer=validateResponse(response,input);const next=structuredClone(current);
- next.messages=structuredClone(input.messages);const text=[answer.reply,...answer.steps.map((s,i)=>`${i+1}. ${s.action}\nWho: ${s.who}\nWhen: ${s.when}\nBring back: ${s.bringBack}`),answer.question].filter(Boolean).join('\n\n');
+ next.messages=structuredClone(input.messages).map(m=>{const old=current.messages.find(x=>x.id===m.id&&x.text===m.text);return old?.answer?{...m,answer:structuredClone(old.answer)}:m});const text=[answer.reply,...answer.steps.map((s,i)=>`${i+1}. ${s.action}\nWho: ${s.who}\nWhen: ${s.when}\nBring back: ${s.bringBack}`),answer.question].filter(Boolean).join('\n\n');
  next.messages.push({id:'a-'+input.messages.at(-1).id,role:'assistant',text,answer});
  for(const row of answer.record){if(!next.record.some(r=>r.kind===row.kind&&r.text===row.text&&r.sourceId===row.sourceId))next.record.push({...row,at:now})}
  next.tasks=answer.steps;next.suggestedForm=answer.form;
- if(next.verification){next.history.push({at:now,type:'verification-reopened',previous:next.verification});next.verification=null}
+ if(next.verification&&(input.messages.at(-1).correction||answer.record.length||answer.steps.length)){next.history.push({at:now,type:'verification-reopened',previous:next.verification});next.verification=null}
  next.history.push({at:now,type:input.messages.at(-1).correction?'corrected-account':'conversation-update',sourceId:input.messages.at(-1).id});
  return next;
 }
@@ -41,6 +41,9 @@ export function recordVerification(current,raw,now=new Date().toISOString()){
  const next=structuredClone(current);const v=Object.fromEntries(['who','before','after','how','followup'].map(k=>[k,str(raw[k],2000,k)]));
  if(Object.values(v).some(x=>!x))throw Error('Complete each check, including how the result was checked.');
  if(!next.messages.length)throw Error('Start an investigation first.');
+ const text='Manager-recorded verification — not an independent inspection by Gravity:\n'+Object.entries(v).map(([k,value])=>k+': '+value).join('\n');
+ if(text.length>6000||next.messages.length>=MAX_MESSAGES-1)throw Error('Save the current history first. Keep the verification account under 6,000 characters and within this test’s message limit.');
+ next.messages.push({id:'v-'+now,role:'user',text,correction:false});
  next.verification={...v,at:now};next.history.push({at:now,type:'manager-recorded-verification',details:v});return next;
 }
 export function validateBackup(raw){
