@@ -1,0 +1,23 @@
+name: Gravity Recipe Works storage/restore data-loss guard — candidate browser QA
+on:
+  push:
+    branches: [feature/gravity-migration-phase1-2026-10-22]
+    paths:
+      - .github/workflows/gravity-recipe-storage-guard-2026-10-30.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser-recipe-data-safety:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Prepare isolated local candidate browser
+        run: |
+          node --check scripts/test-gravity-recipe-storage-guard.mjs
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+      - name: Verify restore confirmation and persistent storage failure warning
+        run: node scripts/test-gravity-recipe-storage-guard.mjs
