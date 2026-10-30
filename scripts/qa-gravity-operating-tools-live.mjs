@@ -96,7 +96,13 @@ await task('Inventory Center','Create synthetic location and item, verify value 
 await task('Gravity Reader','Registration gate and synthetic registered book loading',async()=>{
  const ctx=await context();
  try{
-  const p=await ctx.newPage();const res=await p.goto(HOST+'/book-reader',{waitUntil:'domcontentloaded',timeout:30000});
+  const p=await ctx.newPage();
+  const pageErrors=[];
+  const bookScript=[];
+  p.on('pageerror',e=>pageErrors.push(String(e.message||e).slice(0,250)));
+  p.on('console',m=>{if(m.type()==='error'&&pageErrors.length<8)pageErrors.push('console: '+m.text().slice(0,180))});
+  p.on('response',v=>{if(v.url().includes('book-reader.js'))bookScript.push({status:v.status(),url:v.url(),type:v.headers()['content-type']})});
+  const res=await p.goto(HOST+'/book-reader',{waitUntil:'domcontentloaded',timeout:30000});
   assert.equal(res.status(),200);
   const fresh=await p.evaluate(()=>({gate:document.querySelector('#reader-gate').hidden,books:document.querySelector('#reader-available-books').hidden}));
   assert.equal(fresh.gate,false,'Book registration gate should be visible for fresh browser');
@@ -106,9 +112,9 @@ await task('Gravity Reader','Registration gate and synthetic registered book loa
   await p.waitForFunction(()=>document.querySelectorAll('#reader-book option[value]').length>10,{timeout:18000});
   await p.waitForTimeout(600);
   const counts=await p.evaluate(()=>({books:document.querySelectorAll('#reader-book-buttons button').length,gate:document.querySelector('#reader-gate').hidden,options:document.querySelector('#reader-book').options.length,bookOptions:[...document.querySelectorAll('#reader-book option[value]')].filter(x=>x.value).length,summary:document.querySelector('#reader-available-books summary')?.textContent,bookHtml:document.querySelector('#reader-book-buttons')?.innerHTML.slice(0,220),status:document.querySelector('#reader-status')?.textContent.slice(0,150)}));
-  console.log('GRAVITY_READER_DIAGNOSTIC '+JSON.stringify(counts));
+  console.log('GRAVITY_READER_DIAGNOSTIC '+JSON.stringify({counts,pageErrors,bookScript}));
   assert.equal(counts.gate,true);
-  assert.ok(counts.books>=10,'Registered book catalog is not populated: '+JSON.stringify(counts));
+  assert.ok(counts.books>=10,'Registered book catalog is not populated: '+JSON.stringify({counts,pageErrors,bookScript}));
   await p.locator('#reader-book').selectOption('quiet-gravity');
   await p.waitForFunction(()=>document.querySelector('#reader-text').textContent.trim().length>100,{timeout:25000});
   const chars=await p.locator('#reader-text').evaluate(x=>x.textContent.length);
