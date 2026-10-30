@@ -58,6 +58,7 @@ jobs:
           grep -Fq 'class="report-card-field-sheet"' site/gravity-report.html
           grep -Fq 'CATALOG_FIELD_SHEETS' site/assets/js/gravity-report-reading.js
           ! grep -Fq 'fieldSheetPanel(a)' functions/gravity-report/index.mjs
+          ! grep -Fq '.report-field-callout{' functions/gravity-report/index.mjs
           grep -Fq 'gravity-report-reading.css' site/gravity-report.html
           grep -Fq 'Publisher and Editor of The Gravity Report' site/index.html
           grep -Fq 'Restaurant Leadership, Systems &amp; Operations' site/index.html
