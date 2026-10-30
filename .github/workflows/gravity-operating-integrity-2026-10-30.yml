@@ -1,5 +1,5 @@
 name: Gravity operating tool integrity — synthetic local data QA, no deploy
-# Reader diagnostics capture browser initialization and script delivery regardless of catalog readiness.
+# Reader text-fetch and intermittent TTS 500 diagnostics; no paid voice requests or real customer writes.
 on:
   push:
     branches: [feature/gravity-migration-phase1-2026-10-22]
