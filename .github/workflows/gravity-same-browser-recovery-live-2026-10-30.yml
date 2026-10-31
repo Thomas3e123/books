@@ -1,0 +1,25 @@
+name: Gravity local recovery — real production isolated browser verification
+on:
+  push:
+    branches: [feature/gravity-migration-phase1-2026-10-22]
+    paths:
+      - .github/workflows/gravity-same-browser-recovery-live-2026-10-30.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-production-recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GRAVITY_TEST_ORIGIN: https://gravityleadershipsystem.com
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Prepare isolated live test browsers with no customer account credentials
+        run: |
+          node --check scripts/test-gravity-same-browser-recovery.mjs
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+      - name: Verify deployed schedules, pay lock, inventory and recovery after selective storage loss
+        run: node scripts/test-gravity-same-browser-recovery.mjs
