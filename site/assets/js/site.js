@@ -759,3 +759,35 @@ document.addEventListener('mouseover',function(e){var a=e.target&&e.target.close
 /* Open the actual SOP Foundry room chooser from the main website menu.
    Preserve /gravity-sop-foundry as the information, manuals, and downloads page. */
 (function(){function apply(){document.querySelectorAll('#site-nav a[href="/gravity-sop-foundry"],nav[data-menu] a[href="/gravity-sop-foundry"]').forEach(function(a){a.href='/apps/sop-foundry/access';});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});else apply();})();
+
+
+/* Current room name inside the existing page hero/banner; no extra banner. */
+(function () {
+  function labelRoom() {
+    var path = location.pathname.replace(/\/$/, '').replace(/\.html$/, '');
+    if (!path || path === '/' || path === '/index') return;
+    var isRoom = document.body.hasAttribute('data-workspace') ||
+      /^\/apps\//.test(path) ||
+      /(?:gravity-aware|gravity-assist|room|lab|studio|center|foundry|inventory|shift-lab|work-study)/.test(path);
+    if (!isRoom) return;
+    var hero = document.querySelector('main .page-hero, main [class*="hero"], #main .page-hero, .app-header, .room-header');
+    if (!hero || hero.querySelector('.gravity-room-name')) return;
+    var h1 = hero.querySelector('h1');
+    if (!h1) return;
+    var name = h1.textContent.replace(/\s+/g, ' ').trim();
+    if (!name || name.length > 85) {
+      var current = document.querySelector('#site-nav a[aria-current="page"]');
+      name = current ? current.textContent.trim() : path.split('/').filter(Boolean).pop().replace(/-/g,' ');
+    }
+    var label = document.createElement('div');
+    label.className = 'gravity-room-name';
+    label.textContent = name;
+    label.setAttribute('aria-label', 'Current room: ' + name);
+    label.style.cssText = 'font:700 clamp(12px,1.5vw,15px)/1.4 system-ui,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;margin:0 0 10px;color:inherit;opacity:.9;';
+    var eyebrow = hero.querySelector('.eyebrow');
+    if (eyebrow && eyebrow.parentNode) eyebrow.insertAdjacentElement('afterend', label);
+    else h1.insertAdjacentElement('beforebegin', label);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', labelRoom, {once:true});
+  else labelRoom();
+})();
