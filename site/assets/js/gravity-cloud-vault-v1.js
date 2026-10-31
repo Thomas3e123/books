@@ -236,33 +236,103 @@ function toolUI(){
 async function accountPage(){
  const auth=window.GravityCustomerIdentity;
  if(!auth){report('Account component is unavailable. No cloud backup can be enabled.',true);return}
- try{
-  if(location.hash&&/(confirmation_token|invite_token|recovery_token|access_token)/.test(location.hash)){
-   await auth.handleAuthCallback();
-   history.replaceState(null,'',location.pathname+location.search);
+ let flow=null,inviteToken=null;
+ const setFlow=value=>{
+  flow=value;
+  $('gravity-cloud-reset-panel').hidden=value!=='recovery';
+  $('gravity-cloud-invite-panel').hidden=value!=='invite';
+  if(value){
+   $('login-card').hidden=true;$('signup-card').hidden=true;$('account-panel').hidden=true;
   }
- }catch(e){report('Account link could not be completed: '+e.message,true)}
+ };
  async function redraw(){
+  if(flow)return;
   try{
    const x=await fetchJSON(API+'status');
-   $('account-panel').hidden=false;$('login-card').hidden=true;$('signup-card').hidden=true;$('account-email').textContent='Signed in: '+x.account.email;
+   $('account-panel').hidden=false;$('login-card').hidden=true;$('signup-card').hidden=true;
+   $('account-email').textContent='Signed in: '+x.account.email;
    report('Customer account verified. Open Shift Lab or Inventory Center to enable optional encrypted backups.');
   }catch(e){
    $('account-panel').hidden=true;$('login-card').hidden=false;$('signup-card').hidden=false;
    report(e.status===401?'Not signed in. Account sign-in is required for cloud backups.':'Account service: '+e.message,e.status!==401);
   }
  }
+ const hadAuthHash=location.hash&&/(?:confirmation_token|invite_token|recovery_token|access_token|email_change_token)=/.test(location.hash);
+ if(hadAuthHash){
+  try{
+   const callback=await auth.handleAuthCallback();
+   // Callback tokens must not remain in browser navigation history.
+   history.replaceState(null,'',location.pathname+location.search);
+   if(callback?.type==='recovery'){
+    setFlow('recovery');
+    report('Your password recovery link was accepted. Set your new account password below. Your separate encrypted-backup passphrase does not change.');
+   }else if(callback?.type==='invite'){
+    if(typeof callback.token!=='string'||!callback.token)throw Error('Invitation token is missing.');
+    inviteToken=callback.token;setFlow('invite');
+    report('Your invitation link was accepted. Set a password to activate the invited account.');
+   }else if(callback?.type==='confirmation'){
+    report('Email confirmation processed. Sign in to finish activating encrypted cloud backup.');
+   }else if(callback?.type==='email_change'){
+    report('Email change processed. Your existing encrypted backups remain associated with your account.');
+   }
+  }catch(e){
+   report('Account email link failed: '+e.message+'. Request another link if it has expired.',true);
+  }
+ }
+ $('gravity-cloud-forgot-toggle').addEventListener('click',()=>{
+  $('gravity-cloud-recovery-request').hidden=!$('gravity-cloud-recovery-request').hidden;
+ });
+ $('gravity-cloud-recovery-request').addEventListener('submit',async event=>{
+  event.preventDefault();
+  const form=event.currentTarget,email=String(new FormData(form).get('email')||'');
+  const button=form.querySelector('button');button.disabled=true;
+  try{
+   await auth.requestPasswordRecovery(email);
+   form.reset();
+   report('If the email belongs to a Gravity customer account, recovery instructions will be sent. Check your inbox and spam folder.');
+  }catch(error){
+   report('Recovery request was not completed: '+error.message,true);
+  }finally{button.disabled=false}
+ });
+ $('gravity-cloud-reset-form').addEventListener('submit',async event=>{
+  event.preventDefault();
+  if(flow!=='recovery')return;
+  const form=event.currentTarget,d=new FormData(form);
+  const password=String(d.get('password')||''),confirmation=String(d.get('confirm')||'');
+  if(password.length<12||password!==confirmation){report('Enter matching passwords of at least 12 characters.',true);return}
+  const button=form.querySelector('button');button.disabled=true;
+  try{
+   await auth.updateUser({password});
+   form.reset();setFlow(null);await redraw();
+   report('Account password updated. Your separate encrypted-backup recovery passphrase has not changed.');
+  }catch(error){
+   report('Account password was not updated: '+error.message,true);
+  }finally{button.disabled=false}
+ });
+ $('gravity-cloud-invite-form').addEventListener('submit',async event=>{
+  event.preventDefault();
+  if(flow!=='invite'||!inviteToken)return;
+  const form=event.currentTarget,password=String(new FormData(form).get('password')||'');
+  if(password.length<12){report('Choose an account password of at least 12 characters.',true);return}
+  const button=form.querySelector('button');button.disabled=true;
+  try{
+   await auth.acceptInvite(inviteToken,password);
+   inviteToken=null;form.reset();setFlow(null);await redraw();
+   report('Invitation accepted. Your account is active. Encrypted backup remains optional.');
+  }catch(error){report('Account invitation was not accepted: '+error.message,true)}
+  finally{button.disabled=false}
+ });
  for(const [id,method] of [['gravity-cloud-login','login'],['gravity-cloud-signup','signup']]){
   $(id).addEventListener('submit',async event=>{
    event.preventDefault();
-   const f=event.target,d=new FormData(f),email=String(d.get('email')||''),password=String(d.get('password')||'');
-   if(password.length<12){report('Choose a password of at least 12 characters.',true);return}
-   const button=f.querySelector('button');button.disabled=true;
+   const form=event.currentTarget,d=new FormData(form),email=String(d.get('email')||''),password=String(d.get('password')||'');
+   if(method==='signup'&&password.length<12){report('Choose an account password of at least 12 characters.',true);return}
+   const button=form.querySelector('button');button.disabled=true;
    try{
     await auth[method](email,password);
     if(method==='signup')report('Registration submitted. Check your email for the Gravity account confirmation link before signing in.');
-    else{f.reset();await redraw()}
-   }catch(e){report((method==='signup'?'Registration':'Sign-in')+' failed: '+e.message,true)}
+    else{form.reset();await redraw()}
+   }catch(error){report((method==='signup'?'Registration':'Sign-in')+' failed: '+error.message,true)}
    finally{button.disabled=false}
   });
  }
@@ -274,19 +344,19 @@ async function accountPage(){
    try{
     const response=await fetchJSON(API+backupTool,{method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({confirmation:typed})});
     target.textContent='Deleted '+response.deleted+' '+backupTool+' encrypted cloud backup version(s). Local saved work remains untouched.';
-    target.setAttribute('role','status');
-    await redraw();
-   }catch(e){
-    target.textContent='Cloud deletion did not complete: '+e.message;
+    target.setAttribute('role','status');await redraw();
+   }catch(error){
+    target.textContent='Cloud deletion did not complete: '+error.message;
     target.setAttribute('role','alert');
    }
   });
  }
  $('gravity-cloud-signout').onclick=async()=>{
-  try{await auth.logout();await redraw()}catch(e){report('Sign-out failed: '+e.message,true)}
+  try{await auth.logout();setFlow(null);await redraw()}catch(error){report('Sign-out failed: '+error.message,true)}
  };
- await redraw();
+ if(!flow)await redraw();
 }
+
 if(identityPage)accountPage();
 else if(tool){if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',toolUI,{once:true});else toolUI()}
 })();
