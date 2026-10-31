@@ -118,8 +118,12 @@ async function upload(force){
   report('Encrypted cloud backup saved: version '+revision+' at '+new Date(res.createdAt).toLocaleString()+(receiptSaved?'. Local file backups are still recommended.':'. Your browser could not save the local receipt; future automatic uploads are paused.'),!receiptSaved);
   await refreshHistory();
  }catch(e){
-  if(e.status===409||e.status===429){auto=false;report('Cloud backup paused: '+e.message+' Check the latest cloud copy before continuing.',true)}
-  else report('Cloud backup did not save: '+e.message+' Your local work remains on this computer.',true);
+  if(e.status===429){
+   report('Cloud backup was rate-limited. Automatic backup will retry shortly; the local workspace is unchanged.',true);
+   if(auto&&connected&&passphrase){clearTimers();timer=setTimeout(()=>upload(force),16000)}
+  }else if(e.status===409){
+   auto=false;report('Cloud backup paused because another device changed the saved version. Review and recover the latest cloud copy before saving again.',true);
+  }else report('Cloud backup did not save: '+e.message+' Your local work remains on this computer.',true);
  }finally{busy=false}
 }
 async function refreshHistory(){
