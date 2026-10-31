@@ -25,6 +25,19 @@ async function run(label,task){
  try{let desc=await task();checks.push({label,result:'PASS',desc});console.log('PASS '+label+' — '+desc)}
  catch(e){checks.push({label,result:'FAIL',desc:String(e.message||e).slice(0,300)});console.error('FAIL '+label+' '+String(e.stack||e).slice(0,1200))}
 }
+async function stateProbe(p,slot){
+ return await p.evaluate(async slot=>{
+  const result={url:location.href,localKeys:Object.keys(localStorage),indexed:[]};
+  try{
+   result.databases=await indexedDB.databases();
+   const d=await new Promise((resolve,reject)=>{const r=indexedDB.open('GravitySameBrowserRecoveryV1',1);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)});
+   const list=await new Promise((resolve,reject)=>{const r=d.transaction('snapshots').objectStore('snapshots').get(slot);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)});
+   result.indexed=(list||[]).map(x=>({at:x.at,signature:String(x.signature).slice(0,28),lengths:x.value.map(v=>v?.length)}));
+   d.close();
+  }catch(e){result.error=e.message}
+  return result;
+ },slot);
+}
 async function page(route){
  const context=await browser.newContext({viewport:{width:1400,height:900},acceptDownloads:true});
  await context.route('**/*',r=>r.request().url().startsWith(origin)?r.continue():r.abort());
@@ -99,7 +112,9 @@ await run('Shift Lab pay-protected recovery requires original PIN',async()=>{
    const result=await new Promise(resolve=>{const r=indexedDB.open('GravitySameBrowserRecoveryV1',1);r.onsuccess=()=>{const t=r.result.transaction('snapshots');const x=t.objectStore('snapshots').get('gravity-shift-lab');x.onsuccess=()=>resolve(x.result);};r.onerror=()=>resolve([])});
    return Boolean(result?.[0]?.value?.[0]?.includes('payLockHash')&&JSON.parse(result[0].value[0]).payLockHash);
   },null,{timeout:12000});
+  console.log('PAY PROBE BEFORE CLEAR',JSON.stringify(await stateProbe(p,'gravity-shift-lab')));
   await p.evaluate(()=>{localStorage.removeItem('gravityShiftLabProfileV3');localStorage.removeItem('gravityShiftLabSchedulesV3')});
+  console.log('PAY PROBE AFTER CLEAR',JSON.stringify(await stateProbe(p,'gravity-shift-lab')));
   await p.reload({waitUntil:'domcontentloaded'});
   await p.waitForFunction(()=>{const b=document.querySelector('#gravity-local-recovery');return b&&!b.disabled},null,{timeout:12000}).catch(async error=>{
     const diag=await p.evaluate(async()=>{
@@ -146,7 +161,9 @@ await run('Inventory Center synthetic item can recover locally after localStorag
    const items=await new Promise(resolve=>{const r=d.transaction('snapshots').objectStore('snapshots').get('gravity-inventory-center');r.onsuccess=()=>resolve(r.result||[]);r.onerror=()=>resolve([])});
    return items.length&&JSON.parse(items[0].value[0]).items?.length===1;
   },null,{timeout:12000});
+  console.log('INVENTORY PROBE BEFORE CLEAR',JSON.stringify(await stateProbe(p,'gravity-inventory-center')));
   await p.evaluate(()=>localStorage.removeItem('gravityInventoryCenter.v1'));
+  console.log('INVENTORY PROBE AFTER CLEAR',JSON.stringify(await stateProbe(p,'gravity-inventory-center')));
   await p.reload({waitUntil:'domcontentloaded'});
   await p.waitForFunction(()=>{const b=document.querySelector('#gravity-local-recovery');return b&&!b.disabled},null,{timeout:12000}).catch(async error=>{
     const diag=await p.evaluate(async()=>{
