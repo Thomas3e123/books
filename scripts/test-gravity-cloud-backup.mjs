@@ -4,6 +4,7 @@ const users=new Map(),hist=new Map();
 const key=(uid,tool)=>uid+'|'+tool;
 const store={
  async latest(uid,tool){return hist.get(key(uid,tool))?.at(-1)||null},
+ async history(uid,tool,keep){return (hist.get(key(uid,tool))||[]).slice(-keep).reverse().map(x=>({revision:x.revision,createdAt:x.createdAt}))},
  async status(uid){return ['shift','inventory'].flatMap(t=>{const r=hist.get(key(uid,t))?.at(-1);return r?[{tool:t,revision:r.revision,createdAt:r.createdAt}]:[]})},
  async read(uid,tool,rev){const a=hist.get(key(uid,tool))||[];return rev===null?a.at(-1)||null:a.find(x=>x.revision===rev)||null},
  async insert(uid,tool,rev,envelope){
@@ -38,6 +39,18 @@ await check('Authenticated encrypted save/retrieve',async()=>{
  assert.equal(data.envelope.ciphertext,encryption.ciphertext);
  const status=await (await fn(request('status'))).json();
  assert.equal(status.tools.length,1);
+});
+await check('Only owner can enumerate dated backup versions',async()=>{
+ const first=await fn(request('shift?history=1'));
+ assert.equal(first.status,200);
+ const versions=(await first.json()).versions;
+ assert.equal(versions.length,1);
+ assert.equal(versions[0].revision,1);
+ assert.ok(!JSON.stringify(versions).includes('ciphertext'));
+ users.set('current',{id:'user-b',email:'b@example.test'});
+ const foreign=await fn(request('shift?history=1'));
+ assert.equal(foreign.status,200);assert.equal((await foreign.json()).versions.length,0);
+ users.set('current',{id:'user-a',email:'a@example.test'});
 });
 await check('Optimistic concurrency prevents lost updates',async()=>{assert.equal((await put('shift',0)).status,409)});
 await check('Accounts isolated by Identity ID',async()=>{
