@@ -11,7 +11,7 @@ const keys=tool==='shift'?['gravityShiftLabProfileV3','gravityShiftLabSchedulesV
 const API='/gravity-cloud-backup/';
 const enc=new TextEncoder(),dec=new TextDecoder();
 let account=null,passphrase='',revision=0,lastDigest='',auto=false,busy=false,timer=null,connected=false;
-let ui=null;
+let ui=null,verifiedLockHash=null;
 const report=(message,error=false)=>{
  const target=ui||$('account-status');if(!target)return;
  target.textContent=message;target.setAttribute('role',error?'alert':'status');
@@ -69,7 +69,7 @@ function valid(v){
 }
 function receiptKey(){return 'gravityCloudBackupReceiptV1:'+account.id+':'+tool}
 function getReceipt(){try{return JSON.parse(localStorage.getItem(receiptKey())||'null')}catch{return null}}
-function saveReceipt(hash,rev){localStorage.setItem(receiptKey(),JSON.stringify({digest:hash,revision:rev,savedAt:new Date().toISOString()}))}
+function saveReceipt(hash,rev){try{localStorage.setItem(receiptKey(),JSON.stringify({digest:hash,revision:rev,savedAt:new Date().toISOString()}));return true}catch{return false}}
 function clearTimers(){clearTimeout(timer);timer=null}
 function trigger(){
  if(!auto||!passphrase||!connected||busy)return;
@@ -77,6 +77,7 @@ function trigger(){
 }
 async function checkManagerPin(profile){
  if(!profile?.payLockHash)return true;
+ if(verifiedLockHash===profile.payLockHash)return true;
  const pin=prompt('Manager Pay Lock is required for cloud backup/recovery. Enter your Shift Lab manager PIN (Cancel to stop).');
  if(pin===null)return false;
  const text='GravityShiftLab|'+pin;
@@ -88,7 +89,8 @@ async function checkManagerPin(profile){
   let h=2166136261;for(let i=0;i<text.length;i++){h^=text.charCodeAt(i);h+=(h<<1)+(h<<4)+(h<<7)+(h<<8)+(h<<24)}
   hash='fallback-'+(h>>>0).toString(16);
  }
- return hash===profile.payLockHash;
+ if(hash===profile.payLockHash){verifiedLockHash=hash;return true}
+ return false;
 }
 async function upload(force){
  if(!connected||!passphrase||busy){return}
@@ -96,14 +98,14 @@ async function upload(force){
  try{
   let values=currentData();
   if(!valid(values))throw Error('There is no valid saved '+tool+' workspace to back up. Save your work first.');
-  if(tool==='shift'&&!await checkManagerPin(JSON.parse(values[0])))throw Error('Manager PIN was not verified. Cloud backup was not changed.');
   const hash=await digest(JSON.stringify(values));
   if(!force&&hash===lastDigest){report('Encrypted cloud copy is current. Your local work has not changed.');return}
+  if(tool==='shift'&&!await checkManagerPin(JSON.parse(values[0])))throw Error('Manager PIN was not verified. Cloud backup was not changed.');
   const envelope=await encrypt({schema:1,tool,keys:values,createdAt:new Date().toISOString()});
   if(JSON.stringify(envelope).length>875000)throw Error('Workspace exceeds the safe upload limit. Export a manual backup.');
   const res=await fetchJSON(API+tool,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({baseRevision:revision,envelope})});
-  revision=res.revision;lastDigest=hash;saveReceipt(hash,revision);auto=true;
-  report('Encrypted cloud backup saved: version '+revision+' at '+new Date(res.createdAt).toLocaleString()+'. Local file backups are still recommended.');
+  revision=res.revision;lastDigest=hash;const receiptSaved=saveReceipt(hash,revision);auto=receiptSaved;
+  report('Encrypted cloud backup saved: version '+revision+' at '+new Date(res.createdAt).toLocaleString()+(receiptSaved?'. Local file backups are still recommended.':'. Your browser could not save the local receipt; future automatic uploads are paused.'),!receiptSaved);
  }catch(e){
   if(e.status===409||e.status===429){auto=false;report('Cloud backup paused: '+e.message+' Check the latest cloud copy before continuing.',true)}
   else report('Cloud backup did not save: '+e.message+' Your local work remains on this computer.',true);
@@ -122,7 +124,7 @@ async function restore(){
   try{
    for(let i=0;i<keys.length;i++)localStorage.setItem(keys[i],restored.keys[i]);
    const hash=await digest(JSON.stringify(restored.keys));
-   saveReceipt(hash,data.revision);revision=data.revision;lastDigest=hash;
+   if(!saveReceipt(hash,data.revision))throw Error('Restoration data was written but the local recovery receipt could not be saved. Keep a separate backup and verify the page after reload.');revision=data.revision;lastDigest=hash;
    report('Cloud backup recovered. Reloading '+tool+' to show restored records.');
    location.reload();
   }catch(e){
@@ -165,7 +167,7 @@ function toolUI(){
  };
  $('gravity-cloud-restore').onclick=restore;
  $('gravity-cloud-disconnect').onclick=()=>{
-  passphrase='';auto=false;connected=false;clearTimers();$('gravity-cloud-controls').hidden=true;report('Cloud backup disconnected for this tab. Your local data is unchanged.');
+  passphrase='';verifiedLockHash=null;auto=false;connected=false;clearTimers();$('gravity-cloud-controls').hidden=true;report('Cloud backup disconnected for this tab. Your local data is unchanged.');
  };
  document.addEventListener('visibilitychange',()=>{if(!document.hidden)trigger()});
  window.addEventListener('gravity:local-data-saved',trigger);
