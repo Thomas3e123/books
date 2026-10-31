@@ -65,6 +65,23 @@ async function check(name,fn){
  finally{if(c)await c.close()}
 }
 await new Promise(resolve=>server.listen(42936,'127.0.0.1',resolve));
+await check('Signup requests email confirmation without granting immediate cloud access',async p=>{
+ await p.goto(origin+'/gravity-cloud-vault',{waitUntil:'domcontentloaded'});
+ await p.locator('#signup-card').waitFor({state:'visible'});
+ await p.locator('#gravity-cloud-signup input[name=email]').fill('new-customer@example.test');
+ await p.locator('#gravity-cloud-signup input[name=password]').fill('Long-unique-account-password-123');
+ await p.locator('#gravity-cloud-signup button').click();
+ await p.waitForFunction(()=>document.querySelector('#account-status')?.textContent.includes('Check your email'));
+ const calls=await p.evaluate(()=>window.GravityIdentityTest.calls);
+ assert.ok(calls.some(x=>x[0]==='signup'&&x[1]==='new-customer@example.test'));
+ assert.equal(await p.locator('#account-panel').isVisible(),false);
+});
+await check('Confirmation callback remains visible after account status refresh',async p=>{
+ await p.goto(origin+'/gravity-cloud-vault#confirmation_token=sandbox-token',{waitUntil:'domcontentloaded'});
+ await p.waitForFunction(()=>document.querySelector('#account-status')?.textContent.includes('Email confirmation processed'));
+ assert.equal(new URL(p.url()).hash,'');
+ assert.equal(await p.locator('#login-card').isVisible(),true);
+});
 await check('Forgot password sends the email request without exposing another account',async p=>{
  await p.goto(origin+'/gravity-cloud-vault',{waitUntil:'domcontentloaded'});
  await p.locator('#login-card').waitFor({state:'visible'});
