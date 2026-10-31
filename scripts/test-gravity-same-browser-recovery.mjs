@@ -144,7 +144,7 @@ await run('Shift Lab pay-protected recovery requires original PIN',async()=>{
  }finally{await context.close()}
 });
 await run('Inventory Center synthetic item can recover locally after localStorage deletion',async()=>{
- const {context,p}=await page('/apps/inventory-center/index');
+ const {context,p}=await page('/apps/inventory-center/index.html');
  try{
   await p.locator('#edit-profile').click();
   await p.locator('#profile-restaurant').fill('QA Inventory Recovery');
