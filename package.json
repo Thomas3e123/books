@@ -6,10 +6,14 @@
     "node": ">=22"
   },
   "dependencies": {
-    "@netlify/database": "2.0.1"
+    "@netlify/database": "2.0.1",
+    "@netlify/identity": "1.1.0"
   },
   "scripts": {
     "build": "node scripts/verify-source.cjs",
     "manifest": "node scripts/update-manifest.cjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10"
   }
 }
