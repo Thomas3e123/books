@@ -73,6 +73,29 @@ await check('Unsupported tools and methods denied',async()=>{
  assert.equal((await fn(request('status','PUT',{baseRevision:0,envelope:encryption}))).status,404);
  assert.equal((await fn(request('shift?revision=0'))).status,400);
 });
+await check('Five-version retention, older version lookup, and deletion isolation',async()=>{
+ users.set('current',{id:'user-a',email:'a@example.test'});
+ for(let i=0;i<7;i++){
+  const last=hist.get(key('user-a','shift'))?.at(-1);
+  if(last)last.createdAt='2001-01-01T00:00:00.000Z';
+  const response=await put('shift',i);
+  assert.equal(response.status,201);
+ }
+ const historyResponse=await fn(request('shift?history=1'));
+ assert.equal(historyResponse.status,200);
+ const history=(await historyResponse.json()).versions;
+ assert.equal(history.length,5);
+ assert.deepEqual(history.map(x=>x.revision),[7,6,5,4,3]);
+ assert.equal((await fn(request('shift?revision=1'))).status,404);
+ assert.equal((await fn(request('shift?revision=3'))).status,200);
+ users.set('current',{id:'user-b',email:'b@example.test'});
+ const other=await fn(request('shift?history=1'));
+ assert.equal((await other.json()).versions.length,0);
+ users.set('current',{id:'user-a',email:'a@example.test'});
+ const deleted=await fn(request('shift','DELETE',{confirmation:'DELETE MY CLOUD BACKUPS'}));
+ assert.equal((await deleted.json()).deleted,5);
+ assert.equal((await fn(request('shift?history=1')).then(x=>x.json())).versions.length,0);
+});
 await check('Over-sized and malformed backups denied',async()=>{
  assert.equal((await put('shift',0,{...encryption,ciphertext:'A'.repeat(900001)})).status,413);
  assert.equal((await fn(new Request(url+'shift',{method:'PUT',headers:{Origin:'https://gravityleadershipsystem.com'},body:'not json'}))).status,400);
