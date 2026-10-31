@@ -39,7 +39,12 @@ button.secondary,.button.secondary{background:white;color:#1e5653}button.danger{
 </div>
 <section class="card" id="account-panel" hidden><h2>Signed in</h2><p id="account-email"></p>
 <button id="gravity-cloud-signout" class="secondary">Sign Out</button>
-<p class="note">Your account grants access to your encrypted cloud copies. Your separate passphrase is required to decrypt those copies.</p></section>
+<p class="note">Your account grants access to your encrypted cloud copies. Your separate passphrase is required to decrypt those copies.</p>
+<h3>Manage your encrypted data</h3><p class="note">Deleting backups is permanent. It does not erase the saved working records on your device. Download a current backup before deletion.</p>
+<button id="gravity-cloud-delete-shift" class="danger" type="button">Delete All Shift Lab Cloud Backups</button>
+<button id="gravity-cloud-delete-inventory" class="danger" type="button">Delete All Inventory Cloud Backups</button>
+<p id="gravity-cloud-delete-status" role="status" aria-live="polite"></p>
+</section>
 <div class="grid">
 <section class="card"><h2>Shift Lab</h2><p>Schedules, employee rules, and wage-protected manager information.</p><a class="button" href="/gravity-shift-lab">Open Shift Lab to enable cloud backup</a><p class="note">Keep your manager PIN private. Changes must be reviewed before they become the current schedule.</p></section>
 <section class="card"><h2>Inventory Center</h2><p>Item master, locations, movement and costs, counts and ordering data.</p><a class="button" href="/apps/inventory-center/index.html">Open Inventory Center to enable cloud backup</a><p class="note">Restore confirmation protects the working records already on your device.</p></section>
