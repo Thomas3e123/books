@@ -1,0 +1,33 @@
+name: Gravity encrypted customer account backup — security and browser QA (NO DEPLOY)
+on:
+  push:
+    branches: [feature/gravity-migration-phase1-2026-10-22]
+    paths:
+      - .github/workflows/gravity-customer-account-vault-qa-2026-10-30.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  cloud-vault-candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Verify package lock and source syntax
+        run: |
+          npm ci --ignore-scripts
+          node --check functions/gravity-cloud-backup/core.mjs
+          node --check functions/gravity-cloud-backup/index.mjs
+          node --check site/assets/js/gravity-cloud-vault-v1.js
+          node --check site/assets/js/gravity-identity-client.js
+          node --check scripts/test-gravity-cloud-vault-browser.mjs
+      - name: Prove server account access and data isolation
+        run: node scripts/test-gravity-cloud-backup.mjs
+      - name: Prove actual Chrome client-side encryption and restore
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          node scripts/test-gravity-cloud-vault-browser.mjs
