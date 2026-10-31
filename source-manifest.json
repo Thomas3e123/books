@@ -46,7 +46,7 @@
     },
     {
       "path": "site/apps/inventory-center/index.html",
-      "sha256": "07f3b679dc870055a5d1e44ef150ab10599aa72cad5bf278a902114ae0e1e7b7"
+      "sha256": "28d57e1ec57225a9fe3afbe8708ff2e39b07e99c073a78af452e467251c610c4"
     },
     {
       "path": "site/apps/inventory-center/web.css",
@@ -1390,7 +1390,7 @@
     },
     {
       "path": "site/assets/js/gravity-cloud-vault-v1.js",
-      "sha256": "37f2e70bc240701227a9ed077174fb5ca88200104272172129045a2b0646a988"
+      "sha256": "7dd824f49b5711e1e6e0ffa535449d7f050bd38984ed7be32a6c2e4d522a096b"
     },
     {
       "path": "site/assets/js/gravity-document-studio.js",
@@ -1413,6 +1413,10 @@
       "sha256": "a4b59acd58fbb40763ef6f1e78b16f5f4b6893cce7388fadd71da8a3c53c402e"
     },
     {
+      "path": "site/assets/js/gravity-identity-client.js",
+      "sha256": "aa02b5dfee7ec68cb9249aa246fb9821513cace20d105e8d5aaaf19a3bfbcd18"
+    },
+    {
       "path": "site/assets/js/gravity-labor-cost-engine.js",
       "sha256": "dba2c05effc3d6e22c03e7d51a1e136e5eedab618a475f1a657a2f66f15fb653"
     },
@@ -1423,6 +1427,10 @@
     {
       "path": "site/assets/js/gravity-qr.js",
       "sha256": "1f54896913ad9e3079e546c55a04ce0e3d67e51790eb01a2b1aa5ffb6eb306a4"
+    },
+    {
+      "path": "site/assets/js/gravity-quick-tools.js",
+      "sha256": "6807ecf37f470960187ff15d0da01d83dd4ebe8e07456e41ffce53db93fd44f0"
     },
     {
       "path": "site/assets/js/gravity-report-reading.js",
@@ -1906,11 +1914,11 @@
     },
     {
       "path": "site/gravity-aware.html",
-      "sha256": "981a27c8a7e2ea41fae8f0685d3d30a6f11f213722ca779af8869930152de450"
+      "sha256": "87eaba9a089d96ca468ffd3a43afa8c143d9c8cfb02fc39dd7849e67be457491"
     },
     {
       "path": "site/gravity-cloud-vault.html",
-      "sha256": "39b4a98027621557051069fa10551facb6e7cbd06b0eb9a9720b4444efb7dc8d"
+      "sha256": "cdcbc8eaa62074f5e0564efaa9610cea43fe8856ebdf92066c55b6ff337a493a"
     },
     {
       "path": "site/gravity-document-studio.html",
@@ -1970,7 +1978,7 @@
     },
     {
       "path": "site/gravity-shift-lab-sw.js",
-      "sha256": "8f43fdc27b991ef95e4703ea301050c753a52740b3e240da23b3be710bc541cb"
+      "sha256": "185377a6d8613d79da34890fe3353a215e60f1053702d6f225e7f925dc6b088a"
     },
     {
       "path": "site/gravity-shift-lab.html",
@@ -2030,7 +2038,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "e37d82a503aa2805b4c5e1bd7933e21f8ebcb857a9ea21023bbe34772b9435f2"
+      "sha256": "594d18ee9de6ec6d7334fdb9cf906b574ffe437202a4c1bb343b56bc5104bc80"
     },
     {
       "path": "site/installation-improvement.html",
@@ -2410,11 +2418,11 @@
     },
     {
       "path": "functions/gravity-cloud-backup/core.mjs",
-      "sha256": "9edd172a337dbf9297454756dc0bb58329427f2fad9d735e365b55cd067696b5"
+      "sha256": "bc4b3082018703d415fbd89d39065360d1dcd0b12568f5f97e6c3e39c455df57"
     },
     {
       "path": "functions/gravity-cloud-backup/index.mjs",
-      "sha256": "561ac6d2e2a11c8db1257a38888bdb51ac2575506393a62995f5c2dab75ac69b"
+      "sha256": "f4e00f9bfc644a7aeba93189cd8939948b064f1f20fb26774d512e13a9b62dfa"
     },
     {
       "path": "functions/gravity-guide/gravity-guide.js",
@@ -2451,6 +2459,10 @@
     {
       "path": "functions/gravity-tts/gravity-tts.js",
       "sha256": "d7f0611754891745c013fadd710cefd433d7695637ecddb38716951e42753759"
+    },
+    {
+      "path": "functions/identity.mjs",
+      "sha256": "28b0fd83c554fee253f71843c03d03c32003146169fbbc3aa552f88fc410e429"
     },
     {
       "path": "functions/testing-room/index.mjs",
@@ -2494,11 +2506,11 @@
     },
     {
       "path": "package.json",
-      "sha256": "f847681ea2eb9c7600ee1e3efece34108fc8e65660d9edd19c180eb08b097653"
+      "sha256": "c1bd2aa4fcd88a04f6517a0a7b0f4f6fa8d891780d7f6fd3633010d8de130860"
     },
     {
       "path": "package-lock.json",
-      "sha256": "806f5cde89646bfb9981b8712e7e052e4ed74448e9b9f288ceb518f1b78fccf1"
+      "sha256": "f81fc60de15235781dbfb00e22521cf061f068dfd790a0b7b1b27b0d381f0e07"
     }
   ]
 }
