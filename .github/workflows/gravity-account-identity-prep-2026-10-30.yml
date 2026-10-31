@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Install version-pinned supported Identity and browser bundler
+      - name: Install version-pinned Identity and bundle (envelope validation fix)
         run: |
           npm install --save-exact @netlify/identity@1.1.0
           npm install --save-dev --save-exact esbuild@0.25.10
