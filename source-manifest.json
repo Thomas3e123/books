@@ -46,7 +46,7 @@
     },
     {
       "path": "site/apps/inventory-center/index.html",
-      "sha256": "1eef1b435546cdfcc276e76e3454a20edda3875f4b1f33e9d4efe564288a4a6b"
+      "sha256": "07f3b679dc870055a5d1e44ef150ab10599aa72cad5bf278a902114ae0e1e7b7"
     },
     {
       "path": "site/apps/inventory-center/web.css",
@@ -1389,6 +1389,10 @@
       "sha256": "b38a060c7984e5ae990d1462d97ccffed46226a6b84a67df57ce786f001182c5"
     },
     {
+      "path": "site/assets/js/gravity-cloud-vault-v1.js",
+      "sha256": "37f2e70bc240701227a9ed077174fb5ca88200104272172129045a2b0646a988"
+    },
+    {
       "path": "site/assets/js/gravity-document-studio.js",
       "sha256": "ccc5a8a1c594fea68a793a409bf274e4e1a986a866cdc0f24111b9a86e59b275"
     },
@@ -1414,7 +1418,7 @@
     },
     {
       "path": "site/assets/js/gravity-local-recovery-v1.js",
-      "sha256": "f7232de90cdfcd7acfdc23b7ada5d90a89141d4c6521e040b09c828a8a3b844c"
+      "sha256": "098e40f8f81dc2171d6f8a81deb4b6527d25ea476710fd7ebca95e7e378a71f5"
     },
     {
       "path": "site/assets/js/gravity-qr.js",
@@ -1905,6 +1909,10 @@
       "sha256": "981a27c8a7e2ea41fae8f0685d3d30a6f11f213722ca779af8869930152de450"
     },
     {
+      "path": "site/gravity-cloud-vault.html",
+      "sha256": "39b4a98027621557051069fa10551facb6e7cbd06b0eb9a9720b4444efb7dc8d"
+    },
+    {
       "path": "site/gravity-document-studio.html",
       "sha256": "6828026a073413d847ad7205d7fd3ae5ae17980ec1d7507330ae8d8fd2f090d3"
     },
@@ -1966,7 +1974,7 @@
     },
     {
       "path": "site/gravity-shift-lab.html",
-      "sha256": "477d8dd27eb5f4353afb83bbf612c89e43dac04cf4fabbe01b0627fe1ae2d8b0"
+      "sha256": "661c2e02b4d87d90d60f82d8c86b32c7acb593e846ba4e25966dd0e7a27fdafd"
     },
     {
       "path": "site/gravity-shift-lab.webmanifest",
@@ -2401,6 +2409,14 @@
       "sha256": "91a0c3d20c33f039dc9afe17ec91414cfe1db5aadc2ebb7645b45bc9ceb4971f"
     },
     {
+      "path": "functions/gravity-cloud-backup/core.mjs",
+      "sha256": "9edd172a337dbf9297454756dc0bb58329427f2fad9d735e365b55cd067696b5"
+    },
+    {
+      "path": "functions/gravity-cloud-backup/index.mjs",
+      "sha256": "561ac6d2e2a11c8db1257a38888bdb51ac2575506393a62995f5c2dab75ac69b"
+    },
+    {
       "path": "functions/gravity-guide/gravity-guide.js",
       "sha256": "f17f2c839ef794ad9a98f816915ffd9f7710ec9d484a8f959c30ceaa5c65a6fa"
     },
@@ -2467,6 +2483,10 @@
     {
       "path": "netlify/database/migrations/20261017183000_work_study_device_link.sql",
       "sha256": "669c62119f05d2de6706396617192b865d41415b7687adf46b288c8a8777388d"
+    },
+    {
+      "path": "netlify/database/migrations/20261030213000_gravity_customer_encrypted_backups.sql",
+      "sha256": "bf43be408ab095a8634a03bfc2135c4127460d67981370d37b8fcdf65a65522d"
     },
     {
       "path": "netlify.toml",
