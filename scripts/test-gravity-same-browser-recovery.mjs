@@ -5,7 +5,8 @@ import path from 'node:path';
 import {chromium} from 'playwright';
 
 const root=path.resolve('site');
-const origin='http://127.0.0.1:42916';
+const origin=process.env.GRAVITY_TEST_ORIGIN||'http://127.0.0.1:42916';
+const local=!process.env.GRAVITY_TEST_ORIGIN;
 const checks=[];
 const mime={'.html':'text/html; charset=utf-8','.js':'application/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.txt':'text/plain'};
 const server=http.createServer((req,res)=>{
@@ -19,7 +20,7 @@ const server=http.createServer((req,res)=>{
   fs.createReadStream(file).pipe(res);
  }catch(e){res.writeHead(500);res.end(String(e.message))}
 });
-await new Promise(r=>server.listen(42916,'127.0.0.1',r));
+if(local)await new Promise(r=>server.listen(42916,'127.0.0.1',r));
 const browser=await chromium.launch({channel:'chrome',headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});
 async function run(label,task){
  try{let desc=await task();checks.push({label,result:'PASS',desc});console.log('PASS '+label+' — '+desc)}
@@ -184,6 +185,6 @@ await run('Inventory Center synthetic item can recover locally after localStorag
   return 'Inventory location, item, quantity and $15 valuation recovered from local snapshot after selective localStorage removal.';
  }finally{await context.close()}
 });
-await browser.close();await new Promise(r=>server.close(r));
+await browser.close();if(local)await new Promise(r=>server.close(r));
 console.log('GRAVITY_SAME_BROWSER_RECOVERY_QA '+JSON.stringify({total:checks.length,passed:checks.filter(x=>x.result==='PASS').length,failed:checks.filter(x=>x.result==='FAIL').length,checks}));
 if(checks.some(x=>x.result==='FAIL'))process.exitCode=1;
