@@ -148,15 +148,37 @@ async function unlock(){
  const input=$('gravity-cloud-passphrase'),phrase=input?.value||'';
  if(phrase.length<16){report('Use a separate recovery passphrase of at least 16 characters. Do not use your account password.',true);return}
  const user=await fetchJSON(API+'status');
- account=user.account;revision=Number(user.tools.find(x=>x.tool===tool)?.revision||0);
- passphrase=phrase;input.value='';connected=true;
+ account=user.account;
+ revision=Number(user.tools.find(x=>x.tool===tool)?.revision||0);
+ passphrase=phrase;
+ // Verify the recovery key *before* enabling uploads. Otherwise, a user with
+ // a stale/modified local receipt could silently save an incompatible backup
+ // encrypted with a different passphrase, making earlier versions inaccessible.
+ try{
+  if(revision>0){
+   const remote=await fetchJSON(API+tool);
+   if(remote.revision!==revision)throw Error('Cloud revision changed during sign-in. Refresh the page and try again.');
+   let contents;
+   try{contents=await decrypt(remote.envelope)}
+   catch{throw Error('Incorrect recovery passphrase: it does not decrypt the existing cloud copy. Nothing was changed.')}
+   if(contents?.schema!==1||contents.tool!==tool||!valid(contents.keys))
+    throw Error('The existing cloud backup failed validation. Backups remain locked.');
+  }
+ }catch(error){
+  passphrase='';connected=false;auto=false;lastDigest='';
+  report('Cloud backup remains locked: '+error.message,true);
+  return;
+ }
+ input.value='';connected=true;
  const values=currentData(),receipt=getReceipt(),hash=valid(values)?await digest(JSON.stringify(values)):'';
+ // A matching receipt is not authorization to overwrite remote content on
+ // another device. Only the verified key plus the same remote revision allow it.
  const matches=!!(receipt&&receipt.revision===revision);
  lastDigest=matches?receipt.digest:'';
  auto=!revision||matches;
  $('gravity-cloud-controls').hidden=false;
- if(auto){report('Encrypted cloud backup enabled for this open '+tool+' tab. It starts after a saved change.');if(hash!==lastDigest)trigger()}
- else report('An existing cloud copy was found (revision '+revision+'). Automatic upload is PAUSED to prevent overwriting another device. Recover it, or explicitly replace it with this device.',true);
+ if(auto){report('Encrypted cloud backup unlocked for this open '+tool+' tab. It starts after a saved change.');if(hash!==lastDigest)trigger()}
+ else report('An existing cloud copy was unlocked (revision '+revision+'). Automatic upload is PAUSED to prevent overwriting another device. Recover it, or explicitly replace it with this device.',true);
 }
 async function refreshStatus(){
  try{
