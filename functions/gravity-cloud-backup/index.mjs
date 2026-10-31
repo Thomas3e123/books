@@ -38,8 +38,20 @@ class GravityEncryptedBackupStore{
 }
 const authenticatedHandler=createCloudBackupHandler({getIdentityUser:getUser,store:new GravityEncryptedBackupStore()});
 export default async request=>{
- if(request.method==='GET'&&new URL(request.url).pathname==='/gravity-cloud-backup/health')
-  return Response.json({ok:true,service:'Gravity encrypted backup',authenticatedAccountRequired:true},{headers:{'Cache-Control':'no-store'}});
+ if(request.method==='GET'&&new URL(request.url).pathname==='/gravity-cloud-backup/health'){
+  // Read-only schema check. A deployed function loading successfully does NOT
+  // prove Netlify Postgres is attached or the customer table exists.
+  // Return only an aggregate readiness result: no account or row data.
+  const headers={'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'};
+  try{
+   const rows=await getDatabase().sql`SELECT to_regclass('public.gravity_customer_backup_snapshots') IS NOT NULL AS ready`;
+   if(rows[0]?.ready===true)
+    return Response.json({ok:true,service:'Gravity encrypted backup',authenticatedAccountRequired:true,databaseReady:true},{headers});
+  }catch(error){
+   console.error('Gravity backup read-only database health error',error?.name||'unknown');
+  }
+  return Response.json({ok:false,service:'Gravity encrypted backup',authenticatedAccountRequired:true,databaseReady:false},{status:503,headers});
+ }
  return authenticatedHandler(request);
 };
 export const config={path:'/gravity-cloud-backup/*'};
