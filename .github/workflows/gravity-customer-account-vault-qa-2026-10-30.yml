@@ -28,7 +28,7 @@ jobs:
           node --check scripts/test-gravity-cloud-vault-browser.mjs
       - name: Prove server account access and data isolation
         run: node scripts/test-gravity-cloud-backup.mjs
-      - name: Prove encrypted owner-only version history and selected restore in Chrome
+      - name: Prove retention, customer deletion and encrypted recovery in Chrome
         run: |
           npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
           node scripts/test-gravity-cloud-vault-browser.mjs
