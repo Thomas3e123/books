@@ -1,0 +1,67 @@
+name: Gravity encrypted account backups — isolated staging preview and unauthenticated API gate
+on:
+  push:
+    branches: [feature/gravity-migration-phase1-2026-10-22]
+    paths:
+      - .github/workflows/gravity-customer-cloud-preview-2026-10-30.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      SITE_ID: fa5d39a0-bef9-4ff1-9c28-57d585d741d7
+      TOKEN_A: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      TOKEN_B: ${{ secrets.NETLIFY_TOKEN }}
+      TOKEN_C: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22', cache: npm}
+      - name: Validate encrypted-backup code and package without changing production
+        run: |
+          set -euo pipefail
+          npm ci
+          node --check functions/gravity-cloud-backup/index.mjs
+          node --check functions/gravity-cloud-backup/core.mjs
+          node --check functions/identity.mjs
+          node --check site/gravity-shift-lab-sw.js
+          node --check site/assets/js/gravity-cloud-vault-v1.js
+          node scripts/test-gravity-cloud-backup.mjs
+          npm run manifest
+          npm run build
+          test -s site/assets/js/gravity-identity-client.js
+          grep -Fq 'gravity-cloud-vault-v1.js' site/gravity-shift-lab.html
+          grep -Fq 'gravity-cloud-vault-v1.js' site/apps/inventory-center/index.html
+          grep -Fq 'Disallow: /' site/robots.txt
+      - name: Deploy DRAFT alias (NEVER --prod, never TMB)
+        run: |
+          set -euo pipefail
+          token="${TOKEN_A:-${TOKEN_B:-${TOKEN_C:-}}}"
+          if [ -z "$token" ];then echo 'FAILED: Netlify deploy permission not connected';exit 1;fi
+          export NETLIFY_AUTH_TOKEN="$token"
+          npx --yes netlify-cli@26 deploy --no-build --site "$SITE_ID" --dir site --functions functions --alias gravity-customer-cloud-qa --message "PRIVATE QA DRAFT encrypted Gravity customer backup / NOT PRODUCTION" --json > /tmp/gravity-customer-preview.json
+          node - <<'NODE'
+          const d=require('/tmp/gravity-customer-preview.json');
+          if(d.site_id!=='fa5d39a0-bef9-4ff1-9c28-57d585d741d7')throw Error('Wrong Netlify project');
+          console.log('PREVIEW_DEPLOY',JSON.stringify({site_id:d.site_id,deploy_id:d.deploy_id,deploy_url:d.deploy_url||d.url}));
+          NODE
+      - name: Assert preview is accessible and account endpoint is not publicly readable
+        run: |
+          set -euo pipefail
+          url='https://gravity-customer-cloud-qa--gravity-leadership-system.netlify.app'
+          for p in /gravity-cloud-vault /gravity-shift-lab /apps/inventory-center/index.html /assets/js/gravity-cloud-vault-v1.js /gravity-shift-lab-sw.js; do
+            curl -fsSL --retry 4 --retry-delay 2 "$url$p" -o /tmp/preview-page.txt
+            test -s /tmp/preview-page.txt
+            echo "PREVIEW_STATIC_OK $p"
+          done
+          curl -fsSL "$url/gravity-shift-lab-sw.js" | grep -Fq "allowed.has(url.pathname)"
+          for p in status shift inventory; do
+            code="$(curl -sSL --max-time 25 -o /tmp/preview-auth.json -w '%{http_code}' "$url/gravity-cloud-backup/$p")"
+            if [ "$code" != '401' ]; then echo "AUTH_FAIL $p HTTP=$code"; cat /tmp/preview-auth.json | head -c 200; exit 1; fi
+            echo "PREVIEW_UNAUTHENTICATED_ACCESS_DENIED $p"
+          done
+          curl -fsSL "$url/robots.txt" | grep -Fx 'Disallow: /'
+          echo 'GRAVITY_ENCRYPTED_BACKUP_PREVIEW_PASSED_NO_PROD_PUBLISH'
