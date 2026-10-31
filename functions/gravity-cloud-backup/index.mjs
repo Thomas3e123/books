@@ -12,6 +12,10 @@ class GravityEncryptedBackupStore{
   const r=await this.db.sql`SELECT DISTINCT ON (tool) tool,revision,created_at FROM gravity_customer_backup_snapshots WHERE identity_user_id=${uid} ORDER BY tool, revision DESC`;
   return r.map(x=>({tool:x.tool,revision:Number(x.revision),createdAt:new Date(x.created_at).toISOString()}));
  }
+ async history(uid,tool,keep){
+  const rows=await this.db.sql`SELECT revision,created_at FROM gravity_customer_backup_snapshots WHERE identity_user_id=${uid} AND tool=${tool} ORDER BY revision DESC LIMIT ${keep}`;
+  return rows.map(x=>({revision:Number(x.revision),createdAt:new Date(x.created_at).toISOString()}));
+ }
  async read(uid,tool,revision){
   const r=revision===null
    ?await this.db.sql`SELECT revision,envelope,created_at FROM gravity_customer_backup_snapshots WHERE identity_user_id=${uid} AND tool=${tool} ORDER BY revision DESC LIMIT 1`
