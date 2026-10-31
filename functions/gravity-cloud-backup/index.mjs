@@ -3,7 +3,7 @@ import {getUser} from '@netlify/identity';
 import {createCloudBackupHandler} from './core.mjs';
 
 class GravityEncryptedBackupStore{
- constructor(){this.db=getDatabase()}
+ get db(){return getDatabase()}
  async latest(uid,tool){
   const r=await this.db.sql`SELECT revision,created_at FROM gravity_customer_backup_snapshots WHERE identity_user_id=${uid} AND tool=${tool} ORDER BY revision DESC LIMIT 1`;
   return r[0]?{revision:Number(r[0].revision),createdAt:new Date(r[0].created_at).toISOString()}:null;
@@ -32,5 +32,10 @@ class GravityEncryptedBackupStore{
   return r.length;
  }
 }
-export default createCloudBackupHandler({getIdentityUser:getUser,store:new GravityEncryptedBackupStore()});
+const authenticatedHandler=createCloudBackupHandler({getIdentityUser:getUser,store:new GravityEncryptedBackupStore()});
+export default async request=>{
+ if(request.method==='GET'&&new URL(request.url).pathname==='/gravity-cloud-backup/health')
+  return Response.json({ok:true,service:'Gravity encrypted backup',authenticatedAccountRequired:true},{headers:{'Cache-Control':'no-store'}});
+ return authenticatedHandler(request);
+};
 export const config={path:'/gravity-cloud-backup/*'};
