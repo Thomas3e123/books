@@ -761,33 +761,38 @@ document.addEventListener('mouseover',function(e){var a=e.target&&e.target.close
 (function(){function apply(){document.querySelectorAll('#site-nav a[href="/gravity-sop-foundry"],nav[data-menu] a[href="/gravity-sop-foundry"]').forEach(function(a){a.href='/apps/sop-foundry/access';});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});else apply();})();
 
 
-/* Current room name inside the existing page hero/banner; no extra banner. */
+/* Keep the approved Gravity brand wording and current room inside the EXISTING header. */
 (function () {
-  function labelRoom() {
+  function applyHeaderIdentity() {
+    var header = document.querySelector('.site-header');
+    if (!header) return;
+    var brand = header.querySelector('.brand-system-copy');
+    if (brand) {
+      var title = brand.querySelector('strong');
+      var subtitle = brand.querySelector('small');
+      if (title) title.textContent = 'Restaurant Leadership, Systems & Operations';
+      if (subtitle) subtitle.textContent = 'The Gravity System';
+    }
     var path = location.pathname.replace(/\/$/, '').replace(/\.html$/, '');
     if (!path || path === '/' || path === '/index') return;
     var isRoom = document.body.hasAttribute('data-workspace') ||
       /^\/apps\//.test(path) ||
       /(?:gravity-aware|gravity-assist|room|lab|studio|center|foundry|inventory|shift-lab|work-study)/.test(path);
-    if (!isRoom) return;
-    var hero = document.querySelector('main .page-hero, main [class*="hero"], #main .page-hero, .app-header, .room-header');
-    if (!hero || hero.querySelector('.gravity-room-name')) return;
-    var h1 = hero.querySelector('h1');
-    if (!h1) return;
-    var name = h1.textContent.replace(/\s+/g, ' ').trim();
-    if (!name || name.length > 85) {
-      var current = document.querySelector('#site-nav a[aria-current="page"]');
-      name = current ? current.textContent.trim() : path.split('/').filter(Boolean).pop().replace(/-/g,' ');
-    }
-    var label = document.createElement('div');
-    label.className = 'gravity-room-name';
+    if (!isRoom || header.querySelector('.gravity-header-room-name')) return;
+    var heading = document.querySelector('main h1, #main h1');
+    var active = header.querySelector('nav a[aria-current="page"]');
+    var name = active ? active.textContent.trim() : (heading ? heading.textContent.trim() : '');
+    if (!name || name.length > 65) name = path.split('/').filter(Boolean).pop().replace(/[-_]/g, ' ');
+    var inner = header.querySelector('.header-inner');
+    if (!inner || !name) return;
+    var label = document.createElement('span');
+    label.className = 'gravity-header-room-name';
     label.textContent = name;
     label.setAttribute('aria-label', 'Current room: ' + name);
-    label.style.cssText = 'font:700 clamp(12px,1.5vw,15px)/1.4 system-ui,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;margin:0 0 10px;color:inherit;opacity:.9;';
-    var eyebrow = hero.querySelector('.eyebrow');
-    if (eyebrow && eyebrow.parentNode) eyebrow.insertAdjacentElement('afterend', label);
-    else h1.insertAdjacentElement('beforebegin', label);
+    label.style.cssText = 'color:inherit;font:700 clamp(12px,1.3vw,16px)/1.3 system-ui,Arial,sans-serif;letter-spacing:.025em;text-align:center;max-width:240px;flex:0 1 auto;overflow-wrap:anywhere;';
+    var toggle = inner.querySelector('.menu-toggle');
+    inner.insertBefore(label, toggle || inner.querySelector('nav') || null);
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', labelRoom, {once:true});
-  else labelRoom();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', applyHeaderIdentity, {once:true});
+  else applyHeaderIdentity();
 })();
