@@ -1,0 +1,40 @@
+name: Gravity Aware browser tests
+on:
+  push:
+    branches:
+      - feature/gravity-migration-phase1-2026-10-22
+    paths:
+      - 'site/**'
+      - 'tests/browser/**'
+      - 'playwright.config.cjs'
+      - '.github/workflows/gravity-playwright.yml'
+  pull_request:
+    paths:
+      - 'site/**'
+      - 'tests/browser/**'
+      - 'playwright.config.cjs'
+  workflow_dispatch:
+jobs:
+  browser-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright test runner
+        run: npm install --no-save --package-lock=false @playwright/test
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run browser tests
+        run: npx playwright test
+      - name: Upload screenshots and traces on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gravity-playwright-results
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14
