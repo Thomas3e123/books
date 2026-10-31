@@ -39,6 +39,10 @@ export function createCloudBackupHandler({getIdentityUser,store}){
    }
    if(!legitTool(tool))return errors('Unknown backup workspace',404);
    if(request.method==='GET'){
+    if(url.searchParams.get('history')==='1'){
+     const versions=await store.history(uid,tool,5);
+     return result({ok:true,tool,versions});
+    }
     const revision=url.searchParams.has('revision')?Number(url.searchParams.get('revision')):null;
     if(revision!==null&&(!Number.isSafeInteger(revision)||revision<1))return errors('Invalid revision',400);
     const entry=await store.read(uid,tool,revision);
