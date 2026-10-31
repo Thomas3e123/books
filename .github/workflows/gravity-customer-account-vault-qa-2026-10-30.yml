@@ -27,7 +27,7 @@ jobs:
           node --check scripts/test-gravity-cloud-vault-browser.mjs
       - name: Prove server account access and data isolation
         run: node scripts/test-gravity-cloud-backup.mjs
-      - name: Prove Chrome encryption and cross-browser restore (single interceptor)
+      - name: Prove Chrome encrypted backup API response trace (diagnose Shift Lab)
         run: |
           npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
           node scripts/test-gravity-cloud-vault-browser.mjs
