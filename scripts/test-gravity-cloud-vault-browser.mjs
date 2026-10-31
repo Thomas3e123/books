@@ -36,7 +36,7 @@ async function context(){
   }
   return ok({ok:false,error:'Not supported'},405);
  });
- await c.route('**/*',route=>route.request().url().startsWith(origin)?route.continue():route.abort());
+ await c.route('**/*',route=>route.request().url().startsWith(origin)?route.fallback():route.abort());
  return c;
 }
 async function test(label,run){
