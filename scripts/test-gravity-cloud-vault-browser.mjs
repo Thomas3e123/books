@@ -54,7 +54,10 @@ await test('Shift Lab client encrypts before uploading',async()=>{
   await p.locator('#lab-save').click();
   await p.locator('#gravity-cloud-passphrase').fill(phrase);
   await p.locator('#gravity-cloud-unlock').click();
-  await p.locator('#gravity-cloud-controls').waitFor({state:'visible',timeout:9000});
+  await p.locator('#gravity-cloud-controls').waitFor({state:'visible',timeout:9000}).catch(async error=>{
+   const debug=await p.evaluate(()=>({msg:document.getElementById('gravity-cloud-message')?.textContent,controls:document.getElementById('gravity-cloud-controls')?.outerHTML.slice(0,200),input:document.getElementById('gravity-cloud-passphrase')?.value.length,hasAccount:document.querySelector('#gravity-cloud-backup')?.textContent.slice(0,100),localKeys:Object.keys(localStorage)}));
+   throw Error('Encrypted cloud unlock failed: '+JSON.stringify(debug)+'; '+error.message);
+  });
   await p.locator('#gravity-cloud-now').click();
   await p.waitForFunction(()=>document.querySelector('#gravity-cloud-message')?.textContent.includes('version 1'),null,{timeout:20000});
   const up=uploads.find(x=>x.tool==='shift');assert.ok(up);
@@ -72,7 +75,10 @@ await test('Second browser decrypts verified account cloud backup with explicit 
   const p=await c.newPage();await p.goto(origin+'/gravity-shift-lab',{waitUntil:'domcontentloaded'});
   await p.locator('#gravity-cloud-passphrase').fill(phrase);
   await p.locator('#gravity-cloud-unlock').click();
-  await p.locator('#gravity-cloud-controls').waitFor({state:'visible',timeout:9000});
+  await p.locator('#gravity-cloud-controls').waitFor({state:'visible',timeout:9000}).catch(async error=>{
+   const debug=await p.evaluate(()=>({msg:document.getElementById('gravity-cloud-message')?.textContent,controls:document.getElementById('gravity-cloud-controls')?.outerHTML.slice(0,200),input:document.getElementById('gravity-cloud-passphrase')?.value.length,hasAccount:document.querySelector('#gravity-cloud-backup')?.textContent.slice(0,100),localKeys:Object.keys(localStorage)}));
+   throw Error('Encrypted cloud unlock failed: '+JSON.stringify(debug)+'; '+error.message);
+  });
   const m=await p.locator('#gravity-cloud-message').innerText();
   assert.match(m,/PAUSED/);
   let confirmations=0;
@@ -90,7 +96,10 @@ await test('Wrong recovery passphrase cannot decrypt or overwrite local data',as
   const p=await c.newPage();await p.goto(origin+'/gravity-shift-lab',{waitUntil:'domcontentloaded'});
   await p.locator('#gravity-cloud-passphrase').fill('Incorrect longer recovery phrase 123!');
   await p.locator('#gravity-cloud-unlock').click();
-  await p.locator('#gravity-cloud-controls').waitFor({state:'visible',timeout:9000});
+  await p.locator('#gravity-cloud-controls').waitFor({state:'visible',timeout:9000}).catch(async error=>{
+   const debug=await p.evaluate(()=>({msg:document.getElementById('gravity-cloud-message')?.textContent,controls:document.getElementById('gravity-cloud-controls')?.outerHTML.slice(0,200),input:document.getElementById('gravity-cloud-passphrase')?.value.length,hasAccount:document.querySelector('#gravity-cloud-backup')?.textContent.slice(0,100),localKeys:Object.keys(localStorage)}));
+   throw Error('Encrypted cloud unlock failed: '+JSON.stringify(debug)+'; '+error.message);
+  });
   await p.locator('#gravity-cloud-restore').click();
   await p.waitForFunction(()=>/Cloud recovery stopped/.test(document.querySelector('#gravity-cloud-message')?.textContent||''),null,{timeout:14000});
   assert.notEqual(await p.locator('#lab-restaurant').inputValue(),'QA Private Shift Restaurant');
@@ -106,7 +115,10 @@ await test('Inventory Center client encrypts a valid workspace',async()=>{
   await p.locator('#save-profile').click();
   await p.locator('#gravity-cloud-passphrase').fill(phrase);
   await p.locator('#gravity-cloud-unlock').click();
-  await p.locator('#gravity-cloud-controls').waitFor({state:'visible',timeout:9000});
+  await p.locator('#gravity-cloud-controls').waitFor({state:'visible',timeout:9000}).catch(async error=>{
+   const debug=await p.evaluate(()=>({msg:document.getElementById('gravity-cloud-message')?.textContent,controls:document.getElementById('gravity-cloud-controls')?.outerHTML.slice(0,200),input:document.getElementById('gravity-cloud-passphrase')?.value.length,hasAccount:document.querySelector('#gravity-cloud-backup')?.textContent.slice(0,100),localKeys:Object.keys(localStorage)}));
+   throw Error('Encrypted cloud unlock failed: '+JSON.stringify(debug)+'; '+error.message);
+  });
   await p.locator('#gravity-cloud-now').click();
   await p.waitForFunction(()=>document.querySelector('#gravity-cloud-message')?.textContent.includes('version 1'),null,{timeout:20000});
   const up=uploads.find(x=>x.tool==='inventory');assert.ok(up);
