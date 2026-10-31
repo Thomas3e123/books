@@ -15,6 +15,7 @@ html=html.replace('href="/assets/images/gravity-system-mark.svg"','href="assets/
 // Same-browser recovery snapshots are a web-only enhancement. The Windows
 // candidate keeps its own persistent app data and explicit JSON backups.
 html=html.replace(/<script src="\/assets\/js\/gravity-local-recovery-v1\.js[^"]*" defer><\/script>/g,'');
+html=html.replace(/<script src="\/assets\/js\/gravity-cloud-vault-v1\.js[^"]*" defer><\/script>/g,'');
 html=html.replace(/(href=["'])\/(?!\/)/g,'$1https://gravityleadershipsystem.com/');
 fs.writeFileSync(path.join(out,'index.html'),html);
 for(const p of ['assets/js/inventory-validation.js','assets/js/inventory-center.js','assets/css/inventory.css','web.css']){
