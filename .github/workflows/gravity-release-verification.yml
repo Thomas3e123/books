@@ -1,0 +1,48 @@
+name: Gravity source manifest repair and release verification
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  repair-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/gravity-migration-phase1-2026-10-22
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install exact dependencies
+        run: npm ci
+      - name: Regenerate complete source manifest
+        run: npm run manifest
+      - name: Verify source manifest and build
+        run: npm run build
+      - name: Commit manifest to tested branch
+        run: |
+          if ! git diff --quiet -- source-manifest.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add source-manifest.json
+            git commit -m "Refresh verified Gravity source manifest"
+            git push origin HEAD:feature/gravity-migration-phase1-2026-10-22
+          fi
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save --package-lock=false @playwright/test
+          npx playwright install --with-deps chromium
+      - name: Run desktop and mobile browser tests
+        run: npx playwright test
+      - name: Upload browser failure evidence
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gravity-release-test-evidence
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14
