@@ -44,7 +44,15 @@ await run('Shift Lab synthetic employee survives loss of localStorage with local
   await row.locator('.employee-wage').fill('24');
   await row.locator('.shift-input[data-day="1"]').fill('9a-5p');
   await p.locator('#lab-save').click();
-  await p.locator('#gravity-local-recovery:not([disabled])').waitFor({timeout:12000});
+  await p.waitForFunction(()=>{const b=document.querySelector('#gravity-local-recovery');return b&&!b.disabled},null,{timeout:12000}).catch(async error=>{
+    const diag=await p.evaluate(async()=>{
+      const btn=document.querySelector('#gravity-local-recovery'),msg=document.querySelector('#gravity-local-recovery-status'),sel=document.querySelector('#gravity-local-recovery-version');
+      let snapshots='unknown';
+      try{snapshots=await new Promise(resolve=>{const o=indexedDB.open('GravitySameBrowserRecoveryV1',1);o.onsuccess=()=>{const d=o.result;const r=d.transaction('snapshots').objectStore('snapshots').get(document.querySelector('#lab-backup')?'gravity-shift-lab':'gravity-inventory-center');r.onsuccess=()=>resolve((r.result||[]).map(x=>({at:x.at,signature:x.signature,values:x.value.map(v=>v?.length)})));r.onerror=()=>resolve('read error')};o.onerror=()=>resolve('db error')})}catch(e){snapshots=e.message}
+      return {button:btn?.outerHTML?.slice(0,450),status:msg?.textContent,versions:sel?.outerHTML?.slice(0,450),snapshots,keys:Object.keys(localStorage)};
+    });
+    throw Error('Recovery unavailable after reload: '+JSON.stringify(diag)+'; original: '+error.message);
+  });
   const snapshot=await p.evaluate(async()=>{
    const d=await new Promise((resolve,reject)=>{const r=indexedDB.open('GravitySameBrowserRecoveryV1',1);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)});
    return new Promise((resolve,reject)=>{const tx=d.transaction('snapshots');const r=tx.objectStore('snapshots').get('gravity-shift-lab');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)});
@@ -55,7 +63,15 @@ await run('Shift Lab synthetic employee survives loss of localStorage with local
    localStorage.removeItem('gravityShiftLabProfileV3');localStorage.removeItem('gravityShiftLabSchedulesV3');
   });
   await p.reload({waitUntil:'domcontentloaded'});
-  await p.locator('#gravity-local-recovery:not([disabled])').waitFor({timeout:12000});
+  await p.waitForFunction(()=>{const b=document.querySelector('#gravity-local-recovery');return b&&!b.disabled},null,{timeout:12000}).catch(async error=>{
+    const diag=await p.evaluate(async()=>{
+      const btn=document.querySelector('#gravity-local-recovery'),msg=document.querySelector('#gravity-local-recovery-status'),sel=document.querySelector('#gravity-local-recovery-version');
+      let snapshots='unknown';
+      try{snapshots=await new Promise(resolve=>{const o=indexedDB.open('GravitySameBrowserRecoveryV1',1);o.onsuccess=()=>{const d=o.result;const r=d.transaction('snapshots').objectStore('snapshots').get(document.querySelector('#lab-backup')?'gravity-shift-lab':'gravity-inventory-center');r.onsuccess=()=>resolve((r.result||[]).map(x=>({at:x.at,signature:x.signature,values:x.value.map(v=>v?.length)})));r.onerror=()=>resolve('read error')};o.onerror=()=>resolve('db error')})}catch(e){snapshots=e.message}
+      return {button:btn?.outerHTML?.slice(0,450),status:msg?.textContent,versions:sel?.outerHTML?.slice(0,450),snapshots,keys:Object.keys(localStorage)};
+    });
+    throw Error('Recovery unavailable after reload: '+JSON.stringify(diag)+'; original: '+error.message);
+  });
   let confirms=0;p.on('dialog',d=>{confirms++;d.accept()});
   await p.locator('#gravity-local-recovery').click();
   await p.waitForFunction(()=>document.querySelector('#lab-restaurant')?.value==='QA Local Recovery Shift',{timeout:18000});
@@ -85,7 +101,15 @@ await run('Shift Lab pay-protected recovery requires original PIN',async()=>{
   },null,{timeout:12000});
   await p.evaluate(()=>{localStorage.removeItem('gravityShiftLabProfileV3');localStorage.removeItem('gravityShiftLabSchedulesV3')});
   await p.reload({waitUntil:'domcontentloaded'});
-  await p.locator('#gravity-local-recovery:not([disabled])').waitFor({timeout:12000});
+  await p.waitForFunction(()=>{const b=document.querySelector('#gravity-local-recovery');return b&&!b.disabled},null,{timeout:12000}).catch(async error=>{
+    const diag=await p.evaluate(async()=>{
+      const btn=document.querySelector('#gravity-local-recovery'),msg=document.querySelector('#gravity-local-recovery-status'),sel=document.querySelector('#gravity-local-recovery-version');
+      let snapshots='unknown';
+      try{snapshots=await new Promise(resolve=>{const o=indexedDB.open('GravitySameBrowserRecoveryV1',1);o.onsuccess=()=>{const d=o.result;const r=d.transaction('snapshots').objectStore('snapshots').get(document.querySelector('#lab-backup')?'gravity-shift-lab':'gravity-inventory-center');r.onsuccess=()=>resolve((r.result||[]).map(x=>({at:x.at,signature:x.signature,values:x.value.map(v=>v?.length)})));r.onerror=()=>resolve('read error')};o.onerror=()=>resolve('db error')})}catch(e){snapshots=e.message}
+      return {button:btn?.outerHTML?.slice(0,450),status:msg?.textContent,versions:sel?.outerHTML?.slice(0,450),snapshots,keys:Object.keys(localStorage)};
+    });
+    throw Error('Recovery unavailable after reload: '+JSON.stringify(diag)+'; original: '+error.message);
+  });
   let prompts=[];
   p.on('dialog',d=>{prompts.push(d.message());if(d.type()==='prompt')d.accept(prompts.filter(x=>x.includes('Manager Pay Lock')).length===1?'wrong':'97531');else d.accept()});
   await p.locator('#gravity-local-recovery').click();
@@ -124,7 +148,15 @@ await run('Inventory Center synthetic item can recover locally after localStorag
   },null,{timeout:12000});
   await p.evaluate(()=>localStorage.removeItem('gravityInventoryCenter.v1'));
   await p.reload({waitUntil:'domcontentloaded'});
-  await p.locator('#gravity-local-recovery:not([disabled])').waitFor({timeout:12000});
+  await p.waitForFunction(()=>{const b=document.querySelector('#gravity-local-recovery');return b&&!b.disabled},null,{timeout:12000}).catch(async error=>{
+    const diag=await p.evaluate(async()=>{
+      const btn=document.querySelector('#gravity-local-recovery'),msg=document.querySelector('#gravity-local-recovery-status'),sel=document.querySelector('#gravity-local-recovery-version');
+      let snapshots='unknown';
+      try{snapshots=await new Promise(resolve=>{const o=indexedDB.open('GravitySameBrowserRecoveryV1',1);o.onsuccess=()=>{const d=o.result;const r=d.transaction('snapshots').objectStore('snapshots').get(document.querySelector('#lab-backup')?'gravity-shift-lab':'gravity-inventory-center');r.onsuccess=()=>resolve((r.result||[]).map(x=>({at:x.at,signature:x.signature,values:x.value.map(v=>v?.length)})));r.onerror=()=>resolve('read error')};o.onerror=()=>resolve('db error')})}catch(e){snapshots=e.message}
+      return {button:btn?.outerHTML?.slice(0,450),status:msg?.textContent,versions:sel?.outerHTML?.slice(0,450),snapshots,keys:Object.keys(localStorage)};
+    });
+    throw Error('Recovery unavailable after reload: '+JSON.stringify(diag)+'; original: '+error.message);
+  });
   let confirmations=0;p.on('dialog',d=>{confirmations++;d.accept()});
   await p.locator('#gravity-local-recovery').click();
   await p.waitForFunction(()=>document.getElementById('metric-value')?.textContent==='$15.00',{timeout:17000});
