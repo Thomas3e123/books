@@ -57,7 +57,7 @@ async function context(signedIn=false){
 async function check(name,fn){
  let c;
  try{
-  c=await context(name.includes('verified'));
+  c=await context(name.startsWith('Previously verified'));
   const p=await c.newPage();
   await fn(p);
   results.push({name,status:'PASS'});console.log('PASS',name);
