@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Inspect linked Gravity database status without exposing connection information
+      - name: Recheck Gravity database provisioning after encrypted backup schema gate
         shell: bash
         run: |
           set -euo pipefail
@@ -49,4 +49,4 @@ jobs:
           const stderr=fs.readFileSync(process.env.STDERR,'utf8');
           console.log('DB_STDERR_CLASS',stderr.split('\n').filter(x=>/not found|not enabled|not configured|unavailable|not supported|Error:/i.test(x)).map(x=>x.replace(/postgres(?:ql)?:\/\/[^\s]+/g,'[REDACTED]')).slice(-5).join(';').slice(0,600));
           NODE
-          echo 'READ_ONLY_PREFLIGHT_COMPLETE'
+          echo 'READ_ONLY_PREFLIGHT_COMPLETE — CLOUD BACKUP MIGRATION PENDING LIVE DATABASE VERIFICATION'
