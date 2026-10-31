@@ -21,8 +21,12 @@ const browser=await chromium.launch({channel:'chrome',headless:true,args:['--no-
 const records=new Map(),uploads=[],results=[];
 async function context(){
  const c=await browser.newContext({viewport:{width:1390,height:900},acceptDownloads:true});
- await c.route('**/gravity-cloud-backup/**',async route=>{
-  const req=route.request(),url=new URL(req.url()),tool=url.pathname.split('/').at(-1),record=records.get(tool);
+ await c.route('**/*',async route=>{
+  const req=route.request(),requestUrl=req.url();
+  if(!requestUrl.startsWith(origin))return route.abort();
+  const url=new URL(requestUrl);
+  if(!url.pathname.startsWith('/gravity-cloud-backup/'))return route.continue();
+  const tool=url.pathname.split('/').at(-1),record=records.get(tool);
   const ok=(data,status=200)=>route.fulfill({status,contentType:'application/json',body:JSON.stringify(data)});
   if(tool==='status'&&req.method()==='GET')return ok({ok:true,account:{id:'test-verified-user',email:'sample@example.test'},tools:[...records.entries()].map(([t,v])=>({tool:t,revision:v.revision,createdAt:v.createdAt}))});
   if(req.method()==='GET'&&record)return ok({ok:true,tool,revision:record.revision,createdAt:record.createdAt,envelope:record.envelope});
@@ -36,7 +40,6 @@ async function context(){
   }
   return ok({ok:false,error:'Not supported'},405);
  });
- await c.route('**/*',route=>route.request().url().startsWith(origin)?route.fallback():route.abort());
  return c;
 }
 async function test(label,run){
