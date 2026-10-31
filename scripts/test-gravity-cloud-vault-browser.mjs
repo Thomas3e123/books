@@ -30,7 +30,13 @@ async function context(){
   console.log('CLOUD MOCK',req.method(),url.pathname);
   const ok=(data,status=200)=>route.fulfill({status,contentType:'application/json',body:JSON.stringify(data)});
   if(tool==='status'&&req.method()==='GET')return ok({ok:true,account:{id:'test-verified-user',email:'sample@example.test'},tools:[...records.entries()].map(([t,v])=>({tool:t,revision:v.revision,createdAt:v.createdAt}))});
-  if(req.method()==='GET'&&record)return ok({ok:true,tool,revision:record.revision,createdAt:record.createdAt,envelope:record.envelope});
+  if(req.method()==='GET'&&url.searchParams.get('history')==='1')
+   return ok({ok:true,tool,versions:record?[{revision:record.revision,createdAt:record.createdAt}]:[]});
+  if(req.method()==='GET'&&record){
+   const revision=url.searchParams.has('revision')?Number(url.searchParams.get('revision')):record.revision;
+   if(revision!==record.revision)return ok({ok:false,error:'Not found'},404);
+   return ok({ok:true,tool,revision:record.revision,createdAt:record.createdAt,envelope:record.envelope});
+  }
   if(req.method()==='GET')return ok({ok:false,error:'None'},404);
   if(req.method()==='PUT'){
    const raw=req.postData(),data=JSON.parse(raw);uploads.push({raw,tool,data});
@@ -86,6 +92,8 @@ await test('Second browser decrypts verified account cloud backup with explicit 
   });
   const m=await p.locator('#gravity-cloud-message').innerText();
   assert.match(m,/PAUSED/);
+  await p.locator('#gravity-cloud-revisions').waitFor({state:'visible',timeout:8000});
+  assert.equal(await p.locator('#gravity-cloud-revisions').inputValue(),'1');
   let confirmations=0;
   p.on('dialog',d=>{confirmations++;d.accept()});
   await p.locator('#gravity-cloud-restore').click();
