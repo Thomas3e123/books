@@ -56,7 +56,7 @@ jobs:
           if(d.site_id!=='fa5d39a0-bef9-4ff1-9c28-57d585d741d7')throw Error('Wrong Netlify project');
           console.log('PREVIEW_DEPLOY',JSON.stringify({site_id:d.site_id,deploy_id:d.deploy_id,deploy_url:d.deploy_url||d.url}));
           NODE
-      - name: Verify new email recovery and invitations on isolated staging (without production publish)
+      - name: Verify completed customer signup, email confirmation and recovery in staging only
         run: |
           set -euo pipefail
           url='https://gravity-customer-cloud-qa--gravity-leadership-system.netlify.app'
