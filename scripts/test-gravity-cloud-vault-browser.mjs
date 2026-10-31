@@ -25,6 +25,8 @@ async function context(){
   const req=route.request(),requestUrl=req.url();
   if(!requestUrl.startsWith(origin))return route.abort();
   const url=new URL(requestUrl);
+  if(url.pathname==='/assets/js/gravity-identity-client.js')
+   return route.fulfill({status:200,contentType:'application/javascript',body:"window.GravityCustomerIdentity={login:async()=>({}),signup:async()=>({}),logout:async()=>({}),handleAuthCallback:async()=>null};"});
   if(!url.pathname.startsWith('/gravity-cloud-backup/'))return route.continue();
   const tool=url.pathname.split('/').at(-1),record=records.get(tool);
   console.log('CLOUD MOCK',req.method(),url.pathname);
@@ -38,6 +40,12 @@ async function context(){
    return ok({ok:true,tool,revision:record.revision,createdAt:record.createdAt,envelope:record.envelope});
   }
   if(req.method()==='GET')return ok({ok:false,error:'None'},404);
+  if(req.method()==='DELETE'){
+   const body=JSON.parse(req.postData());
+   if(body.confirmation!=='DELETE MY CLOUD BACKUPS')return ok({ok:false,error:'Confirmation required'},400);
+   const deleted=records.delete(tool)?1:0;
+   return ok({ok:true,tool,deleted});
+  }
   if(req.method()==='PUT'){
    const raw=req.postData(),data=JSON.parse(raw);uploads.push({raw,tool,data});
    if(record&&data.baseRevision!==record.revision)return ok({ok:false,error:'Conflict'},409);
@@ -134,6 +142,22 @@ await test('Inventory Center client encrypts a valid workspace',async()=>{
   const up=uploads.find(x=>x.tool==='inventory');assert.ok(up);
   assert.ok(!up.raw.includes('QA Secret Inventory Location'));
   return 'Valid inventory state encrypted before transmission; customer name absent from upload.';
+ }finally{await c.close()}
+});
+await test('Customer account page deletes only confirmed encrypted cloud copies',async()=>{
+ const c=await context();
+ try{
+  const p=await c.newPage();await p.goto(origin+'/gravity-cloud-vault',{waitUntil:'domcontentloaded'});
+  await p.locator('#account-panel').waitFor({state:'visible',timeout:12000});
+  assert.ok(records.has('inventory'));
+  let prompts=0;
+  p.on('dialog',d=>{prompts++;d.accept('DELETE MY CLOUD BACKUPS')});
+  await p.locator('#gravity-cloud-delete-inventory').click();
+  await p.waitForFunction(()=>document.getElementById('gravity-cloud-delete-status')?.textContent.includes('Deleted 1 inventory encrypted cloud backup'),null,{timeout:12000});
+  assert.equal(prompts,1);
+  assert.equal(records.has('inventory'),false);
+  assert.equal(records.has('shift'),true);
+  return 'Typed confirmation permanently removed the selected workspace copy only; other tools were untouched.';
  }finally{await c.close()}
 });
 await browser.close();await new Promise(resolve=>server.close(resolve));
