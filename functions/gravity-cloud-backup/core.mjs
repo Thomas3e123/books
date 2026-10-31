@@ -7,7 +7,7 @@ const result=(value,status=200)=>new Response(JSON.stringify(value),{status,head
 const errors=(message,status)=>result({ok:false,error:message},status);
 const legitTool=t=>t==='shift'||t==='inventory';
 function safeEnvelope(x){
- if(!x||typeof x!=='object'||Array.isArray(x)||Object.keys(x).sort().join(',')!=='alg,ciphertext,iv,kdf,iterations,salt,version')return false;
+ if(!x||typeof x!=='object'||Array.isArray(x)||Object.keys(x).sort().join(',')!=='alg,ciphertext,iv,iterations,kdf,salt,version')return false;
  if(x.version!==1||x.alg!=='AES-256-GCM'||x.kdf!=='PBKDF2-SHA256'||x.iterations<310000||x.iterations>1000000)return false;
  for(const [key,min,max] of [['salt',22,50],['iv',16,24],['ciphertext',24,880000]]){
   if(typeof x[key]!=='string'||x[key].length<min||x[key].length>max||!/^[A-Za-z0-9_-]+$/.test(x[key]))return false;
