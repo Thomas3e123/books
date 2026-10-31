@@ -121,6 +121,7 @@ async function restore(){
  const items=await read();
  const snapshot=items.find(s=>s.signature===versions?.value)||items[0];
  if(!snapshot||!Array.isArray(snapshot.value)||!valid(snapshot.value)){show('No valid local recovery snapshot was found. Use Restore Backup with your downloaded file.',true);return}
+ if(snapshot.signature!==await checksum(JSON.stringify(snapshot.value))){show('The selected local snapshot failed its integrity check. Choose an earlier dated copy or a downloaded backup.',true);return}
  if(mode==='shift'&&!(await secretMatches(json(snapshot.value[0])))){show('Manager credentials were not verified. Nothing was restored.',true);return}
  const warning='Restore the saved same-browser snapshot from '+new Date(snapshot.at).toLocaleString()+'? This will replace the current '+(mode==='shift'?'schedule and pay-protected manager profile':'inventory records')+' in this browser. Download a backup of current data first. Continue?';
  if(!confirm(warning))return;
