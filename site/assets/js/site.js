@@ -759,3 +759,37 @@ document.addEventListener('mouseover',function(e){var a=e.target&&e.target.close
 /* Open the actual SOP Foundry room chooser from the main website menu.
    Preserve /gravity-sop-foundry as the information, manuals, and downloads page. */
 (function(){function apply(){document.querySelectorAll('#site-nav a[href="/gravity-sop-foundry"],nav[data-menu] a[href="/gravity-sop-foundry"]').forEach(function(a){a.href='/apps/sop-foundry/access';});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});else apply();})();
+
+
+/* Show the current Gravity room in the shared top banner. */
+(function () {
+  function addRoomLabel() {
+    var header = document.querySelector('.site-header');
+    if (!header || header.querySelector('.gravity-current-room')) return;
+    var path = location.pathname.replace(/\\/$/, '').replace(/\\.html$/, '');
+    if (!path || path === '/' || path === '/index') return;
+    var workspace = document.body.getAttribute('data-workspace');
+    var isRoom = !!workspace || /^\\/apps\\//.test(path) || /(?:room|lab|studio|center|foundry|gravity-aware|gravity-assist|inventory|shift-lab|work-study)/.test(path);
+    if (!isRoom) return;
+    var heading = document.querySelector('main h1, #main h1, .page-hero h1');
+    var current = document.querySelector('#site-nav a[aria-current="page"]');
+    var label = current ? current.textContent.trim() : (heading ? heading.textContent.trim() : '');
+    if (!label) {
+      label = path.split('/').filter(Boolean).pop().replace(/[-_]/g, ' ').replace(/\\b\\w/g, function(c){ return c.toUpperCase(); });
+    }
+    label = label.replace(/\\s+/g, ' ').trim().slice(0, 90);
+    if (!label) return;
+    var banner = document.createElement('div');
+    banner.className = 'gravity-current-room';
+    banner.setAttribute('aria-label', 'Current room');
+    banner.style.cssText = 'background:#253c35;color:#fff;text-align:center;padding:8px 16px;font:600 14px/1.4 system-ui,Arial,sans-serif;letter-spacing:.02em;';
+    var prefix = document.createElement('span');
+    prefix.textContent = 'YOU ARE IN: ';
+    prefix.style.cssText = 'opacity:.8;font-size:11px;letter-spacing:.09em;margin-right:7px;';
+    banner.appendChild(prefix);
+    banner.appendChild(document.createTextNode(label));
+    header.appendChild(banner);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addRoomLabel, {once:true});
+  else addRoomLabel();
+})();
