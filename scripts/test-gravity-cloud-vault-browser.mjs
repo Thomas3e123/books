@@ -27,6 +27,7 @@ async function context(){
   const url=new URL(requestUrl);
   if(!url.pathname.startsWith('/gravity-cloud-backup/'))return route.continue();
   const tool=url.pathname.split('/').at(-1),record=records.get(tool);
+  console.log('CLOUD MOCK',req.method(),url.pathname);
   const ok=(data,status=200)=>route.fulfill({status,contentType:'application/json',body:JSON.stringify(data)});
   if(tool==='status'&&req.method()==='GET')return ok({ok:true,account:{id:'test-verified-user',email:'sample@example.test'},tools:[...records.entries()].map(([t,v])=>({tool:t,revision:v.revision,createdAt:v.createdAt}))});
   if(req.method()==='GET'&&record)return ok({ok:true,tool,revision:record.revision,createdAt:record.createdAt,envelope:record.envelope});
@@ -55,6 +56,7 @@ await test('Shift Lab client encrypts before uploading',async()=>{
   await p.locator('#lab-restaurant').fill('QA Private Shift Restaurant');
   await p.locator('#lab-body tr[data-employee-id] .employee-name').first().fill('QA Confidential Employee');
   await p.locator('#lab-save').click();
+  const proof=await p.evaluate(async()=>{const r=await fetch('/gravity-cloud-backup/status',{cache:'no-store'});return {status:r.status,url:r.url,type:r.headers.get('content-type'),sample:(await r.text()).slice(0,170)}});console.log('SHIFT CLOUD PROBE',JSON.stringify(proof));
   await p.locator('#gravity-cloud-passphrase').fill(phrase);
   await p.locator('#gravity-cloud-unlock').click();
   await p.locator('#gravity-cloud-controls').waitFor({state:'visible',timeout:9000}).catch(async error=>{
@@ -97,6 +99,7 @@ await test('Wrong recovery passphrase cannot decrypt or overwrite local data',as
  const c=await context();
  try{
   const p=await c.newPage();await p.goto(origin+'/gravity-shift-lab',{waitUntil:'domcontentloaded'});
+  const proof=await p.evaluate(async()=>{const r=await fetch('/gravity-cloud-backup/status',{cache:'no-store'});return {status:r.status,url:r.url,type:r.headers.get('content-type'),sample:(await r.text()).slice(0,170)}});console.log('SHIFT CLOUD PROBE',JSON.stringify(proof));
   await p.locator('#gravity-cloud-passphrase').fill('Incorrect longer recovery phrase 123!');
   await p.locator('#gravity-cloud-unlock').click();
   await p.locator('#gravity-cloud-controls').waitFor({state:'visible',timeout:9000}).catch(async error=>{
