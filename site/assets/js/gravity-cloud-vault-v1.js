@@ -236,7 +236,7 @@ function toolUI(){
 async function accountPage(){
  const auth=window.GravityCustomerIdentity;
  if(!auth){report('Account component is unavailable. No cloud backup can be enabled.',true);return}
- let flow=null,inviteToken=null;
+ let flow=null,inviteToken=null,callbackNotice='',callbackNoticeError=false;
  const setFlow=value=>{
   flow=value;
   $('gravity-cloud-reset-panel').hidden=value!=='recovery';
@@ -271,12 +271,12 @@ async function accountPage(){
     inviteToken=callback.token;setFlow('invite');
     report('Your invitation link was accepted. Set a password to activate the invited account.');
    }else if(callback?.type==='confirmation'){
-    report('Email confirmation processed. Sign in to finish activating encrypted cloud backup.');
+    callbackNotice='Email confirmation processed. Sign in to finish activating encrypted cloud backup.';
    }else if(callback?.type==='email_change'){
-    report('Email change processed. Your existing encrypted backups remain associated with your account.');
+    callbackNotice='Email change processed. Your existing encrypted backups remain associated with your account.';
    }
   }catch(e){
-   report('Account email link failed: '+e.message+'. Request another link if it has expired.',true);
+   callbackNotice='Account email link failed: '+e.message+'. Request another link if it has expired.';callbackNoticeError=true;
   }
  }
  $('gravity-cloud-forgot-toggle').addEventListener('click',()=>{
@@ -354,7 +354,7 @@ async function accountPage(){
  $('gravity-cloud-signout').onclick=async()=>{
   try{await auth.logout();setFlow(null);await redraw()}catch(error){report('Sign-out failed: '+error.message,true)}
  };
- if(!flow)await redraw();
+ if(!flow){await redraw();if(callbackNotice)report(callbackNotice,callbackNoticeError)}
 }
 
 if(identityPage)accountPage();
