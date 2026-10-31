@@ -100,6 +100,16 @@ async function upload(force){
   if(!valid(values))throw Error('There is no valid saved '+tool+' workspace to back up. Save your work first.');
   const hash=await digest(JSON.stringify(values));
   if(!force&&hash===lastDigest){report('Encrypted cloud copy is current. Your local work has not changed.');return}
+  // Never let a new browser overwrite another device's cloud history with an
+  // unrelated passphrase. A confirmed account alone is not enough.
+  if(force&&revision>0&&!auto){
+   const previous=await fetchJSON(API+tool);
+   if(previous.revision!==revision)throw Error('The cloud version changed since you signed in. Reload your cloud status before saving.');
+   let old;
+   try{old=await decrypt(previous.envelope)}
+   catch{throw Error('The recovery passphrase does not unlock the existing cloud backup. Nothing was replaced.')}
+   if(old?.schema!==1||old.tool!==tool||!valid(old.keys))throw Error('Existing cloud records failed validation. Nothing was replaced.');
+  }
   if(tool==='shift'&&!await checkManagerPin(JSON.parse(values[0])))throw Error('Manager PIN was not verified. Cloud backup was not changed.');
   const envelope=await encrypt({schema:1,tool,keys:values,createdAt:new Date().toISOString()});
   if(JSON.stringify(envelope).length>875000)throw Error('Workspace exceeds the safe upload limit. Export a manual backup.');
