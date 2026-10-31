@@ -56,7 +56,7 @@ jobs:
           if(d.site_id!=='fa5d39a0-bef9-4ff1-9c28-57d585d741d7')throw Error('Wrong Netlify project');
           console.log('PREVIEW_DEPLOY',JSON.stringify({site_id:d.site_id,deploy_id:d.deploy_id,deploy_url:d.deploy_url||d.url}));
           NODE
-      - name: Verify completed customer signup, email confirmation and recovery in staging only
+      - name: Verify backup Postgres table exists and unauthenticated access is blocked
         run: |
           set -euo pipefail
           url='https://gravity-customer-cloud-qa--gravity-leadership-system.netlify.app'
@@ -66,8 +66,14 @@ jobs:
             echo "PREVIEW_STATIC_OK $p"
           done
           curl -fsSL "$url/gravity-shift-lab-sw.js" | grep -Fq "allowed.has(url.pathname)"
-          curl -fsSL "$url/gravity-cloud-backup/health" | grep -Fq '"authenticatedAccountRequired":true'
-          echo 'PREVIEW_CLOUD_FUNCTION_HEALTH_OK'
+          # Fail closed: a healthy Function without a reachable/migrated
+          # database is not a successful cloud-backup release candidate.
+          curl --fail --silent --show-error --max-time 25 "$url/gravity-cloud-backup/health" -o /tmp/gravity-db-ready.json
+          DB_CHECK=/tmp/gravity-db-ready.json node - <<'NODE'
+          const x=JSON.parse(require('node:fs').readFileSync(process.env.DB_CHECK,'utf8'));
+          if(x.ok!==true||x.authenticatedAccountRequired!==true||x.databaseReady!==true)throw Error('BACKUP_DATABASE_SCHEMA_NOT_READY');
+          console.log('PREVIEW_ENCRYPTED_BACKUP_DATABASE_SCHEMA_READY');
+          NODE
           for p in status shift inventory; do
             code="$(curl -sSL --max-time 25 -o /tmp/preview-auth.json -w '%{http_code}' "$url/gravity-cloud-backup/$p")"
             if [ "$code" != '401' ]; then echo "AUTH_FAIL $p HTTP=$code"; cat /tmp/preview-auth.json | head -c 200; exit 1; fi
