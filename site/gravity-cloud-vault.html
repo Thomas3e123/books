@@ -33,10 +33,22 @@ button.secondary,.button.secondary{background:white;color:#1e5653}button.danger{
 <div id="account-status" class="status" role="status">Checking account availability…</div>
 <div class="grid">
 <section class="card" id="login-card"><h2>Sign in</h2><p class="note">For a verified Gravity customer account. First-time users need to confirm their email address.</p>
-<form id="gravity-cloud-login"><label>Email<input name="email" type="email" autocomplete="email" required></label><label>Password<input name="password" type="password" autocomplete="current-password" required></label><button type="submit">Sign In</button></form></section>
+<form id="gravity-cloud-login"><label>Email<input name="email" type="email" autocomplete="email" required></label><label>Password<input name="password" type="password" autocomplete="current-password" required></label><button type="submit">Sign In</button></form>
+<button id="gravity-cloud-forgot-toggle" type="button" class="secondary">Forgot Password?</button>
+<form id="gravity-cloud-recovery-request" hidden><label>Account email for recovery<input name="email" type="email" autocomplete="email" required></label><button type="submit">Email Recovery Link</button></form>
+</section>
 <section class="card" id="signup-card"><h2>Create a customer account</h2><p class="note">No credit card. This account is specifically for protected customer data and is separate from Founding Year downloads.</p>
 <form id="gravity-cloud-signup"><label>Email<input name="email" type="email" autocomplete="email" required></label><label>Password (12 or more characters)<input name="password" type="password" minlength="12" autocomplete="new-password" required></label><button type="submit">Create Account</button></form></section>
 </div>
+<section class="card" id="gravity-cloud-reset-panel" hidden>
+<h2>Choose a new account password</h2>
+<p class="note">Your recovery link has been verified. This changes your account password, not the separate encryption passphrase for your restaurant backups.</p>
+<form id="gravity-cloud-reset-form"><label>New account password (12 or more characters)<input name="password" type="password" minlength="12" autocomplete="new-password" required></label><label>Repeat new password<input name="confirm" type="password" minlength="12" autocomplete="new-password" required></label><button type="submit">Update Account Password</button></form>
+</section>
+<section class="card" id="gravity-cloud-invite-panel" hidden>
+<h2>Accept your account invitation</h2><p class="note">Choose a password to finish accepting the email invitation. No restaurant data is transferred until you separately enable an encrypted workspace backup.</p>
+<form id="gravity-cloud-invite-form"><label>New account password (12 or more characters)<input name="password" type="password" minlength="12" autocomplete="new-password" required></label><button type="submit">Activate Invited Account</button></form>
+</section>
 <section class="card" id="account-panel" hidden><h2>Signed in</h2><p id="account-email"></p>
 <button id="gravity-cloud-signout" class="secondary">Sign Out</button>
 <p class="note">Your account grants access to your encrypted cloud copies. Your separate passphrase is required to decrypt those copies.</p>
