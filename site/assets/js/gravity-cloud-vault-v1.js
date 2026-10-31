@@ -262,6 +262,22 @@ async function accountPage(){
    finally{button.disabled=false}
   });
  }
+ for(const backupTool of ['shift','inventory']){
+  $('gravity-cloud-delete-'+backupTool)?.addEventListener('click',async()=>{
+   const typed=prompt('Permanently delete ALL '+backupTool+' encrypted cloud backup versions? This cannot be undone. Type DELETE MY CLOUD BACKUPS to confirm:');
+   if(typed!=='DELETE MY CLOUD BACKUPS')return;
+   const target=$('gravity-cloud-delete-status');
+   try{
+    const response=await fetchJSON(API+backupTool,{method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({confirmation:typed})});
+    target.textContent='Deleted '+response.deleted+' '+backupTool+' encrypted cloud backup version(s). Local saved work remains untouched.';
+    target.setAttribute('role','status');
+    await redraw();
+   }catch(e){
+    target.textContent='Cloud deletion did not complete: '+e.message;
+    target.setAttribute('role','alert');
+   }
+  });
+ }
  $('gravity-cloud-signout').onclick=async()=>{
   try{await auth.logout();await redraw()}catch(e){report('Sign-out failed: '+e.message,true)}
  };
