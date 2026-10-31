@@ -1,0 +1,41 @@
+name: Gravity customer Identity dependencies and browser bundle (branch preparation, NO DEPLOY)
+on:
+  push:
+    branches: [feature/gravity-migration-phase1-2026-10-22]
+    paths:
+      - .github/workflows/gravity-account-identity-prep-2026-10-30.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  prepare-identity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install version-pinned supported Identity and browser bundler
+        run: |
+          npm install --save-exact @netlify/identity@1.1.0
+          npm install --save-dev --save-exact esbuild@0.25.10
+          node --check scripts/browser/gravity-identity-client.mjs
+          npx esbuild scripts/browser/gravity-identity-client.mjs --bundle --platform=browser --format=iife --target=es2022 --minify --outfile=site/assets/js/gravity-identity-client.js
+          node --check site/assets/js/gravity-identity-client.js
+          node --check functions/gravity-cloud-backup/core.mjs
+          node --check functions/gravity-cloud-backup/index.mjs
+          node --check site/assets/js/gravity-cloud-vault-v1.js
+          node scripts/test-gravity-cloud-backup.mjs
+      - name: Commit package lock and browser bundle only (no site publish)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json site/assets/js/gravity-identity-client.js
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "build(gravity): install supported Netlify Identity and bundle verified customer sign-in [skip ci]"
+          git fetch --no-tags origin feature/gravity-migration-phase1-2026-10-22
+          git rebase origin/feature/gravity-migration-phase1-2026-10-22
+          git push origin HEAD:feature/gravity-migration-phase1-2026-10-22
