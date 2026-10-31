@@ -48,7 +48,7 @@ jobs:
           if(d.site_id!=='fa5d39a0-bef9-4ff1-9c28-57d585d741d7')throw Error('Wrong Netlify project');
           console.log('PREVIEW_DEPLOY',JSON.stringify({site_id:d.site_id,deploy_id:d.deploy_id,deploy_url:d.deploy_url||d.url}));
           NODE
-      - name: Assert preview is accessible and account endpoint is not publicly readable
+      - name: Assert preview exposes healthy function but no unauthenticated customer backups
         run: |
           set -euo pipefail
           url='https://gravity-customer-cloud-qa--gravity-leadership-system.netlify.app'
@@ -58,6 +58,8 @@ jobs:
             echo "PREVIEW_STATIC_OK $p"
           done
           curl -fsSL "$url/gravity-shift-lab-sw.js" | grep -Fq "allowed.has(url.pathname)"
+          curl -fsSL "$url/gravity-cloud-backup/health" | grep -Fq '"authenticatedAccountRequired":true'
+          echo 'PREVIEW_CLOUD_FUNCTION_HEALTH_OK'
           for p in status shift inventory; do
             code="$(curl -sSL --max-time 25 -o /tmp/preview-auth.json -w '%{http_code}' "$url/gravity-cloud-backup/$p")"
             if [ "$code" != '401' ]; then echo "AUTH_FAIL $p HTTP=$code"; cat /tmp/preview-auth.json | head -c 200; exit 1; fi
