@@ -1,5 +1,10 @@
 name: Gravity source manifest repair and release verification
 on:
+  push:
+    branches:
+      - feature/gravity-migration-phase1-2026-10-22
+    paths-ignore:
+      - 'source-manifest.json'
   workflow_dispatch:
 permissions:
   contents: write
