@@ -32,11 +32,20 @@ async function stateProbe(p,slot){
    result.databases=await indexedDB.databases();
    const d=await new Promise((resolve,reject)=>{const r=indexedDB.open('GravitySameBrowserRecoveryV1',1);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)});
    const list=await new Promise((resolve,reject)=>{const r=d.transaction('snapshots').objectStore('snapshots').get(slot);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)});
-   result.indexed=(list||[]).map(x=>({at:x.at,signature:String(x.signature).slice(0,28),lengths:x.value.map(v=>v?.length)}));
+   result.indexed=(list||[]).map(x=>({at:x.at,signature:String(x.signature).slice(0,28),lengths:x.value.map(v=>v?.length),payLockSet:!!(JSON.parse(x.value?.[0]||'{}').payLockHash),items:JSON.parse(x.value?.[0]||'{}').items?.length||0}));
    d.close();
   }catch(e){result.error=e.message}
   return result;
  },slot);
+}
+async function waitForSnapshot(p,slot,predicate,label){
+ let last=null;
+ for(let n=0;n<45;n++){
+  last=await stateProbe(p,slot);
+  if((last.indexed||[]).some(predicate))return last;
+  await p.waitForTimeout(200);
+ }
+ throw Error('Timed out waiting for committed '+label+' snapshot: '+JSON.stringify(last));
 }
 async function page(route){
  const context=await browser.newContext({viewport:{width:1400,height:900},acceptDownloads:true});
@@ -108,10 +117,7 @@ await run('Shift Lab pay-protected recovery requires original PIN',async()=>{
    localStorage.setItem('gravityShiftLabProfileV3',JSON.stringify(data));
    window.dispatchEvent(new Event('gravity:local-data-saved'));
   });
-  await p.waitForFunction(async()=>{
-   const result=await new Promise(resolve=>{const r=indexedDB.open('GravitySameBrowserRecoveryV1',1);r.onsuccess=()=>{const t=r.result.transaction('snapshots');const x=t.objectStore('snapshots').get('gravity-shift-lab');x.onsuccess=()=>resolve(x.result);};r.onerror=()=>resolve([])});
-   return Boolean(result?.[0]?.value?.[0]?.includes('payLockHash')&&JSON.parse(result[0].value[0]).payLockHash);
-  },null,{timeout:12000});
+  await waitForSnapshot(p,'gravity-shift-lab',x=>x.payLockSet,'PIN-protected Shift Lab');
   console.log('PAY PROBE BEFORE CLEAR',JSON.stringify(await stateProbe(p,'gravity-shift-lab')));
   await p.evaluate(()=>{localStorage.removeItem('gravityShiftLabProfileV3');localStorage.removeItem('gravityShiftLabSchedulesV3')});
   console.log('PAY PROBE AFTER CLEAR',JSON.stringify(await stateProbe(p,'gravity-shift-lab')));
@@ -155,12 +161,7 @@ await run('Inventory Center synthetic item can recover locally after localStorag
   await p.locator('#item-location').selectOption(location);
   await p.locator('#item-onhand').fill('10');
   await p.locator('#save-item').click();
-  await p.waitForFunction(async()=>{
-   const d=await new Promise(resolve=>{const r=indexedDB.open('GravitySameBrowserRecoveryV1',1);r.onsuccess=()=>resolve(r.result);r.onerror=()=>resolve(null)});
-   if(!d)return false;
-   const items=await new Promise(resolve=>{const r=d.transaction('snapshots').objectStore('snapshots').get('gravity-inventory-center');r.onsuccess=()=>resolve(r.result||[]);r.onerror=()=>resolve([])});
-   return items.length&&JSON.parse(items[0].value[0]).items?.length===1;
-  },null,{timeout:12000});
+  await waitForSnapshot(p,'gravity-inventory-center',x=>x.items===1,'full inventory item');
   console.log('INVENTORY PROBE BEFORE CLEAR',JSON.stringify(await stateProbe(p,'gravity-inventory-center')));
   await p.evaluate(()=>localStorage.removeItem('gravityInventoryCenter.v1'));
   console.log('INVENTORY PROBE AFTER CLEAR',JSON.stringify(await stateProbe(p,'gravity-inventory-center')));
