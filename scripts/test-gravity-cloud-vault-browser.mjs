@@ -95,21 +95,17 @@ await test('Second browser decrypts verified account cloud backup with explicit 
   return 'Cloud restore recovered the correct record in a clean browser and required confirmation.';
  }finally{await c.close()}
 });
-await test('Wrong recovery passphrase cannot decrypt or overwrite local data',async()=>{
+await test('Wrong recovery passphrase cannot unlock or overwrite local data',async()=>{
  const c=await context();
  try{
   const p=await c.newPage();await p.goto(origin+'/gravity-shift-lab',{waitUntil:'domcontentloaded'});
-  const proof=await p.evaluate(async()=>{const r=await fetch('/gravity-cloud-backup/status',{cache:'no-store'});return {status:r.status,url:r.url,type:r.headers.get('content-type'),sample:(await r.text()).slice(0,170)}});console.log('SHIFT CLOUD PROBE',JSON.stringify(proof));
   await p.locator('#gravity-cloud-passphrase').fill('Incorrect longer recovery phrase 123!');
   await p.locator('#gravity-cloud-unlock').click();
-  await p.locator('#gravity-cloud-controls').waitFor({state:'visible',timeout:9000}).catch(async error=>{
-   const debug=await p.evaluate(()=>({msg:document.getElementById('gravity-cloud-message')?.textContent,controls:document.getElementById('gravity-cloud-controls')?.outerHTML.slice(0,200),input:document.getElementById('gravity-cloud-passphrase')?.value.length,hasAccount:document.querySelector('#gravity-cloud-backup')?.textContent.slice(0,100),localKeys:Object.keys(localStorage)}));
-   throw Error('Encrypted cloud unlock failed: '+JSON.stringify(debug)+'; '+error.message);
-  });
-  await p.locator('#gravity-cloud-restore').click();
-  await p.waitForFunction(()=>/Cloud recovery stopped/.test(document.querySelector('#gravity-cloud-message')?.textContent||''),null,{timeout:14000});
+  await p.waitForFunction(()=>/Cloud backup remains locked: Incorrect recovery passphrase/.test(document.querySelector('#gravity-cloud-message')?.textContent||''),null,{timeout:14000});
+  assert.equal(await p.locator('#gravity-cloud-controls').isVisible(),false);
   assert.notEqual(await p.locator('#lab-restaurant').inputValue(),'QA Private Shift Restaurant');
-  return 'Incorrect key refused without replacing original browser records.';
+  assert.equal(uploads.filter(x=>x.tool==='shift').length,1);
+  return 'Incorrect key refused at unlock before any cloud backup could be overwritten.';
  }finally{await c.close()}
 });
 await test('Inventory Center client encrypts a valid workspace',async()=>{
