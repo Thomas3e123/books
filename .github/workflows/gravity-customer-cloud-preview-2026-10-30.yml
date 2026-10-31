@@ -36,6 +36,10 @@ jobs:
           grep -Fq 'gravity-cloud-vault-v1.js' site/gravity-shift-lab.html
           grep -Fq 'gravity-cloud-vault-v1.js' site/apps/inventory-center/index.html
           grep -Fq 'gravity-cloud-delete-inventory' site/gravity-cloud-vault.html
+          grep -Fq 'gravity-cloud-reset-form' site/gravity-cloud-vault.html
+          grep -Fq 'gravity-cloud-invite-form' site/gravity-cloud-vault.html
+          grep -Fq 'requestPasswordRecovery' site/assets/js/gravity-identity-client.js
+          grep -Fq 'acceptInvite' site/assets/js/gravity-identity-client.js
           grep -Fq 'gravity-cloud-revisions' site/assets/js/gravity-cloud-vault-v1.js
           grep -Fq 'Cloud backup remains locked: ' site/assets/js/gravity-cloud-vault-v1.js
           grep -Fq 'gravity-cloud-backup/status' site/gravity-cloud-vault.html || grep -Fq "gravity-cloud-vault-v1.js" site/gravity-cloud-vault.html
@@ -52,7 +56,7 @@ jobs:
           if(d.site_id!=='fa5d39a0-bef9-4ff1-9c28-57d585d741d7')throw Error('Wrong Netlify project');
           console.log('PREVIEW_DEPLOY',JSON.stringify({site_id:d.site_id,deploy_id:d.deploy_id,deploy_url:d.deploy_url||d.url}));
           NODE
-      - name: Recheck updated cloud history, deletion and unauthorized staging API
+      - name: Verify new email recovery and invitations on isolated staging (without production publish)
         run: |
           set -euo pipefail
           url='https://gravity-customer-cloud-qa--gravity-leadership-system.netlify.app'
