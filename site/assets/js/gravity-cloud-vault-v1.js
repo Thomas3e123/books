@@ -116,16 +116,38 @@ async function upload(force){
   const res=await fetchJSON(API+tool,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({baseRevision:revision,envelope})});
   revision=res.revision;lastDigest=hash;const receiptSaved=saveReceipt(hash,revision);auto=receiptSaved;
   report('Encrypted cloud backup saved: version '+revision+' at '+new Date(res.createdAt).toLocaleString()+(receiptSaved?'. Local file backups are still recommended.':'. Your browser could not save the local receipt; future automatic uploads are paused.'),!receiptSaved);
+  await refreshHistory();
  }catch(e){
   if(e.status===409||e.status===429){auto=false;report('Cloud backup paused: '+e.message+' Check the latest cloud copy before continuing.',true)}
   else report('Cloud backup did not save: '+e.message+' Your local work remains on this computer.',true);
  }finally{busy=false}
 }
+async function refreshHistory(){
+ const chooser=$('gravity-cloud-revisions');
+ if(!chooser||!connected)return;
+ try{
+  const result=await fetchJSON(API+tool+'?history=1');
+  const selected=chooser.value;
+  chooser.replaceChildren();
+  for(const entry of result.versions||[]){
+   if(!Number.isSafeInteger(entry.revision)||entry.revision<1)continue;
+   const date=new Date(entry.createdAt);
+   chooser.add(new Option('Cloud version '+entry.revision+' — '+(Number.isNaN(date.getTime())?'unknown date':date.toLocaleString()),String(entry.revision)));
+  }
+  if(selected&&[...chooser.options].some(o=>o.value===selected))chooser.value=selected;
+  chooser.disabled=!chooser.options.length;
+ }catch(error){
+  chooser.disabled=true;
+  report('Recovery history could not be loaded: '+error.message+'. Download a local backup before making changes.',true);
+ }
+}
 async function restore(){
  if(!connected||!passphrase||busy)return;
  busy=true;
  try{
-  const data=await fetchJSON(API+tool);
+  const selected=Number($('gravity-cloud-revisions')?.value||0);
+  if(!Number.isSafeInteger(selected)||selected<1)throw Error('No saved cloud revision is selected.');
+  const data=await fetchJSON(API+tool+'?revision='+selected);
   const restored=await decrypt(data.envelope);
   if(restored?.schema!==1||restored.tool!==tool||!valid(restored.keys))throw Error('Backup content does not match this Gravity workspace.');
   if(tool==='shift'&&!await checkManagerPin(JSON.parse(restored.keys[0])))throw Error('Manager PIN was not verified; no data was restored.');
@@ -177,6 +199,7 @@ async function unlock(){
  lastDigest=matches?receipt.digest:'';
  auto=!revision||matches;
  $('gravity-cloud-controls').hidden=false;
+ await refreshHistory();
  if(auto){report('Encrypted cloud backup unlocked for this open '+tool+' tab. It starts after a saved change.');if(hash!==lastDigest)trigger()}
  else report('An existing cloud copy was unlocked (revision '+revision+'). Automatic upload is PAUSED to prevent overwriting another device. Recover it, or explicitly replace it with this device.',true);
 }
@@ -190,7 +213,7 @@ function toolUI(){
  const anchor=$('gravity-local-recovery-status')||$('lab-restore')||$('restore-json');
  if(!anchor)return;
  const el=document.createElement('section');el.id='gravity-cloud-backup';el.style.cssText='margin:18px 0;padding:14px;border:2px solid #a1b9b1;border-radius:12px;background:#f6f8f6;color:#1d3437;font:14px/1.5 system-ui,sans-serif';
- el.innerHTML='<h3 style="margin:0 0 8px;color:#164c4a">Encrypted Cloud Backup (Optional)</h3><p>Verified account + private recovery passphrase. Runs only while this tab is open and unlocked. <a href="/gravity-cloud-vault">Account & instructions</a>.</p><label for="gravity-cloud-passphrase">Recovery passphrase (16+ characters; never your login password)</label><input id="gravity-cloud-passphrase" type="password" autocomplete="off" minlength="16" style="width:100%;padding:10px;border-radius:7px;border:1px solid #7e9a93"><button type="button" id="gravity-cloud-unlock">Unlock Cloud Backup</button><div id="gravity-cloud-controls" hidden><button type="button" id="gravity-cloud-now">Save Encrypted Cloud Copy Now</button><button type="button" id="gravity-cloud-restore">Recover Cloud Copy</button><button type="button" id="gravity-cloud-disconnect">Disconnect This Tab</button><p>Cloud versions do not publish schedules or employee SOPs. A manual download is always recommended before replacing data.</p></div><p id="gravity-cloud-message" role="status" style="margin:10px 0"></p>';
+ el.innerHTML='<h3 style="margin:0 0 8px;color:#164c4a">Encrypted Cloud Backup (Optional)</h3><p>Verified account + private recovery passphrase. Runs only while this tab is open and unlocked. <a href="/gravity-cloud-vault">Account & instructions</a>.</p><label for="gravity-cloud-passphrase">Recovery passphrase (16+ characters; never your login password)</label><input id="gravity-cloud-passphrase" type="password" autocomplete="off" minlength="16" style="width:100%;padding:10px;border-radius:7px;border:1px solid #7e9a93"><button type="button" id="gravity-cloud-unlock">Unlock Cloud Backup</button><div id="gravity-cloud-controls" hidden><button type="button" id="gravity-cloud-now">Save Encrypted Cloud Copy Now</button><label for="gravity-cloud-revisions">Choose a dated recovery copy (up to five)</label><select id="gravity-cloud-revisions" aria-label="Encrypted cloud recovery version" disabled style="width:100%;padding:8px;border-radius:6px;margin:5px 0 10px"></select><button type="button" id="gravity-cloud-restore">Recover Selected Cloud Copy</button><button type="button" id="gravity-cloud-disconnect">Disconnect This Tab</button><p>Cloud versions do not publish schedules or employee SOPs. A manual download is always recommended before replacing data.</p></div><p id="gravity-cloud-message" role="status" style="margin:10px 0"></p>';
  anchor.insertAdjacentElement('afterend',el);ui=$('gravity-cloud-message');
  $('gravity-cloud-unlock').onclick=()=>unlock().catch(e=>report('Cloud authentication failed: '+e.message,true));
  $('gravity-cloud-now').onclick=()=>{
