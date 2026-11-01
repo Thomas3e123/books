@@ -1,0 +1,28 @@
+{
+  "name": "gravity-employee-handbook-creator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Private Windows development shell; not a commercial release",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-builder --win nsis"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.gravity.handbookcreator",
+    "productName": "Gravity Employee Handbook Creator",
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html"
+    ],
+    "win": {
+      "target": "nsis"
+    }
+  }
+}
