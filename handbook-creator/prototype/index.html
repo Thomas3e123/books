@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gravity Employee Handbook Creator — Private Development</title>
+<style>:root{font:16px system-ui;color:#23332e;background:#f4f2eb}*{box-sizing:border-box}body{margin:0}header{background:#18372d;color:white;padding:22px max(22px,calc((100% - 1040px)/2))}main{max-width:1040px;margin:28px auto;padding:0 20px;display:grid;grid-template-columns:2fr 1fr;gap:22px}section,aside{background:white;padding:24px;border-radius:12px;box-shadow:0 2px 12px #0001}h1{margin:0;font-size:1.6rem}h2{margin-top:0}label{display:block;font-weight:600;margin:16px 0 6px}input,select,textarea{width:100%;padding:11px;border:1px solid #9da9a2;border-radius:6px;font:inherit}textarea{min-height:90px}button{padding:11px 15px;margin:12px 7px 0 0;border:0;border-radius:6px;background:#235a45;color:white;cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}.secondary{background:#64736d}.warn{color:#9a4c00}small{display:block;color:#5d6b64}pre{white-space:pre-wrap;font:inherit;line-height:1.55}#sections button{display:block;width:100%;text-align:left}.badge{font-size:.8rem;background:#f6e9c8;padding:3px 6px;border-radius:4px}footer{max-width:1040px;margin:30px auto;padding:0 20px;color:#566}@media(max-width:700px){main{display:block}aside{margin-top:20px}}</style></head>
+<body><header><h1>Gravity Employee Handbook Creator</h1><small style="color:#d7e4d8">PRIVATE DEVELOPMENT PROTOTYPE — NOT FOR PUBLIC RELEASE OR SALE</small></header>
+<main><section><div id="step"></div><div id="questions"></div><div id="actions"></div><hr><h3>Handbook so far</h3><pre id="preview"></pre></section><aside><h2>Project</h2><div id="progress"></div><div id="sections"></div><hr><button class="secondary" id="backup">Export project backup</button><label for="restore">Restore .gravityhandbook</label><input id="restore" type="file" accept=".gravityhandbook,application/json"><button class="secondary" id="previewBtn">Refresh preview</button><p class="warn">Draft policies require legal review. No jurisdiction-specific compliance is certified. Project data stays in this browser unless exported.</p></aside></main><footer>Prototype only. No public navigation, payment integration, or production deployment. Browser storage is device-specific; save backups.</footer>
+<script>
+"use strict";
+const sections=[
+{id:"identity",title:"Business & Jurisdiction",questions:[
+{id:"business.name",label:"Restaurant or company name",type:"text",required:true},
+{id:"business.locations",label:"Cities and states where employees work (one per line)",type:"textarea",required:true},
+{id:"business.employee_count",label:"Total employee count",type:"number",required:true},
+{id:"business.contact",label:"HR or management contact for handbook questions",type:"text",required:true}]},
+{id:"employment",title:"Employment & Expectations",questions:[
+{id:"employment.classifications",label:"Which employment classifications do you use?",type:"textarea",required:true},
+{id:"employment.attendance",label:"How must employees report an absence or late arrival?",type:"textarea",required:true},
+{id:"employment.conduct",label:"Describe expected conduct and prohibited behavior",type:"textarea",required:true},
+{id:"employment.probation",label:"Do you use an introductory period? Describe it, or enter None",type:"textarea",required:true}]},
+{id:"scheduling",title:"Scheduling & Timekeeping",questions:[
+{id:"scheduling.release",label:"How and when are schedules published?",type:"textarea",required:true},
+{id:"scheduling.swap",label:"How are shift swaps approved?",type:"textarea",required:true},
+{id:"scheduling.timeclock",label:"How must employees record all hours worked?",type:"textarea",required:true},
+{id:"scheduling.breaks",label:"Describe meal and rest break practices (subject to legal review)",type:"textarea",required:true}]},
+{id:"pay",title:"Pay, Tips & Benefits",questions:[
+{id:"pay.frequency",label:"Pay frequency and normal payday",type:"text",required:true},
+{id:"pay.tips",label:"Are tips received or pooled? Describe the arrangement",type:"textarea",required:true},
+{id:"pay.overtime",label:"How are overtime approvals handled? All hours worked must still be recorded",type:"textarea",required:true},
+{id:"pay.benefits",label:"What benefits are offered, and who is eligible?",type:"textarea",required:true}]},
+{id:"safety",title:"Food Safety & Workplace Safety",questions:[
+{id:"safety.food",label:"Food safety and illness reporting expectations",type:"textarea",required:true},
+{id:"safety.injuries",label:"How are injuries and hazards reported?",type:"textarea",required:true},
+{id:"safety.emergency",label:"Emergency response and evacuation instructions",type:"textarea",required:true},
+{id:"safety.substances",label:"Alcohol, impairment, and substance policy",type:"textarea",required:true}]},
+{id:"respect",title:"Respect, Harassment & Accommodation",questions:[
+{id:"respect.reporting",label:"How may employees report harassment or discrimination, including an alternate contact?",type:"textarea",required:true},
+{id:"respect.retaliation",label:"Describe non-retaliation expectations",type:"textarea",required:true},
+{id:"respect.accommodation",label:"Who receives accommodation requests?",type:"text",required:true}]},
+{id:"uniforms",title:"Uniforms & Appearance",questions:[
+{id:"uniforms.issued",label:"Does the restaurant issue uniforms?",type:"boolean",required:true},
+{id:"uniforms.return_required",label:"Must issued uniforms be returned at separation?",type:"boolean",required:true,when:{questionId:"uniforms.issued",equals:true}},
+{id:"uniforms.return_days",label:"Days after separation allowed for return",type:"number",required:true,when:{questionId:"uniforms.return_required",equals:true}},
+{id:"uniforms.return_contact",label:"Who receives returned uniforms?",type:"text",required:true,when:{questionId:"uniforms.return_required",equals:true}},
+{id:"uniforms.appearance",label:"Appearance and hygiene standards",type:"textarea",required:true}]},
+{id:"separation",title:"Separation & Company Property",questions:[
+{id:"separation.notice",label:"How should employees give resignation notice?",type:"textarea",required:true},
+{id:"separation.property",label:"What company property must be returned?",type:"textarea",required:true},
+{id:"separation.finalpay",label:"Describe final pay handling, subject to local legal review",type:"textarea",required:true}]},
+{id:"acknowledgment",title:"Handbook Acknowledgment",questions:[
+{id:"acknowledgment.contact",label:"Who collects signed acknowledgments?",type:"text",required:true},
+{id:"acknowledgment.effective",label:"Handbook effective date",type:"date",required:true}]}
+];
+const dependencies={"uniforms.return_days":["uniforms","separation","acknowledgment"],"uniforms.return_required":["uniforms","separation","acknowledgment"],"uniforms.return_contact":["uniforms","separation"],"business.locations":["identity","pay","scheduling","respect","separation"],"business.employee_count":["identity","pay","respect"]};
+const KEY="gravity.handbook.prototype.v1";
+function fresh(){return {formatVersion:"0.1.0",projectId:crypto.randomUUID(),answers:{},revisions:[],sectionStatus:{},edition:{},createdAt:new Date().toISOString()}}
+let project;try{project=JSON.parse(localStorage.getItem(KEY))||fresh()}catch{project=fresh()}
+let index=0;
+function save(){localStorage.setItem(KEY,JSON.stringify(project))}
+function visible(q){return !q.when||project.answers[q.when.questionId]===q.when.equals}
+function completed(s){return s.questions.filter(visible).every(q=>!q.required||String(project.answers[q.id]??"").trim()!=="")}
+function approved(s){return project.sectionStatus[s.id]==="approved"}
+function field(q){const wrap=document.createElement("div"),lab=document.createElement("label");lab.textContent=q.label;lab.htmlFor=q.id;wrap.append(lab);let el;
+if(q.type==="boolean"){el=document.createElement("select");[["","Choose an answer"],["true","Yes"],["false","No"]].forEach(([v,t])=>{let o=document.createElement("option");o.value=v;o.textContent=t;el.append(o)});el.value=project.answers[q.id]===undefined?"":String(project.answers[q.id])}
+else if(q.type==="textarea"){el=document.createElement("textarea");el.value=project.answers[q.id]??""}
+else{el=document.createElement("input");el.type=q.type;el.value=project.answers[q.id]??"";if(q.type==="number")el.min="0"}
+el.id=q.id;el.addEventListener("change",()=>{const old=project.answers[q.id];const val=q.type==="boolean"?(el.value===""?undefined:el.value==="true"):q.type==="number"?(el.value===""?undefined:Number(el.value)):el.value;if(val===undefined)delete project.answers[q.id];else project.answers[q.id]=val;if(old!==val){project.revisions.push({at:new Date().toISOString(),questionId:q.id,oldValue:old??null,newValue:val??null});project.sectionStatus[sections[index].id]="draft";(dependencies[q.id]||[]).forEach(id=>{if(id!==sections[index].id&&project.sectionStatus[id]==="approved")project.sectionStatus[id]="pending_reconciliation"});save();render()}});wrap.append(el);return wrap}
+function draft(s){const lines=[s.title.toUpperCase()];for(const q of s.questions.filter(visible)){const a=project.answers[q.id];if(a!==undefined&&String(a).trim()!=="")lines.push(q.label+"\n"+(typeof a==="boolean"?(a?"Yes":"No"):a))}return lines.join("\n\n")}
+function handbook(){return "DRAFT EMPLOYEE HANDBOOK\n"+(project.answers["business.name"]||"Unnamed restaurant")+"\n\n"+sections.filter(s=>s.questions.some(q=>project.answers[q.id]!==undefined)).map(draft).join("\n\n--------------------\n\n")+"\n\nLEGAL REVIEW REQUIRED: This prototype organizes owner-provided answers. It does not generate legally verified policies."}
+function render(){const s=sections[index];document.getElementById("step").innerHTML="<h2>"+(index+1)+". "+s.title+"</h2><small>Complete the questions, approve this section, then continue. You may reopen earlier sections.</small>";const box=document.getElementById("questions");box.replaceChildren(...s.questions.filter(visible).map(field));const actions=document.getElementById("actions");actions.replaceChildren();const make=(label,fn,secondary=false)=>{let b=document.createElement("button");b.textContent=label;if(secondary)b.className="secondary";b.onclick=fn;actions.append(b);return b};make(approved(s)?"Approved — Reapprove":"Approve section",()=>{if(!completed(s)){alert("Complete all visible required questions first.");return}project.sectionStatus[s.id]="approved";save();render()});make("Previous",()=>{index=Math.max(0,index-1);render()},true).disabled=index===0;make(index===sections.length-1?"Finish interview":"Continue",()=>{if(!approved(s)){alert("Approve this section before continuing.");return}if(index<sections.length-1){index++;render()}else{alert("Interview completed. Review pending reconciliation items and legal requirements before publication.")}});document.getElementById("progress").textContent=sections.filter(approved).length+" of "+sections.length+" sections approved";const nav=document.getElementById("sections");nav.replaceChildren(...sections.map((v,i)=>{let b=document.createElement("button");b.className="secondary";b.textContent=(i+1)+". "+v.title+" — "+(project.sectionStatus[v.id]||"not started");b.onclick=()=>{index=i;render()};return b}));document.getElementById("preview").textContent=handbook()}
+document.getElementById("backup").onclick=()=>{const blob=new Blob([JSON.stringify(project,null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="gravity-handbook-"+project.projectId+".gravityhandbook";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+document.getElementById("restore").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const v=JSON.parse(await f.text());if(v.formatVersion!=="0.1.0"||!v.answers||!v.sectionStatus||!Array.isArray(v.revisions))throw Error("Unsupported or invalid project file");if(!confirm("Replace the current browser project with this backup?"))return;project=v;save();index=0;render()}catch(err){alert("Could not restore: "+err.message)}};
+document.getElementById("previewBtn").onclick=()=>render();render();
+</script></body></html>
