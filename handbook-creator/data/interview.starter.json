@@ -1,0 +1,72 @@
+{
+  "version": "0.1.0",
+  "note": "Starter examples only; full comprehensive interview remains to be authored.",
+  "sections": [
+    {
+      "id": "business_identity",
+      "title": "Business and Jurisdiction",
+      "questions": [
+        {
+          "id": "business.name",
+          "type": "text",
+          "required": true,
+          "prompt": "What is the restaurant's legal or operating name?"
+        },
+        {
+          "id": "business.locations",
+          "type": "locations",
+          "required": true,
+          "prompt": "In which cities and states does the restaurant employ people?"
+        },
+        {
+          "id": "business.employee_count",
+          "type": "integer",
+          "required": true,
+          "prompt": "How many employees work for the business?"
+        }
+      ]
+    },
+    {
+      "id": "uniforms",
+      "title": "Uniforms and Appearance",
+      "questions": [
+        {
+          "id": "uniforms.issued",
+          "type": "boolean",
+          "required": true,
+          "prompt": "Does the business issue uniforms?"
+        },
+        {
+          "id": "uniforms.return_required",
+          "type": "boolean",
+          "required": true,
+          "when": {
+            "questionId": "uniforms.issued",
+            "equals": true
+          },
+          "prompt": "Must employees return company-issued uniforms when employment ends?"
+        },
+        {
+          "id": "uniforms.return_days",
+          "type": "integer",
+          "required": true,
+          "when": {
+            "questionId": "uniforms.return_required",
+            "equals": true
+          },
+          "prompt": "How many days after separation are uniforms due back?"
+        },
+        {
+          "id": "uniforms.return_contact",
+          "type": "text",
+          "required": true,
+          "when": {
+            "questionId": "uniforms.return_required",
+            "equals": true
+          },
+          "prompt": "Who accepts returned uniforms?"
+        }
+      ]
+    }
+  ]
+}
