@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "status": "research-backed coverage map; NOT a legally reviewed policy library",
   "sources": [
     "https://www.dol.gov/agencies/whd/compliance-assistance/toolkits/restaurant",
@@ -15,7 +15,15 @@
     "legalGateReviewedSeparately": true,
     "firstPreviewAfterWelcome": true,
     "conditionalSpecialtySections": true,
-    "examplesOnEveryField": true
+    "examplesOnEveryField": true,
+    "allSectionsVisible": true,
+    "allQuestionsAccessible": true,
+    "optionalQuestionSkipButton": true,
+    "skipSectionButton": true,
+    "legalCriticalQuestionsCannotBeSkippedWhenNeededForFinalization": true,
+    "skippedQuestionsCanBeRevisited": true,
+    "hideIrrelevantQuestionsByDefault": false,
+    "conditionalQuestionBadges": true
   },
   "sections": [
     {
@@ -1563,5 +1571,21 @@
         }
       ]
     }
-  ]
+  ],
+  "navigation": {
+    "mode": "complete-catalog",
+    "description": "Every standard and specialty section remains discoverable. Customers may skip optional entries or entire optional sections. Show relevance guidance, not hidden options.",
+    "questionActions": [
+      "Save answer",
+      "Skip for now",
+      "Why this matters",
+      "See example"
+    ],
+    "sectionActions": [
+      "Review section so far",
+      "Skip remaining optional entries",
+      "Continue"
+    ],
+    "legalGate": "Legal-critical data is requested only when a specific legally sensitive output requires it. Missing data does not block saving or draft preview; affected final content is marked incomplete."
+  }
 }
