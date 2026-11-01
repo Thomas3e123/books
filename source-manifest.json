@@ -2462,7 +2462,7 @@
     },
     {
       "path": "functions/handbook-square-sandbox/index.mjs",
-      "sha256": "8b565c535e8ef86a760a5e4e48301a12eb99872a9b2edd1cb551b3fb2b0867cd"
+      "sha256": "708ad6fab76486e0f2d904306efa9eceee74adda81974d7b192aed2c7214c77a"
     },
     {
       "path": "functions/identity.mjs",
