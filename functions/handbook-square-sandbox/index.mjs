@@ -17,7 +17,7 @@ export async function handle(request,{secret,token,fetchImpl=fetch}){
  if(b.action==='locations'){const d=await square('/v2/locations');return json({locations:(d.locations||[]).filter(l=>l.status==='ACTIVE'&&l.currency==='USD').map(l=>({id:l.id,merchantId:l.merchant_id,name:l.name,currency:l.currency}))});}
  if(b.action==='checkout'){
  if(!id(b.purchaseId)||!id(b.locationId))return json({error:'Invalid purchase'},400);
- const d=await square('/v2/online-checkout/payment-links',{idempotency_key:b.purchaseId,order:{location_id:b.locationId,reference_id:b.purchaseId,line_items:[{name:'Gravity Handbook Creator — unlimited handbook unlock (SANDBOX)',quantity:'1',base_price_money:money}]},checkout_options:{redirect_url:RETURN,allow_tipping:false,ask_for_shipping_address:false}});
+ const d=await square('/v2/online-checkout/payment-links',{idempotency_key:b.purchaseId,order:{location_id:b.locationId,reference_id:b.purchaseId,line_items:[{name:'Gravity Handbook Creator — unlimited handbook unlock (SANDBOX)',quantity:'1',base_price_money:money}]},checkout_options:{redirect_url:b.returnTarget==='customer'?'https://gravity-handbook-private-test.thomas3e.chatgpt.site/customer.html?checkout=return':RETURN,allow_tipping:false,ask_for_shipping_address:false}});
  return json({orderId:d.payment_link.order_id,checkoutId:d.payment_link.id,url:d.payment_link.url});
  }
  if(!id(b.orderId))return json({error:'Invalid order'},400);
