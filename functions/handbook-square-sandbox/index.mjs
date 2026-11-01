@@ -11,7 +11,7 @@ export async function handle(request,{secret,token,fetchImpl=fetch}){
  if(!secret||!same(request.headers.get('Authorization'),`Bearer ${secret}`))return json({error:'Unauthorized'},401);
  if(!token)return json({error:'Square sandbox token is missing'},503);
  let b;try{const raw=await request.text();if(raw.length>12000)return json({error:'Request too large'},413);b=JSON.parse(raw);}catch{return json({error:'Invalid JSON'},400);}
- async function square(path,body){const r=await fetchImpl(BASE+path,{method:body?'POST':'GET',headers:{Authorization:`Bearer ${token}`,'Square-Version':VERSION,'Content-Type':'application/json'},...(body?{body:JSON.stringify(body)}:{})});const d=await r.json();if(!r.ok||d.errors?.length){const e=Error('Square sandbox request failed');e.code=d.errors?.[0]?.code||'SQUARE_ERROR';e.status=r.status;throw e;}return d;}
+ async function square(path,body,method){const r=await fetchImpl(BASE+path,{method:method||(body?'POST':'GET'),headers:{Authorization:`Bearer ${token}`,'Square-Version':VERSION,'Content-Type':'application/json'},...(body?{body:JSON.stringify(body)}:{})});const d=await r.json();if(!r.ok||d.errors?.length){const e=Error('Square sandbox request failed');e.code=d.errors?.[0]?.code||'SQUARE_ERROR';e.status=r.status;throw e;}return d;}
  const id=s=>typeof s==='string'&&/^[\w-]{12,192}$/.test(s);
  try{
  if(b.action==='locations'){const d=await square('/v2/locations');return json({locations:(d.locations||[]).filter(l=>l.status==='ACTIVE'&&l.currency==='USD').map(l=>({id:l.id,merchantId:l.merchant_id,name:l.name,currency:l.currency}))});}
@@ -25,12 +25,13 @@ export async function handle(request,{secret,token,fetchImpl=fetch}){
  if(!id(b.purchaseId)||!id(b.locationId)||!['approved','declined','pending'].includes(b.scenario))return json({error:'Invalid test'},400);
  const order=(await square('/v2/orders/'+encodeURIComponent(b.orderId))).order;
  if(order.reference_id!==b.purchaseId||order.location_id!==b.locationId||order.total_money?.amount!==2900||order.total_money?.currency!=='USD')return json({error:'Order binding mismatch'},409);
+ if(order.state==='DRAFT')await square('/v2/orders/'+encodeURIComponent(b.orderId),{idempotency_key:b.purchaseId+'-open',order:{version:order.version,state:'OPEN'}},'PUT');
  const d=await square('/v2/payments',{idempotency_key:b.purchaseId+'-'+b.scenario,source_id:b.scenario==='declined'?'cnon:card-nonce-declined':'cnon:card-nonce-ok',amount_money:money,order_id:b.orderId,location_id:b.locationId,autocomplete:b.scenario!=='pending'});
  return json({paymentId:d.payment.id,status:d.payment.status});
  }
  if(b.action==='verify'){
  const order=(await square('/v2/orders/'+encodeURIComponent(b.orderId))).order;
- const paymentId=order.tenders?.find(t=>t.payment_id)?.payment_id||b.paymentId;
+ const paymentId=order.tenders?.find(t=>t.payment_id||t.id)?.payment_id||order.tenders?.find(t=>t.id)?.id||b.paymentId;
  const payment=paymentId&&id(paymentId)?(await square('/v2/payments/'+encodeURIComponent(paymentId))).payment:null;
  // Return only validation fields. Never transmit buyer/card details.
  return json({order:{id:order.id,state:order.state,reference_id:order.reference_id,location_id:order.location_id,total_money:order.total_money,line_items:order.line_items?.map(i=>({quantity:i.quantity,base_price_money:i.base_price_money}))},payment:payment?{id:payment.id,status:payment.status,order_id:payment.order_id,location_id:payment.location_id,amount_money:payment.amount_money,refunded_money:payment.refunded_money}:null});
