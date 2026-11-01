@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Gravity Employee Handbook Creator Project",
+  "type": "object",
+  "required": [
+    "formatVersion",
+    "projectId",
+    "business",
+    "answers",
+    "revisions",
+    "sectionStatus"
+  ],
+  "properties": {
+    "formatVersion": {
+      "const": "0.1.0"
+    },
+    "projectId": {
+      "type": "string"
+    },
+    "business": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "locations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "answers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "value",
+          "updatedAt"
+        ],
+        "properties": {
+          "value": {},
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "source": {
+            "enum": [
+              "owner",
+              "imported"
+            ]
+          }
+        }
+      }
+    },
+    "revisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "questionId",
+          "changedAt"
+        ],
+        "properties": {
+          "questionId": {
+            "type": "string"
+          },
+          "oldValue": {},
+          "newValue": {},
+          "changedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "sectionStatus": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "not_started",
+          "in_progress",
+          "review",
+          "approved",
+          "pending_reconciliation"
+        ]
+      }
+    },
+    "edition": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}
