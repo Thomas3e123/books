@@ -1,0 +1,1567 @@
+{
+  "version": "0.2.0",
+  "status": "research-backed coverage map; NOT a legally reviewed policy library",
+  "sources": [
+    "https://www.dol.gov/agencies/whd/compliance-assistance/toolkits/restaurant",
+    "https://www.dol.gov/agencies/whd/fact-sheets/15-tipped-employees-flsa",
+    "https://www.dol.gov/agencies/whd/fact-sheets/2a-child-labor-restaurants",
+    "https://www.eeoc.gov/checklists-employers-0",
+    "https://www.fda.gov/food/fda-food-code/food-code-2022",
+    "https://www.dol.gov/agencies/whd/pump-at-work/faqs-retail-restaurants",
+    "https://www.restaurantowner.com/public/Restaurant-Employee-Handbook-Templates.cfm"
+  ],
+  "design": {
+    "allInputsOptionalByDefault": true,
+    "legalGateReviewedSeparately": true,
+    "firstPreviewAfterWelcome": true,
+    "conditionalSpecialtySections": true,
+    "examplesOnEveryField": true
+  },
+  "sections": [
+    {
+      "id": "welcome",
+      "title": "Welcome & Restaurant Identity",
+      "questions": [
+        {
+          "id": "welcome.name",
+          "label": "Name",
+          "type": "text",
+          "required": false,
+          "example": "Example: Riverside Family Grill",
+          "legalReview": false
+        },
+        {
+          "id": "welcome.logo",
+          "label": "Logo",
+          "type": "image",
+          "required": false,
+          "example": "Example: Upload a PNG or JPG logo, or skip for now",
+          "legalReview": false
+        },
+        {
+          "id": "welcome.mission",
+          "label": "Mission",
+          "type": "text",
+          "required": false,
+          "example": "Example: We serve fresh meals with friendly, consistent service.",
+          "legalReview": false
+        },
+        {
+          "id": "welcome.values",
+          "label": "Values",
+          "type": "text",
+          "required": false,
+          "example": "Example: Respect, safety, teamwork, and accountability.",
+          "legalReview": false
+        },
+        {
+          "id": "welcome.story",
+          "label": "Story",
+          "type": "text",
+          "required": false,
+          "example": "Example: Our family opened this restaurant to bring neighbors together.",
+          "legalReview": false
+        },
+        {
+          "id": "welcome.guest_promise",
+          "label": "Guest Promise",
+          "type": "text",
+          "required": false,
+          "example": "Example: Greet guests promptly and resolve concerns respectfully.",
+          "legalReview": false
+        },
+        {
+          "id": "welcome.locations",
+          "label": "Locations",
+          "type": "text",
+          "required": false,
+          "example": "Example: Memphis, Tennessee",
+          "legalReview": false
+        },
+        {
+          "id": "welcome.languages",
+          "label": "Languages",
+          "type": "text",
+          "required": false,
+          "example": "Example: English and Spanish",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "employment",
+      "title": "Employment & Onboarding",
+      "questions": [
+        {
+          "id": "employment.employment_status",
+          "label": "Employment Status",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's employment status practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.classifications",
+          "label": "Classifications",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's classifications practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.hiring",
+          "label": "Hiring",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's hiring practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.background_checks",
+          "label": "Background Checks",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's background checks practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.work_authorization",
+          "label": "Work Authorization",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's work authorization practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.orientation",
+          "label": "Orientation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's orientation practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.intro_period",
+          "label": "Intro Period",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's intro period practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.job_descriptions",
+          "label": "Job Descriptions",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's job descriptions practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.cross_training",
+          "label": "Cross Training",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's cross training practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.performance_reviews",
+          "label": "Performance Reviews",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's performance reviews practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.promotions",
+          "label": "Promotions",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's promotions practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.resignation",
+          "label": "Resignation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's resignation practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "scheduling",
+      "title": "Scheduling, Attendance & Timekeeping",
+      "questions": [
+        {
+          "id": "scheduling.availability",
+          "label": "Availability",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's availability practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.schedule_publication",
+          "label": "Schedule Publication",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's schedule publication practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.changes",
+          "label": "Changes",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's changes practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.shift_swaps",
+          "label": "Shift Swaps",
+          "type": "text",
+          "required": false,
+          "example": "Example: Both employees must obtain management approval before a swap.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.call_out",
+          "label": "Call Out",
+          "type": "text",
+          "required": false,
+          "example": "Example: Call the manager on duty as soon as you know you will miss a shift.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.no_show",
+          "label": "No Show",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's no show practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.timeclock",
+          "label": "Timeclock",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's timeclock practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.off_clock_work",
+          "label": "Off Clock Work",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's off clock work practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.breaks",
+          "label": "Breaks",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's breaks practice in one or two sentences, or skip for now.",
+          "legalReview": true
+        },
+        {
+          "id": "scheduling.overtime",
+          "label": "Overtime",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's overtime practice in one or two sentences, or skip for now.",
+          "legalReview": true
+        },
+        {
+          "id": "scheduling.split_shifts",
+          "label": "Split Shifts",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's split shifts practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.on_call",
+          "label": "On Call",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's on call practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.weather_closures",
+          "label": "Weather Closures",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's weather closures practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "compensation",
+      "title": "Pay, Tips & Benefits",
+      "questions": [
+        {
+          "id": "compensation.payday",
+          "label": "Payday",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's payday practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.direct_deposit",
+          "label": "Direct Deposit",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's direct deposit practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.wage_notices",
+          "label": "Wage Notices",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's wage notices practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.tips",
+          "label": "Tips",
+          "type": "text",
+          "required": false,
+          "example": "Example: Servers report all tips received through the approved payroll process.",
+          "legalReview": true
+        },
+        {
+          "id": "compensation.tip_credit",
+          "label": "Tip Credit",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's tip credit practice in one or two sentences, or skip for now.",
+          "legalReview": true
+        },
+        {
+          "id": "compensation.tip_pools",
+          "label": "Tip Pools",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe which eligible roles participate and how distributions are calculated; legal review required.",
+          "legalReview": true
+        },
+        {
+          "id": "compensation.service_charges",
+          "label": "Service Charges",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's service charges practice in one or two sentences, or skip for now.",
+          "legalReview": true
+        },
+        {
+          "id": "compensation.automatic_gratuity",
+          "label": "Automatic Gratuity",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's automatic gratuity practice in one or two sentences, or skip for now.",
+          "legalReview": true
+        },
+        {
+          "id": "compensation.credit_card_tips",
+          "label": "Credit Card Tips",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's credit card tips practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.dual_jobs",
+          "label": "Dual Jobs",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's dual jobs practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.cash_shortages",
+          "label": "Cash Shortages",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's cash shortages practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.deductions",
+          "label": "Deductions",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's deductions practice in one or two sentences, or skip for now.",
+          "legalReview": true
+        },
+        {
+          "id": "compensation.bonuses",
+          "label": "Bonuses",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's bonuses practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.employee_meals",
+          "label": "Employee Meals",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's employee meals practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.discounts",
+          "label": "Discounts",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's discounts practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.insurance",
+          "label": "Insurance",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's insurance practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.pto",
+          "label": "Pto",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's pto practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.holidays",
+          "label": "Holidays",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's holidays practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "workplace",
+      "title": "Workplace Conduct & Culture",
+      "questions": [
+        {
+          "id": "workplace.respect",
+          "label": "Respect",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's respect practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.harassment",
+          "label": "Harassment",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's harassment practice in one or two sentences, or skip for now.",
+          "legalReview": true
+        },
+        {
+          "id": "workplace.complaints",
+          "label": "Complaints",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's complaints practice in one or two sentences, or skip for now.",
+          "legalReview": true
+        },
+        {
+          "id": "workplace.alternate_reporting",
+          "label": "Alternate Reporting",
+          "type": "text",
+          "required": false,
+          "example": "Example: Employees may report concerns to the owner if their manager is involved.",
+          "legalReview": true
+        },
+        {
+          "id": "workplace.nonretaliation",
+          "label": "Nonretaliation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's nonretaliation practice in one or two sentences, or skip for now.",
+          "legalReview": true
+        },
+        {
+          "id": "workplace.investigation",
+          "label": "Investigation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's investigation practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.confidentiality",
+          "label": "Confidentiality",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's confidentiality practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.conflicts",
+          "label": "Conflicts",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's conflicts practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.dating",
+          "label": "Dating",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's dating practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.social_media",
+          "label": "Social Media",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's social media practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.phones",
+          "label": "Phones",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's phones practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.privacy",
+          "label": "Privacy",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's privacy practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.surveillance",
+          "label": "Surveillance",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's surveillance practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.cash_handling",
+          "label": "Cash Handling",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's cash handling practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.theft",
+          "label": "Theft",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's theft practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.discipline",
+          "label": "Discipline",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's discipline practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.appeals",
+          "label": "Appeals",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's appeals practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "safety",
+      "title": "Safety, Food Safety & Emergencies",
+      "questions": [
+        {
+          "id": "safety.illness_reporting",
+          "label": "Illness Reporting",
+          "type": "text",
+          "required": false,
+          "example": "Example: Notify the person in charge promptly about symptoms that may affect food safety.",
+          "legalReview": true
+        },
+        {
+          "id": "safety.exclusion",
+          "label": "Exclusion",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's exclusion practice in one or two sentences, or skip for now.",
+          "legalReview": true
+        },
+        {
+          "id": "safety.allergens",
+          "label": "Allergens",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's allergens practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.cross_contact",
+          "label": "Cross Contact",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's cross contact practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.handwashing",
+          "label": "Handwashing",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's handwashing practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.sanitation",
+          "label": "Sanitation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's sanitation practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.temperature_control",
+          "label": "Temperature Control",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's temperature control practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.chemical_safety",
+          "label": "Chemical Safety",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's chemical safety practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.slips",
+          "label": "Slips",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's slips practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.burns",
+          "label": "Burns",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's burns practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.cuts",
+          "label": "Cuts",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's cuts practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.knife_use",
+          "label": "Knife Use",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's knife use practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.equipment",
+          "label": "Equipment",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's equipment practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.injury_reporting",
+          "label": "Injury Reporting",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's injury reporting practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.workers_comp",
+          "label": "Workers Comp",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's workers comp practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.fire",
+          "label": "Fire",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's fire practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.severe_weather",
+          "label": "Severe Weather",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's severe weather practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.violence",
+          "label": "Violence",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's violence practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.active_threat",
+          "label": "Active Threat",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's active threat practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.evacuation",
+          "label": "Evacuation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's evacuation practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.power_outage",
+          "label": "Power Outage",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's power outage practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "service",
+      "title": "Guest Service & Operations",
+      "questions": [
+        {
+          "id": "service.service_standards",
+          "label": "Service Standards",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's service standards practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "service.complaints",
+          "label": "Complaints",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's complaints practice in one or two sentences, or skip for now.",
+          "legalReview": true
+        },
+        {
+          "id": "service.refunds",
+          "label": "Refunds",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's refunds practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "service.comps",
+          "label": "Comps",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's comps practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "service.voids",
+          "label": "Voids",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's voids practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "service.reservations",
+          "label": "Reservations",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's reservations practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "service.takeout",
+          "label": "Takeout",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's takeout practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "service.delivery",
+          "label": "Delivery",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's delivery practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "service.cash_register",
+          "label": "Cash Register",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's cash register practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "service.lost_found",
+          "label": "Lost Found",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's lost found practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "service.accessibility",
+          "label": "Accessibility",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's accessibility practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "service.service_animals",
+          "label": "Service Animals",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's service animals practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "service.guest_privacy",
+          "label": "Guest Privacy",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's guest privacy practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "service.guest_allergies",
+          "label": "Guest Allergies",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's guest allergies practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "uniforms",
+      "title": "Uniforms & Appearance",
+      "questions": [
+        {
+          "id": "uniforms.dress_code",
+          "label": "Dress Code",
+          "type": "text",
+          "required": false,
+          "example": "Example: Clean black pants and slip-resistant shoes.",
+          "legalReview": false
+        },
+        {
+          "id": "uniforms.grooming",
+          "label": "Grooming",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's grooming practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "uniforms.hair_restraints",
+          "label": "Hair Restraints",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's hair restraints practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "uniforms.jewelry",
+          "label": "Jewelry",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's jewelry practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "uniforms.footwear",
+          "label": "Footwear",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's footwear practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "uniforms.uniform_issued",
+          "label": "Uniform Issued",
+          "type": "text",
+          "required": false,
+          "example": "Example: Company provides two shirts.",
+          "legalReview": false
+        },
+        {
+          "id": "uniforms.uniform_care",
+          "label": "Uniform Care",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's uniform care practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "uniforms.uniform_return",
+          "label": "Uniform Return",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's uniform return practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "uniforms.religious_accommodation",
+          "label": "Religious Accommodation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's religious accommodation practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "leave",
+      "title": "Leave, Accommodations & Protected Rights",
+      "questions": [
+        {
+          "id": "leave.sick_leave",
+          "label": "Sick Leave",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's sick leave practice in one or two sentences, or skip for now.",
+          "legalReview": true
+        },
+        {
+          "id": "leave.family_leave",
+          "label": "Family Leave",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's family leave practice in one or two sentences, or skip for now.",
+          "legalReview": true
+        },
+        {
+          "id": "leave.military_leave",
+          "label": "Military Leave",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's military leave practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "leave.jury_duty",
+          "label": "Jury Duty",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's jury duty practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "leave.bereavement",
+          "label": "Bereavement",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's bereavement practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "leave.pregnancy_accommodation",
+          "label": "Pregnancy Accommodation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's pregnancy accommodation practice in one or two sentences, or skip for now.",
+          "legalReview": true
+        },
+        {
+          "id": "leave.disability_accommodation",
+          "label": "Disability Accommodation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's disability accommodation practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "leave.religious_accommodation",
+          "label": "Religious Accommodation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's religious accommodation practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "leave.lactation",
+          "label": "Lactation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's lactation practice in one or two sentences, or skip for now.",
+          "legalReview": true
+        },
+        {
+          "id": "leave.protected_concerted_activity",
+          "label": "Protected Concerted Activity",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's protected concerted activity practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "leave.whistleblowing",
+          "label": "Whistleblowing",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's whistleblowing practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "alcohol",
+      "title": "Alcohol & Responsible Service",
+      "questions": [
+        {
+          "id": "alcohol.licensed",
+          "label": "Licensed",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's licensed practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "alcohol.age_verification",
+          "label": "Age Verification",
+          "type": "text",
+          "required": false,
+          "example": "Example: Verify customer identification before serving age-restricted products.",
+          "legalReview": true
+        },
+        {
+          "id": "alcohol.server_certification",
+          "label": "Server Certification",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's server certification practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "alcohol.intoxication",
+          "label": "Intoxication",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's intoxication practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "alcohol.refusal",
+          "label": "Refusal",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's refusal practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "alcohol.incident_reporting",
+          "label": "Incident Reporting",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's incident reporting practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "alcohol.employee_consumption",
+          "label": "Employee Consumption",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's employee consumption practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "alcohol.alcohol_storage",
+          "label": "Alcohol Storage",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's alcohol storage practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "alcohol.corkage",
+          "label": "Corkage",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's corkage practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "alcohol.tastings",
+          "label": "Tastings",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's tastings practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "youth",
+      "title": "Minors & Student Employees",
+      "questions": [
+        {
+          "id": "youth.minors_employed",
+          "label": "Minors Employed",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's minors employed practice in one or two sentences, or skip for now.",
+          "legalReview": true
+        },
+        {
+          "id": "youth.age_verification",
+          "label": "Age Verification",
+          "type": "text",
+          "required": false,
+          "example": "Example: Verify customer identification before serving age-restricted products.",
+          "legalReview": true
+        },
+        {
+          "id": "youth.restricted_equipment",
+          "label": "Restricted Equipment",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's restricted equipment practice in one or two sentences, or skip for now.",
+          "legalReview": true
+        },
+        {
+          "id": "youth.restricted_hours",
+          "label": "Restricted Hours",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's restricted hours practice in one or two sentences, or skip for now.",
+          "legalReview": true
+        },
+        {
+          "id": "youth.school_schedules",
+          "label": "School Schedules",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's school schedules practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "youth.delivery_driving",
+          "label": "Delivery Driving",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's delivery driving practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "youth.supervision",
+          "label": "Supervision",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's supervision practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "special",
+      "title": "Specialized Restaurant Operations",
+      "questions": [
+        {
+          "id": "special.food_truck",
+          "label": "Food Truck",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's food truck practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "mobile_food"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.commissary",
+          "label": "Commissary",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's commissary practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "mobile_food"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.catering",
+          "label": "Catering",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's catering practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "events"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.banquets",
+          "label": "Banquets",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's banquets practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "events"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.buffet",
+          "label": "Buffet",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's buffet practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "buffet"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.self_service",
+          "label": "Self Service",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's self service practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "buffet"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.drive_thru",
+          "label": "Drive Thru",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's drive thru practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "quick_service"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.ghost_kitchen",
+          "label": "Ghost Kitchen",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's ghost kitchen practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "delivery"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.third_party_delivery",
+          "label": "Third Party Delivery",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's third party delivery practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "delivery"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.hotel_room_service",
+          "label": "Hotel Room Service",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's hotel room service practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "hotel"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.bakery",
+          "label": "Bakery",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's bakery practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "bakery"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.coffee",
+          "label": "Coffee",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's coffee practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "coffee_shop"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.bar",
+          "label": "Bar",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's bar practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "bar"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.late_night",
+          "label": "Late Night",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's late night practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "late_night"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.seasonal",
+          "label": "Seasonal",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's seasonal practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "seasonal"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.multi_location",
+          "label": "Multi Location",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's multi location practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "multi_location"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.franchise",
+          "label": "Franchise",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's franchise practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "franchise"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.union",
+          "label": "Union",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's union practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "union"
+          },
+          "legalReview": true
+        },
+        {
+          "id": "special.collective_bargaining",
+          "label": "Collective Bargaining",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's collective bargaining practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "union"
+          },
+          "legalReview": true
+        },
+        {
+          "id": "special.multilingual_staff",
+          "label": "Multilingual Staff",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's multilingual staff practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "multilingual"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.shared_tips",
+          "label": "Shared Tips",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's shared tips practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "tipped"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.live_music",
+          "label": "Live Music",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's live music practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "entertainment"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.security",
+          "label": "Security",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's security practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "entertainment"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.cashless",
+          "label": "Cashless",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's cashless practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "cashless"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.outdoor_dining",
+          "label": "Outdoor Dining",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's outdoor dining practice in one or two sentences, or skip for now.",
+          "when": {
+            "profileIncludes": "outdoor"
+          },
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "separation",
+      "title": "Separation & Acknowledgments",
+      "questions": [
+        {
+          "id": "separation.final_pay",
+          "label": "Final Pay",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's final pay practice in one or two sentences, or skip for now.",
+          "legalReview": true
+        },
+        {
+          "id": "separation.property_return",
+          "label": "Property Return",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's property return practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "separation.uniform_return",
+          "label": "Uniform Return",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's uniform return practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "separation.access_removal",
+          "label": "Access Removal",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's access removal practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "separation.references",
+          "label": "References",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's references practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "separation.handbook_receipt",
+          "label": "Handbook Receipt",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's handbook receipt practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "separation.policy_acknowledgment",
+          "label": "Policy Acknowledgment",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's policy acknowledgment practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "separation.training_acknowledgment",
+          "label": "Training Acknowledgment",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's training acknowledgment practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        },
+        {
+          "id": "separation.revision_acknowledgment",
+          "label": "Revision Acknowledgment",
+          "type": "text",
+          "required": false,
+          "example": "Example: Describe your restaurant's revision acknowledgment practice in one or two sentences, or skip for now.",
+          "legalReview": false
+        }
+      ]
+    }
+  ]
+}
