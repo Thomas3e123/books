@@ -2461,6 +2461,10 @@
       "sha256": "d7f0611754891745c013fadd710cefd433d7695637ecddb38716951e42753759"
     },
     {
+      "path": "functions/handbook-square-sandbox/index.mjs",
+      "sha256": "8b565c535e8ef86a760a5e4e48301a12eb99872a9b2edd1cb551b3fb2b0867cd"
+    },
+    {
       "path": "functions/identity.mjs",
       "sha256": "28b0fd83c554fee253f71843c03d03c32003146169fbbc3aa552f88fc410e429"
     },
