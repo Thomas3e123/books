@@ -1,5 +1,5 @@
 {
-  "version": "0.3.0",
+  "version": "0.4.0",
   "status": "research-backed coverage map; NOT a legally reviewed policy library",
   "sources": [
     "https://www.dol.gov/agencies/whd/compliance-assistance/toolkits/restaurant",
@@ -1578,14 +1578,33 @@
     "questionActions": [
       "Save answer",
       "Skip for now",
+      "Skip altogether",
       "Why this matters",
       "See example"
     ],
     "sectionActions": [
       "Review section so far",
-      "Skip remaining optional entries",
+      "Skip remaining optional entries for now",
+      "Skip remaining optional entries altogether",
       "Continue"
     ],
-    "legalGate": "Legal-critical data is requested only when a specific legally sensitive output requires it. Missing data does not block saving or draft preview; affected final content is marked incomplete."
+    "legalGate": "Legal-critical data is requested only when a specific legally sensitive output requires it. Missing data does not block saving or draft preview; affected final content is marked incomplete.",
+    "skipSemantics": {
+      "deferred": "Skip for now adds the question to a final Review Later queue. Preserve section and question context and provide a one-click return.",
+      "excluded": "Skip altogether explicitly excludes the question from the final Review Later queue and omits its unanswered policy from the handbook. It remains reversible from the complete question catalog.",
+      "answered": "Answered questions are neither deferred nor excluded.",
+      "legal": "Legal-critical questions cannot be excluded when needed to finalize affected legal-sensitive policies. Allow draft progress and explain unresolved requirements."
+    },
+    "finalReview": {
+      "title": "Finish Your Handbook — Questions to Revisit",
+      "includes": "All and only Skip for now questions that remain unanswered, grouped by section",
+      "actions": [
+        "Answer now",
+        "Keep for later",
+        "Skip altogether"
+      ],
+      "emptyState": "No deferred questions remain",
+      "gate": "Review queue is separate from legal completeness checks and payment."
+    }
   }
 }
