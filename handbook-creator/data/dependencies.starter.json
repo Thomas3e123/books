@@ -1,0 +1,50 @@
+{
+  "version": "0.1.0",
+  "note": "Illustrative dependency rules; extend across the full interview.",
+  "rules": [
+    {
+      "questionId": "uniforms.return_required",
+      "affects": [
+        "uniforms",
+        "separation",
+        "company_property",
+        "acknowledgments"
+      ]
+    },
+    {
+      "questionId": "uniforms.return_days",
+      "affects": [
+        "uniforms",
+        "separation",
+        "company_property",
+        "acknowledgments"
+      ]
+    },
+    {
+      "questionId": "uniforms.return_contact",
+      "affects": [
+        "uniforms",
+        "separation",
+        "company_property"
+      ]
+    },
+    {
+      "questionId": "business.locations",
+      "affects": [
+        "jurisdiction_review",
+        "compensation",
+        "leave",
+        "scheduling",
+        "separation"
+      ]
+    },
+    {
+      "questionId": "business.employee_count",
+      "affects": [
+        "jurisdiction_review",
+        "leave",
+        "accommodations"
+      ]
+    }
+  ]
+}
