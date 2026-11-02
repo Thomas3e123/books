@@ -1,0 +1,1610 @@
+{
+  "version": "0.5.0-private-test",
+  "status": "research-backed coverage map; NOT a legally reviewed policy library",
+  "sources": [
+    "https://www.dol.gov/agencies/whd/compliance-assistance/toolkits/restaurant",
+    "https://www.dol.gov/agencies/whd/fact-sheets/15-tipped-employees-flsa",
+    "https://www.dol.gov/agencies/whd/fact-sheets/2a-child-labor-restaurants",
+    "https://www.eeoc.gov/checklists-employers-0",
+    "https://www.fda.gov/food/fda-food-code/food-code-2022",
+    "https://www.dol.gov/agencies/whd/pump-at-work/faqs-retail-restaurants",
+    "https://www.restaurantowner.com/public/Restaurant-Employee-Handbook-Templates.cfm"
+  ],
+  "design": {
+    "allInputsOptionalByDefault": true,
+    "legalGateReviewedSeparately": true,
+    "firstPreviewAfterWelcome": true,
+    "conditionalSpecialtySections": true,
+    "examplesOnEveryField": true,
+    "allSectionsVisible": true,
+    "allQuestionsAccessible": true,
+    "optionalQuestionSkipButton": true,
+    "skipSectionButton": true,
+    "legalCriticalQuestionsCannotBeSkippedWhenNeededForFinalization": true,
+    "skippedQuestionsCanBeRevisited": true,
+    "hideIrrelevantQuestionsByDefault": false,
+    "conditionalQuestionBadges": true
+  },
+  "sections": [
+    {
+      "id": "welcome",
+      "title": "Welcome & About Our Restaurant",
+      "questions": [
+        {
+          "id": "welcome.name",
+          "label": "Name",
+          "type": "text",
+          "required": false,
+          "example": "Example: Riverside Family Grill",
+          "legalReview": false
+        },
+        {
+          "id": "welcome.mission",
+          "label": "Mission",
+          "type": "text",
+          "required": false,
+          "example": "Example: We serve fresh meals with friendly, consistent service.",
+          "legalReview": false
+        },
+        {
+          "id": "welcome.values",
+          "label": "Values",
+          "type": "text",
+          "required": false,
+          "example": "Example: Respect, safety, teamwork, and accountability.",
+          "legalReview": false
+        },
+        {
+          "id": "welcome.story",
+          "label": "Story",
+          "type": "text",
+          "required": false,
+          "example": "Example: Our family opened this restaurant to bring neighbors together.",
+          "legalReview": false
+        },
+        {
+          "id": "welcome.guest_promise",
+          "label": "Guest Promise",
+          "type": "text",
+          "required": false,
+          "example": "Example: Greet guests promptly and resolve concerns respectfully.",
+          "legalReview": false
+        },
+        {
+          "id": "welcome.logo",
+          "label": "Logo",
+          "type": "image",
+          "required": false,
+          "example": "Example: Upload a PNG or JPG logo, or skip for now",
+          "legalReview": false
+        },
+        {
+          "id": "welcome.locations",
+          "label": "Locations",
+          "type": "text",
+          "required": false,
+          "example": "Example: Memphis, Tennessee",
+          "legalReview": false
+        },
+        {
+          "id": "welcome.languages",
+          "label": "Languages",
+          "type": "text",
+          "required": false,
+          "example": "Example: English and Spanish",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "employment",
+      "title": "Employment & Onboarding",
+      "questions": [
+        {
+          "id": "employment.employment_status",
+          "label": "Employment Status",
+          "type": "text",
+          "required": false,
+          "example": "Example: Your written offer identifies your position and employment arrangement. Direct questions to the general manager.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.classifications",
+          "label": "Classifications",
+          "type": "text",
+          "required": false,
+          "example": "Example: We use full-time, part-time, and seasonal positions. Your offer identifies your classification.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.hiring",
+          "label": "Hiring",
+          "type": "text",
+          "required": false,
+          "example": "Example: The general manager coordinates interviews and confirms offers in writing.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.background_checks",
+          "label": "Background Checks",
+          "type": "text",
+          "required": false,
+          "example": "Example: If a position requires screening, management explains the process before requesting authorization.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.work_authorization",
+          "label": "Work Authorization",
+          "type": "text",
+          "required": false,
+          "example": "Example: The hiring manager coordinates work-authorization paperwork during onboarding.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.orientation",
+          "label": "Orientation",
+          "type": "text",
+          "required": false,
+          "example": "Example: New employees tour the restaurant, review safety procedures, and meet their station trainer.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.intro_period",
+          "label": "Intro Period",
+          "type": "text",
+          "required": false,
+          "example": "Example: Your first 30 days include regular training check-ins with your manager.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.job_descriptions",
+          "label": "Job Descriptions",
+          "type": "text",
+          "required": false,
+          "example": "Example: Review your job description with your manager before beginning independent work.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.cross_training",
+          "label": "Cross Training",
+          "type": "text",
+          "required": false,
+          "example": "Example: Ask your manager about learning another station. A trainer must sign off before independent work.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.performance_reviews",
+          "label": "Performance Reviews",
+          "type": "text",
+          "required": false,
+          "example": "Example: Managers meet with employees every six months to discuss performance and development.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.promotions",
+          "label": "Promotions",
+          "type": "text",
+          "required": false,
+          "example": "Example: Employees may discuss advancement interests with the general manager.",
+          "legalReview": false
+        },
+        {
+          "id": "employment.resignation",
+          "label": "Resignation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Give resignation notices to the general manager so the team can plan the transition.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "scheduling",
+      "title": "Scheduling, Attendance & Timekeeping",
+      "questions": [
+        {
+          "id": "scheduling.availability",
+          "label": "Availability",
+          "type": "text",
+          "required": false,
+          "example": "Example: Submit availability changes to the scheduling manager before the next schedule is prepared.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.schedule_publication",
+          "label": "Schedule Publication",
+          "type": "text",
+          "required": false,
+          "example": "Example: The next week's schedule is posted in the scheduling app each Thursday.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.changes",
+          "label": "Changes",
+          "type": "text",
+          "required": false,
+          "example": "Example: Management communicates schedule changes directly to affected employees.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.shift_swaps",
+          "label": "Shift Swaps",
+          "type": "text",
+          "required": false,
+          "example": "Example: Both employees must receive manager approval before swapping shifts.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.call_out",
+          "label": "Call Out",
+          "type": "text",
+          "required": false,
+          "example": "Example: Call the manager on duty as soon as you know you cannot work your shift.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.no_show",
+          "label": "No Show",
+          "type": "text",
+          "required": false,
+          "example": "Example: If someone misses a shift without contact, the manager attempts to reach them and reviews the circumstances.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.timeclock",
+          "label": "Timeclock",
+          "type": "text",
+          "required": false,
+          "example": "Example: Record your start, end, and break times using the timeclock. Report missed punches to your manager.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.off_clock_work",
+          "label": "Off Clock Work",
+          "type": "text",
+          "required": false,
+          "example": "Example: Record all time worked. Report any work performed outside a recorded shift to management.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.breaks",
+          "label": "Breaks",
+          "type": "text",
+          "required": false,
+          "example": "Example: Check with the shift manager before taking a break so your station has coverage.",
+          "legalReview": true
+        },
+        {
+          "id": "scheduling.overtime",
+          "label": "Overtime",
+          "type": "text",
+          "required": false,
+          "example": "Example: Ask your manager before working beyond your scheduled hours. Record all hours actually worked.",
+          "legalReview": true
+        },
+        {
+          "id": "scheduling.split_shifts",
+          "label": "Split Shifts",
+          "type": "text",
+          "required": false,
+          "example": "Example: The scheduling manager discusses split-shift assignments with affected employees.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.on_call",
+          "label": "On Call",
+          "type": "text",
+          "required": false,
+          "example": "Example: Any on-call assignment must be communicated by the scheduling manager.",
+          "legalReview": false
+        },
+        {
+          "id": "scheduling.weather_closures",
+          "label": "Weather Closures",
+          "type": "text",
+          "required": false,
+          "example": "Example: Check the staff communication channel for closure updates and contact the manager if travel is unsafe.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "compensation",
+      "title": "Pay, Tips & Benefits",
+      "questions": [
+        {
+          "id": "compensation.payday",
+          "label": "Payday",
+          "type": "text",
+          "required": false,
+          "example": "Example: Payday is every other Friday. Contact payroll with questions about your pay statement.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.direct_deposit",
+          "label": "Direct Deposit",
+          "type": "text",
+          "required": false,
+          "example": "Example: Ask payroll for the available payment methods and the forms needed to set up your choice.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.wage_notices",
+          "label": "Wage Notices",
+          "type": "text",
+          "required": false,
+          "example": "Example: Payroll provides written pay information during onboarding and communicates approved changes.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.tips",
+          "label": "Tips",
+          "type": "text",
+          "required": false,
+          "example": "Example: Report tips through the restaurant's approved payroll process.",
+          "legalReview": true
+        },
+        {
+          "id": "compensation.tip_credit",
+          "label": "Tip Credit",
+          "type": "text",
+          "required": false,
+          "example": "Example: Ask payroll for the restaurant's written tip-credit arrangement before accepting a tipped assignment.",
+          "legalReview": true
+        },
+        {
+          "id": "compensation.tip_pools",
+          "label": "Tip Pools",
+          "type": "text",
+          "required": false,
+          "example": "Example: Management provides the written tip-sharing arrangement to participating employees for review.",
+          "legalReview": true
+        },
+        {
+          "id": "compensation.service_charges",
+          "label": "Service Charges",
+          "type": "text",
+          "required": false,
+          "example": "Example: Management explains how service charges are recorded and distributed before an event.",
+          "legalReview": true
+        },
+        {
+          "id": "compensation.automatic_gratuity",
+          "label": "Automatic Gratuity",
+          "type": "text",
+          "required": false,
+          "example": "Example: Use only manager-approved automatic gratuities and explain them clearly to guests.",
+          "legalReview": true
+        },
+        {
+          "id": "compensation.credit_card_tips",
+          "label": "Credit Card Tips",
+          "type": "text",
+          "required": false,
+          "example": "Example: Credit-card tips are reconciled against the POS report and processed through payroll.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.dual_jobs",
+          "label": "Dual Jobs",
+          "type": "text",
+          "required": false,
+          "example": "Example: Record the role worked when moving between tipped and non-tipped assignments.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.cash_shortages",
+          "label": "Cash Shortages",
+          "type": "text",
+          "required": false,
+          "example": "Example: Report a cash shortage to the manager for review. Do not adjust another employee's drawer.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.deductions",
+          "label": "Deductions",
+          "type": "text",
+          "required": false,
+          "example": "Example: Ask payroll to explain any deduction that you do not understand.",
+          "legalReview": true
+        },
+        {
+          "id": "compensation.bonuses",
+          "label": "Bonuses",
+          "type": "text",
+          "required": false,
+          "example": "Example: Any bonus arrangement is documented separately and explained before the measurement period.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.employee_meals",
+          "label": "Employee Meals",
+          "type": "text",
+          "required": false,
+          "example": "Example: Ask the shift manager before ordering your employee meal and enter it through the POS.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.discounts",
+          "label": "Discounts",
+          "type": "text",
+          "required": false,
+          "example": "Example: Employee discounts require manager approval and must be entered using the correct POS code.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.insurance",
+          "label": "Insurance",
+          "type": "text",
+          "required": false,
+          "example": "Example: Ask the benefits coordinator for current plan documents and eligibility information.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.pto",
+          "label": "Pto",
+          "type": "text",
+          "required": false,
+          "example": "Example: Submit paid-time-off requests through the scheduling app for review.",
+          "legalReview": false
+        },
+        {
+          "id": "compensation.holidays",
+          "label": "Holidays",
+          "type": "text",
+          "required": false,
+          "example": "Example: The holiday schedule is communicated in advance by management.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "workplace",
+      "title": "Workplace Conduct & Culture",
+      "questions": [
+        {
+          "id": "workplace.respect",
+          "label": "Respect",
+          "type": "text",
+          "required": false,
+          "example": "Example: Treat coworkers and guests with respect, including during busy or difficult shifts.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.harassment",
+          "label": "Harassment",
+          "type": "text",
+          "required": false,
+          "example": "Example: Report harassment concerns to the general manager or the owner.",
+          "legalReview": true
+        },
+        {
+          "id": "workplace.complaints",
+          "label": "Complaints",
+          "type": "text",
+          "required": false,
+          "example": "Example: Raise workplace concerns with the general manager in person or through the designated contact channel.",
+          "legalReview": true
+        },
+        {
+          "id": "workplace.alternate_reporting",
+          "label": "Alternate Reporting",
+          "type": "text",
+          "required": false,
+          "example": "Example: If your concern involves your manager, contact the owner directly.",
+          "legalReview": true
+        },
+        {
+          "id": "workplace.nonretaliation",
+          "label": "Nonretaliation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Employees may raise concerns without retaliation. Report suspected retaliation to the owner.",
+          "legalReview": true
+        },
+        {
+          "id": "workplace.investigation",
+          "label": "Investigation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Management reviews concerns promptly and asks employees to provide accurate information.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.confidentiality",
+          "label": "Confidentiality",
+          "type": "text",
+          "required": false,
+          "example": "Example: Protect guest payment details and private business records. Ask management if you are unsure what may be shared.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.conflicts",
+          "label": "Conflicts",
+          "type": "text",
+          "required": false,
+          "example": "Example: Disclose outside business relationships that could affect purchasing or management decisions.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.dating",
+          "label": "Dating",
+          "type": "text",
+          "required": false,
+          "example": "Example: Discuss personal relationships that create a reporting-line conflict with the owner.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.social_media",
+          "label": "Social Media",
+          "type": "text",
+          "required": false,
+          "example": "Example: Only authorized staff may publish posts on the restaurant's official accounts.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.phones",
+          "label": "Phones",
+          "type": "text",
+          "required": false,
+          "example": "Example: Keep personal phones stored during active service unless your manager approves their use.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.privacy",
+          "label": "Privacy",
+          "type": "text",
+          "required": false,
+          "example": "Example: Ask management how employee records are stored and who may access them.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.surveillance",
+          "label": "Surveillance",
+          "type": "text",
+          "required": false,
+          "example": "Example: Management explains camera locations and recording practices during orientation.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.cash_handling",
+          "label": "Cash Handling",
+          "type": "text",
+          "required": false,
+          "example": "Example: Use your assigned register login and count your drawer with a manager.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.theft",
+          "label": "Theft",
+          "type": "text",
+          "required": false,
+          "example": "Example: Report suspected theft to management without confronting another person.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.discipline",
+          "label": "Discipline",
+          "type": "text",
+          "required": false,
+          "example": "Example: Management reviews the facts and explains any corrective action directly to the employee.",
+          "legalReview": false
+        },
+        {
+          "id": "workplace.appeals",
+          "label": "Appeals",
+          "type": "text",
+          "required": false,
+          "example": "Example: Employees may ask the owner to review a disputed management decision.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "safety",
+      "title": "Safety, Food Safety & Emergencies",
+      "questions": [
+        {
+          "id": "safety.illness_reporting",
+          "label": "Illness Reporting",
+          "type": "text",
+          "required": false,
+          "example": "Example: Tell the manager before your shift if you are ill or have symptoms that could affect food safety.",
+          "legalReview": true
+        },
+        {
+          "id": "safety.exclusion",
+          "label": "Exclusion",
+          "type": "text",
+          "required": false,
+          "example": "Example: The manager determines work restrictions using the restaurant's approved illness procedures.",
+          "legalReview": true
+        },
+        {
+          "id": "safety.allergens",
+          "label": "Allergens",
+          "type": "text",
+          "required": false,
+          "example": "Example: Refer ingredient and allergy questions to the manager or designated kitchen lead.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.cross_contact",
+          "label": "Cross Contact",
+          "type": "text",
+          "required": false,
+          "example": "Example: Use the approved clean tools and preparation area for an allergy order.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.handwashing",
+          "label": "Handwashing",
+          "type": "text",
+          "required": false,
+          "example": "Example: Follow posted handwashing procedures before handling food and after contamination.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.sanitation",
+          "label": "Sanitation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Complete your station cleaning checklist and report missing sanitation supplies.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.temperature_control",
+          "label": "Temperature Control",
+          "type": "text",
+          "required": false,
+          "example": "Example: Use the station temperature log and report readings outside the posted limits.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.chemical_safety",
+          "label": "Chemical Safety",
+          "type": "text",
+          "required": false,
+          "example": "Example: Keep chemicals labeled and stored away from food. Consult the safety sheet before use.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.slips",
+          "label": "Slips",
+          "type": "text",
+          "required": false,
+          "example": "Example: Mark wet floors and clean spills promptly when it is safe to do so.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.burns",
+          "label": "Burns",
+          "type": "text",
+          "required": false,
+          "example": "Example: Use dry protective mitts for hot cookware and warn coworkers when carrying hot items.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.cuts",
+          "label": "Cuts",
+          "type": "text",
+          "required": false,
+          "example": "Example: Report cuts promptly and follow the first-aid and food-handling procedures.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.knife_use",
+          "label": "Knife Use",
+          "type": "text",
+          "required": false,
+          "example": "Example: Carry knives safely and store them in the designated rack after cleaning.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.equipment",
+          "label": "Equipment",
+          "type": "text",
+          "required": false,
+          "example": "Example: Operate equipment only after station training and manager authorization.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.injury_reporting",
+          "label": "Injury Reporting",
+          "type": "text",
+          "required": false,
+          "example": "Example: Report injuries and near misses to the manager immediately.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.workers_comp",
+          "label": "Workers Comp",
+          "type": "text",
+          "required": false,
+          "example": "Example: Ask the general manager for the injury-reporting and workers' compensation contact information.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.fire",
+          "label": "Fire",
+          "type": "text",
+          "required": false,
+          "example": "Example: Raise the alarm and follow the posted fire evacuation plan.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.severe_weather",
+          "label": "Severe Weather",
+          "type": "text",
+          "required": false,
+          "example": "Example: Follow the manager's directions and move to the designated shelter area when instructed.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.violence",
+          "label": "Violence",
+          "type": "text",
+          "required": false,
+          "example": "Example: Move away from threatening behavior and notify management or emergency services as appropriate.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.active_threat",
+          "label": "Active Threat",
+          "type": "text",
+          "required": false,
+          "example": "Example: Follow the restaurant's emergency response training and contact emergency services when safe.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.evacuation",
+          "label": "Evacuation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Use the nearest safe exit and meet at the posted assembly point.",
+          "legalReview": false
+        },
+        {
+          "id": "safety.power_outage",
+          "label": "Power Outage",
+          "type": "text",
+          "required": false,
+          "example": "Example: Notify management and follow the approved food-protection and shutdown procedures.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "service",
+      "title": "Guest Service & Operations",
+      "questions": [
+        {
+          "id": "service.service_standards",
+          "label": "Service Standards",
+          "type": "text",
+          "required": false,
+          "example": "Example: Greet arriving guests promptly and check back after food is served.",
+          "legalReview": false
+        },
+        {
+          "id": "service.complaints",
+          "label": "Complaints",
+          "type": "text",
+          "required": false,
+          "example": "Example: Listen without arguing, thank the guest, and involve a manager when resolution exceeds your authority.",
+          "legalReview": true
+        },
+        {
+          "id": "service.refunds",
+          "label": "Refunds",
+          "type": "text",
+          "required": false,
+          "example": "Example: A manager must approve refunds and record the reason in the POS.",
+          "legalReview": false
+        },
+        {
+          "id": "service.comps",
+          "label": "Comps",
+          "type": "text",
+          "required": false,
+          "example": "Example: Managers authorize complimentary items and record the reason.",
+          "legalReview": false
+        },
+        {
+          "id": "service.voids",
+          "label": "Voids",
+          "type": "text",
+          "required": false,
+          "example": "Example: Ask a manager to approve voids and explain the correction needed.",
+          "legalReview": false
+        },
+        {
+          "id": "service.reservations",
+          "label": "Reservations",
+          "type": "text",
+          "required": false,
+          "example": "Example: Confirm reservation details and communicate special requests to the shift lead.",
+          "legalReview": false
+        },
+        {
+          "id": "service.takeout",
+          "label": "Takeout",
+          "type": "text",
+          "required": false,
+          "example": "Example: Check items against the receipt, label the order, and verify the guest name at pickup.",
+          "legalReview": false
+        },
+        {
+          "id": "service.delivery",
+          "label": "Delivery",
+          "type": "text",
+          "required": false,
+          "example": "Example: Check packaging and order details before handing an order to a delivery driver.",
+          "legalReview": false
+        },
+        {
+          "id": "service.cash_register",
+          "label": "Cash Register",
+          "type": "text",
+          "required": false,
+          "example": "Example: Use your own POS login and ask a manager about transaction errors.",
+          "legalReview": false
+        },
+        {
+          "id": "service.lost_found",
+          "label": "Lost Found",
+          "type": "text",
+          "required": false,
+          "example": "Example: Give found property to the manager and record where it was found.",
+          "legalReview": false
+        },
+        {
+          "id": "service.accessibility",
+          "label": "Accessibility",
+          "type": "text",
+          "required": false,
+          "example": "Example: Ask guests how you can help and involve management when an accessibility concern arises.",
+          "legalReview": false
+        },
+        {
+          "id": "service.service_animals",
+          "label": "Service Animals",
+          "type": "text",
+          "required": false,
+          "example": "Example: Refer service-animal questions to the manager and treat the guest respectfully.",
+          "legalReview": false
+        },
+        {
+          "id": "service.guest_privacy",
+          "label": "Guest Privacy",
+          "type": "text",
+          "required": false,
+          "example": "Example: Do not share guest contact or payment information outside authorized work tasks.",
+          "legalReview": false
+        },
+        {
+          "id": "service.guest_allergies",
+          "label": "Guest Allergies",
+          "type": "text",
+          "required": false,
+          "example": "Example: Notify the kitchen lead of allergy requests and confirm the approved preparation process.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "uniforms",
+      "title": "Uniforms & Appearance",
+      "questions": [
+        {
+          "id": "uniforms.dress_code",
+          "label": "Dress Code",
+          "type": "text",
+          "required": false,
+          "example": "Example: Wear a clean company shirt, dark pants, and slip-resistant shoes.",
+          "legalReview": false
+        },
+        {
+          "id": "uniforms.grooming",
+          "label": "Grooming",
+          "type": "text",
+          "required": false,
+          "example": "Example: Arrive clean and ready for food-service work. Follow station hygiene requirements.",
+          "legalReview": false
+        },
+        {
+          "id": "uniforms.hair_restraints",
+          "label": "Hair Restraints",
+          "type": "text",
+          "required": false,
+          "example": "Example: Wear the hair restraint designated for your station.",
+          "legalReview": false
+        },
+        {
+          "id": "uniforms.jewelry",
+          "label": "Jewelry",
+          "type": "text",
+          "required": false,
+          "example": "Example: Follow the posted station rules for jewelry while handling food.",
+          "legalReview": false
+        },
+        {
+          "id": "uniforms.footwear",
+          "label": "Footwear",
+          "type": "text",
+          "required": false,
+          "example": "Example: Wear closed-toe, slip-resistant shoes suitable for kitchen floors.",
+          "legalReview": false
+        },
+        {
+          "id": "uniforms.uniform_issued",
+          "label": "Uniform Issued",
+          "type": "text",
+          "required": false,
+          "example": "Example: Management issues two uniform shirts during orientation.",
+          "legalReview": false
+        },
+        {
+          "id": "uniforms.uniform_care",
+          "label": "Uniform Care",
+          "type": "text",
+          "required": false,
+          "example": "Example: Keep uniforms clean and report damage to your manager.",
+          "legalReview": false
+        },
+        {
+          "id": "uniforms.uniform_return",
+          "label": "Uniform Return",
+          "type": "text",
+          "required": false,
+          "example": "Example: Return issued uniforms to the general manager when employment ends.",
+          "legalReview": false
+        },
+        {
+          "id": "uniforms.religious_accommodation",
+          "label": "Religious Accommodation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Discuss religious dress or grooming needs with the general manager.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "leave",
+      "title": "Leave, Accommodations & Protected Rights",
+      "questions": [
+        {
+          "id": "leave.sick_leave",
+          "label": "Sick Leave",
+          "type": "text",
+          "required": false,
+          "example": "Example: Contact the manager when illness affects your shift and ask about available sick leave.",
+          "legalReview": true
+        },
+        {
+          "id": "leave.family_leave",
+          "label": "Family Leave",
+          "type": "text",
+          "required": false,
+          "example": "Example: Ask the general manager for the family-leave request process and applicable eligibility information.",
+          "legalReview": true
+        },
+        {
+          "id": "leave.military_leave",
+          "label": "Military Leave",
+          "type": "text",
+          "required": false,
+          "example": "Example: Notify management when military duties affect your schedule and request leave information.",
+          "legalReview": false
+        },
+        {
+          "id": "leave.jury_duty",
+          "label": "Jury Duty",
+          "type": "text",
+          "required": false,
+          "example": "Example: Notify management when you receive a jury summons and share scheduling information.",
+          "legalReview": false
+        },
+        {
+          "id": "leave.bereavement",
+          "label": "Bereavement",
+          "type": "text",
+          "required": false,
+          "example": "Example: Contact the general manager to discuss leave following a bereavement.",
+          "legalReview": false
+        },
+        {
+          "id": "leave.pregnancy_accommodation",
+          "label": "Pregnancy Accommodation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Discuss pregnancy-related work adjustments with the general manager.",
+          "legalReview": true
+        },
+        {
+          "id": "leave.disability_accommodation",
+          "label": "Disability Accommodation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Request disability-related work adjustments through the general manager.",
+          "legalReview": false
+        },
+        {
+          "id": "leave.religious_accommodation",
+          "label": "Religious Accommodation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Discuss religious scheduling or workplace accommodation requests with the general manager.",
+          "legalReview": false
+        },
+        {
+          "id": "leave.lactation",
+          "label": "Lactation",
+          "type": "text",
+          "required": false,
+          "example": "Example: Contact management to arrange the designated lactation space and break coverage.",
+          "legalReview": true
+        },
+        {
+          "id": "leave.protected_concerted_activity",
+          "label": "Protected Concerted Activity",
+          "type": "text",
+          "required": false,
+          "example": "Example: Bring questions about workplace discussions or group concerns to management for review without retaliation.",
+          "legalReview": false
+        },
+        {
+          "id": "leave.whistleblowing",
+          "label": "Whistleblowing",
+          "type": "text",
+          "required": false,
+          "example": "Example: Report suspected wrongdoing to the owner or the relevant reporting channel.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "alcohol",
+      "title": "Alcohol & Responsible Service",
+      "questions": [
+        {
+          "id": "alcohol.licensed",
+          "label": "Licensed",
+          "type": "text",
+          "required": false,
+          "example": "Example: Only authorized staff may serve alcohol in the restaurant's licensed service areas.",
+          "legalReview": false
+        },
+        {
+          "id": "alcohol.age_verification",
+          "label": "Age Verification",
+          "type": "text",
+          "required": false,
+          "example": "Example: Check identification using the restaurant's approved age-verification procedure.",
+          "legalReview": true
+        },
+        {
+          "id": "alcohol.server_certification",
+          "label": "Server Certification",
+          "type": "text",
+          "required": false,
+          "example": "Example: Provide required server-training documentation to management before alcohol-service assignments.",
+          "legalReview": false
+        },
+        {
+          "id": "alcohol.intoxication",
+          "label": "Intoxication",
+          "type": "text",
+          "required": false,
+          "example": "Example: Notify the manager when a guest shows signs of intoxication.",
+          "legalReview": false
+        },
+        {
+          "id": "alcohol.refusal",
+          "label": "Refusal",
+          "type": "text",
+          "required": false,
+          "example": "Example: Involve the manager when alcohol service must be refused.",
+          "legalReview": false
+        },
+        {
+          "id": "alcohol.incident_reporting",
+          "label": "Incident Reporting",
+          "type": "text",
+          "required": false,
+          "example": "Example: Record alcohol-service incidents in the manager's incident log.",
+          "legalReview": false
+        },
+        {
+          "id": "alcohol.employee_consumption",
+          "label": "Employee Consumption",
+          "type": "text",
+          "required": false,
+          "example": "Example: Employees may not consume alcohol while working.",
+          "legalReview": false
+        },
+        {
+          "id": "alcohol.alcohol_storage",
+          "label": "Alcohol Storage",
+          "type": "text",
+          "required": false,
+          "example": "Example: Keep alcohol in the designated secure storage areas.",
+          "legalReview": false
+        },
+        {
+          "id": "alcohol.corkage",
+          "label": "Corkage",
+          "type": "text",
+          "required": false,
+          "example": "Example: Ask a manager before accepting guest-supplied wine or applying a corkage charge.",
+          "legalReview": false
+        },
+        {
+          "id": "alcohol.tastings",
+          "label": "Tastings",
+          "type": "text",
+          "required": false,
+          "example": "Example: Only designated staff may conduct approved product tastings.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "youth",
+      "title": "Minors & Student Employees",
+      "questions": [
+        {
+          "id": "youth.minors_employed",
+          "label": "Minors Employed",
+          "type": "text",
+          "required": false,
+          "example": "Example: Management reviews age and school commitments before assigning work to student employees.",
+          "legalReview": true
+        },
+        {
+          "id": "youth.age_verification",
+          "label": "Age Verification",
+          "type": "text",
+          "required": false,
+          "example": "Example: The hiring manager verifies an employee's age and any required documentation before assignments are made.",
+          "legalReview": true
+        },
+        {
+          "id": "youth.restricted_equipment",
+          "label": "Restricted Equipment",
+          "type": "text",
+          "required": false,
+          "example": "Example: Managers assign equipment duties only after checking age restrictions and training records.",
+          "legalReview": true
+        },
+        {
+          "id": "youth.restricted_hours",
+          "label": "Restricted Hours",
+          "type": "text",
+          "required": false,
+          "example": "Example: The scheduling manager checks applicable work-hour restrictions before publishing student schedules.",
+          "legalReview": true
+        },
+        {
+          "id": "youth.school_schedules",
+          "label": "School Schedules",
+          "type": "text",
+          "required": false,
+          "example": "Example: Provide class schedules and exam commitments to the scheduling manager.",
+          "legalReview": false
+        },
+        {
+          "id": "youth.delivery_driving",
+          "label": "Delivery Driving",
+          "type": "text",
+          "required": false,
+          "example": "Example: Delivery-driving assignments require management review of age, licensing, and insurance requirements.",
+          "legalReview": false
+        },
+        {
+          "id": "youth.supervision",
+          "label": "Supervision",
+          "type": "text",
+          "required": false,
+          "example": "Example: Student employees have a designated shift supervisor for questions and support.",
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "special",
+      "title": "Specialized Restaurant Operations",
+      "questions": [
+        {
+          "id": "special.food_truck",
+          "label": "Food Truck",
+          "type": "text",
+          "required": false,
+          "example": "Example: Complete the food-truck opening checklist before leaving the commissary.",
+          "when": {
+            "profileIncludes": "mobile_food"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.commissary",
+          "label": "Commissary",
+          "type": "text",
+          "required": false,
+          "example": "Example: Record commissary pickups and returns on the transfer log.",
+          "when": {
+            "profileIncludes": "mobile_food"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.catering",
+          "label": "Catering",
+          "type": "text",
+          "required": false,
+          "example": "Example: The catering lead confirms transport, setup, and service assignments before departure.",
+          "when": {
+            "profileIncludes": "events"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.banquets",
+          "label": "Banquets",
+          "type": "text",
+          "required": false,
+          "example": "Example: Review the event order with the banquet captain before guests arrive.",
+          "when": {
+            "profileIncludes": "events"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.buffet",
+          "label": "Buffet",
+          "type": "text",
+          "required": false,
+          "example": "Example: Follow the buffet replenishment and temperature-check schedule.",
+          "when": {
+            "profileIncludes": "buffet"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.self_service",
+          "label": "Self Service",
+          "type": "text",
+          "required": false,
+          "example": "Example: Keep self-service stations stocked and report spills promptly.",
+          "when": {
+            "profileIncludes": "buffet"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.drive_thru",
+          "label": "Drive Thru",
+          "type": "text",
+          "required": false,
+          "example": "Example: Confirm each order and payment before handing food through the window.",
+          "when": {
+            "profileIncludes": "quick_service"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.ghost_kitchen",
+          "label": "Ghost Kitchen",
+          "type": "text",
+          "required": false,
+          "example": "Example: Check order names and pickup shelves carefully when working across virtual brands.",
+          "when": {
+            "profileIncludes": "delivery"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.third_party_delivery",
+          "label": "Third Party Delivery",
+          "type": "text",
+          "required": false,
+          "example": "Example: Verify the order number before releasing food to a third-party courier.",
+          "when": {
+            "profileIncludes": "delivery"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.hotel_room_service",
+          "label": "Hotel Room Service",
+          "type": "text",
+          "required": false,
+          "example": "Example: Confirm the room number and delivery instructions before leaving the service area.",
+          "when": {
+            "profileIncludes": "hotel"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.bakery",
+          "label": "Bakery",
+          "type": "text",
+          "required": false,
+          "example": "Example: Follow production sheets and label bakery items with preparation details.",
+          "when": {
+            "profileIncludes": "bakery"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.coffee",
+          "label": "Coffee",
+          "type": "text",
+          "required": false,
+          "example": "Example: Follow the beverage recipe cards and clean the espresso station between tasks.",
+          "when": {
+            "profileIncludes": "coffee_shop"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.bar",
+          "label": "Bar",
+          "type": "text",
+          "required": false,
+          "example": "Example: Complete the bar opening checklist and reconcile stock with the shift lead.",
+          "when": {
+            "profileIncludes": "bar"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.late_night",
+          "label": "Late Night",
+          "type": "text",
+          "required": false,
+          "example": "Example: Use the closing safety check and designated departure procedure after late shifts.",
+          "when": {
+            "profileIncludes": "late_night"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.seasonal",
+          "label": "Seasonal",
+          "type": "text",
+          "required": false,
+          "example": "Example: Management communicates seasonal opening and closing assignments in advance.",
+          "when": {
+            "profileIncludes": "seasonal"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.multi_location",
+          "label": "Multi Location",
+          "type": "text",
+          "required": false,
+          "example": "Example: Confirm your assigned location and reporting manager before each shift.",
+          "when": {
+            "profileIncludes": "multi_location"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.franchise",
+          "label": "Franchise",
+          "type": "text",
+          "required": false,
+          "example": "Example: Follow the current approved brand standards supplied by management.",
+          "when": {
+            "profileIncludes": "franchise"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.union",
+          "label": "Union",
+          "type": "text",
+          "required": false,
+          "example": "Example: Direct questions about union representation to the designated representative or management contact.",
+          "when": {
+            "profileIncludes": "union"
+          },
+          "legalReview": true
+        },
+        {
+          "id": "special.collective_bargaining",
+          "label": "Collective Bargaining",
+          "type": "text",
+          "required": false,
+          "example": "Example: Consult the applicable collective bargaining agreement and designated representative for covered terms.",
+          "when": {
+            "profileIncludes": "union"
+          },
+          "legalReview": true
+        },
+        {
+          "id": "special.multilingual_staff",
+          "label": "Multilingual Staff",
+          "type": "text",
+          "required": false,
+          "example": "Example: Ask management for language support when training instructions are unclear.",
+          "when": {
+            "profileIncludes": "multilingual"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.shared_tips",
+          "label": "Shared Tips",
+          "type": "text",
+          "required": false,
+          "example": "Example: Review the written tip-sharing arrangement with management before participating.",
+          "when": {
+            "profileIncludes": "tipped"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.live_music",
+          "label": "Live Music",
+          "type": "text",
+          "required": false,
+          "example": "Example: Keep exits clear during performances and direct performer questions to the event lead.",
+          "when": {
+            "profileIncludes": "entertainment"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.security",
+          "label": "Security",
+          "type": "text",
+          "required": false,
+          "example": "Example: Notify the designated security lead of threats or unsafe guest behavior.",
+          "when": {
+            "profileIncludes": "entertainment"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.cashless",
+          "label": "Cashless",
+          "type": "text",
+          "required": false,
+          "example": "Example: Explain accepted payment methods before taking an order when a guest asks about cash.",
+          "when": {
+            "profileIncludes": "cashless"
+          },
+          "legalReview": false
+        },
+        {
+          "id": "special.outdoor_dining",
+          "label": "Outdoor Dining",
+          "type": "text",
+          "required": false,
+          "example": "Example: Check outdoor furniture and weather conditions before opening patio service.",
+          "when": {
+            "profileIncludes": "outdoor"
+          },
+          "legalReview": false
+        }
+      ]
+    },
+    {
+      "id": "separation",
+      "title": "Separation & Acknowledgments",
+      "questions": [
+        {
+          "id": "separation.final_pay",
+          "label": "Final Pay",
+          "type": "text",
+          "required": false,
+          "example": "Example: Contact payroll for the timing and delivery method of final pay.",
+          "legalReview": true
+        },
+        {
+          "id": "separation.property_return",
+          "label": "Property Return",
+          "type": "text",
+          "required": false,
+          "example": "Example: Return keys, access cards, and equipment to the general manager.",
+          "legalReview": false
+        },
+        {
+          "id": "separation.uniform_return",
+          "label": "Uniform Return",
+          "type": "text",
+          "required": false,
+          "example": "Example: Return issued uniforms to the general manager at separation.",
+          "legalReview": false
+        },
+        {
+          "id": "separation.access_removal",
+          "label": "Access Removal",
+          "type": "text",
+          "required": false,
+          "example": "Example: Management closes system access when an employee leaves.",
+          "legalReview": false
+        },
+        {
+          "id": "separation.references",
+          "label": "References",
+          "type": "text",
+          "required": false,
+          "example": "Example: Refer employment-reference requests to the general manager.",
+          "legalReview": false
+        },
+        {
+          "id": "separation.handbook_receipt",
+          "label": "Handbook Receipt",
+          "type": "text",
+          "required": false,
+          "example": "Example: I acknowledge receiving this handbook and know whom to contact with questions.",
+          "legalReview": false
+        },
+        {
+          "id": "separation.policy_acknowledgment",
+          "label": "Policy Acknowledgment",
+          "type": "text",
+          "required": false,
+          "example": "Example: I acknowledge reviewing the policies supplied in this handbook.",
+          "legalReview": false
+        },
+        {
+          "id": "separation.training_acknowledgment",
+          "label": "Training Acknowledgment",
+          "type": "text",
+          "required": false,
+          "example": "Example: Station training completion is recorded separately by the trainer.",
+          "legalReview": false
+        },
+        {
+          "id": "separation.revision_acknowledgment",
+          "label": "Revision Acknowledgment",
+          "type": "text",
+          "required": false,
+          "example": "Example: Management provides revised policies and requests acknowledgment of receipt.",
+          "legalReview": false
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "mode": "complete-catalog",
+    "description": "Every standard and specialty section remains discoverable. Customers may skip optional entries or entire optional sections. Show relevance guidance, not hidden options.",
+    "questionActions": [
+      "Save answer",
+      "Skip for now",
+      "Skip altogether",
+      "Why this matters",
+      "See example"
+    ],
+    "sectionActions": [
+      "Review section so far",
+      "Skip remaining optional entries for now",
+      "Skip remaining optional entries altogether",
+      "Continue"
+    ],
+    "legalGate": "Legal-critical data is requested only when a specific legally sensitive output requires it. Missing data does not block saving or draft preview; affected final content is marked incomplete.",
+    "skipSemantics": {
+      "deferred": "Skip for now adds the question to a final Review Later queue. Preserve section and question context and provide a one-click return.",
+      "excluded": "Skip altogether explicitly excludes the question from the final Review Later queue and omits its unanswered policy from the handbook. It remains reversible from the complete question catalog.",
+      "answered": "Answered questions are neither deferred nor excluded.",
+      "legal": "Legal-critical questions cannot be excluded when needed to finalize affected legal-sensitive policies. Allow draft progress and explain unresolved requirements."
+    },
+    "finalReview": {
+      "title": "Finish Your Handbook \u2014 Questions to Revisit",
+      "includes": "All and only Skip for now questions that remain unanswered, grouped by section",
+      "actions": [
+        "Answer now",
+        "Keep for later",
+        "Skip altogether"
+      ],
+      "emptyState": "No deferred questions remain",
+      "gate": "Review queue is separate from legal completeness checks and payment."
+    }
+  }
+}
