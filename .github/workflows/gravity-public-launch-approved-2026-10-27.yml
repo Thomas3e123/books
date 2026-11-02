@@ -1,6 +1,6 @@
 # Release candidate includes the verified unnumbered Gravity move announcement.
 ## Re-run verified candidate after synchronized Gravity source SHA-256 manifest.
-name: Gravity PUBLIC launch — publish CURRENT site to canonical domain (TMB untouched)
+name: Gravity PUBLIC release — Founding Year Handbook Creator
 on:
   push:
     branches: ['feature/gravity-migration-phase1-2026-10-22']
@@ -45,6 +45,7 @@ jobs:
           npm ci
           node scripts/update-manifest.cjs
           npm run build
+          node scripts/test-handbook-public.mjs
           git diff --exit-code -- source-manifest.json
           node scripts/verify-gravity-preview.cjs
           node scripts/test-gravity-report.mjs
@@ -132,6 +133,7 @@ jobs:
           # project. Absolute functions outside this root produced a deployed 502:
           # ERR_MODULE_NOT_FOUND @netlify/database.
           cp -a functions "$release_dir/functions"
+          cp -a handbook "$release_dir/handbook"
           cp package.json package-lock.json "$release_dir/"
           mkdir -p "$release_dir/netlify/database"
           cp -a netlify/database/migrations "$release_dir/netlify/database/"
