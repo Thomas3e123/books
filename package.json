@@ -7,10 +7,12 @@
   },
   "dependencies": {
     "@netlify/database": "2.0.1",
-    "@netlify/identity": "1.1.0"
+    "@netlify/identity": "1.1.0",
+    "jspdf": "4.0.0",
+    "docx": "9.5.1"
   },
   "scripts": {
-    "build": "node scripts/verify-source.cjs",
+    "build": "node scripts/verify-source.cjs && node scripts/build-handbook.mjs",
     "manifest": "node scripts/update-manifest.cjs"
   },
   "devDependencies": {

@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {foundingYear,FREE_END} from '../handbook/access.mjs';
+import {handle} from '../functions/handbook-creator/index.mjs';
+import {paymentService} from '../handbook/payments.mjs';
+import {fresh,setAnswer} from '../handbook/source/core.mjs';
+assert.equal(foundingYear(FREE_END-1),true);assert.equal(foundingYear(FREE_END),false);
+const request=(action,body={})=>new Request('https://gravityleadershipsystem.com/.netlify/functions/handbook-creator?action='+action,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+const project=fresh();setAnswer(project,'welcome.name','Public Free Test');setAnswer(project,'welcome.mission','Our mission is consistent service.');
+const noPayment={create(){throw Error('Payment must not be called while free');},licensed(){throw Error('Payment must not be called while free');}};
+assert.equal((await handle(request('checkout'),{now:FREE_END-1,payments:noPayment})).status,409);
+for(const format of ['pdf','docx']){const response=await handle(request('export',{format,project}),{now:FREE_END-1,payments:noPayment});assert.equal(response.status,200);const bytes=new Uint8Array(await response.arrayBuffer());assert(bytes.length>1000);assert.equal(new TextDecoder().decode(bytes.slice(0,format==='pdf'?4:2)),format==='pdf'?'%PDF':'PK');}
+assert.equal((await handle(request('export',{format:'pdf',project}),{now:FREE_END,payments:{licensed:async()=>false}})).status,402);
+assert.equal((await handle(request('export',{format:'docx',project,license:'valid'}),{now:FREE_END,payments:{licensed:async()=>true}})).status,200);
+assert.equal((await handle(new Request('https://gravityleadershipsystem.com/.netlify/functions/handbook-creator?action=export',{method:'POST',headers:{Origin:'https://other.example'},body:'{}'}))).status,403);
+const env={SQUARE_ACCESS_TOKEN:'test-live-placeholder',SQUARE_LOCATION_ID:'LOCATION',GRAVITY_HANDBOOK_BRIDGE_SECRET:'test-signing-secret'};
+let paymentState='COMPLETED',refund=0;let calls=0;
+const order={id:'ORDER',reference_id:'11111111-1111-1111-1111-111111111111',location_id:'LOCATION',state:'COMPLETED',total_money:{amount:2900,currency:'USD'},tenders:[{id:'PAYMENT'}]};
+const fetchImpl=async(url,opts)=>{calls++;assert(url.startsWith('https://connect.squareup.com/'));if(url.endsWith('/payment-links'))return Response.json({payment_link:{url:'https://square.link/u/test',order_id:'ORDER'}});if(url.includes('/orders/'))return Response.json({order});return Response.json({payment:{id:'PAYMENT',status:paymentState,order_id:'ORDER',location_id:'LOCATION',amount_money:{amount:2900,currency:'USD'},refunded_money:{amount:refund}}});};
+const pay=paymentService(env,{fetchImpl,now:()=>1});const checkout=await pay.create(order.reference_id);const verified=await pay.verify(checkout.ticket);assert(await pay.licensed(verified.license));assert.equal(await pay.licensed(verified.license+'tampered'),false);refund=1;assert.equal(await pay.licensed(verified.license),false);refund=0;paymentState='PENDING';await assert.rejects(pay.verify(checkout.ticket));paymentState='COMPLETED';order.total_money.amount=1;await assert.rejects(pay.verify(checkout.ticket));
+assert(readFileSync('site/gravity-handbook-creator.html','utf8').includes('<s>$29</s>'));
+const client=readFileSync('site/handbook-creator/app.js','utf8');assert(!client.includes('function createPDF'));assert(client.includes('handbook-creator?action='));assert(!readFileSync('site/handbook-creator/index.html','utf8').includes('windows-download'));
+console.log('PASS Founding Year boundary, free PDF/Word without payments, post-year payment gate, valid/tampered/refunded/pending/underpaid licenses, origin check, and public links.');

@@ -12,3 +12,7 @@ hosted-connection.json
 .DS_Store
 Thumbs.db
 
+
+# Derived Handbook Creator assets, rebuilt from reviewed source.
+/site/handbook-creator/app.js
+/site/handbook-creator/app.css
