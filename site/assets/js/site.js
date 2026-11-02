@@ -16,6 +16,7 @@
     ['/', 'Home'],
     ['/gravity-report', 'Gravity Report'],
     ['/gravity-assist', 'Gravity Assist'],
+    ['/gravity-handbook-creator', 'Handbook Creator'],
     ['/operating-systems', 'Operating Systems'],
     ['/gravity-aware', 'Gravity Aware'],
     ['/books', 'Books'],
