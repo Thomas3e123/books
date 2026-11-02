@@ -5,6 +5,7 @@ const crypto = require('node:crypto');
 const root = path.resolve(__dirname, '..');
 const files = [];
 function visit(rel) {
+  if (["site/handbook-creator/app.js","site/handbook-creator/app.css"].includes(rel)) return;
   const full = path.join(root, rel);
   if (fs.lstatSync(full).isSymbolicLink()) throw Error('Symlinks are not supported: ' + rel);
   if (fs.statSync(full).isDirectory()) {
@@ -13,6 +14,6 @@ function visit(rel) {
     files.push({path:rel,sha256:crypto.createHash('sha256').update(fs.readFileSync(full)).digest('hex')});
   }
 }
-for (const rel of ['site','functions','netlify','netlify.toml','package.json','package-lock.json']) visit(rel);
+for (const rel of ['site','functions','handbook','netlify','netlify.toml','package.json','package-lock.json']) visit(rel);
 fs.writeFileSync(path.join(root,'source-manifest.json'),JSON.stringify({files},null,2)+'\n');
 console.log('Recorded ' + files.length + ' reviewed source files.');
