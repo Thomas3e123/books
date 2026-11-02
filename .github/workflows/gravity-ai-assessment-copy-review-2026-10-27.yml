@@ -20,7 +20,9 @@ jobs:
         with:
           node-version: '22'
       - name: Verify complete source manifest and static build (NO DEPLOY)
-        run: npm run build
+        run: |
+          npm ci
+          npm run build
       - name: Review source attribution, product-claim safety, responsive CSS, links, and noindex
         run: |
           node - <<'NODE'
