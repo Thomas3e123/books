@@ -223,7 +223,7 @@ def cover_footer(canvas, doc):
     canvas.line(.70*inch,.62*inch,7.80*inch,.62*inch)
     canvas.setFont('GravitySans',7.5)
     canvas.setFillColor(MUTED)
-    canvas.drawString(.72*inch,.43*inch,'THOMAS MONROE BOOKS  /  THE GRAVITY SYSTEM  /  OCTOBER 2026')
+    canvas.drawString(.72*inch,.43*inch,'THOMAS MONROE BOOKS  /  THE GRAVITY SYSTEM  /  NOVEMBER 2026')
     canvas.drawRightString(7.77*inch,.43*inch,str(doc.page))
     canvas.restoreState()
 
@@ -258,7 +258,7 @@ def build_pdf(rows,ordered,groups,path):
         'Replace bracketed fields with verified restaurant facts; protect confidential information.',
         'Read the Manager check, ask about missing evidence, and record assumptions.',
         'Keep drafts separate from management approvals and observed verification.',
-        'Search by prompt ID or category at thomasmonroebooks.com/restaurant-ai-prompt-search.',
+        'Search by prompt ID or category at gravityleadershipsystem.com/restaurant-ai-prompt-search.',
     ],1):story.append(Paragraph(f'{n}. {pdf_markup(step)}',body))
     story.append(Paragraph('Contents — categories',cat))
     for c in ordered:story.append(Paragraph(f'{pdf_markup(c.title())}  ·  {len(groups[c])} prompts',small))
@@ -307,7 +307,7 @@ def main():
     build_pdf(rows,ordered,groups,pdf)
     print('AI_WORKBOOK_PROMPTS='+str(len(rows)))
     print('AI_WORKBOOK_CATEGORIES='+str(len(ordered)))
-    print('AI_WORKBOOK_ADDED=75 BASELINE_PRESERVED=250')
+    print('AI_WORKBOOK_ADDED=100 BASELINE_PRESERVED=250')
     print(f'AI_WORKBOOK_DOCX={docx.relative_to(ROOT)} ({docx.stat().st_size} bytes)')
     print(f'AI_WORKBOOK_PDF={pdf.relative_to(ROOT)} ({pdf.stat().st_size} bytes)')
     print(f'AI_WORKBOOK_INDEX={index_path.relative_to(ROOT)}')
