@@ -34,9 +34,9 @@ ROOT = Path(__file__).resolve().parents[1]
 INDEX = ROOT / 'site/assets/data'
 READER = ROOT / 'site/assets/reader/ai-prompts.txt'
 OUT = ROOT / 'site/assets/free-resources/ai'
-COUNT = 325
+COUNT = 350
 BASE = 250
-STEM = 'RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_325_PROMPTS_2026-10-20'
+STEM = 'RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_350_PROMPTS_2026-11-03'
 NAVY = colors.HexColor('#173340')
 GOLD = colors.HexColor('#AD8035')
 TEXT = colors.HexColor('#243745')
@@ -46,7 +46,7 @@ PAPER = colors.HexColor('#F7F2E9')
 def fetch_rows():
     baseline = json.loads((INDEX/'restaurant-ai-prompts-250.json').read_text(encoding='utf-8'))
     additions = []
-    for first, last in ((251,275),(276,300),(301,325)):
+    for first, last in ((251,275),(276,300),(301,325),(326,350)):
         path = ROOT/f'scripts/ai-prompts-{first}-{last}.json'
         rows = json.loads(path.read_text(encoding='utf-8'))
         assert len(rows) == last-first+1, f'Wrong count in {path}'
@@ -105,7 +105,7 @@ def reader_text(rows, ordered, groups):
           '5. Protect employee, customer, recipe and credential data.','',
           'VERSION CONTROL','',
           'Prompts 001–250 retain the existing controlled digital text.',
-          'Prompts 251–325 are appended additions based on later Gravity work.',
+          'Prompts 251–350 are appended additions based on later Gravity work.',
           'Earlier editions remain archived, not silently replaced.','']
     for cat in ordered:
         top.extend(['', '='*66, cat, '='*66])
@@ -166,7 +166,7 @@ def build_docx(rows,ordered,groups,path):
     footer.alignment=WD_ALIGN_PARAGRAPH.CENTER
     footer.add_run('THOMAS BUTLER  ·  RESTAURANT AI WORKBOOK  ·  ')
     set_page_field(footer)
-    doc.core_properties.title='Restaurant AI Prompts & Systems Workbook — 325 Prompts'
+    doc.core_properties.title='Restaurant AI Prompts & Systems Workbook — 350 Prompts'
     doc.core_properties.author='Thomas Butler'
     doc.core_properties.subject='The Gravity Restaurant Leadership System'
     doc.add_paragraph('THE GRAVITY RESTAURANT LEADERSHIP SYSTEM','Subtitle')
@@ -175,7 +175,7 @@ def build_docx(rows,ordered,groups,path):
     h.style='Subtitle'
     doc.add_paragraph('Restaurant operations · Work Study Lab · SOP control · Staffing · Inventory · Testing & Windows · Owner–GM governance')
     doc.add_paragraph('THOMAS BUTLER  |  THOMAS MONROE BOOKS')
-    doc.add_paragraph('October 2026 digital update  •  Prompts 001–250 preserved; 251–325 appended.')
+    doc.add_paragraph('November 2026 digital update  •  Prompts 001–250 preserved; 251–350 appended.')
     doc.add_paragraph('These prompts support professional judgment and working drafts. Managers must verify source records, employee protections, safety standards and operational approval before implementation.')
     doc.add_page_break()
     doc.add_heading('How to use this workbook',level=1)
@@ -189,7 +189,7 @@ def build_docx(rows,ordered,groups,path):
     doc.add_heading('Category guide',level=1)
     for cat in ordered:doc.add_paragraph(f'{cat.title()} — {len(groups[cat])} prompts',style='List Bullet')
     doc.add_heading('Version control',level=1)
-    doc.add_paragraph('The existing 250-prompt digital index is the preserved baseline. Seventy-five newly developed prompts were added without deleting or renumbering a prior prompt. Older downloadable editions remain archival and are not labeled as the current edition.')
+    doc.add_paragraph('The existing 250-prompt digital index is the preserved baseline. One hundred newly developed prompts were added without deleting or renumbering a prior prompt. Older downloadable editions remain archival and are not labeled as the current edition.')
     doc.add_page_break()
     for cat in ordered:
         doc.add_heading(cat.title(),level=1)
@@ -249,7 +249,7 @@ def build_pdf(rows,ordered,groups,path):
     story.append(Paragraph('Work Study Lab  ·  SOP Foundry  ·  Shift Lab  ·  Inventory Center<br/>Testing &amp; Windows  ·  Owner–GM governance  ·  Verified improvement',cover))
     story.append(Spacer(1,.42*inch))
     story.append(Paragraph('THOMAS BUTLER  |  THOMAS MONROE BOOKS',subtitle))
-    story.append(Paragraph('October 2026 digital update · Prompts 001–250 preserved; 251–325 appended.',cover))
+    story.append(Paragraph('November 2026 digital update · Prompts 001–250 preserved; 251–350 appended.',cover))
     story.append(Paragraph('The prompts organize working drafts and questions; they do not replace owner, manager, safety, HR or legal judgment. Review all applicable standards and verify evidence before acting.',body))
     story.append(PageBreak())
     story.append(Paragraph('How to use this workbook',cat))
@@ -264,7 +264,7 @@ def build_pdf(rows,ordered,groups,path):
     for c in ordered:story.append(Paragraph(f'{pdf_markup(c.title())}  ·  {len(groups[c])} prompts',small))
     story.append(Spacer(1,.15*inch))
     story.append(Paragraph('Version control',cat))
-    story.append(Paragraph('The existing controlled 250-prompt index has been kept intact. Seventy-five new prompts are appended. Older downloadable files remain archived; this PDF and matching Word edition contain the complete current set.',body))
+    story.append(Paragraph('The existing controlled 250-prompt index has been kept intact. One hundred new prompts are appended. Older downloadable files remain archived; this PDF and matching Word edition contain the complete current set.',body))
     story.append(PageBreak())
     for category in ordered:
         story.append(Paragraph(pdf_markup(category.title()),cat))
@@ -276,12 +276,12 @@ def build_pdf(rows,ordered,groups,path):
             story.extend([KeepTogether([h,ref]),prompt,manager])
     doc=SimpleDocTemplate(str(path),pagesize=letter,leftMargin=.75*inch,rightMargin=.75*inch,
                           topMargin=.74*inch,bottomMargin=.78*inch,
-                          title='Restaurant AI Prompts & Systems Workbook — 325 Prompts',
+                          title='Restaurant AI Prompts & Systems Workbook — 350 Prompts',
                           author='Thomas Butler',subject='The Gravity Restaurant Leadership System')
     doc.build(story,onFirstPage=cover_footer,onLaterPages=cover_footer)
     pages=PdfReader(str(path))
     text='\n'.join(p.extract_text() or '' for p in pages.pages)
-    for i in (1,200,250,251,275,300,325):
+    for i in (1,200,250,251,275,300,325,350):
         assert f'GRV-AI-{i:03d}' in text, f'Prompt {i} missing from PDF'
     assert path.stat().st_size>100000, 'PDF unexpectedly small'
     print('PDF_PAGES='+str(len(pages.pages)))
@@ -289,7 +289,7 @@ def build_pdf(rows,ordered,groups,path):
 def verify_docx(path):
     d=Document(str(path))
     text='\n'.join(p.text for p in d.paragraphs)
-    for i in (1,200,250,251,275,300,325):
+    for i in (1,200,250,251,275,300,325,350):
         assert f'GRV-AI-{i:03d}' in text, f'Prompt {i} missing from Word'
     assert len([p for p in d.paragraphs if p.text.startswith('MANAGER CHECK')]) == COUNT
 
