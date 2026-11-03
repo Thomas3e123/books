@@ -1930,11 +1930,11 @@
     },
     {
       "path": "site/gravity-document-studio.html",
-      "sha256": "6828026a073413d847ad7205d7fd3ae5ae17980ec1d7507330ae8d8fd2f090d3"
+      "sha256": "92bcd9c54b45372c6d316ae532019d67bdc0f9535a0d46bdbfdb0f92d2e8cc19"
     },
     {
       "path": "site/gravity-forms-personalizer.html",
-      "sha256": "cc35a30c7752772442a018fcdd76219b3d82c5fd4509934d2ebfe3d1a0b68ff6"
+      "sha256": "c37228b2eb30998c159cc2fb3a903e5d3e2d06a07cb076f7184c7acba96f746e"
     },
     {
       "path": "site/gravity-fulfillment-center.html",
@@ -1962,19 +1962,19 @@
     },
     {
       "path": "site/gravity-inventory-center.html",
-      "sha256": "174a722be44aba7ca758e72d1f790bb337d03b1919b6cf27010a681ddef501b2"
+      "sha256": "ef81ab2bcfa2cd76ad9288a948da95049935080c48bf1eca8256d15ed3e19de2"
     },
     {
       "path": "site/gravity-numbers-lab.html",
-      "sha256": "77b3c4286dfc4bf077f3c9e34b2bc1c30c760494987e0caabd75f9df25965c78"
+      "sha256": "3e32154315e126dcc4f835147f6670add58393b34e50e30e75cb210c8b4321a8"
     },
     {
       "path": "site/gravity-quick-tools.html",
-      "sha256": "ac32b86beaf98c6714cd015a95c40cce166f9580f5d24c5003a98cd8991c4841"
+      "sha256": "7b2980e380df1a44feee24f0b45cc05fd812f5598a4982bee578afb91fd8f88c"
     },
     {
       "path": "site/gravity-recipe-works.html",
-      "sha256": "a57eb3866b74db7d9e98a05a23af6e2bec20ee27ab05753922b339a11451a18a"
+      "sha256": "5e6f69d1c801d68e813e70f3324a8e7a10a2dd55b5f261056fb1fd47bb20cc6c"
     },
     {
       "path": "site/gravity-report-guests.html",
@@ -1994,7 +1994,7 @@
     },
     {
       "path": "site/gravity-shift-lab.html",
-      "sha256": "661c2e02b4d87d90d60f82d8c86b32c7acb593e846ba4e25966dd0e7a27fdafd"
+      "sha256": "a4430873446bc86953f8886c80fb08bd2cabda533d1bda33b204ed5933e830e1"
     },
     {
       "path": "site/gravity-shift-lab.webmanifest",
@@ -2006,7 +2006,7 @@
     },
     {
       "path": "site/gravity-sop-foundry.html",
-      "sha256": "756f3aeda4599ead1eae92db2138a30c9f516cafe0c44d39722d71946fb65313"
+      "sha256": "70d099cc5941f1b4a5e5c3a9ad41c293741d8be4fb4dedba2118a9a19dce5198"
     },
     {
       "path": "site/gravity-sop-library-set.html",
@@ -2030,7 +2030,7 @@
     },
     {
       "path": "site/gravity-work-study-lab.html",
-      "sha256": "b91b2db8380bc30e67a1ebf3b9bad890a8302d0798bd8415ec2405dfc259385c"
+      "sha256": "879bf5c52990289deed104e3fc38dc16793d359aa7e5da262109f73252e79cb2"
     },
     {
       "path": "site/guest-service-complaints-recovery-workbook.html",
