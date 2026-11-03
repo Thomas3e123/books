@@ -1,0 +1,177 @@
+[
+  {
+    "number": 326,
+    "id": "GRV-AI-326",
+    "category": "EVIDENCE & IMPROVEMENT",
+    "title": "HONEST INTAKE BEFORE DIAGNOSIS",
+    "prompt": "A manager describes [problem] but has not supplied evidence. Ask for observations, dates, records, and what is unknown. Separate facts, assumptions, and conflicting accounts. Do not name a root cause until evidence supports it."
+  },
+  {
+    "number": 327,
+    "id": "GRV-AI-327",
+    "category": "EVIDENCE & IMPROVEMENT",
+    "title": "CORRECTED ACCOUNT RESET",
+    "prompt": "The original account of [incident] was later corrected. Identify which prior conclusions depended on the incorrect facts, invalidate them, and rebuild the evidence trail without treating the old solution as verified."
+  },
+  {
+    "number": 328,
+    "id": "GRV-AI-328",
+    "category": "EVIDENCE & IMPROVEMENT",
+    "title": "PROOF OF SOLUTION",
+    "prompt": "For [operational fix], define the baseline, expected change, test window, objective pass/fail criteria, independent verification, and a hold check. Do not declare success because the change was installed."
+  },
+  {
+    "number": 329,
+    "id": "GRV-AI-329",
+    "category": "EVIDENCE & IMPROVEMENT",
+    "title": "INTERMITTENT NIGHT PATTERN",
+    "prompt": "An issue appears only on some busy nights: [issue]. Design a two-to-three-night evidence log covering staffing, volume, timing, actions, and exceptions. Explain how to distinguish a pattern from a one-off."
+  },
+  {
+    "number": 330,
+    "id": "GRV-AI-330",
+    "category": "EVIDENCE & IMPROVEMENT",
+    "title": "MANAGER CONFLICT OF INTEREST",
+    "prompt": "The closing manager may be responsible for [issue]. Assign fact collection and verification to an uninvolved GM or owner; define impartial documentation and escalation without presuming guilt."
+  },
+  {
+    "number": 331,
+    "id": "GRV-AI-331",
+    "category": "EVIDENCE & IMPROVEMENT",
+    "title": "COMPS ON BUSY SHIFTS",
+    "prompt": "Comps rise during peak periods. Create first checks for authorization, reasons, timing, guest recovery, ticket accuracy, staffing, and manager oversight; prioritize by evidence and financial impact."
+  },
+  {
+    "number": 332,
+    "id": "GRV-AI-332",
+    "category": "EVIDENCE & IMPROVEMENT",
+    "title": "FORM REUSE BEFORE CREATION",
+    "prompt": "For [recurring management problem], identify existing Gravity logs, reports, SOPs, and Field Sheets that capture required evidence. Reuse them before proposing a new form; identify only genuine missing fields."
+  },
+  {
+    "number": 333,
+    "id": "GRV-AI-333",
+    "category": "GRAVITY REPORT & FIELD SHEETS",
+    "title": "FIELD SHEET BESIDE STORY",
+    "prompt": "Turn [Gravity Report article] into a separate one-page Field Sheet with the promise 'We took the notes. You put them to work.' Include an action checklist, owner, deadline, proof, and follow-up; do not insert the sheet into the article body."
+  },
+  {
+    "number": 334,
+    "id": "GRV-AI-334",
+    "category": "GRAVITY REPORT & FIELD SHEETS",
+    "title": "STORY WITH OPERATING VALUE",
+    "prompt": "Draft a Gravity Report story about [restaurant situation] that is engaging rather than textbook-like, respects employee dignity, and concludes with a practical operational insight without making the story a lecture."
+  },
+  {
+    "number": 335,
+    "id": "GRV-AI-335",
+    "category": "GRAVITY REPORT & FIELD SHEETS",
+    "title": "EDITORIAL RELEASE BALANCE",
+    "prompt": "Plan publication of [article backlog] balancing lively employee stories, practical systems, and deep technical resources. Avoid releasing so much at once that readers cannot distinguish the publication's voice."
+  },
+  {
+    "number": 336,
+    "id": "GRV-AI-336",
+    "category": "GRAVITY REPORT & FIELD SHEETS",
+    "title": "FIVE-QUESTION SYSTEM TRIAGE",
+    "prompt": "Design a five-question assessment that identifies a restaurant's weakest controllable system. State scoring logic, ties, uncertainty, and the specific free SOP or tool to recommend; do not claim a diagnosis beyond the answers."
+  },
+  {
+    "number": 337,
+    "id": "GRV-AI-337",
+    "category": "GRAVITY REPORT & FIELD SHEETS",
+    "title": "ASSISTANT THAT DOES THE WORK",
+    "prompt": "Given [management issue], ask only essential questions, then produce the actual checklist, assigned owners, deadlines, reusable forms, evidence plan, and verification criteria. Explain any action that requires external access."
+  },
+  {
+    "number": 338,
+    "id": "GRV-AI-338",
+    "category": "GRAVITY REPORT & FIELD SHEETS",
+    "title": "WORKSPACE NAVIGATION AUDIT",
+    "prompt": "Audit [Gravity tool] for a persistent top site menu, correct tool identity, working Help/Save/Settings, no competing top tool links, and a small bottom return to Gravity Assist. Preserve deep links and existing user data."
+  },
+  {
+    "number": 339,
+    "id": "GRV-AI-339",
+    "category": "GRAVITY REPORT & FIELD SHEETS",
+    "title": "PUBLICATION VERSUS COMMIT",
+    "prompt": "Review [site release] and distinguish code written, code committed, build passed, deployed, and live-tested. Cite exact evidence for each state; never call a commit a published feature."
+  },
+  {
+    "number": 340,
+    "id": "GRV-AI-340",
+    "category": "GRAVITY ASSIST & RELEASE SAFETY",
+    "title": "DEPLOYMENT DIVERGENCE SAFETY",
+    "prompt": "Compare [feature branch] against [production branch]. Identify unrelated commits, missing production changes, and rollback risks. Recommend a narrow deployment path rather than merging a large divergent branch blindly."
+  },
+  {
+    "number": 341,
+    "id": "GRV-AI-341",
+    "category": "GRAVITY ASSIST & RELEASE SAFETY",
+    "title": "HANDBOOK QUESTION FLOW",
+    "prompt": "Test an employee handbook creator at Basic, Extended, and Full levels. Check skip, save, resume, auto-advance, final review, examples, preview, and starting a new handbook with no accidental data loss."
+  },
+  {
+    "number": 342,
+    "id": "GRV-AI-342",
+    "category": "GRAVITY ASSIST & RELEASE SAFETY",
+    "title": "HANDBOOK CUSTOMER INSTRUCTIONS",
+    "prompt": "Write a public user guide for [handbook app] with step-by-step examples for first launch, answering questions, skipping sections, previewing, saving, reopening, and starting a second handbook. Remove internal developer notes."
+  },
+  {
+    "number": 343,
+    "id": "GRV-AI-343",
+    "category": "GRAVITY ASSIST & RELEASE SAFETY",
+    "title": "FOUNDING YEAR PRICE CLARITY",
+    "prompt": "Audit a product page where digital access is free through October 1, 2027 and paid afterward. Verify that price display, checkout behavior, app-store listing, and customer promises are consistent; flag contradictions."
+  },
+  {
+    "number": 344,
+    "id": "GRV-AI-344",
+    "category": "GRAVITY ASSIST & RELEASE SAFETY",
+    "title": "APP STORE SCREENSHOT INTEGRITY",
+    "prompt": "Prepare an app-store screenshot checklist using a realistic sample handbook. Require actual app screens, truthful feature descriptions, correct Gravity logo, privacy-safe sample data, and no misleading pricing claims."
+  },
+  {
+    "number": 345,
+    "id": "GRV-AI-345",
+    "category": "GRAVITY ASSIST & RELEASE SAFETY",
+    "title": "APP BRAND IDENTITY",
+    "prompt": "Audit [app] across web, Windows, and Android for the correct Gravity mark, distinct tool icon, consistent labels, accessible contrast, and non-cartoonish professional design. List mismatches with exact locations."
+  },
+  {
+    "number": 346,
+    "id": "GRV-AI-346",
+    "category": "GRAVITY ASSIST & RELEASE SAFETY",
+    "title": "WINDOWS SMARTSCREEN RESPONSE",
+    "prompt": "A legitimate unsigned Windows installer triggers SmartScreen. Explain code-signing, reputation, safe distribution, and verification options without advising customers to disable security protections."
+  },
+  {
+    "number": 347,
+    "id": "GRV-AI-347",
+    "category": "HANDBOOK & APP QUALITY",
+    "title": "MOBILE CONVERSION READINESS",
+    "prompt": "Evaluate converting [Windows/web tool] into an Android app. Identify reusable logic, offline behavior, local files, save/export, permissions, Play Store billing, privacy disclosures, and real-device testing."
+  },
+  {
+    "number": 348,
+    "id": "GRV-AI-348",
+    "category": "HANDBOOK & APP QUALITY",
+    "title": "PAYMENT AND UNLOCK VERIFICATION",
+    "prompt": "Test [paid software] for preview access, payment confirmation, entitlement persistence, unlimited permitted document creation, restore after reinstall, and prevention of false unlocks. Do not claim security guarantees without tests."
+  },
+  {
+    "number": 349,
+    "id": "GRV-AI-349",
+    "category": "HANDBOOK & APP QUALITY",
+    "title": "VOICE RESPONSE LATENCY",
+    "prompt": "Assess [voice assistant] where spoken answers arrive after several seconds. Separate acknowledgement delay, model processing, speech synthesis, playback failure, and deployment caching. Define measured before/after tests."
+  },
+  {
+    "number": 350,
+    "id": "GRV-AI-350",
+    "category": "HANDBOOK & APP QUALITY",
+    "title": "MANAGER-ONLY TRAINING SIGNALS",
+    "prompt": "For [station], turn repeated SOP views, quiz errors, search gaps, cross-station interest, and recipe spikes into cautious training signals. Restrict manager visibility, avoid employee surveillance conclusions, and recommend confirmation before action."
+  }
+]
