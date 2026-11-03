@@ -1237,6 +1237,10 @@
       "sha256": "53f3233ccd78ed5292f8eb54a9dbc480ef7b9d5282c96f4f5cfa4e503acee02c"
     },
     {
+      "path": "site/assets/images/gravity-handbook-app-icon.svg",
+      "sha256": "b79407faff01275ecec0ba31143cb0af438ca9d733a935754b068e0b04c9a04d"
+    },
+    {
       "path": "site/assets/images/gravity-shift-lab-machine-icon.webp",
       "sha256": "3185030c7ee973edefded90c81f52d4b0034f8925be81ea8ce0f22a07fcf8c67"
     },
@@ -2038,7 +2042,7 @@
     },
     {
       "path": "site/handbook-creator/index.html",
-      "sha256": "05a60e9ca8bb7f74c8d938e4faa6d1507fc1f16fb4b541c4d62e60b51305505b"
+      "sha256": "9223a9badb898e87726e69631f6e782bc33011746bb2ffad5257b41860b6f39e"
     },
     {
       "path": "site/help-center.html",
