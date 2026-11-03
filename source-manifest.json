@@ -2033,6 +2033,10 @@
       "sha256": "5a4f1ef3c1700d8ad5db9c04fe941a655919ff5ec2a0144baf651942d08bc7ab"
     },
     {
+      "path": "site/handbook-app-privacy.html",
+      "sha256": "8caab9b4acc9f0ec84f5e40ac806284e57aacf6c99153956e47d807b10498cbb"
+    },
+    {
       "path": "site/handbook-creator/index.html",
       "sha256": "331eb6992ab01f60650468747b5d124dace0e82c189b42b126aa82d152b37754"
     },
