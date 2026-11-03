@@ -4,7 +4,7 @@ THE RESTAURANT LEADERSHIP SYSTEM
 Restaurant AI Prompts &
 Systems Workbook
 
-325 practical copy-and-paste prompts for restaurant leadership,
+350 practical copy-and-paste prompts for restaurant leadership,
 service, Work Study Lab, SOP Foundry, Shift Lab, Inventory Center,
 Testing Room, Windows software, governance, and verified improvement.
 
@@ -62,6 +62,10 @@ TESTING ROOM & CUSTOMER FEEDBACK — 7 prompts (#301–#307)
 WINDOWS RELEASE & DOCUMENTATION — 8 prompts (#308–#315)
 GRAVITY GOVERNANCE & IMPROVEMENT — 6 prompts (#316–#321)
 GRAVITY COMMUNICATION & EDUCATION — 4 prompts (#322–#325)
+EVIDENCE & IMPROVEMENT — 7 prompts (#326–#332)
+GRAVITY REPORT & FIELD SHEETS — 7 prompts (#333–#339)
+GRAVITY ASSIST & RELEASE SAFETY — 7 prompts (#340–#346)
+HANDBOOK & APP QUALITY — 4 prompts (#347–#350)
 
 HOW TO USE THE WORKBOOK
 
@@ -74,7 +78,7 @@ HOW TO USE THE WORKBOOK
 VERSION CONTROL
 
 Prompts 001–250 retain the existing controlled digital text.
-Prompts 251–325 are appended additions based on later Gravity work.
+Prompts 251–350 are appended additions based on later Gravity work.
 Earlier editions remain archived, not silently replaced.
 
 
@@ -3629,3 +3633,194 @@ ID: GRV-AI-325
 Help a first-time Gravity visitor choose what to download or read. Their problem, restaurant size and preference for a standalone tool: [facts]. Offer a short relevant path, identify completed versus in-development resources, explain registration and Founding Year terms accurately, and leave the visitor free to stop after one useful resource.
 
 Manager check: Access explanations must be accurate and non-coercive.
+
+==================================================================
+EVIDENCE & IMPROVEMENT
+==================================================================
+
+PROMPT 326 • HONEST INTAKE BEFORE DIAGNOSIS
+ID: GRV-AI-326
+
+A manager describes [problem] but has not supplied evidence. Ask for observations, dates, records, and what is unknown. Separate facts, assumptions, and conflicting accounts. Do not name a root cause until evidence supports it.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 327 • CORRECTED ACCOUNT RESET
+ID: GRV-AI-327
+
+The original account of [incident] was later corrected. Identify which prior conclusions depended on the incorrect facts, invalidate them, and rebuild the evidence trail without treating the old solution as verified.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 328 • PROOF OF SOLUTION
+ID: GRV-AI-328
+
+For [operational fix], define the baseline, expected change, test window, objective pass/fail criteria, independent verification, and a hold check. Do not declare success because the change was installed.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 329 • INTERMITTENT NIGHT PATTERN
+ID: GRV-AI-329
+
+An issue appears only on some busy nights: [issue]. Design a two-to-three-night evidence log covering staffing, volume, timing, actions, and exceptions. Explain how to distinguish a pattern from a one-off.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 330 • MANAGER CONFLICT OF INTEREST
+ID: GRV-AI-330
+
+The closing manager may be responsible for [issue]. Assign fact collection and verification to an uninvolved GM or owner; define impartial documentation and escalation without presuming guilt.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 331 • COMPS ON BUSY SHIFTS
+ID: GRV-AI-331
+
+Comps rise during peak periods. Create first checks for authorization, reasons, timing, guest recovery, ticket accuracy, staffing, and manager oversight; prioritize by evidence and financial impact.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 332 • FORM REUSE BEFORE CREATION
+ID: GRV-AI-332
+
+For [recurring management problem], identify existing Gravity logs, reports, SOPs, and Field Sheets that capture required evidence. Reuse them before proposing a new form; identify only genuine missing fields.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+==================================================================
+GRAVITY REPORT & FIELD SHEETS
+==================================================================
+
+PROMPT 333 • FIELD SHEET BESIDE STORY
+ID: GRV-AI-333
+
+Turn [Gravity Report article] into a separate one-page Field Sheet with the promise 'We took the notes. You put them to work.' Include an action checklist, owner, deadline, proof, and follow-up; do not insert the sheet into the article body.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 334 • STORY WITH OPERATING VALUE
+ID: GRV-AI-334
+
+Draft a Gravity Report story about [restaurant situation] that is engaging rather than textbook-like, respects employee dignity, and concludes with a practical operational insight without making the story a lecture.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 335 • EDITORIAL RELEASE BALANCE
+ID: GRV-AI-335
+
+Plan publication of [article backlog] balancing lively employee stories, practical systems, and deep technical resources. Avoid releasing so much at once that readers cannot distinguish the publication's voice.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 336 • FIVE-QUESTION SYSTEM TRIAGE
+ID: GRV-AI-336
+
+Design a five-question assessment that identifies a restaurant's weakest controllable system. State scoring logic, ties, uncertainty, and the specific free SOP or tool to recommend; do not claim a diagnosis beyond the answers.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 337 • ASSISTANT THAT DOES THE WORK
+ID: GRV-AI-337
+
+Given [management issue], ask only essential questions, then produce the actual checklist, assigned owners, deadlines, reusable forms, evidence plan, and verification criteria. Explain any action that requires external access.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 338 • WORKSPACE NAVIGATION AUDIT
+ID: GRV-AI-338
+
+Audit [Gravity tool] for a persistent top site menu, correct tool identity, working Help/Save/Settings, no competing top tool links, and a small bottom return to Gravity Assist. Preserve deep links and existing user data.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 339 • PUBLICATION VERSUS COMMIT
+ID: GRV-AI-339
+
+Review [site release] and distinguish code written, code committed, build passed, deployed, and live-tested. Cite exact evidence for each state; never call a commit a published feature.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+==================================================================
+GRAVITY ASSIST & RELEASE SAFETY
+==================================================================
+
+PROMPT 340 • DEPLOYMENT DIVERGENCE SAFETY
+ID: GRV-AI-340
+
+Compare [feature branch] against [production branch]. Identify unrelated commits, missing production changes, and rollback risks. Recommend a narrow deployment path rather than merging a large divergent branch blindly.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 341 • HANDBOOK QUESTION FLOW
+ID: GRV-AI-341
+
+Test an employee handbook creator at Basic, Extended, and Full levels. Check skip, save, resume, auto-advance, final review, examples, preview, and starting a new handbook with no accidental data loss.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 342 • HANDBOOK CUSTOMER INSTRUCTIONS
+ID: GRV-AI-342
+
+Write a public user guide for [handbook app] with step-by-step examples for first launch, answering questions, skipping sections, previewing, saving, reopening, and starting a second handbook. Remove internal developer notes.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 343 • FOUNDING YEAR PRICE CLARITY
+ID: GRV-AI-343
+
+Audit a product page where digital access is free through October 1, 2027 and paid afterward. Verify that price display, checkout behavior, app-store listing, and customer promises are consistent; flag contradictions.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 344 • APP STORE SCREENSHOT INTEGRITY
+ID: GRV-AI-344
+
+Prepare an app-store screenshot checklist using a realistic sample handbook. Require actual app screens, truthful feature descriptions, correct Gravity logo, privacy-safe sample data, and no misleading pricing claims.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 345 • APP BRAND IDENTITY
+ID: GRV-AI-345
+
+Audit [app] across web, Windows, and Android for the correct Gravity mark, distinct tool icon, consistent labels, accessible contrast, and non-cartoonish professional design. List mismatches with exact locations.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 346 • WINDOWS SMARTSCREEN RESPONSE
+ID: GRV-AI-346
+
+A legitimate unsigned Windows installer triggers SmartScreen. Explain code-signing, reputation, safe distribution, and verification options without advising customers to disable security protections.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+==================================================================
+HANDBOOK & APP QUALITY
+==================================================================
+
+PROMPT 347 • MOBILE CONVERSION READINESS
+ID: GRV-AI-347
+
+Evaluate converting [Windows/web tool] into an Android app. Identify reusable logic, offline behavior, local files, save/export, permissions, Play Store billing, privacy disclosures, and real-device testing.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 348 • PAYMENT AND UNLOCK VERIFICATION
+ID: GRV-AI-348
+
+Test [paid software] for preview access, payment confirmation, entitlement persistence, unlimited permitted document creation, restore after reinstall, and prevention of false unlocks. Do not claim security guarantees without tests.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 349 • VOICE RESPONSE LATENCY
+ID: GRV-AI-349
+
+Assess [voice assistant] where spoken answers arrive after several seconds. Separate acknowledgement delay, model processing, speech synthesis, playback failure, and deployment caching. Define measured before/after tests.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
+
+PROMPT 350 • MANAGER-ONLY TRAINING SIGNALS
+ID: GRV-AI-350
+
+For [station], turn repeated SOP views, quiz errors, search gaps, cross-station interest, and recipe spikes into cautious training signals. Restrict manager visibility, avoid employee surveillance conclusions, and recommend confirmation before action.
+
+Manager check: Confirm the inputs are accurate and appropriately authorized. Record the responsible manager, required evidence, review date, and measurable proof before approving or publishing any result.
