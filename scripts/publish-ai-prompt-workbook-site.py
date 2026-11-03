@@ -37,21 +37,21 @@ for name in PAGES:
     s=s.replace('Search 250 Prompts','Search 350 Prompts')
     s=s.replace('250 practical prompts','350 practical prompts')
     s=s.replace('215 practical prompts','350 practical prompts')
-    s=s.replace('250 prompts','350 prompts').replace('325 prompts','350 prompts')
-    s=s.replace('250 Prompts (digital text)','350 Prompts (complete edition)')
+    s=s.replace('250 prompts','350 prompts').replace('325 prompts','350 prompts').replace('325 Prompts','350 Prompts').replace('Search 325 Prompts','Search 350 Prompts')
+    s=s.replace('250 Prompts (digital text)','350 Prompts (complete edition)').replace('325 Prompts (complete edition)','350 Prompts (complete edition)')
     if name=='restaurant-ai-prompt-search.html':
         # Update SEO, descriptions, dynamic search-intro and live count together.
-        # Only this page can use broad 250-to-325 count replacement; elsewhere
+        # Only this page can use broad 250-to-350 count replacement; elsewhere
         # "first 250 preserved" is historical information and must stay.
-        s=s.replace('250-prompt','350-prompt')
-        s=s.replace('250-Prompt','325-Prompt')
+        s=s.replace('250-prompt','350-prompt').replace('325-prompt','350-prompt').replace('325-Prompt','350-Prompt')
+        s=s.replace('250-Prompt','350-Prompt')
         s=s.replace('250 Restaurant AI Prompts','350 Restaurant AI Prompts')
         s=s.replace('250 Gravity restaurant AI prompts','350 Gravity restaurant AI prompts')
         s=s.replace('Search all 250','Search all 350')
-        s=s.replace('<strong>250</strong><span>controlled prompts','<strong>325</strong><span>controlled prompts')
+        s=s.replace('<strong>250</strong><span>controlled prompts','<strong>350</strong><span>controlled prompts')
         s=s.replace('Loading the 250-prompt index','Loading the 350-prompt index')
         s=s.replace('GRV-AI-250</strong>','GRV-AI-350</strong>')
-        s=s.replace('ai-prompt-search.js?v=20261020-250','ai-prompt-search.js?v=20261103-350')
+        s=s.replace('ai-prompt-search.js?v=20261020-250','ai-prompt-search.js?v=20261103-350').replace('ai-prompt-search.js?v=20261020-325','ai-prompt-search.js?v=20261103-350')
         s=re.sub(r'(ai-prompt-search\.js)(?:\?v=[^"\']*)?',r'\1?v=20261103-350',s)
     if name=='free-resources.html':
         s=s.replace('215 practical copy-and-paste prompts', '350 practical copy-and-paste prompts')
