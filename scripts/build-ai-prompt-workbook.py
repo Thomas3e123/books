@@ -308,6 +308,7 @@ def main():
     print('AI_WORKBOOK_PROMPTS='+str(len(rows)))
     print('AI_WORKBOOK_CATEGORIES='+str(len(ordered)))
     print('AI_WORKBOOK_ADDED=100 BASELINE_PRESERVED=250')
+    print('AI_WORKBOOK_EDITION=2026-11-03 VERIFIED_COUNT=350')
     print(f'AI_WORKBOOK_DOCX={docx.relative_to(ROOT)} ({docx.stat().st_size} bytes)')
     print(f'AI_WORKBOOK_PDF={pdf.relative_to(ROOT)} ({pdf.stat().st_size} bytes)')
     print(f'AI_WORKBOOK_INDEX={index_path.relative_to(ROOT)}')
