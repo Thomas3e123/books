@@ -1718,7 +1718,7 @@
     },
     {
       "path": "site/assets/reader/ai-prompts.txt",
-      "sha256": "3f53c1a613321777a9ea8da2d0cf919e5e93d6eae6aefff3c15c1efd343ef1c0"
+      "sha256": "2b9bf19ec9386b56a62bf97302e542a5cd2103314c82f895da5e1ff20b00ac88"
     },
     {
       "path": "site/assets/reader/bar-inventory.txt",
@@ -1730,7 +1730,7 @@
     },
     {
       "path": "site/assets/reader/catalog.json",
-      "sha256": "e88d754b91f2d344367ac4d3522dc93d1f7eedb8df87f265f3fb9397dacd7a1a"
+      "sha256": "0d927937d7673a296deb5adc1e8321764cd16210cc5829da81e8f7f403eddf74"
     },
     {
       "path": "site/assets/reader/employee-training-sop-tracker.txt",
@@ -1898,11 +1898,11 @@
     },
     {
       "path": "site/book-reader.html",
-      "sha256": "99b1bad629007e57306673d80a03fe20f377df2e38b072c11e14da7694408acc"
+      "sha256": "1ef0b5b06f9d81f6705a488b9c645be9a3a46f221b648c4f1dc48ce096b6a752"
     },
     {
       "path": "site/books.html",
-      "sha256": "17e31a37dd1f4ef8fd1efd88061b994e4f77bff426dc1f6466411d2c7116a04e"
+      "sha256": "102bc230320ebb4526148350bd5d496082e84afc19ca6cd20903c90552bdbef1"
     },
     {
       "path": "site/contact.html",
@@ -1914,7 +1914,7 @@
     },
     {
       "path": "site/free-resources.html",
-      "sha256": "6d4e777f2c90d65f70ec12231d24e6c8bc8a0041431e8e5f5d7f86cec461bd88"
+      "sha256": "045620aada31a3c2e16b0839bac61a4121d80ebfc6b1f7cc32938156af44f222"
     },
     {
       "path": "site/gravity-assist.html",
@@ -2118,7 +2118,7 @@
     },
     {
       "path": "site/restaurant-ai-prompt-search.html",
-      "sha256": "36b49befa86842f3e12716acca5ce9ba4b60eb58bdfc9f523379ef36ff2c39d0"
+      "sha256": "fe0c649bf6f12878b440d6a384f276370b134a5c918d528996c28bc2cb081e27"
     },
     {
       "path": "site/restaurant-bar-beverage-inventory-ordering.html",
@@ -2418,7 +2418,7 @@
     },
     {
       "path": "site/toolkit.html",
-      "sha256": "ab5a21e93aabdbd465b733eabc670dddee5e41d2b4b53203611e7ad7cd1194ef"
+      "sha256": "ba0c9ee49325de3bfa11db07091b6952c9d5a67fc98a0e2a4cbdd3272a26b40c"
     },
     {
       "path": "site/windows-programs.html",
