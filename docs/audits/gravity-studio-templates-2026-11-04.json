@@ -1,0 +1,1218 @@
+[
+  {
+    "id": "application",
+    "name": "Job Application",
+    "category": "Most Used",
+    "title": "Job Application",
+    "previewLength": 1022,
+    "pass": true
+  },
+  {
+    "id": "jobdesc",
+    "name": "Job Description",
+    "category": "Most Used",
+    "title": "Job Description",
+    "previewLength": 909,
+    "pass": true
+  },
+  {
+    "id": "interview",
+    "name": "Interview Evaluation & Scorecard",
+    "category": "Most Used",
+    "title": "Interview Evaluation & Scorecard",
+    "previewLength": 1036,
+    "pass": true
+  },
+  {
+    "id": "handbook",
+    "name": "Employee Handbook",
+    "category": "Most Used",
+    "title": "Employee Handbook",
+    "previewLength": 1694,
+    "pass": true
+  },
+  {
+    "id": "onboarding",
+    "name": "New Hire / Onboarding Packet",
+    "category": "Most Used",
+    "title": "New Hire / Onboarding Packet",
+    "previewLength": 1071,
+    "pass": true
+  },
+  {
+    "id": "trainingplan",
+    "name": "Training Plan & Station Sign-Off",
+    "category": "Most Used",
+    "title": "Training Plan & Station Sign-Off",
+    "previewLength": 839,
+    "pass": true
+  },
+  {
+    "id": "timeoff",
+    "name": "Time-Off Request",
+    "category": "Most Used",
+    "title": "Time-Off Request",
+    "previewLength": 629,
+    "pass": true
+  },
+  {
+    "id": "policyack",
+    "name": "Policy & Acknowledgment Packet",
+    "category": "Most Used",
+    "title": "Policy & Acknowledgment Packet",
+    "previewLength": 702,
+    "pass": true
+  },
+  {
+    "id": "review",
+    "name": "Performance Review & Development Plan",
+    "category": "Most Used",
+    "title": "Performance Review & Development Plan",
+    "previewLength": 942,
+    "pass": true
+  },
+  {
+    "id": "late",
+    "name": "Attendance / Tardiness Coaching Record",
+    "category": "Most Used",
+    "title": "Attendance / Tardiness Coaching Record",
+    "previewLength": 812,
+    "pass": true
+  },
+  {
+    "id": "opening",
+    "name": "Opening Checklist",
+    "category": "Most Used",
+    "title": "Opening Checklist",
+    "previewLength": 639,
+    "pass": true
+  },
+  {
+    "id": "closing",
+    "name": "Closing Checklist",
+    "category": "Most Used",
+    "title": "Closing Checklist",
+    "previewLength": 665,
+    "pass": true
+  },
+  {
+    "id": "waste",
+    "name": "Waste / Spill / Comp Log",
+    "category": "Most Used",
+    "title": "Waste / Spill / Comp Log",
+    "previewLength": 684,
+    "pass": true
+  },
+  {
+    "id": "managerhandoff",
+    "name": "Manager Handoff Form",
+    "category": "Most Used",
+    "title": "Manager Handoff Form",
+    "previewLength": 796,
+    "pass": true
+  },
+  {
+    "id": "managerlog",
+    "name": "Manager Shift Log",
+    "category": "Most Used",
+    "title": "Manager Shift Log",
+    "previewLength": 705,
+    "pass": true
+  },
+  {
+    "id": "inventorycount",
+    "name": "Inventory Count Sheet",
+    "category": "Most Used",
+    "title": "Inventory Count Sheet",
+    "previewLength": 699,
+    "pass": true
+  },
+  {
+    "id": "foodcostjump",
+    "name": "Food Cost Variance Investigation",
+    "category": "Most Used",
+    "title": "Food Cost Variance Investigation",
+    "previewLength": 832,
+    "pass": true
+  },
+  {
+    "id": "prep",
+    "name": "Daily Prep & Production Sheet",
+    "category": "Most Used",
+    "title": "Daily Prep & Production Sheet",
+    "previewLength": 775,
+    "pass": true
+  },
+  {
+    "id": "guestrecovery",
+    "name": "Guest Recovery Record",
+    "category": "Most Used",
+    "title": "Guest Recovery Record",
+    "previewLength": 649,
+    "pass": true
+  },
+  {
+    "id": "cleaninspect",
+    "name": "Cleaning Inspection Checklist",
+    "category": "Most Used",
+    "title": "Cleaning Inspection Checklist",
+    "previewLength": 679,
+    "pass": true
+  },
+  {
+    "id": "mgr_open_walk",
+    "name": "Manager Opening Walk",
+    "category": "Most Used",
+    "title": "Manager Opening Walk",
+    "previewLength": 1250,
+    "pass": true
+  },
+  {
+    "id": "mgr_close_verify",
+    "name": "Manager Closing Verification",
+    "category": "Most Used",
+    "title": "Manager Closing Verification",
+    "previewLength": 1236,
+    "pass": true
+  },
+  {
+    "id": "duty_assign",
+    "name": "Manager Duty Assignment Board",
+    "category": "Most Used",
+    "title": "Manager Duty Assignment Board",
+    "previewLength": 1089,
+    "pass": true
+  },
+  {
+    "id": "meeting_minutes",
+    "name": "Manager Meeting Action Minutes",
+    "category": "Most Used",
+    "title": "Manager Meeting Action Minutes",
+    "previewLength": 990,
+    "pass": true
+  },
+  {
+    "id": "batch_plan",
+    "name": "Batch Cooking Plan",
+    "category": "Most Used",
+    "title": "Batch Cooking Plan",
+    "previewLength": 1176,
+    "pass": true
+  },
+  {
+    "id": "line_readiness",
+    "name": "Line Readiness Sheet",
+    "category": "Most Used",
+    "title": "Line Readiness Sheet",
+    "previewLength": 1160,
+    "pass": true
+  },
+  {
+    "id": "production_forecast",
+    "name": "Production Forecast Worksheet",
+    "category": "Most Used",
+    "title": "Production Forecast Worksheet",
+    "previewLength": 1161,
+    "pass": true
+  },
+  {
+    "id": "price_change",
+    "name": "Vendor Price Change Log",
+    "category": "Most Used",
+    "title": "Vendor Price Change Log",
+    "previewLength": 1097,
+    "pass": true
+  },
+  {
+    "id": "guest_complaint_log",
+    "name": "Guest Complaint Log",
+    "category": "Most Used",
+    "title": "Guest Complaint Log",
+    "previewLength": 1157,
+    "pass": true
+  },
+  {
+    "id": "restroom_log",
+    "name": "Restroom Inspection Log",
+    "category": "Most Used",
+    "title": "Restroom Inspection Log",
+    "previewLength": 1167,
+    "pass": true
+  },
+  {
+    "id": "deep_clean",
+    "name": "Deep Cleaning Schedule",
+    "category": "Most Used",
+    "title": "Deep Cleaning Schedule",
+    "previewLength": 1120,
+    "pass": true
+  },
+  {
+    "id": "dish_verify",
+    "name": "Dish Machine Verification Log",
+    "category": "Most Used",
+    "title": "Dish Machine Verification Log",
+    "previewLength": 1177,
+    "pass": true
+  },
+  {
+    "id": "hot_hold",
+    "name": "Hot Holding Log",
+    "category": "Most Used",
+    "title": "Hot Holding Log",
+    "previewLength": 1111,
+    "pass": true
+  },
+  {
+    "id": "cold_hold",
+    "name": "Cold Holding Log",
+    "category": "Most Used",
+    "title": "Cold Holding Log",
+    "previewLength": 1112,
+    "pass": true
+  },
+  {
+    "id": "sanitizer_log",
+    "name": "Sanitizer Concentration Log",
+    "category": "Most Used",
+    "title": "Sanitizer Concentration Log",
+    "previewLength": 1117,
+    "pass": true
+  },
+  {
+    "id": "downtime",
+    "name": "Equipment Downtime Record",
+    "category": "Most Used",
+    "title": "Equipment Downtime Record",
+    "previewLength": 1137,
+    "pass": true
+  },
+  {
+    "id": "safe_count",
+    "name": "Safe Count Sheet",
+    "category": "Most Used",
+    "title": "Safe Count Sheet",
+    "previewLength": 1130,
+    "pass": true
+  },
+  {
+    "id": "deposit_prep",
+    "name": "Deposit Preparation Record",
+    "category": "Most Used",
+    "title": "Deposit Preparation Record",
+    "previewLength": 1138,
+    "pass": true
+  },
+  {
+    "id": "cashier_checkout",
+    "name": "Cashier Checkout Sheet",
+    "category": "Most Used",
+    "title": "Cashier Checkout Sheet",
+    "previewLength": 1108,
+    "pass": true
+  },
+  {
+    "id": "holiday_plan",
+    "name": "Holiday / Peak Day Readiness Plan",
+    "category": "Most Used",
+    "title": "Holiday / Peak Day Readiness Plan",
+    "previewLength": 1157,
+    "pass": true
+  },
+  {
+    "id": "multi_scorecard",
+    "name": "Multi-Location Comparison Scorecard",
+    "category": "Most Used",
+    "title": "Multi-Location Comparison Scorecard",
+    "previewLength": 1169,
+    "pass": true
+  },
+  {
+    "id": "reference",
+    "name": "Reference Check Record",
+    "category": "Hiring & Recruiting",
+    "title": "Reference Check Record",
+    "previewLength": 835,
+    "pass": true
+  },
+  {
+    "id": "offer",
+    "name": "Offer & Employment Terms Letter",
+    "category": "Hiring & Recruiting",
+    "title": "Offer & Employment Terms Letter",
+    "previewLength": 843,
+    "pass": true
+  },
+  {
+    "id": "selection",
+    "name": "Hiring Decision Record",
+    "category": "Hiring & Recruiting",
+    "title": "Hiring Decision Record",
+    "previewLength": 627,
+    "pass": true
+  },
+  {
+    "id": "emergency",
+    "name": "Emergency Contact Form",
+    "category": "Onboarding & Training",
+    "title": "Emergency Contact Form",
+    "previewLength": 609,
+    "pass": true
+  },
+  {
+    "id": "property",
+    "name": "Uniform / Keys / Property Issue & Return",
+    "category": "Onboarding & Training",
+    "title": "Uniform / Keys / Property Issue & Return",
+    "previewLength": 743,
+    "pass": true
+  },
+  {
+    "id": "development90",
+    "name": "30 / 60 / 90-Day New Hire Plan",
+    "category": "Onboarding & Training",
+    "title": "30 / 60 / 90-Day New Hire Plan",
+    "previewLength": 882,
+    "pass": true
+  },
+  {
+    "id": "certification",
+    "name": "Certification & Permit Record",
+    "category": "Onboarding & Training",
+    "title": "Certification & Permit Record",
+    "previewLength": 555,
+    "pass": true
+  },
+  {
+    "id": "trainingmatrix",
+    "name": "Training Matrix",
+    "category": "Onboarding & Training",
+    "title": "Training Matrix",
+    "previewLength": 705,
+    "pass": true
+  },
+  {
+    "id": "traininglog",
+    "name": "Trainer Daily Training Log",
+    "category": "Onboarding & Training",
+    "title": "Trainer Daily Training Log",
+    "previewLength": 688,
+    "pass": true
+  },
+  {
+    "id": "newhire",
+    "name": "New Hire Onboarding Checklist",
+    "category": "Onboarding & Training",
+    "title": "New Hire Onboarding Checklist",
+    "previewLength": 803,
+    "pass": true
+  },
+  {
+    "id": "availability",
+    "name": "Employee Availability Record",
+    "category": "Employee Records",
+    "title": "Employee Availability Record",
+    "previewLength": 670,
+    "pass": true
+  },
+  {
+    "id": "keyissue",
+    "name": "Key / Access Issue Log",
+    "category": "Employee Records",
+    "title": "Key / Access Issue Log",
+    "previewLength": 632,
+    "pass": true
+  },
+  {
+    "id": "uniform",
+    "name": "Uniform / Equipment Issue Record",
+    "category": "Employee Records",
+    "title": "Uniform / Equipment Issue Record",
+    "previewLength": 694,
+    "pass": true
+  },
+  {
+    "id": "availabilitychange",
+    "name": "Availability Change Request",
+    "category": "Scheduling & Labor",
+    "title": "Availability Change Request",
+    "previewLength": 761,
+    "pass": true
+  },
+  {
+    "id": "shiftswap",
+    "name": "Shift Swap / Coverage Request",
+    "category": "Scheduling & Labor",
+    "title": "Shift Swap / Coverage Request",
+    "previewLength": 626,
+    "pass": true
+  },
+  {
+    "id": "calloff",
+    "name": "Call-Off / Attendance Record",
+    "category": "Scheduling & Labor",
+    "title": "Call-Off / Attendance Record",
+    "previewLength": 668,
+    "pass": true
+  },
+  {
+    "id": "schedulechange",
+    "name": "Schedule Change / Manager Approval",
+    "category": "Scheduling & Labor",
+    "title": "Schedule Change / Manager Approval",
+    "previewLength": 579,
+    "pass": true
+  },
+  {
+    "id": "shift_priority",
+    "name": "Shift Priority Plan",
+    "category": "Management & Shift Control",
+    "title": "Shift Priority Plan",
+    "previewLength": 1049,
+    "pass": true
+  },
+  {
+    "id": "decision_log",
+    "name": "Manager Decision Log",
+    "category": "Management & Shift Control",
+    "title": "Manager Decision Log",
+    "previewLength": 1142,
+    "pass": true
+  },
+  {
+    "id": "followup_tracker",
+    "name": "Daily Follow-Up Tracker",
+    "category": "Management & Shift Control",
+    "title": "Daily Follow-Up Tracker",
+    "previewLength": 1025,
+    "pass": true
+  },
+  {
+    "id": "policy_exception",
+    "name": "Policy Exception Approval",
+    "category": "Management & Shift Control",
+    "title": "Policy Exception Approval",
+    "previewLength": 1021,
+    "pass": true
+  },
+  {
+    "id": "escalation_record",
+    "name": "Issue Escalation Record",
+    "category": "Management & Shift Control",
+    "title": "Issue Escalation Record",
+    "previewLength": 1151,
+    "pass": true
+  },
+  {
+    "id": "deadline_tracker",
+    "name": "Manager Deadline Tracker",
+    "category": "Management & Shift Control",
+    "title": "Manager Deadline Tracker",
+    "previewLength": 994,
+    "pass": true
+  },
+  {
+    "id": "inventoryvariance",
+    "name": "Inventory Variance Investigation",
+    "category": "Food Cost & Inventory",
+    "title": "Inventory Variance Investigation",
+    "previewLength": 762,
+    "pass": true
+  },
+  {
+    "id": "portion",
+    "name": "Portion Control Audit",
+    "category": "Prep & Production",
+    "title": "Portion Control Audit",
+    "previewLength": 635,
+    "pass": true
+  },
+  {
+    "id": "thaw_plan",
+    "name": "Thawing Plan",
+    "category": "Prep & Production",
+    "title": "Thawing Plan",
+    "previewLength": 1126,
+    "pass": true
+  },
+  {
+    "id": "station_setup",
+    "name": "Station Setup Checklist",
+    "category": "Prep & Production",
+    "title": "Station Setup Checklist",
+    "previewLength": 1159,
+    "pass": true
+  },
+  {
+    "id": "station_breakdown",
+    "name": "Station Breakdown Checklist",
+    "category": "Prep & Production",
+    "title": "Station Breakdown Checklist",
+    "previewLength": 1157,
+    "pass": true
+  },
+  {
+    "id": "prep_pull",
+    "name": "Prep Pull Sheet",
+    "category": "Prep & Production",
+    "title": "Prep Pull Sheet",
+    "previewLength": 1085,
+    "pass": true
+  },
+  {
+    "id": "carryover",
+    "name": "Carryover / Leftover Control Log",
+    "category": "Prep & Production",
+    "title": "Carryover / Leftover Control Log",
+    "previewLength": 1104,
+    "pass": true
+  },
+  {
+    "id": "recipe_deviation",
+    "name": "Recipe Deviation Record",
+    "category": "Prep & Production",
+    "title": "Recipe Deviation Record",
+    "previewLength": 1119,
+    "pass": true
+  },
+  {
+    "id": "receiving",
+    "name": "Receiving Inspection Record",
+    "category": "Purchasing & Receiving",
+    "title": "Receiving Inspection Record",
+    "previewLength": 729,
+    "pass": true
+  },
+  {
+    "id": "purchase",
+    "name": "Purchase / Order Worksheet",
+    "category": "Purchasing & Receiving",
+    "title": "Purchase / Order Worksheet",
+    "previewLength": 714,
+    "pass": true
+  },
+  {
+    "id": "vendor_contacts",
+    "name": "Vendor Contact Sheet",
+    "category": "Purchasing & Receiving",
+    "title": "Vendor Contact Sheet",
+    "previewLength": 1118,
+    "pass": true
+  },
+  {
+    "id": "vendor_score",
+    "name": "Vendor Performance Scorecard",
+    "category": "Purchasing & Receiving",
+    "title": "Vendor Performance Scorecard",
+    "previewLength": 1136,
+    "pass": true
+  },
+  {
+    "id": "invoice_discrepancy",
+    "name": "Invoice Discrepancy Record",
+    "category": "Purchasing & Receiving",
+    "title": "Invoice Discrepancy Record",
+    "previewLength": 1120,
+    "pass": true
+  },
+  {
+    "id": "stockout_sub",
+    "name": "Out-of-Stock / Substitution Log",
+    "category": "Purchasing & Receiving",
+    "title": "Out-of-Stock / Substitution Log",
+    "previewLength": 1139,
+    "pass": true
+  },
+  {
+    "id": "emergency_purchase",
+    "name": "Emergency Purchase Record",
+    "category": "Purchasing & Receiving",
+    "title": "Emergency Purchase Record",
+    "previewLength": 1117,
+    "pass": true
+  },
+  {
+    "id": "delivery_reject",
+    "name": "Delivery Rejection Record",
+    "category": "Purchasing & Receiving",
+    "title": "Delivery Rejection Record",
+    "previewLength": 1129,
+    "pass": true
+  },
+  {
+    "id": "purchase_request",
+    "name": "Purchase Approval Request",
+    "category": "Purchasing & Receiving",
+    "title": "Purchase Approval Request",
+    "previewLength": 1149,
+    "pass": true
+  },
+  {
+    "id": "orderguide_change",
+    "name": "Order Guide Change Request",
+    "category": "Purchasing & Receiving",
+    "title": "Order Guide Change Request",
+    "previewLength": 1110,
+    "pass": true
+  },
+  {
+    "id": "serviceaudit",
+    "name": "Guest Service Observation",
+    "category": "Guest Service & Recovery",
+    "title": "Guest Service Observation",
+    "previewLength": 749,
+    "pass": true
+  },
+  {
+    "id": "guest_callback",
+    "name": "Guest Callback Log",
+    "category": "Guest Service & Recovery",
+    "title": "Guest Callback Log",
+    "previewLength": 1128,
+    "pass": true
+  },
+  {
+    "id": "large_party",
+    "name": "Large Party / Event Sheet",
+    "category": "Guest Service & Recovery",
+    "title": "Large Party / Event Sheet",
+    "previewLength": 1127,
+    "pass": true
+  },
+  {
+    "id": "allergy_comm",
+    "name": "Guest Allergy Communication Card",
+    "category": "Guest Service & Recovery",
+    "title": "Guest Allergy Communication Card",
+    "previewLength": 1182,
+    "pass": true
+  },
+  {
+    "id": "recovery_auth",
+    "name": "Service Recovery Authorization",
+    "category": "Guest Service & Recovery",
+    "title": "Service Recovery Authorization",
+    "previewLength": 1146,
+    "pass": true
+  },
+  {
+    "id": "lost_found",
+    "name": "Lost & Found Log",
+    "category": "Guest Service & Recovery",
+    "title": "Lost & Found Log",
+    "previewLength": 1108,
+    "pass": true
+  },
+  {
+    "id": "review_response",
+    "name": "Online Review Response Tracker",
+    "category": "Guest Service & Recovery",
+    "title": "Online Review Response Tracker",
+    "previewLength": 1120,
+    "pass": true
+  },
+  {
+    "id": "mystery_followup",
+    "name": "Mystery Shop / Audit Follow-Up",
+    "category": "Guest Service & Recovery",
+    "title": "Mystery Shop / Audit Follow-Up",
+    "previewLength": 1086,
+    "pass": true
+  },
+  {
+    "id": "sanitation",
+    "name": "Sanitation Verification Log",
+    "category": "Cleaning & Sanitation",
+    "title": "Sanitation Verification Log",
+    "previewLength": 547,
+    "pass": true
+  },
+  {
+    "id": "dining_walk",
+    "name": "Dining Room Cleanliness Walk",
+    "category": "Cleaning & Sanitation",
+    "title": "Dining Room Cleanliness Walk",
+    "previewLength": 1144,
+    "pass": true
+  },
+  {
+    "id": "ice_clean",
+    "name": "Ice Machine Cleaning Record",
+    "category": "Cleaning & Sanitation",
+    "title": "Ice Machine Cleaning Record",
+    "previewLength": 1153,
+    "pass": true
+  },
+  {
+    "id": "pest_sighting",
+    "name": "Pest Sighting Log",
+    "category": "Cleaning & Sanitation",
+    "title": "Pest Sighting Log",
+    "previewLength": 1139,
+    "pass": true
+  },
+  {
+    "id": "chemical_inventory",
+    "name": "Chemical / SDS Control Sheet",
+    "category": "Cleaning & Sanitation",
+    "title": "Chemical / SDS Control Sheet",
+    "previewLength": 1108,
+    "pass": true
+  },
+  {
+    "id": "grease_area",
+    "name": "Grease / Trash Area Inspection",
+    "category": "Cleaning & Sanitation",
+    "title": "Grease / Trash Area Inspection",
+    "previewLength": 1144,
+    "pass": true
+  },
+  {
+    "id": "temp",
+    "name": "Temperature Log",
+    "category": "Food Safety",
+    "title": "Temperature Log",
+    "previewLength": 651,
+    "pass": true
+  },
+  {
+    "id": "cooling",
+    "name": "Cooling Log",
+    "category": "Food Safety",
+    "title": "Cooling Log",
+    "previewLength": 585,
+    "pass": true
+  },
+  {
+    "id": "allergen",
+    "name": "Allergen / Cross-Contact Incident Review",
+    "category": "Food Safety",
+    "title": "Allergen / Cross-Contact Incident Review",
+    "previewLength": 756,
+    "pass": true
+  },
+  {
+    "id": "hold_discard",
+    "name": "Product Hold / Discard Log",
+    "category": "Food Safety",
+    "title": "Product Hold / Discard Log",
+    "previewLength": 1124,
+    "pass": true
+  },
+  {
+    "id": "reheat_log",
+    "name": "Reheating Log",
+    "category": "Food Safety",
+    "title": "Reheating Log",
+    "previewLength": 1137,
+    "pass": true
+  },
+  {
+    "id": "recv_temp",
+    "name": "Receiving Temperature Log",
+    "category": "Food Safety",
+    "title": "Receiving Temperature Log",
+    "previewLength": 1107,
+    "pass": true
+  },
+  {
+    "id": "thermo_cal",
+    "name": "Thermometer Calibration Log",
+    "category": "Food Safety",
+    "title": "Thermometer Calibration Log",
+    "previewLength": 1121,
+    "pass": true
+  },
+  {
+    "id": "recall_response",
+    "name": "Food Recall Response Checklist",
+    "category": "Food Safety",
+    "title": "Food Recall Response Checklist",
+    "previewLength": 1174,
+    "pass": true
+  },
+  {
+    "id": "tphc",
+    "name": "Time Control Tracking Sheet",
+    "category": "Food Safety",
+    "title": "Time Control Tracking Sheet",
+    "previewLength": 1161,
+    "pass": true
+  },
+  {
+    "id": "fs_corrective",
+    "name": "Food Safety Corrective Action Log",
+    "category": "Food Safety",
+    "title": "Food Safety Corrective Action Log",
+    "previewLength": 1157,
+    "pass": true
+  },
+  {
+    "id": "maintenance",
+    "name": "Equipment Maintenance Log",
+    "category": "Equipment & Maintenance",
+    "title": "Equipment Maintenance Log",
+    "previewLength": 749,
+    "pass": true
+  },
+  {
+    "id": "pm",
+    "name": "Preventive Maintenance Schedule",
+    "category": "Equipment & Maintenance",
+    "title": "Preventive Maintenance Schedule",
+    "previewLength": 667,
+    "pass": true
+  },
+  {
+    "id": "asset_register",
+    "name": "Equipment Asset Register",
+    "category": "Equipment & Maintenance",
+    "title": "Equipment Asset Register",
+    "previewLength": 1128,
+    "pass": true
+  },
+  {
+    "id": "repair_request",
+    "name": "Equipment Repair Request",
+    "category": "Equipment & Maintenance",
+    "title": "Equipment Repair Request",
+    "previewLength": 1106,
+    "pass": true
+  },
+  {
+    "id": "service_vendor",
+    "name": "Service Vendor Log",
+    "category": "Equipment & Maintenance",
+    "title": "Service Vendor Log",
+    "previewLength": 1078,
+    "pass": true
+  },
+  {
+    "id": "warranty",
+    "name": "Equipment Warranty Record",
+    "category": "Equipment & Maintenance",
+    "title": "Equipment Warranty Record",
+    "previewLength": 1147,
+    "pass": true
+  },
+  {
+    "id": "smallwares",
+    "name": "Smallwares Replacement Request",
+    "category": "Equipment & Maintenance",
+    "title": "Smallwares Replacement Request",
+    "previewLength": 1082,
+    "pass": true
+  },
+  {
+    "id": "cashcount",
+    "name": "Cash Drawer / Till Count",
+    "category": "Cash & Sales",
+    "title": "Cash Drawer / Till Count",
+    "previewLength": 746,
+    "pass": true
+  },
+  {
+    "id": "voidcomp",
+    "name": "Void / Comp / Discount Review",
+    "category": "Cash & Sales",
+    "title": "Void / Comp / Discount Review",
+    "previewLength": 641,
+    "pass": true
+  },
+  {
+    "id": "salesrecap",
+    "name": "Daily Sales & Control Recap",
+    "category": "Cash & Sales",
+    "title": "Daily Sales & Control Recap",
+    "previewLength": 719,
+    "pass": true
+  },
+  {
+    "id": "paidout",
+    "name": "Paid-Out / Cash Expense Log",
+    "category": "Cash & Sales",
+    "title": "Paid-Out / Cash Expense Log",
+    "previewLength": 1087,
+    "pass": true
+  },
+  {
+    "id": "pettycash",
+    "name": "Petty Cash Log",
+    "category": "Cash & Sales",
+    "title": "Petty Cash Log",
+    "previewLength": 1112,
+    "pass": true
+  },
+  {
+    "id": "refund_review",
+    "name": "Refund Review Log",
+    "category": "Cash & Sales",
+    "title": "Refund Review Log",
+    "previewLength": 1113,
+    "pass": true
+  },
+  {
+    "id": "pos_outage",
+    "name": "POS Outage Manual Sales Log",
+    "category": "Cash & Sales",
+    "title": "POS Outage Manual Sales Log",
+    "previewLength": 1187,
+    "pass": true
+  },
+  {
+    "id": "deposit_variance",
+    "name": "Deposit Variance Investigation",
+    "category": "Cash & Sales",
+    "title": "Deposit Variance Investigation",
+    "previewLength": 1106,
+    "pass": true
+  },
+  {
+    "id": "incident",
+    "name": "Restaurant Incident Report",
+    "category": "Safety & Incidents",
+    "title": "Restaurant Incident Report",
+    "previewLength": 756,
+    "pass": true
+  },
+  {
+    "id": "separation",
+    "name": "Separation / Exit Checklist",
+    "category": "Safety & Incidents",
+    "title": "Separation / Exit Checklist",
+    "previewLength": 1036,
+    "pass": true
+  },
+  {
+    "id": "exitinterview",
+    "name": "Exit Interview",
+    "category": "Safety & Incidents",
+    "title": "Exit Interview",
+    "previewLength": 863,
+    "pass": true
+  },
+  {
+    "id": "resignation",
+    "name": "Resignation / Voluntary Separation Record",
+    "category": "Safety & Incidents",
+    "title": "Resignation / Voluntary Separation Record",
+    "previewLength": 697,
+    "pass": true
+  },
+  {
+    "id": "returnwork",
+    "name": "Return-to-Work / Leave Administration Checklist",
+    "category": "Safety & Incidents",
+    "title": "Return-to-Work / Leave Administration Checklist",
+    "previewLength": 909,
+    "pass": true
+  },
+  {
+    "id": "nearMiss",
+    "name": "Near-Miss / Hazard Report",
+    "category": "Safety & Incidents",
+    "title": "Near-Miss / Hazard Report",
+    "previewLength": 713,
+    "pass": true
+  },
+  {
+    "id": "utility_outage",
+    "name": "Utility Outage Response Record",
+    "category": "Safety & Incidents",
+    "title": "Utility Outage Response Record",
+    "previewLength": 1224,
+    "pass": true
+  },
+  {
+    "id": "security_event",
+    "name": "Security Event Log",
+    "category": "Safety & Incidents",
+    "title": "Security Event Log",
+    "previewLength": 1096,
+    "pass": true
+  },
+  {
+    "id": "coaching",
+    "name": "Employee Coaching Record",
+    "category": "Performance & Corrective Action",
+    "title": "Employee Coaching Record",
+    "previewLength": 700,
+    "pass": true
+  },
+  {
+    "id": "concern",
+    "name": "Employee Concern / Complaint Intake",
+    "category": "Performance & Corrective Action",
+    "title": "Employee Concern / Complaint Intake",
+    "previewLength": 800,
+    "pass": true
+  },
+  {
+    "id": "factfinding",
+    "name": "Manager Fact-Finding / Investigation Notes",
+    "category": "Performance & Corrective Action",
+    "title": "Manager Fact-Finding / Investigation Notes",
+    "previewLength": 832,
+    "pass": true
+  },
+  {
+    "id": "manageragreement",
+    "name": "Manager Expectations & Leadership Agreement",
+    "category": "Performance & Corrective Action",
+    "title": "Manager Expectations & Leadership Agreement",
+    "previewLength": 910,
+    "pass": true
+  },
+  {
+    "id": "rolechange",
+    "name": "Promotion / Role / Pay Change Notice",
+    "category": "Performance & Corrective Action",
+    "title": "Promotion / Role / Pay Change Notice",
+    "previewLength": 716,
+    "pass": true
+  },
+  {
+    "id": "corrective",
+    "name": "Corrective Action Record",
+    "category": "Performance & Corrective Action",
+    "title": "Corrective Action Record",
+    "previewLength": 770,
+    "pass": true
+  },
+  {
+    "id": "performanceplan",
+    "name": "Performance Improvement Plan",
+    "category": "Performance & Corrective Action",
+    "title": "Performance Improvement Plan",
+    "previewLength": 714,
+    "pass": true
+  },
+  {
+    "id": "meeting",
+    "name": "Pre-Shift Meeting Planner",
+    "category": "Planning & Follow-Up",
+    "title": "Pre-Shift Meeting Planner",
+    "previewLength": 759,
+    "pass": true
+  },
+  {
+    "id": "actionplan",
+    "name": "Restaurant Action Plan",
+    "category": "Planning & Follow-Up",
+    "title": "Restaurant Action Plan",
+    "previewLength": 764,
+    "pass": true
+  },
+  {
+    "id": "weeklyreview",
+    "name": "Weekly Business Review",
+    "category": "Planning & Follow-Up",
+    "title": "Weekly Business Review",
+    "previewLength": 846,
+    "pass": true
+  },
+  {
+    "id": "weather_plan",
+    "name": "Severe Weather Readiness Plan",
+    "category": "Planning & Follow-Up",
+    "title": "Severe Weather Readiness Plan",
+    "previewLength": 1189,
+    "pass": true
+  },
+  {
+    "id": "promo_launch",
+    "name": "Promotion Launch Checklist",
+    "category": "Planning & Follow-Up",
+    "title": "Promotion Launch Checklist",
+    "previewLength": 1124,
+    "pass": true
+  },
+  {
+    "id": "menu_rollout",
+    "name": "New Menu Rollout Plan",
+    "category": "Planning & Follow-Up",
+    "title": "New Menu Rollout Plan",
+    "previewLength": 1165,
+    "pass": true
+  },
+  {
+    "id": "storeaudit",
+    "name": "Multi-Location Store Audit",
+    "category": "Multi-Location Controls",
+    "title": "Multi-Location Store Audit",
+    "previewLength": 736,
+    "pass": true
+  },
+  {
+    "id": "transfer",
+    "name": "Inter-Store Transfer Record",
+    "category": "Multi-Location Controls",
+    "title": "Inter-Store Transfer Record",
+    "previewLength": 731,
+    "pass": true
+  },
+  {
+    "id": "store_visit",
+    "name": "Store Visit Action Plan",
+    "category": "Multi-Location Controls",
+    "title": "Store Visit Action Plan",
+    "previewLength": 1087,
+    "pass": true
+  },
+  {
+    "id": "interstore_transfer",
+    "name": "Inter-Store Product Transfer",
+    "category": "Multi-Location Controls",
+    "title": "Inter-Store Product Transfer",
+    "previewLength": 1092,
+    "pass": true
+  },
+  {
+    "id": "opening_project",
+    "name": "New Store Opening Readiness Tracker",
+    "category": "Multi-Location Controls",
+    "title": "New Store Opening Readiness Tracker",
+    "previewLength": 1097,
+    "pass": true
+  },
+  {
+    "id": "tipack",
+    "name": "Tip Policy / Tip Pool Acknowledgment",
+    "category": "Policies & Pay",
+    "title": "Tip Policy / Tip Pool Acknowledgment",
+    "previewLength": 896,
+    "pass": true
+  },
+  {
+    "id": "cashhandling",
+    "name": "Cash Handling / Register Agreement",
+    "category": "Policies & Pay",
+    "title": "Cash Handling / Register Agreement",
+    "previewLength": 778,
+    "pass": true
+  },
+  {
+    "id": "mealdiscount",
+    "name": "Employee Meal / Discount Policy",
+    "category": "Policies & Pay",
+    "title": "Employee Meal / Discount Policy",
+    "previewLength": 677,
+    "pass": true
+  },
+  {
+    "id": "foodsafetyhealth",
+    "name": "Food Safety & Employee Health Acknowledgment",
+    "category": "Policies & Pay",
+    "title": "Food Safety & Employee Health Acknowledgment",
+    "previewLength": 900,
+    "pass": true
+  },
+  {
+    "id": "alcoholservice",
+    "name": "Alcohol Service Responsibility Acknowledgment",
+    "category": "Policies & Pay",
+    "title": "Alcohol Service Responsibility Acknowledgment",
+    "previewLength": 752,
+    "pass": true
+  }
+]

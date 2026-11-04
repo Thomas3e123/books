@@ -50,11 +50,11 @@ These changes address visitor discovery, usable navigation, and saving completed
 | Gravity Aware assessment | 20 Unknown answers produce 20 unknowns and three priorities | Not tested | Print invoked; actual PDF/print not captured | Full answer matrix; printer output |
 | Numbers Lab | All 12 calculators exercised with known expected answers | Stateless; reload clears entries | Repaired CSV downloaded and contents inspected | Print output; additional boundary inputs |
 | Quick Tools | Recipe 10→25 portions: 2lb→5lb, 1.5 cups→3.75; 212°F→100°C; overnight shift less 30min break→7.5hr; 7h30→7.5; $100 tips at 1:3→$25/$75; cash→$102.25; cases→27 each; Nov4+3→Nov7; 100→125→25%; rotation correct; label rendered | Not tested | Recipe TXT downloaded after fix | Every tool export; invalid-input matrix |
-| Shift Lab | 8-hour shift at $20 gives $160 and 1.6% of $10,000 sales | Saved week and reopened employee | Backup JSON and CSV downloaded; employee schedule print action publishes v1 locally | Overtime UI, imports, full schedule/QR, cloud sync, actual print |
-| Inventory Center | Profile/location/item created; 10 units at $4 = $40; missing-profile safeguard works | Item persists after reload; tour advances | Backup JSON downloaded | Receipts, transfers, count corrections, barcode hardware, cloud sync, restore |
+| Shift Lab | 8-hour shift at $20 gives $160 and 1.6% of $10,000 sales | Saved week and reopened employee | Backup JSON and CSV downloaded; employee schedule print action publishes v1 locally | Overtime and next-week copy subsequently passed below; imports, employee QR, cloud sync and actual print remain |
+| Inventory Center | Profile/location/item created; 10 units at $4 = $40; missing-profile safeguard works | Item persists after reload; tour advances | Backup JSON downloaded | Barcode hardware and cloud sync; receipts/transfers/counts/restore subsequently passed below |
 | Recipe Works | Audit Sauce, yield10, ingredient2lb at $3 gives $6 batch | Recipe saved and found after reload | Full backup JSON downloaded | Approval/revision/import flows, cost-unit edges, print |
 | Work Study Lab | Synthetic timed work step recorded and finished; measured output shown; unverified demand not represented as proven | Saved study resumes with blockers and sustainable-pace hold | Not yet exported | Complex study pathways, recordings/transcription, publishing, print |
-| Document Studio | Manager Handoff Form filled with test restaurant, responsible role and frequency; preview updates | Saved draft survives reload | Editable export reports created, but no browser download completed | Remaining 151 builders, actual DOC and print output |
+| Document Studio | Manager Handoff Form filled with test restaurant, responsible role and frequency; preview updates | Saved draft survives reload | Editable export reports created, but no browser download completed | All 152 previews subsequently passed below; actual DOC and print output still unverified |
 | Forms Personalizer | Custom title and two checklist lines rendered | Draft survives reload | PNG proof downloaded; package ZIP did not complete in test browser | Uploads, all templates, actual package/print |
 | QR Generator | Start Here URL generates 33×33-module QR preview | Not tested | Download link invoked but no file completed | Decode/scan with physical phone, SVG/PNG downloads, print |
 | Handbook Creator | Synthetic restaurant and mission; remaining examples filled; 23-page preview generated | Name and answers survive reload | PDF/Word/backup report ready but no browser download completed | Actual exports/print on HTTPS, all levels/design paths, mobile app behavior |
@@ -98,3 +98,25 @@ After critical checks pass: verify the live branch has not advanced, merge the r
 - `evidence/`: downloaded synthetic outputs and visual verification; contains no customer data.
 
 This is a checkpoint report with an explicit release hold, not a completed whole-site certification.
+
+
+## Continuation checkpoint — November 4, 2026
+
+Production remains unchanged and draft PR #14 remains on hold.
+
+### Additional browser checks passed
+
+- **Inventory full lifecycle:** start with 10 units at $4; receive 5 at $5; transfer 3 from Audit Walk-in to Audit Line Cooler; reject waste of 4 when only 3 available; post waste of 1; reject a full count with one blank line; post counts of 11 and 2. Reload shows 13 units valued at $65, with six history rows retaining the original opening cost and the later cost change. Export History CSV and full backup JSON downloaded. Restore of that synthetic backup succeeds and preserves the $65 valuation and history. Count differences remain distinct from classified waste.
+- **Document Studio:** all 152 distinct templates selected through all category buttons; every title matches its preview, and every preview contains document content. This verifies template opening/rendering only, not every customized document, export or print layout. Evidence: `gravity-studio-templates-2026-11-04.json`.
+- **Shift Lab:** five 9-hour days at $20 produce 45 hours and $950 (40 regular hours plus 5 hours at 1.5×), or 9.5% of $10,000 forecast sales. Editing a previously published week sets REVISED and requests a new employee QR. Opening the next week clears shifts/sales but preserves employee details. Copy Previous Week restores the 45-hour/$950 schedule; save and reload preserve it.
+- **Forms configuration:** all three source Netlify forms are detected on the live project: gravity-registration, gravity-customer-experience, gravity-report-opt-in. No submissions were read, changed or sent. Detection does not prove delivery or notifications.
+
+### Export investigation
+
+The real handbook export handler generated a full-example PDF and DOCX using 173 synthetic/example answers. The PDF has 27 letter-sized pages; all pages rendered and a contact sheet showed intact margins, section flow and page footers. PDF text extraction recovered the document text. The PDF renderer emitted Adobe-Identity-H character-collection warnings; cross-viewer/font compatibility remains to be checked. This is a layout/export-engine test, not legal validation of example wording.
+
+The same generated PDF was served through a plain download link in the isolated test environment. It still did not produce a browser download, including through the browser's direct download action. Therefore, the unsuccessful browser transfer is not isolated to the handbook's export button. Browser PDF/DOC/ZIP transfer remains unverified; no speculative application download change was made.
+
+### Access blockers observed
+
+The isolated SOP Foundry Build Room is still on its PIN screen. The earlier secure sign-in request could not attach; its browser handoff remains available. Netlify dashboard access is not signed in. Existing connected Netlify tools inspect projects and configuration but do not provide deployment uploads. Dashboard sign-in is needed to proceed with a separate HTTPS test deployment, unless an authenticated deployment capability becomes available. No new Netlify project has been created and no live settings were changed during this continuation.
