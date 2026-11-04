@@ -783,3 +783,22 @@ document.addEventListener('mouseover',function(e){var a=e.target&&e.target.close
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', applyHeaderIdentity, {once:true});
   else applyHeaderIdentity();
 })();
+
+
+/* Public resource search: navigates to landing pages, never exposes private content. */
+(function(){
+ function init(){
+  var header=document.querySelector('header.site-header'),inner=header&&header.querySelector('.header-inner'),toggle=header&&header.querySelector('[data-menu-toggle]');
+  if(!inner||!toggle||document.getElementById('gravity-site-search'))return;
+  var pages=[['Gravity Assist','/gravity-assist','tools problem help'],['Start Here','/start-here','new getting started'],['Gravity Report','/gravity-report','articles stories field sheets'],['SOP Library','/standards-library','sop training procedures stations'],['Forms and Checklists','/restaurant-management-forms-checklists','forms logs templates'],['Books','/books','books workbooks prompts'],['Book Reader','/book-reader','reading'],['Knowledge Center','/knowledge-center','resources guides'],['Help Center','/help-center','support instructions'],['Operating Systems','/operating-systems','systems'],['Gravity Aware','/gravity-aware','aware'],['Windows Programs','/windows-programs','downloads'],['Testing Room','/testing-room','feedback'],['Contact','/contact','contact'],['Handbook Creator','/gravity-handbook-creator','handbook'],['SOP Foundry','/gravity-sop-foundry','sop builder']];
+  var box=document.createElement('div');box.id='gravity-site-search';
+  box.innerHTML='<button type="button" aria-controls="gravity-site-search-panel" aria-expanded="false">Search Gravity</button><div id="gravity-site-search-panel" hidden><label for="gravity-site-search-input">Find a resource</label><input id="gravity-site-search-input" type="search" autocomplete="off" placeholder="Search tools, SOPs, books, forms…"><small>Searches public resource pages. Search within a resource for detailed content.</small><div id="gravity-site-search-results" role="status" aria-live="polite"></div></div>';
+  inner.insertBefore(box,toggle);
+  var css=document.createElement('style');css.textContent='#gravity-site-search{position:relative;flex:0 0 auto}#gravity-site-search>button{cursor:pointer;background:transparent;color:inherit;border:1px solid currentColor;border-radius:7px;padding:8px;font-weight:700}#gravity-site-search-panel{position:absolute;z-index:10000;right:0;top:calc(100% + 10px);width:min(420px,90vw);background:white;color:#172033;padding:16px;border:1px solid #ccc;border-radius:10px;box-shadow:0 12px 40px #0005}#gravity-site-search-panel[hidden]{display:none}#gravity-site-search-panel label{display:block;font-weight:700}#gravity-site-search-panel input{width:100%;padding:10px;font-size:16px;margin:8px 0}#gravity-site-search-panel small{display:block;margin-bottom:8px}#gravity-site-search-results a{display:block;padding:8px;color:#172033;text-decoration:underline;border-top:1px solid #ddd}@media(max-width:700px){#gravity-site-search{margin-left:auto}#gravity-site-search-panel{position:fixed;left:5vw;right:5vw;top:75px;width:90vw;max-height:75vh;overflow:auto}}';document.head.appendChild(css);
+  var btn=box.querySelector('button'),panel=box.querySelector('#gravity-site-search-panel'),input=box.querySelector('input'),results=box.querySelector('#gravity-site-search-results');
+  function render(){var q=input.value.toLowerCase().trim();results.replaceChildren();var found=pages.filter(function(p){return !q||(p[0]+' '+p[2]).toLowerCase().includes(q)}).slice(0,10);if(!found.length){results.textContent='No matching page. Try a broader word or Gravity Assist.';return;}found.forEach(function(p){var a=document.createElement('a');a.href=p[1];a.textContent=p[0];results.appendChild(a)});}
+  function show(open){panel.hidden=!open;btn.setAttribute('aria-expanded',String(open));if(open){render();input.focus();}}
+  btn.addEventListener('click',function(){show(panel.hidden)});input.addEventListener('input',render);document.addEventListener('click',function(e){if(!box.contains(e.target))show(false)});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!panel.hidden){show(false);btn.focus();}});
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
