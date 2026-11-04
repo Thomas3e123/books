@@ -14,23 +14,13 @@
   // manager screens, and their own internal controls are intentionally excluded.
   var primaryMenu = [
     ['/', 'Home'],
-    ['/gravity-report', 'Gravity Report'],
+    ['/start-here', 'Start Here'],
     ['/gravity-assist', 'Gravity Assist'],
-    ['/gravity-handbook-creator', 'Handbook Creator'],
-    ['/operating-systems', 'Operating Systems'],
-    ['/gravity-aware', 'Gravity Aware'],
-    ['/books', 'Books'],
-    ['/book-reader', 'Gravity Reader'],
-    ['/restaurant-management-forms-checklists', 'Forms & Tools'],
-    ['/gravity-fulfillment-center', 'Fulfillment Center'],
-    ['/standards-library', 'SOP Library'],
-    ['/gravity-sop-foundry', 'SOP Foundry'],
-    ['/knowledge-center', 'Knowledge Center'],
-    ['/help-center', 'Help Center'],
-    ['/windows-programs', 'Windows Programs'],
-    ['/testing-room', 'Testing Room'],
-    ['/contact', 'Contact'],
-    ['/start-here', 'Start Here']
+    ['/operating-systems', 'The Gravity System'],
+    ['/books', 'Books & Reader'],
+    ['/gravity-report', 'The Gravity Report'],
+    ['/knowledge-center', 'Resources'],
+    ['/help-center', 'Help']
   ];
   if (nav && nav.id === 'site-nav' && nav.closest('header.site-header')) {
     var fragment = document.createDocumentFragment();
@@ -38,7 +28,7 @@
       var link = document.createElement('a');
       link.setAttribute('href', item[0]);
       link.textContent = item[1];
-      if (item[0] === '/start-here') link.className = 'btn btn-red';
+      if (item[0] === '/gravity-assist') link.className = 'btn btn-red';
       fragment.appendChild(link);
     });
     nav.replaceChildren(fragment);
@@ -755,7 +745,7 @@ document.addEventListener('mouseover',function(e){var a=e.target&&e.target.close
 
 
 /* GRAVITY TESTING ROOM NAV 2026-10-14 */
-(function(){function add(){document.querySelectorAll('#site-nav,nav[data-menu]').forEach(function(nav){if(nav.querySelector('a[href="/testing-room"]'))return;var a=document.createElement('a');a.href='/testing-room';a.textContent='Testing Room';var win=nav.querySelector('a[href="/windows-programs"]');if(win&&win.nextSibling)nav.insertBefore(a,win.nextSibling);else{var start=nav.querySelector('a[href="/start-here"]');nav.insertBefore(a,start||null)}});var invite=document.getElementById('gravity-beta-test-invite');if(invite&&!invite.querySelector('a[href="/testing-room"]')){var acts=invite.querySelector('.gravity-beta-actions');if(acts){var a=document.createElement('a');a.className='btn btn-outline light';a.href='/testing-room';a.textContent='Join the Testing Room';acts.insertBefore(a,acts.lastElementChild)}}if(location.pathname.replace(/\.html$/,'')==='/windows-programs'&&!document.getElementById('gravity-testing-room-link')){var hero=document.querySelector('.nl-hero,.page-hero');if(hero){var s=document.createElement('section');s.id='gravity-testing-room-link';s.className='gravity-beta-compact';s.innerHTML='<div class="container"><div class="gravity-beta-compact-card"><div><strong>Want to help shape Gravity?</strong><p>Open the Testing Room to message Thomas, report a problem or idea, schedule a chat, or collaborate with other testers.</p></div><a class="btn btn-primary" href="/testing-room">Open Testing Room</a></div></div>';hero.insertAdjacentElement('afterend',s)}}document.querySelectorAll('.gravity-beta-test-note').forEach(function(n){if(!n.querySelector('a[href="/testing-room"]')){var a=document.createElement('a');a.href='/testing-room';a.textContent=' Open the Testing Room →';a.style.marginLeft='8px';n.appendChild(a)}})}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',add);else add()})();
+(function(){function add(){document.querySelectorAll('#site-nav,nav[data-menu]').forEach(function(nav){if(nav.id==='site-nav')return;if(nav.querySelector('a[href="/testing-room"]'))return;var a=document.createElement('a');a.href='/testing-room';a.textContent='Testing Room';var win=nav.querySelector('a[href="/windows-programs"]');if(win&&win.nextSibling)nav.insertBefore(a,win.nextSibling);else{var start=nav.querySelector('a[href="/start-here"]');nav.insertBefore(a,start||null)}});var invite=document.getElementById('gravity-beta-test-invite');if(invite&&!invite.querySelector('a[href="/testing-room"]')){var acts=invite.querySelector('.gravity-beta-actions');if(acts){var a=document.createElement('a');a.className='btn btn-outline light';a.href='/testing-room';a.textContent='Join the Testing Room';acts.insertBefore(a,acts.lastElementChild)}}if(location.pathname.replace(/\.html$/,'')==='/windows-programs'&&!document.getElementById('gravity-testing-room-link')){var hero=document.querySelector('.nl-hero,.page-hero');if(hero){var s=document.createElement('section');s.id='gravity-testing-room-link';s.className='gravity-beta-compact';s.innerHTML='<div class="container"><div class="gravity-beta-compact-card"><div><strong>Want to help shape Gravity?</strong><p>Open the Testing Room to message Thomas, report a problem or idea, schedule a chat, or collaborate with other testers.</p></div><a class="btn btn-primary" href="/testing-room">Open Testing Room</a></div></div>';hero.insertAdjacentElement('afterend',s)}}document.querySelectorAll('.gravity-beta-test-note').forEach(function(n){if(!n.querySelector('a[href="/testing-room"]')){var a=document.createElement('a');a.href='/testing-room';a.textContent=' Open the Testing Room →';a.style.marginLeft='8px';n.appendChild(a)}})}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',add);else add()})();
 
 /* Open the actual SOP Foundry room chooser from the main website menu.
    Preserve /gravity-sop-foundry as the information, manuals, and downloads page. */
@@ -768,12 +758,6 @@ document.addEventListener('mouseover',function(e){var a=e.target&&e.target.close
     var header = document.querySelector('.site-header');
     if (!header) return;
     var brand = header.querySelector('.brand-system-copy');
-    if (brand) {
-      var title = brand.querySelector('strong');
-      var subtitle = brand.querySelector('small');
-      if (title) title.textContent = 'Restaurant Leadership, Systems & Operations';
-      if (subtitle) subtitle.textContent = 'The Gravity System';
-    }
     var path = location.pathname.replace(/\/$/, '').replace(/\.html$/, '');
     if (!path || path === '/' || path === '/index') return;
     var isRoom = document.body.hasAttribute('data-workspace') ||
@@ -782,7 +766,9 @@ document.addEventListener('mouseover',function(e){var a=e.target&&e.target.close
     if (!isRoom || header.querySelector('.gravity-header-room-name')) return;
     var heading = document.querySelector('main h1, #main h1');
     var active = header.querySelector('nav a[aria-current="page"]');
-    var name = active ? active.textContent.trim() : (heading ? heading.textContent.trim() : '');
+    var name = heading ? heading.textContent.trim() : (active ? active.textContent.trim() : '');
+    var roomNames = {'/gravity-assist':'Gravity Assist','/gravity-shift-lab':'Shift Lab','/gravity-sop-foundry':'SOP Foundry','/gravity-inventory-center':'Inventory Center','/gravity-work-study-lab':'Work Study Lab','/gravity-recipe-works':'Recipe Works','/gravity-aware':'Gravity Aware'};
+    name = roomNames[path] || name.replace(/^The Gravity (Restaurant )?/i, '').replace(/^Gravity /i, '');
     if (!name || name.length > 65) name = path.split('/').filter(Boolean).pop().replace(/[-_]/g, ' ');
     var inner = header.querySelector('.header-inner');
     if (!inner || !name) return;
