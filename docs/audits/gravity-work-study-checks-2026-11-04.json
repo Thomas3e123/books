@@ -1,0 +1,282 @@
+[
+  {
+    "script": "scripts/work-study-action-expert-suite.cjs",
+    "exit": 0,
+    "output": "Work Study action expert suite passed cause-link, controlled-test, quality, safety, rollback, ownership, retest, and SOP safeguards.\n"
+  },
+  {
+    "script": "scripts/work-study-adaptive-expert-suite.cjs",
+    "exit": 0,
+    "output": "Adaptive expert suite passed: Guided branches, permanently skips irrelevant checkpoints, and escalates risky answers.\n"
+  },
+  {
+    "script": "scripts/work-study-adversarial-suite.cjs",
+    "exit": 0,
+    "output": "Work Study adversarial suite passed 20 conflicting, misleading, and insufficient-evidence cases.\n"
+  },
+  {
+    "script": "scripts/work-study-allowance-expert-v41-suite.cjs",
+    "exit": 0,
+    "output": "Allowance expert suite passed: observed work content stays separate from staffing time, allowance source/definition are explicit, and no generic percentage is invented.\n"
+  },
+  {
+    "script": "scripts/work-study-baseline-provenance-v40-suite.cjs",
+    "exit": 0,
+    "output": "Baseline provenance suite passed: verified-condition fingerprinting, change detection, historical-standard protection, fresh Hold requirement, and safe Guided teaching are present.\n"
+  },
+  {
+    "script": "scripts/work-study-changeover-sequence-v55-suite.cjs",
+    "exit": 0,
+    "output": "Changeover v55 suite passed: transition direction is preserved, pooling requires equivalence, and required reset controls cannot be optimized away.\n"
+  },
+  {
+    "script": "scripts/work-study-clock-control-suite.cjs",
+    "exit": 0,
+    "output": "Clock control suite passed: ownership switching, natural phrases, repeat-on-unclear, and stop-before-switch safeguards are present.\n"
+  },
+  {
+    "script": "scripts/work-study-conclusion-suite.cjs",
+    "exit": 0,
+    "output": "Work Study conclusion suite passed 15 evidence/outcome cases plus Before/After structure and SOP approval safeguards.\n"
+  },
+  {
+    "script": "scripts/work-study-confidence-expert-suite.cjs",
+    "exit": 0,
+    "output": "Confidence expert suite passed: Gravity calibrates confidence and identifies the best next evidence without encouraging waste.\n"
+  },
+  {
+    "script": "scripts/work-study-crew-labor-v48-suite.cjs",
+    "exit": 0,
+    "output": "Crew labor v48 suite passed: wall-clock time stays separate from summed engaged labor and headcount multiplication is prohibited.\n"
+  },
+  {
+    "script": "scripts/work-study-demand-coverage-v46-suite.cjs",
+    "exit": 0,
+    "output": "Demand coverage v46 suite passed: intended demand range, run tagging, mix representativeness, Guided teaching, and anti-waste safeguards are present.\n"
+  },
+  {
+    "script": "scripts/work-study-device-link-suite.cjs",
+    "exit": 0,
+    "output": "WORK_STUDY_DEVICE_LINK_SUITE_PASS\n"
+  },
+  {
+    "script": "scripts/work-study-diagnostic-expert-suite.cjs",
+    "exit": 0,
+    "output": "Work Study diagnostic expert suite passed 6 problem-framing, human-factor, cross-station, and system-cause cases.\n"
+  },
+  {
+    "script": "scripts/work-study-earbud-mode-suite.cjs",
+    "exit": 0,
+    "output": "Work Study Guided voice suite passed Cedar neural speech-on-Guided, greeting, observation-cue, and no-device-fallback safeguards.\n"
+  },
+  {
+    "script": "scripts/work-study-escalation-expert-suite.cjs",
+    "exit": 0,
+    "output": "Work Study escalation expert suite passed: 7 scope-boundary cases.\n"
+  },
+  {
+    "script": "scripts/work-study-evidence-package-v56-suite.cjs",
+    "exit": 0,
+    "output": "Evidence package v56 suite passed: the base study and discovered study-specific sidecars travel together without claiming hosted sync or exporting unrelated studies.\n"
+  },
+  {
+    "script": "scripts/work-study-expert-reasoning-suite.cjs",
+    "exit": 0,
+    "output": "Work Study expert reasoning suite passed 17 method-specific reasoning cases plus knowledge-maturity safeguards.\n"
+  },
+  {
+    "script": "scripts/work-study-expert-triage-v61-suite.cjs",
+    "exit": 0,
+    "output": "Work Study expert triage v61 suite passed blocker-first prioritization, teaching safety, truth-preserving applicability guidance, and direct navigation safeguards.\n"
+  },
+  {
+    "script": "scripts/work-study-failure-expert-suite.cjs",
+    "exit": 0,
+    "output": "Work Study failure expert suite passed: 7 rollout/recovery cases.\n"
+  },
+  {
+    "script": "scripts/work-study-first-timer-suite.cjs",
+    "exit": 0,
+    "output": "First-time Work Study suite passed complete beginner guidance, uncertainty, observation, and standardization safeguards.\n"
+  },
+  {
+    "script": "scripts/work-study-graduation-suite.cjs",
+    "exit": 0,
+    "output": "WORK STUDY GRADUATION PASS: timer integrity, natural-language clock control, expert layers v39-v60, synthesis participation, safety/quality boundaries, and portable evidence packaging are all present in the controlled source.\n"
+  },
+  {
+    "script": "scripts/work-study-guided-expert-interview-suite.cjs",
+    "exit": 0,
+    "output": "Guided expert interview simulation passed: 42 expert checkpoints across escalation, diagnosis, integrity, action, and failure/recovery layers, with voice priority and no duplicate keys inside a layer.\n"
+  },
+  {
+    "script": "scripts/work-study-guided-interview-suite.cjs",
+    "exit": 0,
+    "output": "Guided interview suite passed one-question-at-a-time progression across the full Work Study path.\n"
+  },
+  {
+    "script": "scripts/work-study-guided-stability-suite.cjs",
+    "exit": 0,
+    "output": "Work Study Guided stability suite PASS\n"
+  },
+  {
+    "script": "scripts/work-study-hold-expert-suite.cjs",
+    "exit": 0,
+    "output": "Work Study hold expert suite passed 10 drift/revalidation cases.\n"
+  },
+  {
+    "script": "scripts/work-study-human-factors-v57-v60-suite.cjs",
+    "exit": 0,
+    "output": "Work Study human-factor v57-v60 suite passed ergonomic, learning-curve, context-representativeness, sustainable-pace, teaching-safety, and standard-hold safeguards.\n"
+  },
+  {
+    "script": "scripts/work-study-incomplete-cycle-v52-suite.cjs",
+    "exit": 0,
+    "output": "Incomplete-cycle v52 suite passed: aborted/restarted attempts remain visible, partial-work handling is explicit, and survivorship bias is blocked.\n"
+  },
+  {
+    "script": "scripts/work-study-integrity-expert-suite.cjs",
+    "exit": 0,
+    "output": "Work Study integrity expert suite passed contamination, consistency, changed-condition, uncertainty, downgrade, and SOP safeguards.\n"
+  },
+  {
+    "script": "scripts/work-study-labor-occupancy-suite.cjs",
+    "exit": 0,
+    "output": "Labor occupancy suite passed: background process clocks may overlap active labor, voice machine phrases use the parallel clock, and elapsed machine time is not automatically added to labor.\n"
+  },
+  {
+    "script": "scripts/work-study-measurement-expert-suite.cjs",
+    "exit": 0,
+    "output": "Work Study measurement expert suite passed sample-size, variation, outlier, skew, and conclusion-hold safeguards.\n"
+  },
+  {
+    "script": "scripts/work-study-observation-coach-suite.cjs",
+    "exit": 0,
+    "output": "Work Study observation coach suite passed 11 method-specific first-time observation guides.\n"
+  },
+  {
+    "script": "scripts/work-study-observation-effect-v44-suite.cjs",
+    "exit": 0,
+    "output": "Observation-effect suite passed: normal-condition hold, early-vs-late sequence signal, non-accusatory interpretation, and safe Guided teaching are present.\n"
+  },
+  {
+    "script": "scripts/work-study-observer-agreement-v42-suite.cjs",
+    "exit": 0,
+    "output": "Observer agreement suite passed: paired same-cycle calibration, boundary safeguards, anti-blame framing, and safe Guided teaching are present.\n"
+  },
+  {
+    "script": "scripts/work-study-practical-units-suite.cjs",
+    "exit": 0,
+    "output": "Practical-unit suite passed: canonical math is preserved while manager-facing output uses recorded restaurant units and wall-clock context.\n"
+  },
+  {
+    "script": "scripts/work-study-precision-v45-suite.cjs",
+    "exit": 0,
+    "output": "Precision v45 suite passed: 95% uncertainty, narrow/wide discrimination, safe Guided teaching, and anti-waste language are present.\n"
+  },
+  {
+    "script": "scripts/work-study-process-file-suite.cjs",
+    "exit": 0,
+    "output": "Process-file suite passed: DOCX package extraction returns readable paragraph text without treating the file format as plain text.\n"
+  },
+  {
+    "script": "scripts/work-study-process-map-suite.cjs",
+    "exit": 0,
+    "output": "Process-map suite passed: ingredients stay context, written and inferred steps remain traceable proposals, DOCX has a real extraction path, and confirmed steps carry scaling metadata into observation.\n"
+  },
+  {
+    "script": "scripts/work-study-production-pause-suite.cjs",
+    "exit": 0,
+    "output": "Production pause suite passed: normal-production pause/resume, run boundaries, waste safeguard, and run context are present.\n"
+  },
+  {
+    "script": "scripts/work-study-proficiency-v43-suite.cjs",
+    "exit": 0,
+    "output": "Proficiency suite passed: training status, expert/learning bias, scope control, anti-blame framing, and safe Guided teaching are present.\n"
+  },
+  {
+    "script": "scripts/work-study-queue-recovery-v51-suite.cjs",
+    "exit": 0,
+    "output": "Queue/recovery v51 suite passed: burst queues, sustained shortfall, recovery, and local queue boundaries are handled without average-rate shortcuts.\n"
+  },
+  {
+    "script": "scripts/work-study-repeatability-expert-suite.cjs",
+    "exit": 0,
+    "output": "Work Study repeatability expert suite passed 9 standardization cases.\n"
+  },
+  {
+    "script": "scripts/work-study-run-comparability-suite.cjs",
+    "exit": 0,
+    "output": "Run comparability suite passed: Gravity separates unlike production runs, normalizes compatible units, rejects incompatible dimensions, and protects normal-production sampling.\n"
+  },
+  {
+    "script": "scripts/work-study-scaling-expert-v39-suite.cjs",
+    "exit": 0,
+    "output": "Scaling expert suite passed: fixed/variable work, yield-range limits, nonlinear threshold warning, and safe Guided teaching are present.\n"
+  },
+  {
+    "script": "scripts/work-study-scenario-suite.cjs",
+    "exit": 0,
+    "output": "Work Study restaurant stress suite passed 35 scenario classifications plus expert-path, evidence, quality, safety, and anti-blame safeguards.\n"
+  },
+  {
+    "script": "scripts/work-study-segment-reference-suite.cjs",
+    "exit": 0,
+    "output": "Segment reference suite passed: verified restaurant-local history is condition-checked and remains planning-only rather than direct evidence.\n"
+  },
+  {
+    "script": "scripts/work-study-sequence-expert-suite.cjs",
+    "exit": 0,
+    "output": "Work Study constraint-sequence expert suite passed 13 sequence/system-effect cases plus moved-constraint guidance.\n"
+  },
+  {
+    "script": "scripts/work-study-shared-setup-v47-suite.cjs",
+    "exit": 0,
+    "output": "Shared setup v47 suite passed: dedicated/shared fixed work is explicit, raw observations stay intact, and repeated setup charging is prevented.\n"
+  },
+  {
+    "script": "scripts/work-study-shift-position-v54-suite.cjs",
+    "exit": 0,
+    "output": "Shift-position v54 suite passed: extended-window standards require representative early/middle/late evidence without attributing operational differences to employee fatigue or intent.\n"
+  },
+  {
+    "script": "scripts/work-study-short-element-v53-suite.cjs",
+    "exit": 0,
+    "output": "Short-element v53 suite passed: observable boundaries and method adequacy control precision without inventing a universal time cutoff.\n"
+  },
+  {
+    "script": "scripts/work-study-standard-minutes-v33-suite.cjs",
+    "exit": 0,
+    "output": "Standard-minute v33 suite passed: unit-aware normalization, labor/process separation, candidate-to-verified promotion on confirmed hold, and safe Guided teaching are present.\n"
+  },
+  {
+    "script": "scripts/work-study-synthesis-integration-suite.cjs",
+    "exit": 0,
+    "output": "Synthesis integration suite passed: changeover sequence, shift-position coverage, short-element adequacy, Work Sampling, precision, demand coverage, queue/recovery, shared setup, crew labor, yield/waste, incomplete-cycle protection, standard-minute validity, baseline control, observer calibration, proficiency representativeness, and observation-effect context participate in the consolidated Gravity verdict.\n"
+  },
+  {
+    "script": "scripts/work-study-synthesis-suite.cjs",
+    "exit": 0,
+    "output": "Work Study synthesis suite passed: 6 orchestration cases.\n"
+  },
+  {
+    "script": "scripts/work-study-systems-expert-suite.cjs",
+    "exit": 0,
+    "output": "Work Study systems expert suite passed 10 mixed-cause/context cases.\n"
+  },
+  {
+    "script": "scripts/work-study-timer-integrity-suite.cjs",
+    "exit": 0,
+    "output": "Timer integrity suite passed: screen changes record active elapsed time and mode changes preserve the active timer.\n"
+  },
+  {
+    "script": "scripts/work-study-work-sampling-v50-suite.cjs",
+    "exit": 0,
+    "output": "Work Sampling v50 suite passed: snapshot proportions, schedule validity, Wilson uncertainty, and decision-specific precision are separated from cycle timing.\n"
+  },
+  {
+    "script": "scripts/work-study-yield-quality-v49-suite.cjs",
+    "exit": 0,
+    "output": "Yield/waste v49 suite passed: speed cannot override approved usable-yield or waste boundaries, and no generic loss limit is invented.\n"
+  }
+]

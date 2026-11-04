@@ -1,0 +1,63 @@
+{
+  "product": "Gravity Inventory Center",
+  "version": "1.0.0",
+  "exportedAt": "2026-11-04T17:53:28.499Z",
+  "state": {
+    "schemaVersion": 1,
+    "profile": {
+      "restaurant": "Gravity Audit Restaurant",
+      "store": "",
+      "city": "",
+      "state": ""
+    },
+    "locations": [
+      {
+        "id": "loc_mw2f0igf_e3tfsq",
+        "name": "Audit Walk-in",
+        "routeOrder": 1,
+        "area": "",
+        "notes": ""
+      }
+    ],
+    "items": [
+      {
+        "id": "item_mw2f0rcm_jsyg3n",
+        "balances": {
+          "loc_mw2f0igf_e3tfsq": 10
+        },
+        "name": "Audit Chicken",
+        "category": "",
+        "vendor": "",
+        "sku": "",
+        "barcode": "",
+        "unit": "each",
+        "casePack": 1,
+        "cost": 4,
+        "yieldPct": 100,
+        "par": 0,
+        "reorder": 0,
+        "primaryLocation": "loc_mw2f0igf_e3tfsq",
+        "active": true
+      }
+    ],
+    "movements": [
+      {
+        "id": "mov_mw2f0rcm_mjjlfb",
+        "at": "2026-11-04T17:53:26.902Z",
+        "date": "2026-11-04",
+        "type": "opening-balance",
+        "itemId": "item_mw2f0rcm_jsyg3n",
+        "fromLocation": "",
+        "toLocation": "loc_mw2f0igf_e3tfsq",
+        "qty": 10,
+        "unitCost": 4,
+        "reference": "Starting on-hand"
+      }
+    ],
+    "costHistory": [],
+    "counts": [],
+    "sales": [],
+    "createdAt": "2026-11-04T17:52:34.709Z",
+    "updatedAt": "2026-11-04T17:53:26.902Z"
+  }
+}

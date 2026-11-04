@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import handler from '../functions/gravity-report/index.mjs';
 
-const home=fs.readFileSync('site/gravity-report.html','utf8');
+const home=fs.readFileSync((process.env.GRAVITY_SITE_DIR||'site')+'/gravity-report.html','utf8');
 const css=fs.readFileSync('site/assets/css/gravity-report-reading.css','utf8');
 const js=fs.readFileSync('site/assets/js/gravity-report-reading.js','utf8');
 const url='https://gravityleadershipsystem.com';

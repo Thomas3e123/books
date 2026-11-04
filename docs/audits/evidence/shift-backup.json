@@ -1,0 +1,242 @@
+{
+  "version": 5,
+  "exportedAt": "2026-11-04T17:52:22.458Z",
+  "profile": {
+    "restaurant": "Gravity Audit Restaurant",
+    "store": "",
+    "targetHours": "",
+    "targetPercent": "",
+    "conflictMode": "warn",
+    "payLockHash": "",
+    "managementLaborMode": "include",
+    "managerSalaryAllocation": "",
+    "hourlyBurdenPercent": "",
+    "contactVisibility": "scheduler",
+    "publishCycle": "1",
+    "lastViewedWeek": "2026-11-01",
+    "openTimes": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "openAllowance": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "closeTimes": [
+      "10p",
+      "10p",
+      "10p",
+      "10p",
+      "10p",
+      "11p",
+      "11p"
+    ],
+    "closeAllowance": [
+      1.5,
+      1.5,
+      1.5,
+      1.5,
+      1.5,
+      1.5,
+      1.5
+    ],
+    "sections": [
+      "Management",
+      "Dish Pit",
+      "Prep",
+      "Cook Line",
+      "Pizza",
+      "Salad",
+      "Expo",
+      "Servers",
+      "Hosts",
+      "Bar"
+    ],
+    "employees": [
+      {
+        "id": "e_mw2eo1rx_o5sey",
+        "name": "Audit Cook",
+        "role": "Cook",
+        "wage": "20",
+        "phone": "",
+        "maxWeeklyHours": "",
+        "minor": false,
+        "noClosing": false,
+        "certification": "",
+        "certExpiry": "",
+        "homeSection": "",
+        "qualifiedSections": [],
+        "availability": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "recurringOff": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "requests": [],
+        "calendarRules": []
+      },
+      {
+        "id": "e_mw2eo1s4_dzrec",
+        "name": "",
+        "role": "",
+        "wage": "",
+        "phone": "",
+        "maxWeeklyHours": "",
+        "minor": false,
+        "noClosing": false,
+        "certification": "",
+        "certExpiry": "",
+        "homeSection": "",
+        "qualifiedSections": [],
+        "availability": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "recurringOff": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "requests": [],
+        "calendarRules": []
+      },
+      {
+        "id": "e_mw2eo1s7_ggkzf",
+        "name": "",
+        "role": "",
+        "wage": "",
+        "phone": "",
+        "maxWeeklyHours": "",
+        "minor": false,
+        "noClosing": false,
+        "certification": "",
+        "certExpiry": "",
+        "homeSection": "",
+        "qualifiedSections": [],
+        "availability": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "recurringOff": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "requests": [],
+        "calendarRules": []
+      }
+    ]
+  },
+  "schedules": {
+    "2026-11-01": {
+      "sales": "10000",
+      "shifts": {
+        "e_mw2eo1rx_o5sey": [
+          "9a-5p",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "e_mw2eo1s4_dzrec": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "e_mw2eo1s7_ggkzf": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      },
+      "sections": {
+        "e_mw2eo1rx_o5sey": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "e_mw2eo1s4_dzrec": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "e_mw2eo1s7_ggkzf": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      },
+      "savedAt": "2026-11-04T17:52:22.458Z",
+      "status": "draft",
+      "version": 0,
+      "publishedAt": "",
+      "publishedSignature": "",
+      "publishedLink": "",
+      "publishedCycle": "",
+      "changeLog": [],
+      "lastSavedSignature": "{\"sales\":\"10000\",\"shifts\":{\"e_mw2eo1rx_o5sey\":[\"9a-5p\",\"\",\"\",\"\",\"\",\"\",\"\"],\"e_mw2eo1s4_dzrec\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"e_mw2eo1s7_ggkzf\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\"]},\"sections\":{\"e_mw2eo1rx_o5sey\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"e_mw2eo1s4_dzrec\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"e_mw2eo1s7_ggkzf\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\"]}}"
+    }
+  }
+}
