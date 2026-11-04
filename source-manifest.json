@@ -1930,7 +1930,7 @@
     },
     {
       "path": "site/gravity-assist.html",
-      "sha256": "ac8e5b39ef7c4daa8333f3eddb3048bd6afb6f7776e3138563602376b92b4cb9"
+      "sha256": "c0afe6db9802f44eac25f8ca10e16252e4dd74068e17dcd0b9c898feed054385"
     },
     {
       "path": "site/gravity-aware.html",
@@ -2058,7 +2058,7 @@
     },
     {
       "path": "site/help-center.html",
-      "sha256": "ed7f52d33f1fcec11c1cb008a4e4a693e3173f3d828956bebffb3708dd120bb9"
+      "sha256": "197363781318977e994bf0f06bf56b37a74b8209c12697a181a76f86211b0218"
     },
     {
       "path": "site/hiring-interviewing-employee-retention-tracker.html",
@@ -2070,7 +2070,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "f857ab0395b139a0d5cb9fbe6f77e5a43f0bdb7f3ce39cde7039b2797d9b8568"
+      "sha256": "796482a38f39107eaaba8ab4ed63c07ecae0894efd76b34f5dbd3d7e246f7f50"
     },
     {
       "path": "site/installation-improvement.html",
