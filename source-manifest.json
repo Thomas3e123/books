@@ -1442,7 +1442,7 @@
     },
     {
       "path": "site/assets/js/gravity-qr.js",
-      "sha256": "1f54896913ad9e3079e546c55a04ce0e3d67e51790eb01a2b1aa5ffb6eb306a4"
+      "sha256": "915b8c1dfc88740ef423d8856d812eadbe05b2aeccc278a90f6385c879ed6a0a"
     },
     {
       "path": "site/assets/js/gravity-quick-tools.js",
@@ -2102,7 +2102,7 @@
     },
     {
       "path": "site/qr-code-generator.html",
-      "sha256": "b5ee808be8107c70796835ced9fa24b9b206420bd08613d7c00c77b85a243e0d"
+      "sha256": "2054b2d3c81f3ac5ee7d333cc72015e49ad5a9af7e63037319a4c9aa5433f4a0"
     },
     {
       "path": "site/quiet-gravity.html",

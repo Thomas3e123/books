@@ -89,3 +89,12 @@ Follow-up browser verification passed on isolated deploy `6aec2e1b8d36956157553c
 - PASS: Training Records showed the pending competency record. Saving Retrain with synthetic manager and notes kept training incomplete. After reload, a follow-up Approved decision completed training. Another reload retained approval and the expandable prior Retrain decision, both sets of notes, and older revision 1.0 passed/failed records. This verifies software state transitions only; no real employee demonstration or identity certification was performed.
 
 These new import repairs join draft PR #16. Production remains the already verified PR #15 release. Hosted cloud sync/restore, delivery/payment/AI services, physical mobile/Windows/printing and remaining tool edge cases are still not certified.
+
+## CSV replacement, import guards, and QR continuation
+
+- PASS: actual CSV upload parsed quoted commas and pipe-separated ingredient/method lines. Deliberate replacement of the synthetic imported drink saved revision 1.1 as Draft, not published, with 120 mL soda / 15 mL citrus, 250 mL glass and the CSV build method.
+- PASS: malformed CSV (unclosed quote), 101 recipes and a file over 2 MB each displayed a specific rejection; review stayed hidden and import disabled. Reopening the Build Room confirmed the saved replacement was intact after all rejected uploads.
+- CONFIRMED QR DEFECT: after generating a valid destination then entering 1,801 characters, validation displayed an error but left the previous preview and downloads visible. Source repair clears obsolete output and object URLs on edits, invalid input, failures and reset; stale asynchronous PNG callbacks cannot restore old output. Regression test covers these transitions.
+- QR PNG click still produced no download with the previous data-URL implementation in the audit browser. Switched the PNG link to a canvas Blob/object URL, matching the working SVG download mechanism. This is a compatibility repair pending hosted browser retest; the original failure is not claimed to affect every browser.
+
+QR hosted retest PASS on isolated commit `5a67934efda85e947dae41c595bac97d3e011848`: actual PNG download completed; Pillow identified a 984×984 PNG and independent ZXing decoding returned exactly `https://gravityleadershipsystem.com/start-here`. Invalid 1,801-character input hid PNG, SVG and canvas; reset and regeneration recovered normally, and an actual SVG download still completed. Physical phone scans/printed pieces remain untested. These repairs are staged with PR #16, not yet production-deployed.
