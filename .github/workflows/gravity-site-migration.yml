@@ -1,25 +1,7 @@
-# Re-publish only the isolated gravity-migration alias after custom-domain attachment; never production.
+# Historical migration preview: manual only after public launch.
+# Automatic push triggers rewrote release asset versions on the live source branch.
 name: Gravity website migration — isolated, noindex preview
 on:
-  push:
-    branches:
-      - 'feature/gravity-migration-phase1-*'
-    paths:
-      - '.github/workflows/gravity-site-migration.yml'
-      - 'functions/gravity-report/**'
-      - 'scripts/test-gravity-report.mjs'
-      - 'site/apps/sop-foundry/staff-posters.js'
-      - 'site/apps/sop-foundry/hosted-bridge.js'
-      - 'site/apps/sop-foundry/room-gate.js'
-      - 'scripts/prepare-gravity-preview.cjs'
-      - 'site/gravity-shift-lab.html'
-      - 'site/assets/js/gravity-shift-lab.js'
-      - 'site/book-reader.html'
-      - 'site/assets/js/book-reader.js'
-      - 'site/assets/css/book-reader.css'
-      - 'scripts/gravity-navigation-consistency.cjs'
-      - 'scripts/verify-gravity-preview.cjs'
-      - 'docs/gravity-migration-2026-10-22.md'
   workflow_dispatch:
 permissions:
   contents: write

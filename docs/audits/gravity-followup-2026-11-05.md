@@ -19,7 +19,7 @@ The PDF signature and preview were checked. This continuation does not certify p
 
 The live site search returned no result for "numbers" despite a working Numbers Lab link in Gravity Assist. The hard-coded search catalog omitted Numbers Lab, Forms Personalizer, Document Studio, Quick Tools, QR Code Maker and AI Prompt Search. Added these public landing pages and useful task keywords. Updated site.js release query strings in HTML because JavaScript is served with immutable caching. No account/customer records changed.
 
-Build and 13 existing regression checks pass. Added a coverage check for the missing queries and all catalog destinations; it passes. Browser verification of the repaired catalog is pending the isolated test deployment.
+Build and 13 existing regression checks pass. Added a coverage check for the missing queries and all catalog destinations; it passes. Hosted browser verification passed all seven queries: numbers, calculator, personalizer, document studio, quick tools, qr and prompt. Test deploy 6aec1de6bdaffd9eb7191067 serves commit d1fc35a.
 
 ## Test-environment correction
 
@@ -28,3 +28,7 @@ Netlify automatically applied five repository database migrations to the separat
 ## Still not certified
 
 Secure Foundry workflows, hosted cloud backup/restore, notification delivery, payments, AI/voice, physical mobile/Windows/printer checks, QR PNG transfer, and remaining tool edge cases. These are outstanding tests, not claimed passes.
+
+## Release workflow finding
+
+GitHub Actions commit b58bb44 followed the production merge and rewrote 118 HTML pages, including restoring the older 20261025-cedar-prereply-3 script URL. The old migration workflow automatically runs on changes to selected public-site files and commits prepared preview content back to the live source branch. The follow-up makes this historical workflow manual-only, preserving its explicitly requested preview capability while preventing automatic post-release source rewrites. It does not disable CI tests or deployment safeguards. Current public deploy remains b03358a; the bot commit used skip-ci. The next release should retain current Guide version URLs.
