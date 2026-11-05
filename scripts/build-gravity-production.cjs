@@ -2,6 +2,7 @@
 const fs=require('node:fs'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),source=path.join(root,'site'),out=path.join(root,'build/gravity-production');
 const origin='https://gravityleadershipsystem.com';
+const guideVersion=require('node:crypto').createHash('sha256').update(fs.readFileSync(path.join(source,'assets/js/gravity-guide-ai.js'))).digest('hex').slice(0,16);
 const privatePage=/^(apps\/|handbook-creator\/|testing-room-manager\.html$|register\.html$|registration-thanks\.html$|gravity-report-thanks\.html$|review-thanks\.html$)/;
 fs.rmSync(out,{recursive:true,force:true});fs.mkdirSync(out,{recursive:true});fs.cpSync(source,out,{recursive:true});
 let pages=0;
@@ -10,6 +11,7 @@ function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){
  if(!/\.(html|xml|txt)$/.test(e.name))continue;
  let s=fs.readFileSync(p,'utf8').replaceAll('https://gravity-leadership-system.netlify.app',origin).replaceAll('https://gravity-migration--gravity-leadership-system.netlify.app',origin);
  if(e.name.endsWith('.html')){
+  s=s.replace(/(gravity-guide-ai\.js\?v=)[^"'\s<>]+/g, '$1'+guideVersion);
   const rel=path.relative(out,p).split(path.sep).join('/');
   s=s.replace(/<meta\b(?=[^>]*\bname=["']robots["'])[^>]*>/gi,'');
   s=s.replace(/<head\b[^>]*>/i,m=>m+'\n<meta name="robots" content="'+(privatePage.test(rel)?'noindex,nofollow':'index,follow,max-image-preview:large')+'">');pages++;

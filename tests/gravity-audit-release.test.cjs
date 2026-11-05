@@ -19,3 +19,8 @@ test('Production indexing changes do not remove preview safeguards',()=>{
  assert.doesNotMatch(publicPage,/gravity-leadership-system\.netlify\.app|noindex/);
  assert.match(fs.readFileSync('build/gravity-production/testing-room-manager.html','utf8'),/name="robots" content="noindex,nofollow"/);
 });
+
+test('Production Guide URL changes with the actual script content',()=>{
+ const hash=require('node:crypto').createHash('sha256').update(fs.readFileSync('site/assets/js/gravity-guide-ai.js')).digest('hex').slice(0,16);
+ assert(fs.readFileSync('build/gravity-production/index.html','utf8').includes('gravity-guide-ai.js?v='+hash));
+});
