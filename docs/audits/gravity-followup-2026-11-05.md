@@ -32,3 +32,24 @@ Secure Foundry workflows, hosted cloud backup/restore, notification delivery, pa
 ## Release workflow finding
 
 GitHub Actions commit b58bb44 followed the production merge and rewrote 118 HTML pages, including restoring the older 20261025-cedar-prereply-3 script URL. The old migration workflow automatically runs on changes to selected public-site files and commits prepared preview content back to the live source branch. The follow-up makes this historical workflow manual-only, preserving its explicitly requested preview capability while preventing automatic post-release source rewrites. It does not disable CI tests or deployment safeguards. Current public deploy remains b03358a; the bot commit used skip-ci. Production packaging now derives the Guide script URL version from its actual content hash, so older preview cache tags cannot cause customers to retain an outdated script. A regression check verifies this behavior.
+
+## Foundry hands-on continuation — November 5
+
+Access was securely unlocked for both local Build Room and Employee Library in the isolated hosted project. No customer workspace or hosted employee database was used.
+
+| Check | Result and evidence |
+| --- | --- |
+| Create and save | PASS: new `AUDIT ONLY — Station readiness verification`, Audit Station, three procedure steps, revision 1.0. |
+| Approve separately from publishing | PASS: named test approver and effective date recorded; approval alone still showed not published. |
+| Publish | PASS: deliberate publication created employee revision 1.0. |
+| Edit after publication | PASS: fourth draft-only step saved as revision 1.1; approval cleared; employee revision stayed 1.0. |
+| Employee view and reload | PASS: only original three steps and revision 1.0 shown, also after reload. |
+| Employee profile | PASS: synthetic employee and Audit Station saved for the session. |
+| Guided review | PASS: all nine sections navigated. |
+| Knowledge check failure | PASS: deliberately wrong answers scored 0%, showed corrections, permitted review/retry. |
+| Knowledge check success | PASS: correct answers scored 100%, acknowledged revision 1.0, correctly required no manager sign-off for this revision. |
+| Training records | PASS: both 0% failure and 100% pass retained separately with employee, revision, date and requirement. |
+| Full backup download | PASS: actual download, valid JSON, 5,060,818 bytes, contains test SOP, draft addition and test employee. SHA256 `c3b3f41960f628b90ef2b989cf39e991cecc463c42a231a8cc109f3a6468b5d6`. Backup is not committed because it includes room settings. |
+| Unlock return navigation | FAIL confirmed: room-gate supplied `staff-sops.html#...`, but access resolved against the origin root and discarded the deep link. Repaired in source with Foundry-relative resolution and explicit allowed destinations. Added missing poster/training and manager import/connection destinations, retaining manager restrictions. Three regression tests pass, including external/unknown URL rejection. Hosted repair retest still pending. |
+
+The source build verifies all 652 manifest entries. Eight targeted regression tests pass. This update does not certify required hands-on manager sign-off, backup restore, all poster/recipe paths, hosted sync, physical printing or the other outstanding areas above. No production deployment was made for this continuation.
