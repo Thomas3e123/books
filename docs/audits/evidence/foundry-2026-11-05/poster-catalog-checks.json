@@ -1,0 +1,714 @@
+[
+  {
+    "label": "Blank Posters · Blank Simple",
+    "loaded": true
+  },
+  {
+    "label": "Blank Posters · Blank Step-by-Step",
+    "loaded": true
+  },
+  {
+    "label": "Blank Posters · Blank Safety / Warning",
+    "loaded": true
+  },
+  {
+    "label": "Blank Posters · Blank Checklist",
+    "loaded": true
+  },
+  {
+    "label": "Blank Posters · Blank QR Poster",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Handwashing Reminder",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Glove Change Reminder",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Allergen Order Check",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Temperature Check",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Cooling Control",
+    "loaded": true
+  },
+  {
+    "label": "Cleaning & Sanitation · Clean as You Go",
+    "loaded": true
+  },
+  {
+    "label": "Cleaning & Sanitation · Sanitizer Check",
+    "loaded": true
+  },
+  {
+    "label": "Cleaning & Sanitation · Dish Room Flow",
+    "loaded": true
+  },
+  {
+    "label": "Cleaning & Sanitation · Closing Cleaning Reset",
+    "loaded": true
+  },
+  {
+    "label": "Cleaning & Sanitation · Spill Response",
+    "loaded": true
+  },
+  {
+    "label": "Safety · Knife Safety",
+    "loaded": true
+  },
+  {
+    "label": "Safety · Hot Surface / Burn Prevention",
+    "loaded": true
+  },
+  {
+    "label": "Safety · Slip / Trip Prevention",
+    "loaded": true
+  },
+  {
+    "label": "Safety · Chemical Handling",
+    "loaded": true
+  },
+  {
+    "label": "Safety · Stop and Report Equipment Trouble",
+    "loaded": true
+  },
+  {
+    "label": "Operations · Opening Readiness",
+    "loaded": true
+  },
+  {
+    "label": "Operations · Shift Handoff",
+    "loaded": true
+  },
+  {
+    "label": "Operations · Par / Refill Check",
+    "loaded": true
+  },
+  {
+    "label": "Operations · Label / Date / Rotate",
+    "loaded": true
+  },
+  {
+    "label": "Operations · Waste Recording",
+    "loaded": true
+  },
+  {
+    "label": "Service · Guest Greeting",
+    "loaded": true
+  },
+  {
+    "label": "Service · Order Accuracy Check",
+    "loaded": true
+  },
+  {
+    "label": "Service · Expo Handoff",
+    "loaded": true
+  },
+  {
+    "label": "Service · Guest Concern Escalation",
+    "loaded": true
+  },
+  {
+    "label": "Service · Closing Guest Area",
+    "loaded": true
+  },
+  {
+    "label": "Bar & Alcohol · ID Check Reminder",
+    "loaded": true
+  },
+  {
+    "label": "Bar & Alcohol · Measured Pour",
+    "loaded": true
+  },
+  {
+    "label": "Bar & Alcohol · Garnish / Build Check",
+    "loaded": true
+  },
+  {
+    "label": "Bar & Alcohol · Bar Closing Reset",
+    "loaded": true
+  },
+  {
+    "label": "Bar & Alcohol · Alcohol Service Escalation",
+    "loaded": true
+  },
+  {
+    "label": "Emergency · Fire / Smoke Response",
+    "loaded": true
+  },
+  {
+    "label": "Emergency · Power Outage Response",
+    "loaded": true
+  },
+  {
+    "label": "Emergency · Severe Weather / Tornado",
+    "loaded": true
+  },
+  {
+    "label": "Emergency · Employee / Guest Injury",
+    "loaded": true
+  },
+  {
+    "label": "Emergency · Water / Utility Interruption",
+    "loaded": true
+  },
+  {
+    "label": "Training · Read the Current SOP",
+    "loaded": true
+  },
+  {
+    "label": "Training · Learn It · Demonstrate It",
+    "loaded": true
+  },
+  {
+    "label": "Training · Explore Another Station",
+    "loaded": true
+  },
+  {
+    "label": "Training · New Revision Review",
+    "loaded": true
+  },
+  {
+    "label": "Technology · How to Use a Foundry QR",
+    "loaded": true
+  },
+  {
+    "label": "Technology · Shared Device Sign-Out",
+    "loaded": true
+  },
+  {
+    "label": "Technology · Report a Question or Error",
+    "loaded": true
+  },
+  {
+    "label": "Technology · Check the Current Version",
+    "loaded": true
+  },
+  {
+    "label": "Kitchen Reference & Legends · Knife Handle Color Legend",
+    "loaded": true
+  },
+  {
+    "label": "Kitchen Reference & Legends · Scoop / Disher Handle Color & Size Legend",
+    "loaded": true
+  },
+  {
+    "label": "Kitchen Reference & Legends · Portion Tool Legend",
+    "loaded": true
+  },
+  {
+    "label": "Kitchen Reference & Legends · Cutting Board Color Legend",
+    "loaded": true
+  },
+  {
+    "label": "Kitchen Reference & Legends · Hotel Pan Size / Capacity Reference",
+    "loaded": true
+  },
+  {
+    "label": "Kitchen Reference & Legends · Kitchen Measurement Conversions",
+    "loaded": true
+  },
+  {
+    "label": "Kitchen Reference & Legends · Thermometer Use & Placement",
+    "loaded": true
+  },
+  {
+    "label": "Kitchen Reference & Legends · Label Example — What Must Be Written",
+    "loaded": true
+  },
+  {
+    "label": "Kitchen Reference & Legends · Digital Scale Quick Reference",
+    "loaded": true
+  },
+  {
+    "label": "Kitchen Reference & Legends · Timer / Batch Tracking Board",
+    "loaded": true
+  },
+  {
+    "label": "Kitchen Reference & Legends · Storage Shelf Map",
+    "loaded": true
+  },
+  {
+    "label": "Kitchen Reference & Legends · Station Tool & Product Map",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · No Bare-Hand Contact — Ready-to-Eat Food",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Employee Illness Reporting",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Hot Holding Control",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Cold Holding Control",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Reheating Control",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Approved Thawing Methods",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Prevent Cross-Contamination",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Raw / Ready-to-Eat Storage Order",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Produce Washing",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Ice Is Food",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Date Marking Quick Check",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Time Control Tracking",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Major Allergen Awareness",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Allergen Tools / Area Reset",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Bodily Fluid Contamination Response",
+    "loaded": true
+  },
+  {
+    "label": "Food Safety · Product Recall / Hold",
+    "loaded": true
+  },
+  {
+    "label": "Cleaning & Sanitation · Three-Compartment Sink Setup",
+    "loaded": true
+  },
+  {
+    "label": "Cleaning & Sanitation · Sanitizer Test Strip Use",
+    "loaded": true
+  },
+  {
+    "label": "Cleaning & Sanitation · Wiping Cloth Bucket Control",
+    "loaded": true
+  },
+  {
+    "label": "Cleaning & Sanitation · Chemical Dilution Station",
+    "loaded": true
+  },
+  {
+    "label": "Cleaning & Sanitation · Chemical Storage",
+    "loaded": true
+  },
+  {
+    "label": "Cleaning & Sanitation · Can Opener Cleaning",
+    "loaded": true
+  },
+  {
+    "label": "Cleaning & Sanitation · Ice Machine Cleaning / Inspection",
+    "loaded": true
+  },
+  {
+    "label": "Cleaning & Sanitation · Floor & Drain Cleaning",
+    "loaded": true
+  },
+  {
+    "label": "Cleaning & Sanitation · Cleaning Tool Storage",
+    "loaded": true
+  },
+  {
+    "label": "Cleaning & Sanitation · Pest Evidence — Report It",
+    "loaded": true
+  },
+  {
+    "label": "Safety · Safe Lifting",
+    "loaded": true
+  },
+  {
+    "label": "Safety · Step Ladder Safety",
+    "loaded": true
+  },
+  {
+    "label": "Safety · Broken Glass / Sharps Response",
+    "loaded": true
+  },
+  {
+    "label": "Safety · Electrical Safety",
+    "loaded": true
+  },
+  {
+    "label": "Safety · Heat Stress Awareness",
+    "loaded": true
+  },
+  {
+    "label": "Safety · Hot Plate / Hot Beverage Warning",
+    "loaded": true
+  },
+  {
+    "label": "Safety · Box Cutter Safety",
+    "loaded": true
+  },
+  {
+    "label": "Safety · CO₂ / Compressed Gas Safety",
+    "loaded": true
+  },
+  {
+    "label": "Safety · Moving Hot Oil / Grease",
+    "loaded": true
+  },
+  {
+    "label": "Safety · Threat / Workplace Violence Response",
+    "loaded": true
+  },
+  {
+    "label": "Safety · Robbery / Security Response",
+    "loaded": true
+  },
+  {
+    "label": "Safety · Drive-Thru Window Safety",
+    "loaded": true
+  },
+  {
+    "label": "Equipment · Fryer Start-Up / Readiness",
+    "loaded": true
+  },
+  {
+    "label": "Equipment · Fryer Cleaning Safety",
+    "loaded": true
+  },
+  {
+    "label": "Equipment · Slicer Safety",
+    "loaded": true
+  },
+  {
+    "label": "Equipment · Mixer Safety",
+    "loaded": true
+  },
+  {
+    "label": "Equipment · Grill / Flat-Top Safety",
+    "loaded": true
+  },
+  {
+    "label": "Equipment · Oven Safety",
+    "loaded": true
+  },
+  {
+    "label": "Equipment · Steam Table Safety",
+    "loaded": true
+  },
+  {
+    "label": "Equipment · Dish Machine Safety",
+    "loaded": true
+  },
+  {
+    "label": "Equipment · Espresso / Hot Beverage Equipment Safety",
+    "loaded": true
+  },
+  {
+    "label": "Equipment · Disposal Safety",
+    "loaded": true
+  },
+  {
+    "label": "Equipment · Walk-In Cooler / Freezer Safety",
+    "loaded": true
+  },
+  {
+    "label": "Equipment · Hood / Ventilation Warning",
+    "loaded": true
+  },
+  {
+    "label": "Operations · Receiving Check",
+    "loaded": true
+  },
+  {
+    "label": "Operations · Vendor Substitution Check",
+    "loaded": true
+  },
+  {
+    "label": "Operations · FIFO / Rotation Check",
+    "loaded": true
+  },
+  {
+    "label": "Operations · Production to Par",
+    "loaded": true
+  },
+  {
+    "label": "Operations · Shortage / 86 Communication",
+    "loaded": true
+  },
+  {
+    "label": "Operations · Equipment Out of Service",
+    "loaded": true
+  },
+  {
+    "label": "Operations · Key / Access Control",
+    "loaded": true
+  },
+  {
+    "label": "Operations · Cash / Drawer Handoff",
+    "loaded": true
+  },
+  {
+    "label": "Operations · Delivery / Pickup Handoff",
+    "loaded": true
+  },
+  {
+    "label": "Operations · Walk-In Organization Standard",
+    "loaded": true
+  },
+  {
+    "label": "Station Setup · Pizza Station Setup",
+    "loaded": true
+  },
+  {
+    "label": "Station Setup · Grill Station Setup",
+    "loaded": true
+  },
+  {
+    "label": "Station Setup · Fry Station Setup",
+    "loaded": true
+  },
+  {
+    "label": "Station Setup · Salad Station Setup",
+    "loaded": true
+  },
+  {
+    "label": "Station Setup · Prep Station Setup",
+    "loaded": true
+  },
+  {
+    "label": "Station Setup · Expo Station Setup",
+    "loaded": true
+  },
+  {
+    "label": "Station Setup · Host Stand Setup",
+    "loaded": true
+  },
+  {
+    "label": "Station Setup · Server Sidework Setup",
+    "loaded": true
+  },
+  {
+    "label": "Station Setup · Bar Opening Setup",
+    "loaded": true
+  },
+  {
+    "label": "Station Setup · Dish Pit Setup",
+    "loaded": true
+  },
+  {
+    "label": "Station Setup · Takeout Station Setup",
+    "loaded": true
+  },
+  {
+    "label": "Station Setup · Dessert Station Setup",
+    "loaded": true
+  },
+  {
+    "label": "Portion & Recipe · Plate Build Standard",
+    "loaded": true
+  },
+  {
+    "label": "Portion & Recipe · Pizza Build Chart",
+    "loaded": true
+  },
+  {
+    "label": "Portion & Recipe · Sandwich / Burger Build Chart",
+    "loaded": true
+  },
+  {
+    "label": "Portion & Recipe · Salad Build Chart",
+    "loaded": true
+  },
+  {
+    "label": "Portion & Recipe · Drink Build Chart",
+    "loaded": true
+  },
+  {
+    "label": "Portion & Recipe · Sauce Portion Chart",
+    "loaded": true
+  },
+  {
+    "label": "Portion & Recipe · Side Portion Chart",
+    "loaded": true
+  },
+  {
+    "label": "Portion & Recipe · Batch Yield Reference",
+    "loaded": true
+  },
+  {
+    "label": "Portion & Recipe · Recipe Change Notice",
+    "loaded": true
+  },
+  {
+    "label": "Portion & Recipe · Garnish Standard",
+    "loaded": true
+  },
+  {
+    "label": "Service · Manager Table Touch",
+    "loaded": true
+  },
+  {
+    "label": "Service · Allergy Communication Handoff",
+    "loaded": true
+  },
+  {
+    "label": "Service · Phone Order Accuracy",
+    "loaded": true
+  },
+  {
+    "label": "Service · Takeout Packaging Check",
+    "loaded": true
+  },
+  {
+    "label": "Service · Delivery Packaging Check",
+    "loaded": true
+  },
+  {
+    "label": "Service · Wait List Communication",
+    "loaded": true
+  },
+  {
+    "label": "Service · Guest Recovery Steps",
+    "loaded": true
+  },
+  {
+    "label": "Service · Accessible Guest Service",
+    "loaded": true
+  },
+  {
+    "label": "Emergency · Gas Odor / Suspected Leak",
+    "loaded": true
+  },
+  {
+    "label": "Emergency · Refrigeration Failure",
+    "loaded": true
+  },
+  {
+    "label": "Emergency · Freezer Failure",
+    "loaded": true
+  },
+  {
+    "label": "Emergency · Choking Response",
+    "loaded": true
+  },
+  {
+    "label": "Emergency · Evacuation Route / Assembly",
+    "loaded": true
+  },
+  {
+    "label": "Emergency · Emergency Contact Board",
+    "loaded": true
+  },
+  {
+    "label": "Emergency · Food Control After Power Outage",
+    "loaded": true
+  },
+  {
+    "label": "Emergency · Active Threat / Immediate Danger",
+    "loaded": true
+  },
+  {
+    "label": "Training · Station Learning Roadmap",
+    "loaded": true
+  },
+  {
+    "label": "Training · Cross-Training Opportunity",
+    "loaded": true
+  },
+  {
+    "label": "Training · Trainer Expectations",
+    "loaded": true
+  },
+  {
+    "label": "Training · New Hire — First Week Roadmap",
+    "loaded": true
+  },
+  {
+    "label": "Training · Station Certification Path",
+    "loaded": true
+  },
+  {
+    "label": "Training · When an SOP Is Unclear",
+    "loaded": true
+  },
+  {
+    "label": "Training · Revision Training Required",
+    "loaded": true
+  },
+  {
+    "label": "Training · Multi-Station Growth",
+    "loaded": true
+  },
+  {
+    "label": "Technology · KDS / POS Outage Workflow",
+    "loaded": true
+  },
+  {
+    "label": "Technology · Ticket / Label Printer Trouble",
+    "loaded": true
+  },
+  {
+    "label": "Technology · Shared Tablet / Device Care",
+    "loaded": true
+  },
+  {
+    "label": "Bar & Alcohol · Broken Glass Near Ice / Bar Product",
+    "loaded": true
+  },
+  {
+    "label": "Bar & Alcohol · Keg Change / CO₂ Check",
+    "loaded": true
+  },
+  {
+    "label": "Bar & Alcohol · Bar Fruit / Garnish Control",
+    "loaded": true
+  },
+  {
+    "label": "Bar & Alcohol · Scan for Current Drink Recipe",
+    "loaded": true
+  },
+  {
+    "label": "Bar & Alcohol · Responsible Alcohol Service Check",
+    "loaded": true
+  },
+  {
+    "label": "People & Communication · Manager Handoff",
+    "loaded": true
+  },
+  {
+    "label": "People & Communication · See It? Say It.",
+    "loaded": true
+  },
+  {
+    "label": "People & Communication · Respect at Work",
+    "loaded": true
+  },
+  {
+    "label": "People & Communication · Preshift Huddle",
+    "loaded": true
+  }
+]
