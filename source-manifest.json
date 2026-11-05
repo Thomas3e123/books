@@ -266,7 +266,7 @@
     },
     {
       "path": "site/apps/sop-foundry/staff-recipes.js",
-      "sha256": "fa443f00f01368057a3beda96e36126a6b36999a8bcad31a5c14f24045eb28ab"
+      "sha256": "b73a11c013cdaf0f2fdd862c0519b278ca4607df9a6bc11148557924e181f8bb"
     },
     {
       "path": "site/apps/sop-foundry/staff-sops.html",
@@ -306,7 +306,7 @@
     },
     {
       "path": "site/apps/sop-foundry/workroom.html",
-      "sha256": "13b2352d21c50ec40d6ac8cf0b79982ba3c5b5bc06a2e12848d10e1e88e7eeb6"
+      "sha256": "06f8f7845fb7c01a1a930f168ef93037be35bcb1be4f930c9a05c2f4f5d51dba"
     },
     {
       "path": "site/assets/audio/gravity-ack/cedar-01.mp3",

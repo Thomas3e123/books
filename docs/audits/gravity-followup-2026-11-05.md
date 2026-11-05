@@ -71,3 +71,9 @@ Current verification: source build passes with 652 verified files; 10 targeted t
 Follow-up browser evidence supersedes two pending statements above:
 - All 178 poster template options were selected through the live UI and produced a nonempty preview. Results are in evidence/foundry-2026-11-05/poster-catalog-checks.json. This does not certify each template's wording or printed layout.
 - Source-helper wording and the Show checks / Show safety notes controls passed browser verification on isolated deploy 6aec2a972d4f15373de5de61 (c6375c3). The manager source correctly used draft 1.1, while the earlier employee test used published 1.0. General practice/review claims elsewhere on the page are not yet certified as interactive training or substantive draft review.
+
+## Production release and continued audit — November 5
+
+PR #15 merged to the production migration branch as `9a0da7e0af6e34479cc68b5f12701873f1c6721d`. Netlify production deploy `6aec2cbbe359a5b88b3978bc` was ready and published at 07:14 UTC. Live browser smoke checks confirmed Numbers Lab search, public canonical/indexing metadata, and the updated Guide asset. Customer data was not migrated or deleted.
+
+Continued isolated bar-recipe test: saved, approved, and published `AUDIT ONLY — Citrus soda`, revision 1.0. Ingredients, preparation, ice, build method, garnish, and notes survived publication. Two defects were confirmed: the Build Room employee-copy link ignored its selected recipe and defaulted to food; employee display omitted the Build Room's serviceware field. Follow-up repair supports legacy `?open=` links and hash links, selects the actual recipe section, renders either stored glassware field with HTML escaping, and keeps unavailable IDs from silently opening another recipe. Regression tests pass for these cases. This follow-up repair is separate from PR #15 and is not yet in production.
