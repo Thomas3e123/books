@@ -24,6 +24,9 @@ function add(role,text,actions=[]){
   box.appendChild(n);const body=n.closest('.gg-body');requestAnimationFrame(()=>{if(body)body.scrollTop=body.scrollHeight});return n;
 }
 const direct=[
+  [/sop[ -]?library|volume 1|volume 2|volume 3/i,'Open the Gravity SOP Library','/gravity-sop-library-set'],
+  [/handbook[ -]?creator|create.*handbook|build.*handbook/i,'Open Gravity Handbook Creator','/gravity-handbook-creator'],
+  [/ai[ -]?prompts|prompt[ -]?workbook|chatgpt prompts/i,'Search 350 AI Prompts','/restaurant-ai-prompt-search'],
   [/employee.*(phone|code|pin|access)|(?:phone|code|pin).*employee/i,'Open Employee Access','/e'],
   [/work[ -]?study|task[ -]?timing|motion[ -]?study|bottleneck|time[ -]?study/i,'Open Gravity Work Study Lab','/gravity-work-study-lab'],
   [/sop|procedure|poster|training/i,'Open Gravity SOP Foundry','/gravity-sop-foundry'],
@@ -36,7 +39,6 @@ const direct=[
   [/forms?[ -]?personalizer|personalize.*form|sign/i,'Open Gravity Forms Personalizer','/gravity-forms-personalizer'],
   [/gravity[ -]?aware|needs attention|assessment/i,'Open Gravity Aware','/gravity-aware'],
   [/gravity[ -]?assist|work room|self-service/i,'Open Gravity Assist','/gravity-assist'],
-  [/sop[ -]?library|volume 1|volume 2|volume 3/i,'Open the Gravity SOP Library','/gravity-sop-library-set'],
   [/book reader|read.*book|digital book/i,'Open Gravity Book Reader','/book-reader'],
   [/books|workbooks/i,'Open Books','/books'],
   [/resource center|customer resources|downloads?/i,'Open the Resource Center','/customer-resources'],

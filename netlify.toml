@@ -5,6 +5,12 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# Source retains preview indexing safeguards. Only production publishes this
+# normalized, verified copy; no app logic or customer storage is changed.
+[context.production]
+  command = "npm run build && node scripts/build-gravity-production.cjs"
+  publish = "build/gravity-production"
+
 [functions]
   directory = "functions"
   node_bundler = "esbuild"

@@ -1,0 +1,156 @@
+{
+  "product": "Gravity Inventory Center",
+  "version": "1.0.0",
+  "exportedAt": "2026-11-04T18:15:13.855Z",
+  "state": {
+    "schemaVersion": 1,
+    "profile": {
+      "restaurant": "Gravity Audit Restaurant",
+      "store": "",
+      "city": "",
+      "state": ""
+    },
+    "locations": [
+      {
+        "id": "loc_mw2f0igf_e3tfsq",
+        "name": "Audit Walk-in",
+        "routeOrder": 1,
+        "area": "",
+        "notes": ""
+      },
+      {
+        "id": "loc_mw2frnuy_7krnf7",
+        "name": "Audit Line Cooler",
+        "routeOrder": 2,
+        "area": "",
+        "notes": ""
+      }
+    ],
+    "items": [
+      {
+        "id": "item_mw2f0rcm_jsyg3n",
+        "balances": {
+          "loc_mw2f0igf_e3tfsq": 11,
+          "loc_mw2frnuy_7krnf7": 2
+        },
+        "name": "Audit Chicken",
+        "category": "",
+        "vendor": "",
+        "sku": "",
+        "barcode": "",
+        "unit": "each",
+        "casePack": 1,
+        "cost": 5,
+        "yieldPct": 100,
+        "par": 0,
+        "reorder": 0,
+        "primaryLocation": "loc_mw2f0igf_e3tfsq",
+        "active": true
+      }
+    ],
+    "movements": [
+      {
+        "id": "mov_mw2f0rcm_mjjlfb",
+        "at": "2026-11-04T17:53:26.902Z",
+        "date": "2026-11-04",
+        "type": "opening-balance",
+        "itemId": "item_mw2f0rcm_jsyg3n",
+        "fromLocation": "",
+        "toLocation": "loc_mw2f0igf_e3tfsq",
+        "qty": 10,
+        "unitCost": 4,
+        "reference": "Starting on-hand"
+      },
+      {
+        "id": "mov_mw2frfs2_es8vnt",
+        "at": "2026-11-04T18:14:11.618Z",
+        "date": "2026-11-04",
+        "type": "receiving",
+        "itemId": "item_mw2f0rcm_jsyg3n",
+        "fromLocation": "",
+        "toLocation": "loc_mw2f0igf_e3tfsq",
+        "qty": 5,
+        "unitCost": 5,
+        "reference": "AUDIT ONLY receipt 001"
+      },
+      {
+        "id": "mov_mw2frsug_n8047b",
+        "at": "2026-11-04T18:14:28.552Z",
+        "date": "2026-11-04",
+        "type": "transfer",
+        "itemId": "item_mw2f0rcm_jsyg3n",
+        "fromLocation": "loc_mw2f0igf_e3tfsq",
+        "toLocation": "loc_mw2frnuy_7krnf7",
+        "qty": 3,
+        "unitCost": 5,
+        "reference": "AUDIT ONLY move three to line"
+      },
+      {
+        "id": "mov_mw2fs17e_63jfee",
+        "at": "2026-11-04T18:14:39.386Z",
+        "date": "2026-11-04",
+        "type": "waste",
+        "itemId": "item_mw2f0rcm_jsyg3n",
+        "fromLocation": "loc_mw2frnuy_7krnf7",
+        "toLocation": "",
+        "qty": 1,
+        "unitCost": 5,
+        "reference": "AUDIT ONLY simulated training use",
+        "reasonCode": "TRAIN"
+      },
+      {
+        "id": "mov_mw2fseb6_hpcsyy",
+        "at": "2026-11-04T18:14:56.370Z",
+        "date": "2026-11-04",
+        "type": "count-adjustment",
+        "itemId": "item_mw2f0rcm_jsyg3n",
+        "fromLocation": "loc_mw2f0igf_e3tfsq",
+        "toLocation": "",
+        "qty": -1,
+        "unitCost": 5,
+        "reference": "Full count · Audit Tester — synthetic"
+      }
+    ],
+    "costHistory": [
+      {
+        "id": "cost_mw2frfs3_ogkck0",
+        "at": "2026-11-04T18:14:11.619Z",
+        "date": "2026-11-04",
+        "type": "cost-change",
+        "itemId": "item_mw2f0rcm_jsyg3n",
+        "oldCost": 4,
+        "newCost": 5,
+        "reference": "AUDIT ONLY receipt 001"
+      }
+    ],
+    "counts": [
+      {
+        "id": "count_mw2fseb6_uwcsx6",
+        "date": "2026-11-04",
+        "type": "full",
+        "scope": "all",
+        "countedBy": "Audit Tester — synthetic",
+        "expectedLines": 2,
+        "completedLines": 2,
+        "rows": [
+          {
+            "itemId": "item_mw2f0rcm_jsyg3n",
+            "locationId": "loc_mw2f0igf_e3tfsq",
+            "expected": 12,
+            "counted": 11
+          },
+          {
+            "itemId": "item_mw2f0rcm_jsyg3n",
+            "locationId": "loc_mw2frnuy_7krnf7",
+            "expected": 2,
+            "counted": 2
+          }
+        ],
+        "postedAt": "2026-11-04T18:14:56.370Z"
+      }
+    ],
+    "sales": [],
+    "createdAt": "2026-11-04T17:52:34.709Z",
+    "updatedAt": "2026-11-04T18:14:56.371Z"
+  }
+}

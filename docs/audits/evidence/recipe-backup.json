@@ -1,0 +1,43 @@
+{
+  "recipes": [
+    {
+      "id": "recipe-mw2f2d8t-1ztfo",
+      "name": "Audit Sauce",
+      "category": "Select",
+      "version": "1.0",
+      "status": "Draft",
+      "restaurant": "",
+      "store": "",
+      "location": "",
+      "owner": "",
+      "batchSize": "",
+      "yield": "10 portions",
+      "portion": "",
+      "equipment": "",
+      "ingredients": [
+        {
+          "name": "Audit sauce base",
+          "qty": "2",
+          "unit": "lb",
+          "sku": "",
+          "cost": "3"
+        }
+      ],
+      "steps": "",
+      "quality": "",
+      "holding": "",
+      "allergens": "",
+      "test": {},
+      "cost": 6,
+      "revisions": [],
+      "createdAt": "2026-11-04T17:54:41.933Z",
+      "updatedAt": "2026-11-04T17:54:41.934Z"
+    }
+  ],
+  "governance": [],
+  "adoptions": [],
+  "settings": {
+    "backupReminderDays": 7,
+    "lastBackup": null
+  }
+}

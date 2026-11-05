@@ -16,3 +16,6 @@ Thumbs.db
 # Derived Handbook Creator assets, rebuilt from reviewed source.
 /site/handbook-creator/app.js
 /site/handbook-creator/app.css
+
+# Generated production output.
+/build/

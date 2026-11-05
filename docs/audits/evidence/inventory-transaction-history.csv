@@ -1,0 +1,7 @@
+Record ID,Date,Type,Item,Location,Signed Quantity (transfer = total moved),Unit Cost at Posting,Outflow Cost (Waste/Spill/Spoilage/Damage/Comp Only),Reason Category,Reference
+mov_mw2fseb6_hpcsyy,2026-11-04,count-adjustment,Audit Chicken,Audit Walk-in,-1,5,,,Full count · Audit Tester — synthetic
+mov_mw2fs17e_63jfee,2026-11-04,waste,Audit Chicken,Audit Line Cooler,-1,5,5,TRAIN,AUDIT ONLY simulated training use
+mov_mw2frsug_n8047b,2026-11-04,transfer,Audit Chicken,Audit Walk-in → Audit Line Cooler,3,5,,,AUDIT ONLY move three to line
+cost_mw2frfs3_ogkck0,2026-11-04,cost-change,Audit Chicken,—,,5,,,AUDIT ONLY receipt 001
+mov_mw2frfs2_es8vnt,2026-11-04,receiving,Audit Chicken,Audit Walk-in,5,5,,,AUDIT ONLY receipt 001
+mov_mw2f0rcm_mjjlfb,2026-11-04,opening-balance,Audit Chicken,Audit Walk-in,10,4,,,Starting on-hand

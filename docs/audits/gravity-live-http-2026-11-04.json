@@ -1,0 +1,1808 @@
+[
+  {
+    "path": "/404.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/404.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/about.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/about.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/inventory-center/index.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/inventory-center/index.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/access.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/access.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/assistant.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/assistant.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/desktop-settings.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/desktop-settings.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/employee-access.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/employee-access.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/employee-app.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/employee-app.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/employee-connection.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/employee-connection.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/help.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/help.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/history.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/history.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/import-export.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/import-export.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/manager-inbox.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/manager-inbox.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/poster-studio.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/poster-studio.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/room-settings.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/room-settings.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/signal-interpretation-map.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/signal-interpretation-map.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/signals.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/signals.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/staff-message.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/staff-message.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/staff-posters.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/staff-posters.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/staff-recipes.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/staff-recipes.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/staff-sops.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/staff-sops.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/training-records.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/training-records.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/training.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/training.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/apps/sop-foundry/workroom.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/apps/sop-foundry/workroom.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/assets/customer-resources/current/Gravity_Start_Here_v2.6_2026-10-10.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/customer-resources/current/Gravity_Start_Here_v2.6_2026-10-10.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/customer-resources/current/Gravity_System_Overview_v1.8_2026-10-10.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/customer-resources/current/Gravity_System_Overview_v1.8_2026-10-10.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/customer-resources/master/Gravity_Operational_Validation_and_Release_Readiness_Report.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/customer-resources/master/Gravity_Operational_Validation_and_Release_Readiness_Report.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/customer-resources/master/Gravity_Operational_Validation_and_Release_Readiness_Report.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/customer-resources/master/Gravity_Operational_Validation_and_Release_Readiness_Report.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/customer-resources/master/The_Gravity_System_Master_Glossary_of_Controlled_Terms.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/customer-resources/master/The_Gravity_System_Master_Glossary_of_Controlled_Terms.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/customer-resources/master/The_Gravity_System_Master_Glossary_of_Controlled_Terms.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/customer-resources/master/The_Gravity_System_Master_Glossary_of_Controlled_Terms.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/customer-resources/master/The_Gravity_System_Master_Quick_Start_and_Integration_Guide.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/customer-resources/master/The_Gravity_System_Master_Quick_Start_and_Integration_Guide.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/customer-resources/master/The_Gravity_System_Master_Quick_Start_and_Integration_Guide.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/customer-resources/master/The_Gravity_System_Master_Quick_Start_and_Integration_Guide.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/GRAVITY_ELITE_DAILY_CONTROL_FORMS_v1.0.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/GRAVITY_ELITE_DAILY_CONTROL_FORMS_v1.0.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/downloads/GRAVITY_ELITE_DAILY_CONTROL_FORMS_v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/GRAVITY_ELITE_DAILY_CONTROL_FORMS_v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/GRAVITY_ELITE_OPERATIONAL_LOGS_v1.0.xlsx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/GRAVITY_ELITE_OPERATIONAL_LOGS_v1.0.xlsx",
+    "type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  },
+  {
+    "path": "/assets/downloads/GRAVITY_FEEDBACK_AND_REVIEWS_INSERT_v1.2_2026-09-05.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/GRAVITY_FEEDBACK_AND_REVIEWS_INSERT_v1.2_2026-09-05.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/GRAVITY_RECIPE_WORKS_OFFLINE_2026-09-19.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/gravity_recipe_works_offline_2026-09-19",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/assets/downloads/GRAVITY_Restaurant_Bar_Beverage_Inventory_Ordering_v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/GRAVITY_Restaurant_Bar_Beverage_Inventory_Ordering_v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/GRAVITY_Restaurant_Bar_Beverage_Pour_Cost_Control_v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/GRAVITY_Restaurant_Bar_Beverage_Pour_Cost_Control_v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/Gravity_Training_Assignment_Verification_Record_Fast_v1.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/Gravity_Training_Assignment_Verification_Record_Fast_v1.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/downloads/Gravity_Training_Assignment_Verification_Record_Full_v1.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/Gravity_Training_Assignment_Verification_Record_Full_v1.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/downloads/MANAGER_READINESS_LEADERSHIP_DEVELOPMENT_REVIEW_EDITION.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/MANAGER_READINESS_LEADERSHIP_DEVELOPMENT_REVIEW_EDITION.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/downloads/book-companion-tools/BAR_BEVERAGE_INVENTORY_ORDERING_FORMS_COMPANION_PACK_v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/book-companion-tools/BAR_BEVERAGE_INVENTORY_ORDERING_FORMS_COMPANION_PACK_v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/book-companion-tools/BAR_BEVERAGE_POUR_COST_FORMS_COMPANION_PACK_v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/book-companion-tools/BAR_BEVERAGE_POUR_COST_FORMS_COMPANION_PACK_v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/book-companion-tools/EMPLOYEE_TRAINING_SOP_FORMS_COMPANION_PACK_v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/book-companion-tools/EMPLOYEE_TRAINING_SOP_FORMS_COMPANION_PACK_v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/book-companion-tools/FOOD_COST_WASTE_INVENTORY_FORMS_COMPANION_PACK_v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/book-companion-tools/FOOD_COST_WASTE_INVENTORY_FORMS_COMPANION_PACK_v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/book-companion-tools/LABOR_CONTROL_SCHEDULING_FORMS_COMPANION_PACK_v2.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/book-companion-tools/LABOR_CONTROL_SCHEDULING_FORMS_COMPANION_PACK_v2.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/book-companion-tools/QUIET_GRAVITY_MANAGER_REFLECTIONS_COMPANION_PACK_v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/book-companion-tools/QUIET_GRAVITY_MANAGER_REFLECTIONS_COMPANION_PACK_v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/book-companion-tools/SOP_STATION_OPERATIONS_FORMS_COMPANION_PACK_v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/book-companion-tools/SOP_STATION_OPERATIONS_FORMS_COMPANION_PACK_v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/book-companion-tools/SYSTEMS_OF_SERVICE_PLANNING_TEAM_TOOLS_COMPANION_PACK_v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/book-companion-tools/SYSTEMS_OF_SERVICE_PLANNING_TEAM_TOOLS_COMPANION_PACK_v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/book-companion-tools/THE_OWNERS_CHAIR_LEADERSHIP_TOOLS_COMPANION_PACK_v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/book-companion-tools/THE_OWNERS_CHAIR_LEADERSHIP_TOOLS_COMPANION_PACK_v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/editable-restaurant-new-hire-packet-elite-v1.0.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/editable-restaurant-new-hire-packet-elite-v1.0.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/downloads/employee-training-30-60-90-development-pack-elite-v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/employee-training-30-60-90-development-pack-elite-v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/employee-training-coaching-retraining-follow-up-pack-elite-v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/employee-training-coaching-retraining-follow-up-pack-elite-v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/employee-training-implementation-follow-up-kit-elite-v1.0.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/employee-training-implementation-follow-up-kit-elite-v1.0.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/downloads/employee-training-manager-training-control-pack-elite-v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/employee-training-manager-training-control-pack-elite-v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/employee-training-new-hire-first-week-packet-elite-v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/employee-training-new-hire-first-week-packet-elite-v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/employee-training-role-training-tracker-pack-elite-v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/employee-training-role-training-tracker-pack-elite-v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/employee-training-sop-tracker-gravity-elite-v2-2026-09-12-257-interior-pages.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/employee-training-sop-tracker-gravity-elite-v2-2026-09-12-257-interior-pages.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/employee-training-trainer-signoff-certification-pack-elite-v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/employee-training-trainer-signoff-certification-pack-elite-v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/food-cost-waste-inventory-control-318-pages.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/food-cost-waste-inventory-control-318-pages.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/gravity-elite-editable-restaurant-employee-handbook-v2.0.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/gravity-elite-editable-restaurant-employee-handbook-v2.0.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/downloads/gravity-elite-editable-restaurant-employee-handbook-v2.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/gravity-elite-editable-restaurant-employee-handbook-v2.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/gravity-field-sheet-01-manager-excuses.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/gravity-field-sheet-01-manager-excuses.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/gravity-field-sheet-02-food-cost.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/gravity-field-sheet-02-food-cost.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/gravity-field-sheet-03-manager-follow-through.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/gravity-field-sheet-03-manager-follow-through.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/gravity-field-sheet-04-food-waste.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/gravity-field-sheet-04-food-waste.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/gravity-field-sheet-05-employee-retention.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/gravity-field-sheet-05-employee-retention.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/gravity-restaurant-sop-library-volume-1-gravity-elite-v2-2026-09-13-369-pages.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/gravity-restaurant-sop-library-volume-1-gravity-elite-v2-2026-09-13-369-pages.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/gravity-restaurant-sop-library-volume-2-gravity-elite-v2-2026-09-13-370-pages.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/gravity-restaurant-sop-library-volume-2-gravity-elite-v2-2026-09-13-370-pages.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/gravity-restaurant-sop-library-volume-3-specialty-advanced-hard-to-find-sops.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/gravity-restaurant-sop-library-volume-3-specialty-advanced-hard-to-find-sops.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/guest-service-complaints-recovery-workbook-gravity-elite-2026-09-13-191-pages.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/guest-service-complaints-recovery-workbook-gravity-elite-2026-09-13-191-pages.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/hiring-and-new-employee-starter-pack-elite-v1.0.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/hiring-and-new-employee-starter-pack-elite-v1.0.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/downloads/hiring-interviewing-employee-retention-tracker-gravity-elite-208-pages.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/hiring-interviewing-employee-retention-tracker-gravity-elite-208-pages.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/hiring-interviewing-employee-retention-tracker-gravity-elite-editable.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/hiring-interviewing-employee-retention-tracker-gravity-elite-editable.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/downloads/labor-control-scheduling-implementation-refill-kit-elite-v1.0.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/labor-control-scheduling-implementation-refill-kit-elite-v1.0.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/downloads/labor-control-scheduling-planner-gravity-elite-v2-2026-09-12-371-interior-372-digital-pages.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/labor-control-scheduling-planner-gravity-elite-v2-2026-09-12-371-interior-372-digital-pages.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/labor-scheduling-budget-refill-pack-elite-v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/labor-scheduling-budget-refill-pack-elite-v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/labor-tracking-weekly-review-pack-elite-v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/labor-tracking-weekly-review-pack-elite-v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/manager-labor-control-improvement-pack-elite-v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/manager-labor-control-improvement-pack-elite-v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/manager-labor-quick-reference-laminated-elite-v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/manager-labor-quick-reference-laminated-elite-v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/owners-chair-fulfillment-implementation-kit-elite-v1.0.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/owners-chair-fulfillment-implementation-kit-elite-v1.0.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/downloads/owners-chair-owner-gm-governance-pack-elite-v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/owners-chair-owner-gm-governance-pack-elite-v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/owners-chair-stability-continuity-pack-elite-v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/owners-chair-stability-continuity-pack-elite-v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/quiet-gravity-gravity-elite-2026-09-11-155-pages.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/quiet-gravity-gravity-elite-2026-09-11-155-pages.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/restaurant-hiring-interview-guide-elite-v1.0.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/restaurant-hiring-interview-guide-elite-v1.0.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/downloads/restaurant-sop-station-operations-builder-gravity-elite-v3-2026-09-13-258-pages.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/restaurant-sop-station-operations-builder-gravity-elite-v3-2026-09-13-258-pages.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/reusable-restaurant-candidate-interview-packet-elite-v1.0.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/reusable-restaurant-candidate-interview-packet-elite-v1.0.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/downloads/shift-coverage-cut-decision-pack-elite-v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/shift-coverage-cut-decision-pack-elite-v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/staffing-cross-training-retention-pack-elite-v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/staffing-cross-training-retention-pack-elite-v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/systems-of-service-audit-debrief-pack-elite-v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/systems-of-service-audit-debrief-pack-elite-v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/systems-of-service-fulfillment-implementation-kit-elite-v1.0.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/systems-of-service-fulfillment-implementation-kit-elite-v1.0.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/downloads/systems-of-service-gravity-elite-v2-2026-09-11-253-pages.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/systems-of-service-gravity-elite-v2-2026-09-11-253-pages.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/systems-of-service-planning-handoff-pack-elite-v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/systems-of-service-planning-handoff-pack-elite-v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/systems-of-service-pressure-scenario-training-pack-elite-v1.0.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/systems-of-service-pressure-scenario-training-pack-elite-v1.0.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/the-owners-chair-gravity-elite-2026-09-11-212-pages.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/the-owners-chair-gravity-elite-2026-09-11-212-pages.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/Gravity_Inventory_Center_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/Gravity_Inventory_Center_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/Gravity_Inventory_Center_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/Gravity_Inventory_Center_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/Gravity_Inventory_Center_Windows_Beta_Full_User_Manual_COLOR.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/Gravity_Inventory_Center_Windows_Beta_Full_User_Manual_COLOR.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/Gravity_Inventory_Center_Windows_Beta_Full_User_Manual_COLOR.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/Gravity_Inventory_Center_Windows_Beta_Full_User_Manual_COLOR.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_COLOR.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_COLOR.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_COLOR.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_COLOR.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/Gravity_Shift_Lab_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/Gravity_Shift_Lab_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/Gravity_Shift_Lab_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/Gravity_Shift_Lab_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/Gravity_Shift_Lab_Windows_Beta_Full_User_Manual_COLOR.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/Gravity_Shift_Lab_Windows_Beta_Full_User_Manual_COLOR.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/Gravity_Shift_Lab_Windows_Beta_Full_User_Manual_COLOR.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/Gravity_Shift_Lab_Windows_Beta_Full_User_Manual_COLOR.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/current/Gravity_Inventory_Center_Windows_User_Manual.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/current/Gravity_Inventory_Center_Windows_User_Manual.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/current/Gravity_Inventory_Center_Windows_User_Manual.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/current/gravity_inventory_center_windows_user_manual",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/current/Gravity_Inventory_Center_Windows_User_Manual.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/current/Gravity_Inventory_Center_Windows_User_Manual.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/current/Gravity_SOP_Foundry_Windows_User_Manual.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/current/Gravity_SOP_Foundry_Windows_User_Manual.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/current/Gravity_SOP_Foundry_Windows_User_Manual.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/current/gravity_sop_foundry_windows_user_manual",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/current/Gravity_SOP_Foundry_Windows_User_Manual.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/current/Gravity_SOP_Foundry_Windows_User_Manual.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/current/Gravity_Shift_Lab_Windows_User_Manual.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/current/Gravity_Shift_Lab_Windows_User_Manual.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/current/Gravity_Shift_Lab_Windows_User_Manual.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/current/gravity_shift_lab_windows_user_manual",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/current/Gravity_Shift_Lab_Windows_User_Manual.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/current/Gravity_Shift_Lab_Windows_User_Manual.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/current/Gravity_Work_Study_Lab_Windows_User_Manual.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/current/Gravity_Work_Study_Lab_Windows_User_Manual.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/current/Gravity_Work_Study_Lab_Windows_User_Manual.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/current/gravity_work_study_lab_windows_user_manual",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/assets/downloads/windows/manuals/current/Gravity_Work_Study_Lab_Windows_User_Manual.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/downloads/windows/manuals/current/Gravity_Work_Study_Lab_Windows_User_Manual.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_215_PROMPTS_2026-09-16.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_215_PROMPTS_2026-09-16.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_215_PROMPTS_2026-09-16.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_215_PROMPTS_2026-09-16.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_350_PROMPTS_2026-11-03.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_350_PROMPTS_2026-11-03.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_350_PROMPTS_2026-11-03.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_350_PROMPTS_2026-11-03.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/free-resources/improvement-plans/The_Gravity_30-Day_Improvement_Plan_Library_Founding_Year_Package.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/improvement-plans/The_Gravity_30-Day_Improvement_Plan_Library_Founding_Year_Package.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/free-resources/improvement-plans/The_Gravity_60-Day_Guided_Improvement_Plan_Library_Founding_Year_Package.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/improvement-plans/The_Gravity_60-Day_Guided_Improvement_Plan_Library_Founding_Year_Package.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/free-resources/improvement-plans/The_Gravity_Improvement_Implementation_Kit.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/improvement-plans/The_Gravity_Improvement_Implementation_Kit.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/free-resources/onboarding/GRAVITY_CUSTOMER_INSTALLATION_PACKAGE_v1.5_2026-09-17.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/onboarding/GRAVITY_CUSTOMER_INSTALLATION_PACKAGE_v1.5_2026-09-17.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/free-resources/packages/current/GRV-C_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/packages/current/GRV-C_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/free-resources/packages/current/GRV-FM_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/packages/current/GRV-FM_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/free-resources/packages/current/GRV-FS_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/packages/current/GRV-FS_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/free-resources/packages/current/GRV-F_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/packages/current/GRV-F_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/free-resources/packages/current/GRV-G_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/packages/current/GRV-G_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/free-resources/packages/current/GRV-HR_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/packages/current/GRV-HR_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/free-resources/packages/current/GRV-IV_SYSTEM_RELEASE_1.2_2026-08-22.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/packages/current/GRV-IV_SYSTEM_RELEASE_1.2_2026-08-22.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/free-resources/packages/current/GRV-I_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/packages/current/GRV-I_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/free-resources/packages/current/GRV-LP_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/packages/current/GRV-LP_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/free-resources/packages/current/GRV-M_SYSTEM_RELEASE_1.2_2026-08-22.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/packages/current/GRV-M_SYSTEM_RELEASE_1.2_2026-08-22.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/free-resources/packages/current/GRV-P_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/packages/current/GRV-P_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/free-resources/packages/current/GRV-RC_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/packages/current/GRV-RC_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/free-resources/packages/current/GRV-R_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/packages/current/GRV-R_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/free-resources/packages/current/GRV-SF_SYSTEM_RELEASE_1.3_2026-08-22.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/packages/current/GRV-SF_SYSTEM_RELEASE_1.3_2026-08-22.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/free-resources/packages/current/GRV-T_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/packages/current/GRV-T_SYSTEM_RELEASE_1.1_2026-08-22.zip",
+    "type": "application/zip"
+  },
+  {
+    "path": "/assets/free-resources/sales-intelligence-forecasting/The_Gravity_Sales_Intelligence_and_Forecasting_System_Digital_Control_Workbook.xlsx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/sales-intelligence-forecasting/The_Gravity_Sales_Intelligence_and_Forecasting_System_Digital_Control_Workbook.xlsx",
+    "type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  },
+  {
+    "path": "/assets/free-resources/sales-intelligence-forecasting/The_Gravity_Sales_Intelligence_and_Forecasting_System_Forms.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/sales-intelligence-forecasting/The_Gravity_Sales_Intelligence_and_Forecasting_System_Forms.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/free-resources/sales-intelligence-forecasting/The_Gravity_Sales_Intelligence_and_Forecasting_System_Forms.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/sales-intelligence-forecasting/The_Gravity_Sales_Intelligence_and_Forecasting_System_Forms.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/free-resources/sales-intelligence-forecasting/The_Gravity_Sales_Intelligence_and_Forecasting_System_Operating_Manual.docx",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/sales-intelligence-forecasting/The_Gravity_Sales_Intelligence_and_Forecasting_System_Operating_Manual.docx",
+    "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "path": "/assets/free-resources/sales-intelligence-forecasting/The_Gravity_Sales_Intelligence_and_Forecasting_System_Operating_Manual.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/free-resources/sales-intelligence-forecasting/The_Gravity_Sales_Intelligence_and_Forecasting_System_Operating_Manual.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/samples/the-complete-gravity-system-one-page-ad.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/samples/the-complete-gravity-system-one-page-ad.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/cash-loss-prevention-forms.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/cash-loss-prevention-forms.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/cash-loss-prevention-manual.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/cash-loss-prevention-manual.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/facilities-maintenance-forms.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/facilities-maintenance-forms.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/facilities-maintenance-manual.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/facilities-maintenance-manual.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/food-cost-inventory-forms.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/food-cost-inventory-forms.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/food-cost-inventory-manual.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/food-cost-inventory-manual.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/food-safety-sanitation-forms.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/food-safety-sanitation-forms.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/food-safety-sanitation-manual.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/food-safety-sanitation-manual.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/growth-sales-forms.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/growth-sales-forms.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/growth-sales-manual.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/growth-sales-manual.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/guest-relationship-retention-forms.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/guest-relationship-retention-forms.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/guest-relationship-retention-manual.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/guest-relationship-retention-manual.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/hiring-retention-forms.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/hiring-retention-forms.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/hiring-retention-manual.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/hiring-retention-manual.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/implementation-verification-forms.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/implementation-verification-forms.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/implementation-verification-manual.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/implementation-verification-manual.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/labor-workforce-forms.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/labor-workforce-forms.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/labor-workforce-manual.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/labor-workforce-manual.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/manager-development-forms.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/manager-development-forms.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/manager-development-manual.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/manager-development-manual.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/performance-profitability-forms.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/performance-profitability-forms.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/performance-profitability-manual.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/performance-profitability-manual.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/risk-continuity-forms.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/risk-continuity-forms.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/risk-continuity-manual.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/risk-continuity-manual.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/standards-intelligence-forms.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/standards-intelligence-forms.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/standards-intelligence-manual.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/standards-intelligence-manual.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/training-certification-forms.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/training-certification-forms.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/assets/system-previews/training-certification-manual.pdf",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/assets/system-previews/training-certification-manual.pdf",
+    "type": "application/pdf"
+  },
+  {
+    "path": "/book-reader.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/book-reader.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/books.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/books.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/contact.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/contact.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/customer-resources.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/customer-resources.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/free-resources.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/free-resources.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-assist.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-assist.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-aware.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-aware.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-cloud-vault.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-cloud-vault.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-document-studio.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-document-studio.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-forms-personalizer.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-forms-personalizer.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-fulfillment-center.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-fulfillment-center.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-fulfillment-personalizer.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-forms-personalizer",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-handbook-creator.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-handbook-creator.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-inventory-center.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-inventory-center.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-numbers-lab.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-numbers-lab.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-quick-tools.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-quick-tools.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-recipe-works.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-recipe-works.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-report-guests.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-report-guests.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-report-thanks.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-report-thanks.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-report.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-report.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-shift-lab.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-shift-lab.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-signals-manager-guide.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-signals-manager-guide.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-sop-foundry.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-sop-foundry.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-sop-library-set.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-sop-library-set.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-sop-library-volume-1.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-sop-library-volume-1.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-sop-library-volume-2.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-sop-library-volume-2.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-sop-library-volume-3.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-sop-library-volume-3.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-system-field-guide.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-system-field-guide.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/gravity-work-study-lab.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/gravity-work-study-lab.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/guest-service-complaints-recovery-workbook.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/guest-service-complaints-recovery-workbook.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/handbook-app-privacy.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/handbook-app-privacy.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/handbook-creator/index.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/handbook-creator/index.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/help-center.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/help-center.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/hiring-interviewing-employee-retention-tracker.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/hiring-interviewing-employee-retention-tracker.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/improvement-plans.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/improvement-plans.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/index.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/index.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/installation-improvement.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/installation-improvement.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/intelligence-ai.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/intelligence-ai.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/knowledge-center.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/knowledge-center.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/manager-readiness-leadership-development.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/manager-readiness-leadership-development.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/operating-systems.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/operating-systems.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/owner-gm-governance-agreement-pack.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/owner-gm-governance-agreement-pack.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/privacy.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/privacy.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/qr-code-generator.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/qr-code-generator.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/quiet-gravity.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/quiet-gravity.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/refund.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/refund.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/register.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/register.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/registration-thanks.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/registration-thanks.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/releases.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/releases.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-ai-prompt-search.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-ai-prompt-search.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-bar-beverage-inventory-ordering.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-bar-beverage-inventory-ordering.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-bar-beverage-pour-cost-control.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-bar-beverage-pour-cost-control.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-cleaning-checklist.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-cleaning-checklist.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-closing-checklist.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-closing-checklist.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-corrective-action-record.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-corrective-action-record.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-daily-prep-sheet.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-daily-prep-sheet.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-employee-onboarding-checklist.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-employee-onboarding-checklist.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-employee-schedule-publishing-guide.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-employee-schedule-publishing-guide.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-employee-training-acknowledgment-qualification-guide.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-employee-training-acknowledgment-qualification-guide.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-employee-training-checklist.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-employee-training-checklist.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-employee-training-sop-tracker.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-employee-training-sop-tracker.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-equipment-maintenance-log.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-equipment-maintenance-log.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-existing-sop-library-import-guide.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-existing-sop-library-import-guide.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-food-cost-calculator.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-food-cost-calculator.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-food-cost-control.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-food-cost-control.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-food-cost-percentage-formula.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-food-cost-percentage-formula.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-food-cost-variance.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-food-cost-variance.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-food-cost-waste-inventory-control.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-food-cost-waste-inventory-control.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-guest-complaint-recovery.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-guest-complaint-recovery.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-inventory-barcode-local-purchasing-guide.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-inventory-barcode-local-purchasing-guide.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-inventory-count-variance-backup-guide.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-inventory-count-variance-backup-guide.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-inventory-par-worksheet.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-inventory-par-worksheet.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-inventory-setup-workflow-guide.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-inventory-setup-workflow-guide.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-inventory-waste-control.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-inventory-waste-control.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-kitchen-closing-checklist.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-kitchen-closing-checklist.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-kitchen-opening-checklist.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-kitchen-opening-checklist.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-labor-control-scheduling-planner.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-labor-control-scheduling-planner.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-labor-cost-calculator.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-labor-cost-calculator.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-labor-cost-control.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-labor-cost-control.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-labor-cost-percentage-formula.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-labor-cost-percentage-formula.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-line-check-checklist.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-line-check-checklist.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-management-forms-checklists.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-management-forms-checklists.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-manager-checklist.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-manager-checklist.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-manager-interview-questions.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-manager-interview-questions.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-manager-log-shift-handoff.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-manager-log-shift-handoff.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-manager-training-program.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-manager-training-program.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-opening-checklist.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-opening-checklist.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-operational-poster-qr-guide.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-operational-poster-qr-guide.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-portion-control-food-cost.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-portion-control-food-cost.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-pre-shift-checklist.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-pre-shift-checklist.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-pre-shift-meeting-checklist.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-pre-shift-meeting-checklist.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-receiving-food-cost-control.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-receiving-food-cost-control.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-recipe-costing-guide.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-recipe-costing-guide.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-sales-forecasting.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-sales-forecasting.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-schedule-validation-conflict-overtime-guide.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-schedule-validation-conflict-overtime-guide.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-server-side-work-checklist.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-server-side-work-checklist.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-server-training-checklist.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-server-training-checklist.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-shift-handoff-checklist.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-shift-handoff-checklist.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-shift-manager-checklist.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-shift-manager-checklist.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-sop-revision-control-guide.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-sop-revision-control-guide.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-sop-station-operations-builder.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-sop-station-operations-builder.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-sop-template-guide.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-sop-template-guide.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-sop-training-retraining-guide.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-sop-training-retraining-guide.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-staff-scheduling-guide.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-staff-scheduling-guide.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-station-training-checklist.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-station-training-checklist.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-training-matrix-guide.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-training-matrix-guide.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-training-sign-off-checklist.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-training-sign-off-checklist.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-waste-spill-comp-log.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-waste-spill-comp-log.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/restaurant-weekly-business-review.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/restaurant-weekly-business-review.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/review-thanks.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/review-thanks.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/review.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/review.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/sales-intelligence-forecasting.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/sales-intelligence-forecasting.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/standards-library.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/standards-library.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/standards.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/standards.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/start-here.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/start-here.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/support.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/support.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/system.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/system.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/systems-of-service.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/systems-of-service",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/terms.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/terms.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/testing-room-manager.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/testing-room-manager.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/testing-room.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/testing-room.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/the-owners-chair.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/the-owners-chair.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/toolkit.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/toolkit.html",
+    "type": "text/html; charset=UTF-8"
+  },
+  {
+    "path": "/windows-programs.html",
+    "status": 200,
+    "final": "https://gravityleadershipsystem.com/windows-programs.html",
+    "type": "text/html; charset=UTF-8"
+  }
+]
