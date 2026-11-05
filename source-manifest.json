@@ -210,7 +210,7 @@
     },
     {
       "path": "site/apps/sop-foundry/recipe-import.js",
-      "sha256": "6ce9357f442418315b8b8d6c3186ba8ecb2f7d2490a3add3538a432923d8ae07"
+      "sha256": "8ecaec4b991efc1697c3eb3fb20fa10858cb201a7b197ac6f8b6b6f1b8ce45eb"
     },
     {
       "path": "site/apps/sop-foundry/restaurant-brand.css",
@@ -266,7 +266,7 @@
     },
     {
       "path": "site/apps/sop-foundry/staff-recipes.js",
-      "sha256": "fa443f00f01368057a3beda96e36126a6b36999a8bcad31a5c14f24045eb28ab"
+      "sha256": "5df5f4b70731d12bfe72c50d3458524dc24958b80553de00205348b73fe4e9b4"
     },
     {
       "path": "site/apps/sop-foundry/staff-sops.html",
@@ -306,7 +306,7 @@
     },
     {
       "path": "site/apps/sop-foundry/workroom.html",
-      "sha256": "13b2352d21c50ec40d6ac8cf0b79982ba3c5b5bc06a2e12848d10e1e88e7eeb6"
+      "sha256": "06f8f7845fb7c01a1a930f168ef93037be35bcb1be4f930c9a05c2f4f5d51dba"
     },
     {
       "path": "site/assets/audio/gravity-ack/cedar-01.mp3",
@@ -1442,7 +1442,7 @@
     },
     {
       "path": "site/assets/js/gravity-qr.js",
-      "sha256": "1f54896913ad9e3079e546c55a04ce0e3d67e51790eb01a2b1aa5ffb6eb306a4"
+      "sha256": "915b8c1dfc88740ef423d8856d812eadbe05b2aeccc278a90f6385c879ed6a0a"
     },
     {
       "path": "site/assets/js/gravity-quick-tools.js",
@@ -1478,7 +1478,7 @@
     },
     {
       "path": "site/assets/js/gravity-work-study-changeover-sequence-v55.js",
-      "sha256": "8cb183c68a61d17d2383d3221a34427e567452c254bdbd4694ecfa0de273b9ad"
+      "sha256": "4779ffe77ed04fad499c9f0735ff54acdcb86a3964f93a4ed97e3a4971fd5694"
     },
     {
       "path": "site/assets/js/gravity-work-study-clock-control-v32.js",
@@ -1670,11 +1670,11 @@
     },
     {
       "path": "site/assets/js/gravity-work-study-shift-position-v54.js",
-      "sha256": "b26f585bb4dbcb534c92a96348fcde42f0f09a5e8264b557e5fc8349ddd066a8"
+      "sha256": "5ddc8069fa850a803548af38fe2964d354093bc3b8bd61f3068e606a4be4ad4a"
     },
     {
       "path": "site/assets/js/gravity-work-study-short-element-v53.js",
-      "sha256": "356af9f4e750ac571b36acf3051468973c19901d455d5f5af8676c6fe2353d7e"
+      "sha256": "0c1d29049149d9e063466f1b2d71ce0821c71de508270175fd6513f4e780d27c"
     },
     {
       "path": "site/assets/js/gravity-work-study-standard-minutes-v33.js",
@@ -1694,7 +1694,7 @@
     },
     {
       "path": "site/assets/js/gravity-work-study-v2.js",
-      "sha256": "8a01a03188d478b1f8cfc4653182068eb86620473d682aa8bf8249563ebc511d"
+      "sha256": "04a39e491ea4bd9afcd6f2568899f97f3874f377ab18f5e7e8cd2d4df02b7232"
     },
     {
       "path": "site/assets/js/gravity-work-study-work-sampling-v50.js",
@@ -2042,7 +2042,7 @@
     },
     {
       "path": "site/gravity-work-study-lab.html",
-      "sha256": "78f606c700a033197b7a6dc0dacb5584810ff4d0dec975b0f09fa3b416b22e4b"
+      "sha256": "c57daae87c5f6601a4c8546f8d404a0c6a28d5d0c6153be9316eba318c4548ec"
     },
     {
       "path": "site/guest-service-complaints-recovery-workbook.html",
@@ -2102,7 +2102,7 @@
     },
     {
       "path": "site/qr-code-generator.html",
-      "sha256": "b5ee808be8107c70796835ced9fa24b9b206420bd08613d7c00c77b85a243e0d"
+      "sha256": "2054b2d3c81f3ac5ee7d333cc72015e49ad5a9af7e63037319a4c9aa5433f4a0"
     },
     {
       "path": "site/quiet-gravity.html",
