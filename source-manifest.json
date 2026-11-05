@@ -62,11 +62,11 @@
     },
     {
       "path": "site/apps/sop-foundry/assistant.html",
-      "sha256": "9ddb7a27ac16ddc2a0febc50633cbbb00c991b1c83c8eea12b69290d84956f44"
+      "sha256": "6b2ffcb8a0410c5a3fdbdc51d9a5eec024564d552d2468cd3b5a4153b914aa2f"
     },
     {
       "path": "site/apps/sop-foundry/assistant.js",
-      "sha256": "94635be50306c2081d86f5cb99c28aceed33859d338ef5c4d1701a2f89682bde"
+      "sha256": "25a4ad0eb043569cc29c826cb78984e60285ac288c22dabb40a51016feb0b5fe"
     },
     {
       "path": "site/apps/sop-foundry/binder-builder.js",
