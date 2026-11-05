@@ -158,11 +158,11 @@
     },
     {
       "path": "site/apps/sop-foundry/history.html",
-      "sha256": "c2b0537551e428f0711e9199682f9178bc13ddaa5903ad527bdcd73322ee7714"
+      "sha256": "7bd94518bf96a3c785e2c84796968c1df7d6a769f99814f9c6468bde37950437"
     },
     {
       "path": "site/apps/sop-foundry/history.js",
-      "sha256": "0cea2b6ad6840a7145d1a37d353300e4ca11233621da48cd9255fd8368ed75dc"
+      "sha256": "28a8ced5ae15e4b0f1856b9de446ace6bea92e335b537f17ad6e113ea833e11d"
     },
     {
       "path": "site/apps/sop-foundry/hosted-bridge.js",
