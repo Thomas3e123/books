@@ -1,0 +1,17 @@
+[
+  {
+    "format": "PDF",
+    "bytes": 593604,
+    "sha256": "977564825636a49a9bdd7f38d39f1edb3c2779a036d0a44b32ea9a220b5a513e"
+  },
+  {
+    "format": "DOCX",
+    "bytes": 14923,
+    "sha256": "a9aafa7cb78ed503925692b42e675b367c95cffccb12aa4dfc741386d95ed690"
+  },
+  {
+    "format": "JSON backup",
+    "bytes": 34576,
+    "sha256": "d06904882bf085ca1031a046b4551c63c33358ac0705699d2508fdd765c5933c"
+  }
+]
