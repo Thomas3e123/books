@@ -46,7 +46,7 @@
     },
     {
       "path": "site/apps/inventory-center/index.html",
-      "sha256": "28d57e1ec57225a9fe3afbe8708ff2e39b07e99c073a78af452e467251c610c4"
+      "sha256": "8ec8888b73b6b0bc407ff1c81cd578d9d55f67b5dcc5db7f8230e3d3817337d7"
     },
     {
       "path": "site/apps/inventory-center/web.css",
@@ -1938,7 +1938,7 @@
     },
     {
       "path": "site/gravity-cloud-vault.html",
-      "sha256": "cdcbc8eaa62074f5e0564efaa9610cea43fe8856ebdf92066c55b6ff337a493a"
+      "sha256": "507bf6ec51b7b7e1cae5f3a6d248ff6eee2a4ff799e8bf7abd97befbeb94f919"
     },
     {
       "path": "site/gravity-document-studio.html",
@@ -2006,7 +2006,7 @@
     },
     {
       "path": "site/gravity-shift-lab.html",
-      "sha256": "75a68b5f320ed100789f2056750e02f65ea4f5430875d188ca8d2be8a97f9a8f"
+      "sha256": "ae5336150676a9e4a50ca963b0ed44b211f676bd9372473c4fe82b4111fae2ce"
     },
     {
       "path": "site/gravity-shift-lab.webmanifest",
