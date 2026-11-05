@@ -210,7 +210,7 @@
     },
     {
       "path": "site/apps/sop-foundry/recipe-import.js",
-      "sha256": "6ce9357f442418315b8b8d6c3186ba8ecb2f7d2490a3add3538a432923d8ae07"
+      "sha256": "8ecaec4b991efc1697c3eb3fb20fa10858cb201a7b197ac6f8b6b6f1b8ce45eb"
     },
     {
       "path": "site/apps/sop-foundry/restaurant-brand.css",
@@ -266,7 +266,7 @@
     },
     {
       "path": "site/apps/sop-foundry/staff-recipes.js",
-      "sha256": "b73a11c013cdaf0f2fdd862c0519b278ca4607df9a6bc11148557924e181f8bb"
+      "sha256": "5df5f4b70731d12bfe72c50d3458524dc24958b80553de00205348b73fe4e9b4"
     },
     {
       "path": "site/apps/sop-foundry/staff-sops.html",
