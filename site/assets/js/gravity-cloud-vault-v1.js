@@ -93,7 +93,7 @@ async function checkManagerPin(profile){
  return false;
 }
 async function upload(force){
- if(!connected||!passphrase||busy){return}
+ if(!connected||!passphrase||busy||(!force&&!auto)){return}
  busy=true;clearTimers();
  try{
   let values=currentData();
@@ -164,8 +164,14 @@ async function restore(){
    report('Cloud backup recovered. Reloading '+tool+' to show restored records.');
    location.reload();
   }catch(e){
-   for(let i=0;i<keys.length;i++)try{if(before[i]===null)localStorage.removeItem(keys[i]);else localStorage.setItem(keys[i],before[i])}catch{}
-   throw Error('Restoration failed and the previous data was reapplied: '+e.message);
+   let rollbackComplete=true;
+   for(let i=0;i<keys.length;i++){
+    try{if(before[i]===null)localStorage.removeItem(keys[i]);else localStorage.setItem(keys[i],before[i])}catch{rollbackComplete=false}
+    try{if(localStorage.getItem(keys[i])!==before[i])rollbackComplete=false}catch{rollbackComplete=false}
+   }
+   auto=false;
+   if(!rollbackComplete)throw Error('Restoration failed and the previous data could not be fully restored. Do not reload or continue editing. Keep this page open and use your separate local backup to recover. Automatic cloud backup is paused. Details: '+e.message);
+   throw Error('Restoration failed; the previous local data was verified and reapplied. Automatic cloud backup is paused. Details: '+e.message);
   }
  }catch(e){report('Cloud recovery stopped: '+(e.name==='OperationError'?'Incorrect recovery passphrase or damaged backup.':e.message),true)}
  finally{busy=false}
@@ -222,7 +228,7 @@ function toolUI(){
  $('gravity-cloud-unlock').onclick=()=>unlock().catch(e=>report('Cloud authentication failed: '+e.message,true));
  $('gravity-cloud-now').onclick=()=>{
   if(!auto&&!confirm('Your cloud copy may contain newer records from another computer. REPLACE the latest cloud copy with THIS DEVICE instead? Download the cloud copy first if unsure.'))return;
-  auto=true;upload(true);
+  upload(true);
  };
  $('gravity-cloud-restore').onclick=restore;
  $('gravity-cloud-disconnect').onclick=()=>{

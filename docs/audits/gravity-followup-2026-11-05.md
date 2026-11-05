@@ -154,3 +154,17 @@ Hosted retest PASS on isolated commit `2bab5a0a03429f8c2dc6fe945cbdb205cc0f9f6e`
 Actual browser checks confirmed that an empty conversion input displayed `0 g`, while a rotation starting at 0 silently produced the position-1 list. Repairs distinguish an absent conversion value from explicit zero, reject nonfinite conversion results, avoid downloading an invalid conversion message as a result, and require positive whole rotation positions. Existing wraparound and negative-temperature conversion remain supported. Sixteen focused checks pass with 652 verified source files and 153 packaged pages. Hosted retest follows below; production remains unchanged.
 
 Hosted retest PASS: blank conversion now requests a numeric value and position 0 requests a positive whole rotation position. Correcting to -40 °F returned -40 °C; position 5 across three names wrapped to B/C/A. These checks preserve valid behavior after invalid-entry correction. User requested conserving Work credits; further exploratory checks are paused while all verified PR #18 repairs are combined for one production deployment. The remaining full-audit limitations still apply.
+
+## PR #18 coordinated production release
+
+All PR #18 repairs above are now deployed, superseding their earlier staged status. GitHub final browser-test workflow succeeded; merged commit `6c9882e8aa3b7a46235da360441b34dd49dccd13` deployed as Netlify `6aecb1533f0a0056e526f0ec`. Live production smoke verified doubling 1/2 cup sugar and 1 1/2 cups flour returns 1 cup sugar and 3 cups flour. One coordinated production build was used. Further exploratory audit work is paused to conserve user credits; the full audit is not declared complete.
+
+## Cloud restore failure-message review
+
+All 42 existing Node regression checks passed. Source review found that cloud restore swallowed rollback write failures but always claimed previous data had been reapplied. A focused local simulation confirmed this false reassurance when the second restore write fails and an earlier changed key cannot be rolled back. Repair checks rollback operations and reads back every key; incomplete rollback receives an explicit recovery warning, while verified rollback is reported accurately. Automatic backup pauses after either failure. No actual customer backups or hosted records were accessed or modified.
+
+Two new tests pass for successful rollback and failed rollback; 652 source files verify. This is a source-level failure-path repair, not certification of the live cloud service. The repair is staged separately; no deployment was triggered to conserve credits.
+
+## Paused cloud upload protection
+
+Source review and local handler tests confirmed two related control-flow defects: a queued automatic upload did not recheck the paused flag, and the Save Now handler set auto=true before calling upload, bypassing the existing-copy verification guarded by !auto. Repair rejects queued automatic work while paused and leaves manual replacement paused until upload succeeds. The existing encrypted-copy verification now runs before manual replacement from paused state. Four focused backup tests pass, including no network call for a queued paused upload and no PUT after simulated wrong-key verification. No hosted customer data was accessed. These repairs extend PR #19 and remain undeployed; no extra Netlify build was requested.
