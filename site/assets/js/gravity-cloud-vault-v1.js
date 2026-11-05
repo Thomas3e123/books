@@ -93,7 +93,7 @@ async function checkManagerPin(profile){
  return false;
 }
 async function upload(force){
- if(!connected||!passphrase||busy){return}
+ if(!connected||!passphrase||busy||(!force&&!auto)){return}
  busy=true;clearTimers();
  try{
   let values=currentData();
@@ -228,7 +228,7 @@ function toolUI(){
  $('gravity-cloud-unlock').onclick=()=>unlock().catch(e=>report('Cloud authentication failed: '+e.message,true));
  $('gravity-cloud-now').onclick=()=>{
   if(!auto&&!confirm('Your cloud copy may contain newer records from another computer. REPLACE the latest cloud copy with THIS DEVICE instead? Download the cloud copy first if unsure.'))return;
-  auto=true;upload(true);
+  upload(true);
  };
  $('gravity-cloud-restore').onclick=restore;
  $('gravity-cloud-disconnect').onclick=()=>{
