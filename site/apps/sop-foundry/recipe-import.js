@@ -13,7 +13,7 @@ export function prepareRecipes(value){
   if(!rows.length||rows.length>100)throw Error('Choose 1–100 recipes per import.');
   const keys=new Set(),ids=new Set();return rows.map((r,i)=>{
     if(!r||typeof r!=='object'||Array.isArray(r))throw Error(`Recipe ${i+1} must be a record.`);
-    const out={};for(const k of ['id','title','type','yield','category','allergens','glassware','ice','buildtype','garnish','notes','revision']){if(r[k]!=null&&typeof r[k]!=='string')throw Error(`Recipe ${i+1}: ${k} must be text.`);out[k]=(r[k]||'').trim();}
+    const out={};for(const k of ['id','title','type','yield','category','allergens','glassware','ice','buildtype','buildType','garnish','notes','revision']){if(r[k]!=null&&typeof r[k]!=='string')throw Error(`Recipe ${i+1}: ${k} must be text.`);out[k]=(r[k]||'').trim();}
     if(out.buildtype&&!out.buildType)out.buildType=out.buildtype;delete out.buildtype;out.type=out.type.toLowerCase();if(!out.title||!['food','bar'].includes(out.type))throw Error(`Recipe ${i+1} needs a title and type food or bar.`);
     for(const k of ['ingredients','steps']){out[k]=typeof r[k]==='string'?r[k].split(/\r?\n|\s*\|\s*/):r[k];if(!Array.isArray(out[k])||!out[k].length||out[k].some(x=>typeof x!=='string'||!x.trim()))throw Error(`Recipe ${i+1}: ${k} needs nonempty lines.`);out[k]=out[k].map(x=>x.trim());}
     const key=out.type+':'+out.title.toLowerCase();if(keys.has(key)||(out.id&&ids.has(out.id)))throw Error(`Duplicate recipe in import: ${out.title}. Keep one version.`);keys.add(key);if(out.id)ids.add(out.id);return out;
