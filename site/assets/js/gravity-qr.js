@@ -1341,18 +1341,25 @@ function setup(){
   var dark=document.getElementById('qr-dark');
   var light=document.getElementById('qr-light');
   var presets=document.querySelectorAll('[data-qr-preset]');
+  var generation=0;
+  function clearOutput(){
+    generation++; canvas.hidden=true; download.hidden=true; if(downloadSvg)downloadSvg.hidden=true;
+    [download,downloadSvg].forEach(function(link){if(!link)return;if(link.dataset.objectUrl){URL.revokeObjectURL(link.dataset.objectUrl);delete link.dataset.objectUrl;}link.removeAttribute('href');});
+  }
   function generate(){
+    clearOutput(); var current=generation;
     var text=(input.value||'').trim();
     if(!text){ status.textContent='Enter a URL or text to create a QR code.'; canvas.hidden=true; download.hidden=true; if(downloadSvg)downloadSvg.hidden=true; return; }
     if(text.length>1800){ status.textContent='Please keep the QR content under 1,800 characters for dependable scanning.'; return; }
     try{
       var info=renderCanvas(canvas,text,{level:level.value,size:parseInt(size.value,10),dark:dark.value,light:light.value,quiet:4});
-      canvas.hidden=false; download.hidden=false; if(downloadSvg)downloadSvg.hidden=false;
-      download.href=canvas.toDataURL('image/png'); download.download=safeName(text);
+      canvas.hidden=false; if(downloadSvg)downloadSvg.hidden=false;
+      download.download=safeName(text);
+      canvas.toBlob(function(blob){if(current!==generation)return;if(!blob){status.textContent='PNG could not be prepared. Generate again or use SVG.';return;}var pngUrl=URL.createObjectURL(blob);download.dataset.objectUrl=pngUrl;download.href=pngUrl;download.hidden=false;},'image/png');
       if(downloadSvg){var svg=renderSvg(text,{level:level.value,dark:dark.value,light:light.value,quiet:4});var blob=new Blob([svg],{type:'image/svg+xml'});if(downloadSvg.dataset.objectUrl)URL.revokeObjectURL(downloadSvg.dataset.objectUrl);var u=URL.createObjectURL(blob);downloadSvg.dataset.objectUrl=u;downloadSvg.href=u;downloadSvg.download=safeName(text).replace(/\.png$/,'.svg');}
       status.textContent='Ready — '+info.moduleCount+' × '+info.moduleCount+' modules, '+info.pixels+' px PNG. Test the code with a phone before printing it.';
     }catch(err){
-      console.error(err); status.textContent='That content is too long for the selected error-correction level. Shorten it or choose a lower correction level.';
+      clearOutput(); console.error(err); status.textContent='That content is too long for the selected error-correction level. Shorten it or choose a lower correction level.';
     }
   }
   var liveTimer=null;
@@ -1360,7 +1367,7 @@ function setup(){
     if(liveTimer) clearTimeout(liveTimer);
     var text=(input.value||'').trim();
     if(!text){ generate(); return; }
-    status.textContent='Updating QR preview…';
+    clearOutput(); status.textContent='Updating QR preview…';
     liveTimer=setTimeout(function(){ liveTimer=null; generate(); },180);
   }
   form.addEventListener('submit',function(e){e.preventDefault();if(liveTimer){clearTimeout(liveTimer);liveTimer=null;}generate();});
@@ -1373,7 +1380,7 @@ function setup(){
     try{await navigator.clipboard.writeText(text);status.textContent='QR content copied to your clipboard.';}
     catch(e){input.select();document.execCommand('copy');status.textContent='QR content copied to your clipboard.';}
   });
-  reset.addEventListener('click',function(){input.value='';canvas.hidden=true;download.hidden=true;if(downloadSvg)downloadSvg.hidden=true;status.textContent='Enter a URL or text to create a QR code.';dark.value='#000000';light.value='#ffffff';level.value='M';size.value='1024';input.focus();});
+  reset.addEventListener('click',function(){if(liveTimer){clearTimeout(liveTimer);liveTimer=null;}clearOutput();input.value='';canvas.hidden=true;download.hidden=true;if(downloadSvg)downloadSvg.hidden=true;status.textContent='Enter a URL or text to create a QR code.';dark.value='#000000';light.value='#ffffff';level.value='M';size.value='1024';input.focus();});
   input.addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&e.key==='Enter'){e.preventDefault();generate();}});
   try{var params=new URLSearchParams(window.location.search);var preset=params.get('text')||params.get('url');if(preset){input.value=preset;generate();}}catch(e){}
 }
