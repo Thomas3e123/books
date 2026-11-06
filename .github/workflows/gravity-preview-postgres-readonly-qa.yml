@@ -7,6 +7,7 @@ on:
       - '.github/workflows/gravity-preview-postgres-readonly-qa.yml'
       - 'scripts/qa-foundry-postgres-isolated.cjs'
       - 'scripts/qa-preview-readonly.cjs'
+      - 'scripts/qa-preview-auth-synthetic.cjs'
   workflow_dispatch:
 permissions:
   contents: read
@@ -44,3 +45,5 @@ jobs:
         run: node scripts/qa-foundry-postgres-isolated.cjs
       - name: Immutable Netlify preview public pages and authorization barriers (GET-only)
         run: node scripts/qa-preview-readonly.cjs
+      - name: Authenticated synthetic manager and employee test on isolated preview database branch
+        run: node scripts/qa-preview-auth-synthetic.cjs
