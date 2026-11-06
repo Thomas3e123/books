@@ -47,13 +47,16 @@ test('Work Study exported evidence imports through the actual file picker and pr
   incoming.study={...incoming.study,id:incoming.studyId,screen:'start',version:2};
   incoming.historyRecord={...incoming.study};
   incoming.sidecars={gravityWorkStudyBrowserEvidence:{mode:'keyed-by-study',value:{proof:'synthetic'}}};
-  await page.evaluate(()=>window.__workStudyTestIncoming='browser-restore-second-study');
   page.on('dialog',dialog=>dialog.accept());
   const [chooser]=await Promise.all([
     page.waitForEvent('filechooser'),
     box.getByRole('button',{name:'Import complete study package'}).click()
   ]);
+  // The app deliberately reloads the page after a successful import.
+  // Wait for that navigation before inspecting localStorage in its new context.
+  const reloaded=page.waitForEvent('load');
   await chooser.setFiles({name:'synthetic.gravity-study.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(incoming))});
+  await reloaded;
   await expect.poll(async()=>page.evaluate(()=>{
     const s=JSON.parse(localStorage.getItem('gravityWorkStudyV2')||'null');
     return s?.id;
