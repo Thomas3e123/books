@@ -787,6 +787,7 @@ function restoreBackup(file){
   };
   r.readAsText(file);
 }
+function spreadsheetCell(v){var s=String(v==null?'':v),leading=s.replace(/^[\s\u0000-\u001f]+/,'');if(/^[=+@]/.test(leading)||(/^[-]/.test(leading)&&!/^-[0-9]+(?:\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$/.test(leading)))return "'"+s;return s;}
 function downloadCSV(){
   if(payIsLocked()){openPayLockDialog('unlock');$('lab-status').textContent='Unlock Manager Pay Lock before exporting manager schedule data.';return;}
   var rows=[['Employee','Role','Home Section','Wage'].concat(days.map(function(d){return d+' Shift';})).concat(days.map(function(d){return d+' Section';})).concat(['Total Hours'])];
@@ -794,7 +795,7 @@ function downloadCSV(){
     var emp=getEmployee(tr.dataset.employeeId);var r=[tr.querySelector('.employee-name').value,tr.querySelector('.employee-role').value,tr.querySelector('.employee-section').value,emp?emp.wage:''],tot=0,sh=[],secs=[];tr.querySelectorAll('.shift-input').forEach(function(x,i){sh.push(x.value);tot+=shiftHours(x.value,i);secs.push(effectiveSection(emp,tr.querySelectorAll('.shift-section')[i].value));});
     r=r.concat(sh).concat(secs);r.push(tot.toFixed(1));rows.push(r);
   });
-  var csv=rows.map(function(r){return r.map(function(v){return '"'+String(v||'').replace(/"/g,'""')+'"';}).join(',');}).join('\n');
+  var csv=rows.map(function(r){return r.map(function(v){return '"'+spreadsheetCell(v).replace(/"/g,'""')+'"';}).join(',');}).join('\n');
   var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='gravity-shift-lab-manager-schedule.csv';a.click();setTimeout(function(){URL.revokeObjectURL(a.href);},1000);
 }
 async function printSchedule(mode){
