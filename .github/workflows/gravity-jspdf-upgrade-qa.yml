@@ -1,0 +1,48 @@
+name: Gravity jsPDF security upgrade validation — no deploy
+on:
+  push:
+    branches:
+      - audit/gravity-packs-01-05-2026-11-06
+    paths:
+      - '.github/workflows/gravity-jspdf-upgrade-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate-upgrade:
+    name: Create reviewed patched dependency lockfile (no repository write)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install pinned jsPDF security update into ephemeral checkout
+        run: npm install --save-exact jspdf@4.2.1 --no-audit --no-fund
+      - name: Record changed dependency tree in the source-integrity manifest
+        run: node scripts/update-manifest.cjs
+      - name: Verify website build and manifest with patched PDF package
+        run: npm run build
+      - name: Generate local-only production-shaped site
+        run: node scripts/build-gravity-production.cjs
+      - name: Run offline repository tests with patched jsPDF
+        run: node --test tests/*.test.cjs
+      - name: Test Gravity Report and Foundry mock protections
+        run: |
+          node scripts/test-gravity-report.mjs
+          node scripts/test-gravity-foundry-employee-isolation.cjs
+      - name: Inspect runtime dependency advisories
+        run: |
+          npm audit --omit=dev --audit-level=critical || echo 'SECURITY AUDIT STILL HAS FINDINGS — see log; do not deploy'
+      - name: Retain generated package and lockfile for manual review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gravity-patched-jspdf-candidate
+          path: |
+            package.json
+            package-lock.json
+            source-manifest.json
+          retention-days: 14
