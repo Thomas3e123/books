@@ -59,7 +59,7 @@ jobs:
           const guide=JSON.parse(read('site/gravity-guide-registry-v2.json'));
           assert.equal(book.length,350);assert.equal(facts.current_ai_prompt_count,350);assert.equal(guide.facts.ai_prompt_count,350);
           const index=read('site/gravity-report.html');
-          const links=[...index.matchAll(/<a\\b[^>]*href="\\/assets\\/downloads\\/gravity-field-sheet-[^"]+\\.pdf"[^>]*>/g)];
+          const links=[...index.matchAll(/<a\b[^>]*href="\/assets\/downloads\/gravity-field-sheet-[^"]+\.pdf"[^>]*>/g)];
           assert.equal(links.length,10,'All 10 Report Field Sheet links must exist');
           for(const [tag] of links)assert.match(tag,/data-no-registration-gate/);
           const report=read('functions/gravity-report/index.mjs');
