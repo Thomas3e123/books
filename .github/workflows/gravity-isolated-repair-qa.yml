@@ -26,6 +26,8 @@ jobs:
         run: npm ci --no-audit --no-fund
       - name: Verify source manifest and build website assets
         run: npm run build
+      - name: Prepare production-shaped output for offline regression tests (NO DEPLOY)
+        run: node scripts/build-gravity-production.cjs
       - name: JavaScript syntax checks for modified browser/hosted modules
         run: |
           node --check functions/foundry-hosted/core.mjs
