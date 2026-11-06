@@ -5,6 +5,8 @@ on:
       - audit/gravity-packs-01-05-2026-11-06
     paths:
       - '.github/workflows/gravity-preview-postgres-readonly-qa.yml'
+      - 'scripts/qa-foundry-postgres-isolated.cjs'
+      - 'scripts/qa-preview-readonly.cjs'
   workflow_dispatch:
 permissions:
   contents: read
