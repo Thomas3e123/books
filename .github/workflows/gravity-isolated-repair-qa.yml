@@ -1,0 +1,78 @@
+name: Gravity isolated repair candidate — offline integration, NO DEPLOY
+on:
+  push:
+    branches:
+      - audit/gravity-packs-01-05-2026-11-06
+    paths:
+      - '.github/workflows/gravity-isolated-repair-qa.yml'
+      - 'source-manifest.json'
+      - 'site/**'
+      - 'functions/**'
+      - 'tests/**'
+      - 'scripts/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-integration:
+    name: Source integrity, Gravity regressions, and privacy gates (no deploy)
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install exact dependency lockfile
+        run: npm ci --no-audit --no-fund
+      - name: Verify source manifest and build website assets
+        run: npm run build
+      - name: Prepare production-shaped output for offline regression tests (NO DEPLOY)
+        run: node scripts/build-gravity-production.cjs
+      - name: JavaScript syntax checks for modified browser/hosted modules
+        run: |
+          node --check functions/foundry-hosted/core.mjs
+          node --check functions/foundry-hosted/index.mjs
+          node --check functions/gravity-report/index.mjs
+          node --check functions/gravity-guide/guide-core.mjs
+          node --check site/assets/js/gravity-shift-lab.js
+          node --check site/assets/js/gravity-work-study-evidence-package-v56.js
+          node --check site/assets/js/gravity-document-studio.js
+          node --check site/assets/js/gravity-quick-tools.js
+          node --check site/assets/js/gravity-guide-ai.js
+          node --check site/assets/js/site.js
+          node --check site/apps/sop-foundry/web-api-shim.js
+          node --check site/apps/sop-foundry/hosted-bridge.js
+          node --check site/apps/sop-foundry/import-export.js
+          node --check site/apps/sop-foundry/employee-connection.js
+          node --check site/apps/sop-foundry/training.js
+      - name: Offline repository regression tests
+        run: node --test tests/*.test.cjs
+      - name: Hosted employee isolation and authorization — offline mocks only
+        run: node scripts/test-gravity-foundry-employee-isolation.cjs
+      - name: Gravity Report routes and publication — offline
+        run: node scripts/test-gravity-report.mjs
+      - name: Repair-candidate static integrity checks
+        run: |
+          node - <<'NODE'
+          const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+          const read=p=>fs.readFileSync(p,'utf8');
+          const book=JSON.parse(read('site/assets/data/restaurant-ai-prompts-350.json'));
+          const facts=JSON.parse(read('site/assets/data/gravity-current-facts.json'));
+          const guide=JSON.parse(read('site/gravity-guide-registry-v2.json'));
+          assert.equal(book.length,350);assert.equal(facts.current_ai_prompt_count,350);assert.equal(guide.facts.ai_prompt_count,350);
+          const index=read('site/gravity-report.html');
+          const links=[...index.matchAll(/<a\b[^>]*href="\/assets\/downloads\/gravity-field-sheet-[^"]+\.pdf"[^>]*>/g)];
+          assert.equal(links.length,10,'All 10 Report Field Sheet links must exist');
+          for(const [tag] of links)assert.match(tag,/data-no-registration-gate/);
+          const report=read('functions/gravity-report/index.mjs');
+          const articles=JSON.parse(read('functions/gravity-report/articles.json')).articles;
+          for(const a of articles.slice(0,5))assert.ok(report.includes("'"+a.slug+"':"),'Missing Field Sheet for '+a.slug);
+          assert.match(report,/fieldSheetBox/);
+          const reg=read('site/registration-thanks.html');
+          assert.match(reg,/Checking your Founding Year access/);
+          const core=read('functions/foundry-hosted/core.mjs'),server=read('functions/foundry-hosted/index.mjs'),client=read('site/apps/sop-foundry/hosted-bridge.js');
+          assert.match(core,/employeePublic/);assert.match(server,/listEventPage/);assert.match(client,/lastPullV2/);
+          console.log('Static repair integrity checks PASSED. Offline only; NO DEPLOY.');
+          NODE

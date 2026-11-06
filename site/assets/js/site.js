@@ -390,20 +390,42 @@
   var isRegistrationThanks = (location.pathname || '').toLowerCase().indexOf('/registration-thanks') >= 0;
   if (isRegistrationThanks) {
     storageSet(WELCOME_KEY, '1');
-    // A direct visit to this page is not proof of a submitted registration.
-    // Registration access is granted only after a successful Netlify Forms POST.
-    if (storageGet(REG_ACCESS_KEY) === 'registered') send('registration_complete', { registration_type: 'founding_year_download_access' });
+    // Direct navigation to the confirmation URL never grants registration.
+    var isRegistered = storageGet(REG_ACCESS_KEY) === 'registered';
+    var eyebrow = document.querySelector('[data-gravity-registration-eyebrow]');
+    var heading = document.querySelector('[data-gravity-registration-heading]');
+    var description = document.querySelector('[data-gravity-registration-description]');
     var continueDownload = document.querySelector('[data-gravity-continue-download]');
-    var pendingDownload = storageGet(PENDING_DOWNLOAD_KEY);
-    if (continueDownload && pendingDownload) {
-      try {
-        var pendingUrl = new URL(pendingDownload, location.origin);
-        if (pendingUrl.origin === location.origin || isOfficialWindowsBetaDownload(pendingUrl)) {
-          continueDownload.href = pendingUrl.href;
-          continueDownload.setAttribute('download', '');
-          continueDownload.textContent = 'Continue to My Download';
+    if (isRegistered) {
+      if (eyebrow) eyebrow.textContent = 'Registration complete';
+      if (heading) heading.textContent = 'Your Founding Year downloads are unlocked.';
+      if (description) description.textContent = 'Thank you. Completed Gravity digital resources remain free through October 1, 2027. No credit card, payment method, subscription, or donation was required.';
+      send('registration_complete', { registration_type: 'founding_year_download_access' });
+      if (continueDownload) {
+        continueDownload.href = '/gravity-fulfillment-center';
+        continueDownload.textContent = 'Browse Digital Resources';
+        continueDownload.removeAttribute('download');
+        var pendingDownload = storageGet(PENDING_DOWNLOAD_KEY);
+        if (pendingDownload) {
+          try {
+            var pendingUrl = new URL(pendingDownload, location.origin);
+            if (pendingUrl.origin === location.origin || isOfficialWindowsBetaDownload(pendingUrl)) {
+              continueDownload.href = pendingUrl.href;
+              continueDownload.setAttribute('download', '');
+              continueDownload.textContent = 'Continue to My Download';
+            }
+          } catch (_) {}
         }
-      } catch (_) {}
+      }
+    } else {
+      if (eyebrow) eyebrow.textContent = 'Registration not confirmed';
+      if (heading) heading.textContent = 'Complete registration to unlock downloads.';
+      if (description) description.textContent = 'Opening this page does not register you. Submit the free Founding Year form and confirm it has been accepted. No credit card is required.';
+      if (continueDownload) {
+        continueDownload.href = '/register';
+        continueDownload.textContent = 'Complete Registration';
+        continueDownload.removeAttribute('download');
+      }
     }
   }
 

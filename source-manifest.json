@@ -122,7 +122,7 @@
     },
     {
       "path": "site/apps/sop-foundry/employee-connection.js",
-      "sha256": "14cdfe7ad57fa8701bb572d93cb7a4aadfbc2a5c59c45f4fec7527f056d44a35"
+      "sha256": "0df993c3295f30764b259a252d0e6de7d1d2714b4c3e011c0783ff01386596ec"
     },
     {
       "path": "site/apps/sop-foundry/favicon.svg",
@@ -166,7 +166,7 @@
     },
     {
       "path": "site/apps/sop-foundry/hosted-bridge.js",
-      "sha256": "68b5480988d65f5887df4e70f41c5c0fd4ea359c142feafbe759300a60f094e7"
+      "sha256": "be56df072ddeebaac7270670dd4f138ee55f1acf5cc930e8c79be7a414374db4"
     },
     {
       "path": "site/apps/sop-foundry/images/gravity-color-field.png",
@@ -182,7 +182,7 @@
     },
     {
       "path": "site/apps/sop-foundry/import-export.js",
-      "sha256": "172f9ad8738238c6163130f605ecff284570b5a57f9a760fc4a496487aaa33ef"
+      "sha256": "a9726b36385566ffb7f8838b74ae71e8012cb84ddd6575d30bea33de6e6b6f8e"
     },
     {
       "path": "site/apps/sop-foundry/manager-inbox.html",
@@ -294,11 +294,11 @@
     },
     {
       "path": "site/apps/sop-foundry/training.js",
-      "sha256": "5c9f59ea76d820496085887088b4ccd71c169b391747569f148ffb88dc649f13"
+      "sha256": "dde62b36d98d8bf9bb6f5f9fd2a3925835d92f88d30c8beba777bf48459fd097"
     },
     {
       "path": "site/apps/sop-foundry/web-api-shim.js",
-      "sha256": "b4fc2b8a74c54e5cb3f740bc41cc5f22d2f5c21038bba05ef04b5a31c8fc626e"
+      "sha256": "5bee6accbb94df502daf2bd0f7fb38b4eeb4361688c224c0143523aa9e6a9fa5"
     },
     {
       "path": "site/apps/sop-foundry/window.svg",
@@ -422,7 +422,7 @@
     },
     {
       "path": "site/assets/data/gravity-current-facts.json",
-      "sha256": "9def2a7ffd1bbedfbd82c00c93969018d1498f8a1099672e9bf188497239cec0"
+      "sha256": "4e76d6e2b08288363f65dfb4759338eaa9c569e7e70448356118ef4a1d38cfc0"
     },
     {
       "path": "site/assets/data/gravity-sop-library.json",
@@ -1410,7 +1410,7 @@
     },
     {
       "path": "site/assets/js/gravity-document-studio.js",
-      "sha256": "ccc5a8a1c594fea68a793a409bf274e4e1a986a866cdc0f24111b9a86e59b275"
+      "sha256": "18d4998c9395d7b80daa07168544f28c97f8f9b69e6402174d799c59b4a6b88e"
     },
     {
       "path": "site/assets/js/gravity-forms-personalizer.js",
@@ -1422,11 +1422,11 @@
     },
     {
       "path": "site/assets/js/gravity-guide-ai.js",
-      "sha256": "f7431762aa684722a5dce1781eb96107e75742cbf1020042356f5939b32224ab"
+      "sha256": "cc1d199229128aff20b7ea9fb031e7b25a7823ece30206310d187496cf74c138"
     },
     {
       "path": "site/assets/js/gravity-guide-registry.js",
-      "sha256": "a2bea7ab852ed36e61c13558611991bc2e413019d92097014ca5058b5d5ffcb1"
+      "sha256": "443d35aaaa8c4a449f5f52a210eb25597c6459aeb6e8838fff96c9c247db1d63"
     },
     {
       "path": "site/assets/js/gravity-identity-client.js",
@@ -1446,7 +1446,7 @@
     },
     {
       "path": "site/assets/js/gravity-quick-tools.js",
-      "sha256": "1748667fc3c210b6c1f9c9f60ec0a29bc8e8d3ffe67fe57ec318dc719e284ebc"
+      "sha256": "937797d4cffe3c6d4797b9f18d505af62586decafc73ab342fff8b399af4fb8b"
     },
     {
       "path": "site/assets/js/gravity-report-reading.js",
@@ -1458,7 +1458,7 @@
     },
     {
       "path": "site/assets/js/gravity-shift-lab.js",
-      "sha256": "bf305b378063b00a0c4b17111a77407679482235b75b7f96d2f86571ee362d8c"
+      "sha256": "18a6eacc120acb71368c6aea7a2369b23b9bb31566b4d1912354bb23973cd9f7"
     },
     {
       "path": "site/assets/js/gravity-sop-foundry.js",
@@ -1526,7 +1526,7 @@
     },
     {
       "path": "site/assets/js/gravity-work-study-evidence-package-v56.js",
-      "sha256": "aaba8a65bc70c2151b0850860228be64c23d451a8641bfeb0009776b4a785e23"
+      "sha256": "3d4cd1e784aaf9aeae4982f17effdb1382483f1c1790615492c4e8d084b8e65b"
     },
     {
       "path": "site/assets/js/gravity-work-study-expert-reasoning-v7.js",
@@ -1722,7 +1722,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "8e1a93f6316f0e0d926b0deb52847198a8909460c83486b8c34c1531cadbd3c0"
+      "sha256": "2cf2a3e3ea94eca4eb992c41f94c6d3486a4b7fcccabb2cd1b624b984e356150"
     },
     {
       "path": "site/assets/js/testing-room.js",
@@ -1958,7 +1958,7 @@
     },
     {
       "path": "site/gravity-guide-registry-v2.json",
-      "sha256": "2aa055850094b2b1d57a0b72ffa553571b12e318caa0cf4d40cd4caed064e6a6"
+      "sha256": "09d4f29e3283a4081b3cfe9deb075beb224bce2d5ee16d4b61647f67a44c5553"
     },
     {
       "path": "site/gravity-guide.css",
@@ -1998,7 +1998,7 @@
     },
     {
       "path": "site/gravity-report.html",
-      "sha256": "589058d61049193f20b3326d91e08df73a245a7e69541261608b5cc39c4af9c6"
+      "sha256": "6a5ce1a409f835bbf279f5db2eae39814723f901240f6854660f9149367121fc"
     },
     {
       "path": "site/gravity-shift-lab-sw.js",
@@ -2078,7 +2078,7 @@
     },
     {
       "path": "site/intelligence-ai.html",
-      "sha256": "a8189a8a943e6189c9f8e645039103b3bd48b4af5e5ad3ca10d97344419de490"
+      "sha256": "36920cf7dbc04734ee2cf1c3f85f4296175429eab6a743625dc0208eee6c3564"
     },
     {
       "path": "site/knowledge-center.html",
@@ -2118,7 +2118,7 @@
     },
     {
       "path": "site/registration-thanks.html",
-      "sha256": "e6279f343ddc17fd29d31bac962ba86f7cc3cb0a389f9561b07216a2aeb3118d"
+      "sha256": "9c3373ef084a41d41ff0025c64705d48f92cba646e57ddd4d0501ccf7b064a42"
     },
     {
       "path": "site/release-validator.mjs",
@@ -2130,7 +2130,7 @@
     },
     {
       "path": "site/restaurant-ai-prompt-search.html",
-      "sha256": "fae255b8c434b1e5bf397d14d927f9cedd4f05319299aab04c0c965ec6188e08"
+      "sha256": "11f57df2dc15467a04a79d4a21bc87c6c66367ed1020b6f517e8bb153a355145"
     },
     {
       "path": "site/restaurant-bar-beverage-inventory-ordering.html",
@@ -2398,7 +2398,7 @@
     },
     {
       "path": "site/start-here.html",
-      "sha256": "0223f6110e48fc1394cee45d6ca744ab0e5a9a1a6e4e665234a313840a9ae397"
+      "sha256": "02b69153f3f50bac0de441c96a411676b86117eb2aed53884d6eccfd765ec78e"
     },
     {
       "path": "site/support.html",
@@ -2442,11 +2442,11 @@
     },
     {
       "path": "functions/foundry-hosted/core.mjs",
-      "sha256": "3e0f9f465f9cd603b481edb025316b003e38950a6e56620121b2cffc65398ae2"
+      "sha256": "f422050cc04a6d49fadafb5965d3daab56306c802b4f1efccb10c12bfdc2b8d8"
     },
     {
       "path": "functions/foundry-hosted/index.mjs",
-      "sha256": "91a0c3d20c33f039dc9afe17ec91414cfe1db5aadc2ebb7645b45bc9ceb4971f"
+      "sha256": "5e3a2a418c98529b89501efa2dbe1d575a7c943eb0b4ec520e728a6dfdc32f51"
     },
     {
       "path": "functions/gravity-cloud-backup/core.mjs",
@@ -2462,7 +2462,7 @@
     },
     {
       "path": "functions/gravity-guide/guide-core.mjs",
-      "sha256": "3086557a743f4341d2b33cb5647c8b5d5a1ef13f32c0a71b853253c3a3aefdac"
+      "sha256": "3685c895804f858ce161612f18c08295653ac5bb8f30c90e2963e5f941fa8cdd"
     },
     {
       "path": "functions/gravity-report/articles.json",
@@ -2470,7 +2470,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "a54927877cd453cca2fe3d37dbede3c5cfb1b5f8adc312d53a92dc21c6a68424"
+      "sha256": "f13ce5bab4de39d975c3fb8ee526c1e47ea85eac248425b148ee84080e07ad72"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",
@@ -2602,11 +2602,11 @@
     },
     {
       "path": "package.json",
-      "sha256": "b9aba667a635c8cc46d0264621a19b49f15f815efc40544f518e9666010b4b0f"
+      "sha256": "0e1beb6e9a0aa45c8bb7c3e92dfc1684b7692f2d6ee8c35cacd78801d00f5ef9"
     },
     {
       "path": "package-lock.json",
-      "sha256": "391ac72fb5829d192388b737fb5412d0dba26e1c3e6e3a3f0f924ede60e49583"
+      "sha256": "0decbfce82bdc637061d2d188c67b2a4d30035668e9ff8e61f8d5b20aa52f12e"
     }
   ]
 }

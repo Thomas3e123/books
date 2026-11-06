@@ -24,6 +24,14 @@ function add(role,text,actions=[]){
   box.appendChild(n);const body=n.closest('.gg-body');requestAnimationFrame(()=>{if(body)body.scrollTop=body.scrollHeight});return n;
 }
 const direct=[
+  [/\bprivacy(?:\s+(?:policy|notice|statement))?\b|\bpersonal data policy\b/i,'Read the Privacy Policy','/privacy'],
+  [/\b(?:terms of (?:service|use)|site terms)\b/i,'Read Terms of Use','/terms'],
+  [/\b(?:employees?|staff|team members?)\b.{0,80}\b(?:sign[ -]?in|log[ -]?in|login|access|pin|library)\b|\b(?:sign[ -]?in|log[ -]?in|login)\b.{0,80}\b(?:employees?|staff|team members?)\b/i,'Open Employee Access','/e'],
+  [/\b(?:testing room|test room)\b.{0,80}\b(?:sign[ -]?in|log[ -]?in|login|access)\b|\b(?:sign[ -]?in|log[ -]?in|login)\b.{0,80}\b(?:testing room|test room)\b/i,'Open Testing Room','/testing-room'],
+  [/\b(?:sop foundry|foundry|build room|manager workroom)\b.{0,80}\b(?:sign[ -]?in|log[ -]?in|login|access|pin)\b|\b(?:sign[ -]?in|log[ -]?in|login)\b.{0,80}\b(?:sop foundry|foundry|build room|manager workroom)\b/i,'Open SOP Foundry','/gravity-sop-foundry'],
+  [/\b(?:cloud|encrypted)\s+(?:backup|vault)\b|\brecovery passphrase\b|\brestore.*cloud\b|\b(?:cloud vault|cloud backup)\s+(?:login|sign[ -]?in)\b/i,'Open Cloud Backup','/gravity-cloud-vault'],
+  [/\b(?:register|registration|founding year(?:\s+download)?|download access)\b/i,'Open Founding Year Registration','/register'],
+  [/\b(?:sign[ -]?in|log[ -]?in|login)\b/i,'Find the Correct Sign-in','/help-center'],
   [/sop[ -]?library|volume 1|volume 2|volume 3/i,'Open the Gravity SOP Library','/gravity-sop-library-set'],
   [/handbook[ -]?creator|create.*handbook|build.*handbook/i,'Open Gravity Handbook Creator','/gravity-handbook-creator'],
   [/ai[ -]?prompts|prompt[ -]?workbook|chatgpt prompts/i,'Search 350 AI Prompts','/restaurant-ai-prompt-search'],
@@ -35,8 +43,8 @@ const direct=[
   [/recipe|ingredient|recipe[ -]?works/i,'Open Gravity Recipe Works','/gravity-recipe-works'],
   [/numbers?[ -]?lab|calculator|calculation|food[ -]?cost|pricing|yield/i,'Open Gravity Numbers Lab','/gravity-numbers-lab'],
   [/quick[ -]?tools|qr[ -]?code|conversion|label maker|recipe scaling/i,'Open Gravity Quick Tools','/gravity-quick-tools'],
-  [/document[ -]?studio|build.*document|policy|form library/i,'Open Gravity Document Studio','/gravity-document-studio'],
-  [/forms?[ -]?personalizer|personalize.*form|sign/i,'Open Gravity Forms Personalizer','/gravity-forms-personalizer'],
+  [/document[ -]?studio|build.*document|(?:write|create|draft|edit).*policy|form library/i,'Open Gravity Document Studio','/gravity-document-studio'],
+  [/forms?[ -]?personalizer|personalize.*form|(?:design|make|print|create).*sign|signage/i,'Open Gravity Forms Personalizer','/gravity-forms-personalizer'],
   [/gravity[ -]?aware|needs attention|assessment/i,'Open Gravity Aware','/gravity-aware'],
   [/gravity[ -]?assist|work room|self-service/i,'Open Gravity Assist','/gravity-assist'],
   [/book reader|read.*book|digital book/i,'Open Gravity Book Reader','/book-reader'],
@@ -49,8 +57,9 @@ function navIntent(text){return /\b(take me|go to|open|show me|send me|bring me|
 function normalizeUrl(url){const s=String(url||'').trim();if(!s)return'';return s.replace(/^https?:\/\/(?:www\.)?thomasmonroebooks\.com/i,'')||'/'}
 function words(text){return String(text||'').toLowerCase().split(/[^a-z0-9]+/).filter(x=>x.length>2)}
 function actions(q,answer=''){
-  const combined=(String(q||'')+' '+cleanText(answer)).trim();
-  const d=direct.find(([pattern])=>pattern.test(combined));if(d)return[{label:d[1],url:d[2]}];
+  const original=String(q||'').trim();
+  // Generated answer text must never override the visitor's explicit navigation question.
+  const d=direct.find(([pattern])=>pattern.test(original));if(d)return[{label:d[1],url:d[2]}];
   const db=window.__GRAVITY_GUIDE_REGISTRY__,qw=words(q),aw=words(answer),sc=[];
   (db?.resources||[]).forEach(r=>{
     if(!r.public_recommend||r.status!=='live'||!r.url)return;

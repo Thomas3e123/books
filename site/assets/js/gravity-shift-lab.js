@@ -692,13 +692,102 @@ function newNextWeek(){
 }
 function downloadBackup(){
   if(payIsLocked()){openPayLockDialog('unlock');$('lab-status').textContent='Unlock Manager Pay Lock before downloading a workspace backup because it contains private wage data.';return;}
-  syncProfileFromRows();saveCurrentWeek(true);var payload={version:5,exportedAt:new Date().toISOString(),profile:profile,schedules:schedules};
-  var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}));a.download='gravity-shift-lab-backup.json';a.click();setTimeout(function(){URL.revokeObjectURL(a.href);},1000);
+  syncProfileFromRows();
+  if(!saveCurrentWeek(true)){
+    $('lab-status').textContent='Backup not created: the current schedule could not be saved. Keep this page open and correct the storage problem.';
+    return;
+  }
+  try{
+    const storedProfile=localStorage.getItem(PROFILE_KEY);
+    const storedSchedules=localStorage.getItem(SCHEDULE_KEY);
+    if(storedProfile!==JSON.stringify(profile)||storedSchedules!==JSON.stringify(schedules))
+      throw Error('Saved information did not match the current workspace.');
+    const payload={version:5,exportedAt:new Date().toISOString(),profile:JSON.parse(storedProfile),schedules:JSON.parse(storedSchedules)};
+    const a=document.createElement('a'),url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}));
+    a.href=url;a.download='gravity-shift-lab-backup.json';document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),15000);
+    $('lab-status').textContent='Backup download started. Confirm the JSON file exists before clearing or replacing this workspace.';
+  }catch(e){
+    $('lab-status').textContent='Backup not created: saved information could not be verified. Keep this page open and resolve the storage problem.';
+  }
 }
 function restoreBackup(file){
   if(payIsLocked()){openPayLockDialog('unlock');$('lab-status').textContent='Unlock Manager Pay Lock before restoring a workspace backup.';return;}
-  if(!file)return;var r=new FileReader();r.onload=function(){try{var x=JSON.parse(r.result);if(!x.profile||!x.schedules)throw new Error('Invalid backup');profile=x.profile;profile.sections=uniqueNames(profile.sections&&profile.sections.length?profile.sections:defaultSections());profile.employees=(profile.employees||[]).map(normalizeEmployee);schedules=x.schedules||{};persistProfile();persistSchedules();applyProfile();renderWeek();$('lab-status').textContent='Backup restored.';}catch(e){$('lab-status').textContent='Could not restore that backup file.';}};r.readAsText(file);
+  if(!file)return;
+  const r=new FileReader();
+  r.onerror=function(){$('lab-status').textContent='Could not read the backup file. Existing information was not changed.';};
+  r.onload=function(){
+    const isRecord=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
+    let nextProfile,nextSchedules;
+    try{
+      const x=JSON.parse(String(r.result||''));
+      if(!isRecord(x)||!isRecord(x.profile)||!isRecord(x.schedules))throw Error('Invalid backup structure');
+      if(x.profile.employees!==undefined&&(!Array.isArray(x.profile.employees)||x.profile.employees.some(e=>!isRecord(e))))throw Error('Invalid employee records');
+      if(x.profile.sections!==undefined&&!Array.isArray(x.profile.sections))throw Error('Invalid station list');
+      if(x.profile.payLockHash!==undefined&&typeof x.profile.payLockHash!=='string')throw Error('Invalid pay privacy settings');
+      if(['openTimes','openAllowance','closeTimes','closeAllowance'].some(k=>x.profile[k]!==undefined&&!Array.isArray(x.profile[k])))throw Error('Invalid operating-hour settings');
+      if(Object.keys(x.schedules).some(k=>{
+        const week=x.schedules[k];
+        return ['__proto__','constructor','prototype'].includes(k)||!isRecord(week)||
+          (week.shifts!==undefined&&(!isRecord(week.shifts)||Object.values(week.shifts).some(v=>!Array.isArray(v))))||
+          (week.sections!==undefined&&(!isRecord(week.sections)||Object.values(week.sections).some(v=>!Array.isArray(v))))||
+          (week.changeLog!==undefined&&!Array.isArray(week.changeLog));
+      }))throw Error('Invalid saved schedule');
+      nextProfile=x.profile;
+      nextProfile.sections=uniqueNames(nextProfile.sections&&nextProfile.sections.length?nextProfile.sections:defaultSections());
+      nextProfile.employees=(nextProfile.employees||[]).map(normalizeEmployee);
+      nextSchedules=x.schedules;
+    }catch(e){
+      $('lab-status').textContent='Backup rejected: invalid or damaged schedule information. Existing information was not changed.';
+      return;
+    }
+    if(!confirm('Restore this Shift Lab backup? It will replace the current employee profiles and saved schedules in this browser. Save a separate backup first.')){
+      $('lab-status').textContent='Restore canceled. Existing information was not changed.';
+      return;
+    }
+    const oldProfile=profile,oldSchedules=schedules,oldUnlock=payUnlocked;
+    const saved=new Map();
+    try{
+      saved.set(PROFILE_KEY,localStorage.getItem(PROFILE_KEY));
+      saved.set(SCHEDULE_KEY,localStorage.getItem(SCHEDULE_KEY));
+    }catch(e){
+      $('lab-status').textContent='Restore stopped: existing records could not be read safely. Nothing was replaced.';
+      return;
+    }
+    const expectedProfile=JSON.stringify(nextProfile),expectedSchedules=JSON.stringify(nextSchedules);
+    let committed=false;
+    try{
+      localStorage.setItem(PROFILE_KEY,expectedProfile);
+      localStorage.setItem(SCHEDULE_KEY,expectedSchedules);
+      if(localStorage.getItem(PROFILE_KEY)!==expectedProfile||localStorage.getItem(SCHEDULE_KEY)!==expectedSchedules)
+        throw Error('Restore write verification failed');
+      committed=true;
+    }catch(e){
+      let rollbackVerified=true;
+      for(const [key,previous] of saved){
+        try{if(previous===null)localStorage.removeItem(key);else localStorage.setItem(key,previous)}catch(_){rollbackVerified=false}
+      }
+      for(const [key,previous] of saved){try{if(localStorage.getItem(key)!==previous)rollbackVerified=false}catch(_){rollbackVerified=false}}
+      profile=oldProfile;schedules=oldSchedules;payUnlocked=oldUnlock;
+      $('lab-status').textContent=rollbackVerified?
+        'Restore failed. The previous saved information was verified and reapplied. Do not retry until the storage problem is resolved.':
+        'URGENT: restore failed and previous browser information could not be fully recovered. Do not close this page. Preserve any external backups and disable automatic cloud backups until recovery is reviewed.';
+      return;
+    }
+    if(committed){
+      profile=nextProfile;schedules=nextSchedules;
+      payUnlocked=!profile.payLockHash;
+      try{applyProfile();renderWeek();setManagerOnlyControls();
+        $('lab-status').textContent='Backup restored and saved information verified. Review the employee profiles and schedules.';
+      }catch(e){
+        $('lab-status').textContent='Backup was saved and verified, but the screen could not refresh. Reload Shift Lab to inspect the restored information.';
+      }
+      try{window.dispatchEvent(new Event('gravity:local-data-saved'))}catch(e){}
+    }
+  };
+  r.readAsText(file);
 }
+function spreadsheetCell(v){var s=String(v==null?'':v),leading=s.replace(/^[\s\u0000-\u001f]+/,'');if(/^[=+@]/.test(leading)||(/^[-]/.test(leading)&&!/^-[0-9]+(?:\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$/.test(leading)))return "'"+s;return s;}
 function downloadCSV(){
   if(payIsLocked()){openPayLockDialog('unlock');$('lab-status').textContent='Unlock Manager Pay Lock before exporting manager schedule data.';return;}
   var rows=[['Employee','Role','Home Section','Wage'].concat(days.map(function(d){return d+' Shift';})).concat(days.map(function(d){return d+' Section';})).concat(['Total Hours'])];
@@ -706,7 +795,7 @@ function downloadCSV(){
     var emp=getEmployee(tr.dataset.employeeId);var r=[tr.querySelector('.employee-name').value,tr.querySelector('.employee-role').value,tr.querySelector('.employee-section').value,emp?emp.wage:''],tot=0,sh=[],secs=[];tr.querySelectorAll('.shift-input').forEach(function(x,i){sh.push(x.value);tot+=shiftHours(x.value,i);secs.push(effectiveSection(emp,tr.querySelectorAll('.shift-section')[i].value));});
     r=r.concat(sh).concat(secs);r.push(tot.toFixed(1));rows.push(r);
   });
-  var csv=rows.map(function(r){return r.map(function(v){return '"'+String(v||'').replace(/"/g,'""')+'"';}).join(',');}).join('\n');
+  var csv=rows.map(function(r){return r.map(function(v){return '"'+spreadsheetCell(v).replace(/"/g,'""')+'"';}).join(',');}).join('\n');
   var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='gravity-shift-lab-manager-schedule.csv';a.click();setTimeout(function(){URL.revokeObjectURL(a.href);},1000);
 }
 async function printSchedule(mode){
@@ -750,7 +839,7 @@ function base64UrlToBytes(s){s=String(s||'').replace(/-/g,'+').replace(/_/g,'/')
 async function encodeSnapshot(snapshot){var raw=new TextEncoder().encode(JSON.stringify(snapshot));if(window.CompressionStream){try{var cs=new CompressionStream('deflate-raw'),writer=cs.writable.getWriter();writer.write(raw);writer.close();var ab=await new Response(cs.readable).arrayBuffer();return 'd.'+bytesToBase64Url(new Uint8Array(ab));}catch(e){}}return 'r.'+bytesToBase64Url(raw);}
 async function decodeSnapshot(payload){var parts=String(payload||'').split('.',2),bytes=base64UrlToBytes(parts.length===2?parts[1]:parts[0]);if(parts[0]==='d'&&window.DecompressionStream){var ds=new DecompressionStream('deflate-raw'),writer=ds.writable.getWriter();writer.write(bytes);writer.close();bytes=new Uint8Array(await new Response(ds.readable).arrayBuffer());}return JSON.parse(new TextDecoder().decode(bytes));}
 function employeeScheduleHTML(snapshot,forPrint){var html='';(snapshot.w||[]).forEach(function(week){var wk=week[0],rows=week[1]||[];html+='<div class="employee-week-label">Week of '+esc(wk)+'</div><table class="employee-week-table"><thead><tr><th>Employee</th><th>Role / Section</th>'+days.map(function(d,i){var dt=dateForDay(wk,i);return '<th>'+d+(dt?'<br>'+esc(dt.slice(5)):'')+'</th>';}).join('')+'</tr></thead><tbody>'+rows.map(function(r){var name=r[0],role=r[1],home=r[2],sh=r[3]||[],secs=r[4]||[];return '<tr><td data-label="Employee">'+esc(name)+'</td><td data-label="Role / Section">'+esc(role)+(home?'<br><small>'+esc(home)+'</small>':'')+'</td>'+days.map(function(d,i){var shift=sh[i]||'',sec=secs[i]||home||'';return '<td data-label="'+esc(d)+'">'+(shift?'<strong>'+esc(shift)+'</strong>'+(sec?'<br><small>'+esc(sec)+'</small>':''):'—')+'</td>';}).join('')+'</tr>';}).join('')+'</tbody></table>';});return html||'<p>No scheduled shifts were included in this published snapshot.</p>';}
-async function generatePublishedSchedule(cycle,showDialog){if(!saveCurrentWeek(true))return null;var check=recalc();if(profile.conflictMode==='strict'&&check.hard){$('lab-status').textContent='Schedule not published: resolve '+check.hard+' hard scheduling conflict'+(check.hard===1?'':'s')+' first, or change Conflict Mode to Warn Clearly.';return null;}var snap=buildEmployeeSnapshot(cycle||profile.publishCycle||'1'),payload=await encodeSnapshot(snap),link='https://thomasmonroebooks.com/gravity-shift-lab?employee=1#s='+payload;if(link.length>2800){$('lab-status').textContent='This QR snapshot is too large for dependable scanning. Publish one week at a time or reduce unused schedule text.';if($('publish-status'))$('publish-status').textContent=$('lab-status').textContent;return null;}if(!window.GravityQR){$('lab-status').textContent='QR encoder did not load. Refresh Shift Lab and try again.';return null;}try{window.GravityQR.renderCanvas($('publish-qr-canvas'),link,{level:'L',size:900,dark:'#000000',light:'#ffffff',quiet:4});}catch(e){$('lab-status').textContent='The schedule data is too large for this QR. Publish one week at a time.';return null;}publishedEmployeeLink=link;publishedEmployeeSnapshot=snap;profile.publishCycle=String(cycle||'1');persistProfile();var wk=$('lab-week').value,rec=schedules[wk]||weekData(),sig=scheduleSignatureForRecord(rec);var previousVersion=Number(rec.version||0),wasSame=rec.status==='published'&&rec.publishedSignature===sig&&String(rec.publishedCycle||'')===profile.publishCycle;rec.status='published';rec.version=wasSame?Math.max(1,previousVersion):previousVersion+1;rec.publishedAt=new Date().toISOString();rec.publishedSignature=sig;rec.publishedLink=link;rec.publishedCycle=profile.publishCycle;addChangeLog(rec,wasSame?'Published schedule reopened':'Employee schedule published','v'+rec.version+' • '+(profile.publishCycle==='2'?'two-week':'one-week')+' employee QR snapshot');schedules[wk]=rec;persistSchedules();updateScheduleStatus();renderEmployeePrintSnapshot(snap,link,rec.version);if($('publish-week-label'))$('publish-week-label').value=(profile.publishCycle==='2'?'Two-week cycle starting ':'Week of ')+wk;if($('publish-link'))$('publish-link').textContent=link;if($('publish-status'))$('publish-status').textContent='Published employee-safe snapshot v'+rec.version+'. This QR matches the posted schedule.';$('lab-status').textContent='Employee schedule published v'+rec.version+'. QR is ready for the posted schedule.';if(showDialog&&!$('publish-dialog').open)$('publish-dialog').showModal();return {snapshot:snap,link:link,version:rec.version};}
+async function generatePublishedSchedule(cycle,showDialog){if(!saveCurrentWeek(true))return null;var check=recalc();if(profile.conflictMode==='strict'&&check.hard){$('lab-status').textContent='Schedule not published: resolve '+check.hard+' hard scheduling conflict'+(check.hard===1?'':'s')+' first, or change Conflict Mode to Warn Clearly.';return null;}var snap=buildEmployeeSnapshot(cycle||profile.publishCycle||'1'),payload=await encodeSnapshot(snap),link='https://gravityleadershipsystem.com/gravity-shift-lab?employee=1#s='+payload;if(link.length>2800){$('lab-status').textContent='This QR snapshot is too large for dependable scanning. Publish one week at a time or reduce unused schedule text.';if($('publish-status'))$('publish-status').textContent=$('lab-status').textContent;return null;}if(!window.GravityQR){$('lab-status').textContent='QR encoder did not load. Refresh Shift Lab and try again.';return null;}try{window.GravityQR.renderCanvas($('publish-qr-canvas'),link,{level:'L',size:900,dark:'#000000',light:'#ffffff',quiet:4});}catch(e){$('lab-status').textContent='The schedule data is too large for this QR. Publish one week at a time.';return null;}publishedEmployeeLink=link;publishedEmployeeSnapshot=snap;profile.publishCycle=String(cycle||'1');persistProfile();var wk=$('lab-week').value,rec=schedules[wk]||weekData(),sig=scheduleSignatureForRecord(rec);var previousVersion=Number(rec.version||0),wasSame=rec.status==='published'&&rec.publishedSignature===sig&&String(rec.publishedCycle||'')===profile.publishCycle;rec.status='published';rec.version=wasSame?Math.max(1,previousVersion):previousVersion+1;rec.publishedAt=new Date().toISOString();rec.publishedSignature=sig;rec.publishedLink=link;rec.publishedCycle=profile.publishCycle;addChangeLog(rec,wasSame?'Published schedule reopened':'Employee schedule published','v'+rec.version+' • '+(profile.publishCycle==='2'?'two-week':'one-week')+' employee QR snapshot');schedules[wk]=rec;persistSchedules();updateScheduleStatus();renderEmployeePrintSnapshot(snap,link,rec.version);if($('publish-week-label'))$('publish-week-label').value=(profile.publishCycle==='2'?'Two-week cycle starting ':'Week of ')+wk;if($('publish-link'))$('publish-link').textContent=link;if($('publish-status'))$('publish-status').textContent='Published employee-safe snapshot v'+rec.version+'. This QR matches the posted schedule.';$('lab-status').textContent='Employee schedule published v'+rec.version+'. QR is ready for the posted schedule.';if(showDialog&&!$('publish-dialog').open)$('publish-dialog').showModal();return {snapshot:snap,link:link,version:rec.version};}
 function renderEmployeePrintSnapshot(snapshot,link,version){var box=$('employee-print-snapshot');if(!box)return;box.innerHTML='<div class="employee-print-sheet"><div class="employee-print-head"><div class="employee-print-title"><h1>'+esc(snapshot.r||'Employee Schedule')+'</h1><p>'+(snapshot.s?'Store / Unit: '+esc(snapshot.s)+' • ':'')+'Published employee schedule • v'+esc(version||'')+'</p><p>Scan the QR to open this exact employee-facing schedule on your phone and download it instead of photographing the paper schedule.</p></div><div class="employee-print-qr"><canvas id="employee-print-qr-canvas" width="600" height="600"></canvas><div class="employee-print-qr-copy"><strong>Scan for the schedule</strong>No wages, labor dollars, phone numbers or manager notes are included.</div></div></div>'+employeeScheduleHTML(snapshot,true)+'</div>';var c=$('employee-print-qr-canvas');if(c&&window.GravityQR)window.GravityQR.renderCanvas(c,link,{level:'L',size:600,dark:'#000000',light:'#ffffff',quiet:4});}
 async function ensurePublishedForPrint(){if(!saveCurrentWeek(true))return null;var w=weekData(),sig=scheduleSignatureForRecord(w),cycle=profile.publishCycle||'1';if(w.status==='published'&&w.publishedSignature===sig&&w.publishedLink&&String(w.publishedCycle||'1')===cycle){publishedEmployeeLink=w.publishedLink;try{var hash=w.publishedLink.split('#s=')[1];publishedEmployeeSnapshot=hash?await decodeSnapshot(hash):buildEmployeeSnapshot(cycle);}catch(e){publishedEmployeeSnapshot=buildEmployeeSnapshot(cycle);}renderEmployeePrintSnapshot(publishedEmployeeSnapshot,publishedEmployeeLink,w.version);return {snapshot:publishedEmployeeSnapshot,link:publishedEmployeeLink,version:w.version};}return await generatePublishedSchedule(cycle,false);}
 function downloadPublishedQR(){var c=$('publish-qr-canvas');if(!publishedEmployeeLink||!c){$('publish-status').textContent='Generate the QR first.';return;}var a=document.createElement('a');a.href=c.toDataURL('image/png');a.download='gravity-employee-schedule-qr.png';a.click();}
