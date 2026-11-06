@@ -122,7 +122,7 @@
     },
     {
       "path": "site/apps/sop-foundry/employee-connection.js",
-      "sha256": "14cdfe7ad57fa8701bb572d93cb7a4aadfbc2a5c59c45f4fec7527f056d44a35"
+      "sha256": "0df993c3295f30764b259a252d0e6de7d1d2714b4c3e011c0783ff01386596ec"
     },
     {
       "path": "site/apps/sop-foundry/favicon.svg",
@@ -166,7 +166,7 @@
     },
     {
       "path": "site/apps/sop-foundry/hosted-bridge.js",
-      "sha256": "68b5480988d65f5887df4e70f41c5c0fd4ea359c142feafbe759300a60f094e7"
+      "sha256": "be56df072ddeebaac7270670dd4f138ee55f1acf5cc930e8c79be7a414374db4"
     },
     {
       "path": "site/apps/sop-foundry/images/gravity-color-field.png",
@@ -182,7 +182,7 @@
     },
     {
       "path": "site/apps/sop-foundry/import-export.js",
-      "sha256": "172f9ad8738238c6163130f605ecff284570b5a57f9a760fc4a496487aaa33ef"
+      "sha256": "a9726b36385566ffb7f8838b74ae71e8012cb84ddd6575d30bea33de6e6b6f8e"
     },
     {
       "path": "site/apps/sop-foundry/manager-inbox.html",
@@ -294,7 +294,7 @@
     },
     {
       "path": "site/apps/sop-foundry/training.js",
-      "sha256": "5c9f59ea76d820496085887088b4ccd71c169b391747569f148ffb88dc649f13"
+      "sha256": "dde62b36d98d8bf9bb6f5f9fd2a3925835d92f88d30c8beba777bf48459fd097"
     },
     {
       "path": "site/apps/sop-foundry/web-api-shim.js",
@@ -2442,11 +2442,11 @@
     },
     {
       "path": "functions/foundry-hosted/core.mjs",
-      "sha256": "3e0f9f465f9cd603b481edb025316b003e38950a6e56620121b2cffc65398ae2"
+      "sha256": "f422050cc04a6d49fadafb5965d3daab56306c802b4f1efccb10c12bfdc2b8d8"
     },
     {
       "path": "functions/foundry-hosted/index.mjs",
-      "sha256": "91a0c3d20c33f039dc9afe17ec91414cfe1db5aadc2ebb7645b45bc9ceb4971f"
+      "sha256": "5e3a2a418c98529b89501efa2dbe1d575a7c943eb0b4ec520e728a6dfdc32f51"
     },
     {
       "path": "functions/gravity-cloud-backup/core.mjs",
@@ -2462,7 +2462,7 @@
     },
     {
       "path": "functions/gravity-guide/guide-core.mjs",
-      "sha256": "3086557a743f4341d2b33cb5647c8b5d5a1ef13f32c0a71b853253c3a3aefdac"
+      "sha256": "3685c895804f858ce161612f18c08295653ac5bb8f30c90e2963e5f941fa8cdd"
     },
     {
       "path": "functions/gravity-report/articles.json",
@@ -2470,7 +2470,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "a54927877cd453cca2fe3d37dbede3c5cfb1b5f8adc312d53a92dc21c6a68424"
+      "sha256": "f13ce5bab4de39d975c3fb8ee526c1e47ea85eac248425b148ee84080e07ad72"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",
