@@ -2602,11 +2602,11 @@
     },
     {
       "path": "package.json",
-      "sha256": "b9aba667a635c8cc46d0264621a19b49f15f815efc40544f518e9666010b4b0f"
+      "sha256": "0e1beb6e9a0aa45c8bb7c3e92dfc1684b7692f2d6ee8c35cacd78801d00f5ef9"
     },
     {
       "path": "package-lock.json",
-      "sha256": "391ac72fb5829d192388b737fb5412d0dba26e1c3e6e3a3f0f924ede60e49583"
+      "sha256": "0decbfce82bdc637061d2d188c67b2a4d30035668e9ff8e61f8d5b20aa52f12e"
     }
   ]
 }
