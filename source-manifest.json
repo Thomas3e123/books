@@ -298,7 +298,7 @@
     },
     {
       "path": "site/apps/sop-foundry/web-api-shim.js",
-      "sha256": "b4fc2b8a74c54e5cb3f740bc41cc5f22d2f5c21038bba05ef04b5a31c8fc626e"
+      "sha256": "5bee6accbb94df502daf2bd0f7fb38b4eeb4361688c224c0143523aa9e6a9fa5"
     },
     {
       "path": "site/apps/sop-foundry/window.svg",
@@ -422,7 +422,7 @@
     },
     {
       "path": "site/assets/data/gravity-current-facts.json",
-      "sha256": "9def2a7ffd1bbedfbd82c00c93969018d1498f8a1099672e9bf188497239cec0"
+      "sha256": "4e76d6e2b08288363f65dfb4759338eaa9c569e7e70448356118ef4a1d38cfc0"
     },
     {
       "path": "site/assets/data/gravity-sop-library.json",
@@ -1410,7 +1410,7 @@
     },
     {
       "path": "site/assets/js/gravity-document-studio.js",
-      "sha256": "ccc5a8a1c594fea68a793a409bf274e4e1a986a866cdc0f24111b9a86e59b275"
+      "sha256": "18d4998c9395d7b80daa07168544f28c97f8f9b69e6402174d799c59b4a6b88e"
     },
     {
       "path": "site/assets/js/gravity-forms-personalizer.js",
@@ -1422,11 +1422,11 @@
     },
     {
       "path": "site/assets/js/gravity-guide-ai.js",
-      "sha256": "f7431762aa684722a5dce1781eb96107e75742cbf1020042356f5939b32224ab"
+      "sha256": "cc1d199229128aff20b7ea9fb031e7b25a7823ece30206310d187496cf74c138"
     },
     {
       "path": "site/assets/js/gravity-guide-registry.js",
-      "sha256": "a2bea7ab852ed36e61c13558611991bc2e413019d92097014ca5058b5d5ffcb1"
+      "sha256": "443d35aaaa8c4a449f5f52a210eb25597c6459aeb6e8838fff96c9c247db1d63"
     },
     {
       "path": "site/assets/js/gravity-identity-client.js",
@@ -1446,7 +1446,7 @@
     },
     {
       "path": "site/assets/js/gravity-quick-tools.js",
-      "sha256": "1748667fc3c210b6c1f9c9f60ec0a29bc8e8d3ffe67fe57ec318dc719e284ebc"
+      "sha256": "937797d4cffe3c6d4797b9f18d505af62586decafc73ab342fff8b399af4fb8b"
     },
     {
       "path": "site/assets/js/gravity-report-reading.js",
@@ -1458,7 +1458,7 @@
     },
     {
       "path": "site/assets/js/gravity-shift-lab.js",
-      "sha256": "bf305b378063b00a0c4b17111a77407679482235b75b7f96d2f86571ee362d8c"
+      "sha256": "18a6eacc120acb71368c6aea7a2369b23b9bb31566b4d1912354bb23973cd9f7"
     },
     {
       "path": "site/assets/js/gravity-sop-foundry.js",
@@ -1526,7 +1526,7 @@
     },
     {
       "path": "site/assets/js/gravity-work-study-evidence-package-v56.js",
-      "sha256": "aaba8a65bc70c2151b0850860228be64c23d451a8641bfeb0009776b4a785e23"
+      "sha256": "5a36b14a894ba738a1c8437bc3a80a63f290970dee53eddba9d19b3541e7eb58"
     },
     {
       "path": "site/assets/js/gravity-work-study-expert-reasoning-v7.js",
