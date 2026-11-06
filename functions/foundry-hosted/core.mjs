@@ -48,7 +48,25 @@ export function createHostedFoundryHandler(repo){return async function(req){try{
     const w=await managerWorkspace(req,repo);if(!w)return json({error:'Hosted manager connection is not authorized.'},401);const counts=await repo.countEvents(w.id);return json({ok:true,workspaceCode:w.code,restaurantName:w.restaurant_name,updatedAt:w.updated_at,counts});
   }
   if(path==='manager/events'&&req.method==='GET'){
-    const w=await managerWorkspace(req,repo);if(!w)return json({error:'Hosted manager connection is not authorized.'},401);const since=url.searchParams.get('since')||'1970-01-01T00:00:00.000Z',events=await repo.listEvents(w.id,since);return json({ok:true,serverTime:now(),...events});
+    const w=await managerWorkspace(req,repo);if(!w)return json({error:'Hosted manager connection is not authorized.'},401);
+    const since=url.searchParams.get('since')||'1970-01-01T00:00:00.000Z';
+    // Legacy clients must never advance their saved cursor if truncated records exist.
+    const stream=url.searchParams.get('stream');
+    if(!stream){
+      const events=await repo.listEvents(w.id,since);
+      if(events.activity.length>=5000||events.messages.length>=2000||events.training.length>=2000)
+        return json({error:'The record backlog exceeds the older synchronization limit. Refresh Gravity Foundry to use safe pagination.'},409);
+      return json({ok:true,serverTime:now(),...events});
+    }
+    if(!['activity','messages','training'].includes(stream))return json({error:'Unknown employee record category.'},400);
+    const iso=x=>typeof x==='string'&&/^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}(?::?\d{2})?)$/.test(x)&&Number.isFinite(Date.parse(x));
+    const serverTime=now(),until=url.searchParams.get('until')||serverTime;
+    const afterAt=url.searchParams.get('afterAt')||'',afterId=url.searchParams.get('afterId')||'';
+    if(!iso(since)||!iso(until)||Date.parse(since)>Date.parse(until)||Date.parse(until)>Date.parse(serverTime)
+       ||(afterAt&&!iso(afterAt))||(!!afterAt!==!!afterId)||afterId.length>250)
+       return json({error:'Invalid employee synchronization range or cursor.'},400);
+    const page=await repo.listEventPage(w.id,{stream,since,until,afterAt,afterId,limit:500});
+    return json({ok:true,stream,until,serverTime,...page});
   }
   if(path.startsWith('workspace/')&&req.method==='GET'){
     const workspaceCode=path.split('/')[1]?.toUpperCase(),w=await repo.getWorkspaceByCode(workspaceCode);if(!w)return json({error:'Restaurant workspace not found.'},404);return json({ok:true,workspaceCode:w.code,restaurantName:w.restaurant_name});
