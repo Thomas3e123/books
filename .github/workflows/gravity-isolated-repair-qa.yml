@@ -8,6 +8,8 @@ on:
       - 'source-manifest.json'
       - 'site/**'
       - 'functions/**'
+      - 'tests/**'
+      - 'scripts/**'
   workflow_dispatch:
 permissions:
   contents: read
