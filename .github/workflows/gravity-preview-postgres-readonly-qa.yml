@@ -1,0 +1,44 @@
+name: Gravity preview and isolated PostgreSQL acceptance — NO DEPLOY
+on:
+  push:
+    branches:
+      - audit/gravity-packs-01-05-2026-11-06
+    paths:
+      - '.github/workflows/gravity-preview-postgres-readonly-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preview-and-database:
+    name: Immutable preview GET-only checks and isolated Postgres integration
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: gravityqa
+          POSTGRES_PASSWORD: gravityqa
+          POSTGRES_DB: gravityqa
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U gravityqa -d gravityqa"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      GRAVITY_QA_LOCAL_POSTGRES_URL: postgresql://gravityqa:gravityqa@127.0.0.1:5432/gravityqa
+      GRAVITY_QA_PREVIEW_URL: https://6aee1a8fdba4fc908b3d4d5c--gravity-leadership-system.netlify.app/
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install exact dependency lockfile
+        run: npm ci --no-audit --no-fund
+      - name: Actual PostgreSQL schema and 10003-record pagination
+        run: node scripts/qa-foundry-postgres-isolated.cjs
+      - name: Immutable Netlify preview public pages and authorization barriers (GET-only)
+        run: node scripts/qa-preview-readonly.cjs
