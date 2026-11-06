@@ -692,12 +692,100 @@ function newNextWeek(){
 }
 function downloadBackup(){
   if(payIsLocked()){openPayLockDialog('unlock');$('lab-status').textContent='Unlock Manager Pay Lock before downloading a workspace backup because it contains private wage data.';return;}
-  syncProfileFromRows();saveCurrentWeek(true);var payload={version:5,exportedAt:new Date().toISOString(),profile:profile,schedules:schedules};
-  var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}));a.download='gravity-shift-lab-backup.json';a.click();setTimeout(function(){URL.revokeObjectURL(a.href);},1000);
+  syncProfileFromRows();
+  if(!saveCurrentWeek(true)){
+    $('lab-status').textContent='Backup not created: the current schedule could not be saved. Keep this page open and correct the storage problem.';
+    return;
+  }
+  try{
+    const storedProfile=localStorage.getItem(PROFILE_KEY);
+    const storedSchedules=localStorage.getItem(SCHEDULE_KEY);
+    if(storedProfile!==JSON.stringify(profile)||storedSchedules!==JSON.stringify(schedules))
+      throw Error('Saved information did not match the current workspace.');
+    const payload={version:5,exportedAt:new Date().toISOString(),profile:JSON.parse(storedProfile),schedules:JSON.parse(storedSchedules)};
+    const a=document.createElement('a'),url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}));
+    a.href=url;a.download='gravity-shift-lab-backup.json';document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),15000);
+    $('lab-status').textContent='Backup download started. Confirm the JSON file exists before clearing or replacing this workspace.';
+  }catch(e){
+    $('lab-status').textContent='Backup not created: saved information could not be verified. Keep this page open and resolve the storage problem.';
+  }
 }
 function restoreBackup(file){
   if(payIsLocked()){openPayLockDialog('unlock');$('lab-status').textContent='Unlock Manager Pay Lock before restoring a workspace backup.';return;}
-  if(!file)return;var r=new FileReader();r.onload=function(){try{var x=JSON.parse(r.result);if(!x.profile||!x.schedules)throw new Error('Invalid backup');profile=x.profile;profile.sections=uniqueNames(profile.sections&&profile.sections.length?profile.sections:defaultSections());profile.employees=(profile.employees||[]).map(normalizeEmployee);schedules=x.schedules||{};persistProfile();persistSchedules();applyProfile();renderWeek();$('lab-status').textContent='Backup restored.';}catch(e){$('lab-status').textContent='Could not restore that backup file.';}};r.readAsText(file);
+  if(!file)return;
+  const r=new FileReader();
+  r.onerror=function(){$('lab-status').textContent='Could not read the backup file. Existing information was not changed.';};
+  r.onload=function(){
+    const isRecord=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
+    let nextProfile,nextSchedules;
+    try{
+      const x=JSON.parse(String(r.result||''));
+      if(!isRecord(x)||!isRecord(x.profile)||!isRecord(x.schedules))throw Error('Invalid backup structure');
+      if(x.profile.employees!==undefined&&(!Array.isArray(x.profile.employees)||x.profile.employees.some(e=>!isRecord(e))))throw Error('Invalid employee records');
+      if(x.profile.sections!==undefined&&!Array.isArray(x.profile.sections))throw Error('Invalid station list');
+      if(x.profile.payLockHash!==undefined&&typeof x.profile.payLockHash!=='string')throw Error('Invalid pay privacy settings');
+      if(['openTimes','openAllowance','closeTimes','closeAllowance'].some(k=>x.profile[k]!==undefined&&!Array.isArray(x.profile[k])))throw Error('Invalid operating-hour settings');
+      if(Object.keys(x.schedules).some(k=>{
+        const week=x.schedules[k];
+        return ['__proto__','constructor','prototype'].includes(k)||!isRecord(week)||
+          (week.shifts!==undefined&&(!isRecord(week.shifts)||Object.values(week.shifts).some(v=>!Array.isArray(v))))||
+          (week.sections!==undefined&&(!isRecord(week.sections)||Object.values(week.sections).some(v=>!Array.isArray(v))))||
+          (week.changeLog!==undefined&&!Array.isArray(week.changeLog));
+      }))throw Error('Invalid saved schedule');
+      nextProfile=x.profile;
+      nextProfile.sections=uniqueNames(nextProfile.sections&&nextProfile.sections.length?nextProfile.sections:defaultSections());
+      nextProfile.employees=(nextProfile.employees||[]).map(normalizeEmployee);
+      nextSchedules=x.schedules;
+    }catch(e){
+      $('lab-status').textContent='Backup rejected: invalid or damaged schedule information. Existing information was not changed.';
+      return;
+    }
+    if(!confirm('Restore this Shift Lab backup? It will replace the current employee profiles and saved schedules in this browser. Save a separate backup first.')){
+      $('lab-status').textContent='Restore canceled. Existing information was not changed.';
+      return;
+    }
+    const oldProfile=profile,oldSchedules=schedules,oldUnlock=payUnlocked;
+    const saved=new Map();
+    try{
+      saved.set(PROFILE_KEY,localStorage.getItem(PROFILE_KEY));
+      saved.set(SCHEDULE_KEY,localStorage.getItem(SCHEDULE_KEY));
+    }catch(e){
+      $('lab-status').textContent='Restore stopped: existing records could not be read safely. Nothing was replaced.';
+      return;
+    }
+    const expectedProfile=JSON.stringify(nextProfile),expectedSchedules=JSON.stringify(nextSchedules);
+    let committed=false;
+    try{
+      localStorage.setItem(PROFILE_KEY,expectedProfile);
+      localStorage.setItem(SCHEDULE_KEY,expectedSchedules);
+      if(localStorage.getItem(PROFILE_KEY)!==expectedProfile||localStorage.getItem(SCHEDULE_KEY)!==expectedSchedules)
+        throw Error('Restore write verification failed');
+      committed=true;
+    }catch(e){
+      let rollbackVerified=true;
+      for(const [key,previous] of saved){
+        try{if(previous===null)localStorage.removeItem(key);else localStorage.setItem(key,previous)}catch(_){rollbackVerified=false}
+      }
+      for(const [key,previous] of saved){try{if(localStorage.getItem(key)!==previous)rollbackVerified=false}catch(_){rollbackVerified=false}}
+      profile=oldProfile;schedules=oldSchedules;payUnlocked=oldUnlock;
+      $('lab-status').textContent=rollbackVerified?
+        'Restore failed. The previous saved information was verified and reapplied. Do not retry until the storage problem is resolved.':
+        'URGENT: restore failed and previous browser information could not be fully recovered. Do not close this page. Preserve any external backups and disable automatic cloud backups until recovery is reviewed.';
+      return;
+    }
+    if(committed){
+      profile=nextProfile;schedules=nextSchedules;
+      payUnlocked=!profile.payLockHash;
+      try{applyProfile();renderWeek();setManagerOnlyControls();
+        $('lab-status').textContent='Backup restored and saved information verified. Review the employee profiles and schedules.';
+      }catch(e){
+        $('lab-status').textContent='Backup was saved and verified, but the screen could not refresh. Reload Shift Lab to inspect the restored information.';
+      }
+      try{window.dispatchEvent(new Event('gravity:local-data-saved'))}catch(e){}
+    }
+  };
+  r.readAsText(file);
 }
 function downloadCSV(){
   if(payIsLocked()){openPayLockDialog('unlock');$('lab-status').textContent='Unlock Manager Pay Lock before exporting manager schedule data.';return;}
