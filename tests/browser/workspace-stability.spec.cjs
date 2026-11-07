@@ -29,7 +29,7 @@ test('Inventory Center backup triggers a real downloadable JSON file',async({pag
   const downloadPromise=page.waitForEvent('download');
   await page.locator('#backup-json').evaluate(el=>el.click());
   const download=await downloadPromise;
-  expect(download.suggestedFilename()).toMatch(/^Gravity_Inventory_Backup_\\d{4}-\\d{2}-\\d{2}\\.json$/);
+  expect(download.suggestedFilename()).toMatch(/^Gravity_Inventory_Backup_\d{4}-\d{2}-\d{2}\.json$/);
   const data=JSON.parse(fs.readFileSync(await download.path(),'utf8'));
   expect(data.product).toBe('Gravity Inventory Center');
   expect(data.state.schemaVersion).toBe(1);
