@@ -53,3 +53,13 @@ test('Successful download registration counts once and keeps marketing consent s
   await page.reload();
   expect((await events()).filter(e=>e==='registration_complete')).toHaveLength(0);
 });
+
+test('Site search directs visitors to individual operating-system sections',async({page})=>{
+  await page.goto('/');
+  if(await page.locator('#gravity-first-visit').isVisible()) await page.getByRole('button',{name:'Enter the Full Site'}).click();
+  await page.getByRole('button',{name:'Search Gravity'}).click();
+  await page.locator('#gravity-site-search-input').fill('employee retention');
+  await expect(page.locator('#gravity-site-search-results a',{hasText:'Hiring, Retention & Employee Relations'})).toHaveAttribute('href','/operating-systems#hiring-retention');
+  await page.locator('#gravity-site-search-input').fill('food cost');
+  await expect(page.locator('#gravity-site-search-results a',{hasText:'Food Cost, Inventory & Purchasing'})).toHaveAttribute('href','/operating-systems#food-cost-inventory');
+});
