@@ -109,3 +109,43 @@ test('Shift Lab rejects damaged backup without deleting saved weeks',async({page
   await expect(page.locator('#lab-status')).toContainText('Backup rejected');
   expect(await page.evaluate(()=>localStorage.getItem('gravityShiftLabSchedulesV3'))).toBe(before);
 });
+
+test('Work Study history backup restores archived evidence after browser history is cleared',async({page})=>{
+  await page.goto('/gravity-work-study-lab');
+  await page.locator('#ws2-app [data-start="guided"]').click();
+  await page.locator('#f-problem').fill('Gravity Test: verify dishwashing recovery');
+  await page.locator('#ws2-app [data-action="save"]').first().click();
+  const expected=await page.evaluate(()=>JSON.parse(localStorage.getItem('gravityWorkStudyV2History'))[0]);
+  expect(expected.problem).toBe('Gravity Test: verify dishwashing recovery');
+  await page.locator('#ws2-app [data-action="history"]').first().click();
+  const pending=page.waitForEvent('download');
+  await page.locator('#ws2-app [data-action="download-history"]').click();
+  const downloaded=await pending;
+  expect(downloaded.suggestedFilename()).toBe('gravity-work-study-history-backup.json');
+  const buffer=fs.readFileSync(await downloaded.path());
+  const backup=JSON.parse(buffer.toString('utf8'));
+  expect(backup.product).toBe('Gravity Work Study Lab');
+  expect(backup.studies[0].id).toBe(expected.id);
+  await page.evaluate(()=>localStorage.removeItem('gravityWorkStudyV2History'));
+  await page.reload();
+  await expect(page.locator('#ws2-app')).toContainText('No saved studies yet');
+  page.on('dialog',d=>d.accept());
+  await page.locator('#ws2-history-import').setInputFiles({name:'gravity-work-study-history-backup.json',mimeType:'application/json',buffer});
+  await expect(page.locator('#ws2-status')).toContainText('Imported 1 study successfully');
+  const restored=await page.evaluate(()=>JSON.parse(localStorage.getItem('gravityWorkStudyV2History')));
+  expect(restored).toHaveLength(1);
+  expect(restored[0].problem).toBe(expected.problem);
+  await page.locator('#ws2-app [data-open-study="'+expected.id+'"]').click();
+  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('gravityWorkStudyV2')).id)).toBe(expected.id);
+});
+
+test('Work Study rejects a damaged history backup without changing archived studies',async({page})=>{
+  await page.goto('/gravity-work-study-lab');
+  await page.locator('#ws2-app [data-start="guided"]').click();
+  await page.locator('#ws2-app [data-action="save"]').first().click();
+  await page.locator('#ws2-app [data-action="history"]').first().click();
+  const before=await page.evaluate(()=>localStorage.getItem('gravityWorkStudyV2History'));
+  await page.locator('#ws2-history-import').setInputFiles({name:'bad.json',mimeType:'application/json',buffer:Buffer.from('{"product":"Gravity Work Study Lab","version":2,"studies":[{"id":"WS_bad"}]}')});
+  await expect(page.locator('#ws2-status')).toContainText('History import failed');
+  expect(await page.evaluate(()=>localStorage.getItem('gravityWorkStudyV2History'))).toBe(before);
+});
