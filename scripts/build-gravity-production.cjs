@@ -6,7 +6,7 @@ const crypto=require('node:crypto');
 // A long-lived immutable cache is safe only when HTML references change with file content.
 const assetVersions=new Map();
 function assetVersion(rel){
-  if(!/^(?:js|css)\/[a-z0-9_./-]+$/i.test(rel)||rel.split('/').includes('..'))return null;
+  if(!/^[a-z0-9_./-]+$/i.test(rel)||rel.split('/').includes('..')||!/(?:^|\/)assets\/(?:js|css)\//.test(rel))return null;
   if(assetVersions.has(rel))return assetVersions.get(rel);
   const file=path.join(source,'assets',rel);
   const version=fs.existsSync(file)&&fs.statSync(file).isFile()
@@ -24,12 +24,17 @@ function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){
  if(e.name.endsWith('.html')){
   // Rewrite every *local* HTML JavaScript or stylesheet URL to its content hash.
   // Leave unrelated, missing, dynamic and third-party assets untouched.
-  s=s.replace(/(\b(?:src|href)=["'])(\/?assets\/((?:js|css)\/[^"'?#]+))(?:\?v=[^"'#]*)?(["'])/gi,
-    (whole,prefix,url,rel,quote)=>{
-      const version=assetVersion(rel);
-      return version?prefix+url+'?v='+version+quote:whole;
-    });
   const rel=path.relative(out,p).split(path.sep).join('/');
+  s=s.replace(/(\b(?:src|href)=["'])(\/?assets\/((?:js|css)\/[^"'?#]+))(\?[^"'#]*)?(#[^"']*)?(["'])/gi,
+    (whole,prefix,url,assetPath,query,fragment,quote)=>{
+      // Root-relative /assets loads shared files; relative assets/ loads in the page's directory.
+      const target=url.startsWith('/')?url.slice(1):path.posix.normalize(path.posix.join(path.posix.dirname(rel),url));
+      const version=assetVersion(target);
+      if(!version)return whole;
+      const other=(query||'').slice(1).split('&').filter(part=>part&&!/^v=/i.test(part));
+      other.push('v='+version);
+      return prefix+url+'?'+other.join('&')+(fragment||'')+quote;
+    });
   s=s.replace(/<meta\b(?=[^>]*\bname=["']robots["'])[^>]*>/gi,'');
   s=s.replace(/<head\b[^>]*>/i,m=>m+'\n<meta name="robots" content="'+(privatePage.test(rel)?'noindex,nofollow':'index,follow,max-image-preview:large')+'">');pages++;
  }
