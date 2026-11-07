@@ -69,3 +69,19 @@ test('Main menu routes Free Resources to the download library',async({page})=>{
   const nav=page.locator('header.site-header nav#site-nav');
   await expect(nav.locator('a[href="/free-resources"]')).toHaveText('Free Resources');
 });
+
+test('Unknown diagnostic link parameters do not open a tool',async({page})=>{
+  await page.goto('/gravity-aware?tool=not-a-real-tool#gravity-quick-tools');
+  await expect(page.locator('#gravity-quick-workspace')).toBeHidden();
+  await expect(page.locator('[data-gravity-tool="systems"]')).toBeVisible();
+});
+
+test('A verified diagnostic does not invent a weakest system',async({page})=>{
+  await page.goto('/gravity-aware?tool=systems#gravity-quick-tools');
+  const box=page.locator('#gravity-quick-workspace');
+  await expect(box).toBeVisible();
+  for(const select of await box.locator('select').all()) await select.selectOption('0');
+  await box.getByRole('button',{name:'Generate next steps'}).click();
+  await expect(box.locator('#gravity-quick-result')).toContainText('No immediate weakness identified');
+  await expect(box.locator('#gravity-quick-result')).toContainText('has not established a weakest system');
+});
