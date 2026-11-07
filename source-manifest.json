@@ -1446,7 +1446,7 @@
     },
     {
       "path": "site/assets/js/gravity-quick-tools.js",
-      "sha256": "937797d4cffe3c6d4797b9f18d505af62586decafc73ab342fff8b399af4fb8b"
+      "sha256": "7a52c21505b10e5df7d401bacbc88dae7102c2d0ed7840caf65f3c5e5e0dbb34"
     },
     {
       "path": "site/assets/js/gravity-report-reading.js",
@@ -1722,7 +1722,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "2cf2a3e3ea94eca4eb992c41f94c6d3486a4b7fcccabb2cd1b624b984e356150"
+      "sha256": "58818f1918eff411054d0f8b9549c185f8102d9ef47d6711b05f390b556bc085"
     },
     {
       "path": "site/assets/js/testing-room.js",
@@ -2070,7 +2070,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "b5f7982d4ba249c66c6a0fca9c635af35a561f3ba071a7b98cd4aca01fdeb975"
+      "sha256": "e7678b1f3f3ea9151956284ec9b94c75ce1957f2f5c31c9478b2eaf9d3148f24"
     },
     {
       "path": "site/installation-improvement.html",
