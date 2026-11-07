@@ -34,7 +34,7 @@
     },
     {
       "path": "site/apps/inventory-center/assets/js/inventory-center.js",
-      "sha256": "67ad38975ca8af04441e9ae0d80ad0015fba0d3cd49c21699008bfbd107ea735"
+      "sha256": "008bdedd176c88942efb6dcf8293eb93c7aa37389b464c79a56a1452172fc4d0"
     },
     {
       "path": "site/apps/inventory-center/assets/js/inventory-outflow-cost.js",
