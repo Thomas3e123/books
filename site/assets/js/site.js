@@ -19,7 +19,7 @@
     ['/operating-systems', 'The Gravity System'],
     ['/books', 'Books & Reader'],
     ['/gravity-report', 'The Gravity Report'],
-    ['/knowledge-center', 'Resources'],
+    ['/free-resources', 'Free Resources'],
     ['/help-center', 'Help']
   ];
   if (nav && nav.id === 'site-nav' && nav.closest('header.site-header')) {
