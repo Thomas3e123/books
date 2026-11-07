@@ -1,0 +1,49 @@
+name: Gravity Document Studio and Handbook safety
+on:
+  push:
+    branches:
+      - audit/document-handbook-safety-2026-11-07
+  pull_request:
+    branches:
+      - feature/gravity-migration-phase1-2026-10-22
+    paths:
+      - 'handbook/**'
+      - 'site/assets/js/gravity-document-studio.js'
+      - 'tests/browser/document-handbook-safety.spec.cjs'
+      - 'source-manifest.json'
+      - '.github/workflows/gravity-document-handbook-qa.yml'
+permissions:
+  contents: read
+jobs:
+  editor-safety:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout audited changes
+        uses: actions/checkout@v4
+      - name: Use Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Check Document Studio script syntax
+        run: node --check site/assets/js/gravity-document-studio.js
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Verify source and build protected Handbook app
+        run: npm run build
+      - name: Install Playwright test runner
+        run: npm install --no-save --package-lock=false @playwright/test
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run Document Studio and Handbook browser tests
+        run: npx playwright test tests/browser/document-handbook-safety.spec.cjs
+      - name: Upload failure screenshots/traces
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gravity-document-handbook-failure
+          path: |
+            test-results/
+            playwright-report/
+          if-no-files-found: ignore

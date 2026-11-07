@@ -23,6 +23,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      # The Handbook Creator's app.js is derived by the production build and
+      # deliberately not tracked in Git. Browser tests need that built bundle.
+      - name: Install locked site dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Verify source and build Handbook Creator
+        run: npm run build
       - name: Install Playwright test runner
         run: npm install --no-save --package-lock=false @playwright/test
       - name: Install Chromium

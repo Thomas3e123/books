@@ -3,7 +3,7 @@
 function $(id){return document.getElementById(id)}
 var list=$('studio-doc-list'), fields=$('studio-fields'), sections=$('studio-sections'), paper=$('studio-paper'), status=$('studio-status'), boundary=$('studio-boundary'), previewTitle=$('studio-preview-title'), search=$('studio-search'), filters=$('studio-category-filters');
 if(!list||!paper)return;
-var current='application', mode='fast', activeCategory='common', query='';
+var current='application', mode='fast', activeCategory='common', query='', draftStorageBlocked=false;
 var common={company:$('studio-company'),restaurant:$('studio-restaurant'),location:$('studio-location'),address:$('studio-address'),contact:$('studio-contact'),titles:$('studio-titles'),departments:$('studio-departments'),hours:$('studio-hours'),terms:$('studio-terms'),weekstart:$('studio-weekstart'),positions:$('studio-positions')};
 var profileKey='gravityRestaurantProfile';function saveProfile(){try{var x={};Object.keys(common).forEach(function(k){x[k]=common[k].value});localStorage.setItem(profileKey,JSON.stringify(x))}catch(e){}}function loadProfile(){try{var x=JSON.parse(localStorage.getItem(profileKey)||'null');if(x)Object.keys(common).forEach(function(k){if(!common[k].value&&x[k])common[k].value=x[k]})}catch(e){}}
 var categories={"common":"Most Used","hiring":"Hiring & Recruiting","onboarding":"Onboarding & Training","employee":"Employee Records","scheduling":"Scheduling & Labor","management":"Management & Shift Control","openclose":"Opening & Closing","cost":"Food Cost & Inventory","production":"Prep & Production","purchasing":"Purchasing & Receiving","guest":"Guest Service & Recovery","cleaning":"Cleaning & Sanitation","foodsafety":"Food Safety","equipment":"Equipment & Maintenance","cash":"Cash & Sales","safety":"Safety & Incidents","performance":"Performance & Corrective Action","planning":"Planning & Follow-Up","multi":"Multi-Location Controls","policies":"Policies & Pay"};
@@ -26,9 +26,49 @@ Object.keys(common).forEach(function(k){common[k].addEventListener('input',funct
 if(search)search.addEventListener('input',function(){query=search.value.trim().toLowerCase();renderList()});var problem=$('studio-problem'),recommend=$('studio-recommend');if(problem)problem.addEventListener('input',function(){var q=problem.value.trim().toLowerCase();var map=[['late|tardy|attendance','late'],['food cost|cost jumped|cost high','foodcostjump'],['opening|open checklist','opening'],['waste|spill|comp','waste'],['handoff|next manager|shift change','managerhandoff'],['inventory|count','inventorycount'],['prep|production','prep'],['guest|complaint','guestrecovery'],['clean|dirty|sanitation','cleaninspect'],['equipment|broken|repair','maintenance'],['cash|drawer|till','cashcount'],['incident|injury|accident','incident'],['coach|performance|corrective','coaching'],['schedule|availability','availability']];var hit=null;map.some(function(x){if(new RegExp(x[0]).test(q)){hit=x[1];return true}});if(hit&&docs[hit]){query=docs[hit].name.toLowerCase();if(search)search.value=docs[hit].name;activeCategory=docs[hit].category;renderFilters();renderList();recommend.innerHTML='<strong>Recommended:</strong> '+docs[hit].name+' — '+docs[hit].tag;}else{query=q;if(search)search.value=q;activeCategory='common';renderFilters();renderList();recommend.textContent=q?'Showing the closest matches. Try a plain-language phrase such as “food cost jumped” or “manager handoff.”':'Type a problem and Studio will narrow the library.'}});var count=$('studio-builder-count');if(count)count.textContent=Object.keys(docs).length+' active builders';
 document.querySelectorAll('.studio-tab').forEach(function(b){b.addEventListener('click',function(){mode=b.dataset.mode;document.querySelectorAll('.studio-tab').forEach(function(x){x.classList.toggle('active',x===b)});renderControls()})});
 $('studio-print').addEventListener('click',function(){window.print()});
-$('studio-word').addEventListener('click',function(){var d=docs[current];var blob=new Blob(['<!doctype html><html><head><meta charset="utf-8"><title>'+esc(d.name)+'</title></head><body>'+buildBody()+'</body></html>'],{type:'application/msword'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(common.company.value||'Restaurant').replace(/[^a-z0-9]+/gi,'_')+'_'+d.name.replace(/[^a-z0-9]+/gi,'_')+'.doc';a.click();setTimeout(function(){URL.revokeObjectURL(a.href)},1000);status.textContent='Editable file created.'});
-$('studio-save').addEventListener('click',function(){var data={current:current,mode:mode,activeCategory:activeCategory,common:{},fields:{},sections:[]};Object.keys(common).forEach(function(k){data.common[k]=common[k].value});docs[current].fields.forEach(function(f){data.fields[f[0]]=fieldValue(f[0])});docs[current].sections.forEach(function(s,i){var ch=document.querySelector('[data-section-check="'+i+'"]'),ta=document.querySelector('[data-section-text="'+i+'"]');data.sections.push({on:ch?ch.checked:true,text:ta?ta.value:s[1]})});try{var draftText=JSON.stringify(data);localStorage.setItem('gravityDocumentStudioDraft',draftText);if(localStorage.getItem('gravityDocumentStudioDraft')!==draftText)throw Error('Draft verification failed');status.textContent='Draft saved in this browser.'}catch(e){status.textContent='Draft could not be saved. Keep this page open and download an editable copy before leaving.'}});
-$('studio-reset').addEventListener('click',function(){if(!confirm('Reset the current Document Studio draft?'))return;Object.keys(common).forEach(function(k){common[k].value=''});localStorage.removeItem('gravityDocumentStudioDraft');current='application';activeCategory='common';query='';if(search)search.value='';renderAll();status.textContent='Studio reset.'});
-function restore(){try{var raw=localStorage.getItem('gravityDocumentStudioDraft');if(!raw)return;var data=JSON.parse(raw);if(data.current&&docs[data.current])current=data.current;mode=data.mode||'fast';activeCategory=data.activeCategory&&categories[data.activeCategory]?data.activeCategory:'common';Object.keys(common).forEach(function(k){common[k].value=(data.common||{})[k]||''});renderAll();document.querySelectorAll('.studio-tab').forEach(function(b){b.classList.toggle('active',b.dataset.mode===mode)});Object.keys(data.fields||{}).forEach(function(k){var el=document.querySelector('[data-studio-field="'+k+'"]');if(el)el.value=data.fields[k]});(data.sections||[]).forEach(function(x,i){var ch=document.querySelector('[data-section-check="'+i+'"]'),ta=document.querySelector('[data-section-text="'+i+'"]');if(ch&&typeof x.on==='boolean')ch.checked=x.on;if(ta&&x.text)ta.value=x.text});renderPreview();status.textContent='Saved draft restored.'}catch(e){}}
+$('studio-word').addEventListener('click',function(){
+ var d=docs[current],blob=new Blob(['<!doctype html><html><head><meta charset="utf-8"><title>'+esc(d.name)+'</title></head><body>'+buildBody()+'</body></html>'],{type:'application/msword'});
+ var a=document.createElement('a'),url=URL.createObjectURL(blob);
+ a.href=url;a.download=(common.company.value||'Restaurant').replace(/[^a-z0-9]+/gi,'_')+'_'+d.name.replace(/[^a-z0-9]+/gi,'_')+'.doc';
+ document.body.appendChild(a);
+ try{a.click();status.textContent='Editable Word-compatible document download started. Check your Downloads folder.';}
+ catch(e){status.textContent='Document download could not be started. Please try again.';}
+ finally{setTimeout(function(){URL.revokeObjectURL(url);a.remove();},15000);}
+});
+$('studio-save').addEventListener('click',function(){if(draftStorageBlocked){status.textContent='Saving blocked: an existing draft could not be read safely. It has not been overwritten. Preserve your existing browser data; use Reset only if you are willing to discard that draft.';return;}var data={current:current,mode:mode,activeCategory:activeCategory,common:{},fields:{},sections:[]};Object.keys(common).forEach(function(k){data.common[k]=common[k].value});docs[current].fields.forEach(function(f){data.fields[f[0]]=fieldValue(f[0])});docs[current].sections.forEach(function(s,i){var ch=document.querySelector('[data-section-check="'+i+'"]'),ta=document.querySelector('[data-section-text="'+i+'"]');data.sections.push({on:ch?ch.checked:true,text:ta?ta.value:s[1]})});try{var draftText=JSON.stringify(data);localStorage.setItem('gravityDocumentStudioDraft',draftText);if(localStorage.getItem('gravityDocumentStudioDraft')!==draftText)throw Error('Draft verification failed');status.textContent='Draft saved in this browser.'}catch(e){status.textContent='Draft could not be saved. Keep this page open and download an editable copy before leaving.'}});
+$('studio-reset').addEventListener('click',function(){
+ if(!confirm('Reset Document Studio? This permanently deletes the saved browser draft, including any unreadable previous draft. Export your current document first if needed.'))return;
+ try{localStorage.removeItem('gravityDocumentStudioDraft');}
+ catch(e){status.textContent='Reset could not remove saved draft. Existing browser data was not cleared.';return;}
+ draftStorageBlocked=false;
+ Object.keys(common).forEach(function(k){common[k].value=''});
+ current='application';mode='fast';activeCategory='common';query='';
+ if(search)search.value='';
+ renderAll();status.textContent='Studio reset. Previous browser draft deleted after confirmation.';
+});
+function restore(){
+ try{
+  var raw=localStorage.getItem('gravityDocumentStudioDraft');
+  if(raw===null)return;
+  var data=JSON.parse(raw);
+  if(!data||typeof data!=='object'||Array.isArray(data)||!data.current||!docs[data.current]||
+     (data.fields&& (typeof data.fields!=='object'||Array.isArray(data.fields)))||
+     (data.sections&&!Array.isArray(data.sections))||
+     (data.common&&(typeof data.common!=='object'||Array.isArray(data.common))))
+   throw Error('Existing draft format could not be validated');
+  current=data.current;mode=data.mode||'fast';
+  activeCategory=data.activeCategory&&categories[data.activeCategory]?data.activeCategory:'common';
+  Object.keys(common).forEach(function(k){common[k].value=(data.common||{})[k]||''});
+  renderAll();
+  document.querySelectorAll('.studio-tab').forEach(function(b){b.classList.toggle('active',b.dataset.mode===mode)});
+  Object.keys(data.fields||{}).forEach(function(k){var el=document.querySelector('[data-studio-field="'+k+'"]');if(el)el.value=data.fields[k]});
+  (data.sections||[]).forEach(function(x,i){var ch=document.querySelector('[data-section-check="'+i+'"]'),ta=document.querySelector('[data-section-text="'+i+'"]');if(ch&&typeof x.on==='boolean')ch.checked=x.on;if(ta&&x.text)ta.value=x.text});
+  renderPreview();status.textContent='Saved draft restored.';
+ }catch(e){
+  draftStorageBlocked=true;
+  console.error('Document Studio could not safely open the existing saved draft; writes blocked.',e);
+  status.textContent='Existing Document Studio draft could not be read. Gravity has not overwritten it. Saving is blocked. Do not clear browser data; Reset will delete the old draft only if you explicitly confirm.';
+ }
+}
 renderAll();restore();
 })();

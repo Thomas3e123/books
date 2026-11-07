@@ -1410,7 +1410,7 @@
     },
     {
       "path": "site/assets/js/gravity-document-studio.js",
-      "sha256": "18d4998c9395d7b80daa07168544f28c97f8f9b69e6402174d799c59b4a6b88e"
+      "sha256": "da5ff34511cf4c97a7bebe34b95bac5b8265ab2e44a7cf6d8ecd9ee0aafb15b9"
     },
     {
       "path": "site/assets/js/gravity-forms-personalizer.js",
@@ -2534,7 +2534,7 @@
     },
     {
       "path": "handbook/source/app.mjs",
-      "sha256": "02e1b50d91f75aec98fb188e28bffd783357be26f3fff7b774b38f741b50541c"
+      "sha256": "6db293eca24ab2a42a30b96c6e68974fb96edc36e2f24a03574382bf9ca42109"
     },
     {
       "path": "handbook/source/core.mjs",
