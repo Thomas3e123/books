@@ -7,7 +7,7 @@ test('Homepage opens the five-question assessment directly',async({page})=>{
   await expect(page).toHaveURL(/gravity-aware\?tool=systems#gravity-quick-tools/);
   await expect(page.locator('#gravity-quick-workspace')).toBeVisible();
   await expect(page.locator('#gravity-quick-workspace select')).toHaveCount(5);
-  await expect(page.getByRole('heading',{name:'Five-question system check'})).toBeVisible();
+  await expect(page.locator('#gravity-quick-workspace #gravity-quick-title')).toHaveText('Five-question system check');
 });
 test('Assessment analytics tracks actions without collecting individual answers',async({page})=>{
   const events=[];
