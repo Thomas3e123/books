@@ -3,6 +3,7 @@ test('Homepage opens the five-question assessment directly',async({page})=>{
   await page.goto('/');
   const link=page.getByRole('link',{name:/Find your weakest system/i});
   await expect(link).toHaveAttribute('href','/gravity-aware?tool=systems#gravity-quick-tools');
+  if(await page.locator('#gravity-first-visit').isVisible()) await page.getByRole('button',{name:'Enter the Full Site'}).click();
   await link.click();
   await expect(page).toHaveURL(/gravity-aware\?tool=systems#gravity-quick-tools/);
   await expect(page.locator('#gravity-quick-workspace')).toBeVisible();
