@@ -67,5 +67,5 @@ test('Site search directs visitors to individual operating-system sections',asyn
 test('Main menu routes Free Resources to the download library',async({page})=>{
   await page.goto('/');
   const nav=page.locator('header.site-header nav#site-nav');
-  await expect(nav.getByRole('link',{name:'Free Resources'})).toHaveAttribute('href','/free-resources');
+  await expect(nav.locator('a[href="/free-resources"]')).toHaveText('Free Resources');
 });
