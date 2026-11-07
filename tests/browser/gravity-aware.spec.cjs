@@ -63,3 +63,9 @@ test('Site search directs visitors to individual operating-system sections',asyn
   await page.locator('#gravity-site-search-input').fill('food cost');
   await expect(page.locator('#gravity-site-search-results a',{hasText:'Food Cost, Inventory & Purchasing'})).toHaveAttribute('href','/operating-systems#food-cost-inventory');
 });
+
+test('Main menu routes Free Resources to the download library',async({page})=>{
+  await page.goto('/');
+  const nav=page.locator('header.site-header nav#site-nav');
+  await expect(nav.getByRole('link',{name:'Free Resources'})).toHaveAttribute('href','/free-resources');
+});
