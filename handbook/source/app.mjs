@@ -12,7 +12,48 @@ function button(text,fn,cls=''){const b=el('button',text,cls);setHelp(b,actionHe
 function request(req){return new Promise((resolve,reject)=>{req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);});}
 async function openDB(){db=await new Promise((res,rej)=>{const r=indexedDB.open('gravity.handbook.private.v2',1);r.onupgradeneeded=()=>{r.result.createObjectStore('projects',{keyPath:'projectId'});r.result.createObjectStore('recovery',{keyPath:'projectId'});};r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error);});}
 async function list(){return request(db.transaction('projects').objectStore('projects').getAll());}
-function save(){if(conflict){notice('This project changed in another window. Download a backup of your current work, then reload before continuing.');return Promise.reject(Error('Save paused to prevent overwriting another window.'));}pendingWrites++;const snapshot=structuredClone(project);snapshot.updatedAt=new Date().toISOString();$('saved').textContent='Saving…';queue=queue.catch(()=>{}).then(()=>new Promise((resolve,reject)=>{const tx=db.transaction(['projects','recovery'],'readwrite');const store=tx.objectStore('projects');const r=store.get(snapshot.projectId);r.onsuccess=()=>{if(r.result)tx.objectStore('recovery').put(r.result);store.put(snapshot);};tx.oncomplete=()=>{localStorage.setItem('gravity.handbook.active',snapshot.projectId);$('saved').textContent='Saved on this device · '+new Date().toLocaleTimeString();channel?.postMessage({id:snapshot.projectId,tabId});pendingWrites--;resolve();};tx.onerror=()=>{notice('Could not save on this device. Download a project backup now. '+tx.error?.message);$('saved').textContent='NOT SAVED — download a backup';pendingWrites--;reject(tx.error);};tx.onabort=tx.onerror;}));return queue;}
+function save(){
+ if(conflict){notice('This project changed in another window. Download a backup of your current work, then reload before continuing.');return Promise.reject(Error('Save paused to prevent overwriting another window.'));}
+ pendingWrites++;
+ const snapshot=structuredClone(project);
+ snapshot.updatedAt=new Date().toISOString();
+ $('saved').textContent='Saving…';
+ queue=queue.catch(()=>{}).then(()=>new Promise((resolve,reject)=>{
+  let settled=false,tx;
+  function finish(error){
+   if(settled)return;
+   settled=true;
+   pendingWrites=Math.max(0,pendingWrites-1);
+   if(error){
+    notice('Could not save on this device. Download a project backup now. '+(error.message||''));
+    $('saved').textContent='NOT SAVED — download a backup';
+    reject(error);
+   }else resolve();
+  }
+  try{
+   tx=db.transaction(['projects','recovery'],'readwrite');
+   const store=tx.objectStore('projects');
+   const r=store.get(snapshot.projectId);
+   r.onsuccess=()=>{if(r.result)tx.objectStore('recovery').put(r.result);store.put(snapshot);};
+   tx.oncomplete=()=>{
+    // IndexedDB has committed the project. The optional last-selected project
+    // hint must not leave that successful save permanently pending.
+    let selectionSaved=true;
+    try{localStorage.setItem('gravity.handbook.active',snapshot.projectId);}
+    catch(e){selectionSaved=false;console.warn('Handbook recent-project preference unavailable.',e);}
+    $('saved').textContent=selectionSaved
+      ?'Saved on this device · '+new Date().toLocaleTimeString()
+      :'Saved on this device · recent project selection not remembered';
+    try{channel?.postMessage({id:snapshot.projectId,tabId});}
+    catch(e){console.warn('Handbook cross-tab notification unavailable.',e);}
+    finish();
+   };
+   tx.onerror=()=>finish(tx.error||Error('Handbook storage transaction failed'));
+   tx.onabort=()=>finish(tx.error||Error('Handbook storage transaction aborted'));
+  }catch(e){finish(e);}
+ }));
+ return queue;
+}
 channel&&(channel.onmessage=e=>{if(e.data.tabId!==tabId&&e.data.id===project?.projectId){conflict=true;notice('This handbook changed in another window. Back up current work and reload before editing further.');}});
 function download(blob,name){const url=URL.createObjectURL(blob);const a=el('a');a.href=url;a.download=name;a.textContent='Save '+name;notice('Your file is ready. If the download did not start, use this link: ');$('message').append(a);a.click();setTimeout(()=>{URL.revokeObjectURL(url);if(a.isConnected)a.replaceWith(document.createTextNode('Link expired. Generate the file again if needed.'));},300000);}
 function filename(ext){return (project.answers['welcome.name']||'Employee-Handbook').replace(/[^a-z0-9_-]/gi,'-').slice(0,70)+'.'+ext;}
@@ -144,7 +185,19 @@ $('restore').onchange=async e=>{try{const f=e.target.files[0];if(!f)return;if(f.
 for(const name of ['review','design','previewOnly','preview'])$(name).onclick=async()=>{try{await queue;mode=name;render();if(name==='design')window.scrollTo({top:0,left:0,behavior:'instant'});await refreshProjects();}catch(e){notice(e.message);}};
 window.addEventListener('beforeunload',e=>{if(pendingWrites){e.preventDefault();e.returnValue='';}});
 window.addEventListener('error',e=>notice('Something went wrong. Your last saved project is retained. '+e.message));window.addEventListener('unhandledrejection',e=>notice('Action could not finish: '+(e.reason?.message||e.reason)));
-(async()=>{try{await openDB();const all=await list();const active=localStorage.getItem('gravity.handbook.active');project=validate(all.find(p=>p.projectId===active)||all[0]||fresh());await save();await refreshProjects();render();}catch(e){notice('Local project storage could not open: '+e.message+'. Try a regular browser window with storage enabled.');}})();
+(async()=>{
+ try{
+  await openDB();
+  const all=await list();
+  let active=null;
+  try{active=localStorage.getItem('gravity.handbook.active');}
+  catch(e){console.warn('Recent handbook selection unavailable; saved projects remain accessible.',e);}
+  project=validate(all.find(p=>p.projectId===active)||all[0]||fresh());
+  await save();await refreshProjects();render();
+ }catch(e){
+  notice('Local project storage could not open or save: '+e.message+'. Existing projects have not been cleared. Try a regular browser window with storage enabled.');
+ }
+})();
 
 function updateKeyboardSpace(){const v=window.visualViewport;const inset=v?Math.max(0,window.innerHeight-v.height-v.offsetTop):0;document.documentElement.style.setProperty('--keyboard-space',inset+'px');}
 window.visualViewport?.addEventListener('resize',updateKeyboardSpace);updateKeyboardSpace();
