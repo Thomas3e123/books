@@ -11,18 +11,80 @@ const modes={guided:'Guided',assisted:'Assisted',independent:'Independent',passi
 const steps=['start','problem','demand','people','method','elements','guardrails','observe','facts','interpret','review','sop'];
 const methodMap={flow:'Flow + Capacity',cycle:'Cycle Study',motion:'Motion Study',bottleneck:'Bottleneck Study',sampling:'Activity / Work Sampling',prep:'Prep Study',dish:'Dish-Room Flow',service:'Service-Cycle Study',setup:'Setup / Changeover',beforeafter:'Before / After',custom:'Custom Study'};
 function blank(){return{version:2,id:uid('WS'),createdAt:now(),updatedAt:now(),mode:'guided',screen:'start',quick:false,status:'Draft',restaurant:'',location:'',conductor:'',role:'Manager',problem:'',desired:'',trigger:'',demand:{needed:true,unit:'units/hour',values:[],intervalMinutes:60,selected:null,source:'',strength:'Unknown',reason:''},people:[{id:uid('p'),role:'',name:'',experience:'Trained',trained:'Unknown',anonymous:true}],operatorInput:'',method:'flow',boundary:{start:'',end:'',unit:'One completed unit'},elements:[],observations:[],completedUnits:1,guardrails:{quality:'',safety:''},timer:{running:false,startedAt:null,category:null,elementId:null},managerInterpretation:'',managerEvidence:'',gravityReview:null,decision:'',knowledge:[],sop:{title:'',section:'Operating Standard',text:'',status:'Draft'},notes:[]};}
+let activeStorageBlocked=false,historyStorageBlocked=false;
 let s=load()||blank(),tick=null;
-function load(){try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch{return null}}
-function save(msg='Saved'){s.updatedAt=now();localStorage.setItem(KEY,JSON.stringify(s));status(msg)}
-function history(){try{return JSON.parse(localStorage.getItem(HISTORY)||'[]')}catch{return[]}}
-function saveHistory(){const list=history(),copy=JSON.parse(JSON.stringify(s));copy.savedAt=now();const i=list.findIndex(x=>x.id===s.id);if(i>=0)list[i]=copy;else list.push(copy);localStorage.setItem(HISTORY,JSON.stringify(list.slice(-100)));}
+function load(){
+  try{
+    const raw=localStorage.getItem(KEY);
+    if(raw===null)return null;
+    const value=JSON.parse(raw);
+    if(!value||typeof value!=='object'||Array.isArray(value)||typeof value.id!=='string'||!Array.isArray(value.people)||!Array.isArray(value.observations))
+      throw Error('Saved study structure was invalid');
+    return value;
+  }catch(error){
+    // Never overwrite an unreadable study with a new blank one.
+    activeStorageBlocked=true;
+    console.error('Work Study could not read the existing study; automatic replacement is blocked.',error);
+    return null;
+  }
+}
 function status(msg){const e=$('#ws2-status');if(e)e.textContent=msg||''}
+function save(msg='Saved'){
+  if(activeStorageBlocked){
+    const error=Error('The existing saved study could not be read; it has not been replaced.');
+    status('Work Study saving is blocked to protect unreadable existing data. Do not clear site data. Contact Gravity support.');
+    throw error;
+  }
+  try{
+    s.updatedAt=now();
+    const payload=JSON.stringify(s);
+    localStorage.setItem(KEY,payload);
+    if(localStorage.getItem(KEY)!==payload)throw Error('Study write verification failed');
+    status(msg);
+  }catch(error){
+    console.error('Work Study could not save its active study.',error);
+    status('Work Study could not save your changes. Keep this page open; do not close or refresh until you recover or export your work.');
+    throw error;
+  }
+}
+function history(){
+  if(historyStorageBlocked)return [];
+  try{
+    const value=JSON.parse(localStorage.getItem(HISTORY)||'[]');
+    if(!Array.isArray(value))throw Error('Saved history was not a list');
+    return value;
+  }catch(error){
+    historyStorageBlocked=true;
+    console.error('Work Study could not read existing history. It will not be overwritten.',error);
+    return [];
+  }
+}
+function saveHistory(){
+  const list=history();
+  if(historyStorageBlocked){
+    status('Saved study history is unreadable. No history has been overwritten. Do not clear site data; contact Gravity support.');
+    throw Error('History saving blocked to protect unreadable existing records');
+  }
+  try{
+    const copy=JSON.parse(JSON.stringify(s));
+    copy.savedAt=now();
+    const i=list.findIndex(x=>x.id===s.id);
+    if(i>=0)list[i]=copy;else list.push(copy);
+    const payload=JSON.stringify(list.slice(-100));
+    localStorage.setItem(HISTORY,payload);
+    if(localStorage.getItem(HISTORY)!==payload)throw Error('History write verification failed');
+  }catch(error){
+    console.error('Work Study could not save its study history.',error);
+    status('Study history could not be saved. Keep this page open and do not assume this study was archived.');
+    throw error;
+  }
+}
 function setScreen(x){if(s.timer?.running)stopTimer(true);s.screen=x;save('');render()}
 function modeBar(){return `<div class="ws2-topbar ws2-no-print"><div><span class="ws2-eyebrow">Gravity Mode</span><div class="ws2-mode">${Object.entries(modes).map(([k,v])=>`<button type="button" data-mode="${k}" class="${s.mode===k?'active':''}">${v}</button>`).join('')}</div></div><button class="ws2-btn" type="button" data-action="ask">Ask Gravity</button></div>`}
 function progress(){if(s.quick)return'';const i=steps.indexOf(s.screen);return `<div class="ws2-progress ws2-no-print">${steps.slice(1).map((x,n)=>`<span class="${n+1===i?'active':''}">${n+1}</span>`).join('')}</div>`}
-function shell(body,side=''){return `<div class="ws2-shell"><div class="ws2-hero"><div class="ws2-eyebrow">Gravity Assist · Work Study Lab</div><h1>Gravity Work Study Lab</h1><p>Study real work, prove what the evidence supports, and turn useful findings into better standards.</p></div>${modeBar()}${progress()}<div class="ws2-grid"><main>${body}<p id="ws2-status" class="ws2-status" aria-live="polite"></p></main><aside>${side||sideDefault()}</aside></div></div>`}
+function shell(body,side=''){return `<div class="ws2-shell"><div class="ws2-hero"><div class="ws2-eyebrow">Gravity Assist · Work Study Lab</div><h1>Gravity Work Study Lab</h1><p>Study real work, prove what the evidence supports, and turn useful findings into better standards.</p></div>${modeBar()}${progress()}<div class="ws2-grid"><main>${historyStorageBlocked?'<p role="alert" class="ws2-status">Saved study history cannot be read. Existing records have not been overwritten; saving to history is disabled. Do not clear site data.</p>':''}${body}<p id="ws2-status" class="ws2-status" aria-live="polite"></p></main><aside>${side||sideDefault()}</aside></div></div>`}
 function sideDefault(){return `<div class="ws2-card"><div class="ws2-eyebrow">The Code</div><h3>What Gravity protects</h3><p class="ws2-muted">Facts before conclusions. Quality and safety before speed. Proven knowledge stays traceable to its source.</p><div class="ws2-side-list"><button type="button" data-action="home"><strong>Study Home</strong><span>Start, continue, or review studies</span></button><button type="button" data-action="save"><strong>Save Study</strong><span>Keep the current study in this browser</span></button><button type="button" data-action="history"><strong>Study History</strong><span>${history().length} saved stud${history().length===1?'y':'ies'}</span></button></div></div>`}
-function render(){const root=$('#ws2-app');if(!root)return;let out='';switch(s.screen){case'start':out=screenStart();break;case'problem':out=screenProblem();break;case'demand':out=screenDemand();break;case'people':out=screenPeople();break;case'method':out=screenMethod();break;case'elements':out=screenElements();break;case'guardrails':out=screenGuardrails();break;case'observe':out=screenObserve();break;case'facts':out=screenFacts();break;case'interpret':out=screenInterpret();break;case'review':out=screenReview();break;case'sop':out=screenSop();break;case'history':out=screenHistory();break;default:out=screenStart()}root.innerHTML=out;bind();if(s.screen==='observe')startTick();}
+function render(){const root=$('#ws2-app');if(!root)return;history();if(activeStorageBlocked){root.innerHTML='<section role="alert" class="ws2-card"><h2>Existing study needs recovery</h2><p>Work Study could not read this browser’s previously saved study. Gravity has not overwritten it. Do not clear your browser data or start a replacement study in this browser. Use an existing backup or contact Gravity support before proceeding.</p><p><a href="/help-center">Open Gravity Help Center</a></p></section>';return;}let out='';switch(s.screen){case'start':out=screenStart();break;case'problem':out=screenProblem();break;case'demand':out=screenDemand();break;case'people':out=screenPeople();break;case'method':out=screenMethod();break;case'elements':out=screenElements();break;case'guardrails':out=screenGuardrails();break;case'observe':out=screenObserve();break;case'facts':out=screenFacts();break;case'interpret':out=screenInterpret();break;case'review':out=screenReview();break;case'sop':out=screenSop();break;case'history':out=screenHistory();break;default:out=screenStart()}root.innerHTML=out;bind();if(s.screen==='observe')startTick();}
 function screenStart(){return shell(`<div class="ws2-card"><div class="ws2-eyebrow">Start</div><h2>What do you want to do?</h2><div class="ws2-choice-grid"><button class="ws2-choice" type="button" data-start="guided"><strong>Start a Guided Study</strong><small>Gravity helps define the problem, verify demand, choose the method, collect evidence, and interpret the result.</small></button><button class="ws2-choice" type="button" data-start="quick"><strong>Quick Study</strong><small>Measure the work, finish, see the facts, and print or save. Add deeper analysis only if you want it.</small></button><button class="ws2-choice" type="button" data-action="history"><strong>Open Study History</strong><small>Continue an existing study or compare what this restaurant already learned.</small></button><button class="ws2-choice" type="button" data-start="independent"><strong>Start Independently</strong><small>Set up the study yourself. Gravity only flags meaningful issues and still reviews the finished study.</small></button></div></div>`)}
 function screenProblem(){return shell(`<div class="ws2-card"><div class="ws2-eyebrow">Define the need</div><h2>What is happening?</h2><div class="ws2-form"><label class="ws2-field"><span>Problem or question</span><textarea id="f-problem" placeholder="Example: Pizza tickets stack up Friday from about 7 to 8.">${esc(s.problem)}</textarea></label><label class="ws2-field"><span>What would a better result look like? <small>Optional</small></span><textarea id="f-desired" placeholder="Example: Keep the line current through the Friday peak without increasing remakes.">${esc(s.desired)}</textarea></label><label class="ws2-field"><span>What triggered this study? <small>Optional</small></span><input id="f-trigger" value="${esc(s.trigger)}" placeholder="Customer wait, manager observation, sales growth, recurring delay"></label></div>${s.mode==='guided'?`<div class="ws2-callout"><strong>Gravity rule:</strong> describe what is happening before deciding why it is happening. Suspected causes stay hypotheses until the evidence supports them.</div>`:''}<div class="ws2-actions"><button class="ws2-btn primary" data-next="demand">Continue</button><button class="ws2-btn" data-action="home">Cancel</button></div></div>`)}
 function demandStats(){const vals=s.demand.values.map(safeNum).filter(Number.isFinite),interval=Math.max(1,safeNum(s.demand.intervalMinutes)||60);if(!vals.length)return null;const average=avg(vals),perHour=average*(60/interval),peak=Math.max(...vals)*(60/interval);return{average,perHour,peak,n:vals.length}}
