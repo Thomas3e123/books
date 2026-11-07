@@ -35,3 +35,28 @@ test('Inventory Center backup triggers a real downloadable JSON file',async({pag
   expect(data.state.schemaVersion).toBe(1);
   await expect(page.locator('#app-status')).toContainText('backup export started');
 });
+
+test('Shift Lab can save and reload a normal schedule',async({page})=>{
+  await page.goto('/gravity-shift-lab');
+  await page.locator('#lab-week').fill('2026-11-08');
+  await page.locator('#lab-save').evaluate(el=>el.click());
+  await expect(page.locator('#lab-status')).toContainText('Week saved on this device');
+  const before=await page.evaluate(()=>JSON.parse(localStorage.getItem('gravityShiftLabSchedulesV3')||'{}'));
+  expect(before['2026-11-08']).toBeTruthy();
+  await page.reload();
+  const after=await page.evaluate(()=>JSON.parse(localStorage.getItem('gravityShiftLabSchedulesV3')||'{}'));
+  expect(after['2026-11-08']).toBeTruthy();
+});
+
+test('Work Study saves and reopens a normal study',async({page})=>{
+  await page.goto('/gravity-work-study-lab');
+  await page.locator('#ws2-app [data-start="guided"]').click();
+  await expect(page.locator('#ws2-app')).toContainText('What is happening?');
+  await page.locator('#ws2-app [data-action="save"]').first().click();
+  const records=await page.evaluate(()=>JSON.parse(localStorage.getItem('gravityWorkStudyV2History')||'[]'));
+  expect(records.length).toBe(1);
+  const id=records[0].id;
+  await page.reload();
+  await page.locator('#ws2-app [data-action="history"]').first().click();
+  await expect(page.locator('#ws2-app [data-open-study="'+id+'"]')).toBeVisible();
+});
