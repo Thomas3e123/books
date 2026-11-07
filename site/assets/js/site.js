@@ -19,7 +19,7 @@
     ['/operating-systems', 'The Gravity System'],
     ['/books', 'Books & Reader'],
     ['/gravity-report', 'The Gravity Report'],
-    ['/knowledge-center', 'Resources'],
+    ['/free-resources', 'Free Resources'],
     ['/help-center', 'Help']
   ];
   if (nav && nav.id === 'site-nav' && nav.closest('header.site-header')) {
@@ -258,7 +258,7 @@
       send('feedback_submit',{feedback_type:'customer_experience'});
     } else if (formName === 'gravity-registration') {
       var regMethod=f.querySelector('[name="registration_method"]');
-      send('registration_submit',{registration_type:'gravity_updates',registration_method:cleanSlug(regMethod ? regMethod.value : 'email_form')});
+      send('registration_submit',{registration_type:'founding_year_download_access',registration_method:cleanSlug(regMethod ? regMethod.value : 'email_form')});
     } else if ((location.pathname || '').toLowerCase().indexOf('/contact') >= 0) {
       send('contact_request_prepare',{contact_method:'email'});
     }
@@ -378,6 +378,13 @@
         });
         if (!response.ok) throw new Error('Registration was not accepted (' + response.status + ').');
         storageSet(REG_ACCESS_KEY, 'registered');
+        // Count an accepted registration once, even when the confirmation page is refreshed.
+        sessionSet('gravity_registration_completion_pending_v1', '1');
+        if (registrationForm.querySelector('#reg-consent') && registrationForm.querySelector('#reg-consent').checked) {
+          sessionSet('gravity_registration_email_opt_in_pending_v1', '1');
+        } else {
+          try { window.sessionStorage.removeItem('gravity_registration_email_opt_in_pending_v1'); } catch (_) {}
+        }
         location.assign('/registration-thanks');
       } catch (error) {
         notice.textContent = 'Registration could not be confirmed. Please try again. Your details remain in the form.';
@@ -400,7 +407,14 @@
       if (eyebrow) eyebrow.textContent = 'Registration complete';
       if (heading) heading.textContent = 'Your Founding Year downloads are unlocked.';
       if (description) description.textContent = 'Thank you. Completed Gravity digital resources remain free through October 1, 2027. No credit card, payment method, subscription, or donation was required.';
-      send('registration_complete', { registration_type: 'founding_year_download_access' });
+      if (sessionGet('gravity_registration_completion_pending_v1') === '1') {
+        try { window.sessionStorage.removeItem('gravity_registration_completion_pending_v1'); } catch (_) {}
+        send('registration_complete', { registration_type: 'founding_year_download_access' });
+        if (sessionGet('gravity_registration_email_opt_in_pending_v1') === '1') {
+          try { window.sessionStorage.removeItem('gravity_registration_email_opt_in_pending_v1'); } catch (_) {}
+          send('registration_email_opt_in', { subscription_type: 'optional_updates' });
+        }
+      }
       if (continueDownload) {
         continueDownload.href = '/gravity-fulfillment-center';
         continueDownload.textContent = 'Browse Digital Resources';
@@ -818,15 +832,30 @@ document.addEventListener('mouseover',function(e){var a=e.target&&e.target.close
  function init(){
   var header=document.querySelector('header.site-header'),inner=header&&header.querySelector('.header-inner'),toggle=header&&header.querySelector('[data-menu-toggle]');
   if(!inner||!toggle||document.getElementById('gravity-site-search'))return;
-  var pages=[['Gravity Assist','/gravity-assist','tools problem help'],['Start Here','/start-here','new getting started'],['Gravity Report','/gravity-report','articles stories field sheets'],['SOP Library','/standards-library','sop training procedures stations'],['Forms and Checklists','/restaurant-management-forms-checklists','forms logs templates'],['Books','/books','books workbooks prompts'],['Book Reader','/book-reader','reading'],['Knowledge Center','/knowledge-center','resources guides'],['Help Center','/help-center','support instructions'],['Operating Systems','/operating-systems','systems'],['Gravity Aware','/gravity-aware','aware'],['Windows Programs','/windows-programs','downloads'],['Testing Room','/testing-room','feedback'],['Contact','/contact','contact'],['Handbook Creator','/gravity-handbook-creator','handbook'],['SOP Foundry','/gravity-sop-foundry','sop builder'],['Shift Lab','/gravity-shift-lab','schedule scheduling labor shifts staffing'],['Inventory Center','/gravity-inventory-center','inventory stock ordering food cost'],['Work Study Lab','/gravity-work-study-lab','time workflow measurement'],['Recipe Works','/gravity-recipe-works','recipes food costing'],['Numbers Lab','/gravity-numbers-lab','calculator calculations math labor food cost margin markup yield par break even'],['Forms Personalizer','/gravity-forms-personalizer','personalize customize forms logo branding'],['Document Studio','/gravity-document-studio','documents policies hiring templates checklists'],['Quick Tools','/gravity-quick-tools','utilities recipe scaler labels conversion tips cash drawer dates'],['QR Code Maker','/qr-code-generator','qr code generator scan links'],['AI Prompt Search','/restaurant-ai-prompt-search','ai prompts artificial intelligence']];
+  var pages=[['Gravity Assist','/gravity-assist','tools problem help'],['Start Here','/start-here','new getting started'],['Gravity Report','/gravity-report','articles stories field sheets'],['SOP Library','/standards-library','sop training procedures stations'],['Forms and Checklists','/restaurant-management-forms-checklists','forms logs templates'],['Books','/books','books workbooks prompts'],['Book Reader','/book-reader','reading'],['Knowledge Center','/knowledge-center','resources guides'],['Help Center','/help-center','support instructions'],['Operating Systems','/operating-systems','systems'],['Gravity Aware','/gravity-aware','aware'],['Windows Programs','/windows-programs','downloads'],['Testing Room','/testing-room','feedback'],['Contact','/contact','contact'],['Handbook Creator','/gravity-handbook-creator','handbook'],['SOP Foundry','/gravity-sop-foundry','sop builder'],['Shift Lab','/gravity-shift-lab','schedule scheduling labor shifts staffing'],['Inventory Center','/gravity-inventory-center','inventory stock ordering food cost'],['Work Study Lab','/gravity-work-study-lab','time workflow measurement'],['Recipe Works','/gravity-recipe-works','recipes food costing'],['Numbers Lab','/gravity-numbers-lab','calculator calculations math labor food cost margin markup yield par break even'],['Forms Personalizer','/gravity-forms-personalizer','personalize customize forms logo branding'],['Document Studio','/gravity-document-studio','documents policies hiring templates checklists'],['Quick Tools','/gravity-quick-tools','utilities recipe scaler labels conversion tips cash drawer dates'],['QR Code Maker','/qr-code-generator','qr code generator scan links'],['AI Prompt Search','/restaurant-ai-prompt-search','ai prompts artificial intelligence'],
+  ['Guest Relationship & Retention','/operating-systems#guest-relationship-retention','guest complaints recovery loyalty regular guests guest retention'],
+  ['Restaurant Performance & Profitability','/operating-systems#performance-profitability','profit margins performance restaurant finance profitability'],
+  ['Standards & Intelligence Center','/operating-systems#standards-intelligence','standards documents version control procedures policies'],
+  ['Risk & Continuity','/operating-systems#risk-continuity','emergency outage disruption continuity reopening risk'],
+  ['Growth & Sales Building','/operating-systems#growth-sales','sales growth catering events marketing demand'],
+  ['Manager Development','/operating-systems#manager-development','manager leadership coaching training accountability'],
+  ['Implementation & Verification','/operating-systems#implementation-verification','improvement follow through installation verification changes'],
+  ['Sales Intelligence & Forecasting','/operating-systems#sales-intelligence','sales forecasting demand local events patterns'],
+  ['Food Cost, Inventory & Purchasing','/operating-systems#food-cost-inventory','food cost waste inventory receiving ordering purchasing portions'],
+  ['Labor & Workforce Control','/operating-systems#labor-workforce','labor staffing scheduling coverage overtime productivity'],
+  ['Food Safety & Sanitation','/operating-systems#food-safety-sanitation','food safety cleaning sanitation inspection hygiene'],
+  ['Employee Training & Certification','/operating-systems#training-certification','employee training signoff certification trainers onboarding'],
+  ['Facilities & Maintenance','/operating-systems#facilities-maintenance','equipment repairs preventive maintenance facilities'],
+  ['Cash Controls & Loss Prevention','/operating-systems#cash-loss-prevention','cash deposits voids refunds discounts controls theft'],
+  ['Hiring, Retention & Employee Relations','/operating-systems#hiring-retention','hiring employee retention turnover attendance interview relations']];
   var box=document.createElement('div');box.id='gravity-site-search';
   var navLink=header.querySelector('nav a');if(navLink)box.style.color=getComputedStyle(navLink).color;
   box.innerHTML='<button type="button" aria-controls="gravity-site-search-panel" aria-expanded="false">Search Gravity</button><div id="gravity-site-search-panel" hidden><label for="gravity-site-search-input">Find a resource</label><input id="gravity-site-search-input" type="search" autocomplete="off" placeholder="Search tools, SOPs, books, forms…"><small>Searches public resource pages. Search within a resource for detailed content.</small><div id="gravity-site-search-results" role="status" aria-live="polite"></div></div>';
   inner.insertBefore(box,toggle);
   var css=document.createElement('style');css.textContent='#gravity-site-search{position:relative;flex:0 0 auto}#gravity-site-search>button{cursor:pointer;background:transparent;color:inherit;border:1px solid currentColor;border-radius:7px;padding:8px;font-weight:700}#gravity-site-search-panel{position:absolute;z-index:10000;right:0;top:calc(100% + 10px);width:min(420px,90vw);background:white;color:#172033;padding:16px;border:1px solid #ccc;border-radius:10px;box-shadow:0 12px 40px #0005}#gravity-site-search-panel[hidden]{display:none}#gravity-site-search-panel label{display:block;font-weight:700}#gravity-site-search-panel input{width:100%;padding:10px;font-size:16px;margin:8px 0}#gravity-site-search-panel small{display:block;margin-bottom:8px}#gravity-site-search-results a{display:block;padding:8px;color:#172033;text-decoration:underline;border-top:1px solid #ddd}@media(max-width:900px){.site-header .header-inner{flex-wrap:wrap}.site-header .header-inner>.brand{order:1;flex:1 1 calc(100% - 90px);min-width:0}.site-header .menu-toggle{order:2}.site-header .gravity-header-room-name{order:3;flex:1 1 auto;max-width:calc(100% - 125px)}#gravity-site-search{order:4;margin-left:auto}.site-header #site-nav{order:5;width:100%}}@media(max-width:700px){#gravity-site-search{margin-left:auto}#gravity-site-search-panel{position:fixed;left:5vw;right:5vw;top:75px;width:90vw;max-height:75vh;overflow:auto}}';document.head.appendChild(css);
   var btn=box.querySelector('button'),panel=box.querySelector('#gravity-site-search-panel'),input=box.querySelector('input'),results=box.querySelector('#gravity-site-search-results');
-  function render(){var q=input.value.toLowerCase().trim();results.replaceChildren();var found=pages.filter(function(p){return !q||(p[0]+' '+p[2]).toLowerCase().includes(q)}).slice(0,10);if(!found.length){results.textContent='No matching page. Try a broader word or Gravity Assist.';return;}found.forEach(function(p){var a=document.createElement('a');a.href=p[1];a.textContent=p[0];results.appendChild(a)});}
-  function show(open){panel.hidden=!open;btn.setAttribute('aria-expanded',String(open));if(open){render();input.focus();}}
+  function render(){var q=input.value.toLowerCase().trim();results.replaceChildren();var found=pages.filter(function(p){return !q||(p[0]+' '+p[2]).toLowerCase().includes(q)}).slice(0,10);if(!found.length){results.textContent='No matching page. Try a broader word or Gravity Assist.';return;}found.forEach(function(p){var a=document.createElement('a');a.href=p[1];a.textContent=p[0];a.addEventListener('click',function(){if(typeof window.gravityAnalyticsEvent==='function')window.gravityAnalyticsEvent('gravity_site_search_selection',{resource_name:p[0]});});results.appendChild(a)});}
+  function show(open){panel.hidden=!open;btn.setAttribute('aria-expanded',String(open));if(open){render();input.focus();if(typeof window.gravityAnalyticsEvent==='function')window.gravityAnalyticsEvent('gravity_site_search_open',{});}}
   btn.addEventListener('click',function(){show(panel.hidden)});input.addEventListener('input',render);document.addEventListener('click',function(e){if(!box.contains(e.target))show(false)});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!panel.hidden){show(false);btn.focus();}});
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();

@@ -7,8 +7,28 @@ sop:{title:'Which SOP First?',intro:'Choose the area with the most serious unver
 plan:{title:'30-Day Install Plan',intro:'Select the area to improve and Gravity will create a practical starter sequence. Adjust owners and deadlines to your operation.',questions:[['Focus','Which operating area needs the first installation?']],options:['Leadership','People / training','Food cost','Service','SOP standards'],links:{}}
 };
 function make(tag,txt){const e=document.createElement(tag);if(txt)e.textContent=txt;return e}
-document.querySelectorAll('[data-gravity-tool]').forEach(b=>b.addEventListener('click',()=>{const t=tools[b.dataset.gravityTool];if(!t)return;box.hidden=false;box.dataset.tool=b.dataset.gravityTool;$('gravity-quick-title').textContent=t.title;$('gravity-quick-intro').textContent=t.intro;form.replaceChildren();out.replaceChildren();t.questions.forEach(([area,q],i)=>{const f=make('fieldset'),l=make('legend',q),s=make('select');s.name='q'+i;s.required=true;s.style.cssText='width:100%;max-width:540px;padding:10px;margin:8px 0 16px';const ph=make('option','Select one');ph.value='';s.append(ph);t.options.forEach((opt,j)=>{const o=make('option',opt);o.value=String(j);s.append(o)});f.append(l,s);form.append(f)});const submit=make('button','Generate next steps');submit.type='submit';submit.className='btn btn-primary';form.append(submit);box.scrollIntoView({behavior:'smooth',block:'start'})}));
-form.addEventListener('submit',e=>{e.preventDefault();const t=tools[box.dataset.tool],v=t.questions.map((_,i)=>form.elements['q'+i].value);if(v.some(x=>x==='')){out.textContent='Answer each question before continuing.';return}out.replaceChildren();const h=make('h3','Your recommended first step');out.append(h);let focus,action,href='/operating-systems#system-finder';if(box.dataset.tool==='plan'){focus=t.options[Number(v[0])];action='Starter plan (not yet validated against your operation). Days 1–3: name an accountable owner and gather baseline evidence. Days 4–7: confirm the actual cause and choose a measurable standard. Days 8–14: train, install the control and record exceptions. Days 15–21: measure results and correct gaps. Days 22–30: verify sustained performance, assign review cadence and document the hold.';href=focus==='SOP standards'?'/gravity-sop-foundry':'/operating-systems#system-finder'}else{
+function track(eventName,kind){
+ if(typeof window.gravityAnalyticsEvent==='function' && Object.prototype.hasOwnProperty.call(tools,kind))
+  window.gravityAnalyticsEvent(eventName,{assessment_type:kind});
+}
+function openTool(kind){
+ const t=tools[kind];if(!t||!box||!form||!out)return;
+ box.hidden=false;box.dataset.tool=kind;
+ $('gravity-quick-title').textContent=t.title;$('gravity-quick-intro').textContent=t.intro;
+ form.replaceChildren();out.replaceChildren();
+ t.questions.forEach(([area,q],i)=>{
+  const f=make('fieldset'),l=make('legend',q),s=make('select');s.name='q'+i;s.required=true;
+  s.style.cssText='width:100%;max-width:540px;padding:10px;margin:8px 0 16px';
+  const ph=make('option','Select one');ph.value='';s.append(ph);
+  t.options.forEach((opt,j)=>{const o=make('option',opt);o.value=String(j);s.append(o)});
+  f.append(l,s);form.append(f)
+ });
+ const submit=make('button','Generate next steps');submit.type='submit';submit.className='btn btn-primary';form.append(submit);
+ track('gravity_assessment_start',kind);
+ box.scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.querySelectorAll('[data-gravity-tool]').forEach(b=>b.addEventListener('click',()=>openTool(b.dataset.gravityTool)));
+form.addEventListener('submit',e=>{e.preventDefault();const t=tools[box.dataset.tool],v=t.questions.map((_,i)=>form.elements['q'+i].value);if(v.some(x=>x==='')){out.textContent='Answer each question before continuing.';return}track('gravity_assessment_complete',box.dataset.tool);out.replaceChildren();const h=make('h3','Your recommended first step');out.append(h);let focus,action,href='/operating-systems#system-finder';if(box.dataset.tool==='plan'){focus=t.options[Number(v[0])];action='Starter plan (not yet validated against your operation). Days 1–3: name an accountable owner and gather baseline evidence. Days 4–7: confirm the actual cause and choose a measurable standard. Days 8–14: train, install the control and record exceptions. Days 15–21: measure results and correct gaps. Days 22–30: verify sustained performance, assign review cadence and document the hold.';href=focus==='SOP standards'?'/gravity-sop-foundry':'/operating-systems#system-finder'}else{
  const ranked=v.map((x,i)=>({i,score:Number(x),severity:Number(x)===1?2:Number(x)===2?1:0}));
  const highest=Math.max(...ranked.map(x=>x.severity));
  const tied=ranked.filter(x=>x.severity===highest);
@@ -32,5 +52,8 @@ form.addEventListener('submit',e=>{e.preventDefault();const t=tools[box.dataset.
    action=pick.score===2?'Evidence is missing or unknown for this control. Assign someone to inspect and document the actual situation before choosing a fix.':'This control needs review. Observe the work, compare results with the standard, and prove the cause before correcting it.';
    if(ranked.filter(x=>x.severity>0).length>1)action+=' Other flagged areas also require follow-up.';
  }
- }out.append(make('p','Priority: '+focus),make('p',action),make('p','Assign an owner, deadline and measurable proof of completion. A recommendation is not a verified solution.'));const a=make('a','Open relevant Gravity resources');a.href=href;a.className='btn btn-outline';out.append(a);const p=make('button','Copy result');p.type='button';p.style.marginLeft='10px';p.addEventListener('click',async()=>{const text='Gravity Aware — '+focus+'\n'+action+'\nOwner: ____ Deadline: ____ Proof: ____';try{if(!navigator.clipboard?.writeText)throw Error('Clipboard unavailable');await navigator.clipboard.writeText(text);p.textContent='Copied';}catch{let fallback=out.querySelector('textarea');if(!fallback){fallback=make('textarea');fallback.setAttribute('aria-label','Result to copy');fallback.readOnly=true;fallback.rows=6;fallback.style.width='100%';out.append(fallback);}fallback.value=text;fallback.focus();fallback.select();p.textContent='Select and copy the result below';}});out.append(p)});
+ }out.append(make('p','Priority: '+focus),make('p',action),make('p','Assign an owner, deadline and measurable proof of completion. A recommendation is not a verified solution.'));const a=make('a','Open relevant Gravity resources');a.href=href;a.className='btn btn-outline';a.addEventListener('click',()=>track('gravity_assessment_resource_open',box.dataset.tool));out.append(a);const p=make('button','Copy result');p.type='button';p.style.marginLeft='10px';p.addEventListener('click',async()=>{const text='Gravity Aware — '+focus+'\n'+action+'\nOwner: ____ Deadline: ____ Proof: ____';try{if(!navigator.clipboard?.writeText)throw Error('Clipboard unavailable');await navigator.clipboard.writeText(text);p.textContent='Copied';}catch{let fallback=out.querySelector('textarea');if(!fallback){fallback=make('textarea');fallback.setAttribute('aria-label','Result to copy');fallback.readOnly=true;fallback.rows=6;fallback.style.width='100%';out.append(fallback);}fallback.value=text;fallback.focus();fallback.select();p.textContent='Select and copy the result below';}});out.append(p)});
+let requestedTool='';
+try {requestedTool=new URLSearchParams(window.location.search).get('tool')||'';} catch (_) {}
+if (Object.prototype.hasOwnProperty.call(tools,requestedTool)) openTool(requestedTool);
 })();
