@@ -4,7 +4,7 @@ const fs=require('node:fs');
 test('Handbook Creator backup restores as a separate editable project without replacing original',async({page})=>{
   await page.goto('/handbook-creator/index.html');
   await expect(page.locator('#saved')).toContainText('Saved on this device');
-  await page.locator('#answer-welcome.name').fill('Gravity Recovery Test Restaurant');
+  await page.locator('[id="answer-welcome.name"]').fill('Gravity Recovery Test Restaurant');
   await expect.poll(()=>page.evaluate(async()=>{
     const db=await new Promise((resolve,reject)=>{const r=indexedDB.open('gravity.handbook.web.v1');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)});
     const out=await new Promise((resolve,reject)=>{const r=db.transaction('projects').objectStore('projects').getAll();r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)});
@@ -29,7 +29,7 @@ test('Handbook Creator backup restores as a separate editable project without re
   expect(imported.filter(x=>x.answer==='Gravity Recovery Test Restaurant')).toHaveLength(2);
   await page.reload();
   await expect(page.locator('#projects option')).toHaveCount(2);
-  await expect(page.locator('#answer-welcome.name')).toHaveValue('Gravity Recovery Test Restaurant');
+  await expect(page.locator('[id="answer-welcome.name"]')).toHaveValue('Gravity Recovery Test Restaurant');
 });
 
 test('Handbook Creator rejects damaged backup without changing existing projects',async({page})=>{
@@ -44,10 +44,10 @@ test('Handbook Creator rejects damaged backup without changing existing projects
 
 test('Inventory Center restores downloaded data and preserves posted records',async({page})=>{
   await page.goto('/apps/inventory-center/index.html');
-  await page.evaluate(()=>{
-    const key='gravityInventoryCenter.v1',record=JSON.parse(localStorage.getItem(key));
-    record.profile.restaurant='Gravity Recovery Inventory';localStorage.setItem(key,JSON.stringify(record));
-  });
+  await page.locator('#profile-dialog').evaluate(el=>el.showModal());
+  await page.locator('#profile-restaurant').fill('Gravity Recovery Inventory');
+  await page.locator('#save-profile').click();
+  await expect.poll(()=>page.evaluate(()=>JSON.parse(localStorage.getItem('gravityInventoryCenter.v1')||'null')?.profile?.restaurant)).toBe('Gravity Recovery Inventory');
   await page.reload();
   const pending=page.waitForEvent('download');
   await page.locator('#backup-json').evaluate(x=>x.click());
@@ -74,7 +74,7 @@ test('Inventory Center rejects malformed backups without modifying existing reco
   const initial=await page.evaluate(()=>localStorage.getItem('gravityInventoryCenter.v1'));
   await page.locator('#restore-json').evaluate(x=>x.click());
   await page.locator('#web-restore-input').setInputFiles({name:'bad.json',mimeType:'application/json',buffer:Buffer.from('{"product":"Gravity Inventory Center","state":{"schemaVersion":999}}')});
-  await expect(page.locator('#app-status')).toContainText('Invalid inventory');
+  await expect(page.locator('#app-status')).toContainText('Unsupported backup product or version');
   expect(await page.evaluate(()=>localStorage.getItem('gravityInventoryCenter.v1'))).toBe(initial);
 });
 
