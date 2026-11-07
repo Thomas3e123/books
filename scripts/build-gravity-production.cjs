@@ -8,7 +8,7 @@ const assetVersions=new Map();
 function assetVersion(rel){
   if(!/^[a-z0-9_./-]+$/i.test(rel)||rel.split('/').includes('..')||!/(?:^|\/)assets\/(?:js|css)\//.test(rel))return null;
   if(assetVersions.has(rel))return assetVersions.get(rel);
-  const file=path.join(source,'assets',rel);
+  const file=path.join(source,rel);
   const version=fs.existsSync(file)&&fs.statSync(file).isFile()
     ?crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0,16):null;
   assetVersions.set(rel,version);
