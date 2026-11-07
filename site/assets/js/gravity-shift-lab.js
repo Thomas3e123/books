@@ -23,7 +23,22 @@ var publishedEmployeeSnapshot=null;
 function uid(prefix){ return (prefix||'e')+'_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,7); }
 function esc(v){ return String(v==null?'':v).replace(/[&<>\"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 function loadJSON(k,fallback){ try{ var v=JSON.parse(localStorage.getItem(k)||'null'); return v==null?fallback:v; }catch(e){ return fallback; } }
-function saveJSON(k,v){ try{localStorage.setItem(k,JSON.stringify(v));if(k===PROFILE_KEY||k===SCHEDULE_KEY)window.dispatchEvent(new Event('gravity:local-data-saved'));return true;}catch(e){console.warn('Shift Lab local storage unavailable',e);return false;} }
+function saveJSON(k,v){
+ try{
+   const serialized=JSON.stringify(v);
+   localStorage.setItem(k,serialized);
+   if(localStorage.getItem(k)!==serialized)throw Error('Shift Lab write verification failed');
+   if(k===PROFILE_KEY||k===SCHEDULE_KEY)window.dispatchEvent(new Event('gravity:local-data-saved'));
+   return true;
+ }catch(e){
+   console.warn('Shift Lab storage write could not be verified',e);
+   if(k===PROFILE_KEY||k===SCHEDULE_KEY){
+     var alert=$('lab-status');
+     if(alert)alert.textContent='Shift Lab changes were not confirmed saved. Keep this page open and preserve any existing backup before making changes.';
+   }
+   return false;
+ }
+}
 function payLockConfigured(){ return !!String(profile&&profile.payLockHash||''); }
 function payIsLocked(){ return payLockConfigured()&&!payUnlocked; }
 function fallbackHash(str){ var h=2166136261;str=String(str||'');for(var i=0;i<str.length;i++){h^=str.charCodeAt(i);h+=(h<<1)+(h<<4)+(h<<7)+(h<<8)+(h<<24);}return 'fallback-'+(h>>>0).toString(16); }
@@ -107,6 +122,32 @@ function migrateData(){
   var s=loadJSON(SCHEDULE_KEY,null);
   if(!s){ s=loadJSON(LEGACY_SCHEDULE_KEY,null); if(s) saveJSON(SCHEDULE_KEY,s); }
   return {profile:p||defaultProfile(),schedules:s||{}};
+}
+// Do not migrate or overwrite a saved schedule when local storage is unreadable.
+function verifyCriticalStorage(){
+  const keys=[PROFILE_KEY,SCHEDULE_KEY,LEGACY_PROFILE_KEY,LEGACY_SCHEDULE_KEY];
+  for(const key of keys){
+    try{
+      const raw=localStorage.getItem(key);
+      if(raw===null)continue;
+      const parsed=JSON.parse(raw);
+      if(!parsed||typeof parsed!=='object'||Array.isArray(parsed))
+        throw Error('Unexpected saved data structure');
+    }catch(error){
+      console.error('Existing Shift Lab records are unreadable; initialization is blocked.',error);
+      return false;
+    }
+  }
+  return true;
+}
+if(!verifyCriticalStorage()){
+  const alert=document.createElement('section');
+  alert.setAttribute('role','alert');
+  alert.style.cssText='margin:20px auto;max-width:1000px;padding:20px;border:2px solid #9f2923;background:#fff4ee;color:#641710;font:17px/1.5 Arial,sans-serif;';
+  alert.textContent='Shift Lab has stopped to protect existing schedule or employee records that could not be read. No saved records were replaced. Do not clear browser data or start a replacement schedule in this browser. Preserve existing backup files and contact Gravity support.';
+  document.body.prepend(alert);
+  const msg=$('lab-status');if(msg)msg.textContent='Shift Lab cannot safely load saved records. Existing data has been preserved.';
+  return;
 }
 var migrated=migrateData();
 var profile=migrated.profile;
