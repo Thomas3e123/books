@@ -1,0 +1,60 @@
+name: Gravity integrated stability checks
+on:
+  push:
+    branches:
+      - audit/integrated-stability-release-2026-11-07
+  pull_request:
+    branches:
+      - feature/gravity-migration-phase1-2026-10-22
+    paths:
+      - 'site/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'source-manifest.json'
+      - '.github/workflows/gravity-integrated-stability.yml'
+permissions:
+  contents: read
+jobs:
+  verify-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout integrated repairs
+        uses: actions/checkout@v4
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: JavaScript syntax
+        run: |
+          node --check scripts/build-gravity-production.cjs
+          node --check site/assets/js/gravity-work-study-v2.js
+          node --check site/assets/js/gravity-shift-lab.js
+          node --check site/apps/inventory-center/assets/js/inventory-center.js
+      - name: Run four storage and cache regression suites
+        run: |
+          node --test \
+            tests/gravity-production-cache.test.cjs \
+            tests/work-study-storage-safety.test.cjs \
+            tests/inventory-export-safety.test.cjs \
+            tests/shift-lab-storage-protection.test.cjs
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Verify manifest and compile site
+        run: npm run build
+      - name: Build final Gravity production files
+        run: node scripts/build-gravity-production.cjs
+      - name: Check versioned assets in final build
+        run: |
+          node - <<'NODE'
+          const fs=require('node:fs'), assert=require('node:assert/strict');
+          const home=fs.readFileSync('build/gravity-production/index.html','utf8');
+          const aware=fs.readFileSync('build/gravity-production/gravity-aware.html','utf8');
+          const inventory=fs.readFileSync('build/gravity-production/apps/inventory-center/index.html','utf8');
+          assert.match(home, /assets\/js\/site\.js\?v=[a-f0-9]{16}/);
+          assert.match(aware, /assets\/js\/gravity-quick-tools\.js\?v=[a-f0-9]{16}/);
+          assert.match(inventory, /assets\/js\/inventory-center\.js\?v=[a-f0-9]{16}/);
+          assert.match(home, /assets\/css\/styles\.css\?v=[a-f0-9]{16}/);
+          console.log('Four final-output asset version checks passed.');
+          NODE
