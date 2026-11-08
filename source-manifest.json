@@ -1,6 +1,174 @@
 {
   "files": [
     {
+      "path": "functions/foundry-hosted/core.mjs",
+      "sha256": "f422050cc04a6d49fadafb5965d3daab56306c802b4f1efccb10c12bfdc2b8d8"
+    },
+    {
+      "path": "functions/foundry-hosted/index.mjs",
+      "sha256": "5e3a2a418c98529b89501efa2dbe1d575a7c943eb0b4ec520e728a6dfdc32f51"
+    },
+    {
+      "path": "functions/gravity-cloud-backup/core.mjs",
+      "sha256": "bc4b3082018703d415fbd89d39065360d1dcd0b12568f5f97e6c3e39c455df57"
+    },
+    {
+      "path": "functions/gravity-cloud-backup/index.mjs",
+      "sha256": "f4e00f9bfc644a7aeba93189cd8939948b064f1f20fb26774d512e13a9b62dfa"
+    },
+    {
+      "path": "functions/gravity-guide/gravity-guide.js",
+      "sha256": "f17f2c839ef794ad9a98f816915ffd9f7710ec9d484a8f959c30ceaa5c65a6fa"
+    },
+    {
+      "path": "functions/gravity-guide/guide-core.mjs",
+      "sha256": "3685c895804f858ce161612f18c08295653ac5bb8f30c90e2963e5f941fa8cdd"
+    },
+    {
+      "path": "functions/gravity-report/articles.json",
+      "sha256": "f41dea13820b9a3afbc2fada4d9df590413dc856c90f983f3bcee2dfdd7213a4"
+    },
+    {
+      "path": "functions/gravity-report/index.mjs",
+      "sha256": "f13ce5bab4de39d975c3fb8ee526c1e47ea85eac248425b148ee84080e07ad72"
+    },
+    {
+      "path": "functions/gravity-report/issues-11-15.json",
+      "sha256": "3657d2280fcbf816615437301b883f0173a1487007f896eddff3c04772a4d200"
+    },
+    {
+      "path": "functions/gravity-report/issues-16-20.json",
+      "sha256": "2a8388dfaa59dfdb6b1e83cc495a659f5abc0486fcd8efe53a7ef47f65878868"
+    },
+    {
+      "path": "functions/gravity-report/issues-21-25.json",
+      "sha256": "1709165f114e95db0d52cfc6298b6666621f0c82a77570f4e1d5e266d3fa86ed"
+    },
+    {
+      "path": "functions/gravity-report/issues-26-30.json",
+      "sha256": "a765119af4deceb383ad4097e17eaa65b73cc7bec25904a11cbd5d827716f8df"
+    },
+    {
+      "path": "functions/gravity-tts/gravity-tts.js",
+      "sha256": "d7f0611754891745c013fadd710cefd433d7695637ecddb38716951e42753759"
+    },
+    {
+      "path": "functions/handbook-creator/index.mjs",
+      "sha256": "955003a902d1fd1b30e814e795dc942a968b7a2213a8650a6046b19f61db9dfc"
+    },
+    {
+      "path": "functions/handbook-square-sandbox/index.mjs",
+      "sha256": "1acea76a9ad9d15d8891dd90135ce93e1cf0b9fa4447d40fb2b021f1a3c0f495"
+    },
+    {
+      "path": "functions/identity.mjs",
+      "sha256": "28b0fd83c554fee253f71843c03d03c32003146169fbbc3aa552f88fc410e429"
+    },
+    {
+      "path": "functions/testing-room/index.mjs",
+      "sha256": "5e6d86d68492e55cad22bdad8bba2c2ac20addf148cfa0a2b4bd16969781c090"
+    },
+    {
+      "path": "functions/work-study-link/index.mjs",
+      "sha256": "c23c2d03054e0ccd1ed6cbe620a0c5bc223e7933787e0a32812c930f159708d3"
+    },
+    {
+      "path": "functions/work-study-process-file/work-study-process-file.js",
+      "sha256": "103f192ed8b1d5523cff8fd43e20a7a7e461548ed9541eb37c9307430ca60b4a"
+    },
+    {
+      "path": "functions/work-study-transcribe/work-study-transcribe.js",
+      "sha256": "1dbe974f8ae85d87832429d0985f6e5620d4a5c022b8f1c7d7e222a92bca2223"
+    },
+    {
+      "path": "handbook/README.md",
+      "sha256": "d91783fb94fa64c682a36b050b41691b942d01134e0a6ca2d52f52e33c483e03"
+    },
+    {
+      "path": "handbook/access.mjs",
+      "sha256": "67db96a232ec881ef023c1cd5850b1a99aea8577f083e689e1293764dc90fdb5"
+    },
+    {
+      "path": "handbook/payments.mjs",
+      "sha256": "e8696a118846456f2b03dfc5ab7c7b1be4d56c4beebbee69a3f3cbbfd5d7a471"
+    },
+    {
+      "path": "handbook/source/app.mjs",
+      "sha256": "6db293eca24ab2a42a30b96c6e68974fb96edc36e2f24a03574382bf9ca42109"
+    },
+    {
+      "path": "handbook/source/core.mjs",
+      "sha256": "ff63eb27f298181fefb78723a2a6992db83bb4be18572bed45d22298198a4fca"
+    },
+    {
+      "path": "handbook/source/coverage.json",
+      "sha256": "f3208fcfd7a4cdf61f545e9cd45364e5b4ae9a477e91ee9fb449ee79aa3ef2b1"
+    },
+    {
+      "path": "handbook/source/export.mjs",
+      "sha256": "e2a5b489d7b710b4cde35d10aa3bcf24f2ba667cc783e698b3c0d73ebbb738ec"
+    },
+    {
+      "path": "handbook/source/finish.mjs",
+      "sha256": "b46477ff97bcd7d14dfdb9e44db0e8fbe8b578707118380ef9f3d3b40a165896"
+    },
+    {
+      "path": "handbook/source/fonts.json",
+      "sha256": "d57f2aa00bbcc57ae2e094b83a91d34fc0bdbe07ea69066f14ff5cf6d55dc418"
+    },
+    {
+      "path": "handbook/source/groups.mjs",
+      "sha256": "de30d5f695d9baf8aba0d8fd418269a8d557d04bf914cf64433798cb1fc7845d"
+    },
+    {
+      "path": "handbook/source/help.mjs",
+      "sha256": "3704377a7b42d61fd8fd909a956e73433f0c71436b18faa6e52a4bef7cc05b34"
+    },
+    {
+      "path": "handbook/source/levels.mjs",
+      "sha256": "84d1d4ca0c6a8cbba89fe9cb5a343c9ff3a866b0229263d03b8147344fe5a59b"
+    },
+    {
+      "path": "handbook/source/styles.mjs",
+      "sha256": "3b8cc26004066bacfeabdc129f1580f1f3a94b0051e0967e1fa12ad5712927ef"
+    },
+    {
+      "path": "handbook/style.css",
+      "sha256": "cc0e1b4f6777a9c8c2e090f6806bf108aec3fa4f3b69092e306dfc61215ac366"
+    },
+    {
+      "path": "netlify.toml",
+      "sha256": "5b185bf8908bea2730783ece162b48e7fc74446cbf52e44cc8e31c2f817f1317"
+    },
+    {
+      "path": "netlify/database/migrations/20261010070000_foundry_hosted_employee.sql",
+      "sha256": "d74a490a1162ce65fdab380a1c0cf5df03c41b864a7f935463252ead5f0f793a"
+    },
+    {
+      "path": "netlify/database/migrations/20261014133000_gravity_testing_room.sql",
+      "sha256": "3e09357ab78ae8a8f604b7adbca320c164e860f893015b2213c4d149b37e9b4a"
+    },
+    {
+      "path": "netlify/database/migrations/20261014134500_gravity_testing_groups.sql",
+      "sha256": "e7a210491092d9c36466e1dcc09d37c539f5c450f04f6946c8cdea2cd25d9864"
+    },
+    {
+      "path": "netlify/database/migrations/20261017183000_work_study_device_link.sql",
+      "sha256": "669c62119f05d2de6706396617192b865d41415b7687adf46b288c8a8777388d"
+    },
+    {
+      "path": "netlify/database/migrations/20261030213000_gravity_customer_encrypted_backups.sql",
+      "sha256": "bf43be408ab095a8634a03bfc2135c4127460d67981370d37b8fcdf65a65522d"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "0decbfce82bdc637061d2d188c67b2a4d30035668e9ff8e61f8d5b20aa52f12e"
+    },
+    {
+      "path": "package.json",
+      "sha256": "0e1beb6e9a0aa45c8bb7c3e92dfc1684b7692f2d6ee8c35cacd78801d00f5ef9"
+    },
+    {
       "path": "site/404.html",
       "sha256": "c13362434fdbef74555ef0660e67de48bf0d5f8efbbcfede3109feaa8c4515fb"
     },
@@ -1465,6 +1633,10 @@
       "sha256": "862083c3dc187136c34438aab2ebd680dc25a799042b88132d796d08ddf10296"
     },
     {
+      "path": "site/assets/js/gravity-support-request.js",
+      "sha256": "3864768c89bb356afe18ddc047b35a5506ee9512bcf190eba004893bb6a5c09c"
+    },
+    {
       "path": "site/assets/js/gravity-work-study-action-expert-v21.js",
       "sha256": "647ad5240d060bd3d66abee9898ac079619833bf3a38499ec06d7a114a94d00e"
     },
@@ -1918,7 +2090,7 @@
     },
     {
       "path": "site/contact.html",
-      "sha256": "0960ba13f20c3919a788707b0a9966af4a61521606ab9820cec660c50c4e9510"
+      "sha256": "a307f0bfd6f9f44202212a1d8c68c13d6aba87d3e66f7caa539d7300d53ab949"
     },
     {
       "path": "site/customer-resources.html",
@@ -2058,7 +2230,7 @@
     },
     {
       "path": "site/help-center.html",
-      "sha256": "ea17dc76e504b921ada1cce41634f0381a17bb2bbcbac3bf6e73fce323c93fbe"
+      "sha256": "d5ed441b3b8bd0d9d3aba59b5173252ce32bfb3569b9cad242e84ee1b17b5f3f"
     },
     {
       "path": "site/hiring-interviewing-employee-retention-tracker.html",
@@ -2098,7 +2270,7 @@
     },
     {
       "path": "site/privacy.html",
-      "sha256": "88fa988913803088370cfa388272b4c8b93f7c1ebc42a948bb1269c71c1525e0"
+      "sha256": "4810522f0934a15f34488126e9589e76fb9c6f1a7ab3ba19c1b4a1c9a88798dd"
     },
     {
       "path": "site/qr-code-generator.html",
@@ -2439,174 +2611,6 @@
     {
       "path": "site/work-study-prebeta-build.txt",
       "sha256": "ec6076e8c54e56d01e3d6ce8b0614cefc1a3419dc1c54aab19f93963317dd8ae"
-    },
-    {
-      "path": "functions/foundry-hosted/core.mjs",
-      "sha256": "f422050cc04a6d49fadafb5965d3daab56306c802b4f1efccb10c12bfdc2b8d8"
-    },
-    {
-      "path": "functions/foundry-hosted/index.mjs",
-      "sha256": "5e3a2a418c98529b89501efa2dbe1d575a7c943eb0b4ec520e728a6dfdc32f51"
-    },
-    {
-      "path": "functions/gravity-cloud-backup/core.mjs",
-      "sha256": "bc4b3082018703d415fbd89d39065360d1dcd0b12568f5f97e6c3e39c455df57"
-    },
-    {
-      "path": "functions/gravity-cloud-backup/index.mjs",
-      "sha256": "f4e00f9bfc644a7aeba93189cd8939948b064f1f20fb26774d512e13a9b62dfa"
-    },
-    {
-      "path": "functions/gravity-guide/gravity-guide.js",
-      "sha256": "f17f2c839ef794ad9a98f816915ffd9f7710ec9d484a8f959c30ceaa5c65a6fa"
-    },
-    {
-      "path": "functions/gravity-guide/guide-core.mjs",
-      "sha256": "3685c895804f858ce161612f18c08295653ac5bb8f30c90e2963e5f941fa8cdd"
-    },
-    {
-      "path": "functions/gravity-report/articles.json",
-      "sha256": "f41dea13820b9a3afbc2fada4d9df590413dc856c90f983f3bcee2dfdd7213a4"
-    },
-    {
-      "path": "functions/gravity-report/index.mjs",
-      "sha256": "f13ce5bab4de39d975c3fb8ee526c1e47ea85eac248425b148ee84080e07ad72"
-    },
-    {
-      "path": "functions/gravity-report/issues-11-15.json",
-      "sha256": "3657d2280fcbf816615437301b883f0173a1487007f896eddff3c04772a4d200"
-    },
-    {
-      "path": "functions/gravity-report/issues-16-20.json",
-      "sha256": "2a8388dfaa59dfdb6b1e83cc495a659f5abc0486fcd8efe53a7ef47f65878868"
-    },
-    {
-      "path": "functions/gravity-report/issues-21-25.json",
-      "sha256": "1709165f114e95db0d52cfc6298b6666621f0c82a77570f4e1d5e266d3fa86ed"
-    },
-    {
-      "path": "functions/gravity-report/issues-26-30.json",
-      "sha256": "a765119af4deceb383ad4097e17eaa65b73cc7bec25904a11cbd5d827716f8df"
-    },
-    {
-      "path": "functions/gravity-tts/gravity-tts.js",
-      "sha256": "d7f0611754891745c013fadd710cefd433d7695637ecddb38716951e42753759"
-    },
-    {
-      "path": "functions/handbook-creator/index.mjs",
-      "sha256": "955003a902d1fd1b30e814e795dc942a968b7a2213a8650a6046b19f61db9dfc"
-    },
-    {
-      "path": "functions/handbook-square-sandbox/index.mjs",
-      "sha256": "1acea76a9ad9d15d8891dd90135ce93e1cf0b9fa4447d40fb2b021f1a3c0f495"
-    },
-    {
-      "path": "functions/identity.mjs",
-      "sha256": "28b0fd83c554fee253f71843c03d03c32003146169fbbc3aa552f88fc410e429"
-    },
-    {
-      "path": "functions/testing-room/index.mjs",
-      "sha256": "5e6d86d68492e55cad22bdad8bba2c2ac20addf148cfa0a2b4bd16969781c090"
-    },
-    {
-      "path": "functions/work-study-link/index.mjs",
-      "sha256": "c23c2d03054e0ccd1ed6cbe620a0c5bc223e7933787e0a32812c930f159708d3"
-    },
-    {
-      "path": "functions/work-study-process-file/work-study-process-file.js",
-      "sha256": "103f192ed8b1d5523cff8fd43e20a7a7e461548ed9541eb37c9307430ca60b4a"
-    },
-    {
-      "path": "functions/work-study-transcribe/work-study-transcribe.js",
-      "sha256": "1dbe974f8ae85d87832429d0985f6e5620d4a5c022b8f1c7d7e222a92bca2223"
-    },
-    {
-      "path": "handbook/README.md",
-      "sha256": "d91783fb94fa64c682a36b050b41691b942d01134e0a6ca2d52f52e33c483e03"
-    },
-    {
-      "path": "handbook/access.mjs",
-      "sha256": "67db96a232ec881ef023c1cd5850b1a99aea8577f083e689e1293764dc90fdb5"
-    },
-    {
-      "path": "handbook/payments.mjs",
-      "sha256": "e8696a118846456f2b03dfc5ab7c7b1be4d56c4beebbee69a3f3cbbfd5d7a471"
-    },
-    {
-      "path": "handbook/source/app.mjs",
-      "sha256": "6db293eca24ab2a42a30b96c6e68974fb96edc36e2f24a03574382bf9ca42109"
-    },
-    {
-      "path": "handbook/source/core.mjs",
-      "sha256": "ff63eb27f298181fefb78723a2a6992db83bb4be18572bed45d22298198a4fca"
-    },
-    {
-      "path": "handbook/source/coverage.json",
-      "sha256": "f3208fcfd7a4cdf61f545e9cd45364e5b4ae9a477e91ee9fb449ee79aa3ef2b1"
-    },
-    {
-      "path": "handbook/source/export.mjs",
-      "sha256": "e2a5b489d7b710b4cde35d10aa3bcf24f2ba667cc783e698b3c0d73ebbb738ec"
-    },
-    {
-      "path": "handbook/source/finish.mjs",
-      "sha256": "b46477ff97bcd7d14dfdb9e44db0e8fbe8b578707118380ef9f3d3b40a165896"
-    },
-    {
-      "path": "handbook/source/fonts.json",
-      "sha256": "d57f2aa00bbcc57ae2e094b83a91d34fc0bdbe07ea69066f14ff5cf6d55dc418"
-    },
-    {
-      "path": "handbook/source/groups.mjs",
-      "sha256": "de30d5f695d9baf8aba0d8fd418269a8d557d04bf914cf64433798cb1fc7845d"
-    },
-    {
-      "path": "handbook/source/help.mjs",
-      "sha256": "3704377a7b42d61fd8fd909a956e73433f0c71436b18faa6e52a4bef7cc05b34"
-    },
-    {
-      "path": "handbook/source/levels.mjs",
-      "sha256": "84d1d4ca0c6a8cbba89fe9cb5a343c9ff3a866b0229263d03b8147344fe5a59b"
-    },
-    {
-      "path": "handbook/source/styles.mjs",
-      "sha256": "3b8cc26004066bacfeabdc129f1580f1f3a94b0051e0967e1fa12ad5712927ef"
-    },
-    {
-      "path": "handbook/style.css",
-      "sha256": "cc0e1b4f6777a9c8c2e090f6806bf108aec3fa4f3b69092e306dfc61215ac366"
-    },
-    {
-      "path": "netlify/database/migrations/20261010070000_foundry_hosted_employee.sql",
-      "sha256": "d74a490a1162ce65fdab380a1c0cf5df03c41b864a7f935463252ead5f0f793a"
-    },
-    {
-      "path": "netlify/database/migrations/20261014133000_gravity_testing_room.sql",
-      "sha256": "3e09357ab78ae8a8f604b7adbca320c164e860f893015b2213c4d149b37e9b4a"
-    },
-    {
-      "path": "netlify/database/migrations/20261014134500_gravity_testing_groups.sql",
-      "sha256": "e7a210491092d9c36466e1dcc09d37c539f5c450f04f6946c8cdea2cd25d9864"
-    },
-    {
-      "path": "netlify/database/migrations/20261017183000_work_study_device_link.sql",
-      "sha256": "669c62119f05d2de6706396617192b865d41415b7687adf46b288c8a8777388d"
-    },
-    {
-      "path": "netlify/database/migrations/20261030213000_gravity_customer_encrypted_backups.sql",
-      "sha256": "bf43be408ab095a8634a03bfc2135c4127460d67981370d37b8fcdf65a65522d"
-    },
-    {
-      "path": "netlify.toml",
-      "sha256": "5b185bf8908bea2730783ece162b48e7fc74446cbf52e44cc8e31c2f817f1317"
-    },
-    {
-      "path": "package.json",
-      "sha256": "0e1beb6e9a0aa45c8bb7c3e92dfc1684b7692f2d6ee8c35cacd78801d00f5ef9"
-    },
-    {
-      "path": "package-lock.json",
-      "sha256": "0decbfce82bdc637061d2d188c67b2a4d30035668e9ff8e61f8d5b20aa52f12e"
     }
   ]
 }
