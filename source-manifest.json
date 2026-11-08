@@ -1926,7 +1926,7 @@
     },
     {
       "path": "site/free-resources.html",
-      "sha256": "bdfd9598bf0fb6cd792f221b48e7333c1351d5c811ddfcbc24ca1dee678d9595"
+      "sha256": "211db2962a3a7b7f60d00800ba3fe21850e6be7e2fa90309ca865612b7903f21"
     },
     {
       "path": "site/gravity-assist.html",
@@ -2118,7 +2118,7 @@
     },
     {
       "path": "site/registration-thanks.html",
-      "sha256": "05755927b0939b8af2037d8619a535693bb81ab51a517904f0c5791135a2e8e2"
+      "sha256": "d450c30356eaf9c766a0991c8bfa8066a78bfa09ca18dcfd783486a400ebb6ce"
     },
     {
       "path": "site/release-validator.mjs",
