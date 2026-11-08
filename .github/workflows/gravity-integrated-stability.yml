@@ -40,6 +40,8 @@ jobs:
             tests/work-study-storage-safety.test.cjs \
             tests/inventory-export-safety.test.cjs \
             tests/shift-lab-storage-protection.test.cjs
+      - name: Verify that preview suppression cannot stop production builds
+        run: node --test tests/netlify-ignore-preview.test.cjs
       - name: Install locked dependencies
         run: npm ci --no-audit --no-fund
       - name: Verify manifest and compile site
