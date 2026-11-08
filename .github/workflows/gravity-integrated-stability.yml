@@ -44,6 +44,8 @@ jobs:
         run: node --test tests/netlify-ignore-preview.test.cjs
       - name: Install locked dependencies
         run: npm ci --no-audit --no-fund
+      - name: Check real Free Resources ZIP, PDF and Word file integrity
+        run: python3 scripts/audit-free-resource-files.py
       - name: Verify manifest and compile site
         run: npm run build
       - name: Verify Founding Year and paid-license export gates
