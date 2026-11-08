@@ -31,7 +31,15 @@
 .gg-starters[hidden]{display:none!important;}
 
 </style>
-<style id="gravity-guide-voice-css">.gg-voice-tools{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.gg-voice-tools select{max-width:82px;border:1px solid var(--gg-border);border-radius:8px;background:#fff;padding:5px 6px;color:var(--gg-text);font-size:12px}.gg-voice-tools small{font-size:10px;color:var(--gg-muted)}@media(max-width:420px){.gg-voice-tools small{display:none}}</style><link href="/assets/css/gravity-refinement.css?v=20261010-repair" rel="stylesheet"/></head>
+<style id="gravity-guide-voice-css">.gg-voice-tools{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.gg-voice-tools select{max-width:82px;border:1px solid var(--gg-border);border-radius:8px;background:#fff;padding:5px 6px;color:var(--gg-text);font-size:12px}.gg-voice-tools small{font-size:10px;color:var(--gg-muted)}@media(max-width:420px){.gg-voice-tools small{display:none}}</style><link href="/assets/css/gravity-refinement.css?v=20261010-repair" rel="stylesheet"/><style id="gravity-support-intake-css">
+#gravity-support-request{margin-top:20px}
+#gravity-support-request .gravity-support-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}
+#gravity-support-request #support-submission-status{min-height:2em;font-weight:700}
+#gravity-support-request [type="submit"]:disabled{opacity:.7;cursor:not-allowed}
+#gravity-support-request textarea{min-height:110px}
+@media(max-width:700px){#gravity-support-request .gravity-support-grid{grid-template-columns:1fr}}
+</style>
+</head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <div class="announcement"><span><strong>FOUNDING YEAR ACCESS:</strong> Completed digital resources at $0 through October 1, 2027. No credit card or subscription.</span><a class="announcement-why" href="/support#why-free">Access details</a></div>
@@ -57,7 +65,7 @@
 <p>If a file will not open, a tool will not save, or an instruction does not work, send the details below. The questions help us investigate the issue using evidence rather than assumptions. Use the <a href="/contact">business contact page</a> for general inquiries.</p>
 <p><strong>Privacy:</strong> Do not enter passwords, employee PINs, payment card details, or private customer/employee records. For an error message, copy only the technical text. This form does not record calls, create a support account, or guarantee a response time.</p>
 </div>
-<form class="form gravity-support-intake" action="/help-center#report-problem" method="POST" name="gravity-support-request" data-netlify="true" netlify-honeypot="bot-field" id="gravity-support-request" aria-describedby="support-form-guidance">
+<form class="form gravity-support-intake" action="/help-center" method="POST" name="gravity-support-request" data-netlify="true" netlify-honeypot="bot-field" id="gravity-support-request" aria-describedby="support-form-guidance">
 <input name="form-name" type="hidden" value="gravity-support-request"/>
 <input name="case_reference" id="support-case-reference" type="hidden" value=""/>
 <input name="submitted_at_utc" id="support-submitted-at" type="hidden" value=""/>
@@ -82,12 +90,12 @@
 <label for="support-expected">What result did you expect? *</label><textarea id="support-expected" name="expected_result" maxlength="1400" required placeholder="Example: The saved schedule should still be there after reopening."></textarea>
 <label for="support-tried">What have you already tried? (optional)</label><textarea id="support-tried" name="already_tried" maxlength="1200" placeholder="Example: Reloaded once; did not clear browser data."></textarea>
 <label for="support-impact">How is this affecting you? (optional)</label><select id="support-impact" name="impact"><option value="">Choose if helpful</option><option value="blocked">Cannot continue the task</option><option value="partial">Can continue with a workaround</option><option value="question">Question or suggestion; not blocked</option></select>
-<div class="hero-actions"><button class="btn btn-primary" type="submit" id="support-submit">Send Support Request</button><a class="btn btn-outline" href="mailto:thomas3e@gmail.com?subject=Gravity%20Technical%20Support%20Question">Use Email Instead</a></div>
+<div class="hero-actions"><button class="btn btn-primary" type="submit" id="support-submit">Send Support Request</button><a class="btn btn-outline" href="mailto:thomas.butler@gravityleadershipsystem.com?subject=Gravity%20Technical%20Support%20Question">Use Email Instead</a></div>
 <p id="support-submission-status" role="status" aria-live="polite" aria-atomic="true"></p>
-<p class="small">A successful website submission will show a reference number on this page. Save that number for follow-up. A reference is not a promise of a response deadline. You will not be signed up for marketing email.</p>
+<p class="small">A successful HTTP response will show a reference on this page. Save it for follow-up. A reference does not confirm staff notification or a response deadline; retries after network timeouts can result in multiple requests. You will not be signed up for marketing email. See the <a href="/privacy">Privacy Policy</a> for how support details are handled.</p>
 <noscript><p class="small"><strong>JavaScript is needed for the on-page submission receipt.</strong> You can use the email option above instead.</p></noscript>
 </form>
-</div></section><section aria-labelledby="help-email-title" class="section alt"><div class="container"><div class="content-card"><div class="eyebrow">Still need help?</div><h2 id="help-email-title">Ask a Gravity system-use question by email.</h2><p>If the Help Center does not answer your question, email Thomas Monroe Books with the system code, tool or file you are using, and what is unclear.</p><a class="btn btn-primary" href="mailto:thomas3e@gmail.com?subject=Gravity%20System%20Help%20Question">Email Thomas Monroe Books</a></div></div></section>
+</div></section><section aria-labelledby="help-email-title" class="section alt"><div class="container"><div class="content-card"><div class="eyebrow">Still need help?</div><h2 id="help-email-title">Ask a Gravity system-use question by email.</h2><p>If the Help Center does not answer your question, email Thomas Monroe Books with the system code, tool or file you are using, and what is unclear.</p><a class="btn btn-primary" href="mailto:thomas.butler@gravityleadershipsystem.com?subject=Gravity%20System%20Help%20Question">Email Thomas Monroe Books</a></div></div></section>
 <section class="section gravity-current-architecture" id="current-architecture"><div class="container"><div class="eyebrow">How Gravity works today</div><h2>Start with one problem. Use the tools that help.</h2><p>Gravity brings leadership books, practical standards, and eight self-service workspaces together. Use one tool on its own, then carry useful context into another workspace when that saves work or improves a decision.</p><p><a href="/gravity-assist">Gravity Assist</a> includes Forms Personalizer, Document Studio, Shift Lab, SOP Foundry, Numbers Lab, Work Study Lab, Inventory Center, and Recipe Works. Quick Tools provide focused utilities, including QR creation.</p><p>Web workspace drafts generally stay in this browser. In <a href="/gravity-sop-foundry">SOP Foundry</a>, managers can publish employee materials to hosted access. Employees open their restaurant link and enter its employee PIN; the manager working copy remains local. This is not full manager cloud synchronization.</p><p><a href="/gravity-aware">Gravity Aware</a> currently helps identify operating priorities. It does not automatically create a weekly schedule. <a href="/gravity-fulfillment-center">Gravity Fulfillment Center</a> is a separate service in development.</p><p>Completed digital resources are available at $0 through October 1, 2027. Register before substantive downloads and Reader access. No credit card or subscription is required.</p></div></section></main>
 <footer class="site-footer">
 <div class="container">
