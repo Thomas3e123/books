@@ -20,7 +20,7 @@ test('book search identifies the exact book rather than unrelated titles in its 
   const titles=await page.locator('[data-page-search-results] .page-search-result strong').allTextContents();
   expect(titles.filter(title=>title.trim()==='Quiet Gravity')).toHaveLength(1);
   expect(titles).not.toContain("The Owner's Chair");
-  await page.locator('[data-page-search-results] .page-search-result',{has:page.locator('strong',{hasText:'Quiet Gravity'})}).click();
+  await page.locator('[data-page-search-results] .page-search-result',{has:page.locator('strong').filter({hasText:/^Quiet Gravity$/})}).click();
   await expect(page.locator('article.book-card.page-search-hit h3')).toHaveText('Quiet Gravity');
 });
 
