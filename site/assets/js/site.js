@@ -416,7 +416,7 @@
         }
       }
       if (continueDownload) {
-        continueDownload.href = '/gravity-fulfillment-center';
+        continueDownload.href = '/free-resources';
         continueDownload.textContent = 'Browse Digital Resources';
         continueDownload.removeAttribute('download');
         var pendingDownload = storageGet(PENDING_DOWNLOAD_KEY);
