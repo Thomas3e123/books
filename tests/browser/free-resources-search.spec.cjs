@@ -38,3 +38,24 @@ test('download-card search finds its actual file section and the search can be c
   await expect(input).toHaveValue('');
   await expect(page.locator('[data-page-search-results]')).toBeHidden();
 });
+
+
+test('resource category shortcuts take visitors straight to the right catalog section',async({page})=>{
+ await page.goto('/free-resources');
+ const nav=page.getByRole('navigation',{name:'Browse by resource type'});
+ await expect(nav.locator('a')).toHaveCount(4);
+ const destinations=[
+  ['15 Operating Systems','#all-operating-systems'],
+  ['Books & Workbooks','#completed-book-downloads'],
+  ['Guides & Downloads','#complete-book-list'],
+  ['Improvement Plans','#free-improvement-plans']
+ ];
+ for(const [label,href] of destinations){
+  const link=nav.getByRole('link',{name:label});
+  await expect(link).toHaveAttribute('href',href);
+  expect(await page.evaluate(id=>!!document.getElementById(id),href.slice(1))).toBe(true);
+ }
+ await nav.getByRole('link',{name:'Books & Workbooks'}).click();
+ await expect(page).toHaveURL(/#completed-book-downloads$/);
+ await expect(page.locator('#completed-book-downloads')).toBeVisible();
+});
