@@ -29,6 +29,7 @@ jobs:
       - name: JavaScript syntax
         run: |
           node --check scripts/build-gravity-production.cjs
+          node --check scripts/build-handbook.mjs
           node --check site/assets/js/gravity-work-study-v2.js
           node --check site/assets/js/gravity-shift-lab.js
           node --check site/apps/inventory-center/assets/js/inventory-center.js
@@ -43,6 +44,8 @@ jobs:
         run: npm ci --no-audit --no-fund
       - name: Verify manifest and compile site
         run: npm run build
+      - name: Verify Founding Year and paid-license export gates
+        run: node scripts/test-handbook-public.mjs
       - name: Build final Gravity production files
         run: node scripts/build-gravity-production.cjs
       - name: Check versioned assets in final build
