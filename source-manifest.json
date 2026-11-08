@@ -1710,7 +1710,7 @@
     },
     {
       "path": "site/assets/js/handbook-access.js",
-      "sha256": "8441f4d391cb70b2bbe2e45c873858a7a29c25da358b91f1a97cee43a7a00ee1"
+      "sha256": "f6ed634c7326740aa54c88549f7ea6b9b7ff1076136ba9ad183d36cd3488d9ce"
     },
     {
       "path": "site/assets/js/page-search.js",
@@ -1970,7 +1970,7 @@
     },
     {
       "path": "site/gravity-handbook-creator.html",
-      "sha256": "6d6d0e3e22dcbb3f79f6bfe3c4d8f3ed384e25e257cce3240bf8810ab3039dc3"
+      "sha256": "5e7846950be45847e81ad7f008d855cba92e25db2b96fca3feada715bcc2a026"
     },
     {
       "path": "site/gravity-inventory-center.html",
@@ -2054,7 +2054,7 @@
     },
     {
       "path": "site/handbook-creator/index.html",
-      "sha256": "9223a9badb898e87726e69631f6e782bc33011746bb2ffad5257b41860b6f39e"
+      "sha256": "57abbbe15be3d9a910631b95fd70c52155ed091fe8e3342091623efdf6e3abad"
     },
     {
       "path": "site/help-center.html",
