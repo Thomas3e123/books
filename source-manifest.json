@@ -1714,7 +1714,7 @@
     },
     {
       "path": "site/assets/js/page-search.js",
-      "sha256": "f8ba4a270d853c7d8ff85e1ea6cf46bb6d05f8af494bd0ee149390c6a874e58f"
+      "sha256": "359488222fb88e65ea8615da7ab22658be2baf995632209466d5261b0b1fa8a4"
     },
     {
       "path": "site/assets/js/registration-identity.js",
@@ -1926,7 +1926,7 @@
     },
     {
       "path": "site/free-resources.html",
-      "sha256": "a1567f07b4a7d76d9e0e139a1be32dd79d930f40ec76704028da07f09f616509"
+      "sha256": "bdfd9598bf0fb6cd792f221b48e7333c1351d5c811ddfcbc24ca1dee678d9595"
     },
     {
       "path": "site/gravity-assist.html",

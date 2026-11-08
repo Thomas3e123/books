@@ -46,7 +46,7 @@
     });
 
     main.querySelectorAll('h2,h3').forEach(function (heading) {
-      if (heading.closest('article,details,[data-page-search]')) return;
+      if (heading.closest('article,details,[data-page-search],[data-page-search-item]')) return;
       var context = heading.closest('section') || heading.parentElement || heading;
       var title = titleFor(heading);
       var text = textFor(context);
