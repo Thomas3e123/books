@@ -427,6 +427,14 @@
               continueDownload.href = pendingUrl.href;
               continueDownload.setAttribute('download', '');
               continueDownload.textContent = 'Continue to My Download';
+              // This handoff is single-use. Later visits should show the
+              // resource library rather than the file from a previous visit.
+              continueDownload.addEventListener('click', function () {
+                try { window.localStorage.removeItem(PENDING_DOWNLOAD_KEY); } catch (_) {}
+              }, { once: true });
+            } else {
+              // Ignore untrusted or obsolete stored destinations.
+              try { window.localStorage.removeItem(PENDING_DOWNLOAD_KEY); } catch (_) {}
             }
           } catch (_) {}
         }
@@ -477,6 +485,9 @@
     var a = ev.target && ev.target.closest ? ev.target.closest('a') : null;
     if (!isGravityDownloadLink(a)) return;
     if (storageGet(REG_ACCESS_KEY) === 'registered') {
+      // A fresh successful download supersedes any older pending registration
+      // handoff saved in this browser.
+      try { window.localStorage.removeItem(PENDING_DOWNLOAD_KEY); } catch (_) {}
       send('registered_download_start', { link_text_clean: cleanText(a.textContent) });
       return;
     }
