@@ -1722,7 +1722,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "1a328b552738ecab0f617af0bedbfaf465431ede670cd6f5273eedab3c1b3176"
+      "sha256": "98b06e731cb02ad3abc7135e22a672e5bc14fb4b527ca6f6b927ce1e072352b3"
     },
     {
       "path": "site/assets/js/testing-room.js",
@@ -2118,7 +2118,7 @@
     },
     {
       "path": "site/registration-thanks.html",
-      "sha256": "9c3373ef084a41d41ff0025c64705d48f92cba646e57ddd4d0501ccf7b064a42"
+      "sha256": "05755927b0939b8af2037d8619a535693bb81ab51a517904f0c5791135a2e8e2"
     },
     {
       "path": "site/release-validator.mjs",
