@@ -7,6 +7,7 @@
   var refInput = document.getElementById('support-case-reference');
   var timestampInput = document.getElementById('support-submitted-at');
   var busy = false;
+  var accepted = false;
   var LAST_REF = 'gravity_support_last_accepted_reference_v1';
 
   // A client-created tracking reference permits deduplication and follow-up.
@@ -31,7 +32,7 @@
 
   form.addEventListener('submit', async function (event) {
     event.preventDefault();
-    if (busy || !form.reportValidity()) return;
+    if (busy || accepted || !form.reportValidity()) return;
     busy = true;
     button.disabled = true;
     var previousLabel = button.textContent;
@@ -64,8 +65,9 @@
       form.reset();
       // A successful response means the website accepted the POST; it does not
       // independently verify staff routing, a notification or an SLA.
-      status.textContent = 'Your support request was accepted by the website. Reference: ' +
-        acceptedReference + '. Save this reference for follow-up. This is not an assigned Control Room case or a guaranteed response time.';
+      accepted = true;
+      status.textContent = 'The website returned a successful submission response. Your reference is ' +
+        acceptedReference + '. Save it for follow-up. This is not a Control Room case number, proof of delivery to a support person, or a guaranteed response time. To report a separate problem, reopen this page.';
       try { window.sessionStorage.setItem(LAST_REF, acceptedReference); } catch (_) {}
       if (typeof window.gravityAnalyticsEvent === 'function') {
         window.gravityAnalyticsEvent('gravity_support_request_accepted', { source: 'help_center' });
@@ -75,8 +77,8 @@
       status.textContent = 'Your support request could not be confirmed. Your answers are still here. Check your connection and try again, or select Use Email Instead. Do not assume it was received.';
     } finally {
       busy = false;
-      button.disabled = false;
-      button.textContent = previousLabel;
+      button.disabled = accepted;
+      button.textContent = accepted ? 'Request Submitted' : previousLabel;
     }
   });
 })();
