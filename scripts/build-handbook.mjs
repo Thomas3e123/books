@@ -11,7 +11,29 @@ source=source.replace("await queue;download(createPDF(project).doc.output('blob'
 source=source.replace("button('Print-ready PDF',()=>{download(createPDF(project).doc.output('blob'),filename('pdf'));notice('Open the downloaded PDF and choose Print. Use Actual size for US Letter paper.');},'light')","button('Print-ready PDF',async()=>{await protectedDownload('pdf');},'light')");
 source=source.replace('const {pages}=createPDF(project);',"const loading=el('p','Preparing your preview…','notice');root.append(loading);const previewId=project.projectId;const r=await requestHandbook('preview',{project});if(!r||!['preview','previewOnly'].includes(mode)||previewId!==project.projectId)return;const {pages}=await r.json();loading.remove();");
 source += `
-fetch('/.netlify/functions/handbook-creator?action=status',{cache:'no-store'}).then(r=>r.json()).then(s=>{if(!s.free){const banner=document.querySelector('.founding-banner');if(banner){banner.replaceChildren();const link=document.createElement('a');link.href='/gravity-handbook-creator';link.textContent='Handbook Creator — $29 for unlimited handbooks. Open access and downloads.';banner.append(link);}}}).catch(()=>{});
+fetch('/.netlify/functions/handbook-creator?action=status',{cache:'no-store'})
+.then(r=>{if(!r.ok)throw Error('Access service unavailable');return r.json();})
+.then(s=>{
+ if(typeof s.free!=='boolean')throw Error('Invalid access response');
+ const banner=document.querySelector('.founding-banner'),badge=document.getElementById('creator-access-status');
+ if(banner){
+  banner.replaceChildren();
+  const link=document.createElement('a');link.href='/gravity-handbook-creator';
+  link.textContent=s.free?'Handbook Creator · Free during the Founding Year — through October 1, 2027. No card required.':'Handbook Creator · $29 for unlimited handbooks. Open access and downloads.';
+  banner.append(link);
+ }
+ if(badge)badge.textContent=s.free?'FREE · FOUNDING YEAR':'$29 · UNLIMITED';
+})
+.catch(()=>{
+ const banner=document.querySelector('.founding-banner'),badge=document.getElementById('creator-access-status');
+ if(banner){
+  banner.replaceChildren();
+  const link=document.createElement('a');link.href='/gravity-handbook-creator';
+  link.textContent='Current access offer unavailable — check details before downloading.';
+  banner.append(link);
+ }
+ if(badge)badge.textContent='CHECK ACCESS';
+});
 `;
 if(source.includes('createPDF')||source.includes('createWord'))throw Error('Unprotected document generation remains.');
 mkdirSync('site/handbook-creator',{recursive:true});
