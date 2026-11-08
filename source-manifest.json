@@ -2598,7 +2598,7 @@
     },
     {
       "path": "netlify.toml",
-      "sha256": "88794798c3c61fb49e3c49fce92959f48927870c803588ddd7201906b0e55fb7"
+      "sha256": "5b185bf8908bea2730783ece162b48e7fc74446cbf52e44cc8e31c2f817f1317"
     },
     {
       "path": "package.json",
