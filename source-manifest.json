@@ -1962,7 +1962,7 @@
     },
     {
       "path": "site/gravity-guide-registry-v2.json",
-      "sha256": "09d4f29e3283a4081b3cfe9deb075beb224bce2d5ee16d4b61647f67a44c5553"
+      "sha256": "065934d6837415d9325b5959912ef5d44dec4ddad7ccb395f58d644cbdeee1b3"
     },
     {
       "path": "site/gravity-guide.css",
@@ -1970,7 +1970,7 @@
     },
     {
       "path": "site/gravity-guide.js",
-      "sha256": "37ae38e768410f90066ce492f97655c7c7a8d6f67aba96cc36c744ad6f0edb1c"
+      "sha256": "dff0cb425674905d185da08641c20ed3d37cdff5e4ae10fd2b3bd11615f31da6"
     },
     {
       "path": "site/gravity-handbook-creator.html",
