@@ -1,0 +1,19 @@
+name: Gravity read-only live service health
+on:
+  push:
+    branches:
+      - audit/live-service-health-2026-11-09
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check-production-health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check production services with GET-only requests
+        run: node scripts/audit-gravity-live-services-2026-11-09.mjs
