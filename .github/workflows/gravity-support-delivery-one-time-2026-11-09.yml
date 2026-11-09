@@ -1,0 +1,20 @@
+name: Gravity support delivery QA - single controlled synthetic submission
+on:
+  push:
+    branches:
+      - audit/support-delivery-check-2026-11-09
+    paths:
+      - .github/workflows/gravity-support-delivery-one-time-2026-11-09.yml
+permissions:
+  contents: read
+jobs:
+  verify-support-intake:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Submit exactly one labeled synthetic support request
+        run: node scripts/qa-gravity-support-delivery-one-time-2026-11-09.mjs
