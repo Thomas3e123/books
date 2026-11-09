@@ -31,7 +31,7 @@ for(const item of routes){
    try{meta=summarize(item.expect,await response.json())}catch(err){parseError='Response was not valid JSON';}
   } else {
    const text=await response.text();
-   meta={bytes:text.length,hasSupportForm:item.path==='/help-center'?text.includes('name="gravity-support-request"'):undefined,
+   meta={bytes:text.length,hasSupportForm:item.path==='/help-center'?text.includes('id="gravity-support-request"')&&text.includes('id="support-submit"'):undefined,
      hasGuidePrimaryPaths:item.path.endsWith('gravity-guide-registry.js')?text.includes('url":"/gravity-assist"'):undefined};
   }
   let ok=response.status===200&&!parseError;
