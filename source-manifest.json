@@ -1718,7 +1718,7 @@
     },
     {
       "path": "site/assets/js/page-search.js",
-      "sha256": "359488222fb88e65ea8615da7ab22658be2baf995632209466d5261b0b1fa8a4"
+      "sha256": "91a04f5bd21b49593cfa8be1f0e5f5a7867af131f9143d6df30fab856171ae40"
     },
     {
       "path": "site/assets/js/registration-identity.js",
@@ -2062,7 +2062,7 @@
     },
     {
       "path": "site/help-center.html",
-      "sha256": "d5ed441b3b8bd0d9d3aba59b5173252ce32bfb3569b9cad242e84ee1b17b5f3f"
+      "sha256": "e5be3b3bc5808435de6a7e6160975a65b3d3d73d4ad21d0b64b4d6ca047a8056"
     },
     {
       "path": "site/hiring-interviewing-employee-retention-tracker.html",
