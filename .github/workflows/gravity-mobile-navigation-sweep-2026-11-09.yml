@@ -6,6 +6,7 @@ on:
       - audit/live-registration-journey-2026-11-09
     paths:
       - .github/workflows/gravity-mobile-navigation-sweep-2026-11-09.yml
+      - scripts/audit-gravity-mobile-navigation-sweep-2026-11-09.mjs
 permissions:
   contents: read
 jobs:
