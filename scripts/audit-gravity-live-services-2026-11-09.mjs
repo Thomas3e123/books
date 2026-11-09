@@ -32,7 +32,7 @@ for(const item of routes){
   } else {
    const text=await response.text();
    meta={bytes:text.length,hasSupportForm:item.path==='/help-center'?text.includes('id="gravity-support-request"')&&text.includes('id="support-submit"'):undefined,
-     supportMarkupSignals:item.path==='/help-center'?{formId:text.indexOf('gravity-support-request'),submitId:text.indexOf('support-submit'),supportSection:text.indexOf('Report a Gravity problem'),htmlFragment:text.slice(Math.max(0,text.indexOf('gravity-support-request')-55),text.indexOf('gravity-support-request')+170)}:undefined,
+     supportMarkupSignals:item.path==='/help-center'?{formId:text.indexOf('gravity-support-request'),submitId:text.indexOf('support-submit'),supportSection:text.indexOf('Report a Gravity problem'),htmlFragment:text.slice(Math.max(0,text.indexOf('Report a Gravity problem')+230),text.indexOf('Report a Gravity problem')+1250)}:undefined,
      hasGuidePrimaryPaths:item.path.endsWith('gravity-guide-registry.js')?text.includes('url":"/gravity-assist"'):undefined};
   }
   let ok=response.status===200&&!parseError;
