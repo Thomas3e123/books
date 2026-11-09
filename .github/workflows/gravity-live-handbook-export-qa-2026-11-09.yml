@@ -1,0 +1,20 @@
+name: Gravity live handbook export QA (synthetic; no deploy or purchase)
+on:
+  push:
+    branches:
+      - audit/live-handbook-export-2026-11-09
+    paths:
+      - .github/workflows/gravity-live-handbook-export-qa-2026-11-09.yml
+permissions:
+  contents: read
+jobs:
+  verify-live-exports:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify real Gravity PDF/Word downloads with synthetic data
+        run: node scripts/audit-gravity-live-handbook-export-2026-11-09.mjs
