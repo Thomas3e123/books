@@ -24,3 +24,13 @@ test('AI prompt search loads the current 350-prompt JSON, not obsolete indices',
   await expect.poll(()=>hits.length).toBeGreaterThan(0);
   expect(hits.every(url=>url.includes('restaurant-ai-prompts-350.json'))).toBe(true);
 });
+
+test('Standalone Gravity Guide no longer reports the obsolete 250-prompt edition',async({page})=>{
+  const response=await page.request.get('/gravity-guide.js');
+  expect(response.ok()).toBe(true);
+  const js=await response.text();
+  expect(js).toContain('350 prompts');
+  expect(js).toContain('Search 350 Prompts');
+  expect(js).not.toContain('250 prompts');
+  expect(js).not.toContain('Search 250 Prompts');
+});
