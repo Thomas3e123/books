@@ -22,11 +22,12 @@ async function worker(){
   const url=base+'/'+encodeURI(file.slice('site/'.length));
   let row={path:file.slice('site/'.length),localBytes:fs.statSync(file).size};
   try{
-   const r=await fetch(url,{method:'HEAD',redirect:'manual',signal:AbortSignal.timeout(14000)});
+   const r=await fetch(url,{method:'HEAD',redirect:'follow',signal:AbortSignal.timeout(14000)});
    row.status=r.status;row.bytes=Number(r.headers.get('content-length')||0);row.contentType=r.headers.get('content-type')||'';
-   row.ok=r.status===200&&(!row.bytes||row.bytes===row.localBytes)&&!row.contentType.startsWith('text/html')||r.status===200&&file.endsWith('.html');
+   row.ok=r.status===200&&(file.endsWith('.html')?row.contentType.startsWith('text/html'):(!row.bytes||row.bytes===row.localBytes)&&!row.contentType.startsWith('text/html'));
+   row.redirected=r.redirected;
    // Be strict on known binary file sizes, but allow omitted Content-Length.
-   if(r.status===200&&row.bytes&&row.bytes!==row.localBytes)row.ok=false;
+   if(r.status===200&&row.bytes&&row.bytes!==row.localBytes&&!file.endsWith('.html'))row.ok=false;
   }catch(e){row.ok=false;row.error=String(e?.name||e).slice(0,100)}
   output.push(row);
  }
@@ -35,6 +36,17 @@ await Promise.all(Array.from({length:8},worker));
 const extCount={};
 for(const x of output){const ext=path.extname(x.path).slice(1);extCount[ext]=(extCount[ext]||0)+1}
 const failures=output.filter(x=>!x.ok);
+const mismatches=[];
+for(const x of failures.filter(v=>v.status===200&&!v.path.endsWith('.html'))){
+ try{
+  const {createHash}=await import('node:crypto');
+  const live=Buffer.from(await(await fetch(base+'/'+encodeURI(x.path),{signal:AbortSignal.timeout(20000)})).arrayBuffer());
+  const local=fs.readFileSync('site/'+x.path);
+  const hash=b=>createHash('sha256').update(b).digest('hex');
+  mismatches.push({path:x.path,localBytes:local.length,liveBytes:live.length,localSha256:hash(local),liveSha256:hash(live),same:hash(local)===hash(live)});
+ }catch(e){mismatches.push({path:x.path,error:String(e?.message||e).slice(0,140)})}
+}
+
 const sample=output.filter(x=>/\.(pdf|docx|zip|xlsx)$/i.test(x.path)).sort((a,b)=>b.localBytes-a.localBytes);
 const chosen=new Map();
 for(const x of sample){const ext=path.extname(x.path);if(!chosen.has(ext))chosen.set(ext,x)}
@@ -50,5 +62,5 @@ for(const [ext,x] of chosen){
  }catch(e){sampled.push({path:x.path,ok:false,error:String(e?.name||e)})}
 }
 const passed=output.filter(x=>x.ok).length;
-console.log('GRAVITY_PUBLIC_DOWNLOAD_ASSET_AUDIT '+JSON.stringify({runAt:new Date().toISOString(),base,checked:output.length,passed,failed:failures.length,extensions:extCount,failures:failures.slice(0,100),binarySamples:sampled}));
+console.log('GRAVITY_PUBLIC_DOWNLOAD_ASSET_AUDIT '+JSON.stringify({runAt:new Date().toISOString(),base,checked:output.length,passed,failed:failures.length,extensions:extCount,failures:failures.slice(0,100),mismatches,binarySamples:sampled}));
 if(failures.length||sampled.some(x=>!x.ok))process.exitCode=1;
