@@ -50,7 +50,7 @@ try{
    put({mode,route:group.route,test:'no matches state',ok:none==='No matches on this page'&&btnCount===0,status:none});
    const clear=root.locator('[data-page-search-clear]');
    await clear.click();
-   put({mode,route:group.route,test:'clear resets search',ok:(await input.inputValue())===''&&(await panel.isHidden())&&await input.isFocused()});
+   put({mode,route:group.route,test:'clear resets search',ok:(await input.inputValue())===''&&(await panel.isHidden())&&await input.evaluate(el=>document.activeElement===el)});
    await input.fill(group.terms[0]);
    await input.press('Escape');
    put({mode,route:group.route,test:'Escape clears search',ok:(await input.inputValue())===''&&await panel.isHidden()});
