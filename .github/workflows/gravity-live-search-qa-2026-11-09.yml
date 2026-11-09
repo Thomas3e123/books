@@ -1,0 +1,26 @@
+name: Gravity live search and resource accuracy QA (read only)
+on:
+  push:
+    branches:
+      - audit/live-registration-journey-2026-11-09
+    paths:
+      - .github/workflows/gravity-live-search-qa-2026-11-09.yml
+      - scripts/audit-gravity-live-search-accuracy-2026-11-09.mjs
+permissions:
+  contents: read
+jobs:
+  audit-search:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Prepare Chromium for isolated search QA
+        run: |
+          npm ci --no-audit --no-fund
+          npm install --no-save --package-lock=false playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Check public Gravity search relevance and usability on desktop/Pixel 7
+        run: node scripts/audit-gravity-live-search-accuracy-2026-11-09.mjs
