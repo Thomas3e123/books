@@ -8,6 +8,11 @@
   function titleFor(el) {
     if (!el) return 'Page section';
     if (el.matches('h1,h2,h3,h4')) return normalize(el.textContent) || 'Page section';
+    // FAQ questions are in <summary>, not headings. Never label them all "Page section".
+    if (el.matches('details')) {
+      var summary = el.querySelector(':scope > summary') || el.querySelector('summary');
+      if (summary) return normalize(summary.textContent) || 'Page section';
+    }
     var heading = el.querySelector && el.querySelector('h2,h3,h4,strong');
     if (heading) return normalize(heading.textContent) || 'Page section';
     var label = el.getAttribute && (el.getAttribute('aria-label') || el.getAttribute('data-search-title'));
@@ -85,7 +90,21 @@
       var matches = index.filter(function (entry) {
         var hay = (entry.title + ' ' + entry.text).toLowerCase();
         return words.every(function (word) { return hay.indexOf(word) !== -1; });
-      }).slice(0, 18);
+      });
+      // Put exact and relevant headings before broad cards that merely mention
+      // the query in a long description. Stable order preserves useful ties.
+      function relevance(entry) {
+        var title = entry.title.toLowerCase();
+        var body = entry.text.toLowerCase();
+        var score = title === q ? 250 : (title.indexOf(q) !== -1 ? 120 : 0);
+        if (body.indexOf(q) !== -1) score += 35;
+        words.forEach(function (word) {
+          if (title.indexOf(word) !== -1) score += 40;
+        });
+        return score;
+      }
+      matches.sort(function (a, b) { return relevance(b) - relevance(a); });
+      matches = matches.slice(0, 18);
 
       results.replaceChildren();
       root.classList.add('has-results');
