@@ -35,15 +35,17 @@ async function worker(){
 await Promise.all(Array.from({length:8},worker));
 const extCount={};
 for(const x of output){const ext=path.extname(x.path).slice(1);extCount[ext]=(extCount[ext]||0)+1}
-const failures=output.filter(x=>!x.ok);
+const initialMismatches=output.filter(x=>!x.ok);
 const mismatches=[];
-for(const x of failures.filter(v=>v.status===200&&!v.path.endsWith('.html'))){
+for(const x of initialMismatches.filter(v=>v.status===200&&!v.path.endsWith('.html'))){
  try{
   const {createHash}=await import('node:crypto');
   const live=Buffer.from(await(await fetch(base+'/'+encodeURI(x.path),{signal:AbortSignal.timeout(20000)})).arrayBuffer());
   const local=fs.readFileSync('site/'+x.path);
   const hash=b=>createHash('sha256').update(b).digest('hex');
-  mismatches.push({path:x.path,localBytes:local.length,liveBytes:live.length,localSha256:hash(local),liveSha256:hash(live),same:hash(local)===hash(live)});
+  const same=hash(local)===hash(live);
+  if(same)x.ok=true; // HEAD response may advertise compressed Content-Length; full GET digest is authoritative.
+  mismatches.push({path:x.path,headBytes:x.bytes,localBytes:local.length,liveBytes:live.length,localSha256:hash(local),liveSha256:hash(live),same});
  }catch(e){mismatches.push({path:x.path,error:String(e?.message||e).slice(0,140)})}
 }
 
@@ -61,6 +63,7 @@ for(const [ext,x] of chosen){
   sampled.push({path:x.path,status:r.status,firstBytes:magic,returnedBytes:b.length,ok});
  }catch(e){sampled.push({path:x.path,ok:false,error:String(e?.name||e)})}
 }
+const failures=output.filter(x=>!x.ok);
 const passed=output.filter(x=>x.ok).length;
 console.log('GRAVITY_PUBLIC_DOWNLOAD_ASSET_AUDIT '+JSON.stringify({runAt:new Date().toISOString(),base,checked:output.length,passed,failed:failures.length,extensions:extCount,failures:failures.slice(0,100),mismatches,binarySamples:sampled}));
 if(failures.length||sampled.some(x=>!x.ok))process.exitCode=1;
