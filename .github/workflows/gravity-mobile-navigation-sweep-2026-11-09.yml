@@ -1,0 +1,25 @@
+name: Gravity visitor mobile/navigation and search sweep (read only)
+on:
+  push:
+    branches:
+      - audit/live-registration-journey-2026-11-09
+    paths:
+      - .github/workflows/gravity-mobile-navigation-sweep-2026-11-09.yml
+permissions:
+  contents: read
+jobs:
+  live-sweep:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Prepare isolated Chromium browser
+        run: |
+          npm ci --no-audit --no-fund
+          npm install --no-save --package-lock=false playwright@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Sweep primary pages in desktop and Pixel 7 emulation
+        run: node scripts/audit-gravity-mobile-navigation-sweep-2026-11-09.mjs
