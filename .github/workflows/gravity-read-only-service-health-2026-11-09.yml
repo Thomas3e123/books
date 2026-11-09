@@ -17,3 +17,5 @@ jobs:
           node-version: '22'
       - name: Check production services with GET-only requests
         run: node scripts/audit-gravity-live-services-2026-11-09.mjs
+      - name: Verify isolated cloud backup authorization, conflicts and recovery history
+        run: node scripts/test-gravity-cloud-backup.mjs
