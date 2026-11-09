@@ -1,4 +1,5 @@
 name: Gravity static download availability (read-only QA)
+# Re-run with Netlify pretty-URL normalization and PDF digest evidence
 on:
   push:
     branches:
