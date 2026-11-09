@@ -15,7 +15,7 @@ test('Guide registry routes all published Gravity resources to valid same-site d
   const standalone=await standaloneResponse.json();
   expect(standalone.resources).toHaveLength(214);
   for(const item of standalone.resources){
-    expect(item.url,'Standalone registry must use same-origin Gravity paths: '+item.id).toMatch(/^\\/(?!\\/)/);
+    expect(item.url,'Standalone registry must use same-origin Gravity paths: '+item.id).toMatch(/^\/(?!\/)/);
     expect(item.url).not.toContain('thomasmonroebooks.com');
   }
   for(const item of registry.resources){
