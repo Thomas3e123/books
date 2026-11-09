@@ -1422,11 +1422,11 @@
     },
     {
       "path": "site/assets/js/gravity-guide-ai.js",
-      "sha256": "cc1d199229128aff20b7ea9fb031e7b25a7823ece30206310d187496cf74c138"
+      "sha256": "bcbb66f8561cbae35cdb592a7660ea68e6d739422ec83ba6a0b744822227f651"
     },
     {
       "path": "site/assets/js/gravity-guide-registry.js",
-      "sha256": "443d35aaaa8c4a449f5f52a210eb25597c6459aeb6e8838fff96c9c247db1d63"
+      "sha256": "1da06f28750f0afdf56cf510fecd2208ca2dc32d34aea33b4697cb0cd53a908f"
     },
     {
       "path": "site/assets/js/gravity-identity-client.js",
@@ -1914,7 +1914,7 @@
     },
     {
       "path": "site/book-reader.html",
-      "sha256": "53a781df3f6ca70a56057c0c2a6a39782cac98f069760be3530d11889b6d1e85"
+      "sha256": "ff85c180b1b0d1c8400c02bf2e8a68e87e943f7a907042354255e1fe2a5125ba"
     },
     {
       "path": "site/books.html",
@@ -1962,7 +1962,7 @@
     },
     {
       "path": "site/gravity-guide-registry-v2.json",
-      "sha256": "09d4f29e3283a4081b3cfe9deb075beb224bce2d5ee16d4b61647f67a44c5553"
+      "sha256": "065934d6837415d9325b5959912ef5d44dec4ddad7ccb395f58d644cbdeee1b3"
     },
     {
       "path": "site/gravity-guide.css",
@@ -1970,7 +1970,7 @@
     },
     {
       "path": "site/gravity-guide.js",
-      "sha256": "37ae38e768410f90066ce492f97655c7c7a8d6f67aba96cc36c744ad6f0edb1c"
+      "sha256": "dff0cb425674905d185da08641c20ed3d37cdff5e4ae10fd2b3bd11615f31da6"
     },
     {
       "path": "site/gravity-handbook-creator.html",
@@ -2134,7 +2134,7 @@
     },
     {
       "path": "site/restaurant-ai-prompt-search.html",
-      "sha256": "11f57df2dc15467a04a79d4a21bc87c6c66367ed1020b6f517e8bb153a355145"
+      "sha256": "c81f9e41a7eb5a2354327fa0b0bbc44e29a9b3243f69b3e99ceef0d7de7061c9"
     },
     {
       "path": "site/restaurant-bar-beverage-inventory-ordering.html",
