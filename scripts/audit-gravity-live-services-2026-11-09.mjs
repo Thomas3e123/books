@@ -15,7 +15,9 @@ const routes=[
   {name:'Handbook Creator server offer',path:'/.netlify/functions/handbook-creator?action=status',expect:'handbook-status'},
   {name:'Unauthenticated cloud backup status is denied',path:'/gravity-cloud-backup/status',expect:'protected-cloud'},
   {name:'Unauthenticated cloud backup content is denied',path:'/gravity-cloud-backup/shift',expect:'protected-cloud'},
-  {name:'Handbook export requires POST',path:'/.netlify/functions/handbook-creator?action=export',expect:'protected-handbook'}
+  {name:'Handbook export requires POST',path:'/.netlify/functions/handbook-creator?action=export',expect:'protected-handbook'},
+  {name:'Cloud account page availability',path:'/gravity-cloud-vault',expect:'cloud-page'},
+  {name:'Customer identity settings availability',path:'/.netlify/identity/settings',expect:'identity-settings'}
 ];
 const report=[];
 function summarize(name,body){
@@ -24,6 +26,7 @@ function summarize(name,body){
  if(name==='guide'||name==='tts')return {ok:body?.ok,configured:body?.configured,function:body?.function};
  if(name==='report')return {articleCount:Array.isArray(body?.articles)?body.articles.length:null};
  if(name==='catalog')return {bookCount:Array.isArray(body?.books)?body.books.length:null};
+ if(name==='identity-settings')return {identitySettingsReturned:body&&typeof body==='object'&&!Array.isArray(body),registrationSettingPresent:body&&typeof body==='object'&&('external' in body||'disable_signup' in body||'autoconfirm' in body||'id' in body)};
  if(name==='handbook-status')return {free:body?.free,freeThrough:body?.freeThrough,price:body?.price,currency:body?.currency,paymentReady:body?.paymentReady};
  if(name==='protected-cloud'||name==='protected-handbook')return {accessDenied:typeof body?.error==='string',errorType:typeof body?.error};
  return {};
@@ -33,11 +36,12 @@ for(const item of routes){
  try{
   const response=await fetch(url,{method:'GET',redirect:'manual',headers:{'User-Agent':'GravityReadOnlyServiceAudit/2026-11-09','Accept':'application/json,text/html,application/javascript'},signal:AbortSignal.timeout(12000)});
   let meta={};let parseError='';
-  if(['cloud','work-study','foundry','guide','tts','report','catalog','handbook-status','protected-cloud','protected-handbook'].includes(item.expect)){
+  if(['cloud','work-study','foundry','guide','tts','report','catalog','handbook-status','protected-cloud','protected-handbook','identity-settings'].includes(item.expect)){
    try{meta=summarize(item.expect,await response.json())}catch(err){parseError='Response was not valid JSON';}
   } else {
    const text=await response.text();
-   meta={bytes:text.length,hasSupportForm:item.path==='/help-center'?
+   meta={bytes:text.length,hasCloudLogin:item.expect==='cloud-page'?(text.includes('id="gravity-cloud-login"')||text.includes("id='gravity-cloud-login'")):undefined,
+   hasSupportForm:item.path==='/help-center'?
        (text.includes("id='gravity-support-request'")||text.includes('id="gravity-support-request"'))&&
        (text.includes("id='support-submit'")||text.includes('id="support-submit"')):undefined,
      hasGuidePrimaryPaths:item.path.endsWith('gravity-guide-registry.js')?text.includes('url":"/gravity-assist"'):undefined};
@@ -51,6 +55,8 @@ for(const item of routes){
   if(item.expect==='handbook-status')ok=ok&&meta.free===true&&meta.price===2900&&meta.currency==='USD'&&meta.freeThrough==='October 1, 2027';
   if(item.expect==='protected-cloud')ok=response.status===401&&!parseError&&meta.accessDenied===true;
   if(item.expect==='protected-handbook')ok=response.status===405&&!parseError&&meta.accessDenied===true;
+  if(item.expect==='identity-settings')ok=ok&&meta.identitySettingsReturned===true;
+  if(item.expect==='cloud-page')ok=ok&&meta.hasCloudLogin===true;
   if(item.expect==='html')ok=ok&&meta.hasSupportForm;
   if(item.expect==='js'&&item.path.endsWith('gravity-guide-registry.js'))ok=ok&&meta.hasGuidePrimaryPaths;
   report.push({name:item.name,path:item.path,status:response.status,ok,elapsedMs:Date.now()-started,...meta,...parseError?{error:parseError}:{}});
