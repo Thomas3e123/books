@@ -10,6 +10,14 @@ test('Guide registry routes all published Gravity resources to valid same-site d
   const site=path.resolve(__dirname,'../../site');
   const redirects=fs.readFileSync(path.join(site,'_redirects'),'utf8').split(/\r?\n/);
   const validRedirects=new Set(redirects.map(line=>line.trim().split(/\s+/)).filter(parts=>parts.length>=3&&!parts[0].includes('*')&&/^(200|301|302)!?$/.test(parts[2])).map(parts=>parts[0]));
+  const standaloneResponse=await page.request.get('/gravity-guide-registry-v2.json');
+  expect(standaloneResponse.ok()).toBe(true);
+  const standalone=await standaloneResponse.json();
+  expect(standalone.resources).toHaveLength(214);
+  for(const item of standalone.resources){
+    expect(item.url,'Standalone registry must use same-origin Gravity paths: '+item.id).toMatch(/^\\/(?!\\/)/);
+    expect(item.url).not.toContain('thomasmonroebooks.com');
+  }
   for(const item of registry.resources){
     expect(item.url, 'Gravity destination for '+item.id).toMatch(/^\/(?!\/)/);
     expect(item.url, 'Do not send Gravity users to the publisher site: '+item.id).not.toMatch(/thomasmonroebooks\.com|netlify\.app/i);
@@ -20,6 +28,8 @@ test('Guide registry routes all published Gravity resources to valid same-site d
 });
 
 test('A real Guide scheduling answer opens Shift Lab on Gravity, not Thomas Monroe Books',async({page})=>{
+  // Exercise the real offline fallback deterministically, without requiring a paid AI request.
+  await page.route('**/.netlify/functions/gravity-guide',route=>route.fulfill({status:503,contentType:'application/json',body:'{"error":"synthetic test: AI unavailable"}'}));
   await page.goto('/gravity-aware');
   await page.locator('#gravity-guide-launcher').click();
   await expect(page.locator('#gravity-guide-panel')).toBeVisible();
@@ -32,6 +42,8 @@ test('A real Guide scheduling answer opens Shift Lab on Gravity, not Thomas Monr
 });
 
 test('Guide SOP and document recommendations remain on the Gravity primary site',async({page})=>{
+  // Exercise the real offline fallback deterministically, without requiring a paid AI request.
+  await page.route('**/.netlify/functions/gravity-guide',route=>route.fulfill({status:503,contentType:'application/json',body:'{"error":"synthetic test: AI unavailable"}'}));
   await page.goto('/gravity-aware');
   await page.locator('#gravity-guide-launcher').click();
   const input=page.locator('#gravity-guide-input');
