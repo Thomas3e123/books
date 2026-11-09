@@ -1,4 +1,5 @@
 name: Gravity visitor mobile/navigation and search sweep (read only)
+# Revision: allow intentional noindex on transactional pages, diagnose mobile menu.
 on:
   push:
     branches:
