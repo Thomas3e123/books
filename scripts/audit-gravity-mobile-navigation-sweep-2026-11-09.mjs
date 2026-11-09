@@ -28,6 +28,16 @@ try{
    const response=await page.goto(ORIGIN+route,{waitUntil:'domcontentloaded',timeout:24000});
    record.status=response?.status()??0;
    await page.waitForTimeout(180);
+   // The homepage intentionally opens a first-visit modal over its menu.
+   // Test the actual visitor action rather than trying to click through a dialog.
+   if(route==='/'){
+    const modal=page.locator('#gravity-first-visit');
+    if(await modal.count()&&await modal.isVisible()){
+     await modal.locator('button[data-welcome-enter]').click({timeout:7000});
+     await modal.waitFor({state:'hidden',timeout:7000});
+     record.welcomeDismissed=true;
+    }
+   }
    const meta=await page.evaluate(()=>({
      width:innerWidth,
      docWidth:document.documentElement.scrollWidth,
