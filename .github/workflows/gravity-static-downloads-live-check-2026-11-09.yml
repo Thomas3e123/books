@@ -1,5 +1,5 @@
 name: Gravity static download availability (read-only QA)
-# Re-run with Netlify pretty-URL normalization and PDF digest evidence
+# Re-run using exact downloaded SHA256 when Netlify HEAD Content-Length reflects compression
 on:
   push:
     branches:
