@@ -27,5 +27,7 @@ jobs:
           google-chrome --version
       - name: Verify encrypted browser upload and second-device simulated restore
         run: node scripts/test-gravity-cloud-vault-browser.mjs
+      - name: Build local Handbook Creator for access-control regression (never deploy)
+        run: npm run build
       - name: Verify free access and future paid-license safeguards without Square calls
         run: node scripts/test-handbook-public.mjs
