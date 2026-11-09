@@ -1,0 +1,20 @@
+name: Gravity static download availability (read-only QA)
+on:
+  push:
+    branches:
+      - audit/live-handbook-export-2026-11-09
+    paths:
+      - .github/workflows/gravity-static-downloads-live-check-2026-11-09.yml
+permissions:
+  contents: read
+jobs:
+  verify-public-static-assets:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: HEAD all published book and companion downloads; inspect selected binary signatures
+        run: node scripts/audit-gravity-public-static-downloads-2026-11-09.mjs
