@@ -13,6 +13,7 @@ const routes=[
  '/testing-room','/about','/gravity-fulfillment-center','/gravity-quick-tools'
 ];
 const searchExpected=new Set(['/standards-library','/knowledge-center','/restaurant-management-forms-checklists','/free-resources','/help-center']);
+const intentionalNoindex=new Set(['/register','/registration-thanks','/apps/inventory-center/index.html','/handbook-creator/index.html']);
 let browser;const rows=[];
 try{
  browser=await chromium.launch({headless:true,args:['--no-sandbox']});
@@ -41,16 +42,27 @@ try{
    record.search=meta.search;record.missingSearch=searchExpected.has(route)&&!meta.search;
    record.nav=meta.nav;
    record.robotNoindex=meta.robots.some(x=>/\bnoindex\b/i.test(x));
+   record.unexpectedNoindex=record.robotNoindex&&!intentionalNoindex.has(route);
    record.menu='not applicable';
    const toggle=page.locator('[data-menu-toggle]').first();
    if(mode.startsWith('Pixel') && await toggle.count() && await toggle.isVisible()){
-     await toggle.click({timeout:4000});
+     try{await toggle.click({timeout:4000})}catch(e){
+      const box=await toggle.boundingBox();
+      const blocker=box?await page.evaluate(b=>{
+       const x=b.x+b.width/2,y=b.y+b.height/2;
+       const el=document.elementFromPoint(x,y);
+       const description=n=>n?{tag:n.tagName,id:n.id,className:typeof n.className==='string'?n.className.slice(0,180):'',text:n.textContent?.trim()?.slice(0,170),role:n.getAttribute('role'),style:getComputedStyle(n).position}:null;
+       return {point:{x,y},top:description(el),parents:[el?.parentElement,el?.parentElement?.parentElement].map(description),visibleDialog:[...document.querySelectorAll('dialog,[role="dialog"],[aria-modal="true"]')].filter(n=>getComputedStyle(n).display!=='none').map(description).slice(0,6)};
+      },box):null;
+      record.menuDiagnostic={message:String(e.message).slice(0,210),box,blocker};
+      throw Error('Mobile menu click blocked: '+JSON.stringify(record.menuDiagnostic));
+     }
      record.menu=await toggle.getAttribute('aria-expanded');
      if(record.menu==='true')await toggle.click({timeout:4000});
    }
    record.browserErrors=pageErrors.slice(0,3);
    record.ok=record.status===200&&meta.h1s.length===1&&record.overflow<=3&&!record.missingSearch&&
-      !record.robotNoindex&&(record.menu==='not applicable'||record.menu==='true')&&record.browserErrors.length===0;
+      !record.unexpectedNoindex&&(record.menu==='not applicable'||record.menu==='true')&&record.browserErrors.length===0;
   }catch(e){record.ok=false;record.error=String(e?.message||e).slice(0,280)}
   rows.push(record);
  }
