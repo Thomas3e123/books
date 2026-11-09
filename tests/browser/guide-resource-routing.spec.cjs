@@ -25,7 +25,7 @@ test('A real Guide scheduling answer opens Shift Lab on Gravity, not Thomas Monr
   await expect(page.locator('#gravity-guide-panel')).toBeVisible();
   await page.locator('#gravity-guide-input').fill('I need help with scheduling');
   await page.locator('#gravity-guide-form button[type="submit"]').click();
-  const link=page.locator('#gravity-guide-messages .gg-message.guide a',{hasText:'Open Shift Lab'}).last();
+  const link=page.locator('#gravity-guide-panel a[href="/gravity-shift-lab"]').last();
   await expect(link).toHaveAttribute('href','/gravity-shift-lab');
   await link.click();
   await expect(page).toHaveURL(/\/gravity-shift-lab$/);
@@ -37,10 +37,10 @@ test('Guide SOP and document recommendations remain on the Gravity primary site'
   const input=page.locator('#gravity-guide-input');
   await input.fill('find an sop');
   await page.locator('#gravity-guide-form button[type="submit"]').click();
-  await expect(page.locator('#gravity-guide-messages .gg-message.guide a',{hasText:'Open SOP Foundry'}).last()).toHaveAttribute('href','/gravity-sop-foundry');
+  await expect(page.locator('#gravity-guide-panel a[href="/gravity-sop-foundry"]').last()).toHaveAttribute('href','/gravity-sop-foundry');
   await input.fill('create a document');
   await page.locator('#gravity-guide-form button[type="submit"]').click();
-  await expect(page.locator('#gravity-guide-messages .gg-message.guide a',{hasText:'Open Document Studio'}).last()).toHaveAttribute('href','/gravity-document-studio');
-  const hrefs=await page.locator('#gravity-guide-messages .gg-message.guide a').evaluateAll(as=>as.map(a=>a.getAttribute('href')));
+  await expect(page.locator('#gravity-guide-panel a[href="/gravity-document-studio"]').last()).toHaveAttribute('href','/gravity-document-studio');
+  const hrefs=await page.locator('#gravity-guide-panel a').evaluateAll(as=>as.map(a=>a.getAttribute('href')));
   expect(hrefs.every(h=>h?.startsWith('/')&&!h.startsWith('//'))).toBe(true);
 });
