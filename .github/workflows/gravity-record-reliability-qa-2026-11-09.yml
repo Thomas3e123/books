@@ -1,0 +1,33 @@
+name: Gravity local SOP/Inventory record reliability QA
+on:
+  push:
+    branches:
+      - audit/foundry-inventory-record-reliability-2026-11-09
+    paths:
+      - '.github/workflows/gravity-record-reliability-qa-2026-11-09.yml'
+      - 'tests/browser/foundry-inventory-record-reliability.spec.cjs'
+      - 'site/apps/sop-foundry/workroom.html'
+      - 'site/apps/inventory-center/assets/js/inventory-center.js'
+      - 'source-manifest.json'
+permissions:
+  contents: read
+jobs:
+  check-record-safety:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify source integrity and local build
+        run: |
+          npm ci --no-audit --no-fund
+          node scripts/verify-source.cjs
+          npm run build
+      - name: Install Chromium test dependencies
+        run: |
+          npm install --no-save --package-lock=false @playwright/test@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Test SOP and Inventory save/reopen/edit/backup on desktop and simulated Android
+        run: npx playwright test tests/browser/foundry-inventory-record-reliability.spec.cjs --reporter=line
