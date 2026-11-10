@@ -31,6 +31,9 @@ export default async function gravityGuide(request) {
 // Per-IP rate limiting is enforced by Netlify before the paid AI provider call.
 // This is not customer authentication and must not be presented as such.
 export const config = {
+  // Netlify requires a concrete path to activate code-defined rate-limit rules.
+  // Keep the existing public function URL stable for all current browser clients.
+  path: '/.netlify/functions/gravity-guide',
   rateLimit: {
     action: 'rate_limit',
     windowLimit: 30,
