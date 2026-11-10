@@ -48,6 +48,8 @@ jobs:
         run: python3 scripts/audit-free-resource-files.py
       - name: Verify manifest and compile site
         run: npm run build
+      - name: Audit AI security boundaries without provider requests
+        run: node --test tests/gravity-ai-boundary.test.cjs
       - name: Audit batch 1 knowledge and Testing Room regressions
         run: node --test tests/gravity-audit-batch1.test.cjs
       - name: Verify Founding Year and paid-license export gates
