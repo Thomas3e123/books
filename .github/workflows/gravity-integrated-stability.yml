@@ -58,6 +58,8 @@ jobs:
         run: node --test tests/gravity-cloud-crypto-recovery.test.cjs
       - name: Existing rollback and automatic-upload safety regressions
         run: node --test tests/cloud-restore-failure.test.cjs tests/cloud-upload-pause.test.cjs
+      - name: Real database adapter tenant query scopes
+        run: node --test tests/gravity-db-tenant-query-scopes.test.cjs
       - name: Audit AI security boundaries without provider requests
         run: node --test tests/gravity-ai-boundary.test.cjs
       - name: Audit batch 1 knowledge and Testing Room regressions
