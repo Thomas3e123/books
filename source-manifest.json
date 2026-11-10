@@ -1426,7 +1426,7 @@
     },
     {
       "path": "site/assets/js/gravity-guide-registry.js",
-      "sha256": "1da06f28750f0afdf56cf510fecd2208ca2dc32d34aea33b4697cb0cd53a908f"
+      "sha256": "02701bdd5b1ba272fd9a3391112775c519ae74643c7b3e96cd79169ca5db5e83"
     },
     {
       "path": "site/assets/js/gravity-identity-client.js",
@@ -1962,7 +1962,7 @@
     },
     {
       "path": "site/gravity-guide-registry-v2.json",
-      "sha256": "065934d6837415d9325b5959912ef5d44dec4ddad7ccb395f58d644cbdeee1b3"
+      "sha256": "e8a74b4510db2b19592e1fc745680e81e76c3b150cddb6a1f4e02b0a1572db96"
     },
     {
       "path": "site/gravity-guide.css",
@@ -2426,7 +2426,7 @@
     },
     {
       "path": "site/testing-room.html",
-      "sha256": "ab3cc6f9f2110a9af3d09b78174c096049b42717fb433be0fa4c5b7efd409f70"
+      "sha256": "f29042ef31b56dbbf6629a7baafcbf13ab1f5753dd2362dea254b27f6a99d7e9"
     },
     {
       "path": "site/the-owners-chair.html",
