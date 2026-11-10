@@ -8,6 +8,7 @@ test('Modern Gravity Guide preserves public health route and declares per-IP pla
   const module = await import(pathToFileURL(path.resolve('functions/gravity-guide/gravity-guide.mjs')).href);
   const {config} = module;
   assert.equal(typeof module.default, 'function');
+  assert.equal(config.path, '/.netlify/functions/gravity-guide', 'rate-limit config must bind to live Guide route');
   assert.deepEqual(JSON.parse(JSON.stringify(config.rateLimit)), {
     action: 'rate_limit',
     windowLimit: 30,
