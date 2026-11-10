@@ -75,7 +75,7 @@ async function run(win){
     if(!verified.body.state.workroom.recipes.some(r=>r.id===recipeId)||!verified.body.state.posters[posterId])fail('Full restore lost recipe or poster');
     if(verified.body.state.branding?.name==='MUTATED NOT TO SAVE')fail('Edited branding survived backup restoration');
     // Roll back the entire disposable acceptance dataset after successful assertions.
-    await window.GravityFoundryWeb.save(baseline);
+    await window.GravityFoundryWeb.save(baseline,{replace:true});
     return{recipeImport:true,duplicateSkip:true,recipeRevisionArchived:true,unpublishedRecipePrivate:true,
       posterPublished:true,invalidPosterLinksRejected:true,fullBackupIncludesHistory:true,corruptRestoreRejected:true,restoreRejectionPreservedData:true,fullRestore:true,
       restoredPins:true,managerAutomaticallyLocked:true,employeeManagerAccessRejected:true,assistantManagerSourceProtected:true,invalidLocalQRDisabled:true};
@@ -169,7 +169,7 @@ async function run(win){
     }finally{
       document.getElementById('foundryPrintBack')?.click();
       document.getElementById('gravity-binder-dialog')?.close();
-      await window.GravityFoundryWeb.save(original);
+      await window.GravityFoundryWeb.save(original,{replace:true});
     }
   });
   console.log('[FOUNDRY-ACCEPTANCE] published binder snapshot privacy:',JSON.stringify(snapshotCheck));
