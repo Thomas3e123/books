@@ -27,7 +27,7 @@ test('Neural voice enforces approved origins and bounded text; legitimate speech
  process.env.OPENAI_API_KEY='synthetic-test-key';
  let calls=0;global.fetch=async()=>{calls++;return new Response(Buffer.from('synthetic audio'),{status:200,headers:{'content-type':'audio/mpeg'}})};
  try{
-  const {handler}=require('../functions/gravity-tts/gravity-tts.js');
+  const {handler}=require('../functions/gravity-tts/core.cjs');
   const e=(origin,body)=>({httpMethod:'POST',headers:{Origin:origin},body:JSON.stringify(body)});
   assert.equal((await handler(e('https://untrusted.netlify.app',{text:'hello'}))).statusCode,403);
   assert.equal((await handler(e('https://gravityleadershipsystem.com',{text:''}))).statusCode,400);
@@ -47,7 +47,7 @@ test('Work Study transcription rejects unapproved origins and oversized audio; a
  process.env.OPENAI_API_KEY='synthetic-test-key';
  let calls=0;global.fetch=async()=>{calls++;return new Response(JSON.stringify({text:'Synthetic transcription',segments:[{start:0,end:1,text:'Synthetic transcription'}]}),{status:200,headers:{'content-type':'application/json'}})};
  try{
-  const {handler}=require('../functions/work-study-transcribe/work-study-transcribe.js');
+  const {handler}=require('../functions/work-study-transcribe/core.cjs');
   const e=(origin,bytes)=>({httpMethod:'POST',headers:{origin,'content-type':'audio/webm'},isBase64Encoded:true,body:bytes.toString('base64')});
   assert.equal((await handler(e('https://untrusted.netlify.app',Buffer.from('x')))).statusCode,403);
   assert.equal((await handler(e('https://gravityleadershipsystem.com',Buffer.alloc(4*1024*1024+1)))).statusCode,413);
