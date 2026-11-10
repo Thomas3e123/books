@@ -30,7 +30,7 @@ async function save(s,{replace=false}={}){
    const error=conflict?
       new Error('Another tab changed Gravity data. Nothing from this save was stored. Copy any unsaved work, reload to see the latest saved records, and retry.'):
       (writeError||tx.error||new Error('Gravity browser storage did not confirm this save.'));
-   if(conflict)error.code='STALE_WRITE';
+   if(conflict){statePromise=undefined;error.code='STALE_WRITE'}
    reject(error);
   };
   tx.onerror=()=>reject(tx.error||new Error('Gravity browser storage failed.'));
