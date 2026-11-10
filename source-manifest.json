@@ -70,7 +70,7 @@
     },
     {
       "path": "site/apps/sop-foundry/binder-builder.js",
-      "sha256": "68207166b9cd426236d85f2710c058ded9d2e16d3cedebf6e87128da451f1c50"
+      "sha256": "4ee2968a043ca9c2414ab330bde3454aa7ee0f7e74b8b6eb73af8895688862e4"
     },
     {
       "path": "site/apps/sop-foundry/branding-config.js",
@@ -762,7 +762,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Inventory_Center_Windows_User_Manual.html",
-      "sha256": "f15db42adfa67cef4e3dff668165cfa57b33ad591da1947840b5fc7049eb4d24"
+      "sha256": "b2bb67d05a1049571dc849613c34cf0a75a7fe75830ad60f87b35fb72140931c"
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Inventory_Center_Windows_User_Manual.pdf",
@@ -774,7 +774,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_SOP_Foundry_Windows_User_Manual.html",
-      "sha256": "a0712bac7b9f6c6db0958734beee1841a0003f3081dfbfc45914be56c84f3740"
+      "sha256": "85154d2caf3ee996581695c73ea5108f12e16e99896d4a691e3972f5bb2be4a8"
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_SOP_Foundry_Windows_User_Manual.pdf",
@@ -786,7 +786,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Shift_Lab_Windows_User_Manual.html",
-      "sha256": "44470acd808c7667f33979476de93849d595ca85d2a98200e9c51db37130ffff"
+      "sha256": "efda69a68e056986b350e2ac0ab1f792e2a4b3e0db92b7003b37f85976b1084a"
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Shift_Lab_Windows_User_Manual.pdf",
@@ -798,7 +798,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Work_Study_Lab_Windows_User_Manual.html",
-      "sha256": "d3d31491f031fedd546fd441d56c270f0e66b6a66a74d67ff3a08ab3d9ab4ea1"
+      "sha256": "09438a7f1968f82323456bcc0f5d6af9d78a3b2c293a62a1d2d9c0e259827150"
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Work_Study_Lab_Windows_User_Manual.pdf",
@@ -1462,7 +1462,7 @@
     },
     {
       "path": "site/assets/js/gravity-sop-foundry.js",
-      "sha256": "862083c3dc187136c34438aab2ebd680dc25a799042b88132d796d08ddf10296"
+      "sha256": "047a535e57dd74d76864de6ee94bd9ce3f55db9503353cb572ec7d51a9ac2b73"
     },
     {
       "path": "site/assets/js/gravity-support-request.js",
@@ -1738,11 +1738,11 @@
     },
     {
       "path": "site/assets/reader/bar-inventory.txt",
-      "sha256": "6c4e065dc31f97002a1d11eba82fe83aa04b8b643d04267e8eb27411f378ed10"
+      "sha256": "cdbc64f4ee26f970074d88d0f603b8987be6be708d34cbbe46bf9f17b587207b"
     },
     {
       "path": "site/assets/reader/bar-pour-cost.txt",
-      "sha256": "a317d4366dd0508fc42f52d95810597518c011a264386dfa23d6c9a05f361ac0"
+      "sha256": "4fa92d552059693fdeae081608bb8e1e19dd9d666b544290a8dbfa2345c73c05"
     },
     {
       "path": "site/assets/reader/catalog.json",
@@ -1750,11 +1750,11 @@
     },
     {
       "path": "site/assets/reader/employee-training-sop-tracker.txt",
-      "sha256": "87c468cc759293e7859ab732ab7fc21197f0ed9bcee3447f0d64679b732c9233"
+      "sha256": "cbfd5bde618725abddefe0d6304c75128734019e9a4cc83bc83616c3cc01dd4a"
     },
     {
       "path": "site/assets/reader/food-cost-waste-inventory.txt",
-      "sha256": "b78c8a2bed439d8f611f34d3b6384577537c5badd11ad12b4d778f61bdedd0aa"
+      "sha256": "5c71c27cdcb794faef1d4a5bdfe14a7c37131b2a105f367a0b91b3bc6991031e"
     },
     {
       "path": "site/assets/reader/guest-recovery.txt",
@@ -2062,7 +2062,7 @@
     },
     {
       "path": "site/help-center.html",
-      "sha256": "7e95d6c04c76bb99c4b9c594b771332ebfc84c5ddcfb0c2d61bafe4af2c8e4cd"
+      "sha256": "da1f39c07a4afb6f3563dfddb5e7c46e1e03986476756782e67aaf5cabe6fd33"
     },
     {
       "path": "site/hiring-interviewing-employee-retention-tracker.html",
