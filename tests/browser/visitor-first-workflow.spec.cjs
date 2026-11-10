@@ -25,7 +25,7 @@ test('First visitor can go from homepage through Start Here and Gravity Assist, 
   const downloadEvent=page.waitForEvent('download');
   await page.locator('#lab-backup').click();
   const backup=await downloadEvent;
-  expect(backup.suggestedFilename()).toMatch(/\\.json$/);
+  expect(backup.suggestedFilename()).toMatch(/\.json$/);
   expect(fs.readFileSync(await backup.path(),'utf8')).toContain('2026-11-08');
   await page.locator('.breadcrumbs a[href="/gravity-assist"]').click();
   await expect(page).toHaveURL(/\/gravity-assist$/);
