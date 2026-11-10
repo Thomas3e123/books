@@ -34,7 +34,7 @@
     },
     {
       "path": "site/apps/inventory-center/assets/js/inventory-center.js",
-      "sha256": "008bdedd176c88942efb6dcf8293eb93c7aa37389b464c79a56a1452172fc4d0"
+      "sha256": "04708712bc1b3a25e154325976b8debcb827ac8ca00aae5a78ee24ad797d120e"
     },
     {
       "path": "site/apps/inventory-center/assets/js/inventory-outflow-cost.js",
@@ -274,7 +274,7 @@
     },
     {
       "path": "site/apps/sop-foundry/staff-sops.js",
-      "sha256": "bd2361adb8f6ab9d42dd7314975678e8e8dbb2faeaf5e7cdd5790fc1759f017c"
+      "sha256": "9d7b7b014410cee98b5b68a4a024b56394f3093e3eec2427eba629a34accaa4b"
     },
     {
       "path": "site/apps/sop-foundry/station-groups.js",
