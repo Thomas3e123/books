@@ -27,7 +27,8 @@ test('First visitor can go from homepage through Start Here and Gravity Assist, 
   const backup=await downloadEvent;
   expect(backup.suggestedFilename()).toMatch(/\.json$/);
   expect(fs.readFileSync(await backup.path(),'utf8')).toContain('2026-11-08');
-  await page.locator('.breadcrumbs a[href="/gravity-assist"]').click();
+  // The dedicated visible return link is outside the workspace's hidden mobile/overlay sections.
+  await page.locator('#gravity-assist-return a[href="/gravity-assist"]').click();
   await expect(page).toHaveURL(/\/gravity-assist$/);
   await expect(page.locator('#assist-task-grid [data-route="shift"]')).toBeVisible();
 });
