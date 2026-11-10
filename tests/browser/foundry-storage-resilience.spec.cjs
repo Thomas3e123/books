@@ -1,5 +1,5 @@
 const {test,expect}=require('@playwright/test');
-const BASE='http://127.0.0.1:4173';
+const BASE='http://127.0.0.1:8765';
 const QA_ID='qa_storage_procedure';
 const original={id:QA_ID,title:'QA Fictional Original SOP',station:'QA',status:'Draft',isSample:false,revision:'1.0',steps:['Original fictional step'],changeSummary:'QA only',trainingRequirement:'none'};
 function workroom(sop=original){return {sops:[sop],recipes:[],restaurant:'QA Fictional Restaurant',sopSourceVersion:'gravity-sop-volumes-1-3-2026-10-07-rc9'};}
