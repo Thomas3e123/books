@@ -1,11 +1,8 @@
+# Thomas Monroe Books — isolated publishing presentation.
+# Gravity production uses its separate feature branch and retains its own netlify.toml.
 [build]
-  publish = "site"
-  command = "npm run build"
+  publish = "tmb-site"
+  command = "node scripts/verify-tmb-publisher.cjs"
 
 [build.environment]
   NODE_VERSION = "22"
-
-[functions]
-  directory = "functions"
-  node_bundler = "esbuild"
-

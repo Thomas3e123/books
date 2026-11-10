@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://thomasmonroebooks.com/sitemap.xml
