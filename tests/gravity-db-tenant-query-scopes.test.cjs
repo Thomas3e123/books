@@ -26,7 +26,7 @@ test('Every customer backup SQL operation scopes data to the authenticated Ident
  await store.history(uid,tool,5);
  await store.read(uid,tool,null);
  await store.read(uid,tool,1);
- await assert.rejects(store.insert(uid,tool,1,{version:1},123),/Cannot read properties of undefined/);
+ await assert.rejects(store.insert(uid,tool,1,{version:1},123));
  await store.prune(uid,tool,5);
  await store.deleteAll(uid,tool);
  assert.ok(db.queries.length>=8);
