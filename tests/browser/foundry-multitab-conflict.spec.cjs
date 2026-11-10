@@ -23,6 +23,10 @@ test('Two open Foundry tabs must not silently delete each other\'s saved SOP dra
     expect(ids).toContain('qa_second_tab');
   }else{
     expect([409,412]).toContain(bSave.status);
+    // After a conflict, this tab must refresh its cached state before exporting a full backup.
+    const backup=(await api(b,'/api/desktop-backup')).data;
+    expect(backup.state.workroom.sops.map(x=>x.id)).toContain('qa_first_tab');
+    expect(backup.state.workroom.sops.map(x=>x.id)).not.toContain('qa_second_tab');
     const fresh=await context.newPage();await fresh.goto('/apps/sop-foundry/desktop-settings.html');
     expect((await api(fresh,'/api/workroom')).data.data.sops.map(x=>x.id)).toContain('qa_first_tab');
   }
