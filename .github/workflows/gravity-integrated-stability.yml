@@ -48,6 +48,8 @@ jobs:
         run: python3 scripts/audit-free-resource-files.py
       - name: Verify manifest and compile site
         run: npm run build
+      - name: Modern Guide rate-limit adapter regressions
+        run: node --test tests/gravity-guide-rate-limit.test.cjs tests/gravity-ai-boundary.test.cjs
       - name: Audit AI security boundaries without provider requests
         run: node --test tests/gravity-ai-boundary.test.cjs
       - name: Audit batch 1 knowledge and Testing Room regressions
