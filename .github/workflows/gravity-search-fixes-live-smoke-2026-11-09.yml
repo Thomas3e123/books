@@ -1,10 +1,11 @@
-name: Gravity deployed search-fixes read-only smoke test
+name: Gravity deployed search and SOP save fixes read-only smoke test
 on:
   push:
     branches:
       - audit/live-service-health-2026-11-09
     paths:
       - '.github/workflows/gravity-search-fixes-live-smoke-2026-11-09.yml'
+      - 'scripts/qa-gravity-live-search-fix-release-2026-11-09.mjs'
 permissions:
   contents: read
 jobs:
@@ -16,5 +17,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Confirm deployed public assets include Help, SOP and Inventory fixes
+      - name: Confirm deployed public assets include Help, Inventory and Save SOP fixes
         run: node scripts/qa-gravity-live-search-fix-release-2026-11-09.mjs
