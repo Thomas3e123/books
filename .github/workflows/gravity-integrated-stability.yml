@@ -48,6 +48,8 @@ jobs:
         run: python3 scripts/audit-free-resource-files.py
       - name: Verify manifest and compile site
         run: npm run build
+      - name: Audit batch 1 knowledge and Testing Room regressions
+        run: node --test tests/gravity-audit-batch1.test.cjs
       - name: Verify Founding Year and paid-license export gates
         run: node scripts/test-handbook-public.mjs
       - name: Build final Gravity production files
