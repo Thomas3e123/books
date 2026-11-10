@@ -258,7 +258,7 @@
     },
     {
       "path": "site/apps/sop-foundry/staff-posters.js",
-      "sha256": "c74a20be4bfc180f2199dda794bebb60bca83e8a34c63d8e9758c3725905408a"
+      "sha256": "333869ac3afb6759fc413ce965f8aeb97fb2153df98e33274e413396d68496a3"
     },
     {
       "path": "site/apps/sop-foundry/staff-recipes.html",
@@ -274,7 +274,7 @@
     },
     {
       "path": "site/apps/sop-foundry/staff-sops.js",
-      "sha256": "9d7b7b014410cee98b5b68a4a024b56394f3093e3eec2427eba629a34accaa4b"
+      "sha256": "b18d0fc64134294372cc23205e673c5c5a189cbf583e3c3f37be07c3c1a948cf"
     },
     {
       "path": "site/apps/sop-foundry/station-groups.js",
