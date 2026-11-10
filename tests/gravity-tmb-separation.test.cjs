@@ -66,3 +66,11 @@ test('New Inventory Windows builds reject publisher-site links in packaged app H
  const manualGenerator=read('scripts/build-windows-manuals.py');
  assert.doesNotMatch(manualGenerator,/author='Thomas Monroe Books'/);
 });
+
+test('Windows downloads disclose that old installers are legacy and direct normal users to Gravity Assist',()=>{
+ const html=read('site/windows-programs.html');
+ assert.ok(html.includes('Windows download advisory — November 2026'));
+ assert.ok(html.includes('not corrected production releases'));
+ assert.ok(html.includes('href="/gravity-assist"'));
+ assert.ok(html.includes('https://gravityleadershipsystem.com/windows-programs'));
+});
