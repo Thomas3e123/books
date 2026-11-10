@@ -1,0 +1,32 @@
+name: Gravity Foundry storage loss and recovery QA
+on:
+  push:
+    branches:
+      - audit/foundry-storage-failure-protection-2026-11-09
+    paths:
+      - '.github/workflows/gravity-foundry-storage-resilience-qa-2026-11-09.yml'
+      - 'tests/browser/foundry-storage-resilience.spec.cjs'
+      - 'site/apps/sop-foundry/web-api-shim.js'
+      - 'source-manifest.json'
+permissions:
+  contents: read
+jobs:
+  storage-resilience:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify source and build
+        run: |
+          npm ci --no-audit --no-fund
+          node scripts/verify-source.cjs
+          npm run build
+      - name: Install desktop/mobile browser tests
+        run: |
+          npm install --no-save --package-lock=false @playwright/test@1.57.0
+          npx playwright install --with-deps chromium
+      - name: Test rejected writes, backup consistency, cross-browser transfer and damaged backups
+        run: npx playwright test tests/browser/foundry-storage-resilience.spec.cjs --reporter=line
