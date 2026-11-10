@@ -1,4 +1,5 @@
 const {test,expect}=require('@playwright/test');
+const fs=require('node:fs');
 
 test('First visitor can go from homepage through Start Here and Gravity Assist, save work, and return',async({page})=>{
   await page.goto('/');
@@ -21,6 +22,11 @@ test('First visitor can go from homepage through Start Here and Gravity Assist, 
   await page.reload();
   const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('gravityShiftLabSchedulesV3')||'{}'));
   expect(saved['2026-11-08']).toBeTruthy();
+  const downloadEvent=page.waitForEvent('download');
+  await page.locator('#lab-backup').click();
+  const backup=await downloadEvent;
+  expect(backup.suggestedFilename()).toMatch(/\\.json$/);
+  expect(fs.readFileSync(await backup.path(),'utf8')).toContain('2026-11-08');
   await page.locator('.breadcrumbs a[href="/gravity-assist"]').click();
   await expect(page).toHaveURL(/\/gravity-assist$/);
   await expect(page.locator('#assist-task-grid [data-route="shift"]')).toBeVisible();
