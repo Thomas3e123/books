@@ -12,7 +12,7 @@ for (const entry of manifest.files) {
   if (hash !== entry.sha256) throw Error('Source verification failed: ' + entry.path + '. Review the change and regenerate the manifest before building.');
   checked++;
 }
-for (const required of ['site/index.html','site/_redirects','site/_headers','functions/foundry-hosted/index.mjs','functions/gravity-guide/gravity-guide.mjs','functions/gravity-tts/gravity-tts.mjs']) {
+for (const required of ['site/index.html','site/_redirects','site/_headers','functions/foundry-hosted/index.mjs','functions/gravity-guide/gravity-guide.mjs','functions/gravity-tts/gravity-tts.mjs','functions/work-study-transcribe/work-study-transcribe.mjs') {
   if (!manifest.files.some(e => e.path === required)) throw Error('Missing required source: ' + required);
 }
 console.log('Verified ' + checked + ' source files.');
