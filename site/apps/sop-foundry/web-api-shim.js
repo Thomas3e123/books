@@ -5,7 +5,52 @@ const blank=()=>({schemaVersion:1,workroom:null,publishedSops:{},publishedRecipe
 let statePromise;
 function openDb(){return new Promise((resolve,reject)=>{const r=indexedDB.open(DB_NAME,1);r.onupgradeneeded=()=>{if(!r.result.objectStoreNames.contains(STORE))r.result.createObjectStore(STORE)};r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
 async function load(){if(statePromise)return statePromise;statePromise=(async()=>{const db=await openDb();const value=await new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readonly'),q=tx.objectStore(STORE).get(KEY);q.onsuccess=()=>resolve(q.result);q.onerror=()=>reject(q.error)});return value&&typeof value==='object'?value:blank()})();return statePromise}
-async function save(s){s.updatedAt=now();const db=await openDb();await new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readwrite');tx.objectStore(STORE).put(s,KEY);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)});statePromise=Promise.resolve(s);try{localStorage.setItem('gravityFoundrySummaryV15',JSON.stringify({restaurant:brandName(s),workingSops:(s.workroom?.sops||[]).length,publishedSops:Object.keys(s.publishedSops||{}).length,activePosters:Object.values(s.posters||{}).filter(x=>x.status==='Active').length,openMessages:(s.messages||[]).filter(x=>x.status!=='resolved').length,updatedAt:s.updatedAt}))}catch{}return s}
+async function save(s,{replace=false}={}){
+ const expectedVersion=s.storageVersion||null,expectedUpdatedAt=s.updatedAt||'';
+ const next=structuredClone(s);
+ next.updatedAt=now();
+ next.storageVersion=uuid();
+ const db=await openDb();
+ await new Promise((resolve,reject)=>{
+  const tx=db.transaction(STORE,'readwrite'),store=tx.objectStore(STORE);
+  let conflict=false,writeError=null;
+  const read=store.get(KEY);
+  read.onsuccess=()=>{
+   const prior=read.result;
+   if(!replace&&prior&&(
+       (prior.storageVersion&&prior.storageVersion!==expectedVersion)||
+       (!prior.storageVersion&&prior.updatedAt!==expectedUpdatedAt)
+   )){
+    conflict=true;tx.abort();return;
+   }
+   try{store.put(next,KEY)}catch(error){writeError=error;tx.abort()}
+  };
+  tx.oncomplete=()=>resolve();
+  tx.onabort=()=>{
+   const error=conflict?
+      new Error('Another tab changed Gravity data. Nothing from this save was stored. Copy any unsaved work, reload to see the latest saved records, and retry.'):
+      (writeError||tx.error||new Error('Gravity browser storage did not confirm this save.'));
+   if(conflict){statePromise=undefined;error.code='STALE_WRITE'}
+   reject(error);
+  };
+  tx.onerror=()=>reject(tx.error||new Error('Gravity browser storage failed.'));
+ });
+ // Only a completed IndexedDB transaction becomes the committed in-memory state.
+ statePromise=Promise.resolve(next);
+ s.updatedAt=next.updatedAt;
+ s.storageVersion=next.storageVersion;
+ try{
+  localStorage.setItem('gravityFoundrySummaryV15',JSON.stringify({
+   restaurant:brandName(next),workingSops:(next.workroom?.sops||[]).length,
+   publishedSops:Object.keys(next.publishedSops||{}).length,
+   activePosters:Object.values(next.posters||{}).filter(x=>x.status==='Active').length,
+   openMessages:(next.messages||[]).filter(x=>x.status!=='resolved').length,
+   updatedAt:next.updatedAt
+  }));
+ }catch{}
+ return s;
+}
+
 function role(){return sessionStorage.getItem('gravityFoundryRoleV15')||''} function canRead(){return ['build','staff'].includes(role())} function canBuild(){return role()==='build'}
 const EMPLOYEE_PUBLIC_FIELDS={sop:['id','sourceId','title','station','category','frequency','role','purpose','steps','checks','correction','records','safety','revision','revisionUpdatedAt','effectiveDate','approvedBy','publishedAt','trainingRequirement','changeSummary','nextReviewDate','status','restaurantName'],recipe:['id','title','type','category','yield','ingredients','steps','allergens','notes','glassware','ice','garnish','serviceware','buildType','revision','approvedBy','publishedAt','status','changeSummary','effectiveDate'],poster:['id','title','station','category','lines','note','revision','sopId','relatedSopIds','status','updatedAt','orientation','templateKey']};
 function employeePublic(item,kind){if(!item||typeof item!=='object'||Array.isArray(item))return null;const data={};for(const key of EMPLOYEE_PUBLIC_FIELDS[kind]||[]){if(Object.prototype.hasOwnProperty.call(item,key))data[key]=structuredClone(item[key]);}return data;}
@@ -69,10 +114,10 @@ async function handle(url,init={}){const method=(init.method||'GET').toUpperCase
   ['training','messages','activity','history'].every(k=>Array.isArray(x[k]))&&
   ['build','staff'].every(k=>/^\d{4,12}$/.test(String(x.pins[k]||'')));
  if(!structurallyComplete)return response({error:'This backup is incomplete or damaged. No Foundry data was changed.'},400);
- await save(x);sessionStorage.removeItem('gravityFoundryRoleV15');return response({ok:true})}if(!canBuild())return response({error:'Build Room access required.'},403);return response({product:'Gravity SOP Foundry',version:'web-v15',exportedAt:now(),state:s})}
+ await save(x,{replace:true});sessionStorage.removeItem('gravityFoundryRoleV15');return response({ok:true})}if(!canBuild())return response({error:'Build Room access required.'},403);return response({product:'Gravity SOP Foundry',version:'web-v15',exportedAt:now(),state:s})}
  if(path==='/api/assistant'){if(method==='GET')return response({ready:true,mode:'source-grounded-web'});if(!canRead())return response({error:'Unlock a room to use Ask Gravity.'},403);const b=await body(init);if(b.room==='build'&&!canBuild())return response({error:'Build Room access is required for working sources.'},403);const source=b.kind==='sop'?(b.room==='build'?(s.workroom?.sops||[]).find(x=>x.id===b.sourceId):employeePublic(s.publishedSops[b.sourceId],'sop')):(b.room==='build'?(s.workroom?.recipes||[]).find(x=>x.id===b.sourceId):employeePublic(s.publishedRecipes[b.sourceId],'recipe'));if(!source)return response({error:'Selected source was not found.'},404);const q=clip((b.messages||[]).slice(-1)[0]?.content,2000).toLowerCase();let answer='Use the current saved source as the authority. ';if(q.includes('first')||q.includes('start'))answer+=(source.steps?.[0]||source.purpose||'Begin with the first approved step.');else if(q.includes('safety'))answer+=source.safety||'No separate safety note is recorded; ask the manager before improvising.';else if(q.includes('why')||q.includes('purpose'))answer+=source.purpose||source.notes||'Follow the approved procedure as written.';else if(q.includes('check')||q.includes('finish'))answer+=source.checks||'Complete every approved step and verify the expected result.';else answer+=(source.purpose||'Follow the approved source.')+'\n\n'+(source.steps?.slice(0,4).map((x,i)=>`${i+1}. ${x}`).join('\n')||source.notes||'');if(b.room!=='build')answer=answer.replace(/Gravity Signals|signal analytics|development interest/gi,'manager review');return response({answer,source:{title:source.title,status:source.status||'Published',revision:source.revision||''}})}
  return response({error:'Unsupported web workspace operation.'},404)}
  function brandName(s){let p={};try{p=JSON.parse(localStorage.getItem('gravityAssistRestaurantProfileV1')||'{}')}catch{}return s?.branding?.name||p.name||'Your Restaurant'}
-window.fetch=async(input,init)=>{const url=new URL(typeof input==='string'?input:input instanceof Request?input.url:String(input),location.href);if(url.origin===location.origin&&url.pathname.startsWith('/api/'))return handle(url,init||{});return nativeFetch(input,init)};
+window.fetch=async(input,init)=>{const url=new URL(typeof input==='string'?input:input instanceof Request?input.url:String(input),location.href);if(url.origin===location.origin&&url.pathname.startsWith('/api/')){try{return await handle(url,init||{})}catch(error){if(error?.code==='STALE_WRITE')return response({error:error.message},409);throw error}}return nativeFetch(input,init)};
 window.GravityFoundryWeb={load,save,downloadBackup:async()=>{const s=await load(),blob=new Blob([JSON.stringify({product:'Gravity SOP Foundry',version:'web-v15',exportedAt:now(),state:s},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Gravity_SOP_Foundry_Web_Backup_'+today()+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}};
 })();
