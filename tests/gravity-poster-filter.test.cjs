@@ -89,3 +89,14 @@ test('Poster deep links remain supported, but a conflicting station filter takes
  c.events.hashchange();
  assert.match(c.$('detail').innerHTML,/Pizza Station Safety/);
 });
+
+test('A published QR poster from another station overrides the employee default station filter',async()=>{
+ const c=await runClient({hash:'#qa-dish',homeStation:'Pizza'});
+ assert.match(c.$('detail').innerHTML,/Dish Pit Closing/);
+ assert.doesNotMatch(c.$('detail').innerHTML,/Pizza Station Safety/);
+ assert.equal(c.$('station').value,'All stations','QR deep link must override the home-station filter');
+ assert.match(c.$('list').innerHTML,/Dish Pit Closing/);
+ c.$('station').value='Pizza';
+ c.$('station').onchange();
+ assert.match(c.$('detail').innerHTML,/Pizza Station Safety/,'Manual filter still takes precedence after opening the QR');
+});

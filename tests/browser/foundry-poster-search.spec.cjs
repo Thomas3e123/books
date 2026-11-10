@@ -57,3 +57,17 @@ test('Direct poster QR/bookmark opens its published poster and retains employee-
  await expect(page.locator('#detail h2')).toHaveText('Bar Opening Reminder');
  await expect(page).toHaveURL(/#synthetic-bar$/);
 });
+
+test('A real poster QR opens an approved cross-station poster when a home station is saved',async({page})=>{
+ await setup(page);
+ await page.addInitScript(()=>{
+   localStorage.setItem('gravity-foundry-employee-profile-v1-local',JSON.stringify({name:'Synthetic Employee',homeStation:'Pizza'}));
+ });
+ await page.goto('/apps/sop-foundry/staff-posters.html?from=posterqr#synthetic-dish');
+ await expect(page.locator('#detail h2')).toHaveText('Dish Pit Closing');
+ await expect(page.locator('#station')).toHaveValue('All stations');
+ await expect(page.locator('#list button[data-id="synthetic-dish"]')).toHaveCount(1);
+ await expect(page.locator('#buildLink')).toBeHidden();
+ await page.locator('#station').selectOption('Pizza');
+ await expect(page.locator('#detail h2')).toHaveText('Pizza Station Safety');
+});
