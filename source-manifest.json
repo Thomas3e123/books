@@ -298,7 +298,7 @@
     },
     {
       "path": "site/apps/sop-foundry/web-api-shim.js",
-      "sha256": "a991656a1d0daa84049092566f7e5490d7223790b28944877eb9748d21dd05e4"
+      "sha256": "d210dde19ae3f8c17fba4f426e81cb16efa220507bf4f109915b8f5565bbe52e"
     },
     {
       "path": "site/apps/sop-foundry/window.svg",
