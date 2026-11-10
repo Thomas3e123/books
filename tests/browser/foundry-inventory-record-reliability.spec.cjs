@@ -26,6 +26,7 @@ async function setUpInventory(page){
  await page.locator('#item-cost').fill('3.5');
  await page.locator('#item-unit').fill('lb');
  await page.locator('#item-onhand').fill('8');
+ await page.locator('#item-location').selectOption({label:'QA Walk-in Cooler'});
  await page.locator('#save-item').click();
  await expect.poll(async()=>(await readInventory(page))?.items?.length).toBe(1);
  await expect(page.locator('#items-table tbody tr')).toContainText(['QA Chicken Breast']);
@@ -34,7 +35,7 @@ async function setUpInventory(page){
 test('SOP Foundry creates, reopens and revises a draft without publishing it',async({page})=>{
  await page.addInitScript(()=>sessionStorage.setItem('gravityFoundryRoleV15','build'));
  await page.goto('/apps/sop-foundry/workroom.html');
- await expect(page.locator('button[data-view="sops"]')).toBeVisible();
+ await expect(page.locator('#nav button[data-view="sops"]')).toBeVisible();
  await expect(page.locator('button[data-action="new-sop"]').first()).toBeVisible({timeout:18000});
  await page.locator('button[data-action="new-sop"]').first().evaluate(x=>x.click());
  const form=page.locator('#editForm');
@@ -46,6 +47,7 @@ test('SOP Foundry creates, reopens and revises a draft without publishing it',as
  await form.locator('[name="purpose"]').fill('Test fictional safe closing process; never publish.');
  await form.locator('[name="steps"]').fill('Review the test setup\nClean fictional prep table');
  await form.locator('[name="changeSummary"]').fill('Initial QA draft');
+ await form.locator('[name="trainingRequirement"]').selectOption('none');
  await form.locator('[type="submit"]').click();
  await expect(form).toHaveCount(0);
  const snap=await readFoundry(page);
@@ -57,7 +59,7 @@ test('SOP Foundry creates, reopens and revises a draft without publishing it',as
  await page.reload();
  const again=await readFoundry(page);
  expect(again.sops.find(s=>s.id===first.id)?.title).toBe(testSop);
- await page.locator('button[data-view="sops"]').evaluate(x=>x.click());
+ await page.locator('#nav button[data-view="sops"]').evaluate(x=>x.click());
  await page.locator('#sopSearch').fill(testSop);
  await page.locator('#sopItems [data-sop]').first().evaluate(x=>x.click());
  await page.locator('#sopDetail [data-action="edit-sop"]').first().evaluate(x=>x.click());
