@@ -6,8 +6,7 @@
 const context=process.env.CONTEXT||'';
 const branch=process.env.BRANCH||'';
 const isPreview=context==='deploy-preview'||(context==='branch-deploy'&&/^audit\//.test(branch));
-// Temporary PR50-only exception for one isolated Netlify function-rate-limit preview.
-const optedIn=process.env.GRAVITY_ENABLE_PREVIEW_BUILD==='1'||(context==='deploy-preview'&&process.env.REVIEW_ID==='50');
+const optedIn=process.env.GRAVITY_ENABLE_PREVIEW_BUILD==='1';
 if(isPreview&&!optedIn){
   console.log('Gravity: skipping automatic Netlify preview build; GitHub CI remains active.');
   process.exit(0);
