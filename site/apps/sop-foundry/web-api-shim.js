@@ -13,7 +13,7 @@ async function save(s,{replace=false}={}){
  const db=await openDb();
  await new Promise((resolve,reject)=>{
   const tx=db.transaction(STORE,'readwrite'),store=tx.objectStore(STORE);
-  let conflict=false;
+  let conflict=false,writeError=null;
   const read=store.get(KEY);
   read.onsuccess=()=>{
    const prior=read.result;
@@ -23,13 +23,13 @@ async function save(s,{replace=false}={}){
    )){
     conflict=true;tx.abort();return;
    }
-   store.put(next,KEY);
+   try{store.put(next,KEY)}catch(error){writeError=error;tx.abort()}
   };
   tx.oncomplete=()=>resolve();
   tx.onabort=()=>{
    const error=conflict?
       new Error('Another tab changed Gravity data. Nothing from this save was stored. Copy any unsaved work, reload to see the latest saved records, and retry.'):
-      (tx.error||new Error('Gravity browser storage did not confirm this save.'));
+      (writeError||tx.error||new Error('Gravity browser storage did not confirm this save.'));
    if(conflict)error.code='STALE_WRITE';
    reject(error);
   };
