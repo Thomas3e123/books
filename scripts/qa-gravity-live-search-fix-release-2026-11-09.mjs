@@ -4,7 +4,7 @@ const checks=[
  {path:'/help-center',name:'Help Center printing FAQ',require:['How do I print a Gravity PDF, Word file, or form?','For printing Gravity files']},
  {path:'/assets/js/page-search.js',name:'Search relevance and FAQ titles',require:['relevance(entry)','matches.sort','el.matches(\'details\')']},
  {path:'/apps/sop-foundry/staff-sops.js',name:'Employee SOP detail follows search selection',require:['keepSelectionInResults','keepSelectionInResults(matching)','renderList();detail();']},
- {path:'/apps/inventory-center/assets/js/inventory-center.js',name:'Inventory history searches item category and vendor',require:['itemById(x.itemId)?.category','itemById(x.itemId)?.vendor','labelType(x.type)'],
+ {path:'/apps/inventory-center/assets/js/inventory-center.js',name:'Inventory history searches item category and vendor',require:['itemById(x.itemId)?.category','itemById(x.itemId)?.vendor','labelType(x.type)']},
  {path:'/apps/sop-foundry/room-gate.js',name:'Save SOP modal overlays session bar',require:['bottom:10px;right:10px;z-index:11;background'],reject:['bottom:10px;right:10px;z-index:100;background']}
 ];
 const results=[];
