@@ -1,9 +1,9 @@
 GRAVITY WORK STUDY LAB — WINDOWS BETA
-Thomas Monroe Books
+The Gravity Restaurant Leadership System
 Version 0.3.0-beta.1
 
 PURPOSE
-Gravity Work Study Lab is a standalone restaurant work-study system. This Windows beta packages the same controlled Work Study expert source used by thomasmonroebooks.com and now includes Guided stability protection through v63 plus durable Windows-native complete-evidence backup.
+Gravity Work Study Lab is a standalone restaurant work-study system. This Windows beta packages the same controlled Work Study expert source used by gravityleadershipsystem.com and now includes Guided stability protection through v63 plus durable Windows-native complete-evidence backup.
 
 CURRENT BETA CAPABILITIES
 - Guided, Assisted, Independent, and Passive Gravity modes
@@ -53,7 +53,7 @@ LOCAL DATA
 The expert engine remains local-first. Windows also mirrors the complete evidence package into its application data folder using atomic JSON writes so the base study and study-specific expert sidecars remain together.
 
 DOCX / WRITTEN PROCESS FILES
-TXT, MD, CSV, and pasted directions are handled locally. DOCX text extraction uses the Thomas Monroe Books hosted process-file reader through the Electron main process and therefore requires internet access for that specific action.
+TXT, MD, CSV, and pasted directions are handled locally. DOCX text extraction uses the Gravity hosted process-file reader through the Electron main process and therefore requires internet access for that specific action.
 
 GUIDED VOICE
 Guided uses Gravity's hosted Cedar neural voice. Click Guided once and wait for Gravity to join the study. Do not repeatedly click Guided while the expert panels and voice initialize.
