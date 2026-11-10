@@ -2122,7 +2122,7 @@
     },
     {
       "path": "site/registration-thanks.html",
-      "sha256": "d450c30356eaf9c766a0991c8bfa8066a78bfa09ca18dcfd783486a400ebb6ce"
+      "sha256": "b92a10a27b5f9e8dd94989596faaa2df09859ae44c48b214afb6bd6387fe4c9c"
     },
     {
       "path": "site/release-validator.mjs",
