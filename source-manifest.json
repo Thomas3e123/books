@@ -2466,7 +2466,7 @@
     },
     {
       "path": "functions/gravity-guide/guide-core.mjs",
-      "sha256": "3685c895804f858ce161612f18c08295653ac5bb8f30c90e2963e5f941fa8cdd"
+      "sha256": "60c55c322df60ec75036063c77947f4c608d11eb92f140125646035196e57bec"
     },
     {
       "path": "functions/gravity-report/articles.json",
@@ -2494,7 +2494,7 @@
     },
     {
       "path": "functions/gravity-tts/gravity-tts.js",
-      "sha256": "d7f0611754891745c013fadd710cefd433d7695637ecddb38716951e42753759"
+      "sha256": "b3b442496436172f12822242aad85bbcd10244061f7fd21724b8a111ecbcd4ff"
     },
     {
       "path": "functions/handbook-creator/index.mjs",
@@ -2522,7 +2522,7 @@
     },
     {
       "path": "functions/work-study-transcribe/work-study-transcribe.js",
-      "sha256": "1dbe974f8ae85d87832429d0985f6e5620d4a5c022b8f1c7d7e222a92bca2223"
+      "sha256": "3e39a279ddba09f4c0166bbb0ad86d1dbd89616e997a2d86ef0363f11c3d5317"
     },
     {
       "path": "handbook/README.md",
