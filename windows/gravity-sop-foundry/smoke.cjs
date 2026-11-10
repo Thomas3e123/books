@@ -74,7 +74,7 @@ async function run(win,base){
   const archive=await window.GravityFoundryWeb.load();
   if(!archive.history.some(item=>item.item?.id===id&&item.kind==='sop'))throw Error('Previous SOP revision was not archived');
   if(!archive.publishedSops[id]||archive.publishedSops[id].steps.length!==2)throw Error('Draft change altered published employee SOP');
-  await window.GravityFoundryWeb.save(original);
+  await window.GravityFoundryWeb.save(original,{replace:true});
   return {room:'build',referenceBytes:raw.length,localStorage:true,workspace:true,sopSaved:true,approvedAndPublished:true,revisionArchived:true,publicationProtected:true};
  });
  console.log('[FOUNDRY-SMOKE] manager workspace / bundled SOP library:',JSON.stringify(manager));
