@@ -15,6 +15,8 @@ test('New registration leads to the live Free Resources library, not unfinished 
   await page.waitForURL(/\/registration-thanks$/);
   const action=page.locator('[data-gravity-continue-download]');
   await expect(action).toHaveText('Browse Digital Resources');
+  // The confirmation must not show two identical Browse Digital Resources actions.
+  await expect(page.getByRole('link',{name:'Browse Digital Resources'})).toHaveCount(1);
   await expect(action).toHaveAttribute('href','/free-resources');
   await expect(page.locator('.hero-actions a',{hasText:'Browse Digital Resources'}).last()).toHaveAttribute('href','/free-resources');
   await action.click();
