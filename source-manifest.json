@@ -34,7 +34,7 @@
     },
     {
       "path": "site/apps/inventory-center/assets/js/inventory-center.js",
-      "sha256": "008bdedd176c88942efb6dcf8293eb93c7aa37389b464c79a56a1452172fc4d0"
+      "sha256": "04708712bc1b3a25e154325976b8debcb827ac8ca00aae5a78ee24ad797d120e"
     },
     {
       "path": "site/apps/inventory-center/assets/js/inventory-outflow-cost.js",
@@ -274,7 +274,7 @@
     },
     {
       "path": "site/apps/sop-foundry/staff-sops.js",
-      "sha256": "bd2361adb8f6ab9d42dd7314975678e8e8dbb2faeaf5e7cdd5790fc1759f017c"
+      "sha256": "9d7b7b014410cee98b5b68a4a024b56394f3093e3eec2427eba629a34accaa4b"
     },
     {
       "path": "site/apps/sop-foundry/station-groups.js",
@@ -1718,7 +1718,7 @@
     },
     {
       "path": "site/assets/js/page-search.js",
-      "sha256": "359488222fb88e65ea8615da7ab22658be2baf995632209466d5261b0b1fa8a4"
+      "sha256": "91a04f5bd21b49593cfa8be1f0e5f5a7867af131f9143d6df30fab856171ae40"
     },
     {
       "path": "site/assets/js/registration-identity.js",
@@ -2062,7 +2062,7 @@
     },
     {
       "path": "site/help-center.html",
-      "sha256": "d5ed441b3b8bd0d9d3aba59b5173252ce32bfb3569b9cad242e84ee1b17b5f3f"
+      "sha256": "7e95d6c04c76bb99c4b9c594b771332ebfc84c5ddcfb0c2d61bafe4af2c8e4cd"
     },
     {
       "path": "site/hiring-interviewing-employee-retention-tracker.html",
