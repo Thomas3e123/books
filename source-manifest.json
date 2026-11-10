@@ -2461,8 +2461,8 @@
       "sha256": "f4e00f9bfc644a7aeba93189cd8939948b064f1f20fb26774d512e13a9b62dfa"
     },
     {
-      "path": "functions/gravity-guide/gravity-guide.js",
-      "sha256": "f17f2c839ef794ad9a98f816915ffd9f7710ec9d484a8f959c30ceaa5c65a6fa"
+      "path": "functions/gravity-guide/gravity-guide.mjs",
+      "sha256": "e4f9cc986a414ac1cc91942792fc29c4e1e028e40e430d93061226947979b511"
     },
     {
       "path": "functions/gravity-guide/guide-core.mjs",
