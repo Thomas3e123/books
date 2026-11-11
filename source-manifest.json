@@ -378,7 +378,7 @@
     },
     {
       "path": "site/assets/css/styles.css",
-      "sha256": "d27401a5cd27e00a6c08491037cddfa1ea63f38c2187853e2cf82d5cc35e8953"
+      "sha256": "0b8cf146c4f9efb3f98af61934769d9fecb9011c674d0d93e1671b6ba970cba2"
     },
     {
       "path": "site/assets/css/testing-room-home.css",
@@ -1758,7 +1758,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "3b0017f1a6e582e74ba5ffefdb930448a1accf834cb8a9c5b7183ec1148a9135"
+      "sha256": "ea23aa5c89fe335cb589600d918e5176f80d47d3a5c8b0d7cefba72846e07f53"
     },
     {
       "path": "site/assets/js/testing-room.js",
