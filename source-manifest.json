@@ -70,7 +70,7 @@
     },
     {
       "path": "site/apps/sop-foundry/binder-builder.js",
-      "sha256": "68207166b9cd426236d85f2710c058ded9d2e16d3cedebf6e87128da451f1c50"
+      "sha256": "8825fcd344e61161d5944155c78fd9ffc119a8c5aba37b76f5b1637528aaafee"
     },
     {
       "path": "site/apps/sop-foundry/branding-config.js",
@@ -762,7 +762,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Inventory_Center_Windows_User_Manual.html",
-      "sha256": "f15db42adfa67cef4e3dff668165cfa57b33ad591da1947840b5fc7049eb4d24"
+      "sha256": "2f088f4c2150528dcd52f87c7e9650c5e39b917d4c9dec8e7161bed7215c0bb9"
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Inventory_Center_Windows_User_Manual.pdf",
