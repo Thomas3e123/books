@@ -7,7 +7,10 @@ const context=process.env.CONTEXT||'';
 const branch=process.env.BRANCH||'';
 const isPreview=context==='deploy-preview'||(context==='branch-deploy'&&/^audit\//.test(branch));
 const optedIn=process.env.GRAVITY_ENABLE_PREVIEW_BUILD==='1';
-if(isPreview&&!optedIn){
+// Limited, one-branch exception for real browser QA of the reported Edge defect.
+// All unrelated previews remain skipped to control build usage.
+const allowedReview=branch==='fix/gravity-high-zoom-navigation-2026-11-10';
+if(isPreview&&!optedIn&&!allowedReview){
   console.log('Gravity: skipping automatic Netlify preview build; GitHub CI remains active.');
   process.exit(0);
 }
