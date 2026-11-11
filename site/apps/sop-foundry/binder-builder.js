@@ -42,7 +42,7 @@ function update(){
 function sopHtml(s){
  const state=s.isSample?'SAMPLE — customize and approve before use':s._isPublished?'PUBLISHED SOP':'MANAGER WORKING COPY — NOT PUBLISHED';
  const link=typeof window.foundrySopUrl==='function'?window.foundrySopUrl(String(s.id)):'';
- const safeLink=s._isPublished&&/^https:\/\/thomasmonroebooks\.com\/e\/[A-Z0-9]+/i.test(link)?link:'';
+ const safeLink=s._isPublished&&/^https:\/\/gravityleadershipsystem\.com\/e\/[A-Z0-9]+(?:[/?#]|$)/i.test(link)?link:'';
  const lines=(Array.isArray(s.steps)?s.steps:[]).filter(Boolean);
  const block=(title,value)=>'<section class="gravity-binder-block"><h3>'+esc(title)+'</h3><p>'+esc(value||'Not documented')+'</p></section>';
  return '<section class="gravity-binder-sop"><header><div class="gravity-binder-eyebrow">'+esc(state)+'</div><h2>'+esc(s.title||'Untitled SOP')+'</h2><p>'+esc(s.station||s.stationName||s.category||'General')+' · Revision '+esc(s.revision||'1.0')+' · Effective '+esc(s.effectiveDate||'Not set')+'</p></header>'+
