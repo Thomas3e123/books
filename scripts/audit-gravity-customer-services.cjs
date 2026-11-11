@@ -7,7 +7,7 @@ const files=[];
 function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,e.name);if(e.isDirectory())walk(p);else if(/\.html$/i.test(e.name))files.push(p)}}
 walk(site);
 const srcPath=p=>path.relative(site,p).replace(/\\/g,'/');
-const wanted=['gravity-registration','gravity-report-opt-in','gravity-contact','gravity-customer-experience'];
+const wanted=['gravity-registration','gravity-report-opt-in','gravity-contact','gravity-customer-experience','gravity-support-request'];
 const findings=[],registrations=[],assetUrls=new Map(),githubUrls=new Map(),manuals=[];
 const attr=(tag,key)=>{let m=tag.match(new RegExp('(?:^|\\s)'+key+'\\s*=\\s*(["\x27])([\\s\\S]*?)\\1','i'));return m?m[2]:null};
 for(const f of files){
@@ -35,6 +35,16 @@ for(const f of files){
   (assetUrls.get(rel)??assetUrls.set(rel,new Set()).get(rel)).add(route);
  }
 }
+// Require critical customer form endpoints to appear in a real, Netlify-
+// detected POST form. Do not silently pass a missing registration/support form.
+for(const [name,route] of [
+  ['gravity-registration','register.html'],
+  ['gravity-report-opt-in','gravity-report.html'],
+  ['gravity-support-request','help-center.html']
+]){
+ if(!registrations.some(entry=>entry.name===name&&entry.route===route&&entry.method==='POST'&&entry.netlify))
+  findings.push({severity:'BLOCKER',route,check:'required-customer-form-missing',detail:name});
+}
 for(const [rel,pages] of assetUrls){
  const target=path.resolve(site,rel);
  if(!target.startsWith(site+path.sep)){findings.push({severity:'BLOCKER',check:'unsafe-link',detail:rel});continue}
@@ -51,9 +61,9 @@ const backend={};
 for(const [key,p] of Object.entries({
  'Work Study links':'functions/work-study-link/index.mjs',
  'Gravity Guide':'functions/gravity-guide/guide-core.mjs',
- 'Gravity TTS':'functions/gravity-tts/gravity-tts.js',
+ 'Gravity TTS':'functions/gravity-tts/core.cjs',
  'Testing Room':'functions/testing-room/index.mjs',
- 'Audio transcription':'functions/work-study-transcribe/work-study-transcribe.js'
+ 'Audio transcription':'functions/work-study-transcribe/core.cjs'
 })){
  const source=fs.readFileSync(path.resolve(site,'..',p),'utf8');
  backend[key]={mentionsOldOrigin:source.includes('https://thomasmonroebooks.com'),mentionsPermanentGravityOrigin:source.includes('https://gravityleadershipsystem.com'),mentionsTemporaryGravityOrigin:source.includes('https://gravity-leadership-system.netlify.app')};
