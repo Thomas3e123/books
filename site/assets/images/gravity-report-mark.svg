@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">The Gravity Report</title>
+  <desc id="desc">Editorial open-book insignia in ivory and copper on deep plum.</desc>
+  <rect width="128" height="128" rx="22" fill="#2c2432"/>
+  <rect x="7" y="7" width="114" height="114" rx="17" fill="none" stroke="#bc976b" stroke-width="2"/>
+  <path d="M64 40c-11-9-26-11-41-7v53c17-3 29 0 41 10 12-10 24-13 41-10V33c-15-4-30-2-41 7Z" fill="#f8f2e6" stroke="#d6b791" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M64 40v56" stroke="#b98a60" stroke-width="3" stroke-linecap="round"/>
+  <path d="M32 46c11-2 20 0 25 5M32 58c11-2 20 0 25 5M32 70c11-2 20 0 25 5" fill="none" stroke="#977c76" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+  <path d="M72 51c6-5 15-7 24-5M72 63c6-5 15-7 24-5M72 75c6-5 15-7 24-5" fill="none" stroke="#977c76" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+  <path d="M35 20h58" stroke="#bc976b" stroke-width="2" stroke-linecap="round"/>
+  <path d="M46 109h36" stroke="#bc976b" stroke-width="2" stroke-linecap="round"/>
+</svg>
