@@ -7,7 +7,8 @@ const context=process.env.CONTEXT||'';
 const branch=process.env.BRANCH||'';
 const isPreview=context==='deploy-preview'||(context==='branch-deploy'&&/^audit\//.test(branch));
 const optedIn=process.env.GRAVITY_ENABLE_PREVIEW_BUILD==='1';
-if(isPreview&&!optedIn){
+const reportPreviewOnly=branch==='feature/gravity-report-independent-editorial-2026-11-10' || process.env.REVIEW_ID==='61';
+if(isPreview&&!optedIn&&!reportPreviewOnly){
   console.log('Gravity: skipping automatic Netlify preview build; GitHub CI remains active.');
   process.exit(0);
 }
