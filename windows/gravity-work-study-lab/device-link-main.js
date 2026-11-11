@@ -2,7 +2,7 @@
 const {app,ipcMain}=require('electron');
 const fs=require('node:fs');
 const path=require('node:path');
-const URL_BASE='https://thomasmonroebooks.com/work-study-link';
+const URL_BASE='https://gravityleadershipsystem.com/work-study-link';
 const sessionFile=()=>path.join(app.getPath('userData'),'data','work-study-device-link.json');
 function read(){try{return JSON.parse(fs.readFileSync(sessionFile(),'utf8'))}catch{return null}}
 function write(value){const file=sessionFile(),dir=path.dirname(file),tmp=file+'.tmp',bak=file+'.bak';fs.mkdirSync(dir,{recursive:true});fs.writeFileSync(tmp,JSON.stringify(value,null,2),'utf8');const fd=fs.openSync(tmp,'r');try{fs.fsyncSync(fd)}finally{fs.closeSync(fd)}try{if(fs.existsSync(file)){if(fs.existsSync(bak))fs.unlinkSync(bak);fs.renameSync(file,bak)}fs.renameSync(tmp,file);if(fs.existsSync(bak))fs.unlinkSync(bak)}catch(e){try{if(fs.existsSync(tmp))fs.unlinkSync(tmp)}catch{}try{if(!fs.existsSync(file)&&fs.existsSync(bak))fs.renameSync(bak,file)}catch{}throw e}}
