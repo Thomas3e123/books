@@ -2,7 +2,7 @@ import { getDatabase } from '@netlify/database';
 import crypto from 'node:crypto';
 
 const db=getDatabase();
-const allowedOrigins=new Set(['https://thomasmonroebooks.com','https://www.thomasmonroebooks.com','https://gravity-migration--gravity-leadership-system.netlify.app','https://gravity-leadership-system.netlify.app','https://gravityleadershipsystem.com','https://www.gravityleadershipsystem.com']);
+const allowedOrigins=new Set(['https://gravity-migration--gravity-leadership-system.netlify.app','https://gravity-leadership-system.netlify.app','https://gravityleadershipsystem.com','https://www.gravityleadershipsystem.com']);
 const json=(body,status=200,headers={})=>Response.json(body,{status,headers:{'Cache-Control':'no-store',...headers}});
 const makeId=(prefix='x')=>prefix+'_'+crypto.randomUUID().replaceAll('-','');
 const makeToken=()=>crypto.randomBytes(24).toString('base64url');
@@ -13,7 +13,7 @@ const safeEmail=v=>{const s=clean(v,254);return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.tes
 const safePhone=v=>clean(v,80).replace(/[^0-9+().\- xext]/gi,'').slice(0,80);
 function bearer(req){const h=req.headers.get('authorization')||'';return h.replace(/^Bearer\s+/i,'').trim()}
 function testerToken(req){return clean(req.headers.get('x-gravity-tester-token')||bearer(req),200)}
-function cors(req){const o=req.headers.get('origin')||'';return !o||allowedOrigins.has(o)||o.endsWith('.netlify.app')}
+function cors(req){const o=req.headers.get('origin')||'';return !o||allowedOrigins.has(o)}
 async function readBody(req){try{return await req.json()}catch{return {}}}
 async function testerFromToken(t){if(!t)return null;const r=await db.sql`SELECT * FROM gravity_testing_testers WHERE token_hash=${hash(t)} LIMIT 1`;return r[0]||null}
 function publicTester(t){return{id:t.id,displayName:t.display_name,email:t.email||'',interests:t.interests||[],status:t.status,createdAt:t.created_at,updatedAt:t.updated_at}}
