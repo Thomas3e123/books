@@ -34,7 +34,7 @@ jobs:
           $name='Gravity_Inventory_Center_Candidate_0.1.0-beta.1_x64.exe'
           $exe=Join-Path $old $name
           $sha=(Get-FileHash $exe -Algorithm SHA256).Hash.ToLowerInvariant()
-          $matching=Get-Content (Join-Path $old 'SHA256SUMS.txt') | Where-Object { $_.Contains($name) }
+          $matching=@(Get-Content (Join-Path $old 'SHA256SUMS.txt') | Where-Object { $_.Contains($name) })
           if (@($matching).Count -ne 1 -or -not $matching[0].StartsWith($sha)) { throw 'Published October preview checksum mismatch' }
           "OLD_INSTALLER=$exe" >> $env:GITHUB_ENV
       - name: Install published October version into synthetic test directory
