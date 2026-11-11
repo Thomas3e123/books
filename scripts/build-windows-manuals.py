@@ -79,6 +79,7 @@ def produce(name):
     for label,route in RESOURCE_LINKS:
         assert GRAVITY_BASE+route in source_destinations, f'Source manual missing active Gravity link {route}: {name}'
     assert not any('thomasmonroebooks.com' in href.lower() for href in source_destinations), f'Legacy TMB hyperlink in source: {name}'
+    assert 'thomas monroe books' not in source.get_text(' ',strip=True).lower(), f'Outdated publisher navigation wording in source: {name}'
     assert len(sections)>=15, f'Manual is incomplete: {name}'
     pages=source.select_one('article .note')
     note=clean(pages.get_text(' ',strip=True)) if pages else ''
