@@ -11,6 +11,8 @@ on:
       - 'scripts/test-gravity-domain-functions.cjs'
       - 'scripts/audit-gravity-customer-services.cjs'
       - 'scripts/check-gravity-first-use-qr.cjs'
+      - 'scripts/gravity-navigation-consistency.cjs'
+      - 'tests/gravity-report-navigation-boundary.test.cjs'
       - 'site/qr-code-generator.html'
       - 'site/assets/js/gravity-qr.js'
   workflow_dispatch:
