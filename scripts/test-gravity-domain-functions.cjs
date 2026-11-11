@@ -6,8 +6,8 @@ const fs=require('node:fs');
 const path=require('node:path');
 const base=path.resolve(__dirname,'..');
 process.env.OPENAI_API_KEY='local-test-placeholder-no-network';
-const allowed=['https://thomasmonroebooks.com','https://www.thomasmonroebooks.com','https://gravity-leadership-system.netlify.app','https://gravityleadershipsystem.com','https://www.gravityleadershipsystem.com'];
-const denied='https://malicious.example';
+const allowed=['https://gravity-leadership-system.netlify.app','https://gravityleadershipsystem.com','https://www.gravityleadershipsystem.com'];
+const denied=['https://thomasmonroebooks.com','https://www.thomasmonroebooks.com','https://malicious.example'];
 let tested=0;
 (async()=>{
  const guide=(await import(path.join(base,'functions/gravity-guide/guide-core.mjs'))).default;
@@ -16,8 +16,10 @@ let tested=0;
   const resp=await guide(req);
   assert.equal(resp.status,400,'Gravity Guide should accept allowed origin and reject only invalid JSON: '+origin);tested++;
  }
- const deniedGuide=await guide(new Request('https://gravity-leadership-system.netlify.app/.netlify/functions/gravity-guide',{method:'POST',headers:{origin:denied},body:'{'}));
- assert.equal(deniedGuide.status,403);tested++;
+ for(const origin of denied){
+  const deniedGuide=await guide(new Request('https://gravity-leadership-system.netlify.app/.netlify/functions/gravity-guide',{method:'POST',headers:{origin},body:'{'}));
+  assert.equal(deniedGuide.status,403,'Gravity Guide must reject publisher or third-party origin: '+origin);tested++;
+ }
  const voice=requireCjs(path.join(base,'functions/gravity-tts/gravity-tts.js'));
  const transcribe=requireCjs(path.join(base,'functions/work-study-transcribe/work-study-transcribe.js'));
  for(const origin of allowed){
@@ -26,14 +28,20 @@ let tested=0;
   const transcription=await transcribe.handler({httpMethod:'POST',headers:{origin},isBase64Encoded:false,body:''});
   assert.equal(transcription.statusCode,400,'Transcription origin expected to be allowed: '+origin);tested++;
  }
- for(const [label,fn,event] of [
-   ['TTS',voice.handler,{httpMethod:'POST',headers:{origin:denied},body:'{}'}],
-   ['transcription',transcribe.handler,{httpMethod:'POST',headers:{origin:denied},body:'{}',isBase64Encoded:false}]
- ]){
-   const resp=await fn(event);assert.equal(resp.statusCode,403,label+' should reject disallowed origin');tested++;
+ for(const origin of denied){
+  for(const [label,fn,event] of [
+    ['TTS',voice.handler,{httpMethod:'POST',headers:{origin},body:'{}'}],
+    ['transcription',transcribe.handler,{httpMethod:'POST',headers:{origin},body:'{}',isBase64Encoded:false}]
+  ]){
+    const resp=await fn(event);
+    assert.equal(resp.statusCode,403,label+' should reject publisher or third-party origin: '+origin);
+    tested++;
+  }
  }
  const testingRoom=fs.readFileSync(path.join(base,'functions/testing-room/index.mjs'),'utf8');
  for(const o of allowed){assert.ok(testingRoom.includes(o),'Testing Room allowlist missing '+o);tested++}
+ for(const o of denied){assert.ok(!testingRoom.includes("'"+o+"'"),'Testing Room must reject legacy publisher or third-party origin '+o);tested++}
+ assert.ok(!testingRoom.includes("endsWith('.netlify.app')"),'Testing Room must not approve arbitrary third-party Netlify origins');tested++;
  const ws=fs.readFileSync(path.join(base,'functions/work-study-link/index.mjs'),'utf8');
  assert.ok(ws.includes('joinUrl:')&&ws.includes('gravityOrigin(url)'),'Work Study must build origin-aware links');tested++;
  assert.ok(!ws.includes('joinUrl:`https://thomasmonroebooks.com/'),'Old Work Study pairing URL must be gone');tested++;
