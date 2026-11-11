@@ -1,6 +1,6 @@
 'use strict';
 const allowedVoices=new Set(['cedar','marin']);
-const allowedOrigins=new Set(['https://thomasmonroebooks.com','https://www.thomasmonroebooks.com','https://gravity-leadership-system.netlify.app','https://gravityleadershipsystem.com','https://www.gravityleadershipsystem.com','https://feature-gravity-migration-phase1-2026-10-22--gravity-leadership-system.netlify.app']);
+const allowedOrigins=new Set(['https://gravity-leadership-system.netlify.app','https://gravityleadershipsystem.com','https://www.gravityleadershipsystem.com','https://feature-gravity-migration-phase1-2026-10-22--gravity-leadership-system.netlify.app']);
 function json(status,obj){return {statusCode:status,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'},body:JSON.stringify(obj)}}
 async function handle(event){
   if((event.httpMethod||'GET')==='GET') return json(200,{ok:true,function:'gravity-tts',configured:Boolean(process.env.OPENAI_API_KEY),voices:['cedar','marin']});
