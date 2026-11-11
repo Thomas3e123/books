@@ -55,14 +55,34 @@
       '@media(max-width:1180px){',
       'header.site-header #site-nav.open{position:fixed;top:12px;bottom:auto;left:12px;right:12px;height:calc(100dvh - 24px);max-height:none!important;width:auto;max-width:none;box-sizing:border-box;overflow-y:auto!important;overscroll-behavior:contain;z-index:10020;padding:12px 18px 20px}',
       'header.site-header #site-nav.open .gravity-nav-close{display:block;position:sticky;top:0;align-self:stretch;flex:0 0 auto;margin:0 0 8px;padding:12px 15px;border:1px solid #d5a94d;border-radius:10px;background:#172535;color:#fff;text-align:left;font:700 16px system-ui,sans-serif;cursor:pointer;z-index:1}',
-      'header.site-header #site-nav.open>a{flex:0 0 auto;min-height:36px}',
+      'header.site-header #site-nav.open>a{display:flex!important;visibility:visible!important;opacity:1!important;flex:0 0 auto;min-height:36px}',
       '}'
     ].join('');
     document.head.appendChild(compactMenuStyle);
   }
 
+  // Recover all public destinations if a browser-side script or extension
+  // leaves the menu with only a partial set of links. Do not affect workrooms.
+  function restorePublicMenuIfTruncated() {
+    if (!nav || nav.id !== 'site-nav' || !nav.closest('header.site-header')) return;
+    var links = Array.from(nav.querySelectorAll('a[href]'));
+    if (links.length >= primaryMenu.length) return;
+    var allDestinations = primaryMenu.concat([['/windows-programs', 'Windows Programs']]);
+    links.forEach(function (a) { a.remove(); });
+    var restored = document.createDocumentFragment();
+    allDestinations.forEach(function (item) {
+      var link = document.createElement('a');
+      link.href = item[0];
+      link.textContent = item[1];
+      if (item[0] === '/gravity-assist') link.className = 'btn btn-red';
+      restored.appendChild(link);
+    });
+    nav.appendChild(restored);
+  }
+
   function setMenu(open) {
     if (!menuToggle || !nav) return;
+    if (open) restorePublicMenuIfTruncated();
     nav.classList.toggle('open', open);
     menuToggle.setAttribute('aria-expanded', String(open));
     var label = menuToggle.querySelector('span');
