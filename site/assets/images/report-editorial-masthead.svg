@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 420" role="img" aria-labelledby="title desc">
+<title id="title">The Gravity Report</title><desc id="desc">An editorial publication masthead: tall ivory Gravity lettering, smaller red Report, and the slogan Interesting enough to read. Useful enough to share.</desc>
+<defs><linearGradient id="ink" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0e0e11"/><stop offset=".58" stop-color="#18191b"/><stop offset="1" stop-color="#08090b"/></linearGradient><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0c2"/><stop offset="1" stop-color="#ba8a42"/></linearGradient></defs>
+<rect width="1800" height="420" fill="url(#ink)"/><path d="M0 0H285L239 420H0Z" fill="#ebd2a0"/><path d="M277 0L237 420" stroke="#bd8b46" stroke-width="7"/>
+<path d="M38 140c35-90 166-115 215-34" stroke="#17191b" stroke-width="7" fill="none"/><path d="M243 316c-61 67-173 42-195-16" stroke="#17191b" stroke-width="7" fill="none"/>
+<text x="50" y="273" fill="#141518" font-family="Georgia,serif" font-size="198" font-style="italic" font-weight="bold" stroke="#fff6df" stroke-width="5" paint-order="stroke">G</text>
+<text x="143" y="322" fill="#a71520" font-family="Georgia,serif" font-size="167" font-style="italic" font-weight="bold" stroke="#fff6df" stroke-width="5" paint-order="stroke">R</text>
+<path d="M362 82H620M819 82H1732" stroke="#c6a16a" stroke-width="3"/>
+<text x="645" y="102" fill="#fff4dd" font-family="Georgia,serif" font-size="83" font-style="italic">THE</text>
+<text x="334" y="297" textLength="1000" lengthAdjust="spacingAndGlyphs" fill="#fff4dd" font-family="Georgia,Times New Roman,serif" font-weight="bold" font-size="245">GRAVITY</text>
+<text x="1357" y="282" textLength="382" lengthAdjust="spacingAndGlyphs" fill="#b91b28" stroke="#fff3de" stroke-width="3.5" paint-order="stroke" font-family="Georgia,Times New Roman,serif" font-weight="bold" font-size="127">REPORT</text>
+<text x="372" y="375" textLength="1353" lengthAdjust="spacing" fill="#b82e37" font-family="Georgia,Times New Roman,serif" font-style="italic" font-size="56">Interesting enough to read. Useful enough to share.</text>
+<path d="M0 411H1800" stroke="#b88c50" stroke-width="8"/>
+</svg>
