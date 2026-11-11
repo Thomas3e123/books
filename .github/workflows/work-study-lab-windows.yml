@@ -9,7 +9,7 @@ on:
         default: false
         type: boolean
   push:
-    branches: [main, gravity-work-study-windows-parity-20261019]
+    branches: [main, gravity-work-study-windows-parity-20261019, 'feature/gravity-migration-phase1-2026-10-22']
     paths:
       - 'windows/gravity-work-study-lab/**'
       - 'site/gravity-work-study-lab.html'
