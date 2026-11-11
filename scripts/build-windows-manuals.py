@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build matching printable PDF and editable DOCX manuals from the live October 2026 HTML manuals.
+"""Build matching printable PDF and editable DOCX manuals from the controlled Windows HTML manuals.
 The static HTML files are the controlled source; do not independently edit generated binaries.
 """
 from pathlib import Path
@@ -18,6 +18,7 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.enum.style import WD_STYLE_TYPE
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
+from docx.opc.constants import RELATIONSHIP_TYPE as RT
 
 ROOT=Path(__file__).resolve().parents[1]
 MANUALS=ROOT/'site/assets/downloads/windows/manuals/current'
@@ -30,6 +31,27 @@ NAMES=[
 GOLD=colors.HexColor('#AC7F33')
 NAVY=colors.HexColor('#173340')
 BODY=colors.HexColor('#273B45')
+# These destinations are checked against the source HTML before inclusion.
+RESOURCE_LINKS=[
+    ('Windows programs and download notices', '/windows-programs'),
+    ('Open Gravity Assist', '/gravity-assist'),
+    ('Customer support', '/contact'),
+]
+GRAVITY_BASE='https://gravityleadershipsystem.com'
+def word_link(paragraph,label,url):
+    """Add a real clickable external Word hyperlink, not only its visible text."""
+    relationship=paragraph.part.relate_to(url,RT.HYPERLINK,is_external=True)
+    hyperlink=OxmlElement('w:hyperlink')
+    hyperlink.set(qn('r:id'),relationship)
+    run=OxmlElement('w:r')
+    properties=OxmlElement('w:rPr')
+    color=OxmlElement('w:color');color.set(qn('w:val'),'245B75');properties.append(color)
+    underline=OxmlElement('w:u');underline.set(qn('w:val'),'single');properties.append(underline)
+    run.append(properties)
+    display=OxmlElement('w:t');display.text=label
+    run.append(display);hyperlink.append(run)
+    paragraph._p.append(hyperlink)
+
 def clean(txt):
     return re.sub(r'\s+',' ',unescape(txt or '')).strip()
 def set_docx_footer(section):
@@ -53,6 +75,10 @@ def produce(name):
     version=clean(source.select_one('header p').get_text(' ',strip=True))
     intro=clean(source.select_one('header .intro').get_text(' ',strip=True))
     sections=source.select('#guide-content > section')
+    source_destinations={a.get('href','') for a in source.select('a[href]')}
+    for label,route in RESOURCE_LINKS:
+        assert GRAVITY_BASE+route in source_destinations, f'Source manual missing active Gravity link {route}: {name}'
+    assert not any('thomasmonroebooks.com' in href.lower() for href in source_destinations), f'Legacy TMB hyperlink in source: {name}'
     assert len(sections)>=15, f'Manual is incomplete: {name}'
     pages=source.select_one('article .note')
     note=clean(pages.get_text(' ',strip=True)) if pages else ''
@@ -66,6 +92,10 @@ def produce(name):
     para=lambda s:xml.escape(clean(s))
     story=[Paragraph(para(title),ss['ManualTitle']),Paragraph(para(version),ss['ManualSub']),Paragraph(para(intro),ss['ManualBody']),Paragraph(para(note),ss['ManualNote']),Paragraph('Contents',ss['ManualH2'])]
     story.extend(Paragraph(para(clean(section.h2.get_text(' ',strip=True))),ss['ManualBody']) for section in sections)
+    story.append(Paragraph('Official Gravity links',ss['ManualH2']))
+    for label,route in RESOURCE_LINKS:
+        url=GRAVITY_BASE+route
+        story.append(Paragraph(para(label)+': <link href="'+xml.escape(url)+'" color="#245B75">'+para(url)+'</link>',ss['ManualBody']))
     story.append(PageBreak())
     word=Document()
     sec=word.sections[0];sec.top_margin=Inches(.78);sec.bottom_margin=Inches(.78);sec.left_margin=Inches(.82);sec.right_margin=Inches(.82)
@@ -83,6 +113,11 @@ def produce(name):
     word.add_heading('Contents',level=1)
     for section in sections:
         word.add_paragraph(clean(section.h2.get_text(' ',strip=True)))
+    word.add_heading('Official Gravity links',level=1)
+    for label,route in RESOURCE_LINKS:
+        p=word.add_paragraph()
+        p.add_run(label+': ')
+        word_link(p,GRAVITY_BASE+route,GRAVITY_BASE+route)
     word.add_page_break()
     for section in sections:
         header=clean(section.h2.get_text(' ',strip=True))
@@ -111,6 +146,14 @@ def produce(name):
     for h in [clean(se.h2.get_text(' ',strip=True)) for se in sections]:
         assert h in full, f'PDF missed a section: {name}: {h}'
     assert len(sections)==len(word.element.body.xpath('.//w:pStyle[@w:val="Heading2"]')) or docx_path.stat().st_size>20000
+    # Verify real clickable destinations, not merely visible URL text.
+    pdf_urls={str(annot.get_object().get('/A',{}).get('/URI','')) for page in reader.pages for annot in (page.get('/Annots') or [])}
+    word_urls={rel.target_ref for rel in word.part.rels.values() if rel.reltype==RT.HYPERLINK}
+    for _,route in RESOURCE_LINKS:
+        target=GRAVITY_BASE+route
+        assert target in pdf_urls, f'PDF missing clickable Gravity link: {name}: {route}'
+        assert target in word_urls, f'DOCX missing clickable Gravity link: {name}: {route}'
+    assert not any('thomasmonroebooks.com' in url.lower() for url in pdf_urls|word_urls), f'Old publishing link in {name}'
     print(f'OK {name}: {len(sections)} chapters, {len(reader.pages)} PDF pages, PDF {pdf_path.stat().st_size:,} B, DOCX {docx_path.stat().st_size:,} B')
 def main():
     assert MANUALS.is_dir()
