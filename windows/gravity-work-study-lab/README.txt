@@ -1,9 +1,9 @@
 GRAVITY WORK STUDY LAB — WINDOWS BETA
-Thomas Monroe Books
+The Gravity Restaurant Leadership System
 Version 0.3.0-beta.1
 
 PURPOSE
-Gravity Work Study Lab is a standalone restaurant work-study system. This Windows beta packages the same controlled Work Study expert source used by thomasmonroebooks.com and now includes Guided stability protection through v63 plus durable Windows-native complete-evidence backup.
+Gravity Work Study Lab is a standalone restaurant work-study system. This Windows beta packages the same controlled Work Study expert source used by gravityleadershipsystem.com and now includes Guided stability protection through v63 plus durable Windows-native complete-evidence backup.
 
 CURRENT BETA CAPABILITIES
 - Guided, Assisted, Independent, and Passive Gravity modes
