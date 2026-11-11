@@ -1,0 +1,39 @@
+{
+  "title": "October 19, 2026 published Gravity Windows preview identity baseline",
+  "release_url": "https://github.com/Thomas3e123/books/releases/tag/gravity-windows-preview-2026-10-19",
+  "scope": "Identity comparison only; not proof of data migration, especially from October 12 older betas",
+  "projects": [
+    {
+      "name": "Inventory Center",
+      "slug": "gravity-inventory-center",
+      "path": "windows/gravity-inventory-center/package.json",
+      "version": "0.1.0-beta.1",
+      "appId": "com.thomasmonroebooks.gravityinventorycenter.candidate",
+      "productName": "Gravity Inventory Center Candidate"
+    },
+    {
+      "name": "Shift Lab",
+      "slug": "gravity-shift-lab",
+      "path": "windows/gravity-shift-lab/package.json",
+      "version": "0.1.0-beta.1",
+      "appId": "com.thomasmonroebooks.gravityshiftlab.candidate",
+      "productName": "Gravity Shift Lab Candidate"
+    },
+    {
+      "name": "SOP Foundry",
+      "slug": "gravity-sop-foundry",
+      "path": "windows/gravity-sop-foundry/package.json",
+      "version": "0.1.0-beta.1",
+      "appId": "com.thomasmonroebooks.gravitysopfoundry.candidate",
+      "productName": "Gravity SOP Foundry Candidate"
+    },
+    {
+      "name": "Work Study Lab",
+      "slug": "gravity-work-study-lab",
+      "path": "windows/gravity-work-study-lab/package.json",
+      "version": "0.3.0-beta.1",
+      "appId": "com.thomasmonroebooks.gravityworkstudylab",
+      "productName": "Gravity Work Study Lab"
+    }
+  ]
+}
