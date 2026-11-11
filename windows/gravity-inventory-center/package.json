@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "sync:web": "node sync-site.cjs",
-    "build:win": "npm run sync:web && electron-builder --win nsis zip --x64"
+    "build:win": "npm run sync:web && node ../../scripts/verify-windows-brand-links.cjs inventory && electron-builder --win nsis zip --x64"
   },
   "devDependencies": {
     "electron": "39.8.10",
