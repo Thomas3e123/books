@@ -78,10 +78,15 @@ test('Success requires an HTTP success, sends structured fields, saves reference
   expect(ref).toMatch(/^GRV-SUP-\d{8}-[A-F0-9]{16}$/);
   await expect(page.locator('#support-submission-status')).toContainText(ref);
   await expect(page.locator('#support-submission-status')).toContainText('not a Control Room case number');
+  const followUp=page.locator('#support-submission-status a');
+  await expect(followUp).toHaveText('Follow up by email with this reference');
+  await expect(followUp).toHaveAttribute('href',new RegExp('^mailto:thomas\\.butler@gravityleadershipsystem\\.com\\?subject='));
+  await expect(followUp).toHaveAttribute('href',new RegExp(ref));
   await page.locator('#gravity-support-request').evaluate(form=>form.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true})));
   expect(received).toHaveLength(1);
   await page.reload();
   await expect(page.locator('#support-submission-status')).toContainText(ref);
+  await expect(page.locator('#support-submission-status a')).toHaveAttribute('href',new RegExp(ref));
 });
 
 test('Non-2xx failure preserves entries and retry reuses the same reference, without false receipt',async({page})=>{
