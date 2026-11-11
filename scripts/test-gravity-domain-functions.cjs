@@ -20,8 +20,8 @@ let tested=0;
   const deniedGuide=await guide(new Request('https://gravity-leadership-system.netlify.app/.netlify/functions/gravity-guide',{method:'POST',headers:{origin},body:'{'}));
   assert.equal(deniedGuide.status,403,'Gravity Guide must reject publisher or third-party origin: '+origin);tested++;
  }
- const voice=requireCjs(path.join(base,'functions/gravity-tts/gravity-tts.js'));
- const transcribe=requireCjs(path.join(base,'functions/work-study-transcribe/work-study-transcribe.js'));
+ const voice=requireCjs(path.join(base,'functions/gravity-tts/core.cjs'));
+ const transcribe=requireCjs(path.join(base,'functions/work-study-transcribe/core.cjs'));
  for(const origin of allowed){
   const tts=await voice.handler({httpMethod:'POST',headers:{origin},body:'{invalid json'});
   assert.equal(tts.statusCode,400,'TTS origin expected to be allowed: '+origin);tested++;
