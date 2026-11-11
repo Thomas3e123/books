@@ -35,6 +35,32 @@
     // Keep the button in the existing header and let the shared toggle handle it.
   }
 
+  // At high browser zoom the header can extend below the viewport. The old
+  // height calculation then limits the compact menu to 120px (two visible
+  // links). Use a full-viewport, independently scrollable menu in that layout.
+  // The close control stays visible even when the other links are scrolled.
+  if (nav && nav.id === 'site-nav' && menuToggle && nav.closest('header.site-header')) {
+    var closeMenuButton = document.createElement('button');
+    closeMenuButton.type = 'button';
+    closeMenuButton.className = 'gravity-nav-close';
+    closeMenuButton.textContent = 'Close menu';
+    closeMenuButton.addEventListener('click', function () {
+      setMenu(false);
+      menuToggle.focus();
+    });
+    nav.prepend(closeMenuButton);
+    var compactMenuStyle = document.createElement('style');
+    compactMenuStyle.textContent = [
+      '.gravity-nav-close{display:none}',
+      '@media(max-width:1180px){',
+      'header.site-header #site-nav.open{position:fixed;top:12px;bottom:auto;left:12px;right:12px;height:calc(100dvh - 24px);max-height:none!important;width:auto;max-width:none;box-sizing:border-box;overflow-y:auto!important;overscroll-behavior:contain;z-index:10020;padding:12px 18px 20px}',
+      'header.site-header #site-nav.open .gravity-nav-close{display:block;position:sticky;top:0;align-self:stretch;flex:0 0 auto;margin:0 0 8px;padding:12px 15px;border:1px solid #d5a94d;border-radius:10px;background:#172535;color:#fff;text-align:left;font:700 16px system-ui,sans-serif;cursor:pointer;z-index:1}',
+      'header.site-header #site-nav.open>a{flex:0 0 auto;min-height:36px}',
+      '}'
+    ].join('');
+    document.head.appendChild(compactMenuStyle);
+  }
+
   function setMenu(open) {
     if (!menuToggle || !nav) return;
     nav.classList.toggle('open', open);
