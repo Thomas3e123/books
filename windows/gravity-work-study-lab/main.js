@@ -94,7 +94,20 @@ function createWindow(){
  if(!GUIDED_SMOKE)win.once('ready-to-show',()=>win.show());
  return win;
 }
-app.whenReady().then(()=>{ensureDirs();createWindow();app.on('activate',()=>{if(!GUIDED_SMOKE&&BrowserWindow.getAllWindows().length===0)createWindow();});});
+app.whenReady().then(()=>{
+ // Each source-mode and installed-mode CI smoke needs its own disposable
+ // profile. Otherwise the first run saves Guided mode in localStorage and
+ // the second run can no longer see the Start Guided button it must verify.
+ // Normal customers keep the existing stable application userData directory.
+ if(GUIDED_SMOKE){
+  const smokeProfile=path.join(app.getPath('temp'),'gravity-work-study-smoke-'+process.pid+'-'+Date.now());
+  fs.mkdirSync(smokeProfile,{recursive:true});
+  app.setPath('userData',smokeProfile);
+  console.log('WORK_STUDY_SMOKE_ISOLATED_PROFILE');
+ }
+ ensureDirs();createWindow();
+ app.on('activate',()=>{if(!GUIDED_SMOKE&&BrowserWindow.getAllWindows().length===0)createWindow();});
+});
 app.on('window-all-closed',()=>{if(process.platform!=='darwin')app.quit();});
 
 ipcMain.handle('app:info',()=>({product:PRODUCT,version:app.getVersion(),dataPath:dataDir()}));
