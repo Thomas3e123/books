@@ -34,9 +34,13 @@ const nativeMenu=html=>
 const reportHeader=html=>/<header\b[^>]*class=["'][^"']*\breport-site-header\b/i.test(html);
 const editorialReportMenu=html=>{
  if(!reportHeader(html))return false;
- if(!/<div\b[^>]*class=["'][^"']*\breport-masthead\b/i.test(html))return false;
- if(!/<a\b[^>]*href=["']\/["'][^>]*>\s*The Gravity System/i.test(html))return false;
- const nav=html.match(/<nav\b[^>]*class=["'][^"']*\breport-section-nav\b[^>]*>[\s\S]*?<\/nav>/i)?.[0];
+ // Require the Gravity back-link *inside the publication masthead*, not
+ // merely elsewhere in the article/footer, where it could mask a broken header.
+ const header=html.match(/<header\b[^>]*class=["'][^"']*\breport-site-header\b[^>]*>[\s\S]*?<\/header>/i)?.[0];
+ if(!header)return false;
+ if(!/<div\b[^>]*class=["'][^"']*\breport-masthead\b/i.test(header))return false;
+ if(!/<a\b[^>]*href=["']\/["'][^>]*>\s*The Gravity System/i.test(header))return false;
+ const nav=header.match(/<nav\b[^>]*class=["'][^"']*\breport-section-nav\b[^>]*>[\s\S]*?<\/nav>/i)?.[0];
  if(!nav)return false;
  const links=new Set([...nav.matchAll(/href=(["'])([^"']+)\1/gi)].map(m=>m[2]));
  return [
