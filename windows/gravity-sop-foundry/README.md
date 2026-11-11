@@ -4,7 +4,7 @@ This project packages the **same 65+ web source files** as the website's `site/a
 
 The Electron application serves these pages from a **secure local application origin**, not `file://`; this allows ordinary root-relative navigation and IndexedDB storage to work inside the app. Working content stays in this Windows application's local profile until explicitly exported or synchronized.
 
-The hosted employee connector uses the live TMB server only for explicit hosted routes. **Hosted QR links require the internet and an activated hosted employee workspace**. Only remote `/foundry-hosted/` requests are forwarded to the live TMB service; customer PINs, workroom data, and other local API paths stay on-device.
+The hosted employee connector uses the live Gravity server only for explicit hosted routes. **Hosted QR links require the internet and an activated hosted employee workspace**. Only remote `/foundry-hosted/` requests are forwarded to the live Gravity service; customer PINs, workroom data, and other local API paths stay on-device.
 
 ## Build
 

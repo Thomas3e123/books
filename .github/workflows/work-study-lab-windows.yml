@@ -85,11 +85,11 @@ jobs:
           if (-not (Select-String -Path expert\gravity-work-study-process-map-v34.js -Pattern 'gravityDesktop?.readProcessFile' -SimpleMatch -Quiet)) { throw 'Windows DOCX reader was not routed through the Electron bridge.' }
           if (-not (Select-String -Path expert\gravity-work-study-earbud-mode-v18.js -Pattern 'gravityDesktop?.requestTts' -SimpleMatch -Quiet)) { throw 'Windows Guided Cedar voice was not routed through the Electron bridge.' }
           if (-not (Select-String -Path main.js -Pattern "ipcMain.handle('tts:request'" -SimpleMatch -Quiet)) { throw 'Windows Cedar TTS main-process bridge is missing.' }
-          if (-not (Select-String -Path main.js -Pattern "https://thomasmonroebooks.com/.netlify/functions/gravity-tts" -SimpleMatch -Quiet)) { throw 'Windows Cedar TTS must use the HTTPS hosted path from the Electron main process.' }
+          if (-not (Select-String -Path main.js -Pattern "https://gravityleadershipsystem.com/.netlify/functions/gravity-tts" -SimpleMatch -Quiet)) { throw 'Windows Cedar TTS must use the HTTPS hosted path from the Electron main process.' }
           if (-not (Select-String -Path main.js -Pattern "ipcMain.handle('evidence:save'" -SimpleMatch -Quiet)) { throw 'Durable Windows evidence backup is missing.' }
           if (-not (Select-String -Path desktop-bridge.js -Pattern 'loadLatestEvidencePackage' -SimpleMatch -Quiet)) { throw 'Windows backup restore bridge is missing.' }
           if (-not (Select-String -Path device-link-main.js -Pattern "ipcMain.handle('device-link:create'" -SimpleMatch -Quiet)) { throw 'Windows portable-device main-process bridge is missing.' }
-          if (-not (Select-String -Path device-link-main.js -Pattern 'https://thomasmonroebooks.com/work-study-link' -SimpleMatch -Quiet)) { throw 'Windows portable-device sync must use the hosted HTTPS route through Electron main.' }
+          if (-not (Select-String -Path device-link-main.js -Pattern 'https://gravityleadershipsystem.com/work-study-link' -SimpleMatch -Quiet)) { throw 'Windows portable-device sync must use the hosted HTTPS route through Electron main.' }
           if (Select-String -Path preload.js -Pattern 'ownerToken' -SimpleMatch -Quiet) { throw 'Private portable-device owner token must not be exposed to the renderer.' }
           if (-not (Select-String -Path device-link.js -Pattern 'Bring Back Latest' -SimpleMatch -Quiet)) { throw 'Windows portable-device conflict recovery UI is missing.' }
           if (-not (Select-String -Path expert\gravity-work-study-mutation-guard-v62.js -Pattern "v62-global-cohort" -SimpleMatch -Quiet)) { throw 'Cross-observer Guided mutation-loop protection is missing.' }
