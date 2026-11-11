@@ -17,6 +17,7 @@ html=html.replace('href="/assets/images/gravity-system-mark.svg"','href="assets/
 html=html.replace(/<script src="\/assets\/js\/gravity-local-recovery-v1\.js[^"]*" defer><\/script>/g,'');
 html=html.replace(/<script src="\/assets\/js\/gravity-cloud-vault-v1\.js[^"]*" defer><\/script>/g,'');
 html=html.replace(/(href=["'])\/(?!\/)/g,'$1https://gravityleadershipsystem.com/');
+if(/thomasmonroebooks\\.com/i.test(html))throw Error('Windows Inventory must not link to the separate TMB publishing website');
 fs.writeFileSync(path.join(out,'index.html'),html);
 for(const p of ['assets/js/inventory-validation.js','assets/js/inventory-center.js','assets/css/inventory.css','web.css']){
  if(!fs.existsSync(path.join(out,p)))throw Error('Missing inventory website dependency: '+p);

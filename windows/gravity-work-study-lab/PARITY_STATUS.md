@@ -11,7 +11,7 @@ The Windows beta now packages the same Work Study expert JavaScript/CSS source u
 - Guided / Assisted / Independent / Passive study modes and first-time-user guidance.
 - Timer-integrity protection and natural-language Clock Control.
 - Production-safe multi-run timing and run comparability.
-- Process/recipe observation mapping. TXT/MD/CSV work locally; DOCX extraction uses the Thomas Monroe Books hosted reader and therefore requires internet access.
+- Process/recipe observation mapping. TXT/MD/CSV work locally; DOCX extraction uses the Gravity hosted reader and therefore requires internet access.
 - Parallel machine/process time and labor occupancy.
 - Verified segment references and practical restaurant timing units.
 - Standard-minute validity, fixed/variable scaling, verified-baseline provenance, and revalidation holds.
@@ -30,7 +30,7 @@ The synchronized expert engine uses the same local-first browser storage model a
 
 - Automatic hosted cross-device synchronization is not yet implemented.
 - The Windows beta is not digitally code-signed.
-- DOCX extraction requires internet access to the Thomas Monroe Books process-file function; the rest of the expert study engine is packaged locally.
+- DOCX extraction requires internet access to the Gravity process-file function; the rest of the expert study engine is packaged locally.
 
 ## Parity rule going forward
 

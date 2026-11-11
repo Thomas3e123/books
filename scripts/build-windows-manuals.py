@@ -34,7 +34,7 @@ def clean(txt):
     return re.sub(r'\s+',' ',unescape(txt or '')).strip()
 def set_docx_footer(section):
     p=section.footer.paragraphs[0];p.alignment=WD_ALIGN_PARAGRAPH.CENTER
-    p.add_run('THOMAS MONROE BOOKS  ·  GRAVITY WINDOWS  ·  ')
+    p.add_run('THE GRAVITY RESTAURANT LEADERSHIP SYSTEM  ·  WINDOWS  ·  ')
     run=p.add_run()
     fld=OxmlElement('w:fldSimple');fld.set(qn('w:instr'),'PAGE');run._r.addnext(fld)
 def pdf_footer(canvas, doc):
@@ -43,7 +43,7 @@ def pdf_footer(canvas, doc):
     canvas.line(0.65*inch,0.65*inch,7.85*inch,0.65*inch)
     canvas.setFont('Helvetica',8)
     canvas.setFillColor(BODY)
-    canvas.drawString(0.65*inch,0.48*inch,'Thomas Monroe Books · Gravity Windows · October 2026')
+    canvas.drawString(0.65*inch,0.48*inch,'The Gravity Restaurant Leadership System · Windows · November 2026')
     canvas.drawRightString(7.85*inch,0.48*inch,str(doc.page))
     canvas.restoreState()
 def produce(name):
@@ -100,7 +100,7 @@ def produce(name):
                     story.append(Paragraph('&#8226; '+para(s),ss['ManualBody']))
                     word.add_paragraph(s,style='List Bullet')
     pdf_path=MANUALS/(name+'.pdf')
-    pdf=SimpleDocTemplate(str(pdf_path),pagesize=letter,rightMargin=.7*inch,leftMargin=.7*inch,topMargin=.8*inch,bottomMargin=.85*inch,author='Thomas Monroe Books',title=title)
+    pdf=SimpleDocTemplate(str(pdf_path),pagesize=letter,rightMargin=.7*inch,leftMargin=.7*inch,topMargin=.8*inch,bottomMargin=.85*inch,author='Thomas Butler',title=title)
     pdf.build(story,onFirstPage=pdf_footer,onLaterPages=pdf_footer)
     docx_path=MANUALS/(name+'.docx')
     word.save(docx_path)
