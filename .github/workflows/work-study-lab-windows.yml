@@ -104,6 +104,45 @@ jobs:
           npx electron .
       - name: Build Windows installer and ZIP
         run: npm run build:win
+      - name: Check ZIP and generate SHA-256 for the private Windows candidate
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $files = @(Get-ChildItem dist -File | Where-Object { $_.Extension -in @('.exe','.zip') })
+          if ($files.Count -ne 2) { throw "Expected one EXE and one ZIP; found $($files.Count)" }
+          $exe = @($files | Where-Object { $_.Extension -eq '.exe' })
+          $zip = @($files | Where-Object { $_.Extension -eq '.zip' })
+          if ($exe.Count -ne 1 -or $zip.Count -ne 1) { throw 'Incomplete Windows candidate' }
+          Add-Type -AssemblyName System.IO.Compression.FileSystem
+          $archive = [System.IO.Compression.ZipFile]::OpenRead($zip[0].FullName)
+          try { if ($archive.Entries.Count -lt 2) { throw 'Windows ZIP missing packaged files' } }
+          finally { $archive.Dispose() }
+          $lines = @($files | Sort-Object Name | ForEach-Object {
+            $sum=(Get-FileHash -Algorithm SHA256 -Path $_.FullName).Hash.ToLowerInvariant()
+            "$sum  $($_.Name)"
+          })
+          Set-Content -Path 'dist/SHA256SUMS.txt' -Value $lines -Encoding utf8
+          if (@(Get-Content 'dist/SHA256SUMS.txt').Count -ne 2) { throw 'Checksum file incomplete' }
+          Write-Host "Verified Windows candidate ZIP; created SHA-256 file for 2 distributions."
+      - name: Install candidate on clean Windows and rerun Guided data integrity smoke
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $installer = Get-ChildItem 'dist/Gravity_Work_Study_Lab_*.exe' | Select-Object -First 1
+          if (-not $installer) { throw 'Work Study installer missing' }
+          $destination = Join-Path $env:RUNNER_TEMP 'gravity-work-study-installed-smoke'
+          $install = Start-Process -FilePath $installer.FullName -ArgumentList @('/S', "/D=$destination") -Wait -PassThru
+          if ($install.ExitCode -ne 0) { throw "Work Study installation failed: $($install.ExitCode)" }
+          $installed = Join-Path $destination 'Gravity Work Study Lab.exe'
+          if (-not (Test-Path $installed)) { throw "Installed Work Study executable missing: $installed" }
+          $env:GRAVITY_GUIDED_SMOKE = '1'
+          $stdout = Join-Path $env:RUNNER_TEMP 'gravity-work-study-installed-out.txt'
+          $stderr = Join-Path $env:RUNNER_TEMP 'gravity-work-study-installed-err.txt'
+          $run = Start-Process -FilePath $installed -Wait -PassThru -RedirectStandardOutput $stdout -RedirectStandardError $stderr
+          if (Test-Path $stdout) { Get-Content $stdout | Select-Object -Last 80 }
+          if (Test-Path $stderr) { Get-Content $stderr | Select-Object -Last 80 }
+          if ($run.ExitCode -ne 0) { throw "Installed Work Study runtime smoke failed: $($run.ExitCode)" }
+          Write-Host 'Installed Work Study Guided smoke passed on clean Windows runner.'
       - name: Upload Windows beta candidate artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -111,6 +150,7 @@ jobs:
           path: |
             windows/gravity-work-study-lab/dist/*.exe
             windows/gravity-work-study-lab/dist/*.zip
+            windows/gravity-work-study-lab/dist/SHA256SUMS.txt
           if-no-files-found: error
       - name: Publish rolling Windows beta release
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.publish_beta == true }}
