@@ -14,12 +14,12 @@
   // notification and Control Room case creation remain unverified.
   // This opens the visitor's email client; it does not send an email itself.
   function offerEmailFollowUp(ref) {
-    if (!/^GRV-SUP-\\d{8}-[A-F0-9]{16}$/.test(ref)) return;
+    if (!/^GRV-SUP-\d{8}-[A-F0-9]{16}$/.test(ref)) return;
     var link = document.createElement('a');
     link.textContent = 'Follow up by email with this reference';
     link.href = 'mailto:thomas.butler@gravityleadershipsystem.com?subject=' +
       encodeURIComponent('Gravity support follow-up ' + ref) +
-      '&body=' + encodeURIComponent('I am following up on Gravity support request ' + ref + '.\\n\\nPlease let me know whether my request was received and what information you need.');
+      '&body=' + encodeURIComponent('I am following up on Gravity support request ' + ref + '.\n\nPlease let me know whether my request was received and what information you need.');
     link.style.display = 'inline-block';
     link.style.marginTop = '0.4rem';
     status.appendChild(document.createElement('br'));
