@@ -30,7 +30,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "ee69819da2a08a33904cd3d6828a0669698ef5afd0e956d59543e988c5aad209"
+      "sha256": "8039c453be5a1c0d86f7725a6b39bbe376607b98afc04d1ba0613adf4161037a"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",
@@ -542,7 +542,7 @@
     },
     {
       "path": "site/assets/css/report-editorial.css",
-      "sha256": "053e3eba1acdea0a54f34322f553a6e9787d4be3c513ba1a0d079f7a592c1f70"
+      "sha256": "a45f215045d74b1af78d795bd681a68aedb6371afe005ab32764739ac6eb3566"
     },
     {
       "path": "site/assets/css/shift-lab-web-sync.css",
@@ -1469,12 +1469,32 @@
       "sha256": "82ff19c4a7b93215eaeed160bf79651a3b40da927c4647105aa25c3922f3dae8"
     },
     {
+      "path": "site/assets/images/report-approved-masthead.webp",
+      "sha256": "9448d065186ccdd1e6f656e73c07e00c1be5441addbb517ca5acce343d330ede"
+    },
+    {
+      "path": "site/assets/images/report-compact-gr-icon.webp",
+      "sha256": "bdea9ef2c2640107a80517453e178242919520a899effcd3a13f09efb9afc567"
+    },
+    {
       "path": "site/assets/images/report-editorial-masthead.svg",
       "sha256": "b5ebc90e15dd27eebcf5b9474af2caa65bbe6d5cf98623bcaa0950bc3adb805c"
     },
     {
       "path": "site/assets/images/report-editorial-monogram.svg",
       "sha256": "341664a0e0f247de0e19645c2b4ce62e5b8008372ae64359ee52782434c1bca4"
+    },
+    {
+      "path": "site/assets/images/report-favicon-96.png",
+      "sha256": "8c2d746d40c9bf56bf9c8b514a6c7ac1f80372875e87a133f76b47e684098572"
+    },
+    {
+      "path": "site/assets/images/report-full-gold-emblem.webp",
+      "sha256": "8750cbd33edea314fc90eddaa026f881953ba030101ad6bf588ad97fb752db1f"
+    },
+    {
+      "path": "site/assets/images/report-social-preview.jpg",
+      "sha256": "fe1ff6dcd7907942fc0c0f1916b08b7c4a19115f88456b208744039df9f65b39"
     },
     {
       "path": "site/assets/images/RESTAURANT_BAR_BEVERAGE_INVENTORY_ORDERING_SITE_COVER_ELITE_2026-08-31.webp",
@@ -2190,7 +2210,7 @@
     },
     {
       "path": "site/gravity-report.html",
-      "sha256": "3c4694048b744d4c5dd62fd1687d2b14e6714a89ec738f3b9107b90cb9aaecc9"
+      "sha256": "d440400c68706155673d19d1827263e19ad7641c1f676103bc004accbc15d573"
     },
     {
       "path": "site/gravity-shift-lab-sw.js",
