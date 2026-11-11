@@ -20,24 +20,44 @@
     ['/books', 'Books & Reader'],
     ['/gravity-report', 'The Gravity Report'],
     ['/free-resources', 'Free Resources'],
-    ['/help-center', 'Help']
+    ['/help-center', 'Help'],
+    ['/windows-programs', 'Windows Programs']
   ];
-  if (nav && nav.id === 'site-nav' && nav.closest('header.site-header')) {
+  var publicSiteHeader = nav && nav.id === 'site-nav' ? nav.closest('header.site-header') : null;
+  function makePublicLink(item) {
+    var link = document.createElement('a');
+    link.setAttribute('href', item[0]);
+    link.textContent = item[1];
+    return link;
+  }
+  function restorePublicMenu(force) {
+    if (!publicSiteHeader) return;
+    var complete = primaryMenu.every(function (item) { return !!nav.querySelector('a[href="' + item[0] + '"]'); });
+    if (complete && !force) return;
+    // Standardize only the public site menu; do not touch workrooms or Report navigation.
+    nav.querySelectorAll('a[href]').forEach(function (a) { a.remove(); });
     var fragment = document.createDocumentFragment();
-    primaryMenu.forEach(function (item) {
-      var link = document.createElement('a');
-      link.setAttribute('href', item[0]);
-      link.textContent = item[1];
-      if (item[0] === '/gravity-assist') link.className = 'btn btn-red';
-      fragment.appendChild(link);
+    primaryMenu.forEach(function (item) { fragment.appendChild(makePublicLink(item)); });
+    nav.appendChild(fragment);
+  }
+  if (publicSiteHeader) {
+    restorePublicMenu(true);
+    var publicMenuClose = document.createElement('button');
+    publicMenuClose.type = 'button';
+    publicMenuClose.className = 'gravity-nav-close';
+    publicMenuClose.textContent = 'Close menu';
+    publicMenuClose.addEventListener('click', function () {
+      setMenu(false);
+      if (menuToggle) menuToggle.focus();
     });
-    nav.replaceChildren(fragment);
-    // Keep the button in the existing header and let the shared toggle handle it.
+    nav.prepend(publicMenuClose);
   }
 
   function setMenu(open) {
     if (!menuToggle || !nav) return;
+    if (open) { restorePublicMenu(false); nav.scrollTop = 0; }
     nav.classList.toggle('open', open);
+    if (publicSiteHeader) publicSiteHeader.classList.toggle('gravity-public-nav-open', open);
     menuToggle.setAttribute('aria-expanded', String(open));
     var label = menuToggle.querySelector('span');
     if (label) label.textContent = open ? 'Close' : 'Menu';
