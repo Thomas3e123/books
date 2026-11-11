@@ -48,9 +48,23 @@ async function run(win) {
     const file=new File([backupText],'gravity-shift-lab-backup.json',{type:'application/json'});
     const input=get('lab-restore-file');
     const items=new DataTransfer();items.items.add(file);
-    input.files=items.files;input.dispatchEvent(new Event('change',{bubbles:true}));
-    for(let i=0;i<40&&!get('lab-status').textContent.includes('Backup restored');i++)await wait(100);
-    if(!get('lab-status').textContent.includes('Backup restored'))fail('Backup restore did not complete: '+get('lab-status').textContent);
+    // This is synthetic test data in a temporary Electron profile. The actual
+    // restore flow opens a blocking native confirm dialog, which cannot be
+    // answered by the hidden Windows CI runner. Approve only this exact prompt;
+    // leave every other confirmation to the application and restore the
+    // original browser behavior even if this acceptance check fails.
+    const originalConfirm=window.confirm;
+    let restorePrompts=0;
+    window.confirm=function(message){
+      if(String(message).startsWith('Restore this Shift Lab backup?')){restorePrompts++;return true;}
+      return originalConfirm.call(window,message);
+    };
+    try{
+      input.files=items.files;input.dispatchEvent(new Event('change',{bubbles:true}));
+      for(let i=0;i<70&&!get('lab-status').textContent.includes('Backup restored');i++)await wait(100);
+      if(!get('lab-status').textContent.includes('Backup restored'))fail('Backup restore did not complete: '+get('lab-status').textContent);
+      if(restorePrompts!==1)fail('Expected exactly one real backup-restore confirmation, received '+restorePrompts);
+    }finally{window.confirm=originalConfirm;}
     const restored=[...document.querySelectorAll('#lab-body tr[data-employee-id]')].find(x=>x.querySelector('.employee-name')?.value==='Windows Smoke Tester');
     if(!restored||Number(restored.querySelector('.employee-wage')?.value)!==20)fail('Employee/wage missing after backup restore');
     if(Math.abs(parseFloat(get('g-hours').textContent)-56)>0.01)fail('Schedule hours incorrect after backup restore');
