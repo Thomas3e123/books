@@ -66,6 +66,8 @@ jobs:
         run: node --test tests/gravity-windows-package-boundary.test.cjs
       - name: Verify Gravity APIs reject legacy publisher and arbitrary Netlify origins
         run: node --test tests/gravity-api-origin-boundary.test.cjs
+      - name: Check offline API responses reject publisher origins and preserve Gravity traffic
+        run: node scripts/test-gravity-domain-functions.cjs
       - name: Inventory remaining legacy publisher destinations (read-only audit)
         run: node scripts/audit-gravity-tmb-links.cjs --json
       - name: Verify Founding Year and paid-license export gates
