@@ -1,0 +1,75 @@
+name: Inventory Windows published-preview to current-candidate upgrade QA
+on:
+  pull_request:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths:
+      - 'scripts/test-installed-inventory-upgrade.cjs'
+      - '.github/workflows/inventory-installed-upgrade-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  isolated-inventory-upgrade:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Isolate all synthetic Windows profiles under the runner temp directory
+        shell: pwsh
+        run: |
+          $root=Join-Path $env:RUNNER_TEMP 'gravity-inventory-upgrade-qa'
+          New-Item -ItemType Directory -Force -Path $root | Out-Null
+          "UPGRADE_TEST_ROOT=$root" >> $env:GITHUB_ENV
+      - name: Download published October 19 installer and checksum
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $old=Join-Path $env:RUNNER_TEMP 'gravity-old-inventory-installer'
+          New-Item -ItemType Directory -Force -Path $old | Out-Null
+          gh release download gravity-windows-preview-2026-10-19 --repo Thomas3e123/books --pattern 'Gravity_Inventory_Center_Candidate_0.1.0-beta.1_x64.exe' --pattern 'SHA256SUMS.txt' --dir $old
+          $name='Gravity_Inventory_Center_Candidate_0.1.0-beta.1_x64.exe'
+          $exe=Join-Path $old $name
+          $sha=(Get-FileHash $exe -Algorithm SHA256).Hash.ToLowerInvariant()
+          $matching=Get-Content (Join-Path $old 'SHA256SUMS.txt') | Where-Object { $_.Contains($name) }
+          if (@($matching).Count -ne 1 -or -not $matching[0].StartsWith($sha)) { throw 'Published October preview checksum mismatch' }
+          "OLD_INSTALLER=$exe" >> $env:GITHUB_ENV
+      - name: Install published October version into synthetic test directory
+        shell: pwsh
+        run: |
+          $ErrorActionPreference='Stop'
+          $dest=Join-Path $env:RUNNER_TEMP 'gravity-inventory-in-place-program'
+          $p=Start-Process -FilePath $env:OLD_INSTALLER -ArgumentList @('/S',"/D=$dest") -Wait -PassThru
+          if ($p.ExitCode -ne 0) { throw "October installer failed: $($p.ExitCode)" }
+          $exe=Join-Path $dest 'Gravity Inventory Center Candidate.exe'
+          if (-not (Test-Path $exe)) { throw 'Old installed program missing' }
+          "INSTALLED_INVENTORY_EXE=$exe" >> $env:GITHUB_ENV
+      - name: Write a synthetic profile USING the real published October application
+        run: node scripts/test-installed-inventory-upgrade.cjs seed "$env:INSTALLED_INVENTORY_EXE"
+        shell: pwsh
+      - name: Build corrected source in a locally bumped candidate version
+        working-directory: windows/gravity-inventory-center
+        shell: pwsh
+        run: |
+          npm install
+          npm pkg set version=0.1.0-beta.2
+          npm run build:win
+          if ($LASTEXITCODE -ne 0) { throw 'Corrected Windows candidate build failed' }
+          $new=(Get-ChildItem 'dist/Gravity_Inventory_Center_Candidate_*_x64.exe' | Select-Object -First 1)
+          if (-not $new) { throw 'Corrected candidate installer missing' }
+          "NEW_INSTALLER=$($new.FullName)" >> $env:GITHUB_ENV
+      - name: Install corrected candidate over the old installed program
+        shell: pwsh
+        run: |
+          $ErrorActionPreference='Stop'
+          $dest=Join-Path $env:RUNNER_TEMP 'gravity-inventory-in-place-program'
+          $p=Start-Process -FilePath $env:NEW_INSTALLER -ArgumentList @('/S',"/D=$dest") -Wait -PassThru
+          if ($p.ExitCode -ne 0) { throw "Corrected installer failed: $($p.ExitCode)" }
+          if (-not (Test-Path $env:INSTALLED_INVENTORY_EXE)) { throw 'Updated Windows app missing' }
+      - name: Reopen the real new installed app in same isolated profile and compare all saved records
+        run: node scripts/test-installed-inventory-upgrade.cjs verify "$env:INSTALLED_INVENTORY_EXE"
+        shell: pwsh
+# No upload, no release publication, no customer data, no production deploy.
