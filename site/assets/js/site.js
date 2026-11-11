@@ -390,14 +390,31 @@
       try {
         var payload = new URLSearchParams(new FormData(registrationForm));
         payload.set('form-name', 'gravity-registration');
-        var response = await fetch('/', {
-          method: 'POST',
-          body: payload.toString(),
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          credentials: 'same-origin'
-        });
+        var controller = new AbortController();
+        var timeout = window.setTimeout(function () { controller.abort(); }, 20000);
+        var response;
+        try {
+          response = await fetch('/', {
+            method: 'POST',
+            body: payload.toString(),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            credentials: 'same-origin',
+            signal: controller.signal
+          });
+        } finally {
+          window.clearTimeout(timeout);
+        }
         if (!response.ok) throw new Error('Registration was not accepted (' + response.status + ').');
-        storageSet(REG_ACCESS_KEY, 'registered');
+        // A 2xx response confirms only the form endpoint's response. It does
+        // not prove delivery of a notification or staff review.
+        if (!storageSet(REG_ACCESS_KEY, 'registered')) {
+          notice.textContent = 'The website accepted your registration, but this browser could not save download access. Do not register again. Enable site storage for Gravity or use the Help Center to report the access problem.';
+          // Keep this form disabled to avoid creating a duplicate customer
+          // submission after a successful response.
+          registrationForm.dataset.submitting = 'accepted_without_storage';
+          if (submit) { submit.disabled = true; submit.textContent = 'Registration Received'; }
+          return;
+        }
         // Count an accepted registration once, even when the confirmation page is refreshed.
         sessionSet('gravity_registration_completion_pending_v1', '1');
         if (registrationForm.querySelector('#reg-consent') && registrationForm.querySelector('#reg-consent').checked) {
@@ -407,10 +424,14 @@
         }
         location.assign('/registration-thanks');
       } catch (error) {
-        notice.textContent = 'Registration could not be confirmed. Please try again. Your details remain in the form.';
+        notice.textContent = error && error.name === 'AbortError'
+          ? 'The website did not confirm registration within 20 seconds. The request may still have arrived. Your details remain here. Check your connection or contact Help before trying again.'
+          : 'Registration could not be confirmed. The website may not have received it. Your details remain here. Check your connection before trying again.';
       } finally {
-        registrationForm.dataset.submitting = '';
-        if (submit) { submit.disabled = false; submit.textContent = originalLabel; }
+        if (registrationForm.dataset.submitting !== 'accepted_without_storage') {
+          registrationForm.dataset.submitting = '';
+          if (submit) { submit.disabled = false; submit.textContent = originalLabel; }
+        }
       }
     });
   }
