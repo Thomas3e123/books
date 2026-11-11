@@ -31,6 +31,26 @@ const nativeMenu=html=>
  /<nav\b[^>]*\bid=["']site-nav["']/i.test(html)&&
  /<button\b[^>]*data-menu-toggle/i.test(html)&&
  !/body\s+\.site-header\s+#site-nav\s*,\s*body\s+\.site-header\s+\.menu-toggle[^}]*display\s*:\s*none\s*!important/i.test(html);
+const reportHeader=html=>/<header\b[^>]*class=["'][^"']*\breport-site-header\b/i.test(html);
+const editorialReportMenu=html=>{
+ if(!reportHeader(html))return false;
+ // Require the Gravity back-link *inside the publication masthead*, not
+ // merely elsewhere in the article/footer, where it could mask a broken header.
+ const header=html.match(/<header\b[^>]*class=["'][^"']*\breport-site-header\b[^>]*>[\s\S]*?<\/header>/i)?.[0];
+ if(!header)return false;
+ if(!/<div\b[^>]*class=["'][^"']*\breport-masthead\b/i.test(header))return false;
+ if(!/<a\b[^>]*href=["']\/["'][^>]*>\s*The Gravity System/i.test(header))return false;
+ const nav=header.match(/<nav\b[^>]*class=["'][^"']*\breport-section-nav\b[^>]*>[\s\S]*?<\/nav>/i)?.[0];
+ if(!nav)return false;
+ const links=new Set([...nav.matchAll(/href=(["'])([^"']+)\1/gi)].map(m=>m[2]));
+ return [
+  '/gravity-report#report-feature',
+  '/gravity-report#report-working-side',
+  '/gravity-report#report-series',
+  '/gravity-report#report-issues',
+  '/gravity-report#report-field-sheets'
+ ].every(link=>links.has(link));
+};
 function ensureMenus(dir){
  let total=0,native=0,inserted=0,existing=0,missing=[];
  function visit(folder){
@@ -41,6 +61,13 @@ function ensureMenus(dir){
    let html=fs.readFileSync(full,'utf8');
    if(!/<body\b/i.test(html)){missing.push(path.relative(dir,full));continue}
    total++;
+   if(reportHeader(html)){
+     // The Report is a standalone editorial publication. Its own working
+     // masthead and five-section menu must be present; never insert a Gravity
+     // utility menu across the magazine branding.
+     if(!editorialReportMenu(html)||html.includes('id="gravity-site-menu-access"'))throw Error('Gravity Report editorial navigation incomplete: '+full);
+     continue;
+   }
    if(html.includes('id="gravity-site-menu-access"')){existing++;continue}
    if(nativeMenu(html)){native++;continue}
    if(/<\/head>/i.test(html))html=html.replace(/<\/head>/i,css+'</head>');
@@ -65,7 +92,9 @@ function auditMenus(dir){
    if(!item.name.endsWith('.html'))continue;
    total++;const html=fs.readFileSync(full,'utf8');
    const hasFallback=html.includes('id="gravity-site-menu-access"');
-   if(!hasFallback&&!nativeMenu(html))noMenu.push(path.relative(dir,full));
+   if(reportHeader(html)){
+     if(!editorialReportMenu(html)||hasFallback)noMenu.push(path.relative(dir,full));
+   }else if(!hasFallback&&!nativeMenu(html))noMenu.push(path.relative(dir,full));
    if(/body\s+\.site-header\s+#site-nav\s*,\s*body\s+\.site-header\s+\.menu-toggle[^}]*display\s*:\s*none\s*!important/i.test(html)&&!hasFallback)hiddenWithoutFallback.push(path.relative(dir,full));
  }}
  visit(dir);
