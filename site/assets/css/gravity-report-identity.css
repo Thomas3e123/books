@@ -1,0 +1,58 @@
+/* The Gravity Report — independent editorial masthead. Keep scoped to Report pages. */
+body.report-catalog .site-header,
+body.gravity-report-page .site-header {
+  background:linear-gradient(115deg,#1b202d 0%,#322536 56%,#211f2a 100%);
+  border-bottom:2px solid #b58c5a;
+}
+body.report-catalog .site-header .header-inner,
+body.gravity-report-page .site-header .header-inner {
+  gap:clamp(10px,2vw,22px);
+}
+body.report-catalog .report-brand,
+body.gravity-report-page .report-brand {
+  display:flex;align-items:center;gap:14px;
+  flex:1 1 410px;min-width:0;color:#f7f0e5;text-decoration:none;
+}
+body.report-catalog .report-brand img,
+body.gravity-report-page .report-brand img {
+  width:78px;height:78px;max-width:20vw;flex:0 0 auto;
+  border-radius:12px;box-shadow:0 8px 18px rgba(0,0,0,.2);
+}
+body.report-catalog .report-brand-copy,
+body.gravity-report-page .report-brand-copy {
+  display:flex;flex-direction:column;gap:4px;min-width:0;
+}
+body.report-catalog .report-brand-copy strong,
+body.gravity-report-page .report-brand-copy strong {
+  color:#fff8ec;font:700 clamp(24px,2.6vw,37px)/1.1 Georgia,'Times New Roman',serif;
+  letter-spacing:-.015em;
+}
+body.report-catalog .report-brand-copy small,
+body.gravity-report-page .report-brand-copy small {
+  display:block;color:#e4c8a1;font:500 clamp(11px,1.05vw,14px)/1.4 system-ui,Arial,sans-serif;
+  letter-spacing:.012em;max-width:430px;
+}
+body.report-catalog .report-parent-link,
+body.gravity-report-page .report-parent-link {
+  display:inline-block;flex:0 0 auto;color:#f0d5ae;
+  border:1px solid rgba(230,199,154,.45);border-radius:9px;
+  padding:10px 12px;font:650 13px/1.25 system-ui,Arial,sans-serif;text-decoration:none;
+}
+body.report-catalog .report-parent-link:hover,
+body.gravity-report-page .report-parent-link:hover {color:#fff;border-color:#e6c79a}
+body.report-catalog .report-parent-link:focus-visible,
+body.gravity-report-page .report-parent-link:focus-visible {outline:3px solid #f0d5ae;outline-offset:3px}
+body.report-catalog .site-header #gravity-site-search>button,
+body.gravity-report-page .site-header #gravity-site-search>button {color:#fff0d8;border-color:#ac8d6f}
+@media(max-width:1180px){
+  body.report-catalog .report-parent-link,body.gravity-report-page .report-parent-link{display:none}
+}
+@media(max-width:700px){
+  body.report-catalog .report-brand,body.gravity-report-page .report-brand{gap:9px;flex-basis:100%}
+  body.report-catalog .report-brand img,body.gravity-report-page .report-brand img{width:52px;height:52px}
+  body.report-catalog .report-brand-copy strong,body.gravity-report-page .report-brand-copy strong{font-size:clamp(20px,6vw,28px)}
+  body.report-catalog .report-brand-copy small,body.gravity-report-page .report-brand-copy small{font-size:11px;line-height:1.3}
+}
+@media(prefers-reduced-motion:reduce){
+  body.report-catalog .report-brand *,body.gravity-report-page .report-brand *{transition:none}
+}
