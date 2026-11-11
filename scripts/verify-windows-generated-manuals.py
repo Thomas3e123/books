@@ -46,6 +46,7 @@ def verify_one(slug):
     require(len(headings)>=15,f'{name}: incomplete source headings')
     source_urls={a.get('href','') for a in soup.select('a[href]')}
     require(not any(OLD in x.lower() for x in source_urls),f'{name}: TMB source hyperlink')
+    require('thomas monroe books' not in soup.get_text(' ',strip=True).lower(),f'{name}: outdated publisher instructions')
     require(EXPECTED <= source_urls,f'{name}: missing source Gravity links')
     reader=PdfReader(str(pdf))
     text='\n'.join((p.extract_text() or '') for p in reader.pages)
