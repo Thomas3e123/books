@@ -1498,7 +1498,7 @@
     },
     {
       "path": "site/assets/js/gravity-support-request.js",
-      "sha256": "3864768c89bb356afe18ddc047b35a5506ee9512bcf190eba004893bb6a5c09c"
+      "sha256": "94020b0a8afdbbab45aca4d4366be7b9b4619fa0f7cd916f8106d483e36fcafb"
     },
     {
       "path": "site/assets/js/gravity-work-study-action-expert-v21.js",
@@ -2134,7 +2134,7 @@
     },
     {
       "path": "site/privacy.html",
-      "sha256": "4810522f0934a15f34488126e9589e76fb9c6f1a7ab3ba19c1b4a1c9a88798dd"
+      "sha256": "5649ee13c50ff7981f10f053a68b9b185afd1ae0c56708d7f8afc67e8764f88d"
     },
     {
       "path": "site/qr-code-generator.html",

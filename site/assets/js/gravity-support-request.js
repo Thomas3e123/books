@@ -10,6 +10,22 @@
   var accepted = false;
   var LAST_REF = 'gravity_support_last_accepted_reference_v1';
 
+  // A submission reference is useful for a manual follow-up while staff
+  // notification and Control Room case creation remain unverified.
+  // This opens the visitor's email client; it does not send an email itself.
+  function offerEmailFollowUp(ref) {
+    if (!/^GRV-SUP-\d{8}-[A-F0-9]{16}$/.test(ref)) return;
+    var link = document.createElement('a');
+    link.textContent = 'Follow up by email with this reference';
+    link.href = 'mailto:thomas.butler@gravityleadershipsystem.com?subject=' +
+      encodeURIComponent('Gravity support follow-up ' + ref) +
+      '&body=' + encodeURIComponent('I am following up on Gravity support request ' + ref + '.\n\nPlease let me know whether my request was received and what information you need.');
+    link.style.display = 'inline-block';
+    link.style.marginTop = '0.4rem';
+    status.appendChild(document.createElement('br'));
+    status.appendChild(link);
+  }
+
   // A client-created tracking reference permits deduplication and follow-up.
   // It is NOT a server-assigned case number or a promise of staff handling.
   function reference() {
@@ -27,6 +43,7 @@
     var last = window.sessionStorage.getItem(LAST_REF);
     if (last && /^GRV-SUP-\d{8}-[A-F0-9]{16}$/.test(last)) {
       status.textContent = 'Last support reference from this browser tab: ' + last + '. Save it for follow-up.';
+      offerEmailFollowUp(last);
     }
   } catch (_) {}
 
@@ -68,6 +85,7 @@
       accepted = true;
       status.textContent = 'The website returned a successful submission response. Your reference is ' +
         acceptedReference + '. Save it for follow-up. This is not a Control Room case number, proof of delivery to a support person, or a guaranteed response time. To report a separate problem, reopen this page.';
+      offerEmailFollowUp(acceptedReference);
       try { window.sessionStorage.setItem(LAST_REF, acceptedReference); } catch (_) {}
       if (typeof window.gravityAnalyticsEvent === 'function') {
         window.gravityAnalyticsEvent('gravity_support_request_accepted', { source: 'help_center' });
