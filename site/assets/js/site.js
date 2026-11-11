@@ -28,7 +28,7 @@
       var link = document.createElement('a');
       link.setAttribute('href', item[0]);
       link.textContent = item[1];
-      if (item[0] === '/gravity-assist') link.className = 'btn btn-red';
+      // Keep each destination the same size in the compact and desktop menus.
       fragment.appendChild(link);
     });
     nav.replaceChildren(fragment);
@@ -74,7 +74,7 @@
       var link = document.createElement('a');
       link.href = item[0];
       link.textContent = item[1];
-      if (item[0] === '/gravity-assist') link.className = 'btn btn-red';
+      // Keep each destination the same size in the compact and desktop menus.
       restored.appendChild(link);
     });
     nav.appendChild(restored);
@@ -854,10 +854,23 @@ document.addEventListener('mouseover',function(e){var a=e.target&&e.target.close
   function applyHeaderIdentity() {
     var header = document.querySelector('.site-header');
     if (!header) return;
+    // Gravity Report has its own editorial masthead and logo.
+    if (document.body.classList.contains('report-catalog') ||
+        document.body.classList.contains('gravity-report-page')) return;
     var brand = header.querySelector('.brand-system-copy');
-    var path = location.pathname.replace(/\/$/, '').replace(/\.html$/, '');
-    if (!path || path === '/' || path === '/index') return;
-    var isRoom = document.body.hasAttribute('data-workspace') ||
+    var path = location.pathname.replace(/\/$/, '').replace(/\.html$/, '') || '/';
+    var pageNames = {
+      '/': 'Home',
+      '/index': 'Home',
+      '/start-here': 'Start Here',
+      '/operating-systems': 'Operating Systems',
+      '/books': 'Books & Reader',
+      '/free-resources': 'Free Resources',
+      '/help-center': 'Help',
+      '/contact': 'Contact'
+    };
+    var isRoom = Object.prototype.hasOwnProperty.call(pageNames, path) ||
+      document.body.hasAttribute('data-workspace') ||
       /^\/apps\//.test(path) ||
       /(?:gravity-aware|gravity-assist|room|lab|studio|center|foundry|inventory|shift-lab|work-study)/.test(path);
     if (!isRoom || header.querySelector('.gravity-header-room-name')) return;
@@ -865,7 +878,7 @@ document.addEventListener('mouseover',function(e){var a=e.target&&e.target.close
     var active = header.querySelector('nav a[aria-current="page"]');
     var name = heading ? heading.textContent.trim() : (active ? active.textContent.trim() : '');
     var roomNames = {'/gravity-assist':'Gravity Assist','/gravity-shift-lab':'Shift Lab','/gravity-sop-foundry':'SOP Foundry','/gravity-inventory-center':'Inventory Center','/gravity-work-study-lab':'Work Study Lab','/gravity-recipe-works':'Recipe Works','/gravity-aware':'Gravity Aware'};
-    name = roomNames[path] || name.replace(/^The Gravity (Restaurant )?/i, '').replace(/^Gravity /i, '');
+    name = pageNames[path] || roomNames[path] || name.replace(/^The Gravity (Restaurant )?/i, '').replace(/^Gravity /i, '');
     if (!name || name.length > 65) name = path.split('/').filter(Boolean).pop().replace(/[-_]/g, ' ');
     var inner = header.querySelector('.header-inner');
     if (!inner || !name) return;
