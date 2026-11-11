@@ -366,7 +366,7 @@
     },
     {
       "path": "site/assets/css/report-editorial.css",
-      "sha256": "a45f215045d74b1af78d795bd681a68aedb6371afe005ab32764739ac6eb3566"
+      "sha256": "fea484e5735929e5e1aa562baf35e456ccbadb1a7f43fa9b90fbbe8ef2d26c9f"
     },
     {
       "path": "site/assets/css/shift-lab-web-sync.css",
@@ -2034,7 +2034,7 @@
     },
     {
       "path": "site/gravity-report.html",
-      "sha256": "d440400c68706155673d19d1827263e19ad7641c1f676103bc004accbc15d573"
+      "sha256": "c3a8d59da2bcbb2b2e4c024ea77b9dc0b753131264017c95c94688eb434da80b"
     },
     {
       "path": "site/gravity-shift-lab-sw.js",
@@ -2506,7 +2506,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "8039c453be5a1c0d86f7725a6b39bbe376607b98afc04d1ba0613adf4161037a"
+      "sha256": "8580da2e29d69ff8f6bed6a72aa52392fe4df943c765fb052ed409eba4e3bac3"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",

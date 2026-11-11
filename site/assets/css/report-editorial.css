@@ -53,3 +53,28 @@ body.gravity-report-page .report-byline{color:#656164}
 body.gravity-report-page .report-eyebrow{color:#8c2932}
 @media(max-width:820px){.report-topline{gap:10px}.report-topline .report-topline-right{gap:8px}.report-section-nav{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding:0 8px;scrollbar-width:thin}.report-section-nav a{flex:0 0 auto;padding:14px 17px}.report-footer-inner{grid-template-columns:1fr}.report-footer nav{justify-content:flex-start}}
 @media(max-width:530px){.report-topline{padding:9px 12px}.report-topline .report-topline-left img{width:33px;height:33px}.report-topline .report-topline-right a:not(:last-child){display:none}.report-masthead img{min-height:100px;object-fit:cover;object-position:center}.report-section-nav a{padding:12px 14px;font-size:12px}body.report-catalog .report-top{padding:34px 0}.report-footer{padding:30px 0}}
+
+/* Compact editorial masthead: show articles above the fold on desktop and phone. */
+body.report-catalog .report-topline,
+body.gravity-report-page .report-topline{padding-top:6px;padding-bottom:6px}
+body.report-catalog .report-topline-left img,
+body.gravity-report-page .report-topline-left img{width:32px;height:32px}
+body.report-catalog .report-masthead a,
+body.gravity-report-page .report-masthead a{max-width:700px}
+body.report-catalog .report-masthead img,
+body.gravity-report-page .report-masthead img{width:100%;height:auto;min-height:0;aspect-ratio:1600/407;object-fit:contain;object-position:center}
+body.report-catalog .report-section-nav a,
+body.gravity-report-page .report-section-nav a{padding-top:11px;padding-bottom:11px}
+body.report-catalog .report-top{padding:22px 0 25px}
+body.report-catalog .report-top h1{font-size:clamp(1.65rem,2.7vw,2.65rem);line-height:1.13;margin:6px 0 8px}
+body.report-catalog .report-top p{font-size:clamp(.92rem,1.04vw,1.05rem);line-height:1.48;margin:6px 0;max-width:970px}
+body.report-catalog .report-top .report-kicker{margin-bottom:4px}
+body.report-catalog .report-top .hero-actions{gap:8px;margin-top:12px}
+body.report-catalog .report-top .hero-actions a{padding:10px 14px}
+@media(max-width:530px){
+  body.report-catalog .report-masthead img,
+  body.gravity-report-page .report-masthead img{min-height:0;aspect-ratio:1600/407;object-fit:contain}
+  body.report-catalog .report-top{padding:18px 0 22px}
+  body.report-catalog .report-top h1{font-size:1.85rem}
+  body.report-catalog .report-top .hero-actions a{padding:9px 11px}
+}
