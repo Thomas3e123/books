@@ -81,9 +81,16 @@ function createWindow(){
  win.webContents.setWindowOpenHandler(({url})=>{if(/^https:\/\//i.test(url))shell.openExternal(url);return{action:'deny'}});
  win.webContents.on('will-navigate',(event,url)=>{if(url!==win.webContents.getURL())event.preventDefault();});
  if(GUIDED_SMOKE){
+  win.webContents.on('did-fail-load',(_event,code,description,url)=>console.error('WORK_STUDY_PAGE_LOAD_FAILED',code,description,url));
+  win.webContents.on('console-message',(_event,details)=>{
+   const message=String(details?.message||'');
+   if(/(?:failed|error|uncaught|not found|ERR_)/i.test(message))console.error('WORK_STUDY_RENDERER_ERROR',message.slice(0,500));
+  });
   win.webContents.once('did-finish-load',()=>{setTimeout(()=>runGuidedSmoke(win).then(()=>{console.log('WORK_STUDY_WINDOWS_SMOKE_PASS');app.exit(0)}).catch(err=>{console.error('WORK_STUDY_WINDOWS_SMOKE_FAIL',err);app.exit(1)}),150)});
  }
- win.loadFile('index.html');
+ // Load from the packaged application root, not an assumed process CWD.
+ // This must work from Program Files/NSIS as well as with "npx electron .".
+ win.loadFile(path.join(__dirname,'index.html')).catch(err=>console.error('WORK_STUDY_LOADFILE_FAILED',err.message));
  if(!GUIDED_SMOKE)win.once('ready-to-show',()=>win.show());
  return win;
 }
