@@ -15,6 +15,7 @@ if(!root.toLowerCase().startsWith(runner.toLowerCase()+path.sep))throw Error('Te
 const roaming=path.join(root,'Roaming'),local=path.join(root,'Local');
 fs.mkdirSync(roaming,{recursive:true});fs.mkdirSync(local,{recursive:true});
 const SNAPSHOT=path.join(root,'inventory-synthetic-snapshot.json'),PORT=phase==='seed'?19351:19352;
+const browserProfile=path.join(root,'ChromiumProfile');
 let child,client;
 function getJson(url){return new Promise((resolve,reject)=>{
  const req=http.get(url,{timeout:1800},res=>{let body='';res.setEncoding('utf8');res.on('data',x=>body+=x);res.on('end',()=>{try{resolve(JSON.parse(body))}catch(e){reject(e)}})});
@@ -87,7 +88,7 @@ async function run(){
  try{
   const env={...process.env,APPDATA:roaming,LOCALAPPDATA:local,GRAVITY_INVENTORY_SMOKE:''};
   delete env.ELECTRON_RUN_AS_NODE;
-  child=cp.spawn(exe,['--remote-debugging-address=127.0.0.1','--remote-debugging-port='+PORT],
+  child=cp.spawn(exe,['--user-data-dir='+browserProfile,'--remote-debugging-address=127.0.0.1','--remote-debugging-port='+PORT],
    {cwd:path.dirname(exe),env,windowsHide:false,stdio:'ignore'});
   child.on('error',e=>console.error('Inventory spawn error: '+e.message));
   const page=await findPage();client=await connect(page);
@@ -118,9 +119,10 @@ async function run(){
    console.log('PASS: updated installed version preserved synthetic inventory, rendered one item and wrote a second location');
   }
   await delay(2200);
-  const folders=fs.readdirSync(roaming);
-  assert.ok(folders.length>0,'No isolated Roaming profile created; test might be using wrong profile');
-  console.log('Confirmed isolated Roaming profile folder(s):',folders.join(', '));
+  const storage=path.join(browserProfile,'Local Storage','leveldb');
+  assert.ok(fs.existsSync(storage), 'Old or updated Electron version ignored isolated --user-data-dir; refusing to certify migration');
+  assert.ok(fs.readdirSync(storage).length>0,'Expected Chromium localStorage database inside isolated profile');
+  console.log('Confirmed Chromium localStorage persisted under the GitHub runner isolated profile');
  }finally{
   if(client){try{await client.eval('window.close()')}catch{}client.close()}
   await delay(900);
