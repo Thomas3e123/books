@@ -3018,3 +3018,18 @@ h2 .gravity-help-tip,h3 .gravity-help-tip,h4 .gravity-help-tip{width:1.25rem;hei
 /* support-graphic-size-control-20260918-rc */
 .support-payment-card > img{width:min(100%,220px);height:auto;aspect-ratio:auto;object-fit:contain;margin:0 auto;}
 @media(max-width:520px){.support-payment-card > img{width:min(100%,180px);}}
+
+/* Menu entries must be consistent even if a page's legacy HTML includes .btn. */
+.site-header #site-nav a.btn {
+  width:auto;
+  min-width:0;
+  padding:0;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  color:inherit;
+  font:inherit;
+  line-height:inherit;
+  white-space:normal;
+}
