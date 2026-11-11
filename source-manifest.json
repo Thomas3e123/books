@@ -70,7 +70,7 @@
     },
     {
       "path": "site/apps/sop-foundry/binder-builder.js",
-      "sha256": "8825fcd344e61161d5944155c78fd9ffc119a8c5aba37b76f5b1637528aaafee"
+      "sha256": "4c88ecb59b29d6228272ff9c05d55b1dc72066ee52ca4c653bc0d4ee8650dc0d"
     },
     {
       "path": "site/apps/sop-foundry/branding-config.js",
