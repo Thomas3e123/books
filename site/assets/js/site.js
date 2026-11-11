@@ -373,7 +373,7 @@
   if (registrationForm) {
     registrationForm.addEventListener('submit', async function (event) {
       event.preventDefault();
-      if (!registrationForm.reportValidity() || registrationForm.dataset.submitting === '1') return;
+      if (!registrationForm.reportValidity() || registrationForm.dataset.submitting) return;
       var submit = registrationForm.querySelector('[type="submit"]');
       var originalLabel = submit ? submit.textContent : '';
       var notice = registrationForm.querySelector('[data-registration-feedback]');
