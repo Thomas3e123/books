@@ -48,6 +48,8 @@ jobs:
         run: python3 scripts/audit-free-resource-files.py
       - name: Verify manifest and compile site
         run: npm run build
+      - name: Audit Gravity site, Windows sources and manuals for publisher-domain links
+        run: node scripts/audit-gravity-tmb-links.cjs
       - name: Modern Guide rate-limit adapter regressions
         run: node --test tests/gravity-guide-rate-limit.test.cjs tests/gravity-ai-boundary.test.cjs
       - name: Audio rate-limit adapter and binary compatibility regressions
