@@ -66,9 +66,20 @@ async function run(win) {
       if(restorePrompts!==1)fail('Expected exactly one real backup-restore confirmation, received '+restorePrompts);
     }finally{window.confirm=originalConfirm;}
     const restored=[...document.querySelectorAll('#lab-body tr[data-employee-id]')].find(x=>x.querySelector('.employee-name')?.value==='Windows Smoke Tester');
-    if(!restored||Number(restored.querySelector('.employee-wage')?.value)!==20)fail('Employee/wage missing after backup restore');
+    if(!restored)fail('Employee missing after backup restore');
+    // Production restore deliberately re-locks manager wages. Check the privacy
+    // barrier, then unlock with the actual manager PIN before validating pay.
+    if(restored.querySelector('.employee-wage'))fail('Restored manager wages were exposed without a PIN');
+    get('lab-pay-lock').click();
+    if(!get('pay-lock-dialog').open)fail('Manager unlock dialog missing after backup restore');
+    set(get('pay-lock-secret'),'test-4826');
+    get('pay-lock-submit').click();
+    for(let i=0;i<35&&get('pay-lock-dialog').open;i++)await wait(80);
+    if(get('pay-lock-dialog').open)fail('Correct PIN did not unlock restored wages');
+    const restoredUnlocked=[...document.querySelectorAll('#lab-body tr[data-employee-id]')].find(x=>x.querySelector('.employee-name')?.value==='Windows Smoke Tester');
+    if(Number(restoredUnlocked?.querySelector('.employee-wage')?.value)!==20)fail('Restored employee wage differs from verified backup');
     if(Math.abs(parseFloat(get('g-hours').textContent)-56)>0.01)fail('Schedule hours incorrect after backup restore');
-    console.log('[SHIFT-SMOKE] Backup restore validated');
+    console.log('[SHIFT-SMOKE] Backup restore, manager relock and re-unlock validated');
     // Exercise print buttons, printed employee snapshot and QR canvas without opening OS print dialogs.
     const captures=[];
     const originalPrint=window.print;
