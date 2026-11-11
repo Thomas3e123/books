@@ -60,6 +60,8 @@ jobs:
         run: node --test tests/gravity-poster-filter.test.cjs
       - name: Verify Gravity and TMB remain separate in Windows tools, QR output and manuals
         run: node --test tests/gravity-tmb-separation.test.cjs
+      - name: Regression test Windows package link boundaries
+        run: node --test tests/gravity-windows-package-boundary.test.cjs
       - name: Inventory remaining legacy publisher destinations (read-only audit)
         run: node scripts/audit-gravity-tmb-links.cjs --json
       - name: Verify Founding Year and paid-license export gates

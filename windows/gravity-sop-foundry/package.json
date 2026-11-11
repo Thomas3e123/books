@@ -7,7 +7,7 @@
   "scripts": {
     "sync:web": "node sync-site.cjs",
     "verify:site": "node verify-site.cjs",
-    "build:win": "npm run sync:web && npm run verify:site && electron-builder --win nsis zip --x64"
+    "build:win": "npm run sync:web && npm run verify:site && node ../../scripts/verify-windows-brand-links.cjs foundry && electron-builder --win nsis zip --x64"
   },
   "devDependencies": {
     "electron": "39.8.10",
