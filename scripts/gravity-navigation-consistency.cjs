@@ -31,14 +31,14 @@ const nativeMenu=html=>
  /<nav\b[^>]*\bid=["']site-nav["']/i.test(html)&&
  /<button\b[^>]*data-menu-toggle/i.test(html)&&
  !/body\s+\.site-header\s+#site-nav\s*,\s*body\s+\.site-header\s+\.menu-toggle[^}]*display\s*:\s*none\s*!important/i.test(html);
-const reportHeader=html=>/<header\\b[^>]*class=["'][^"']*\\breport-site-header\\b/i.test(html);
+const reportHeader=html=>/<header\b[^>]*class=["'][^"']*\breport-site-header\b/i.test(html);
 const editorialReportMenu=html=>{
  if(!reportHeader(html))return false;
- if(!/<div\\b[^>]*class=["'][^"']*\\breport-masthead\\b/i.test(html))return false;
- if(!/<a\\b[^>]*href=["']\\/["'][^>]*>\\s*The Gravity System/i.test(html))return false;
- const nav=html.match(/<nav\\b[^>]*class=["'][^"']*\\breport-section-nav\\b[^>]*>[\\s\\S]*?<\\/nav>/i)?.[0];
+ if(!/<div\b[^>]*class=["'][^"']*\breport-masthead\b/i.test(html))return false;
+ if(!/<a\b[^>]*href=["']\/["'][^>]*>\s*The Gravity System/i.test(html))return false;
+ const nav=html.match(/<nav\b[^>]*class=["'][^"']*\breport-section-nav\b[^>]*>[\s\S]*?<\/nav>/i)?.[0];
  if(!nav)return false;
- const links=new Set([...nav.matchAll(/href=(["'])([^"']+)\\1/gi)].map(m=>m[2]));
+ const links=new Set([...nav.matchAll(/href=(["'])([^"']+)\1/gi)].map(m=>m[2]));
  return [
   '/gravity-report#report-feature',
   '/gravity-report#report-working-side',
