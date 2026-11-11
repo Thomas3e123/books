@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+<title id="title">The Gravity Report — GR insignia</title><desc id="desc">Black G and red R on a warm gold field, with an ivory and gold circular frame.</desc>
+<defs><radialGradient id="gold"><stop stop-color="#fff6db"/><stop offset=".8" stop-color="#e8c982"/><stop offset="1" stop-color="#b98235"/></radialGradient><linearGradient id="ruby" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d82a2d"/><stop offset="1" stop-color="#7d101a"/></linearGradient></defs>
+<rect width="512" height="512" rx="60" fill="#161519"/>
+<circle cx="256" cy="256" r="240" fill="url(#gold)" stroke="#f9ebc3" stroke-width="9"/>
+<circle cx="256" cy="256" r="217" fill="none" stroke="#b21724" stroke-width="8"/>
+<path d="M120 186c28-87 177-113 262-43" fill="none" stroke="#1b1a1c" stroke-width="10" stroke-linecap="round"/>
+<path d="M386 332c-53 88-187 98-262 26" fill="none" stroke="#1b1a1c" stroke-width="9" stroke-linecap="round"/>
+<text x="125" y="324" font-family="Georgia,Times New Roman,serif" font-weight="bold" font-style="italic" font-size="242" paint-order="stroke" stroke="#fff3d8" stroke-width="9" fill="#17191b">G</text>
+<text x="251" y="365" font-family="Georgia,Times New Roman,serif" font-weight="bold" font-style="italic" font-size="215" paint-order="stroke" stroke="#fff3d8" stroke-width="9" fill="url(#ruby)">R</text>
+</svg>
