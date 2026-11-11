@@ -1,5 +1,5 @@
 'use strict';
-const allowed=new Set(['https://thomasmonroebooks.com','https://www.thomasmonroebooks.com','https://gravity-leadership-system.netlify.app','https://gravityleadershipsystem.com','https://www.gravityleadershipsystem.com','https://feature-gravity-migration-phase1-2026-10-22--gravity-leadership-system.netlify.app']);
+const allowed=new Set(['https://gravity-leadership-system.netlify.app','https://gravityleadershipsystem.com','https://www.gravityleadershipsystem.com','https://feature-gravity-migration-phase1-2026-10-22--gravity-leadership-system.netlify.app']);
 const reply=(statusCode,body)=>({statusCode,headers:{'content-type':'application/json; charset=utf-8','cache-control':'no-store'},body:JSON.stringify(body)});
 exports.handler=async event=>{
  try{
