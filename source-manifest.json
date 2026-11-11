@@ -2498,7 +2498,7 @@
     },
     {
       "path": "functions/gravity-guide/guide-core.mjs",
-      "sha256": "60c55c322df60ec75036063c77947f4c608d11eb92f140125646035196e57bec"
+      "sha256": "e7825067de37773d74410fa9dfb9fabeaaa963b386fb3ae13d31b91b77b098a7"
     },
     {
       "path": "functions/gravity-report/articles.json",
@@ -2526,7 +2526,7 @@
     },
     {
       "path": "functions/gravity-tts/core.cjs",
-      "sha256": "b3b442496436172f12822242aad85bbcd10244061f7fd21724b8a111ecbcd4ff"
+      "sha256": "2fa2b976cc700f63cc34e4f00e1fa485b715c13527a4d4b2c9e2312fb625d5e4"
     },
     {
       "path": "functions/gravity-tts/gravity-tts.mjs",
@@ -2546,7 +2546,7 @@
     },
     {
       "path": "functions/testing-room/index.mjs",
-      "sha256": "5e6d86d68492e55cad22bdad8bba2c2ac20addf148cfa0a2b4bd16969781c090"
+      "sha256": "ea671b5f0d3e7e50ed83b9d31a610f5b0a8f6ac28823feab9242cac6cf81e966"
     },
     {
       "path": "functions/work-study-link/index.mjs",
@@ -2558,7 +2558,7 @@
     },
     {
       "path": "functions/work-study-transcribe/core.cjs",
-      "sha256": "3e39a279ddba09f4c0166bbb0ad86d1dbd89616e997a2d86ef0363f11c3d5317"
+      "sha256": "b37932022f2b5a0b2bb2c0a34c4607a525dc53d0ac8542b35f56ce685b416515"
     },
     {
       "path": "functions/work-study-transcribe/work-study-transcribe.mjs",
