@@ -7,7 +7,7 @@ test('production descriptions match the published 350-prompt workbook',()=>{
  assert.equal(index.length,350);
  for(const page of ['index.html','about.html','knowledge-center.html','free-resources.html','releases.html','gravity-document-studio.html']){
   const html=read(page);
-  assert.doesNotMatch(html,/(?:currently contains|current controlled edition now contains)\\s+(?:250|325)\\s+prompts/i,page);
+  assert.doesNotMatch(html,/(?:currently contains|current controlled edition now contains)\s+(?:250|325)\s+prompts/i,page);
   assert.doesNotMatch(html,/Search (?:250|325) Prompts/i,page);
  }
  assert.match(read('knowledge-center.html'),/350 prompts connect the systems/);
