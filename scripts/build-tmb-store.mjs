@@ -21,6 +21,17 @@ if(!fs.existsSync(target)){
 }
 if(createHash('sha256').update(fs.readFileSync(target)).digest('hex')!==CURRENT_AI_SHA256)throw Error('AI workbook current edition does not match verified Gravity source');
 
+const CURRENT_AI_READER_SHA256='2b9bf19ec9386b56a62bf97302e542a5cd2103314c82f895da5e1ff20b00ac88';
+const currentReader=path.join(root,'site/assets/reader/ai-prompts.txt');
+const currentReaderHash=fs.existsSync(currentReader)?createHash('sha256').update(fs.readFileSync(currentReader)).digest('hex'):'';
+if(currentReaderHash!==CURRENT_AI_READER_SHA256){
+ const response=await fetch('https://gravityleadershipsystem.com/assets/reader/ai-prompts.txt',{signal:AbortSignal.timeout(25000)});
+ if(!response.ok)throw Error('Current 350-prompt sample text unavailable at official Gravity site');
+ const data=Buffer.from(await response.arrayBuffer());
+ if(createHash('sha256').update(data).digest('hex')!==CURRENT_AI_READER_SHA256)throw Error('AI sample text does not match the verified 350-prompt source');
+ fs.writeFileSync(currentReader,data);
+}
+
 const source=fs.readFileSync(bookPage,'utf8');
 const html=(v)=>String(v??'').replace(/[&<>"']/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const money=(cents)=>'$'+(cents/100).toFixed(2);
