@@ -121,6 +121,54 @@ for p in sorted(SITE.rglob('*')):
             if errors or (pages>0 and len(full)<20):
                 alert(rel,'PDF has pages whose text cannot be reliably extracted',f'pages={pages} unreadable={errors} characters={len(full)}','review')
         except Exception as e:out['failures'].append({'path':rel,'error':str(e)})
+# Also audit manuals bundled inside downloadable ZIP packages rather than assuming
+# the loose public PDF/Word copies cover the complete customer experience.
+import io
+archive_reports=[]
+for zpath in sorted(SITE.rglob('*.zip')):
+    rel=zpath.relative_to(ROOT).as_posix()
+    entry_report={'path':rel,'total_members':0,'documentation_members':0,'text_verified':0,'skipped':[]}
+    try:
+        with zipfile.ZipFile(zpath) as archive:
+            members=[m for m in archive.infolist() if not m.is_dir()]
+            entry_report['total_members']=len(members)
+            for entry in members:
+                ext=pathlib.PurePosixPath(entry.filename).suffix.lower()
+                if ext not in ('.pdf','.docx','.txt','.md','.html'):continue
+                entry_report['documentation_members']+=1
+                label=rel+'!'+entry.filename
+                if entry.file_size>25_000_000:
+                    entry_report['skipped'].append(label+' (over 25MB)')
+                    continue
+                try:
+                    raw=archive.read(entry)
+                    if ext in ('.txt','.md','.html'):
+                        txt=raw.decode('utf-8','replace')
+                        if ext=='.html':
+                            soup=BeautifulSoup(txt,'html.parser')
+                            for node in soup(['script','style']): node.decompose()
+                            txt=soup.get_text(' ',strip=True)
+                    elif ext=='.docx':
+                        d=Document(io.BytesIO(raw))
+                        txt=' '.join(p.text for p in d.paragraphs)+' '+' '.join(c.text for t in d.tables for r in t.rows for c in r.cells)
+                    else:
+                        reader=PdfReader(io.BytesIO(raw),strict=False)
+                        txt=' '.join((page.extract_text() or '') for page in reader.pages)
+                    entry_report['text_verified']+=1
+                    m=SOURCE_MISDIRECTION.search(txt)
+                    if m:alert(label,'bundled instructions direct software downloads to publisher',m.group(0),'critical')
+                    m=OLD_SITE.search(txt)
+                    if m and ('manual' in label.lower() or 'quick_start' in label.lower() or 'guide' in label.lower()):
+                        alert(label,'bundled guide references old publisher web address',m.group(0),'review')
+                except Exception as e:
+                    out['failures'].append({'path':label,'error':str(e)})
+    except Exception as e:
+        out['failures'].append({'path':rel,'error':str(e)})
+    archive_reports.append(entry_report)
+out['archives']=archive_reports
+out['counts']['site_download_zips']=len(archive_reports)
+out['counts']['embedded_documentation_items']=sum(x['documentation_members'] for x in archive_reports)
+out['counts']['embedded_documents_text_verified']=sum(x['text_verified'] for x in archive_reports)
 out['binary_review']=docs
 out['counts']['site_html_pages']=sum(1 for v in out['product_pages'] if v['path'].endswith('.html'))
 out['counts']['site_pdf_documentation']=sum(d['format']=='pdf' for d in docs)
