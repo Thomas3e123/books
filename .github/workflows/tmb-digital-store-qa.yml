@@ -1,0 +1,37 @@
+name: TMB digital catalog and Square purchase safety (no live charges)
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tmb-site/**'
+      - 'tmb-store/**'
+      - 'tmb-functions/**'
+      - 'scripts/build-tmb-store.mjs'
+      - 'scripts/verify-tmb-publisher.cjs'
+      - 'netlify.toml'
+      - 'tests/tmb-store.test.mjs'
+      - '.github/workflows/tmb-digital-store-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-publisher-store:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate TMB catalog and 15 limited sample pages
+        run: node scripts/build-tmb-store.mjs
+      - name: Verify independent publisher design, redirects and catalog
+        run: node scripts/verify-tmb-publisher.cjs
+      - name: Test full inventory and Square receipt rules without charging anything
+        run: node --test tests/tmb-store.test.mjs
+      - name: Ensure no completed PDF was copied to the public publisher folder
+        run: |
+          if find tmb-site -type f \( -iname '*.pdf' -o -iname '*.docx' \) | grep .; then
+            echo "ERROR: Full paid book files should not be published as unprotected TMB static files."
+            exit 1
+          fi
