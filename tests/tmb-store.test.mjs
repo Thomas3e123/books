@@ -25,6 +25,9 @@ test('public catalog and samples contain no full paid PDF files',()=>{
   assert.ok(sample.includes(b.title.replace('’','’'))||sample.includes(b.title.replace('’','&rsquo;'))||sample.includes('&amp;'),b.id);
   assert.ok(!sample.includes('href="'+b.sourcePdf+'"'),b.id+' leaking PDF');
  }
+ const aiSample=fs.readFileSync(path.join(root,'tmb-site','samples','ai-prompts-350.html'),'utf8');
+ assert.match(aiSample,/350 practical copy-and-paste prompts/);
+ assert.doesNotMatch(aiSample,/325 practical copy-and-paste prompts/);
  const page=fs.readFileSync(path.join(root,'tmb-site','books.html'),'utf8');
  assert.equal((page.match(/class="book-card tmb-sale-card"/g)||[]).length,BOOKS.length);
  assert.match(page,/same complete books/);
