@@ -54,6 +54,19 @@ def analyze_text(path,text,html=False):
         alert(rel,'installer described as corrected without qualifying correction scope',MISLEADING_INSTALLER.search(content).group(0),'high')
     if rel.startswith('site/assets/downloads/windows/manuals/') and OLD_SITE.search(content):
         alert(rel,'Windows manual still contains legacy publisher domain',OLD_SITE.search(content).group(0),'high')
+    if html and rel.startswith('site/'):
+        legacy_current_patterns=[
+            r'(?:currently contains|current controlled edition now contains)\s+(?:250|325)\s+prompts',
+            r'(?:250|325)\s+prompts\s+connect the systems',
+            r'(?:250|325)\s+practical copy-and-paste prompts',
+            r'(?:Search|Open the)\s+(?:250|325)(?:-prompt|\s+Prompts)',
+            r'contains\s+(?:250|325)\s+prompts\s+covering'
+        ]
+        for expr in legacy_current_patterns:
+            m=re.search(expr,text,re.I)
+            if m:
+                alert(rel,'current AI workbook description disagrees with published 350-prompt edition',
+                      m.group(0),'high')
     if html and rel.startswith('site/') and re.search(r'\b(19|29)\b',content) and ('handbook' in rel):
         out.setdefault('price_review',[]).append(rel)
     return content
