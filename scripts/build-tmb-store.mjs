@@ -1,11 +1,26 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
 import { BOOKS } from '../tmb-store/catalog.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const dest=path.join(root,'tmb-site');
 const bookPage=path.join(dest,'books.html');
+const CURRENT_AI_FILE='site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_350_PROMPTS_2026-11-03.pdf';
+const CURRENT_AI_SHA256='14f640bf6fa35d2a3172871928f3e68a3945fc8792e1d0d70b43829269cdc6ff';
+const target=path.join(root,CURRENT_AI_FILE);
+if(!fs.existsSync(target)){
+ const origin='https://gravityleadershipsystem.com/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_350_PROMPTS_2026-11-03.pdf';
+ const response=await fetch(origin,{signal:AbortSignal.timeout(25000)});
+ if(!response.ok)throw Error('Current AI workbook was not available from the official Gravity site');
+ const data=Buffer.from(await response.arrayBuffer());
+ if(createHash('sha256').update(data).digest('hex')!==CURRENT_AI_SHA256)throw Error('Current AI workbook integrity mismatch; publisher build blocked');
+ fs.mkdirSync(path.dirname(target),{recursive:true});
+ fs.writeFileSync(target,data);
+}
+if(createHash('sha256').update(fs.readFileSync(target)).digest('hex')!==CURRENT_AI_SHA256)throw Error('AI workbook current edition does not match verified Gravity source');
+
 const source=fs.readFileSync(bookPage,'utf8');
 const html=(v)=>String(v??'').replace(/[&<>"']/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const money=(cents)=>'$'+(cents/100).toFixed(2);
