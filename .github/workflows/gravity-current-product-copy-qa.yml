@@ -1,0 +1,25 @@
+name: Verify Gravity public product descriptions against live edition (preview only)
+on:
+  pull_request:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths:
+      - 'scripts/build-gravity-production.cjs'
+      - 'tests/gravity-published-product-copy.test.cjs'
+      - '.github/workflows/gravity-current-product-copy-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  product-copy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build isolated Gravity production output without publishing
+        run: node scripts/build-gravity-production.cjs
+      - name: Test customer-facing product descriptions and edition count
+        run: node --test tests/gravity-published-product-copy.test.cjs
+# Review PR before merge. No live deployment, payments, installer updates or data changes.
