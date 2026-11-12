@@ -36,7 +36,7 @@ const CURRENT_COPY_FIXES=[
 ];
 function normalizeCurrentCopy(html){
  for(const [oldText,newText] of CURRENT_COPY_FIXES)html=html.replaceAll(oldText,newText);
- if(/(?:currently contains|current controlled edition now contains)\\s+(?:250|325)\\s+prompts/i.test(html)||
+ if(/(?:currently contains|current controlled edition now contains)\s+(?:250|325)\s+prompts/i.test(html)||
     /Search (?:250|325) Prompts/i.test(html)||
     /(?:250|325) practical copy-and-paste prompts/i.test(html))
    throw Error('Old current AI prompt count remains in built page');
@@ -47,7 +47,8 @@ function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){
  const p=path.join(dir,e.name);if(e.isDirectory()){walk(p);continue;}
  if(!/\.(html|xml|txt)$/.test(e.name))continue;
  let s=fs.readFileSync(p,'utf8').replaceAll('https://gravity-leadership-system.netlify.app',origin).replaceAll('https://gravity-migration--gravity-leadership-system.netlify.app',origin);
- if(e.name.endsWith('.html')){\n  s=normalizeCurrentCopy(s);
+ if(e.name.endsWith('.html')){
+  s=normalizeCurrentCopy(s);
   // Rewrite every *local* HTML JavaScript or stylesheet URL to its content hash.
   // Leave unrelated, missing, dynamic and third-party assets untouched.
   const rel=path.relative(out,p).split(path.sep).join('/');
