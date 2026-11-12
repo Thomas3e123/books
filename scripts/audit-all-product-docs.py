@@ -19,8 +19,8 @@ PUBLIC='https://gravityleadershipsystem.com'
 APP_NAMES=('SOP Foundry','Shift Lab','Inventory Center','Work Study Lab','Handbook Creator',
            'Forms Personalizer','Document Studio','Numbers Lab','Recipe Works','Quick Tools')
 BETA_MANUAL_DIR='assets/downloads/windows/manuals/'
-OLD_SITE=re.compile(r'(?:https?://)?(?:www\\.)?thomasmonroebooks\\.com',re.I)
-SOURCE_MISDIRECTION=re.compile(r'(?:only use the download linked directly from|download(?:s|ed|ing)?\\s+(?:the\\s+)?(?:software|program|installer)\\s+from)\\s+Thomas Monroe Books',re.I)
+OLD_SITE=re.compile(r'(?:https?://)?(?:www\.)?thomasmonroebooks\.com',re.I)
+SOURCE_MISDIRECTION=re.compile(r'(?:only use the download linked directly from|download(?:s|ed|ing)?\s+(?:the\s+)?(?:software|program|installer)\s+from)\s+Thomas Monroe Books',re.I)
 CURRENT_MANUAL=re.compile(r'Current Windows preview manual',re.I)
 MISLEADING_INSTALLER=re.compile(r'Download corrected Windows installer',re.I)
 TEXT_FORMATS={'.html','.txt','.md'}
@@ -54,7 +54,7 @@ def analyze_text(path,text,html=False):
         alert(rel,'installer described as corrected without qualifying correction scope',MISLEADING_INSTALLER.search(content).group(0),'high')
     if rel.startswith('site/assets/downloads/windows/manuals/') and OLD_SITE.search(content):
         alert(rel,'Windows manual still contains legacy publisher domain',OLD_SITE.search(content).group(0),'high')
-    if html and rel.startswith('site/') and re.search(r'\\b(19|29)\\b',content) and ('handbook' in rel):
+    if html and rel.startswith('site/') and re.search(r'\b(19|29)\b',content) and ('handbook' in rel):
         out.setdefault('price_review',[]).append(rel)
     return content
 docs=[]
@@ -114,7 +114,7 @@ out['counts']['site_pdf_documentation']=sum(d['format']=='pdf' for d in docs)
 out['counts']['site_docx_documentation']=sum(d['format']=='docx' for d in docs)
 out['counts']['high_or_critical_findings']=sum(x['level'] in ('high','critical') for x in out['warnings'])
 out['counts']['review_findings']=sum(x['level']=='review' for x in out['warnings'])
-REPORT.write_text(json.dumps(out,indent=2)+'\\n',encoding='utf-8')
+REPORT.write_text(json.dumps(out,indent=2)+'\n',encoding='utf-8')
 print('GRAVITY ALL-PRODUCT DOCUMENTATION INVENTORY (READ ONLY)')
 print('Counts:',json.dumps(out['counts'],sort_keys=True))
 print('Warnings:',len(out['warnings']),'Extraction failures:',len(out['failures']))
