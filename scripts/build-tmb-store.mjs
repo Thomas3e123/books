@@ -69,6 +69,14 @@ let updated=source.slice(0,a)
  + source.slice(b);
 updated=updated.replace('</head>','<script defer src="/assets/js/tmb-store.js"></script></head>');
 fs.writeFileSync(bookPage,updated);
+// Stable public sample URLs even with the publisher's explicit 404 catch-all.
+const redirectFile=path.join(dest,'_redirects');
+let redirects=fs.readFileSync(redirectFile,'utf8');
+const sampleRules=BOOKS.map(b=>'/samples/'+b.id+' /samples/'+b.id+'.html 200').join('\n');
+redirects=redirects.replace(/(?:^|\n)\/samples\/[a-z0-9-]+\s+\/samples\/[a-z0-9-]+\.html\s+200\s*\n/g,'\n');
+if(!redirects.includes('/* /404.html 404'))throw Error('Publisher fallback routing changed');
+redirects=redirects.replace('/* /404.html 404',sampleRules+'\n/* /404.html 404');
+fs.writeFileSync(redirectFile,redirects);
 const sitemap=['<?xml version="1.0" encoding="utf-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'];
 for(const page of ['','books','about','publishing','contact','privacy','terms','purchase-complete']){
  sitemap.push('<url><loc>https://thomasmonroebooks.com/'+page+'</loc></url>');
