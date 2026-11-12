@@ -16,12 +16,38 @@ function assetVersion(rel){
 }
 const privatePage=/^(apps\/|handbook-creator\/|testing-room-manager\.html$|register\.html$|registration-thanks\.html$|gravity-report-thanks\.html$|review-thanks\.html$)/;
 fs.rmSync(out,{recursive:true,force:true});fs.mkdirSync(out,{recursive:true});fs.cpSync(source,out,{recursive:true});
+// Correct CURRENT customer-facing claims in production without rewriting historical
+// milestone counts (e.g. September's 215-prompt release). The controlled current
+// workbook and search index contain 350 entries; see current edition 2026-11-03.
+// This is a temporary publication safeguard pending source-page consolidation.
+const prompts=JSON.parse(fs.readFileSync(path.join(source,'assets/data/restaurant-ai-prompts-350.json'),'utf8'));
+if(!Array.isArray(prompts)||prompts.length!==350)throw Error('Current AI workbook index must contain 350 prompts');
+const CURRENT_COPY_FIXES=[
+ ['The Restaurant AI Prompts & Systems Workbook currently contains 250 prompts','The Restaurant AI Prompts & Systems Workbook currently contains 350 prompts'],
+ ['The Restaurant AI Prompts & Systems Workbook currently contains 325 prompts','The Restaurant AI Prompts & Systems Workbook currently contains 350 prompts'],
+ ['Search 250 Prompts','Search 350 Prompts'],
+ ['Search 325 Prompts','Search 350 Prompts'],
+ ['325 practical copy-and-paste prompts','350 practical copy-and-paste prompts'],
+ ['325 prompts connect the systems','350 prompts connect the systems'],
+ ['The current Restaurant AI Prompts &amp; Systems Workbook contains 325 prompts','The current Restaurant AI Prompts &amp; Systems Workbook contains 350 prompts'],
+ ['The current Restaurant AI Prompts & Systems Workbook contains 325 prompts','The current Restaurant AI Prompts & Systems Workbook contains 350 prompts'],
+ ['Open the 325-prompt AI workbook','Open the 350-prompt AI workbook'],
+ ['The current controlled edition now contains 250 prompts','The current controlled edition now contains 350 prompts']
+];
+function normalizeCurrentCopy(html){
+ for(const [oldText,newText] of CURRENT_COPY_FIXES)html=html.replaceAll(oldText,newText);
+ if(/(?:currently contains|current controlled edition now contains)\\s+(?:250|325)\\s+prompts/i.test(html)||
+    /Search (?:250|325) Prompts/i.test(html)||
+    /(?:250|325) practical copy-and-paste prompts/i.test(html))
+   throw Error('Old current AI prompt count remains in built page');
+ return html;
+}
 let pages=0;
 function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){
  const p=path.join(dir,e.name);if(e.isDirectory()){walk(p);continue;}
  if(!/\.(html|xml|txt)$/.test(e.name))continue;
  let s=fs.readFileSync(p,'utf8').replaceAll('https://gravity-leadership-system.netlify.app',origin).replaceAll('https://gravity-migration--gravity-leadership-system.netlify.app',origin);
- if(e.name.endsWith('.html')){
+ if(e.name.endsWith('.html')){\n  s=normalizeCurrentCopy(s);
   // Rewrite every *local* HTML JavaScript or stylesheet URL to its content hash.
   // Leave unrelated, missing, dynamic and third-party assets untouched.
   const rel=path.relative(out,p).split(path.sep).join('/');
