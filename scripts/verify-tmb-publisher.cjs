@@ -9,6 +9,14 @@ for(const f of required){if(!fs.existsSync(path.join(root,f)))fail('Missing asse
 for(const slug of pages){const f=path.join(root,slug+'.html');if(!fs.existsSync(f)){fail('Missing page '+slug);continue;}const html=fs.readFileSync(f,'utf8');for(const key of ['Thomas Monroe Books','/assets/css/publisher.css','class="wordmark"','rel="canonical"','<main id="main">']){if(!html.includes(key))fail(slug+' is missing '+key)}if(/class="gravity-welcome|gravity-system-mark\.svg|class="gravity-top|gravity-site-header/.test(html))fail(slug+' is still Gravity styled');if(!html.includes('href="https://gravityleadershipsystem.com"'))fail(slug+' lacks clear external link to the separate Gravity platform');}
 const home=fs.readFileSync(path.join(root,'index.html'),'utf8');if(!home.includes('Good books')||!home.includes('hero-portrait'))fail('Publisher homepage is not the editorial design');
 const books=fs.readFileSync(path.join(root,'books.html'),'utf8');for(const title of ['Quiet Gravity','The Owner','Systems of Service','Employee Training'])if(!books.includes(title))fail('Catalog missing '+title);
+// The employee-training asset is a full print wrap (back, spine, front), not a front-only cover.
+// Both publisher cards must crop the front half for consistency with other book covers.
+const css=fs.readFileSync(path.join(root,'assets/css/publisher.css'),'utf8');
+for(const page of ['index.html','books.html']){
+ const html=fs.readFileSync(path.join(root,page),'utf8');
+ if(!/class="front-cover-crop" src="\/assets\/images\/employee-training\.webp"/.test(html))fail(page+' must display front-only employee-training cover');
+}
+if(!/img\.front-cover-crop\{[^}]*aspect-ratio:720\/1024[^}]*object-fit:cover[^}]*object-position:100% 50%/.test(css))fail('Missing right-side front-cover crop for full-wrap image');
 const rules=fs.readFileSync(path.join(root,'_redirects'),'utf8');
 for(const line of rules.split(/\r?\n/)){const parts=line.trim().split(/\s+/);if(parts[0]==='/*' && parts[1]?.includes('gravityleadershipsystem.com'))fail('CRITICAL: catch-all redirects publisher home and all publisher pages to Gravity');if(parts[0]==='/' && parts[1]?.includes('gravityleadershipsystem.com'))fail('Publisher homepage cannot redirect to Gravity');}for(const route of ['/gravity-assist ','/gravity-shift-lab ','/book-reader ','/apps/* '])if(!rules.includes(route))fail('Legacy Gravity redirect missing '+route);if(!rules.includes('/* /404.html 404'))fail('Missing branded 404');
 if(!process.exitCode)console.log('TMB publishing build verified: '+pages.length+' editorial pages, assets, Gravity redirects and separate branding.');
