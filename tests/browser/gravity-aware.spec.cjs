@@ -38,7 +38,7 @@ test('Successful download registration counts once and keeps marketing consent s
     if(route.request().method()==='POST')return route.fulfill({status:200,contentType:'text/plain',body:'Accepted'});
     return route.continue();
   });
-  await page.goto('/register');
+  await page.goto('/register?gravity_analytics_test=1');
   await page.locator('#reg-first-name').fill('Test');
   await page.locator('#reg-email').fill('synthetic@example.invalid');
   await page.locator('#reg-role').selectOption({label:'General Manager'});
