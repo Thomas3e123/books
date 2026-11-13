@@ -127,14 +127,14 @@ def produce(name):
                     s=clean(li.get_text(' ',strip=True))
                     story.append(Paragraph('&#8226; '+para(s),ss['ManualBody']))
                     word.add_paragraph(s,style='List Bullet')
-story.append(Paragraph('Official Gravity links',ss['ManualH2']))
-for label,route in RESOURCE_LINKS:
-    url=GRAVITY_BASE+route
-    story.append(Paragraph('<link href="'+xml.escape(url)+'" color="#245B75">'+para(label)+'</link>',ss['ManualBody']))
-word.add_heading('Official Gravity links',level=1)
-for label,route in RESOURCE_LINKS:
-    p=word.add_paragraph()
-    word_link(p,label,GRAVITY_BASE+route)
+    story.append(Paragraph('Official Gravity links',ss['ManualH2']))
+    for label,route in RESOURCE_LINKS:
+        url=GRAVITY_BASE+route
+        story.append(Paragraph('<link href="'+xml.escape(url)+'" color="#245B75">'+para(label)+'</link>',ss['ManualBody']))
+    word.add_heading('Official Gravity links',level=1)
+    for label,route in RESOURCE_LINKS:
+        p=word.add_paragraph()
+        word_link(p,label,GRAVITY_BASE+route)
     pdf_path=MANUALS/(name+'.pdf')
     pdf=SimpleDocTemplate(str(pdf_path),pagesize=letter,rightMargin=.7*inch,leftMargin=.7*inch,topMargin=.8*inch,bottomMargin=.85*inch,author='Thomas Butler',title=title)
     pdf.build(story,onFirstPage=pdf_footer,onLaterPages=pdf_footer)
