@@ -94,6 +94,10 @@ def produce(name):
     para=lambda s:xml.escape(clean(s))
     story=[Paragraph(para(title),ss['ManualTitle']),Paragraph(para(version),ss['ManualSub']),Paragraph(para(intro),ss['ManualBody']),Paragraph(para(note),ss['ManualNote']),Paragraph('Contents',ss['ManualH2'])]
     story.extend(Paragraph(para(clean(section.h2.get_text(' ',strip=True))),ss['ManualContents']) for section in sections)
+    story.append(Paragraph('Official Gravity links',ss['ManualH2']))
+    for label,route in RESOURCE_LINKS:
+        url=GRAVITY_BASE+route
+        story.append(Paragraph('<link href="'+xml.escape(url)+'" color="#245B75">'+para(label)+'</link>',ss['ManualBody']))
     story.append(PageBreak())
     word=Document()
     sec=word.sections[0];sec.top_margin=Inches(.78);sec.bottom_margin=Inches(.78);sec.left_margin=Inches(.82);sec.right_margin=Inches(.82)
@@ -108,6 +112,10 @@ def produce(name):
     word.add_paragraph(version,'Subtitle')
     word.add_paragraph(intro)
     word.add_paragraph(note,'Intense Quote')
+    word.add_heading('Official Gravity links',level=1)
+    for label,route in RESOURCE_LINKS:
+        p=word.add_paragraph()
+        word_link(p,label,GRAVITY_BASE+route)
     word.add_heading('Contents',level=1)
     for section in sections:
         word.add_paragraph(clean(section.h2.get_text(' ',strip=True)))
@@ -127,14 +135,6 @@ def produce(name):
                     s=clean(li.get_text(' ',strip=True))
                     story.append(Paragraph('&#8226; '+para(s),ss['ManualBody']))
                     word.add_paragraph(s,style='List Bullet')
-    story.append(Paragraph('Official Gravity links',ss['ManualH2']))
-    for label,route in RESOURCE_LINKS:
-        url=GRAVITY_BASE+route
-        story.append(Paragraph('<link href="'+xml.escape(url)+'" color="#245B75">'+para(label)+'</link>',ss['ManualBody']))
-    word.add_heading('Official Gravity links',level=1)
-    for label,route in RESOURCE_LINKS:
-        p=word.add_paragraph()
-        word_link(p,label,GRAVITY_BASE+route)
     pdf_path=MANUALS/(name+'.pdf')
     pdf=SimpleDocTemplate(str(pdf_path),pagesize=letter,rightMargin=.7*inch,leftMargin=.7*inch,topMargin=.8*inch,bottomMargin=.85*inch,author='Thomas Butler',title=title)
     pdf.build(story,onFirstPage=pdf_footer,onLaterPages=pdf_footer)
