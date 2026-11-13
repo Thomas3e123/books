@@ -15,7 +15,7 @@ for(const name of fs.readdirSync(dest).filter(x=>x.endsWith('.html'))){
  // The desktop shell reports usage itself; do not retain the web-only
  // analytics script in packaged protocol pages.
  const fixed=html
-  .replace(/<script\b[^>]*\bsrc=(["'])\/assets\/js\/product-analytics\.js(?:\?[^"']*)?\1[^>]*>\s*<\/script>/gi,'')
+  .replace(/<script\b(?![^>]*\bsrc=)[^>]*>[^<]*product-analytics\.js[^<]*<\/script>/gi,'')
   .replace(/href=(["'])(\/[^"']*)\1/g,(match,q,route)=>{
    // Published user manuals are website resources, not packaged app assets.
    if(route.startsWith('/assets/downloads/windows/manuals/current/'))
