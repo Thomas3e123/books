@@ -1,0 +1,41 @@
+name: Gravity Windows manual candidate QA (no release)
+on:
+  pull_request:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths:
+      - 'scripts/build-windows-manuals.py'
+      - 'scripts/verify-windows-generated-manuals.py'
+      - '.github/workflows/gravity-windows-manual-candidate-qa.yml'
+      - 'site/assets/downloads/windows/manuals/current/*.html'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build-manual-candidates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned document dependencies
+        run: |
+          python -m pip install --disable-pip-version-check 'beautifulsoup4==4.12.3' 'reportlab==4.4.4' 'python-docx==1.2.0' 'pypdf==6.1.1'
+      - name: Check Python syntax
+        run: python -m py_compile scripts/build-windows-manuals.py scripts/verify-windows-generated-manuals.py
+      - name: Build all four manual PDFs and Word documents locally
+        run: python scripts/build-windows-manuals.py
+      - name: Verify source sections, clickable Gravity targets, PDFs and DOCX archives
+        run: python scripts/verify-windows-generated-manuals.py
+      - name: Store private candidate documents for visual review
+        uses: actions/upload-artifact@v4
+        with:
+          name: Gravity-Windows-Manuals-November-Candidates
+          path: |
+            site/assets/downloads/windows/manuals/current/*.pdf
+            site/assets/downloads/windows/manuals/current/*.docx
+            windows-manual-candidate-qa.json
+          retention-days: 14
+          if-no-files-found: error
+# No git push, release publication, Netlify deploy, or production artifact overwrite.
