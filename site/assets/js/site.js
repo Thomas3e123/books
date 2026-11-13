@@ -145,8 +145,15 @@
 
   // Analytics loads only when a valid GA4 Measurement ID is intentionally added.
   var validGa4 = /^G-[A-Z0-9]+$/i.test(GA4_MEASUREMENT_ID);
+  var analyticsHost = /^(www\.)?gravityleadershipsystem\.com$/i.test(location.hostname || '');
+  var analyticsParams = new URLSearchParams(location.search || '');
+  var qaQuery = analyticsParams.get('gravity_qa') === '1';
+  if (qaQuery) { try { sessionStorage.setItem('gravity_analytics_qa', '1'); } catch (_) {} }
+  var qaMode = qaQuery;
+  try { qaMode = qaMode || sessionStorage.getItem('gravity_analytics_qa') === '1'; } catch (_) {}
+  var localAnalyticsTest = !analyticsHost && analyticsParams.get('gravity_analytics_test') === '1';
   var dnt = navigator.doNotTrack === '1' || window.doNotTrack === '1';
-  var analyticsEnabled = validGa4 && !(RESPECT_DO_NOT_TRACK && dnt);
+  var analyticsEnabled = validGa4 && !(RESPECT_DO_NOT_TRACK && dnt) && !qaMode && (analyticsHost || localAnalyticsTest);
   var downloadExt = /\.(pdf|docx?|xlsx?|pptx?|zip|txt|rtf|csv|7z|rar|gz)(?:$|[?#])/i;
 
   function pageCategory() {
@@ -242,10 +249,12 @@
       allow_google_signals: false,
       allow_ad_personalization_signals: false
     });
-    var tag = document.createElement('script');
-    tag.async = true;
-    tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA4_MEASUREMENT_ID);
-    document.head.appendChild(tag);
+    if (analyticsHost && !qaMode) {
+      var tag = document.createElement('script');
+      tag.async = true;
+      tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA4_MEASUREMENT_ID);
+      document.head.appendChild(tag);
+    }
     if ((location.pathname || '').toLowerCase().indexOf('/start-here') >= 0) {
       send('start_here_view', {entry_method: 'page'});
     }

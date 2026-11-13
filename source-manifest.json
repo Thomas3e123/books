@@ -1754,7 +1754,7 @@
     },
     {
       "path": "site/assets/js/product-analytics.js",
-      "sha256": "94364301d5fcb2130d119879e99cd404e9fa05f300d58d061ac7fdf31fa92722"
+      "sha256": "8ba3e5ee699a10033fd2a78ade086b972b755a100ace48b7414db90f98b551e6"
     },
     {
       "path": "site/assets/js/registration-identity.js",
@@ -1762,7 +1762,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "6928e95aabc39b6faedf6954e4058798efcd832c05bf4a4cb79635458072f8c2"
+      "sha256": "60bf104c4ab6274e15113e871cf30dd2b9f1735d8e817a89b13d8132bb353706"
     },
     {
       "path": "site/assets/js/testing-room.js",
@@ -2138,7 +2138,7 @@
     },
     {
       "path": "site/privacy.html",
-      "sha256": "7648a7bfe7073eb258c185b3a03566f0aa30604a5c199b23588b69abaf2da8ef"
+      "sha256": "3350a5e9b3f3390f5ba83b8d4f3c0ba1d421c71f093ce42361a308b23588645d"
     },
     {
       "path": "site/qr-code-generator.html",

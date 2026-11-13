@@ -10,7 +10,14 @@
   } else if (path === '/apps/sop-foundry' || path.indexOf('/apps/sop-foundry/') === 0) {
     product = 'sop-foundry-hosted';
   }
-  if (!product || (location.protocol !== 'https:' && location.protocol !== 'http:')) return;
+  var analyticsHost = /^(www\.)?gravityleadershipsystem\.com$/i.test(location.hostname || '');
+  var analyticsParams = new URLSearchParams(location.search || '');
+  var qaQuery = analyticsParams.get('gravity_qa') === '1';
+  if (qaQuery) { try { sessionStorage.setItem('gravity_analytics_qa', '1'); } catch (_) {} }
+  var qaMode = qaQuery;
+  try { qaMode = qaMode || sessionStorage.getItem('gravity_analytics_qa') === '1'; } catch (_) {}
+  var localAnalyticsTest = !analyticsHost && analyticsParams.get('gravity_analytics_test') === '1';
+  if (!product || (location.protocol !== 'https:' && location.protocol !== 'http:') || qaMode || (!analyticsHost && !localAnalyticsTest)) return;
 
   var doNotTrack = navigator.doNotTrack === '1' || window.doNotTrack === '1';
   if (doNotTrack) return;
@@ -50,8 +57,10 @@
     send('gravity_product_interaction', 'form_submit');
   }, true);
 
-  var tag = document.createElement('script');
-  tag.async = true;
-  tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId);
-  document.head.appendChild(tag);
+  if (analyticsHost) {
+    var tag = document.createElement('script');
+    tag.async = true;
+    tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId);
+    document.head.appendChild(tag);
+  }
 })();
