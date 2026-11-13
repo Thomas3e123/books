@@ -246,6 +246,29 @@
     }
   }
 
+  // Count only generic control interaction on known product pages.
+  // Never read control labels, field values, or document content.
+  document.addEventListener('click', function (ev) {
+    var product = productForPath(location.pathname || '/');
+    if (!product || !ev.target || !ev.target.closest) return;
+    if (!ev.target.closest('button,[role="button"]')) return;
+    send('gravity_product_interaction', {
+      product_slug: product,
+      product_surface: 'web',
+      interaction_type: 'button'
+    });
+  }, true);
+
+  document.addEventListener('submit', function (ev) {
+    var product = productForPath(location.pathname || '/');
+    if (!product) return;
+    send('gravity_product_interaction', {
+      product_slug: product,
+      product_surface: 'web',
+      interaction_type: 'form_submit'
+    });
+  }, true);
+
   document.addEventListener('click', function (ev) {
     var a = ev.target && ev.target.closest ? ev.target.closest('a[href]') : null;
     if (!a) return;
