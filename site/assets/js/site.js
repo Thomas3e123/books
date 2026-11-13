@@ -206,7 +206,19 @@
     '/gravity-quick-tools': 'quick-tools',
     '/handbook-creator': 'employee-handbook-creator',
     '/standards-library': 'sop-library',
-    '/book-reader': 'book-reader'
+    '/book-reader': 'book-reader',
+    '/gravity-handbook-creator': 'employee-handbook-creator',
+    '/apps/inventory-center': 'inventory-center-app',
+    '/apps/sop-foundry': 'sop-foundry-hosted',
+    '/gravity-sop-library-set': 'sop-library',
+    '/gravity-sop-library-volume-1': 'sop-library',
+    '/gravity-sop-library-volume-2': 'sop-library',
+    '/gravity-sop-library-volume-3': 'sop-library',
+    '/gravity-aware': 'gravity-aware',
+    '/gravity-cloud-vault': 'cloud-vault',
+    '/gravity-fulfillment-center': 'fulfillment-center',
+    '/gravity-fulfillment-personalizer': 'fulfillment-personalizer',
+    '/gravity-system-field-guide': 'system-field-guide'
   };
   function productForPath(pathname) {
     var path = (pathname || '/').toLowerCase();
