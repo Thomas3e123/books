@@ -87,6 +87,7 @@ def produce(name):
     ss.add(ParagraphStyle(name='ManualTitle',fontName='Helvetica-Bold',fontSize=21,leading=26,textColor=NAVY,spaceAfter=16))
     ss.add(ParagraphStyle(name='ManualSub',fontName='Helvetica-Bold',fontSize=11,leading=16,textColor=GOLD,spaceAfter=10))
     ss.add(ParagraphStyle(name='ManualBody',fontName='Helvetica',fontSize=10.2,leading=15,textColor=BODY,spaceAfter=11))
+    ss.add(ParagraphStyle(name='ManualContents',fontName='Helvetica',fontSize=9.4,leading=12,textColor=BODY,spaceAfter=3))
     ss.add(ParagraphStyle(name='ManualH2',fontName='Helvetica-Bold',fontSize=12.8,leading=17,textColor=NAVY,spaceBefore=17,spaceAfter=10,keepWithNext=True))
     ss.add(ParagraphStyle(name='ManualNote',parent=ss['ManualBody'],backColor=colors.HexColor('#F6F2E8'),borderColor=GOLD,borderWidth=0.5,borderPadding=9,spaceBefore=10,spaceAfter=16))
     import xml.sax.saxutils as xml
