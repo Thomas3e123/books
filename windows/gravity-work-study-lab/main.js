@@ -73,6 +73,77 @@ async function runGuidedSmoke(win){
  console.log('CEDAR_TTS_OK',JSON.stringify(voice));
 }
 
+
+function installUsageTelemetry(win, productSlug) {
+  if (!app.isPackaged || SMOKE || process.env.GRAVITY_DISABLE_USAGE_ANALYTICS === '1') return;
+  const fs = require('node:fs');
+  const crypto = require('node:crypto');
+  const idFile = path.join(app.getPath('userData'), 'gravity-usage-install-id');
+  let clientId;
+  try {
+    fs.mkdirSync(path.dirname(idFile), { recursive: true });
+    clientId = fs.readFileSync(idFile, 'utf8').trim();
+    if (!/^[0-9a-f-]{36}$/i.test(clientId)) throw new Error('Invalid usage identifier');
+  } catch (_) {
+    clientId = crypto.randomUUID();
+    try { fs.writeFileSync(idFile, clientId, { encoding: 'utf8', flag: 'wx' }); }
+    catch (_) { try { clientId = fs.readFileSync(idFile, 'utf8').trim(); } catch (_) {} }
+  }
+  if (!/^[0-9a-f-]{36}$/i.test(clientId)) return;
+  const version = app.getVersion();
+  const script = `(()=> {
+    if (navigator.doNotTrack === '1' || window.doNotTrack === '1') return;
+    const measurementId = 'G-M98MZFED33';
+    const product = ${JSON.stringify(productSlug)};
+    const clientId = ${JSON.stringify(clientId)};
+    const version = ${JSON.stringify(version)};
+    const pageLocation = 'https://gravityleadershipsystem.com/windows-programs/' + product;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+    window.gtag('js', new Date());
+    window.gtag('config', measurementId, {
+      send_page_view: false,
+      client_id: clientId,
+      page_location: pageLocation,
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false
+    });
+    const send = (name, type) => window.gtag('event', name, {
+      product_slug: product,
+      product_surface: 'windows',
+      app_version: version,
+      interaction_type: type
+    });
+    send('gravity_product_open', 'open');
+    document.addEventListener('click', event => {
+      if (event.target && event.target.closest && event.target.closest('button,[role="button"]')) {
+        send('gravity_product_interaction', 'button');
+        lastActivity = Date.now();
+      }
+    }, true);
+    document.addEventListener('submit', () => {
+      send('gravity_product_interaction', 'form_submit');
+      lastActivity = Date.now();
+    }, true);
+    let lastActivity = Date.now();
+    ['pointerdown', 'keydown', 'input'].forEach(type =>
+      document.addEventListener(type, () => { lastActivity = Date.now(); }, { capture: true, passive: true })
+    );
+    setInterval(() => {
+      if (document.visibilityState === 'visible' && Date.now() - lastActivity < 15 * 60 * 1000) {
+        send('gravity_product_active', 'recent_activity');
+      }
+    }, 5 * 60 * 1000);
+    const tag = document.createElement('script');
+    tag.async = true;
+    tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId);
+    document.head.appendChild(tag);
+  })();`;
+  win.webContents.once('did-finish-load', () => {
+    win.webContents.executeJavaScript(script).catch(() => {});
+  });
+}
+
 function createWindow(){
  const win=new BrowserWindow({width:1440,height:930,minWidth:1020,minHeight:700,backgroundColor:'#061116',show:false,webPreferences:{preload:path.join(__dirname,'preload.js'),contextIsolation:true,nodeIntegration:false,sandbox:true}});
  win.removeMenu();
@@ -90,6 +161,7 @@ function createWindow(){
  }
  // Load from the packaged application root, not an assumed process CWD.
  // This must work from Program Files/NSIS as well as with "npx electron .".
+ installUsageTelemetry(win, 'work-study-lab-windows');
  win.loadFile(path.join(__dirname,'index.html')).catch(err=>console.error('WORK_STUDY_LOADFILE_FAILED',err.message));
  if(!GUIDED_SMOKE)win.once('ready-to-show',()=>win.show());
  return win;
