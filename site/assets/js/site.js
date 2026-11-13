@@ -193,6 +193,44 @@
   // Safe public hook for first-party pages that need to report non-PII product events.
   window.gravityAnalyticsEvent = function (name, params) { send(name, params || {}); };
 
+  var PRODUCT_PATHS = {
+    '/gravity-assist': 'gravity-assist',
+    '/gravity-forms-personalizer': 'forms-personalizer',
+    '/gravity-document-studio': 'document-studio',
+    '/gravity-shift-lab': 'shift-lab',
+    '/gravity-sop-foundry': 'sop-foundry',
+    '/gravity-numbers-lab': 'numbers-lab',
+    '/gravity-work-study-lab': 'work-study-lab',
+    '/gravity-inventory-center': 'inventory-center',
+    '/gravity-recipe-works': 'recipe-works',
+    '/gravity-quick-tools': 'quick-tools',
+    '/handbook-creator': 'employee-handbook-creator',
+    '/standards-library': 'sop-library',
+    '/book-reader': 'book-reader',
+    '/gravity-handbook-creator': 'employee-handbook-creator',
+    '/apps/inventory-center': 'inventory-center-app',
+    '/apps/sop-foundry': 'sop-foundry-hosted',
+    '/gravity-sop-library-set': 'sop-library',
+    '/gravity-sop-library-volume-1': 'sop-library',
+    '/gravity-sop-library-volume-2': 'sop-library',
+    '/gravity-sop-library-volume-3': 'sop-library',
+    '/gravity-aware': 'gravity-aware',
+    '/gravity-cloud-vault': 'cloud-vault',
+    '/gravity-fulfillment-center': 'fulfillment-center',
+    '/gravity-fulfillment-personalizer': 'fulfillment-personalizer',
+    '/gravity-system-field-guide': 'system-field-guide'
+  };
+  function productForPath(pathname) {
+    var path = (pathname || '/').toLowerCase();
+    if (path.slice(-5) === '.html') path = path.slice(0, -5);
+    if (path.length > 1 && path.slice(-1) === '/') path = path.slice(0, -1);
+    var keys = Object.keys(PRODUCT_PATHS);
+    for (var i = 0; i < keys.length; i++) {
+      if (path === keys[i] || path.indexOf(keys[i] + '/') === 0) return PRODUCT_PATHS[keys[i]];
+    }
+    return '';
+  }
+
   if (analyticsEnabled) {
     window.dataLayer = window.dataLayer || [];
     window.gtag = function(){ window.dataLayer.push(arguments); };
@@ -214,7 +252,34 @@
     if ((location.pathname || '').toLowerCase().indexOf('/review-thanks') >= 0) {
       send('feedback_complete', {feedback_type: 'customer_experience'});
     }
+    var openedProduct = productForPath(location.pathname || '/');
+    if (openedProduct) {
+      send('gravity_product_open', {product_slug: openedProduct, product_surface: 'web'});
+    }
   }
+
+  // Count only generic control interaction on known product pages.
+  // Never read control labels, field values, or document content.
+  document.addEventListener('click', function (ev) {
+    var product = productForPath(location.pathname || '/');
+    if (!product || !ev.target || !ev.target.closest) return;
+    if (!ev.target.closest('button,[role="button"]')) return;
+    send('gravity_product_interaction', {
+      product_slug: product,
+      product_surface: 'web',
+      interaction_type: 'button'
+    });
+  }, true);
+
+  document.addEventListener('submit', function (ev) {
+    var product = productForPath(location.pathname || '/');
+    if (!product) return;
+    send('gravity_product_interaction', {
+      product_slug: product,
+      product_surface: 'web',
+      interaction_type: 'form_submit'
+    });
+  }, true);
 
   document.addEventListener('click', function (ev) {
     var a = ev.target && ev.target.closest ? ev.target.closest('a[href]') : null;
@@ -233,6 +298,11 @@
     if (systemCard) {
       var systemHeading = systemCard.querySelector('h3');
       systemName = cleanText(systemHeading ? systemHeading.textContent : systemCard.id);
+    }
+
+    var launchedProduct = productForPath(path);
+    if (launchedProduct) {
+      send('gravity_product_launch', {product_slug: launchedProduct, product_surface: 'web'});
     }
 
     if (path === '/start-here') {

@@ -1758,7 +1758,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "9cdb9695799ae027cd8841200a40527dfc180e52a27c3cab23b7d7a4cfa1ac6f"
+      "sha256": "6928e95aabc39b6faedf6954e4058798efcd832c05bf4a4cb79635458072f8c2"
     },
     {
       "path": "site/assets/js/testing-room.js",
@@ -2134,7 +2134,7 @@
     },
     {
       "path": "site/privacy.html",
-      "sha256": "5649ee13c50ff7981f10f053a68b9b185afd1ae0c56708d7f8afc67e8764f88d"
+      "sha256": "7648a7bfe7073eb258c185b3a03566f0aa30604a5c199b23588b69abaf2da8ef"
     },
     {
       "path": "site/qr-code-generator.html",
