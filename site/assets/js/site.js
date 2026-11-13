@@ -193,6 +193,30 @@
   // Safe public hook for first-party pages that need to report non-PII product events.
   window.gravityAnalyticsEvent = function (name, params) { send(name, params || {}); };
 
+  var PRODUCT_PATHS = {
+    '/gravity-assist': 'gravity-assist',
+    '/gravity-forms-personalizer': 'forms-personalizer',
+    '/gravity-document-studio': 'document-studio',
+    '/gravity-shift-lab': 'shift-lab',
+    '/gravity-sop-foundry': 'sop-foundry',
+    '/gravity-numbers-lab': 'numbers-lab',
+    '/gravity-work-study-lab': 'work-study-lab',
+    '/gravity-inventory-center': 'inventory-center',
+    '/gravity-recipe-works': 'recipe-works',
+    '/gravity-quick-tools': 'quick-tools',
+    '/handbook-creator': 'employee-handbook-creator',
+    '/standards-library': 'sop-library',
+    '/book-reader': 'book-reader'
+  };
+  function productForPath(pathname) {
+    var path = (pathname || '/').toLowerCase().replace(/\.html$/, '').replace(/\/$/, '') || '/';
+    var keys = Object.keys(PRODUCT_PATHS);
+    for (var i = 0; i < keys.length; i++) {
+      if (path === keys[i] || path.indexOf(keys[i] + '/') === 0) return PRODUCT_PATHS[keys[i]];
+    }
+    return '';
+  }
+
   if (analyticsEnabled) {
     window.dataLayer = window.dataLayer || [];
     window.gtag = function(){ window.dataLayer.push(arguments); };
@@ -214,6 +238,10 @@
     if ((location.pathname || '').toLowerCase().indexOf('/review-thanks') >= 0) {
       send('feedback_complete', {feedback_type: 'customer_experience'});
     }
+    var openedProduct = productForPath(location.pathname || '/');
+    if (openedProduct) {
+      send('gravity_product_open', {product_slug: openedProduct, product_surface: 'web'});
+    }
   }
 
   document.addEventListener('click', function (ev) {
@@ -233,6 +261,11 @@
     if (systemCard) {
       var systemHeading = systemCard.querySelector('h3');
       systemName = cleanText(systemHeading ? systemHeading.textContent : systemCard.id);
+    }
+
+    var launchedProduct = productForPath(path);
+    if (launchedProduct) {
+      send('gravity_product_launch', {product_slug: launchedProduct, product_surface: 'web'});
     }
 
     if (path === '/start-here') {
