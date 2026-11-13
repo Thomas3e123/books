@@ -1754,7 +1754,7 @@
     },
     {
       "path": "site/assets/js/product-analytics.js",
-      "sha256": "8ba3e5ee699a10033fd2a78ade086b972b755a100ace48b7414db90f98b551e6"
+      "sha256": "22e92e8feb0fe7233104874fab0c18b3b47e7dfed4b2deb4a24414096bc7f07b"
     },
     {
       "path": "site/assets/js/registration-identity.js",
@@ -1762,7 +1762,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "60bf104c4ab6274e15113e871cf30dd2b9f1735d8e817a89b13d8132bb353706"
+      "sha256": "2e7f3cf8628164158903147e77a4daeb4ca46ba6ea600a328db0e02c5d6b955f"
     },
     {
       "path": "site/assets/js/testing-room.js",

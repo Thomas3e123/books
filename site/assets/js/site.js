@@ -151,7 +151,10 @@
   if (qaQuery) { try { sessionStorage.setItem('gravity_analytics_qa', '1'); } catch (_) {} }
   var qaMode = qaQuery;
   try { qaMode = qaMode || sessionStorage.getItem('gravity_analytics_qa') === '1'; } catch (_) {}
-  var localAnalyticsTest = !analyticsHost && analyticsParams.get('gravity_analytics_test') === '1';
+  var analyticsTestQuery = analyticsParams.get('gravity_analytics_test') === '1';
+  if (analyticsTestQuery) { try { sessionStorage.setItem('gravity_analytics_test', '1'); } catch (_) {} }
+  var localAnalyticsTest = !analyticsHost && analyticsTestQuery;
+  try { localAnalyticsTest = localAnalyticsTest || (!analyticsHost && sessionStorage.getItem('gravity_analytics_test') === '1'); } catch (_) {}
   var dnt = navigator.doNotTrack === '1' || window.doNotTrack === '1';
   var analyticsEnabled = validGa4 && !(RESPECT_DO_NOT_TRACK && dnt) && !qaMode && (analyticsHost || localAnalyticsTest);
   var downloadExt = /\.(pdf|docx?|xlsx?|pptx?|zip|txt|rtf|csv|7z|rar|gz)(?:$|[?#])/i;

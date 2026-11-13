@@ -16,7 +16,10 @@
   if (qaQuery) { try { sessionStorage.setItem('gravity_analytics_qa', '1'); } catch (_) {} }
   var qaMode = qaQuery;
   try { qaMode = qaMode || sessionStorage.getItem('gravity_analytics_qa') === '1'; } catch (_) {}
-  var localAnalyticsTest = !analyticsHost && analyticsParams.get('gravity_analytics_test') === '1';
+  var analyticsTestQuery = analyticsParams.get('gravity_analytics_test') === '1';
+  if (analyticsTestQuery) { try { sessionStorage.setItem('gravity_analytics_test', '1'); } catch (_) {} }
+  var localAnalyticsTest = !analyticsHost && analyticsTestQuery;
+  try { localAnalyticsTest = localAnalyticsTest || (!analyticsHost && sessionStorage.getItem('gravity_analytics_test') === '1'); } catch (_) {}
   if (!product || (location.protocol !== 'https:' && location.protocol !== 'http:') || qaMode || (!analyticsHost && !localAnalyticsTest)) return;
 
   var doNotTrack = navigator.doNotTrack === '1' || window.doNotTrack === '1';
