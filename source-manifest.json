@@ -766,7 +766,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Inventory_Center_Windows_User_Manual.html",
-      "sha256": "01e5e7db95ac9668c2ceb84703704e46d08feb80a674a7c7b1a951314bfc2703"
+      "sha256": "40093bc46639e3f345849b5305cb201cd559b310e356f7f53753c333445c988f"
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Inventory_Center_Windows_User_Manual.pdf",
@@ -778,7 +778,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_SOP_Foundry_Windows_User_Manual.html",
-      "sha256": "1c76c864824b69d49f288f95f33fb1109a7460a7ec3feab37716feeb52671b3f"
+      "sha256": "1802d806e4f76001648d1a4ea87928b6847ef22190e9bd51778c93524aa0bc9c"
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_SOP_Foundry_Windows_User_Manual.pdf",
@@ -790,7 +790,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Shift_Lab_Windows_User_Manual.html",
-      "sha256": "222bdbaf25ff2dabe77d537a2df80df4ec5e6ca5d611eaed7d05c7d382664787"
+      "sha256": "f8585f2ce5b0c26f413a6ae056aed8953944ebb4c51db594f6c55205a9b2d62a"
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Shift_Lab_Windows_User_Manual.pdf",
@@ -802,7 +802,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Work_Study_Lab_Windows_User_Manual.html",
-      "sha256": "02541137a6e23503770c7717d13aa7ea5ed3828a0c79f7b5209b0ec4cfcf48d7"
+      "sha256": "9845466fd2eca92cec34abfbc969a5be82b67a12a883605332e7c00dfca81951"
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Work_Study_Lab_Windows_User_Manual.pdf",
