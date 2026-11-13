@@ -40,7 +40,8 @@ async function route(req){
 }
 
 function installUsageTelemetry(win, productSlug) {
-  if (!app.isPackaged || process.env.GRAVITY_DISABLE_USAGE_ANALYTICS === '1') return;
+  const smokeRun = Object.keys(process.env).some(key => /^GRAVITY_.*_SMOKE$/.test(key) && process.env[key] === '1');
+  if (!app.isPackaged || process.env.CI === 'true' || smokeRun || process.env.GRAVITY_DISABLE_USAGE_ANALYTICS === '1') return;
   const fs = require('node:fs');
   const crypto = require('node:crypto');
   const idFile = path.join(app.getPath('userData'), 'gravity-usage-install-id');
