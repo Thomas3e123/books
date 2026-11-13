@@ -4,7 +4,7 @@ const path=require('node:path');
 const SMOKE=process.env.GRAVITY_SHIFT_SMOKE==='1';
 
 function installUsageTelemetry(win, productSlug) {
-  if (!app.isPackaged || SMOKE || process.env.GRAVITY_DISABLE_USAGE_ANALYTICS === '1') return;
+  if (!app.isPackaged || process.env.GRAVITY_DISABLE_USAGE_ANALYTICS === '1') return;
   const fs = require('node:fs');
   const crypto = require('node:crypto');
   const idFile = path.join(app.getPath('userData'), 'gravity-usage-install-id');
