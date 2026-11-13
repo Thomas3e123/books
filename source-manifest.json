@@ -1753,6 +1753,10 @@
       "sha256": "91a04f5bd21b49593cfa8be1f0e5f5a7867af131f9143d6df30fab856171ae40"
     },
     {
+      "path": "site/assets/js/product-analytics.js",
+      "sha256": "94364301d5fcb2130d119879e99cd404e9fa05f300d58d061ac7fdf31fa92722"
+    },
+    {
       "path": "site/assets/js/registration-identity.js",
       "sha256": "fe7424065b3580add5fb4afb13025ce342f7d0d089dd5a420a133940ac30fa69"
     },
@@ -2651,10 +2655,6 @@
     {
       "path": "package-lock.json",
       "sha256": "0decbfce82bdc637061d2d188c67b2a4d30035668e9ff8e61f8d5b20aa52f12e"
-    },
-    {
-      "path": "site/assets/js/product-analytics.js",
-      "sha256": "94364301d5fcb2130d119879e99cd404e9fa05f300d58d061ac7fdf31fa92722"
     }
   ]
 }
