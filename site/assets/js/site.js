@@ -209,7 +209,9 @@
     '/book-reader': 'book-reader'
   };
   function productForPath(pathname) {
-    var path = (pathname || '/').toLowerCase().replace(/\.html$/, '').replace(/\/$/, '') || '/';
+    var path = (pathname || '/').toLowerCase();
+    if (path.slice(-5) === '.html') path = path.slice(0, -5);
+    if (path.length > 1 && path.slice(-1) === '/') path = path.slice(0, -1);
     var keys = Object.keys(PRODUCT_PATHS);
     for (var i = 0; i < keys.length; i++) {
       if (path === keys[i] || path.indexOf(keys[i] + '/') === 0) return PRODUCT_PATHS[keys[i]];
