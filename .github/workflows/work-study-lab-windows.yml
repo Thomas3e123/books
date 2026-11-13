@@ -22,6 +22,16 @@ on:
       - 'scripts/work-study-device-link-suite.cjs'
       - '.github/workflows/work-study-lab-windows.yml'
 
+  pull_request:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths:
+      - 'windows/gravity-work-study-lab/**'
+      - 'site/gravity-work-study-lab.html'
+      - 'site/assets/js/gravity-work-study-*.js'
+      - 'site/assets/css/gravity-work-study-v2.css'
+      - 'functions/work-study-link/**'
+      - '.github/workflows/work-study-lab-windows.yml'
+
 permissions:
   contents: write
 

@@ -7,6 +7,12 @@ on:
       - 'windows/gravity-inventory-center/**'
       - 'site/apps/inventory-center/**'
       - '.github/workflows/inventory-center-windows-candidate.yml'
+  pull_request:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths:
+      - 'windows/gravity-inventory-center/**'
+      - 'site/apps/inventory-center/**'
+      - '.github/workflows/inventory-center-windows-candidate.yml'
   workflow_dispatch:
 concurrency:
   group: inventory-center-windows-candidate-${{ github.ref }}

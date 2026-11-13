@@ -12,7 +12,11 @@ fs.cpSync(source,dest,{recursive:true});
 // Gravity site must open the secure public website, not a missing app-local path.
 for(const name of fs.readdirSync(dest).filter(x=>x.endsWith('.html'))){
  const file=path.join(dest,name),html=fs.readFileSync(file,'utf8');
- const fixed=html.replace(/href=(["'])(\/[^"']*)\1/g,(match,q,route)=>{
+ // The desktop shell reports usage itself; do not retain the web-only
+ // analytics script in packaged protocol pages.
+ const fixed=html
+  .replace(/<script\b(?![^>]*\bsrc=)[^>]*>[^<]*product-analytics\.js[^<]*<\/script>/gi,'')
+  .replace(/href=(["'])(\/[^"']*)\1/g,(match,q,route)=>{
    // Published user manuals are website resources, not packaged app assets.
    if(route.startsWith('/assets/downloads/windows/manuals/current/'))
      return 'href='+q+'https://gravityleadershipsystem.com'+route+q;

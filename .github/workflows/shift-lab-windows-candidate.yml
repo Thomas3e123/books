@@ -8,6 +8,14 @@ on:
       - 'site/assets/js/gravity-shift-lab.js'
       - 'site/assets/js/gravity-shift-first-schedule-tour-v1.js'
       - '.github/workflows/shift-lab-windows-candidate.yml'
+  pull_request:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths:
+      - 'windows/gravity-shift-lab/**'
+      - 'site/gravity-shift-lab.html'
+      - 'site/assets/js/gravity-shift-lab.js'
+      - 'site/assets/js/gravity-shift-first-schedule-tour-v1.js'
+      - '.github/workflows/shift-lab-windows-candidate.yml'
   workflow_dispatch:
 permissions:
   contents: read
