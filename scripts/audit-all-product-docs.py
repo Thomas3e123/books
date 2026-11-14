@@ -63,7 +63,7 @@ def analyze_text(path,text,html=False):
             r'contains\s+(?:250|325)\s+prompts\s+covering'
         ]
         for expr in legacy_current_patterns:
-            m=re.search(expr,text,re.I)
+            m=re.search(expr,content,re.I)
             if m:
                 alert(rel,'current AI workbook description disagrees with published 350-prompt edition',
                       m.group(0),'high')
