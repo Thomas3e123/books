@@ -2,6 +2,16 @@ import {foundingYear,PRICE,paymentReady} from '../../handbook/access.mjs';
 import {paymentService} from '../../handbook/payments.mjs';
 import {validate} from '../../handbook/source/core.mjs';
 import {createPDF,createWord} from '../../handbook/source/export.mjs';
+const MAX_REQUEST_BYTES=4_000_000;
+async function readLimitedBody(req){
+ const declared=Number(req.headers.get('content-length')||0);
+ if(Number.isFinite(declared)&&declared>MAX_REQUEST_BYTES)return null;
+ if(!req.body){const raw=await req.text();return Buffer.byteLength(raw,'utf8')>MAX_REQUEST_BYTES?null:raw;}
+ const reader=req.body.getReader(),chunks=[];let total=0;
+ try{while(true){const{done,value}=await reader.read();if(done)break;total+=value.byteLength;if(total>MAX_REQUEST_BYTES){await reader.cancel();return null;}chunks.push(Buffer.from(value));}}
+ finally{reader.releaseLock();}
+ return Buffer.concat(chunks,total).toString('utf8');
+}
 const SAFE_ERRORS=new Map([
  ['This is not a supported Gravity handbook project.',400],
  ['Invalid answer in backup.',400],
@@ -26,7 +36,7 @@ export async function handle(req,{env={},now=Date.now(),payments=paymentService(
  if(action==='status')return json({free,freeThrough:'October 1, 2027',price:PRICE,currency:'USD',paymentReady:paymentReady(env)});
  if(req.method!=='POST')return json({error:'POST required.'},405);
  try{
- const raw=await req.text();if(raw.length>4000000)return json({error:'Project is too large.'},413);let b={};try{b=raw?JSON.parse(raw):{}}catch{return json({error:'Request body must contain valid JSON.'},400)};
+ const raw=await readLimitedBody(req);if(raw===null)return json({error:'Project is too large.'},413);let b={};try{b=raw?JSON.parse(raw):{}}catch{return json({error:'Request body must contain valid JSON.'},400)};
  if(action==='checkout'){if(free)return json({free:true,error:'The Creator is free during the Founding Year. No checkout is needed.'},409);return json(await payments.create(b.requestId));}
  if(action==='verify'){return json(await payments.verify(b.ticket));}
  if(action==='preview')return json({pages:createPDF(validate(b.project)).pages});
