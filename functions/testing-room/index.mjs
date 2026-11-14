@@ -14,7 +14,14 @@ const safePhone=v=>clean(v,80).replace(/[^0-9+().\- xext]/gi,'').slice(0,80);
 function bearer(req){const h=req.headers.get('authorization')||'';return h.replace(/^Bearer\s+/i,'').trim()}
 function testerToken(req){return clean(req.headers.get('x-gravity-tester-token')||bearer(req),200)}
 function cors(req){const o=req.headers.get('origin')||'';return !o||allowedOrigins.has(o)}
-async function readBody(req){try{return await req.json()}catch{return {}}}
+const MAX_REQUEST_BYTES=1500000;
+async function readBody(req){
+  const declared=Number(req.headers.get('content-length')||0);
+  if(Number.isFinite(declared)&&declared>MAX_REQUEST_BYTES){const e=Error('Request too large.');e.status=413;throw e;}
+  const raw=await req.text();
+  if(new TextEncoder().encode(raw).length>MAX_REQUEST_BYTES){const e=Error('Request too large.');e.status=413;throw e;}
+  try{return raw?JSON.parse(raw):{}}catch{return {}}
+}
 async function testerFromToken(t){if(!t)return null;const r=await db.sql`SELECT * FROM gravity_testing_testers WHERE token_hash=${hash(t)} LIMIT 1`;return r[0]||null}
 function publicTester(t){return{id:t.id,displayName:t.display_name,email:t.email||'',interests:t.interests||[],status:t.status,createdAt:t.created_at,updatedAt:t.updated_at}}
 function managerOK(req){const expected=process.env.GRAVITY_TESTING_MANAGER_KEY||'';const got=bearer(req);if(!expected||!got)return false;const a=Buffer.from(expected),b=Buffer.from(got);return a.length===b.length&&crypto.timingSafeEqual(a,b)}
@@ -116,7 +123,7 @@ export default async(request)=>{
       }
     }
     return json({error:'Not found.'},404);
-  }catch(err){console.error('Testing Room',err);return json({error:'Testing Room is temporarily unavailable.'},500)}
+  }catch(err){console.error('Testing Room request failed',err?.name||'unknown');if(err?.status===413)return json({error:'Request exceeds the 1.5 MB limit.'},413);return json({error:'Testing Room is temporarily unavailable.'},500)}
 };
 
-export const config={path:'/testing-room/*'};
+export const config={path:'/testing-room/*',rateLimit:{windowLimit:60,windowSize:60,aggregateBy:['ip','domain']}};
