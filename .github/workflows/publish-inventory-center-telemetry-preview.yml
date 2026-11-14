@@ -51,7 +51,7 @@ jobs:
 
           The usage data remains limited to a random app-install identifier, product, version, event type, and event time. The app does not send inventory contents, typed values, restaurant profile details, or saved files. Offline events are not queued. Do Not Track and the documented disable flag are honored.
 
-          This is an unsigned Windows x64 test preview. Use the ZIP for portable run without installation. Export and protect existing inventory before changing builds; do not overwrite a working installation. Windows SmartScreen may warn about unsigned software.
+          This is a Windows x64 test preview. Windows may show a security prompt. Use the ZIP for portable run without installation. Export and protect existing inventory before changing builds; do not overwrite a working installation. Windows SmartScreen may warn about unsigned software.
           NOTES
 
       - name: Publish a separate prerelease
