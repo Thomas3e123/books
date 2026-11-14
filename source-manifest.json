@@ -390,11 +390,11 @@
     },
     {
       "path": "site/assets/customer-resources/current/Gravity_Start_Here_v2.6_2026-10-10.pdf",
-      "sha256": "10de24679b8ccae7a08930e86b4d18bb6cc150b9effac2fde1bda6e3d55a21e0"
+      "sha256": "adbe63b128ad1933f304380eb8eb95b020499bd5fceb70041025074aa9b0b925"
     },
     {
       "path": "site/assets/customer-resources/current/Gravity_System_Overview_v1.8_2026-10-10.pdf",
-      "sha256": "8bd1e382c11eb6919e9200ff1b65ea978c8e30f1039d2bd64f1fa306b5789227"
+      "sha256": "08e9aac68c67f9153405698a3851d5de85210494e53e20d09568e9c0765f0455"
     },
     {
       "path": "site/assets/customer-resources/master/Gravity_Operational_Validation_and_Release_Readiness_Report.docx",
@@ -406,7 +406,7 @@
     },
     {
       "path": "site/assets/customer-resources/master/The_Gravity_System_Customer_Overview_Booklet_v1.7_2026-09-23.pdf",
-      "sha256": "9fb7df4fba1f71f2dd6cfcfda548996df4d6d144256947b27964e4f1305d3483"
+      "sha256": "3e6dd81f2135f0e0ad5010ec50948700286623e51a970d6f71ac211c7bd550c0"
     },
     {
       "path": "site/assets/customer-resources/master/The_Gravity_System_Master_Glossary_of_Controlled_Terms.docx",
@@ -454,7 +454,7 @@
     },
     {
       "path": "site/assets/downloads/GRAVITY_ELITE_DAILY_CONTROL_FORMS_v1.0.pdf",
-      "sha256": "a2e9afac1ab70d6091fcad03c66fa19d71a063e59bd34e2e10d374a79a799dd3"
+      "sha256": "d0175289f2e48190d1720d2365bc993a5a8d663a9054b90aa0a4188bc07c2c8a"
     },
     {
       "path": "site/assets/downloads/GRAVITY_ELITE_OPERATIONAL_LOGS_v1.0.xlsx",
@@ -494,39 +494,39 @@
     },
     {
       "path": "site/assets/downloads/book-companion-tools/BAR_BEVERAGE_INVENTORY_ORDERING_FORMS_COMPANION_PACK_v1.0.pdf",
-      "sha256": "b0126603e1944cea1440dd7d682e6b6a18c7a452971b98de1250aaf743d1866d"
+      "sha256": "c88fba6fd3f74f3f496784960f2594db384182896fae61a2d5989272a419739d"
     },
     {
       "path": "site/assets/downloads/book-companion-tools/BAR_BEVERAGE_POUR_COST_FORMS_COMPANION_PACK_v1.0.pdf",
-      "sha256": "aabd2aa8075bba24f3b4b764ad7f83bc473e2ac60c4757359abe227975c4cfcc"
+      "sha256": "31c519e337bc5d5fd090e8f08556a71f448d9e8b931269ba1cbab38a61fa6086"
     },
     {
       "path": "site/assets/downloads/book-companion-tools/EMPLOYEE_TRAINING_SOP_FORMS_COMPANION_PACK_v1.0.pdf",
-      "sha256": "ef6e4c4422c11a97b0a155731174fb3f4eb97137ecd18295da8b25ff2d2e2565"
+      "sha256": "f8478fa67e564657fe707cb424749eb200f3ebdfcfb1a58a23a9174065880b1f"
     },
     {
       "path": "site/assets/downloads/book-companion-tools/FOOD_COST_WASTE_INVENTORY_FORMS_COMPANION_PACK_v1.0.pdf",
-      "sha256": "e16260225c837a8b9453658a7ebb314917fedc7e0e977c11e28bee90daacadae"
+      "sha256": "d5c206a18f25cd6705b1e87f4900b34f469b71847e1765fad1c6807fa185f08f"
     },
     {
       "path": "site/assets/downloads/book-companion-tools/LABOR_CONTROL_SCHEDULING_FORMS_COMPANION_PACK_v2.0.pdf",
-      "sha256": "442e7f6a1765c64be56a1231150b5e35ab91268e352db35e26e7718d76c32707"
+      "sha256": "024caa33a4ba14127bb784e67dcd23cdd86b84e7d3e62e53abca2b5cf82bc8ac"
     },
     {
       "path": "site/assets/downloads/book-companion-tools/QUIET_GRAVITY_MANAGER_REFLECTIONS_COMPANION_PACK_v1.0.pdf",
-      "sha256": "c0eed3565cae3ad9797221ab8d88912990bc592b9057b8d621e21596be88aa14"
+      "sha256": "d1b5c59095b5365ab7a93d70be40da1aa78338badcc8d24c970842f7c3862811"
     },
     {
       "path": "site/assets/downloads/book-companion-tools/SOP_STATION_OPERATIONS_FORMS_COMPANION_PACK_v1.0.pdf",
-      "sha256": "93f2c1cf68f03ccc6a6e4ab3b82b6b9d452382e3025cef0cd6b904a28b30fc63"
+      "sha256": "8801c188ec1644d620fdc32f84f7ba8dfdb14eae1ac80d486c8dcc5a756a7e9a"
     },
     {
       "path": "site/assets/downloads/book-companion-tools/SYSTEMS_OF_SERVICE_PLANNING_TEAM_TOOLS_COMPANION_PACK_v1.0.pdf",
-      "sha256": "cfbbe09016a259f7b26d6e813453613101f880e5c1620f5ad47609c5ced49bf3"
+      "sha256": "e7ee13d6fd6f296d41b4e6479d7e223bae94ed58bc617961f0aed9bfacb2eb4a"
     },
     {
       "path": "site/assets/downloads/book-companion-tools/THE_OWNERS_CHAIR_LEADERSHIP_TOOLS_COMPANION_PACK_v1.0.pdf",
-      "sha256": "19f91f4b363faba8ad65fd322b5297ca619819ec8636d143a1d94a193ecce41f"
+      "sha256": "d84e97ac108d90500d52132cf271b3435fac06bd99c269140bfbbb0f6213f315"
     },
     {
       "path": "site/assets/downloads/editable-restaurant-new-hire-packet-elite-v1.0.docx",
@@ -534,27 +534,27 @@
     },
     {
       "path": "site/assets/downloads/employee-training-30-60-90-development-pack-elite-v1.0.pdf",
-      "sha256": "f95baa7dca510b17f0ef8cd5241e209e52a1ffc3a360196f4013b1622aff2292"
+      "sha256": "c2e6192d899b0e41080c4e5f1249f04e570e767756434d0f903d570a7343ef6f"
     },
     {
       "path": "site/assets/downloads/employee-training-coaching-retraining-follow-up-pack-elite-v1.0.pdf",
-      "sha256": "7725510759af7578c0a8974575bfdefad78d53a8441d89612ace679597ed259a"
+      "sha256": "382410c27b70131a39e024d15d1ee7257290f22b8d193f0174a5718083821519"
     },
     {
       "path": "site/assets/downloads/employee-training-implementation-follow-up-kit-elite-v1.0.zip",
-      "sha256": "f812831899109a9254da6e7b095500782388f58463b90a79fedf0222fb612e62"
+      "sha256": "c9a0b55fea380f2f971211f5948977927cbb36998d8f76a54cc9a396a0a34652"
     },
     {
       "path": "site/assets/downloads/employee-training-manager-training-control-pack-elite-v1.0.pdf",
-      "sha256": "bb285f095f4ae88cca2c0dc4f3c20d54abc381791227c1986b7964fee2eabb4a"
+      "sha256": "8ecf6fc674d0a596aca8bfda1677b394bc06ead3c56d307e2ad4a2cb8a35c8ce"
     },
     {
       "path": "site/assets/downloads/employee-training-new-hire-first-week-packet-elite-v1.0.pdf",
-      "sha256": "9180bd753b78de2ae2f9bd1bf0f3520d2a82400dea1397803bee30b2fd64e096"
+      "sha256": "39fbbe0ccc759c2e984aaa289e69a463c2763e2ec76b3ac20829bc929e8b5b34"
     },
     {
       "path": "site/assets/downloads/employee-training-role-training-tracker-pack-elite-v1.0.pdf",
-      "sha256": "27802fcc0dbd64ba26c5464d6c1975b9784318a170198711f1a28d670ba1c755"
+      "sha256": "295807cfa6c2d6959a0288caea94b6b02a496498cb5232afdd66793de4c25df0"
     },
     {
       "path": "site/assets/downloads/employee-training-sop-tracker-gravity-elite-v2-2026-09-12-257-interior-pages.pdf",
@@ -562,7 +562,7 @@
     },
     {
       "path": "site/assets/downloads/employee-training-trainer-signoff-certification-pack-elite-v1.0.pdf",
-      "sha256": "f00ce1822ab404cd1ee3adcec45ee3317250ddf0d68c14cde8829ccb23a01f55"
+      "sha256": "f3d9f09b44031ad2ef2b3731e9f32826e3adfaa142d1b9e354278b7e4a9fc0d3"
     },
     {
       "path": "site/assets/downloads/food-cost-waste-inventory-control-318-pages.pdf",
@@ -574,43 +574,43 @@
     },
     {
       "path": "site/assets/downloads/gravity-elite-editable-restaurant-employee-handbook-v2.0.pdf",
-      "sha256": "d1b6937568064934d38fc62c341bae291aba940236d8bfcefc9d9fd6df386de4"
+      "sha256": "8e1524f15e6be6545efd22c1f869777d571a9ff692f71c557bf10c405a7eb80f"
     },
     {
       "path": "site/assets/downloads/gravity-field-sheet-01-manager-excuses.pdf",
-      "sha256": "65f47b4f856c84a8d11595f72605ae95fd0da0cc9537d88f38dc784104fc3983"
+      "sha256": "775530fafd216ddc27100dbe2b46b7e8e828ec385f10a74fbe8305809878b70a"
     },
     {
       "path": "site/assets/downloads/gravity-field-sheet-02-food-cost.pdf",
-      "sha256": "bde6c68ac3d7240c368c2e844e0bcf2afea1788726250e3847fd7723ced89cb5"
+      "sha256": "de19be7a2eb18c52a4528593d369e70040d503796bc50ec74f3690cb49a15af7"
     },
     {
       "path": "site/assets/downloads/gravity-field-sheet-03-manager-follow-through.pdf",
-      "sha256": "fb4a20933a96e5eacf4c708fd54ba51625c990779473444e4b5dc7c65e2b3d75"
+      "sha256": "7c48fe49b4d3191da2cc36535fc698228faf0b5c92be5151d7883a5f9dac6ce1"
     },
     {
       "path": "site/assets/downloads/gravity-field-sheet-04-food-waste.pdf",
-      "sha256": "8549999eea7446f233581c77152a34ad3023cd1bbb2ac8544f48112348fd17c0"
+      "sha256": "c50273df75801216fe7c8add5c8df61d5c1e6d5058ce092f4afcfe7457bf0ca0"
     },
     {
       "path": "site/assets/downloads/gravity-field-sheet-05-employee-retention.pdf",
-      "sha256": "37c9b7af76d5de452dcaba8c45dabe5177f228ab61d2ae3e46a2a7e44d25300b"
+      "sha256": "60a07c93439ec6eae7918125866495ddb8b40cd4a679ed8daa459469bb789b39"
     },
     {
       "path": "site/assets/downloads/gravity-restaurant-sop-library-volume-1-gravity-elite-v2-2026-09-13-369-pages.pdf",
-      "sha256": "58999c628bb11c3679c1730bb423d08bf5f76cffdd692849ad6f9a88d8506cfc"
+      "sha256": "245d544b3f0c76ee700685a7546b9c166bf65cc0f10a615eff87d6d13f367dfa"
     },
     {
       "path": "site/assets/downloads/gravity-restaurant-sop-library-volume-2-gravity-elite-v2-2026-09-13-370-pages.pdf",
-      "sha256": "58389253b0b913e1a6520f0abdf3fe7813ccd83e9ab269d53f7deb0efc567db3"
+      "sha256": "74990bd7f78e58978ed7796218a35c109cab19101d80e0b79aaccbd1564374e0"
     },
     {
       "path": "site/assets/downloads/gravity-restaurant-sop-library-volume-3-specialty-advanced-hard-to-find-sops.pdf",
-      "sha256": "b9820c46ed08ff669d177d853d51aab8287af9458c0d6666b6db349009f00709"
+      "sha256": "c3bcc96cd679a067f6cb41c0bacc32eb916e3df7a5a370dd33e33dcfecf5a6a4"
     },
     {
       "path": "site/assets/downloads/guest-service-complaints-recovery-workbook-gravity-elite-2026-09-13-191-pages.pdf",
-      "sha256": "5d347ecead67759a2251fedb315903b8d84fb6901c97d4d59076c23e35a0553f"
+      "sha256": "ceb33305b31580cc33a228545abb4ecec41d6a0a4201b76131bebfab665094ec"
     },
     {
       "path": "site/assets/downloads/hiring-and-new-employee-starter-pack-elite-v1.0.zip",
@@ -618,7 +618,7 @@
     },
     {
       "path": "site/assets/downloads/hiring-interviewing-employee-retention-tracker-gravity-elite-208-pages.pdf",
-      "sha256": "3dca03c71fc838105a15c9851adbc2f507f345cd0468010521bcb8bda1514879"
+      "sha256": "286189e92edb2466121828bb70e277ce71fe87b2e42ad25dc0d2be53d1572c08"
     },
     {
       "path": "site/assets/downloads/hiring-interviewing-employee-retention-tracker-gravity-elite-editable.docx",
@@ -626,7 +626,7 @@
     },
     {
       "path": "site/assets/downloads/labor-control-scheduling-implementation-refill-kit-elite-v1.0.zip",
-      "sha256": "1f3abd48d5c9b2a6d84f92491d56ef6aa9bfe142c1dfc231af22e11cd697b6bb"
+      "sha256": "359e727c213863a53d1496bcf3f53f5599b6cdebedc7e8c73f87fc1426f612af"
     },
     {
       "path": "site/assets/downloads/labor-control-scheduling-planner-gravity-elite-v2-2026-09-12-371-interior-372-digital-pages.pdf",
@@ -634,35 +634,35 @@
     },
     {
       "path": "site/assets/downloads/labor-scheduling-budget-refill-pack-elite-v1.0.pdf",
-      "sha256": "20fd1d7a208b0c5dd509738914dbf53469098d9dbb38351d1764b7d51e5cab72"
+      "sha256": "2e50efe4d71452b6154b5d4d3ade817a65414961866c0804ea8e93076c86e43b"
     },
     {
       "path": "site/assets/downloads/labor-tracking-weekly-review-pack-elite-v1.0.pdf",
-      "sha256": "5a817f0870e8113fffd4eb554350694b6ca0b6f5f5d502c5f6bfaadfa825c790"
+      "sha256": "a40a6a818e82a27fba84416281de6505fa54c608928331fb85d35205f9037fb7"
     },
     {
       "path": "site/assets/downloads/manager-labor-control-improvement-pack-elite-v1.0.pdf",
-      "sha256": "b4850d815c91ac787eecd975fd85a33f6e95c433aa5a23b680e28735513ad11a"
+      "sha256": "3dd688cc9304dab90df6acebf6057d120a9576e4d5b4211f72341188595ab834"
     },
     {
       "path": "site/assets/downloads/manager-labor-quick-reference-laminated-elite-v1.0.pdf",
-      "sha256": "324a9264db9b6eb8983edb32d3a9bf594cddac453ea7a2b08f5b8bbaae16ddd6"
+      "sha256": "b6d2e769d418ed73baee966de3111ed3d50873090ebee52d2bd37296989722a2"
     },
     {
       "path": "site/assets/downloads/owners-chair-fulfillment-implementation-kit-elite-v1.0.zip",
-      "sha256": "3ec330c8fc12e7328ae7a0a695b1912d446277d3b902964f6b61163b9b4d6a89"
+      "sha256": "31616679312028326bbe4d009ba4e0b6dffbf52aece2553b5a565cd5933e7be5"
     },
     {
       "path": "site/assets/downloads/owners-chair-owner-gm-governance-pack-elite-v1.0.pdf",
-      "sha256": "a77c330e1d600c263dcd42da27cadb38189eb6783ec49d51da237d4957e5ada7"
+      "sha256": "c3bae10d3a6404dceea7516a5714155d24053d4f66f876c52e1a3c69046a6fe0"
     },
     {
       "path": "site/assets/downloads/owners-chair-stability-continuity-pack-elite-v1.0.pdf",
-      "sha256": "3754cc517ca65f6ebc7856cd5f40f1ec12ae56567d7becabf9cb76062fd0f898"
+      "sha256": "18921e0f640a1ffaf63cfa1c9c4eeff195aff0537cdeafd1543882f4fae9d7d2"
     },
     {
       "path": "site/assets/downloads/quiet-gravity-gravity-elite-2026-09-11-155-pages.pdf",
-      "sha256": "2ae1f64a9c80ea6c9168fc81d9d1380fc1702105f720be636e83794b02b450c4"
+      "sha256": "00cf60f644efa6f3ad28e5b60bb69be359851fa2fb386540bf9ecb154e2d03e9"
     },
     {
       "path": "site/assets/downloads/quiet-gravity-gravity-elite-2026-09-11.docx",
@@ -674,7 +674,7 @@
     },
     {
       "path": "site/assets/downloads/restaurant-sop-station-operations-builder-gravity-elite-v3-2026-09-13-258-pages.pdf",
-      "sha256": "61279288862d936831a63121595c552a5a41e517c272cd7653022c19873a7c5e"
+      "sha256": "cc767f44d474dfedd1c127b52b25c6694932a85c0c1ea785620dbc32c9de7cf9"
     },
     {
       "path": "site/assets/downloads/reusable-restaurant-candidate-interview-packet-elite-v1.0.docx",
@@ -682,35 +682,35 @@
     },
     {
       "path": "site/assets/downloads/shift-coverage-cut-decision-pack-elite-v1.0.pdf",
-      "sha256": "cd62216a7f921e892b779f7f1436f1e3d1c4f6471b49ee52619ab894d32e9cdd"
+      "sha256": "dbba2fe82854c057d358b8351fa10e2cff6edd69096382d99ca0f2ad99044c4c"
     },
     {
       "path": "site/assets/downloads/staffing-cross-training-retention-pack-elite-v1.0.pdf",
-      "sha256": "d1294c6b68938db6be68c8279734911d978c173675ea5fbe1ad5112a7997510e"
+      "sha256": "f2f1a73a3ffb080e6d4f16604cd6c9ad61acdfe26413a84d0a7f98aa4f660092"
     },
     {
       "path": "site/assets/downloads/systems-of-service-audit-debrief-pack-elite-v1.0.pdf",
-      "sha256": "0eb867605722be60150cc6dbae2763649ef1f9b956ae65eacd94db8291189014"
+      "sha256": "b2c44b2d6fe004aee415a3d9cb98c23431206075566cec41944d16127eb76515"
     },
     {
       "path": "site/assets/downloads/systems-of-service-fulfillment-implementation-kit-elite-v1.0.zip",
-      "sha256": "95a2d1e8197189fda97619094275d8c4b38ef5dff3238d9243222cd9a74b6dfb"
+      "sha256": "b1cf8bbd5da4fea55d59c487f6e4c2040e6490d3253c602c8421d56eb98d7589"
     },
     {
       "path": "site/assets/downloads/systems-of-service-gravity-elite-v2-2026-09-11-253-pages.pdf",
-      "sha256": "99ac08980a7c8a62428148d83580d1f73cbc9d7226b1d5a644eb704e2df9b81a"
+      "sha256": "13aff0bf34d345492982c988e53549423eb7acda397f1918c942b87b0a94009b"
     },
     {
       "path": "site/assets/downloads/systems-of-service-planning-handoff-pack-elite-v1.0.pdf",
-      "sha256": "7ac649eafb62b7ff8e52faa5250a9998ab25159887ccefd143f58737cf06c7d5"
+      "sha256": "2c8dd2187989fd07b8ac021ef8d6aa40e5117c3b844e60e8769d0fa186277b62"
     },
     {
       "path": "site/assets/downloads/systems-of-service-pressure-scenario-training-pack-elite-v1.0.pdf",
-      "sha256": "1ada7331b881613f6d104fea3f73cc469f593c59d2f955a0207fcc649efeebbe"
+      "sha256": "b0b452d9bbc47bfbd93d2086dcd2032db1748a601ab1fb8383608097d0bedda1"
     },
     {
       "path": "site/assets/downloads/the-owners-chair-gravity-elite-2026-09-11-212-pages.pdf",
-      "sha256": "09ed8a4141a89327add5403dbb2da515932273a79fbffd5b7c55cbc35fcdf659"
+      "sha256": "8be3ad86ad98965bfb0376f1620a28a308c06128298c15f76548527a9ee1b4a2"
     },
     {
       "path": "site/assets/downloads/windows/manuals/Gravity_Inventory_Center_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.docx",
@@ -718,7 +718,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/Gravity_Inventory_Center_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.pdf",
-      "sha256": "cf9db756130a0759459471c0a24087dcab2aa4a7d86b1d97570d992a8238189e"
+      "sha256": "8bf138912c3584cbd6409fa1f2d9f4faeaa585d8b2e1e97e7a08494a9f8a08a1"
     },
     {
       "path": "site/assets/downloads/windows/manuals/Gravity_Inventory_Center_Windows_Beta_Full_User_Manual_COLOR.docx",
@@ -726,7 +726,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/Gravity_Inventory_Center_Windows_Beta_Full_User_Manual_COLOR.pdf",
-      "sha256": "a97a8531855dbeb8af3723f8f89a5ed769e940bc286fc26439445e6714dc04a6"
+      "sha256": "8e075f2b68c29d5ecb2c4033003380c950840c5e5e5a5b871cb645578b8fcbe4"
     },
     {
       "path": "site/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.docx",
@@ -734,7 +734,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.pdf",
-      "sha256": "44fb2443b9778aea62125934f5b109b5394fa929c0211098aa902ac832a933a2"
+      "sha256": "3ac58c1d84942e988fedc1c1a4608c4f657c39659046fb7ac7748fcdf221cb10"
     },
     {
       "path": "site/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_COLOR.docx",
@@ -742,7 +742,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/Gravity_SOP_Foundry_Windows_Beta_Full_User_Manual_COLOR.pdf",
-      "sha256": "01509357f259955734b1780506e18b370e7c34700869260f9a9b0dfeb4ba22bd"
+      "sha256": "86f1b0cb3ef8f3e18a5b3d3d351f9376de3bc14bb82b7b9b3889145fdbeae4ce"
     },
     {
       "path": "site/assets/downloads/windows/manuals/Gravity_Shift_Lab_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.docx",
@@ -750,7 +750,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/Gravity_Shift_Lab_Windows_Beta_Full_User_Manual_BLACK_AND_WHITE.pdf",
-      "sha256": "36e8bde9ea632d87238fe297d25667fa79fe3f691f03304ea7e952520ccb16ae"
+      "sha256": "08c92dd60a837c5220298827dda0a10d63dbb56b54edcc3a707c369e2b4da7de"
     },
     {
       "path": "site/assets/downloads/windows/manuals/Gravity_Shift_Lab_Windows_Beta_Full_User_Manual_COLOR.docx",
@@ -758,7 +758,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/Gravity_Shift_Lab_Windows_Beta_Full_User_Manual_COLOR.pdf",
-      "sha256": "490e20313f72c0c5548f562f9182974950e9e87c4c75da4f293dbe4308d6a93a"
+      "sha256": "10e9052b10c1d92768ed766a8a67822d46725356906116d8ca2b0d3f2aaccc67"
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_Inventory_Center_Windows_User_Manual.docx",
@@ -814,7 +814,7 @@
     },
     {
       "path": "site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_215_PROMPTS_2026-09-16.pdf",
-      "sha256": "80e4f5d0457bef47cbf8c2e4c27d936a33390db3a8c58f1a63fb8a23b2e04cbc"
+      "sha256": "2804aa97fdd168ecbc27110a3f6ce1c2578fa5f9cd2a25663931a50fc3478b74"
     },
     {
       "path": "site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_325_PROMPTS_2026-10-20.docx",
@@ -822,7 +822,7 @@
     },
     {
       "path": "site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_325_PROMPTS_2026-10-20.pdf",
-      "sha256": "e0cca5994ba721d16505b55bddc1879a78990f6f87edb5059fa273ad9ee598d0"
+      "sha256": "199d94acb0699cf9d649493eedc063ea9731f4ae2c920856334fb8499834eac9"
     },
     {
       "path": "site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_350_PROMPTS_2026-11-03.docx",
@@ -830,15 +830,15 @@
     },
     {
       "path": "site/assets/free-resources/ai/RESTAURANT_AI_PROMPTS_AND_SYSTEMS_WORKBOOK_350_PROMPTS_2026-11-03.pdf",
-      "sha256": "14f640bf6fa35d2a3172871928f3e68a3945fc8792e1d0d70b43829269cdc6ff"
+      "sha256": "5f63c09c05d9c8eb210b5dc389c38c0704b0416bc40ababb174f2ae5ecd49c10"
     },
     {
       "path": "site/assets/free-resources/improvement-plans/The_Gravity_30-Day_Improvement_Plan_Library_Founding_Year_Package.zip",
-      "sha256": "da40756ae46eb3bee4b822b58b9ecb929f2f6307afc12460f0fb5f4ad0b4e7d9"
+      "sha256": "13f103b4d233827ce40b6bde8c12aadcc1589d4000e578094613c28dcb68ea45"
     },
     {
       "path": "site/assets/free-resources/improvement-plans/The_Gravity_60-Day_Guided_Improvement_Plan_Library_Founding_Year_Package.zip",
-      "sha256": "6a3955f36a5b96867ff1a0116701dd466f4cf4044252b72fe6c69fa596ff732d"
+      "sha256": "acfd5b9d462efaa1f3ef8455d79c6081bd569297fa54df7560fa68fe933089a8"
     },
     {
       "path": "site/assets/free-resources/improvement-plans/The_Gravity_Improvement_Implementation_Kit.pdf",
@@ -846,11 +846,11 @@
     },
     {
       "path": "site/assets/free-resources/onboarding/GRAVITY_CUSTOMER_INSTALLATION_PACKAGE_v1.4_2026-09-15.zip",
-      "sha256": "8d2050df15439e35d16f4aa5ccacf17751da4ddf613aadbebf81cde72f3dde4a"
+      "sha256": "b30089a5967934f17b4f8f9756326eb97faa6817bf0f69a26ac5be0d943ed19c"
     },
     {
       "path": "site/assets/free-resources/onboarding/GRAVITY_CUSTOMER_INSTALLATION_PACKAGE_v1.5_2026-09-17.zip",
-      "sha256": "f5c79834e48cb095f1a2ea24015629634fa36ca9efa54161192226fe789588ca"
+      "sha256": "c1f1a5b92389b279e1ebee37564ca0abf85ecdeff60fa45c425ad186352167af"
     },
     {
       "path": "site/assets/free-resources/onboarding/GRAVITY_START_HERE_GUIDE_v2.4_2026-09-15.pdf",
@@ -862,63 +862,63 @@
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-C_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "8bea4e7f24a09b93d122faf0ee623e0c819f6e305f8e42a4b9ebabbb85b5059e"
+      "sha256": "bcced5860ca7f27d62dcd93c9d2ce7471d5ca3221d490bdebbf7d46177180759"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-FM_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "a90b7d84dc084eaf9f07d116881a882a958b803b455f4ad0d424317dc4db665c"
+      "sha256": "48ffd87510f5c333ad3bad68d013e5e2e166616103681a364ba8241f7eeeab88"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-FS_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "d4c5683bdd870f4c73cd6a8e7e12f7909ec80ae4f46590adf85d7527e515a2b7"
+      "sha256": "7f466e8958caff9118d1b43c1d7bb1e0ebe10ed34e9ef2b5797e176141b59b2d"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-F_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "29dd9d8040e4319533b66667f2c087d10fd17109b96bd2473fe2b246e14c502b"
+      "sha256": "65fe66ad3a11e8ee2a632564b3d1b29dee4d7ec40bb5fc33868bf9952bee2622"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-G_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "f5a11ffc95f76bfc231d615fcdb3af0b1e904ec3b90706477c32336290385c9c"
+      "sha256": "1d440c808c34cb8091eeedaf524415072c7bb5c53d57730b7e47181fdf7938f0"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-HR_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "7348ee34a02ea7c73dc607c17b40abf62da653ddc954e57b3251b8685ba0df6f"
+      "sha256": "09f1d5322f436128c8ae8ad7c189f691b94e8b10d5e0f00a65070d458d461a8f"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-IV_SYSTEM_RELEASE_1.2_2026-08-22.zip",
-      "sha256": "3e233a6c8a97b7343c50ceab8939796dcebadf56be5608d03374e379d8b20047"
+      "sha256": "e55654b9adf6c48ac9bf7d0b236b553b087c379734d4159ea787da932dee5f04"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-I_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "9c2568cc251d89d7306cc1bb444b1ed8a750a919219b2b97b5f70142e9a280e2"
+      "sha256": "250188d4ee528ece61442cd6a80bf149288d73936ed4e22f24c509d0a014484d"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-LP_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "9f4354fdc253abef8e460efa8ac7de2fc2b0a314a8c69be9fd9b984a703d2461"
+      "sha256": "4af3320d6d668d0d5c882fccc1a0a240ae80100d1a3c05264ec29dcc366f6ecc"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-M_SYSTEM_RELEASE_1.2_2026-08-22.zip",
-      "sha256": "dc8ba2bdbcbf92b46d3bb89df83d4fef3beccb38e1f8d8539e5fb05c6349a687"
+      "sha256": "4ed4a601ec2925464ffe6907ffd537e77ff24f4cdfba086128ad9d46fa549673"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-P_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "a0d9a909021d3aa943521bbb14972dcd2bf0f80a3445ed5a327ff1ddacbaa755"
+      "sha256": "2dc2e303fa32d2e40667126ad44dfc07dda2f3361c056da846f3ac29be7b9103"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-RC_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "aae1dd910358c05574db295e22fbd000b4754cb2ac865127929cec2f52a716b5"
+      "sha256": "8fd11b7dc0bcdb6410ce247f571bb5e49d4be4f3d2a00f2fcfe5a1bdb9b282e2"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-R_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "e844fb20cfdc4ac4208135a31cb5f364aa8edb7210836fe7388bc87b4b82d740"
+      "sha256": "7286fbb8925c26273fde0c22e426a745bab3bf1c324dc42b586cb2dda773d6a7"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-SF_SYSTEM_RELEASE_1.3_2026-08-22.zip",
-      "sha256": "a7abb027e08c7b0a152517bb65e8171fceedde3245f0c0e414fc2e5443d11d78"
+      "sha256": "4896c6abe2532250992092eaab3edd24b845f5cb8d7a88be9dbb124f66802038"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-T_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "55a3275a5a92c53f4becc8784bf8bf37b7c381f0972e364edf8613753a976ac9"
+      "sha256": "b6a38fbbeb36ea41f950380a7a55add811d1ed4c6fc9aa8c420eec0d78937962"
     },
     {
       "path": "site/assets/free-resources/sales-intelligence-forecasting/Gravity_Sales_Intelligence_and_Forecasting_System_File_Guide.txt",
@@ -1834,119 +1834,119 @@
     },
     {
       "path": "site/assets/samples/the-complete-gravity-system-one-page-ad.pdf",
-      "sha256": "a32a9e705fd6fd1328e222634556eefda8d8794c2faba6de489216429eff0c7f"
+      "sha256": "313497fa5c76eae5b8215acabb411fcae459556d01ca062395b2b7da3100d0df"
     },
     {
       "path": "site/assets/system-previews/cash-loss-prevention-forms.pdf",
-      "sha256": "26df216637309d13b640b74141eea3afe9a5d01b7a5d35583d845c792427aafb"
+      "sha256": "91b803cf1fad577ee74d6e556d94995209b4f3ef67563960c5b8ff312f7cb750"
     },
     {
       "path": "site/assets/system-previews/cash-loss-prevention-manual.pdf",
-      "sha256": "0ca9b17c88222a3ad49f0f6855f62aa435ac8fc06e91ddaa72e479d520fc4471"
+      "sha256": "62d382994c015b6f951099075585516ba287cca5b5bf82fa38d7f533fff65279"
     },
     {
       "path": "site/assets/system-previews/facilities-maintenance-forms.pdf",
-      "sha256": "e92adab1448ab1d7f022c5b240f3a9102a99d05a29f8f599c0b2cae1cb543005"
+      "sha256": "ffaace4ad89b829ab98a8e61d2532ba13b69a787de564257bb7b4be956992e82"
     },
     {
       "path": "site/assets/system-previews/facilities-maintenance-manual.pdf",
-      "sha256": "b2945a656b66a71d6328f17eb934fc7a14f32f3a3839e8af368cff13a2303b47"
+      "sha256": "721eef9f9c6e1980123f7ec8368ae8918b42365e9f1f440baec7ae5c303891ee"
     },
     {
       "path": "site/assets/system-previews/food-cost-inventory-forms.pdf",
-      "sha256": "16bc6c25d2233bd1135fc94c4cd59c6597835b42b59b7422c3d2606807ebec54"
+      "sha256": "7dd518f51f9ffafeb5bd0994150bd83ee3b4eec80568341acbd20c2fe0cf40b4"
     },
     {
       "path": "site/assets/system-previews/food-cost-inventory-manual.pdf",
-      "sha256": "5555d45c073f9970e7ca7d505e8cbcbe807fd57556ef0a65e2ee70a69ce5076c"
+      "sha256": "3c5560c42dd101950b9e5fd34c24a1d3c9413e092170144d328fb0616db4da8d"
     },
     {
       "path": "site/assets/system-previews/food-safety-sanitation-forms.pdf",
-      "sha256": "09beff51b3ae36a30d165ad8079326b4d3683e8226727073cb7bad3f1342ddf4"
+      "sha256": "23c7941d22edebef66dbe1b5285184cc70790c17df083f4948821167b2014df1"
     },
     {
       "path": "site/assets/system-previews/food-safety-sanitation-manual.pdf",
-      "sha256": "c3ebbb98638f1dae5f833b58ef60cb67bc9f723cc48771a2e89789f7ca07862e"
+      "sha256": "a18efcd6de650f11eea338b6cba6d59aca37f61a33e69513ed80c082a126dc32"
     },
     {
       "path": "site/assets/system-previews/growth-sales-forms.pdf",
-      "sha256": "cc100463593a443d93e5ea16d2a0a4e3858a45119c9373c6e4dfe4407b4b93e2"
+      "sha256": "7ff309d698cada814c6a5b82cedab55d24f07ac343887b3d30f76756b4ba08b2"
     },
     {
       "path": "site/assets/system-previews/growth-sales-manual.pdf",
-      "sha256": "0c8ae84e1f903e5b50f6436a6b1779a370d789b335f58f57c0bb1c49c4e6cf69"
+      "sha256": "aa2dc39afba498bdadd3b6f26f8784fa6e4f49303954c4877e925fdc02dc0d03"
     },
     {
       "path": "site/assets/system-previews/guest-relationship-retention-forms.pdf",
-      "sha256": "eefdc335f90f5aec616dc2b4a34f0f1b204bf30e981cc768c1079c58f76ff717"
+      "sha256": "1ab22600a0f2ca986460a22ac95a085dea6141b0c872050df317bb91da55971f"
     },
     {
       "path": "site/assets/system-previews/guest-relationship-retention-manual.pdf",
-      "sha256": "ff21825577bbfb164c06747ab22dcc006a70fc7762d699adaeebd18e5b386154"
+      "sha256": "5ccb9d7e83aba887074fb0a8a69d574ceb7ed8d1b56ce37db12bfbaa2f24f4aa"
     },
     {
       "path": "site/assets/system-previews/hiring-retention-forms.pdf",
-      "sha256": "ff321baf47ad0e06006afcbe8cbc2a2343b520b3ce83dac039e73b19e8fb19a9"
+      "sha256": "4466a80ec1298d641fbc812ed3660b2d982d61a67d15ffe37f4d65a246922393"
     },
     {
       "path": "site/assets/system-previews/hiring-retention-manual.pdf",
-      "sha256": "d71d52a867802ad9b29aa57091271b3d75e90c3a715e4e5792d592b660f553f3"
+      "sha256": "c8ae867f823df9d9e14dd1b6b175e4b5ef9e3ac444931a2f63b17bed872dd656"
     },
     {
       "path": "site/assets/system-previews/implementation-verification-forms.pdf",
-      "sha256": "11024fa8f6b9d9aa41e41c4207915f032b2349047b7d662cc24cd31453f1921d"
+      "sha256": "b7eaae431648e8e935169f1cb0ec2936221958c4b68e484f9396c779bff6209e"
     },
     {
       "path": "site/assets/system-previews/implementation-verification-manual.pdf",
-      "sha256": "deb8cb4f770eed451b9d3bc81ad9d9eeacd9761f8478711bab3212265b996267"
+      "sha256": "6b9487a856ff7b0a49ff239c264de9824c558f96eb0b2ca78215f9829644ad06"
     },
     {
       "path": "site/assets/system-previews/labor-workforce-forms.pdf",
-      "sha256": "25b53999d4002ddd29e4101c6a2e63bf97cfcafb37c3f2f4fd38f4b610492436"
+      "sha256": "b849241d05beb4416f7ceed18b374dbc218a51b917f20bcd22736fa13cb87120"
     },
     {
       "path": "site/assets/system-previews/labor-workforce-manual.pdf",
-      "sha256": "d68ee11d59b0abfefeb4e73ecbc0bb53486729cb10dbff613be788a345c76e1c"
+      "sha256": "80d45b50d3104ce341983c3e18ca40ca8163ec8dab0b27a97affccd3ab1906eb"
     },
     {
       "path": "site/assets/system-previews/manager-development-forms.pdf",
-      "sha256": "5c71f259dffabd03a7738634a28438e40d65b2a06dc559aa2960d93a86a98dd2"
+      "sha256": "8df249543f9fb6253e797660df9d580f81f4e525b86b05d4b1950c2fec7a9b69"
     },
     {
       "path": "site/assets/system-previews/manager-development-manual.pdf",
-      "sha256": "d576ea9e9046361efbd0fac69d220d0c6a567ccc3b118a74665751cd1285aa4b"
+      "sha256": "57e209d3aa6aa21d1072cb8ad14e314c15ed31acc896e822c4fe4043246791e5"
     },
     {
       "path": "site/assets/system-previews/performance-profitability-forms.pdf",
-      "sha256": "78c99bbc69403a6911d5ace61b6da2cc108883189cc71eea46fcd61789d778bd"
+      "sha256": "071d9833a4bb3ec4042b5ba23c1bd47fe1712f66abca36a1b292890a2342baa8"
     },
     {
       "path": "site/assets/system-previews/performance-profitability-manual.pdf",
-      "sha256": "2740cc808ed334df62a95d9155e040547447019db7bead652cbc3f82187fb0cc"
+      "sha256": "cb44c43f7e75b7fad4144fd0d2da09432c2e9979e585552ba948e796edae3780"
     },
     {
       "path": "site/assets/system-previews/risk-continuity-forms.pdf",
-      "sha256": "807cb28b0de5752caf22d0b6c34cf3f172dcd45fb01b6c7a4223dbb08d86107d"
+      "sha256": "a7f377ebd16990faad370ec77de26a7eef47454167043bbd37e92c830f1f348b"
     },
     {
       "path": "site/assets/system-previews/risk-continuity-manual.pdf",
-      "sha256": "1e3b238842ebfe21654795ff874858bedf0b44f2d47dee69cc68c148aaa19b96"
+      "sha256": "7d16d2d8aa56d777f6af71b632a2b4416835731d08dab7a62ec217baa7284915"
     },
     {
       "path": "site/assets/system-previews/standards-intelligence-forms.pdf",
-      "sha256": "1dddc56b1de1b55d4f861845237c65141ca5542fefdb35cf803ff843962697c9"
+      "sha256": "9e9730acfad9df5338ca0b307649d302921fbeee09f0ceef6e60d2e3924e684b"
     },
     {
       "path": "site/assets/system-previews/standards-intelligence-manual.pdf",
-      "sha256": "1705692047a6c70ded2d4ff0536203924ca9caeeb523bc65042eb686560a9220"
+      "sha256": "99c75dce89a85b8cbd1bb67d2ea2fbb9a2392584d6b80ad28b3db8f5559f0dd0"
     },
     {
       "path": "site/assets/system-previews/training-certification-forms.pdf",
-      "sha256": "d7779d7b782d51c5f2e2959ba686710d036bf69a981e3bfac879fba1616a03d3"
+      "sha256": "888877d7e523bd39e0196eae9cae06d19efe34ad670aaa3fdbc73772d81e3ebd"
     },
     {
       "path": "site/assets/system-previews/training-certification-manual.pdf",
-      "sha256": "81b37ee91e61349636751d8d2b8195dd4bc0dbf2742202e6b5a61a085b935b99"
+      "sha256": "f763fef480c12eb022d7052475d157e8c8d1893fa17f10b3792d5b22482fe25e"
     },
     {
       "path": "site/book-reader.html",

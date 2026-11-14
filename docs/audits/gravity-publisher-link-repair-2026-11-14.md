@@ -20,6 +20,12 @@ Follow-up to the product-document audit in PR #87. The four public-page wording 
 - All 102 site PDFs opened during the link scan; zero retained Thomas Monroe Books link annotations.
 - Rendered the feedback insert and affected Founding Year pages from the onboarding guide for visual review.
 
-## Remaining document copy review
+## Follow-up printed-copy repair — 2026-11-14
 
-Some standalone PDFs still *print* the old publisher domain as historical or navigational text even though their clickable links were redirected. The current Start Here and System Overview guides, customer overview, companion packs, AI workbook, and one-page system ad are among the affected files. Those printed references need a separate copy/layout pass before claiming every visible mention has been removed. No live-site deployment or physical-device check is included in this source repair.
+The initial scan found printed references in 13 standalone PDFs. `scripts/repair-gravity-printed-domain-copy.py` updates the old references in the current Start Here and System Overview guides, eight companion packs, the 325-prompt workbook, the customer overview booklet, and the one-page system ad. The companion-pack note now directs readers to the Gravity releases page. The overview guides retain their clickable routes; the companion-pack release link and printed Gravity addresses are clickable.
+
+The user then requested a Gravity link somewhere on every PDF. The full site contains 102 standalone PDFs plus 147 PDFs inside its 25 downloadable ZIP packages. A clickable `gravityleadershipsystem.com` destination is now present in every one. The repair added links to 70 standalone PDFs and 128 packaged PDFs that had none; existing destination links were retained, and printed Gravity addresses without a link were made clickable. Internal ZIP SHA-256 manifests were refreshed where PDF contents changed.
+
+Post-repair scan: all 249 PDFs open, each has a clickable Gravity destination, zero printed `thomasmonroebooks.com` text remains, and zero PDF link annotations target that domain. The Start Here guide retains 12 clickable links and the System Overview retains 14; all point to Gravity. All 25 ZIP CRC checks passed. Rendered updated guides, inserts, representative book pages, and footer links for visual review. `scripts/verify-source.cjs` passed for all 664 manifest entries.
+
+The PDFs' original editable sources for this set are not present in the repository. The repair script therefore applies controlled text redactions and redraws only the affected copy. The updated PDFs are included in this follow-up source change. Phone/device behavior still requires a physical-device check.
