@@ -29,3 +29,9 @@ The user then requested a Gravity link somewhere on every PDF. The full site con
 Post-repair scan: all 249 PDFs open, each has a clickable Gravity destination, zero printed `thomasmonroebooks.com` text remains, and zero PDF link annotations target that domain. The Start Here guide retains 12 clickable links and the System Overview retains 14; all point to Gravity. All 25 ZIP CRC checks passed. Rendered updated guides, inserts, representative book pages, and footer links for visual review. `scripts/verify-source.cjs` passed for all 664 manifest entries.
 
 The PDFs' original editable sources for this set are not present in the repository. The repair script therefore applies controlled text redactions and redraws only the affected copy. The updated PDFs are included in this follow-up source change. Phone/device behavior still requires a physical-device check.
+
+## Gravity Report Field Sheets — 2026-11-14
+
+Visual review of the five published Gravity Report Field Sheets found badly spaced PDF text in the existing files. Rebuilt all five as single-page PDFs with embedded Liberation Sans fonts, preserving their operating guidance and writing fields. Each footer now displays a Gravity Report URL with a clickable link; the first two link to their companion articles and the remaining three link to the Gravity Report landing page. Original revision dates are retained where present.
+
+Rendered and visually reviewed all five PDFs. Each remains one page; all footer annotations resolve to `gravityleadershipsystem.com/gravity-report`, the text is extractable, and `scripts/verify-source.cjs` passes for all 664 manifest entries. The rebuild source and font license are included for repeatable updates.
