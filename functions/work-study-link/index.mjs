@@ -87,4 +87,4 @@ export default async function(req){
  }catch(e){console.error('work-study-link request failed',e?.name||'unknown');const safe=e?.status===400||e?.status===413;return json({error:safe?e.message:'Work Study device service is temporarily unavailable. Please retry.'},safe?e.status:503)}
 }
 
-export const config={path:'/work-study-link/*'};
+export const config={path:'/work-study-link/*',rateLimit:{windowLimit:60,windowSize:60,aggregateBy:['ip','domain']}};
