@@ -3,6 +3,24 @@
 // No email/password, employee name, wage, recipe, or stock data is accepted in clear text.
 const headers={'Cache-Control':'no-store, no-cache, must-revalidate','Content-Type':'application/json; charset=utf-8','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer'};
 const MAX_BYTES=900000;
+async function readBoundedBody(request,maxBytes){
+ const declared=Number(request.headers.get('content-length')||0);
+ if(Number.isFinite(declared)&&declared>maxBytes)return null;
+ if(!request.body){const raw=await request.text();return new TextEncoder().encode(raw).byteLength>maxBytes?null:raw;}
+ const reader=request.body.getReader(),chunks=[];let total=0;
+ try{
+  while(true){
+   const{done,value}=await reader.read();
+   if(done)break;
+   total+=value.byteLength;
+   if(total>maxBytes){await reader.cancel();return null;}
+   chunks.push(value);
+  }
+ }finally{reader.releaseLock();}
+ const bytes=new Uint8Array(total);let offset=0;
+ for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.byteLength;}
+ return new TextDecoder().decode(bytes);
+}
 const result=(value,status=200)=>new Response(JSON.stringify(value),{status,headers});
 const errors=(message,status)=>result({ok:false,error:message},status);
 const legitTool=t=>t==='shift'||t==='inventory';
@@ -50,8 +68,8 @@ export function createCloudBackupHandler({getIdentityUser,store}){
     return result({ok:true,tool,revision:entry.revision,createdAt:entry.createdAt,envelope:entry.envelope});
    }
    if(request.method==='PUT'){
-    const raw=await request.text();
-    if(new TextEncoder().encode(raw).length>MAX_BYTES)return errors('Encrypted backup exceeds the 900 KB limit',413);
+    const raw=await readBoundedBody(request,MAX_BYTES);
+    if(raw===null)return errors('Encrypted backup exceeds the 900 KB limit',413);
     let input;try{input=JSON.parse(raw)}catch{return errors('Invalid JSON backup',400)}
     if(!input||typeof input!=='object'||!safeEnvelope(input.envelope)||!Number.isSafeInteger(input.baseRevision)||input.baseRevision<0)return errors('Invalid encrypted backup envelope or revision',400);
     const size=new TextEncoder().encode(JSON.stringify(input.envelope)).length;
@@ -66,7 +84,7 @@ export function createCloudBackupHandler({getIdentityUser,store}){
     return result({ok:true,tool,revision:record.revision,createdAt:record.createdAt},201);
    }
    if(request.method==='DELETE'){
-    const raw=await request.text();let body;try{body=JSON.parse(raw)}catch{return errors('Confirmation required',400)}
+    const raw=await readBoundedBody(request,MAX_BYTES);if(raw===null)return errors('Deletion request exceeds the 900 KB limit',413);let body;try{body=JSON.parse(raw)}catch{return errors('Confirmation required',400)}
     if(body?.confirmation!=='DELETE MY CLOUD BACKUPS')return errors('Type the exact deletion confirmation',400);
     const removed=await store.deleteAll(uid,tool);
     return result({ok:true,tool,deleted:removed});
