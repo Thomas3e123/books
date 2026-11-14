@@ -31,6 +31,6 @@ test('Gravity Report searches released article text and grows beyond its initial
  await expect(page.locator('#report-search-count')).toContainText('1 article in Inventory & Record Accuracy');
 
  await search.fill('unreleased secret phrase');
- await expect(page.locator('#report-search-empty')).toBeVisible();
+ await expect(page.locator('.report-search-empty')).toBeVisible();
  await expect(page.locator('#report-32')).toBeHidden();
 });
