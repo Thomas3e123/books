@@ -2502,7 +2502,7 @@
     },
     {
       "path": "functions/gravity-guide/guide-core.mjs",
-      "sha256": "e7825067de37773d74410fa9dfb9fabeaaa963b386fb3ae13d31b91b77b098a7"
+      "sha256": "b553690bb4648c54194d69f452ab3f23fa7b5bf3cc7046a9850dd539b5a29048"
     },
     {
       "path": "functions/gravity-report/articles.json",
