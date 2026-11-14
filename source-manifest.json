@@ -2534,7 +2534,7 @@
     },
     {
       "path": "functions/gravity-tts/gravity-tts.mjs",
-      "sha256": "a08a029f06426a28bdb0e8af84c2bf4d41a3f39b2e3f0d7fcf18c5ef29218f1a"
+      "sha256": "6e642e8af6ec5305a09ddff406e9771318087c38fdfc206c0e3cc9235ba939f6"
     },
     {
       "path": "functions/handbook-creator/index.mjs",
