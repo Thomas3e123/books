@@ -265,6 +265,16 @@ function catalog(){
  if(input)input.addEventListener('input',filter);
  if(categoryFilter)categoryFilter.addEventListener('change',filter);
 }
+function glossary(){
+ var input=$('#report-glossary-search'),count=$('#report-glossary-count'),entries=all('[data-glossary-entry]');
+ if(!input||!entries.length)return;
+ function filter(){
+  var q=(input.value||'').trim().toLowerCase(),shown=0;
+  entries.forEach(function(entry){var found=entry.textContent.toLowerCase().includes(q);entry.hidden=!found;if(found)shown++});
+  if(count)count.textContent=shown+' term'+(shown===1?'':'s')+(q?' match your search.':' in the reader glossary.');
+ }
+ input.addEventListener('input',filter);filter();
+}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
-function start(){shareActions();article();catalog()}
+function start(){shareActions();article();catalog();glossary()}
 })();
