@@ -2482,7 +2482,7 @@
     },
     {
       "path": "functions/foundry-hosted/core.mjs",
-      "sha256": "f422050cc04a6d49fadafb5965d3daab56306c802b4f1efccb10c12bfdc2b8d8"
+      "sha256": "9caf1b6b1e27e20e13272b0b8a8a00c49ec1b16d2f09e124a92c4f976f4ac1d7"
     },
     {
       "path": "functions/foundry-hosted/index.mjs",

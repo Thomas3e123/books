@@ -87,6 +87,6 @@ export function createHostedFoundryHandler(repo){return async function(req){try{
   if(path==='assistant'&&req.method==='GET')return json({ready:true,mode:'source-grounded-hosted'});
   if(path==='assistant'&&req.method==='POST'){const b=await body(req),source=employeeSource(snapshot,b.kind,b.sourceId);if(!source)return json({error:'Selected published source was not found.'},404);const question=(b.messages||[]).slice(-1)[0]?.content||'';return json({answer:assistantAnswer(source,question),source:{title:source.title,status:'Published',revision:source.revision||''}});}
   return json({error:'Unsupported hosted employee operation.'},404);
-}catch(e){console.error('foundry-hosted',e);return json({error:e?.message||'Hosted employee connection failed.'},Number(e?.status)||500)}}}
+}catch(e){console.error('foundry-hosted request failed',e?.name||'unknown');const tooLarge=e?.status===413&&e?.message==='The employee snapshot is too large to sync in one request. Export or reduce oversized embedded images and try again.';return json({error:tooLarge?e.message:'Hosted employee service is temporarily unavailable. Please retry.'},tooLarge?413:503)}}}
 
 export const testHelpers={tokenHash,pinHash,buildQuiz,cleanSnapshot,assistantAnswer};
