@@ -2482,11 +2482,11 @@
     },
     {
       "path": "functions/foundry-hosted/core.mjs",
-      "sha256": "9caf1b6b1e27e20e13272b0b8a8a00c49ec1b16d2f09e124a92c4f976f4ac1d7"
+      "sha256": "d94c7ce91bb61248d379063ed10817dbc9d054e8b7af2039b53a31c22cb1bed8"
     },
     {
       "path": "functions/foundry-hosted/index.mjs",
-      "sha256": "5e3a2a418c98529b89501efa2dbe1d575a7c943eb0b4ec520e728a6dfdc32f51"
+      "sha256": "f2dd635350538e924cac167bf653d199e8e1d01c3d0ebc2906cff7bec81577c3"
     },
     {
       "path": "functions/gravity-cloud-backup/core.mjs",
