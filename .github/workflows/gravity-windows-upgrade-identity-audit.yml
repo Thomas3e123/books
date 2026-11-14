@@ -1,0 +1,30 @@
+name: Gravity Windows upgrade identity audit (no release)
+on:
+  pull_request:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths:
+      - 'windows/**/package.json'
+      - 'windows/release-acceptance/october-2026-preview-identity.json'
+      - 'scripts/audit-windows-upgrade-identity.cjs'
+      - 'tests/gravity-windows-upgrade-identity.test.cjs'
+      - '.github/workflows/gravity-windows-upgrade-identity-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  identity-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test positive and negative upgrade identity cases
+        run: node --test tests/gravity-windows-upgrade-identity.test.cjs
+      - name: Audit four current profiles against published October previews
+        run: node scripts/audit-windows-upgrade-identity.cjs
+# The strict --require-new-release-version mode intentionally blocks today
+# because each corrected candidate retains the same version as October.
+# Do not auto-run release mode until a separately reviewed update is prepared.
+# No installer build, deployment, release, or access to customer files.
