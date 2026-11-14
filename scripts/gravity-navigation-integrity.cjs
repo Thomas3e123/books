@@ -18,7 +18,7 @@ for(const f of pages){
   if(!raw||raw.startsWith('#')||/^(data:|javascript:|mailto:|tel:|blob:)/i.test(raw))continue;
   let u;
   try{u=new URL(raw,host+'/'+rel)}catch{ignored.push({page:rel,attribute:attr,value:raw.slice(0,90)});continue}
-  if(u.hostname==='thomasmonroebooks.com'||u.hostname==='www.thomasmonroebooks.com'){
+  if(/(^|\\.)thomasmonroebooks\\.com$/i.test(u.hostname)){
     oldDomainReferences.push({page:rel,url:u.href,kind:'old-domain'});
     continue;
   }
