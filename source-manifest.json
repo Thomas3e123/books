@@ -390,11 +390,11 @@
     },
     {
       "path": "site/assets/customer-resources/current/Gravity_Start_Here_v2.6_2026-10-10.pdf",
-      "sha256": "17878b383444be03fe8ce70755cc7eb1557bbf1eb6ead9571f25d5eb6ede8fea"
+      "sha256": "10de24679b8ccae7a08930e86b4d18bb6cc150b9effac2fde1bda6e3d55a21e0"
     },
     {
       "path": "site/assets/customer-resources/current/Gravity_System_Overview_v1.8_2026-10-10.pdf",
-      "sha256": "9330e1c027595cee349646519b7defc84423c2d5373896c27a60245f7233f334"
+      "sha256": "8bd1e382c11eb6919e9200ff1b65ea978c8e30f1039d2bd64f1fa306b5789227"
     },
     {
       "path": "site/assets/customer-resources/master/Gravity_Operational_Validation_and_Release_Readiness_Report.docx",
@@ -402,7 +402,7 @@
     },
     {
       "path": "site/assets/customer-resources/master/Gravity_Operational_Validation_and_Release_Readiness_Report.pdf",
-      "sha256": "68348aa0e2965e979f79b9ebc75d8174c260782e2afccd9e464cc5444c338ce4"
+      "sha256": "a303c6f079f8f34f083bee0b998391246239a34f488529ec0de89dc5b768eb02"
     },
     {
       "path": "site/assets/customer-resources/master/The_Gravity_System_Customer_Overview_Booklet_v1.7_2026-09-23.pdf",
@@ -414,7 +414,7 @@
     },
     {
       "path": "site/assets/customer-resources/master/The_Gravity_System_Master_Glossary_of_Controlled_Terms.pdf",
-      "sha256": "b04ac9a07972ca496ca00b2c7c9d88df6803de3c1a5059e08b0baa8b42c84f28"
+      "sha256": "96ec6ebb66f0ecce8be82ff454cc587eaee62c986d8274a6edcbb90c11a08ab8"
     },
     {
       "path": "site/assets/customer-resources/master/The_Gravity_System_Master_Quick_Start_and_Integration_Guide.docx",
@@ -422,7 +422,7 @@
     },
     {
       "path": "site/assets/customer-resources/master/The_Gravity_System_Master_Quick_Start_and_Integration_Guide.pdf",
-      "sha256": "9ecd6308b65206b32e68e833922c53d38ab79d55159256e3f0eef0d21e72647d"
+      "sha256": "d3e0c432df9736cab02007867921acae74a27b90e4af34c6881c2cf9e1792d3a"
     },
     {
       "path": "site/assets/data/gravity-current-facts.json",
@@ -462,11 +462,11 @@
     },
     {
       "path": "site/assets/downloads/GRAVITY_FEEDBACK_AND_REVIEWS_INSERT_v1.2_2026-09-05.pdf",
-      "sha256": "de36d9b5921f4f90bd4cae100300d6b8948afed7f06f8c6f52d31a4a864033bf"
+      "sha256": "fd6069febba0c360b61e69a7d8238c0a3ad96dd7a94171e258a324e81c8c4f58"
     },
     {
       "path": "site/assets/downloads/GRAVITY_FEEDBACK_AND_REVIEWS_INSERT_v1.3_2026-09-18.pdf",
-      "sha256": "de36d9b5921f4f90bd4cae100300d6b8948afed7f06f8c6f52d31a4a864033bf"
+      "sha256": "079fb6e6d86d428fdbfa5a71d7a8f1f48101dce6aa3277a273d2f44738fbe3f6"
     },
     {
       "path": "site/assets/downloads/GRAVITY_RECIPE_WORKS_OFFLINE_2026-09-19.html",
@@ -474,11 +474,11 @@
     },
     {
       "path": "site/assets/downloads/GRAVITY_Restaurant_Bar_Beverage_Inventory_Ordering_v1.0.pdf",
-      "sha256": "38467de7fcd1ea18a05e2cad34baf4fe71b53a60d81560717382f08f635ef46c"
+      "sha256": "6b8f500c70fbac26a0104afff17e7b60535c9a8d6d985062c35610183a2f0005"
     },
     {
       "path": "site/assets/downloads/GRAVITY_Restaurant_Bar_Beverage_Pour_Cost_Control_v1.0.pdf",
-      "sha256": "574221c7e80792ebbed27d5602e9dfcb65fd0e1052d25834243f5fb35032c0ad"
+      "sha256": "83c0c2b3e4da09cd9a4ed3d9a0925e4d94321748be81ee91f71180b5144cd0a2"
     },
     {
       "path": "site/assets/downloads/Gravity_Training_Assignment_Verification_Record_Fast_v1.docx",
@@ -558,7 +558,7 @@
     },
     {
       "path": "site/assets/downloads/employee-training-sop-tracker-gravity-elite-v2-2026-09-12-257-interior-pages.pdf",
-      "sha256": "e0f1f7aba82cbc2b7e243dc4e898c01a24d39a39d06c202be9a3bebd4cabbf3a"
+      "sha256": "a4845075ca752c204713f0cad63cfe89a81b0cd8059993c19013bec7fdadefa8"
     },
     {
       "path": "site/assets/downloads/employee-training-trainer-signoff-certification-pack-elite-v1.0.pdf",
@@ -566,7 +566,7 @@
     },
     {
       "path": "site/assets/downloads/food-cost-waste-inventory-control-318-pages.pdf",
-      "sha256": "f01fb786102578a95c510515bac4a3d4bff3f627cd7cef1741f5856c2e107cb1"
+      "sha256": "db757b2d0b9d613b9beaee33371124f9e76b558ecce6e38e0a059b043dd1af08"
     },
     {
       "path": "site/assets/downloads/gravity-elite-editable-restaurant-employee-handbook-v2.0.docx",
@@ -630,7 +630,7 @@
     },
     {
       "path": "site/assets/downloads/labor-control-scheduling-planner-gravity-elite-v2-2026-09-12-371-interior-372-digital-pages.pdf",
-      "sha256": "14585d23584127242f6435501d219a4d7d9baf40646cf7d379feffea4383d7bc"
+      "sha256": "ee1351faef172820be287b8bddf351941ce30e0f0e5a4433f0b9639c64f724d6"
     },
     {
       "path": "site/assets/downloads/labor-scheduling-budget-refill-pack-elite-v1.0.pdf",
@@ -834,91 +834,91 @@
     },
     {
       "path": "site/assets/free-resources/improvement-plans/The_Gravity_30-Day_Improvement_Plan_Library_Founding_Year_Package.zip",
-      "sha256": "dbc2263c1c67c611510ed95a7c66a60b514a756773d2e8ce59e5b4050a68c7a6"
+      "sha256": "da40756ae46eb3bee4b822b58b9ecb929f2f6307afc12460f0fb5f4ad0b4e7d9"
     },
     {
       "path": "site/assets/free-resources/improvement-plans/The_Gravity_60-Day_Guided_Improvement_Plan_Library_Founding_Year_Package.zip",
-      "sha256": "34a71c72eb6ceaf83a8452f4f22ac2809625384cdd9ae846b00fe409d4f1bae7"
+      "sha256": "6a3955f36a5b96867ff1a0116701dd466f4cf4044252b72fe6c69fa596ff732d"
     },
     {
       "path": "site/assets/free-resources/improvement-plans/The_Gravity_Improvement_Implementation_Kit.pdf",
-      "sha256": "17b40f8d71f082c633a9d2f301b190b5572375393b84a033b5f863bdcaf60c74"
+      "sha256": "69611d011ced1d649c611a7292fd75f3381f838360e92eafaae819ccfdcadb30"
     },
     {
       "path": "site/assets/free-resources/onboarding/GRAVITY_CUSTOMER_INSTALLATION_PACKAGE_v1.4_2026-09-15.zip",
-      "sha256": "a3d4f496dd9e5f4382c84f9257994285d83b7a1ea4dd4e7697225be5c5e96ce3"
+      "sha256": "8d2050df15439e35d16f4aa5ccacf17751da4ddf613aadbebf81cde72f3dde4a"
     },
     {
       "path": "site/assets/free-resources/onboarding/GRAVITY_CUSTOMER_INSTALLATION_PACKAGE_v1.5_2026-09-17.zip",
-      "sha256": "a3d4f496dd9e5f4382c84f9257994285d83b7a1ea4dd4e7697225be5c5e96ce3"
+      "sha256": "f5c79834e48cb095f1a2ea24015629634fa36ca9efa54161192226fe789588ca"
     },
     {
       "path": "site/assets/free-resources/onboarding/GRAVITY_START_HERE_GUIDE_v2.4_2026-09-15.pdf",
-      "sha256": "180e0168efb231696d6be855cff5d1812eb68e691df2a9e95e46d411bb459a8d"
+      "sha256": "c0fa3f6f98d05eb2c8c0fd42c41d6a959a2b657aac216c5efd015c351e68e964"
     },
     {
       "path": "site/assets/free-resources/onboarding/GRAVITY_START_HERE_GUIDE_v2.5_2026-09-17.pdf",
-      "sha256": "180e0168efb231696d6be855cff5d1812eb68e691df2a9e95e46d411bb459a8d"
+      "sha256": "82d2a22e2f4e92a339ea4c55ee25fc4fbdcc279a9b3840399b051ade86c76c35"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-C_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "a4a1fd07a65e2e5bd1ae806297ad4343bf2e016b76e65522e28350b7840e0c50"
+      "sha256": "8bea4e7f24a09b93d122faf0ee623e0c819f6e305f8e42a4b9ebabbb85b5059e"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-FM_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "f6b0cc5ae645273497fd6e98fa38a1ee9e9d785edb8b879b8403512644f71896"
+      "sha256": "a90b7d84dc084eaf9f07d116881a882a958b803b455f4ad0d424317dc4db665c"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-FS_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "f0d9cbc5e32c1760a48b8198c511d9dffba37ea28cf7d2d932bada30ef273cf2"
+      "sha256": "d4c5683bdd870f4c73cd6a8e7e12f7909ec80ae4f46590adf85d7527e515a2b7"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-F_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "8fed4787e30f93fdaa797d216612f1a6a2d698bada19807345ca44bbe95103d7"
+      "sha256": "29dd9d8040e4319533b66667f2c087d10fd17109b96bd2473fe2b246e14c502b"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-G_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "bbe5554a77f86ddefb0be2cc80f99d61c2355db5351b3fb7a2b74331c41a5c1f"
+      "sha256": "f5a11ffc95f76bfc231d615fcdb3af0b1e904ec3b90706477c32336290385c9c"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-HR_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "5162e02b70b235efd7d2de9ae64968f140f1574a87751fa4509c3c35f83eeb6b"
+      "sha256": "7348ee34a02ea7c73dc607c17b40abf62da653ddc954e57b3251b8685ba0df6f"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-IV_SYSTEM_RELEASE_1.2_2026-08-22.zip",
-      "sha256": "b122c9ece09ebc40a260ac1bf1ce5a2cb5fb4a18eeedd630497c70d39f00d3b6"
+      "sha256": "3e233a6c8a97b7343c50ceab8939796dcebadf56be5608d03374e379d8b20047"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-I_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "af9fe53409904f645f454a8991a032f48291dd09b145ad15d9631f23da8de80a"
+      "sha256": "9c2568cc251d89d7306cc1bb444b1ed8a750a919219b2b97b5f70142e9a280e2"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-LP_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "a02a5fee1fedd508b303e52c499dcb72079fe1c0e63c576ea84999a65618f372"
+      "sha256": "9f4354fdc253abef8e460efa8ac7de2fc2b0a314a8c69be9fd9b984a703d2461"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-M_SYSTEM_RELEASE_1.2_2026-08-22.zip",
-      "sha256": "bfab156d7cf61621b35916d12610381530acfa16d75280c8eaea265350216aa0"
+      "sha256": "dc8ba2bdbcbf92b46d3bb89df83d4fef3beccb38e1f8d8539e5fb05c6349a687"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-P_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "338fe0fb79a83f24495c20147c388fbd175c03e1220699695c397fb1d48ec1f4"
+      "sha256": "a0d9a909021d3aa943521bbb14972dcd2bf0f80a3445ed5a327ff1ddacbaa755"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-RC_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "3dd48f8f01ea78f74789e740c58a97064006d8dcae69ecb9987e906311166ead"
+      "sha256": "aae1dd910358c05574db295e22fbd000b4754cb2ac865127929cec2f52a716b5"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-R_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "9ed3c25186993991a789f20728278fee0f66b0e1bd3ea49d3b9f775bc33e08f7"
+      "sha256": "e844fb20cfdc4ac4208135a31cb5f364aa8edb7210836fe7388bc87b4b82d740"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-SF_SYSTEM_RELEASE_1.3_2026-08-22.zip",
-      "sha256": "f2b56e70386818d2d00d4c9fdc5bb0ce3c1ffff4deb8a6e89683b9866f9b4aa5"
+      "sha256": "a7abb027e08c7b0a152517bb65e8171fceedde3245f0c0e414fc2e5443d11d78"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-T_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "4385e83247bf9b5513a2bb61320bbf68df206fc1d0b4f963158772af0f023e97"
+      "sha256": "55a3275a5a92c53f4becc8784bf8bf37b7c381f0972e364edf8613753a976ac9"
     },
     {
       "path": "site/assets/free-resources/sales-intelligence-forecasting/Gravity_Sales_Intelligence_and_Forecasting_System_File_Guide.txt",
@@ -938,7 +938,7 @@
     },
     {
       "path": "site/assets/free-resources/sales-intelligence-forecasting/The_Gravity_Sales_Intelligence_and_Forecasting_System_Forms.pdf",
-      "sha256": "9c57d2ef8cfeecdac060058c916708d69ee3b61c98315fc5addb2a85cd5cf7b4"
+      "sha256": "7c8ad6f77d778cfb2e88756a32f7dcf1c8e96d77c3cebfe054fe369398e95864"
     },
     {
       "path": "site/assets/free-resources/sales-intelligence-forecasting/The_Gravity_Sales_Intelligence_and_Forecasting_System_Operating_Manual.docx",
@@ -946,7 +946,7 @@
     },
     {
       "path": "site/assets/free-resources/sales-intelligence-forecasting/The_Gravity_Sales_Intelligence_and_Forecasting_System_Operating_Manual.pdf",
-      "sha256": "f6eeab8490f7ee53bcb0fd1c0cf321c0088c5b5e27c4daa463caec87ec739be0"
+      "sha256": "20915f63cb63848627e870fa0300aa3507dfd970ab074690a524f8b2a5e6d992"
     },
     {
       "path": "site/assets/images/EMPLOYEE_TRAINING_SOP_TRACKER_LEATHER_FULL_WRAP_2026-08-31.webp",
@@ -2150,7 +2150,7 @@
     },
     {
       "path": "site/refund.html",
-      "sha256": "c9808f298a8c3ba4ec6cdef66f056b2730a254352d08a715d034ae490611c8a2"
+      "sha256": "215a7411acc12eb99f663d6e26dfb3832f0db6fb9fd766bda132bcc07bdc4373"
     },
     {
       "path": "site/register.html",
