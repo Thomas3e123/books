@@ -2014,7 +2014,7 @@
     },
     {
       "path": "site/gravity-inventory-center.html",
-      "sha256": "67b77cdd329f8b90b1baf68befa58ea22132ad68dec053ba0959499c56d17afa"
+      "sha256": "9f5f2aa45fd2f7e941ebdf8b2946dde033ee9244aff70073ddb1385287ee9a28"
     },
     {
       "path": "site/gravity-numbers-lab.html",
@@ -2046,7 +2046,7 @@
     },
     {
       "path": "site/gravity-shift-lab.html",
-      "sha256": "5ad5d739559c6097777470b6db1d58b8baa14b3ef00f62d61560c5b896c5072e"
+      "sha256": "0ad3a69df4f86567e1e7cfe8d30d3d958ca1080b41c3fdc4fdff0ad86e3ef603"
     },
     {
       "path": "site/gravity-shift-lab.webmanifest",
@@ -2058,7 +2058,7 @@
     },
     {
       "path": "site/gravity-sop-foundry.html",
-      "sha256": "e8784ff79a5fe284f3742dee6ca368eb8d3565aecd00d4c857af54b14cd820e7"
+      "sha256": "63da342feeedc20ec1b016adc0c76c60d4324d2598bda275cc3d7f9fc2ba5d0a"
     },
     {
       "path": "site/gravity-sop-library-set.html",
