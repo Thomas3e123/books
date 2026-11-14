@@ -33,4 +33,4 @@ class PostgresRepo {
 
 const handler=createHostedFoundryHandler(new PostgresRepo());
 export default handler;
-export const config={path:'/foundry-hosted/*'};
+export const config={path:'/foundry-hosted/*',rateLimit:{windowLimit:120,windowSize:60,aggregateBy:['ip','domain']}};
