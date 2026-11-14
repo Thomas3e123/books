@@ -6,6 +6,7 @@ const allowedGravityOrigins=new Set(['https://gravity-migration--gravity-leaders
 const gravityOrigin=url=>allowedGravityOrigins.has(url.origin)?url.origin:'https://gravity-leadership-system.netlify.app';
 const HOURS=12;
 const MAX_BYTES=2_500_000;
+const MAX_REQUEST_BYTES=3_000_000;
 const ALPHABET='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 const now=()=>new Date().toISOString();
 const hash=v=>createHash('sha256').update(String(v||'')).digest('hex');
@@ -13,7 +14,27 @@ const token=()=>randomBytes(32).toString('base64url');
 const code=()=>Array.from(randomBytes(6),b=>ALPHABET[b%ALPHABET.length]).join('');
 const json=(body,status=200)=>new Response(JSON.stringify(body),{status,headers:{'content-type':'application/json; charset=utf-8','cache-control':'no-store'}});
 const bearer=req=>String(req.headers.get('authorization')||'').replace(/^Bearer\s+/i,'').trim();
-const readBody=async req=>{try{return await req.json()}catch{return {}}};
+async function readBoundedText(req,maxBytes){
+ const declared=Number(req.headers.get('content-length')||0);
+ if(Number.isFinite(declared)&&declared>maxBytes)return null;
+ if(!req.body){const raw=await req.text();return Buffer.byteLength(raw,'utf8')>maxBytes?null:raw;}
+ const reader=req.body.getReader(),chunks=[];let total=0;
+ try{
+  while(true){
+   const{done,value}=await reader.read();
+   if(done)break;
+   total+=value.byteLength;
+   if(total>maxBytes){await reader.cancel();return null;}
+   chunks.push(Buffer.from(value));
+  }
+ }finally{reader.releaseLock();}
+ return Buffer.concat(chunks,total).toString('utf8');
+}
+const readBody=async req=>{
+ const raw=await readBoundedText(req,MAX_REQUEST_BYTES);
+ if(raw===null)throw Object.assign(new Error('Work Study request exceeds the 3 MB limit.'),{status:413});
+ try{return raw?JSON.parse(raw):{}}catch{return {}}
+};
 const isPackage=x=>!!(x&&x.packageType==='gravity-work-study-evidence-package'&&x.packageVersion===1&&x.study?.id&&x.study.id===x.studyId);
 const baseStudy=x=>isPackage(x)?x.study:x;
 function cleanSnapshot(raw){
