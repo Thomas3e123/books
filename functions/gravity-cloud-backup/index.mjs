@@ -54,4 +54,4 @@ export default async request=>{
  }
  return authenticatedHandler(request);
 };
-export const config={path:'/gravity-cloud-backup/*'};
+export const config={path:'/gravity-cloud-backup/*',rateLimit:{windowLimit:60,windowSize:60,aggregateBy:['ip','domain']}};
