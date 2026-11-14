@@ -1966,7 +1966,7 @@
     },
     {
       "path": "site/free-resources.html",
-      "sha256": "58037c173c20c9f07b74edc8a1dd7cc8809a238ddf27984cd025a85d64bb7879"
+      "sha256": "d912a6b76317726db5c35a6b53c85881746c4dff85d9f7d09f3d05334e9448bd"
     },
     {
       "path": "site/gravity-assist.html",
@@ -2166,7 +2166,7 @@
     },
     {
       "path": "site/releases.html",
-      "sha256": "694674155ed7df9a79bbc1e66d8d0844adb8faddfca9653ab1a0d22de60285f3"
+      "sha256": "cd4e6c1e5b3e147157e4fbc6fb77825c9c96814397122fed28da13ce5853d8a0"
     },
     {
       "path": "site/restaurant-ai-prompt-search.html",
