@@ -40,6 +40,20 @@ jobs:
           unzip -tqq "${zips[0]}"
           sha256sum "${exes[0]}" "${zips[0]}" > SHA256SUMS.txt
           cat SHA256SUMS.txt
+      - name: Write release notes
+        if: always()
+        shell: bash
+        run: |
+          cat > RELEASE_NOTES.md <<'NOTES'
+          # Gravity Inventory Center — Usage Diagnostics (0.1.0-beta.3)
+
+          This test preview adds a local status in About / Help showing whether Do Not Track paused measurement, Google Tag loaded, and whether Google Analytics acknowledged an event. The app-open event is sent after Google Tag loads.
+
+          The usage data remains limited to a random app-install identifier, product, version, event type, and event time. The app does not send inventory contents, typed values, restaurant profile details, or saved files. Offline events are not queued. Do Not Track and the documented disable flag are honored.
+
+          This is an unsigned Windows x64 test preview. Use the ZIP for portable run without installation. Export and protect existing inventory before changing builds; do not overwrite a working installation. Windows SmartScreen may warn about unsigned software.
+          NOTES
+
       - name: Publish a separate prerelease
         shell: bash
         run: |
@@ -54,16 +68,3 @@ jobs:
             --notes-file RELEASE_NOTES.md
           gh release edit "$TAG" --draft=false --prerelease
           echo "Published the tested Inventory Center diagnostic prerelease."
-      - name: Write release notes
-        if: always()
-        shell: bash
-        run: |
-          cat > RELEASE_NOTES.md <<'NOTES'
-          # Gravity Inventory Center — Usage Diagnostics (0.1.0-beta.3)
-
-          This test preview adds a local status in About / Help showing whether Do Not Track paused measurement, Google Tag loaded, and whether Google Analytics acknowledged an event. The app-open event is sent after Google Tag loads.
-
-          The usage data remains limited to a random app-install identifier, product, version, event type, and event time. The app does not send inventory contents, typed values, restaurant profile details, or saved files. Offline events are not queued. Do Not Track and the documented disable flag are honored.
-
-          This is an unsigned Windows x64 test preview. Use the ZIP for portable run without installation. Export and protect existing inventory before changing builds; do not overwrite a working installation. Windows SmartScreen may warn about unsigned software.
-          NOTES
