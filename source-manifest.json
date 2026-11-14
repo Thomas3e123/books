@@ -2538,7 +2538,7 @@
     },
     {
       "path": "functions/handbook-creator/index.mjs",
-      "sha256": "e933c2f3a7f5b4789954d5d4eb2831653e84d6ac67c2c5524666bdaaf5dda123"
+      "sha256": "9c3bc5321c1a8dca38b9e4d17fdc52d00b46709317d6ff75ccade18b24c8fdfa"
     },
     {
       "path": "functions/handbook-square-sandbox/index.mjs",
