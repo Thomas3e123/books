@@ -1,6 +1,7 @@
 import { createHash, randomBytes, randomUUID, scryptSync, timingSafeEqual } from 'node:crypto';
 
 const MAX_SNAPSHOT_BYTES = 5_000_000;
+const MAX_REQUEST_BYTES = 5_500_000;
 const SESSION_HOURS = 12;
 const clip=(v,n=4000)=>String(v??'').trim().slice(0,n);
 const now=()=>new Date().toISOString();
@@ -10,7 +11,17 @@ const safeEq=(a,b)=>{try{return timingSafeEqual(Buffer.from(String(a),'hex'),Buf
 const code=()=>Array.from(randomBytes(6),b=>'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[b%32]).join('').slice(0,6);
 const json=(body,status=200)=>new Response(JSON.stringify(body),{status,headers:{'content-type':'application/json; charset=utf-8','cache-control':'no-store'}});
 const bearer=req=>String(req.headers.get('authorization')||'').replace(/^Bearer\s+/i,'').trim();
-const body=async req=>{try{return await req.json()}catch{return {}}};
+const body=async req=>{
+  const declared=Number(req.headers.get('content-length')||0);
+  if(Number.isFinite(declared)&&declared>MAX_REQUEST_BYTES)throw Object.assign(new Error('Request body is too large.'),{status:413});
+  if(!req.body){const raw=await req.text();if(Buffer.byteLength(raw,'utf8')>MAX_REQUEST_BYTES)throw Object.assign(new Error('Request body is too large.'),{status:413});try{return raw?JSON.parse(raw):{}}catch{return {}}}
+  const reader=req.body.getReader(),chunks=[];let total=0;
+  try{
+    while(true){const{done,value}=await reader.read();if(done)break;total+=value.byteLength;if(total>MAX_REQUEST_BYTES){await reader.cancel();throw Object.assign(new Error('Request body is too large.'),{status:413})}chunks.push(Buffer.from(value))}
+  }finally{reader.releaseLock()}
+  const raw=Buffer.concat(chunks,total).toString('utf8');
+  try{return raw?JSON.parse(raw):{}}catch{return {}}
+};
 const cleanEvent=(d={})=>Object.fromEntries(Object.entries(d).map(([k,v])=>[k,typeof v==='string'?clip(v,4000):v]));
 const EMPLOYEE_PUBLIC_FIELDS={sop:['id','sourceId','title','station','category','frequency','role','purpose','steps','checks','correction','records','safety','revision','revisionUpdatedAt','effectiveDate','approvedBy','publishedAt','trainingRequirement','changeSummary','nextReviewDate','status','restaurantName'],recipe:['id','title','type','category','yield','ingredients','steps','allergens','notes','glassware','ice','garnish','serviceware','buildType','revision','approvedBy','publishedAt','status','changeSummary','effectiveDate'],poster:['id','title','station','category','lines','note','revision','sopId','relatedSopIds','status','updatedAt','orientation','templateKey']};
 function employeePublic(item,kind){if(!item||typeof item!=='object'||Array.isArray(item))return null;const data={};for(const key of EMPLOYEE_PUBLIC_FIELDS[kind]||[]){if(Object.prototype.hasOwnProperty.call(item,key))data[key]=structuredClone(item[key]);}return data;}
@@ -87,6 +98,6 @@ export function createHostedFoundryHandler(repo){return async function(req){try{
   if(path==='assistant'&&req.method==='GET')return json({ready:true,mode:'source-grounded-hosted'});
   if(path==='assistant'&&req.method==='POST'){const b=await body(req),source=employeeSource(snapshot,b.kind,b.sourceId);if(!source)return json({error:'Selected published source was not found.'},404);const question=(b.messages||[]).slice(-1)[0]?.content||'';return json({answer:assistantAnswer(source,question),source:{title:source.title,status:'Published',revision:source.revision||''}});}
   return json({error:'Unsupported hosted employee operation.'},404);
-}catch(e){console.error('foundry-hosted request failed',e?.name||'unknown');const tooLarge=e?.status===413&&e?.message==='The employee snapshot is too large to sync in one request. Export or reduce oversized embedded images and try again.';return json({error:tooLarge?e.message:'Hosted employee service is temporarily unavailable. Please retry.'},tooLarge?413:503)}}}
+}catch(e){console.error('foundry-hosted request failed',e?.name||'unknown');const tooLarge=e?.status===413;return json({error:tooLarge?(e?.message||'Request body is too large.'):'Hosted employee service is temporarily unavailable. Please retry.'},tooLarge?413:503)}}}
 
 export const testHelpers={tokenHash,pinHash,buildQuiz,cleanSnapshot,assistantAnswer};
