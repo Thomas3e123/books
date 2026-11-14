@@ -52,6 +52,14 @@ jobs:
         run: node --test tests/gravity-guide-rate-limit.test.cjs tests/gravity-ai-boundary.test.cjs
       - name: Audio rate-limit adapter and binary compatibility regressions
         run: node --test tests/gravity-audio-rate-limits.test.cjs
+      - name: Synthetic account and restaurant isolation regressions
+        run: node --test tests/gravity-cloud-account-isolation.test.cjs tests/gravity-foundry-tenant-isolation.test.cjs
+      - name: Browser encryption and recovery passphrase regressions
+        run: node --test tests/gravity-cloud-crypto-recovery.test.cjs
+      - name: Existing rollback and automatic-upload safety regressions
+        run: node --test tests/cloud-restore-failure.test.cjs tests/cloud-upload-pause.test.cjs
+      - name: Real database adapter tenant query scopes
+        run: node --test tests/gravity-db-tenant-query-scopes.test.cjs
       - name: Audit AI security boundaries without provider requests
         run: node --test tests/gravity-ai-boundary.test.cjs
       - name: Audit batch 1 knowledge and Testing Room regressions
