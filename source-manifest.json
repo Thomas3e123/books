@@ -2558,7 +2558,7 @@
     },
     {
       "path": "functions/work-study-process-file/work-study-process-file.js",
-      "sha256": "103f192ed8b1d5523cff8fd43e20a7a7e461548ed9541eb37c9307430ca60b4a"
+      "sha256": "d5b0a528027a31a6ef740bfd8c0b07a490f844176611fee50fa9498ab020abf1"
     },
     {
       "path": "functions/work-study-transcribe/core.cjs",
