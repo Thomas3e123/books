@@ -84,7 +84,7 @@ export default async function(req){
    return json({ok:true,ended:true});
   }
   return json({error:'Unsupported Work Study device operation.'},404);
- }catch(e){console.error('work-study-link',e);return json({error:e?.message||'Work Study device connection failed.'},Number(e?.status)||500)}
+ }catch(e){console.error('work-study-link request failed',e?.name||'unknown');const safe=e?.status===400||e?.status===413;return json({error:safe?e.message:'Work Study device service is temporarily unavailable. Please retry.'},safe?e.status:503)}
 }
 
 export const config={path:'/work-study-link/*'};
