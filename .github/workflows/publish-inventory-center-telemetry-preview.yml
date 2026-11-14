@@ -1,0 +1,70 @@
+name: Publish Inventory Center telemetry diagnostic preview
+
+on:
+  push:
+    branches: [feature/gravity-migration-phase1-2026-10-22]
+    paths:
+      - '.github/workflows/publish-inventory-center-telemetry-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  publish-diagnostic-preview:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      TAG: gravity-inventory-center-telemetry-diagnostic-2026-11-14
+      CANDIDATE_RUN: '43561444015'
+      EXPECTED_SOURCE_SHA: '7dfe4a7406c1038792772e9993f937ae98a87a6e'
+    steps:
+      - uses: actions/checkout@v5
+      - name: Verify the tested Windows build
+        shell: bash
+        run: |
+          set -euo pipefail
+          state="$(gh api "repos/$GH_REPO/actions/runs/$CANDIDATE_RUN" --jq '[.status,.conclusion,.head_sha] | join(":")')"
+          test "$state" = "completed:success:$EXPECTED_SOURCE_SHA" || { echo "::error::Candidate run is not the expected successful build: $state"; exit 1; }
+      - name: Download and validate the diagnostic package
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p stage
+          gh run download "$CANDIDATE_RUN" -n Gravity-Inventory-Center-Windows-Candidate -D stage
+          mapfile -t exes < <(find stage -maxdepth 1 -type f -name '*.exe')
+          mapfile -t zips < <(find stage -maxdepth 1 -type f -name '*.zip')
+          test "${#exes[@]}" -eq 1 && test "${#zips[@]}" -eq 1
+          unzip -tqq "${zips[0]}"
+          sha256sum "${exes[0]}" "${zips[0]}" > SHA256SUMS.txt
+          cat SHA256SUMS.txt
+      - name: Write release notes
+        if: always()
+        shell: bash
+        run: |
+          cat > RELEASE_NOTES.md <<'NOTES'
+          # Gravity Inventory Center — Usage Diagnostics (0.1.0-beta.3)
+
+          This test preview adds a local status in About / Help showing whether Do Not Track paused measurement, Google Tag loaded, and whether Google Analytics acknowledged an event. The app-open event is sent after Google Tag loads.
+
+          The usage data remains limited to a random app-install identifier, product, version, event type, and event time. The app does not send inventory contents, typed values, restaurant profile details, or saved files. Offline events are not queued. Do Not Track and the documented disable flag are honored.
+
+          This is a Windows x64 test preview. Windows may show a security prompt. Use the ZIP for portable run without installation. Export and protect existing inventory before changing builds; do not overwrite a working installation. Windows SmartScreen may warn about unsigned software.
+          NOTES
+
+      - name: Publish a separate prerelease
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "::error::The diagnostic prerelease already exists; refusing to overwrite it."
+            exit 1
+          fi
+          gh release create "$TAG" stage/*.exe stage/*.zip SHA256SUMS.txt \
+            --target "$EXPECTED_SOURCE_SHA" --draft --prerelease \
+            --title "Gravity Inventory Center — Usage Diagnostics (0.1.0-beta.3)" \
+            --notes-file RELEASE_NOTES.md
+          gh release edit "$TAG" --draft=false --prerelease
+          echo "Published the tested Inventory Center diagnostic prerelease."
