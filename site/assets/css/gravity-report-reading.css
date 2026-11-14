@@ -83,7 +83,9 @@
 .report-catalog .report-catalog-tools{display:flex;align-items:end;flex-wrap:wrap;gap:14px;margin:24px 0 18px;padding:18px 20px;background:#f7f2e9;border:1px solid #d7d0c4;border-radius:14px}
 .report-catalog-tools label{display:grid;gap:6px;font-weight:700;color:#173340;min-width:min(100%,260px);flex:1}
 .report-catalog-tools input[type=search]{width:100%;min-height:44px;padding:10px 12px;border:1px solid #aeb6b7;border-radius:8px;background:#fff;color:#182c38;font:1rem system-ui,-apple-system,"Segoe UI",sans-serif}
+.report-catalog-tools select{width:100%;min-height:44px;padding:10px 12px;border:1px solid #aeb6b7;border-radius:8px;background:#fff;color:#182c38;font:1rem system-ui,-apple-system,"Segoe UI",sans-serif}
 .report-catalog-tools input[type=search]:focus-visible{outline:3px solid #bd8a33;outline-offset:2px}
+.report-catalog-tools select:focus-visible{outline:3px solid #bd8a33;outline-offset:2px}
 .report-catalog-tools .report-search-count{flex:1;font-size:.92rem;color:#38505a;min-width:170px}
 .report-catalog .report-grid{margin:20px 0 28px}
 .report-catalog .report-card{min-height:100%;display:flex;flex-direction:column;gap:5px}
