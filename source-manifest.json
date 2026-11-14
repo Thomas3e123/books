@@ -2550,7 +2550,7 @@
     },
     {
       "path": "functions/testing-room/index.mjs",
-      "sha256": "b1d7e8b5f86d252aba707f76aa37bd862fd4b915403031cfd4a2ff66c523ffa9"
+      "sha256": "83431d6a7b6c5886b7c65377f18d43f8fedc0b8ca1da6d045b7646f1de5e55fe"
     },
     {
       "path": "functions/work-study-link/index.mjs",

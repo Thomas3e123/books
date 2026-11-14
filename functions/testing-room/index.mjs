@@ -18,8 +18,24 @@ const MAX_REQUEST_BYTES=1500000;
 async function readBody(req){
   const declared=Number(req.headers.get('content-length')||0);
   if(Number.isFinite(declared)&&declared>MAX_REQUEST_BYTES){const e=Error('Request too large.');e.status=413;throw e;}
-  const raw=await req.text();
-  if(new TextEncoder().encode(raw).length>MAX_REQUEST_BYTES){const e=Error('Request too large.');e.status=413;throw e;}
+  if(!req.body){
+    const raw=await req.text();
+    if(new TextEncoder().encode(raw).byteLength>MAX_REQUEST_BYTES){const e=Error('Request too large.');e.status=413;throw e;}
+    try{return raw?JSON.parse(raw):{}}catch{return {}}
+  }
+  const reader=req.body.getReader(),chunks=[];let total=0;
+  try{
+    while(true){
+      const{done,value}=await reader.read();
+      if(done)break;
+      total+=value.byteLength;
+      if(total>MAX_REQUEST_BYTES){await reader.cancel();const e=Error('Request too large.');e.status=413;throw e;}
+      chunks.push(value);
+    }
+  }finally{reader.releaseLock();}
+  const bytes=new Uint8Array(total);let offset=0;
+  for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.byteLength;}
+  const raw=new TextDecoder().decode(bytes);
   try{return raw?JSON.parse(raw):{}}catch{return {}}
 }
 async function testerFromToken(t){if(!t)return null;const r=await db.sql`SELECT * FROM gravity_testing_testers WHERE token_hash=${hash(t)} LIMIT 1`;return r[0]||null}
