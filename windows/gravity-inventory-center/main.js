@@ -39,10 +39,25 @@ function registerFiles(){
  });
 }
 
+function showUsageStatus(win, message) {
+  const script = `(()=> {
+    const menu = document.querySelector('#gravity-manual-top-menu > div');
+    if (!menu) return;
+    let status = document.getElementById('gravity-usage-status');
+    if (!status) {
+      status = document.createElement('p');
+      status.id = 'gravity-usage-status';
+      status.style.cssText = 'margin:4px 0 0;padding:8px;border-top:1px solid #e2d8c2;color:#394852;font:12px/1.4 system-ui,sans-serif';
+      menu.appendChild(status);
+    }
+    status.textContent = ${JSON.stringify(message)};
+  })();`;
+  if (!win.isDestroyed()) win.webContents.executeJavaScript(script).catch(() => {});
+}
+
 function installUsageTelemetry(win, productSlug) {
   const smokeRun = Object.keys(process.env).some(key => /^GRAVITY_.*_SMOKE$/.test(key) && process.env[key] === '1');
   if (!app.isPackaged || process.env.CI === 'true' || smokeRun || process.env.GRAVITY_DISABLE_USAGE_ANALYTICS === '1') return;
-  const fs = require('node:fs');
   const crypto = require('node:crypto');
   const idFile = path.join(app.getPath('userData'), 'gravity-usage-install-id');
   let clientId;
@@ -55,10 +70,44 @@ function installUsageTelemetry(win, productSlug) {
     try { fs.writeFileSync(idFile, clientId, { encoding: 'utf8', flag: 'wx' }); }
     catch (_) { try { clientId = fs.readFileSync(idFile, 'utf8').trim(); } catch (_) {} }
   }
-  if (!/^[0-9a-f-]{36}$/i.test(clientId)) return;
+  if (!/^[0-9a-f-]{36}$/i.test(clientId)) {
+    showUsageStatus(win, 'Usage measurement could not start: anonymous app ID unavailable.');
+    return;
+  }
+
   const version = app.getVersion();
+  const requestFilter = { urls: ['https://*.google-analytics.com/g/collect*'] };
+  const webRequest = win.webContents.session.webRequest;
+  webRequest.onCompleted(requestFilter, details => {
+    if (details.webContentsId && details.webContentsId !== win.webContents.id) return;
+    if (details.statusCode >= 200 && details.statusCode < 300) {
+      showUsageStatus(win, 'Usage measurement: Google Analytics acknowledged an event.');
+    } else {
+      showUsageStatus(win, `Usage measurement: Google Analytics returned HTTP ${details.statusCode}.`);
+    }
+  });
+  webRequest.onErrorOccurred(requestFilter, details => {
+    if (details.webContentsId && details.webContentsId !== win.webContents.id) return;
+    showUsageStatus(win, `Usage measurement: network request failed (${details.error}).`);
+  });
+
   const script = `(()=> {
-    if (navigator.doNotTrack === '1' || window.doNotTrack === '1') return;
+    const setStatus = message => {
+      const menu = document.querySelector('#gravity-manual-top-menu > div');
+      if (!menu) return;
+      let status = document.getElementById('gravity-usage-status');
+      if (!status) {
+        status = document.createElement('p');
+        status.id = 'gravity-usage-status';
+        status.style.cssText = 'margin:4px 0 0;padding:8px;border-top:1px solid #e2d8c2;color:#394852;font:12px/1.4 system-ui,sans-serif';
+        menu.appendChild(status);
+      }
+      status.textContent = message;
+    };
+    if (navigator.doNotTrack === '1' || window.doNotTrack === '1') {
+      setStatus('Usage measurement is paused because Do Not Track is enabled.');
+      return;
+    }
     const measurementId = 'G-M98MZFED33';
     const product = ${JSON.stringify(productSlug)};
     const clientId = ${JSON.stringify(clientId)};
@@ -74,13 +123,25 @@ function installUsageTelemetry(win, productSlug) {
       allow_google_signals: false,
       allow_ad_personalization_signals: false
     });
-    const send = (name, type) => window.gtag('event', name, {
-      product_slug: product,
-      product_surface: 'windows',
-      app_version: version,
-      interaction_type: type
-    });
-    send('gravity_product_open', 'open');
+    let tagReady = false;
+    const send = (name, type) => {
+      if (tagReady) window.gtag('event', name, {
+        product_slug: product,
+        product_surface: 'windows',
+        app_version: version,
+        interaction_type: type
+      });
+    };
+    const tag = document.createElement('script');
+    tag.async = true;
+    tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId);
+    tag.onload = () => {
+      tagReady = true;
+      setStatus('Usage measurement: Google Tag loaded; sending app-open event.');
+      send('gravity_product_open', 'open');
+    };
+    tag.onerror = () => setStatus('Usage measurement could not load Google Tag. Check internet or privacy settings.');
+    document.head.appendChild(tag);
     document.addEventListener('click', event => {
       if (event.target && event.target.closest && event.target.closest('button,[role="button"]')) {
         send('gravity_product_interaction', 'button');
@@ -100,16 +161,14 @@ function installUsageTelemetry(win, productSlug) {
         send('gravity_product_active', 'recent_activity');
       }
     }, 5 * 60 * 1000);
-    const tag = document.createElement('script');
-    tag.async = true;
-    tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId);
-    document.head.appendChild(tag);
   })();`;
   win.webContents.once('did-finish-load', () => {
-    win.webContents.executeJavaScript(script).catch(() => {});
+    showUsageStatus(win, 'Usage measurement: checking connection.');
+    win.webContents.executeJavaScript(script).catch(error => {
+      showUsageStatus(win, `Usage measurement could not start (${String(error).slice(0, 100)}).`);
+    });
   });
 }
-
 function launch(){
  const win=new BrowserWindow({width:1450,height:950,minWidth:900,minHeight:650,show:!SMOKE,
   autoHideMenuBar:true,webPreferences:{preload:path.join(__dirname,'preload.js'),sandbox:true,contextIsolation:true,nodeIntegration:false}});
