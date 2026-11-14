@@ -2494,7 +2494,7 @@
     },
     {
       "path": "functions/gravity-cloud-backup/index.mjs",
-      "sha256": "f4e00f9bfc644a7aeba93189cd8939948b064f1f20fb26774d512e13a9b62dfa"
+      "sha256": "e79747ea6549c6eeca578b24c3f5cbf3273b659dbc0587bd74bed18683b68f74"
     },
     {
       "path": "functions/gravity-guide/gravity-guide.mjs",
