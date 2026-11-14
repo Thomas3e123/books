@@ -100,3 +100,15 @@ body.report-catalog .report-top .hero-actions a{padding:10px 14px}
 .report-glossary-entry a{display:inline-block;margin-top:8px;color:#891923;font-weight:750}
 .report-glossary-jump a{color:#891923;font-weight:750}
 @media(max-width:680px){.report-glossary-list{grid-template-columns:1fr}.report-glossary>summary,.report-glossary-content{padding-left:16px;padding-right:16px}}
+
+/* Related reading provides a short, release-safe path through the article archive. */
+.report-related{margin:34px 0;padding:22px;border:1px solid #d9c9aa;border-radius:12px;background:#f8f3e9}
+.report-related>h2{margin:0 0 7px;color:#232429;font-size:1.35rem}
+.report-related>p{margin:0 0 14px;color:#495861;font-size:.95rem}
+.report-related-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.report-related-card{padding:15px;background:#fffdf8;border:1px solid #e1d7c8;border-radius:9px}
+.report-related-card>span{font-size:.73rem;letter-spacing:.04em;text-transform:uppercase;font-weight:750;color:#715b32}
+.report-related-card h3{margin:7px 0;font-size:1.05rem;line-height:1.35}
+.report-related-card h3 a{color:#891923}
+.report-related-card>p{margin:0;color:#495861;font-size:.92rem;line-height:1.55}
+@media(max-width:620px){.report-related{padding:16px}.report-related-grid{grid-template-columns:1fr}}

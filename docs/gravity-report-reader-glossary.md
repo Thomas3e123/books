@@ -9,6 +9,7 @@ The glossary is a maintained reader aid for terms used in published Gravity Repo
 3. Write a short, plain-English meaning that matches how the article uses the term. Preserve any important limits or assumptions; for example, comparisons require the same period and cost rules.
 4. Add the definition to the glossary disclosure in `site/gravity-report.html`, with a related issue link pointing to that issue's `#report-N` catalog card.
 5. Keep definitions easy to search, and check that the article remains the source for context. Do not imply that a glossary term proves a cause or guarantees a result.
-6. Update this note only if the maintenance process changes.
+6. Curate related-issue recommendations in `functions/gravity-report/index.mjs` when a new story is added. Choose genuinely connected articles; the function automatically hides recommendations until each linked article is published.
+7. Update this note only if the maintenance process changes.
 
-The catalog is dynamic, but the glossary is deliberately curated. This keeps it accurate while the library grows.
+The catalog and publication schedule are dynamic, but the glossary and related-story choices are deliberately curated. This keeps definitions accurate and recommendations useful while the library grows.

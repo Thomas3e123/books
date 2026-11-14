@@ -366,7 +366,7 @@
     },
     {
       "path": "site/assets/css/report-editorial.css",
-      "sha256": "9af87e8cf2b9716378c72927faf771e69b32161dd1e1c3321cf574bf28b2f163"
+      "sha256": "709c8bbb0e30b08a26a5092dd97ab27aaa60c906f1849dcd7634b3bb7fe83b4a"
     },
     {
       "path": "site/assets/css/shift-lab-web-sync.css",
@@ -2510,7 +2510,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "a899b3fdb609ef8ff5e254e43df549eeb684741c469e7c5e421b95077fee83f0"
+      "sha256": "028fc079e6e17aa3ad99300e0fff351f827370afdcc928c39a4a2de50c0f21d0"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",
