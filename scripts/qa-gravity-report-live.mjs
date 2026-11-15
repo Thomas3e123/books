@@ -49,7 +49,7 @@ for(const host of aliases){
  assert.match(feed.res.headers.get('x-robots-tag')||'',/noindex/i);
  const map=await get(host+'/gravity-report/sitemap.xml');
  assert.equal(map.res.status,200);
- assert.equal((map.body.match(/<loc>/g)||[]).length,expectedItems,'Article sitemap count must match released schedule plus the separate move announcement');
+ assert.equal((map.body.match(/<loc>/g)||[]).length,expectedItems+1,'Article sitemap must include released schedule entries, the separate move announcement, and the Gravity Report landing page');
  assert(map.body.includes(canonical+'/gravity-report/'));
  const next=inventory.articles.find(issue=>!isReleased(issue,schedule.as_of_central));
  if(next){
@@ -57,5 +57,5 @@ for(const host of aliases){
   assert.equal(future.res.status,404,'Scheduled article made public before release');
   assert.match(future.res.headers.get('x-robots-tag')||'',/noindex/i);
  }
- console.log('GRAVITY_REPORT_LIVE_PASS '+JSON.stringify({host,asOfCentral:schedule.as_of_central,scheduledArticles:schedule.articles.length,publishedArticles:checked,rssItems:expectedItems,articleSitemapItems:expectedItems,embargo:'PASS',canonicals:'PASS',noindex:'PASS'}));
+ console.log('GRAVITY_REPORT_LIVE_PASS '+JSON.stringify({host,asOfCentral:schedule.as_of_central,scheduledArticles:schedule.articles.length,publishedArticles:checked,rssItems:expectedItems,articleSitemapItems:expectedItems+1,embargo:'PASS',canonicals:'PASS',noindex:'PASS'}));
 }
