@@ -1,0 +1,1220 @@
+{
+  "version": "1.1",
+  "title": "Gravity Tool and Process Test Protocols",
+  "instructions": "Use fictional restaurant data. For every case, record Pass, Fail, Blocked, or Not tested. If the expected result is unclear, mark Blocked or Not tested and describe what needs clarification. Do not enter private employee, guest, payroll, payment, or exact financial records. For tool names in the readiness catalog, first check whether the tool is currently available in Gravity Assist. If not, mark Blocked and stop; do not assume a feature or invent a route. Analytics and conversion measurement checks require manager access to the live analytics account and production browser diagnostics.",
+  "suites": [
+    {
+      "id": "site-navigation",
+      "title": "Website paths, links, and mobile use",
+      "url": "/",
+      "purpose": "Make sure a first-time visitor can reach the right Gravity resource and continue on a phone or computer.",
+      "cases": [
+        [
+          "NAV-01",
+          "Primary navigation",
+          "Open Gravity on a computer. Use every main menu link once. Return Home after each page.",
+          "Each link opens the named Gravity page. The page title and content match the link. No link unexpectedly sends visitors to Thomas Monroe Books."
+        ],
+        [
+          "NAV-02",
+          "Mobile menu",
+          "Open Gravity on a phone or narrow browser. Open and close the menu, then follow Start Here and Help Center.",
+          "The menu is usable without horizontal scrolling; each destination loads and has a clear way back."
+        ],
+        [
+          "NAV-03",
+          "Buttons and page links",
+          "On the pages used in your test, click the main button, secondary links, downloads, and back links.",
+          "Each control has one clear outcome. No dead links, unexpected redirects, empty page, or wrong-site destination."
+        ],
+        [
+          "NAV-04",
+          "Page search",
+          "On a page with Search This Page, search a visible heading and a word not on the page.",
+          "A matching result jumps to the right section. A no-match search explains that nothing was found."
+        ],
+        [
+          "NAV-05",
+          "Keyboard access",
+          "Use Tab, Shift+Tab, Enter, and Escape to navigate a short visitor path.",
+          "Focus remains visible, controls work without a mouse, and focus does not disappear behind a menu or dialog."
+        ]
+      ]
+    },
+    {
+      "id": "start-install",
+      "title": "Start Here and installation path",
+      "url": "/start-here",
+      "purpose": "Verify the promised journey from one recurring problem to a manageable installation and review.",
+      "cases": [
+        [
+          "INS-01",
+          "Choose one pressure point",
+          "Start at Start Here. Pick one repeated restaurant issue and follow the suggested route to its operating system.",
+          "The route identifies a relevant system and explains the next step without requiring the full catalog."
+        ],
+        [
+          "INS-02",
+          "Build the first toolset",
+          "Use the installation package to record one owner, three to five tools, a baseline measure, and either a 30-day or 60-day pace.",
+          "The plan fields are understandable, the selected tools fit the issue, and the pace dates are usable."
+        ],
+        [
+          "INS-03",
+          "Training before enforcement",
+          "Find the training or SOP resource for one chosen tool. Follow how a manager would demonstrate, practice, and verify it.",
+          "The instructions identify what to teach and how to verify it. Missing rules are flagged instead of invented."
+        ],
+        [
+          "INS-04",
+          "Weekly and midpoint review",
+          "Use the workbook or forms to record a weekly check, then a midpoint decision to continue, correct, or stop and investigate.",
+          "The review captures evidence, blocker, owner, and next due date. The midpoint decision is recorded with a reason."
+        ],
+        [
+          "INS-05",
+          "Final verification and next step",
+          "Complete a sample final review against the baseline and decide whether to hold, correct, or choose a next issue.",
+          "The materials separate completed work from verified results and do not claim an outcome without evidence."
+        ]
+      ]
+    },
+    {
+      "id": "aware",
+      "title": "Gravity Aware assessment",
+      "url": "/gravity-aware",
+      "purpose": "Check assessment completion, result routing, and the published privacy behavior.",
+      "cases": [
+        [
+          "AWR-01",
+          "Complete an assessment",
+          "Use fictional restaurant answers and complete the short assessment from its first question to the result.",
+          "Every question can be answered, progress is clear, and a result appears without a broken step."
+        ],
+        [
+          "AWR-02",
+          "Missing answer handling",
+          "Leave one required question unanswered and try to continue, then return and answer it.",
+          "The page identifies the unanswered item and allows completion after it is answered."
+        ],
+        [
+          "AWR-03",
+          "Recommendation route",
+          "Follow each recommended next step and check whether it leads to the named Gravity resource.",
+          "The recommendation and destination match. No recommendation promises an automatic financial result."
+        ],
+        [
+          "AWR-04",
+          "Answer privacy and restart",
+          "Use fictional answers, close/reopen the page, and use its clear/restart option if offered. Check the current privacy notice.",
+          "Observed storage and submission behavior match the page's privacy explanation. Record any mismatch as a privacy issue."
+        ]
+      ]
+    },
+    {
+      "id": "assist",
+      "title": "Gravity Assist and profile handoff",
+      "url": "/gravity-assist",
+      "purpose": "Check the central tool entry point, restaurant profile, and handoffs between supported workspaces.",
+      "cases": [
+        [
+          "AST-01",
+          "Open each workspace",
+          "Open every workspace link from Gravity Assist and return to Assist.",
+          "The selected workspace opens and the room name and purpose are clear."
+        ],
+        [
+          "AST-02",
+          "Save restaurant profile",
+          "Enter fictional restaurant and location details, save, reload, and clear the profile.",
+          "The profile saves where the page says it saves, can be cleared, and does not expose another restaurant's information."
+        ],
+        [
+          "AST-03",
+          "Apply profile to a workspace",
+          "Use Apply to this workspace where available and inspect the destination before saving work.",
+          "Only supported profile fields arrive in the intended workspace and can be reviewed before use."
+        ],
+        [
+          "AST-04",
+          "Continue in another workspace",
+          "Send a small fictional example from one supported tool to another, then inspect the receiving tool.",
+          "The intended information arrives once, in the right fields, and the receiving tool shows what arrived before use."
+        ]
+      ]
+    },
+    {
+      "id": "inventory",
+      "title": "Inventory Center",
+      "url": "/gravity-inventory-center",
+      "purpose": "Test setup, counts, receiving, movement, waste, costing, history, export, and recovery with sample inventory only.",
+      "cases": [
+        [
+          "INV-01",
+          "Set up sample items",
+          "Create the fictional Pilot Kitchen workspace if needed. Add Canola Oil (bottle; case of 12), Mozzarella (pound; case of 10 pounds), and Tomato Sauce (can; case of 6). Set the sample starting counts listed in this guide if those fields are available. Then search for each item.",
+          "The item list saves, required fields are clear, and search or filtering finds each item."
+        ],
+        [
+          "INV-02",
+          "Unit conversion",
+          "For Canola Oil, set one purchase case equal to 12 base bottles. Receive one case. Compare the displayed purchase and base-unit quantities before and after the receipt.",
+          "The conversion is consistent in the item, receiving, and count views. Invalid or missing conversions are flagged."
+        ],
+        [
+          "INV-03",
+          "Receive a delivery",
+          "Receive one fictional Canola Oil case. Confirm the expected increase is 12 bottles. If the tool supports editing before save, change the quantity and verify the saved record uses the final quantity.",
+          "The final saved quantity and cost match the sample entry, and the system shows what was changed."
+        ],
+        [
+          "INV-04",
+          "Count and variance",
+          "After the one-case receipt, the sample oil total is 36 bottles. Record a count of 34 bottles and review the variance from the expected quantity. Then change the count by one bottle and review whether the history shows the change.",
+          "The variance uses the entered units and count date. A missing count is not presented as a zero count."
+        ],
+        [
+          "INV-05",
+          "Waste or spoilage",
+          "Record two bottles of fictional Canola Oil as waste/spoilage with a reason. Starting from 36 bottles after receipt, the expected remaining quantity is 34 bottles if waste is recorded as an on-hand reduction. If the tool defines waste differently, follow its published instructions and record the difference.",
+          "On-hand quantity and cost movement reflect the sample entry, and the record is visible in history."
+        ],
+        [
+          "INV-06",
+          "Cost or source update",
+          "Change a sample item's cost or supplier/source, then inspect current and historical views.",
+          "The new value is visible in the current item record and the history makes the change understandable."
+        ],
+        [
+          "INV-07",
+          "Save, export, and restore",
+          "Save the sample inventory, close/reopen it, use the documented export or backup, and restore in a clean test copy.",
+          "The restored sample contains the expected items and movements. The original sample remains recoverable until the restore is verified."
+        ],
+        [
+          "INV-08",
+          "Input boundaries",
+          "Try a blank required quantity, negative quantity where disallowed, an unusually large quantity, and a valid zero where appropriate.",
+          "Invalid values receive clear prompts; valid zero and missing data are treated differently."
+        ],
+        [
+          "INV-09",
+          "Phone and scan flow",
+          "Open the inventory workflow on a phone. If barcode or QR scanning is supported, scan a test code; otherwise record the gap.",
+          "Controls fit the screen and scanning opens the intended item or records a clear unsupported/failed result."
+        ]
+      ],
+      "setup": "Use a disposable fictional restaurant named Pilot Kitchen. Create these sample items only if the tool offers item setup: Canola Oil (base unit bottle; purchase unit case of 12; fictional cost $36 per case; starting count 2 cases/24 bottles), Mozzarella (base unit pound; case of 10 pounds; fictional cost $42 per case; starting count 30 pounds), and Tomato Sauce (base unit can; case of 6; fictional cost $24 per case; starting count 3 cases/18 cans). Test receiving one oil case (+12 bottles), wasting two bottles (-2 bottles), and counting the remaining 34 bottles. Do not require the system to use these exact fields if its documented setup differs; record an unavailable feature as Blocked or Not applicable, not as a guessed failure. Use an available reset, disposable workspace, or export backup before testing destructive edits."
+    },
+    {
+      "id": "shift",
+      "title": "Shift Lab",
+      "url": "/gravity-shift-lab",
+      "purpose": "Test staffing inputs, schedule rules, labor calculations, saving, employee view, printing, and privacy with fictional data.",
+      "cases": [
+        [
+          "SHF-01",
+          "Build a sample week",
+          "Create a fictional seven-day schedule with hourly and salaried roles.",
+          "The schedule shows the right dates, roles, and people, and all entered shifts can be reviewed."
+        ],
+        [
+          "SHF-02",
+          "Availability and coverage",
+          "Add availability, a requested day off, and a deliberately uncovered shift.",
+          "The tool surfaces the conflict or coverage gap clearly and does not silently assign unavailable staff."
+        ],
+        [
+          "SHF-03",
+          "Time and break boundaries",
+          "Enter a normal shift, an overnight shift if supported, a long shift, and a break.",
+          "Start/end times, date rollover, and break handling follow the displayed rules. Ambiguous time entries are flagged."
+        ],
+        [
+          "SHF-04",
+          "Labor estimate",
+          "Enter fictional wage and sales assumptions. Compare the tool's labor estimate with an independent hand calculation.",
+          "The estimate uses the displayed assumptions. Employer burden remains optional if the interface says it is optional."
+        ],
+        [
+          "SHF-05",
+          "Overtime and budget warnings",
+          "Create sample hours that cross the displayed overtime or budget threshold.",
+          "Warnings identify the affected person/shift and explain the threshold. A valid schedule is not blocked without reason."
+        ],
+        [
+          "SHF-06",
+          "Save, revise, and employee view",
+          "Save, reopen, revise one shift, then inspect the employee-safe schedule view and print/export.",
+          "Saved changes persist; private pay information stays manager-only; employee view shows the intended schedule."
+        ],
+        [
+          "SHF-07",
+          "Invalid inputs and recovery",
+          "Test blank staff, invalid times, negative wage, and a browser reload before saving.",
+          "Invalid input is identified, and unsaved work is either preserved or clearly identified as lost before leaving."
+        ]
+      ]
+    },
+    {
+      "id": "foundry",
+      "title": "SOP Foundry and hosted employee materials",
+      "url": "/gravity-sop-foundry",
+      "purpose": "Test the full controlled SOP lifecycle from draft through employee reading and manager verification.",
+      "cases": [
+        [
+          "SOP-01",
+          "Create and revise a draft",
+          "Start from a Gravity master and separately start a blank sample SOP. Save both as drafts.",
+          "The master is preserved, drafts are clearly labeled, and required fields are explained."
+        ],
+        [
+          "SOP-02",
+          "Import existing procedures",
+          "Import one fictional sample procedure using an available import route and review duplicate handling.",
+          "The imported procedure is a draft until approved. Duplicate choices and any import errors are clear."
+        ],
+        [
+          "SOP-03",
+          "Review and approve",
+          "Edit one field, record the reason, save a revision, and inspect the review/approval step.",
+          "The saved revision shows what changed and why. Approval reflects the complete saved copy."
+        ],
+        [
+          "SOP-04",
+          "Publish employee version",
+          "Publish an approved sample SOP to the Employee Library and open it using a test employee link/PIN.",
+          "Only the deliberately published copy is visible to employees; a draft does not appear as current."
+        ],
+        [
+          "SOP-05",
+          "Training and sign-off",
+          "Set a sample training requirement, complete the employee learning path, and inspect the manager sign-off record.",
+          "Acknowledgment, quiz completion, and manager sign-off remain distinct records."
+        ],
+        [
+          "SOP-06",
+          "Search, station access, and question",
+          "Search for the sample procedure, explore another station, and submit a sample question or error report.",
+          "Search finds the current published version. Exploring another station does not grant work permission or certification."
+        ],
+        [
+          "SOP-07",
+          "Poster and QR links",
+          "Create a sample poster and QR link to the published procedure. Scan it with a phone.",
+          "The poster and QR open the intended current employee copy and remain readable on a phone."
+        ],
+        [
+          "SOP-08",
+          "Revision history and backup",
+          "Publish a second revision, inspect prior history, export/backup, and restore in a copy.",
+          "Earlier approved versions remain identifiable, and the restored copy matches the exported sample."
+        ],
+        [
+          "SOP-09",
+          "Gravity Signals boundary",
+          "Enable a test signal with fictional employee learning data, inspect manager view, and check employee view.",
+          "Signals remain manager-only and are described as an indicator for investigation, not a conclusion."
+        ]
+      ]
+    },
+    {
+      "id": "workstudy",
+      "title": "Work Study Lab",
+      "url": "/gravity-work-study-lab",
+      "purpose": "Test study setup, observations, calculations, imports, exports, and clear explanation using a fictional task.",
+      "cases": [
+        [
+          "WST-01",
+          "Create a study",
+          "Start a sample study for a simple repeatable task and define the work elements.",
+          "The task, units, observed work, and study purpose are labeled clearly."
+        ],
+        [
+          "WST-02",
+          "Record repeated observations",
+          "Enter multiple fictional observations including one obvious outlier.",
+          "Observations save accurately, and the tool makes unusual values visible without silently removing them."
+        ],
+        [
+          "WST-03",
+          "Review calculated results",
+          "Compare calculated averages or time results with an independent hand calculation using the same observations.",
+          "The math uses the stated observations and units, and the result can be explained from the inputs."
+        ],
+        [
+          "WST-04",
+          "Import and export",
+          "Try the documented import route with a sample file, then export the completed fictional study.",
+          "Errors identify the affected rows or fields. The export opens with readable labels and units."
+        ],
+        [
+          "WST-05",
+          "Save and recover",
+          "Save, close/reopen, and use the documented backup/recovery route.",
+          "The study is retained and a restored copy contains the same observation set."
+        ]
+      ]
+    },
+    {
+      "id": "numbers",
+      "title": "Numbers Lab and calculators",
+      "url": "/gravity-assist",
+      "purpose": "Check calculator inputs, units, formula boundaries, explanations, and output consistency.",
+      "cases": [
+        [
+          "NUM-01",
+          "Known-answer calculation",
+          "Choose a calculator with a simple formula. Enter fictional values with a result you calculate separately.",
+          "The displayed answer matches the hand calculation and the units are labeled."
+        ],
+        [
+          "NUM-02",
+          "Boundary values",
+          "Test values at and just above/below any displayed threshold or category break.",
+          "The correct band or warning appears at each boundary, with no gap or overlap."
+        ],
+        [
+          "NUM-03",
+          "Missing and invalid input",
+          "Try blank, letters in numeric fields, negative values where prohibited, and zero where valid.",
+          "The tool distinguishes missing, invalid, and genuine zero values and explains how to correct the input."
+        ],
+        [
+          "NUM-04",
+          "Change and recalculate",
+          "Change one input after a result appears, then reset and repeat with a second set.",
+          "The answer updates from the new inputs and reset clears the previous sample."
+        ],
+        [
+          "NUM-05",
+          "Output and explanation",
+          "Print, copy, or export the result if offered and compare the explanation to the inputs.",
+          "The output includes the result and enough context to understand the formula and units."
+        ]
+      ]
+    },
+    {
+      "id": "recipes",
+      "title": "Recipe Works",
+      "url": "/gravity-assist",
+      "purpose": "Test recipe entry, yield, unit conversions, portion scaling, costing, fractions, and printable output with a fictional recipe.",
+      "cases": [
+        [
+          "REC-01",
+          "Create a sample recipe",
+          "Enter a fictional recipe with ingredients, amounts, units, yield, and portion size.",
+          "Required fields are clear and the recipe saves with the entered quantities."
+        ],
+        [
+          "REC-02",
+          "Scale the yield",
+          "Scale the recipe up and down by a known factor and compare ingredient amounts by hand.",
+          "Scaled amounts match the factor and preserve readable fractions or decimals."
+        ],
+        [
+          "REC-03",
+          "Unit conversion",
+          "Use a supported conversion such as ounces to pounds or fluid ounces to cups.",
+          "The conversion follows the displayed unit type and avoids mixing weight and volume without an explicit density."
+        ],
+        [
+          "REC-04",
+          "Cost and missing costs",
+          "Enter fictional ingredient costs, change one cost, then leave another cost blank.",
+          "The recipe cost updates from available inputs and does not treat missing cost as zero without explanation."
+        ],
+        [
+          "REC-05",
+          "Save and print",
+          "Save, reopen, and print/export the sample recipe.",
+          "The saved version remains intact and print output shows ingredients, quantities, units, and yield."
+        ]
+      ]
+    },
+    {
+      "id": "forms-docs",
+      "title": "Forms Personalizer and Document Studio",
+      "url": "/gravity-assist",
+      "purpose": "Test guided document creation, required fields, preview, editable outputs, and official-form boundaries.",
+      "cases": [
+        [
+          "DOC-01",
+          "Complete one guided builder",
+          "Choose a sample builder, enter fictional values, save, and continue to the next section.",
+          "Progress is clear; saved answers remain after moving between sections."
+        ],
+        [
+          "DOC-02",
+          "Required and optional fields",
+          "Leave one required field blank and skip one optional field.",
+          "The missing required item is named. Optional fields can be skipped without blocking completion."
+        ],
+        [
+          "DOC-03",
+          "Preview and output",
+          "Review the full preview, then download or print the generated document if offered.",
+          "The preview matches the entered data and the exported document is readable and complete."
+        ],
+        [
+          "DOC-04",
+          "Edit and restart",
+          "Return to an earlier section, change one answer, and start a new document.",
+          "The revised answer appears in the preview. Starting over does not mix the prior sample into the new file."
+        ],
+        [
+          "DOC-05",
+          "Official forms and source links",
+          "Follow any links for official legal or government forms and inspect their destination.",
+          "Official forms remain linked to their issuing agency and are not misrepresented as Gravity-created legal forms."
+        ]
+      ]
+    },
+    {
+      "id": "quick-qr",
+      "title": "Quick Tools and QR Code Maker",
+      "url": "/qr-code-generator",
+      "purpose": "Test quick calculators and scannable links from creation through phone use.",
+      "cases": [
+        [
+          "QR-01",
+          "Create a QR code",
+          "Generate a QR for a harmless public Gravity page and download the result.",
+          "The code downloads in the offered format and encodes the exact intended URL."
+        ],
+        [
+          "QR-02",
+          "Scan on a phone",
+          "Scan the downloaded code on a phone camera and follow the destination.",
+          "The code scans at normal print size and opens the intended page without changing domains unexpectedly."
+        ],
+        [
+          "QR-03",
+          "Input validation",
+          "Try a blank destination, malformed URL, and a valid URL.",
+          "The tool explains invalid entries and does not silently create a misleading code."
+        ],
+        [
+          "QR-04",
+          "Print and readability",
+          "Place the code on a sample page and test print/scan at its intended size.",
+          "The printed code remains readable and has a plain-text destination or label where appropriate."
+        ]
+      ]
+    },
+    {
+      "id": "books-reader",
+      "title": "Books, registration, downloads, and Reader",
+      "url": "/books",
+      "purpose": "Test the published learning path, access steps, downloads, and reader behavior.",
+      "cases": [
+        [
+          "BOK-01",
+          "Find a book and sample",
+          "Find one book, open its sample, then return to the book listing.",
+          "Cover, title, description, sample, and action button refer to the same book."
+        ],
+        [
+          "BOK-02",
+          "Register and return",
+          "Use a permitted test account or test details to complete registration and return to the requested resource.",
+          "The success page explains next steps and the return route opens the requested book or download."
+        ],
+        [
+          "BOK-03",
+          "Download and open",
+          "Download a sample or allowed digital file, check the file name, and open it.",
+          "The file opens, matches its title, and is not an empty or mismatched download."
+        ],
+        [
+          "BOK-04",
+          "Reader selection and progress",
+          "Open Book Reader, choose a book, move between sections, and return later.",
+          "The book list is populated for the account, navigation works, and progress behavior matches the explanation."
+        ],
+        [
+          "BOK-05",
+          "Phone reading and recovery",
+          "Repeat selection and reading on a phone. Test a failed load or reload.",
+          "Text remains readable and an error has a clear retry or help route."
+        ]
+      ]
+    },
+    {
+      "id": "windows",
+      "title": "Windows program delivery and use",
+      "url": "/windows-programs",
+      "purpose": "Test download instructions and Windows workflows without using a live restaurant data file.",
+      "cases": [
+        [
+          "WIN-01",
+          "Download package instructions",
+          "Follow the Windows download page and save one current program package.",
+          "The current file, edition, date, and install/portable instructions are clearly distinguished."
+        ],
+        [
+          "WIN-02",
+          "Extract and launch",
+          "Extract the package to a test folder and follow the displayed launch steps.",
+          "The named program opens from the expected location and does not require unexplained extra files."
+        ],
+        [
+          "WIN-03",
+          "Save and reopen sample work",
+          "Create fictional work, save, close the program, reopen it, and inspect the saved data.",
+          "The sample work persists in the documented location and a backup route is clear."
+        ],
+        [
+          "WIN-04",
+          "Portable and installer paths",
+          "If both installer and portable editions are offered, follow each in a separate test folder.",
+          "Each path is clearly labeled, does not overwrite the other unexpectedly, and gives a safe uninstall/cleanup route."
+        ],
+        [
+          "WIN-05",
+          "Update and version clarity",
+          "Compare the installed version with the website release note and update instructions.",
+          "The version is identifiable, update steps do not imply automatic upgrade if none exists, and data migration warnings are visible."
+        ]
+      ]
+    },
+    {
+      "id": "backup",
+      "title": "Data saving, export, backup, and recovery",
+      "url": "/help-center",
+      "purpose": "Confirm that users can protect and recover work across browser and desktop tools.",
+      "cases": [
+        [
+          "DAT-01",
+          "Find storage location",
+          "Save fictional work in each environment and read its storage explanation.",
+          "The user can tell whether work stays in the browser, on the computer, or in a hosted employee area."
+        ],
+        [
+          "DAT-02",
+          "Export a backup",
+          "Use the documented export or backup function on a sample record set.",
+          "A backup file is created, named clearly, and can be found without searching hidden folders."
+        ],
+        [
+          "DAT-03",
+          "Restore into a clean copy",
+          "Restore the backup into a separate test profile or folder.",
+          "The restored copy has the expected record count and content without overwriting the source sample."
+        ],
+        [
+          "DAT-04",
+          "Partial failure and duplicate restore",
+          "Repeat restore, cancel midway if safe, and check duplicate handling.",
+          "The tool explains what happened and avoids silent duplicate records or silent data loss."
+        ],
+        [
+          "DAT-05",
+          "Cross-device behavior",
+          "Open the same workflow on a second browser or device and check the site's sync statement.",
+          "Observed sync behavior matches the page's statement. Local-only drafts are not described as cloud-synchronized."
+        ]
+      ]
+    },
+    {
+      "id": "help-contact",
+      "title": "Help, contact, registration, and support",
+      "url": "/help-center",
+      "purpose": "Test that users can request help, understand response limits, and avoid sending private data.",
+      "cases": [
+        [
+          "HLP-01",
+          "Find the right support route",
+          "From a broken or confusing step, find Help Center and choose technical help or a general inquiry.",
+          "The route matches the issue and asks for useful reproduction details."
+        ],
+        [
+          "HLP-02",
+          "Submit a sample issue",
+          "Use fictional details to complete a support form and inspect the confirmation.",
+          "Required fields are explained, the form submits once, and confirmation does not promise an unsupported response time."
+        ],
+        [
+          "HLP-03",
+          "Privacy reminder",
+          "Inspect form warnings and try to attach or type sensitive data only in a safe fictional test.",
+          "The page discourages passwords and private records and does not request unnecessary sensitive fields."
+        ],
+        [
+          "HLP-04",
+          "Failed send and retry",
+          "Simulate a disconnected page or use the browser's offline mode before submitting a test form.",
+          "A failed send is visible, entered text is recoverable where possible, and retry instructions are clear."
+        ]
+      ]
+    },
+    {
+      "id": "privacy-a11y",
+      "title": "Privacy, permissions, accessibility, and security",
+      "url": "/privacy",
+      "purpose": "Check that site behavior matches its explanations and that core routes work for users with different access needs.",
+      "cases": [
+        [
+          "SAFE-01",
+          "Privacy claim comparison",
+          "For each assessment, form, pilot, and hosted employee feature, compare observed data collection with its privacy explanation.",
+          "No page claims local-only storage when answers are sent to a server. Any mismatch is treated as a blocking issue."
+        ],
+        [
+          "SAFE-02",
+          "No sensitive sample data",
+          "Use fictional employee, wage, guest, and inventory data in every tool test.",
+          "Testers do not expose real people or financial records in screenshots, messages, or attachments."
+        ],
+        [
+          "SAFE-03",
+          "Participant and manager access",
+          "Open a participant return link and the manager area from separate browser profiles. Try an invalid passkey and another participant token.",
+          "Participants can see only their own record. Manager tools reject invalid keys. No participant can open manager data."
+        ],
+        [
+          "SAFE-04",
+          "Keyboard and zoom",
+          "Navigate major forms using keyboard only and zoom to 200 percent.",
+          "Labels, focus, validation errors, and buttons remain usable without clipped or hidden controls."
+        ],
+        [
+          "SAFE-05",
+          "Screen reader labels",
+          "Use a screen reader or accessibility tree to inspect form fields, headings, and success/error messages.",
+          "Fields have meaningful labels, headings follow an order, and status changes are announced."
+        ],
+        [
+          "SAFE-06",
+          "Permission and private data boundary",
+          "Try an unauthorized route or missing token and inspect the response.",
+          "Private data is not returned. Access denial does not reveal another participant's existence or content."
+        ]
+      ]
+    },
+    {
+      "id": "pilot-room",
+      "title": "Pilot Room and participation workflow",
+      "url": "/pilot-room",
+      "purpose": "Confirm the room supports an invited tester or operator from enrollment through final review.",
+      "cases": [
+        [
+          "PIL-01",
+          "Create and preserve a pilot record",
+          "Join with fictional test details, save the private return link, close/reopen the browser, and return.",
+          "The participant can reopen only their own workspace. The manager can identify the participant and selected track."
+        ],
+        [
+          "PIL-02",
+          "Run a tool protocol",
+          "Choose one test suite, follow each case, record pass/fail/blocked/not tested, and submit the results.",
+          "The saved report identifies the suite and case, records observations, and appears in the manager view."
+        ],
+        [
+          "PIL-03",
+          "Run a restaurant improvement plan",
+          "Create a plan with one issue, one owner, a baseline, three to five resources, and a 30/60-day pace.",
+          "The room shows first review, midpoint, and end dates in order and stores no exact restaurant metric value."
+        ],
+        [
+          "PIL-04",
+          "Weekly, midpoint, and final review",
+          "Submit one weekly review, a midpoint decision, and a final verification using fictional details.",
+          "Each review is timestamped; the midpoint records a decision; final review records whether the standard held."
+        ],
+        [
+          "PIL-05",
+          "Report an issue and receive a reply",
+          "Submit a sample confusing or broken step and send a private message. Reply from the manager dashboard.",
+          "The issue and reply stay in the correct participant record and do not appear in another participant's view."
+        ],
+        [
+          "PIL-06",
+          "Reward decision record",
+          "Mark a sample material contribution and record the reward decision in manager view.",
+          "The reward record is attributable to the contribution and cannot be confused with sign-up or praise alone."
+        ]
+      ]
+    },
+    {
+      "id": "people-planner",
+      "title": "People Planner",
+      "url": "/gravity-assist",
+      "purpose": "Check whether People Planner is available and whether a manager can understand its intended people-planning workflow without entering employee personal data.",
+      "cases": [
+        [
+          "PEOPLE-PLANNER-01",
+          "Check whether it is available",
+          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
+          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
+        ],
+        [
+          "PEOPLE-PLANNER-02",
+          "Read the first-use instructions",
+          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
+          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
+        ],
+        [
+          "PEOPLE-PLANNER-03",
+          "Complete one fictional task",
+          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
+          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
+        ],
+        [
+          "PEOPLE-PLANNER-04",
+          "Check save, export, and recovery",
+          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
+          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
+        ]
+      ]
+    },
+    {
+      "id": "service-shaper",
+      "title": "Service Shaper",
+      "url": "/gravity-assist",
+      "purpose": "Check availability and the visible service-design workflow using a fictional guest-service example only.",
+      "cases": [
+        [
+          "SERVICE-SHAPER-01",
+          "Check whether it is available",
+          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
+          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
+        ],
+        [
+          "SERVICE-SHAPER-02",
+          "Read the first-use instructions",
+          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
+          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
+        ],
+        [
+          "SERVICE-SHAPER-03",
+          "Complete one fictional task",
+          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
+          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
+        ],
+        [
+          "SERVICE-SHAPER-04",
+          "Check save, export, and recovery",
+          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
+          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
+        ]
+      ]
+    },
+    {
+      "id": "maintenance-center",
+      "title": "Maintenance Center",
+      "url": "/gravity-assist",
+      "purpose": "Check availability and visible maintenance-reporting workflow with a fictional piece of equipment; do not enter real vendor or safety incident details.",
+      "cases": [
+        [
+          "MAINTENANCE-CENTER-01",
+          "Check whether it is available",
+          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
+          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
+        ],
+        [
+          "MAINTENANCE-CENTER-02",
+          "Read the first-use instructions",
+          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
+          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
+        ],
+        [
+          "MAINTENANCE-CENTER-03",
+          "Complete one fictional task",
+          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
+          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
+        ],
+        [
+          "MAINTENANCE-CENTER-04",
+          "Check save, export, and recovery",
+          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
+          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
+        ]
+      ]
+    },
+    {
+      "id": "guest-recovery",
+      "title": "Guest Recovery & Retention",
+      "url": "/gravity-assist",
+      "purpose": "Check availability and the visible guest-recovery workflow with a fictional guest and issue; never enter real guest information.",
+      "cases": [
+        [
+          "GUEST-RECOVERY-01",
+          "Check whether it is available",
+          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
+          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
+        ],
+        [
+          "GUEST-RECOVERY-02",
+          "Read the first-use instructions",
+          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
+          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
+        ],
+        [
+          "GUEST-RECOVERY-03",
+          "Complete one fictional task",
+          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
+          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
+        ],
+        [
+          "GUEST-RECOVERY-04",
+          "Check save, export, and recovery",
+          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
+          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
+        ]
+      ]
+    },
+    {
+      "id": "purchase-vendor",
+      "title": "Purchase & Vendor Insights",
+      "url": "/gravity-assist",
+      "purpose": "Check availability and visible purchase/vendor workflow using fictional items and prices only.",
+      "cases": [
+        [
+          "PURCHASE-VENDOR-01",
+          "Check whether it is available",
+          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
+          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
+        ],
+        [
+          "PURCHASE-VENDOR-02",
+          "Read the first-use instructions",
+          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
+          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
+        ],
+        [
+          "PURCHASE-VENDOR-03",
+          "Complete one fictional task",
+          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
+          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
+        ],
+        [
+          "PURCHASE-VENDOR-04",
+          "Check save, export, and recovery",
+          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
+          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
+        ]
+      ]
+    },
+    {
+      "id": "safety-inspection",
+      "title": "Safety & Inspection",
+      "url": "/gravity-assist",
+      "purpose": "Check availability and visible inspection workflow with a fictional checklist; do not record an actual safety event as test data.",
+      "cases": [
+        [
+          "SAFETY-INSPECTION-01",
+          "Check whether it is available",
+          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
+          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
+        ],
+        [
+          "SAFETY-INSPECTION-02",
+          "Read the first-use instructions",
+          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
+          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
+        ],
+        [
+          "SAFETY-INSPECTION-03",
+          "Complete one fictional task",
+          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
+          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
+        ],
+        [
+          "SAFETY-INSPECTION-04",
+          "Check save, export, and recovery",
+          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
+          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
+        ]
+      ]
+    },
+    {
+      "id": "growth-training",
+      "title": "Growth Training Center",
+      "url": "/gravity-assist",
+      "purpose": "Check availability and visible training workflow using fictional roles or sample material; do not enter real employee records.",
+      "cases": [
+        [
+          "GROWTH-TRAINING-01",
+          "Check whether it is available",
+          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
+          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
+        ],
+        [
+          "GROWTH-TRAINING-02",
+          "Read the first-use instructions",
+          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
+          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
+        ],
+        [
+          "GROWTH-TRAINING-03",
+          "Complete one fictional task",
+          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
+          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
+        ],
+        [
+          "GROWTH-TRAINING-04",
+          "Check save, export, and recovery",
+          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
+          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
+        ]
+      ]
+    },
+    {
+      "id": "menu-control",
+      "title": "Menu Creation & Control",
+      "url": "/gravity-assist",
+      "purpose": "Check availability and visible menu workflow using fictional item names and sample prices only.",
+      "cases": [
+        [
+          "MENU-CONTROL-01",
+          "Check whether it is available",
+          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
+          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
+        ],
+        [
+          "MENU-CONTROL-02",
+          "Read the first-use instructions",
+          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
+          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
+        ],
+        [
+          "MENU-CONTROL-03",
+          "Complete one fictional task",
+          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
+          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
+        ],
+        [
+          "MENU-CONTROL-04",
+          "Check save, export, and recovery",
+          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
+          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
+        ]
+      ]
+    },
+    {
+      "id": "sales-forecaster",
+      "title": "Sales Forecaster",
+      "url": "/gravity-assist",
+      "purpose": "Check availability and visible forecasting workflow using invented example inputs only.",
+      "cases": [
+        [
+          "SALES-FORECASTER-01",
+          "Check whether it is available",
+          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
+          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
+        ],
+        [
+          "SALES-FORECASTER-02",
+          "Read the first-use instructions",
+          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
+          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
+        ],
+        [
+          "SALES-FORECASTER-03",
+          "Complete one fictional task",
+          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
+          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
+        ],
+        [
+          "SALES-FORECASTER-04",
+          "Check save, export, and recovery",
+          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
+          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
+        ]
+      ]
+    },
+    {
+      "id": "risk-continuity",
+      "title": "Risk & Continuity",
+      "url": "/gravity-assist",
+      "purpose": "Check availability and visible risk or continuity workflow using a fictional scenario; do not enter sensitive security or emergency details.",
+      "cases": [
+        [
+          "RISK-CONTINUITY-01",
+          "Check whether it is available",
+          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
+          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
+        ],
+        [
+          "RISK-CONTINUITY-02",
+          "Read the first-use instructions",
+          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
+          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
+        ],
+        [
+          "RISK-CONTINUITY-03",
+          "Complete one fictional task",
+          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
+          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
+        ],
+        [
+          "RISK-CONTINUITY-04",
+          "Check save, export, and recovery",
+          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
+          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
+        ]
+      ]
+    },
+    {
+      "id": "quality-assurance",
+      "title": "Quality Assurance",
+      "url": "/gravity-assist",
+      "purpose": "Check availability and visible quality review workflow using fictional observations only.",
+      "cases": [
+        [
+          "QUALITY-ASSURANCE-01",
+          "Check whether it is available",
+          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
+          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
+        ],
+        [
+          "QUALITY-ASSURANCE-02",
+          "Read the first-use instructions",
+          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
+          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
+        ],
+        [
+          "QUALITY-ASSURANCE-03",
+          "Complete one fictional task",
+          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
+          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
+        ],
+        [
+          "QUALITY-ASSURANCE-04",
+          "Check save, export, and recovery",
+          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
+          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
+        ]
+      ]
+    },
+    {
+      "id": "analytics-readiness",
+      "title": "Analytics and conversion measurement",
+      "url": "/gravity-assist",
+      "purpose": "Verify whether production analytics tags, consent behavior, and the key conversion actions are actually configured. This requires a Gravity manager or someone with access to GA4/Tag Assistant; a public tester alone cannot confirm event receipt.",
+      "cases": [
+        [
+          "ANALYTICS-READINESS-01",
+          "Check whether it is available",
+          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
+          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
+        ],
+        [
+          "ANALYTICS-READINESS-02",
+          "Read the first-use instructions",
+          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
+          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
+        ],
+        [
+          "ANALYTICS-READINESS-03",
+          "Complete one fictional task",
+          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
+          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
+        ],
+        [
+          "ANALYTICS-READINESS-04",
+          "Check save, export, and recovery",
+          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
+          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
+        ]
+      ]
+    },
+    {
+      "id": "pilot-recruitment",
+      "title": "Pilot invitation and enrollment process",
+      "url": "/gravity-assist",
+      "purpose": "Check that an invited operator can understand the offer, reach the Pilot Room, enroll, and get a usable private return link.",
+      "cases": [
+        [
+          "PILOT-RECRUITMENT-01",
+          "Check whether it is available",
+          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
+          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
+        ],
+        [
+          "PILOT-RECRUITMENT-02",
+          "Read the first-use instructions",
+          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
+          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
+        ],
+        [
+          "PILOT-RECRUITMENT-03",
+          "Complete one fictional task",
+          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
+          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
+        ],
+        [
+          "PILOT-RECRUITMENT-04",
+          "Check save, export, and recovery",
+          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
+          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
+        ]
+      ]
+    },
+    {
+      "id": "pilot-followup",
+      "title": "Pilot review and manager follow-up",
+      "url": "/gravity-assist",
+      "purpose": "Check that weekly, midpoint, final, and issue entries reach the manager, receive a response, and produce an accurate final record.",
+      "cases": [
+        [
+          "PILOT-FOLLOWUP-01",
+          "Check whether it is available",
+          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
+          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
+        ],
+        [
+          "PILOT-FOLLOWUP-02",
+          "Read the first-use instructions",
+          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
+          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
+        ],
+        [
+          "PILOT-FOLLOWUP-03",
+          "Complete one fictional task",
+          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
+          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
+        ],
+        [
+          "PILOT-FOLLOWUP-04",
+          "Check save, export, and recovery",
+          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
+          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
+        ]
+      ]
+    },
+    {
+      "id": "conversion-journey",
+      "title": "Visitor-to-pilot conversion journey",
+      "url": "/pilot-room",
+      "purpose": "Find out whether someone invited to learn about Gravity can understand the offer, take the next step, and return later. Track only the journey stage; do not claim success from a button click alone.",
+      "cases": [
+        [
+          "CVJ-01",
+          "Find the primary next step",
+          "Open the page from a shared invitation on a phone. Without coaching, say what Gravity offers and what the page asks you to do next.",
+          "The offer and one next action are clear. If the person is unsure, record the words or screen that caused confusion."
+        ],
+        [
+          "CVJ-02",
+          "Follow the call to action",
+          "Click the invitation link and complete the intended low-risk action with fictional or tester-approved contact details.",
+          "The destination matches the invitation, the form explains required information, and completion has a clear confirmation."
+        ],
+        [
+          "CVJ-03",
+          "Return to the journey",
+          "Close the page, then use the saved return link or invitation to return and continue.",
+          "The person can resume or clearly understand how to re-enter. Do not count a page view as a completed pilot."
+        ],
+        [
+          "CVJ-04",
+          "Record the outcome stage",
+          "Manager records invitation sent, room visit, enrollment, plan saved, first test/review, and completed pilot as separate stages.",
+          "The record does not infer later stages from earlier clicks, and there is a date and source for each observed stage."
+        ]
+      ]
+    }
+  ]
+}
