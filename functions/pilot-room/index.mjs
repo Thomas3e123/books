@@ -2,8 +2,7 @@ import { getDatabase } from '@netlify/database';
 import crypto from 'node:crypto';
 
 const db=getDatabase();
-const ALLOWED=new Set(['https://gravity-migration--gravity-leadership-system.netlify.app','https://gravity-leadership-system.netlify.app','https://gravityleadershipsystem.com','https://www.gravityleadershipsystem.com']);
-const json=(body,status=200)=>Response.json(body,{status,headers:{'Cache-Control':'no-store','Vary':'Origin'}});
+const json=(body,status=200)=>Response.json(body,{status,headers:{'Cache-Control':'no-store'}});
 const clean=(v,n=3000)=>String(v??'').trim().slice(0,n);
 const id=(p)=>p+'_'+crypto.randomUUID().replaceAll('-','');
 const token=()=>crypto.randomBytes(32).toString('base64url');
@@ -13,7 +12,7 @@ const participantToken=(r)=>clean(r.headers.get('x-gravity-pilot-token')||bearer
 const emailOk=(v)=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean(v,254));
 const dateOk=(v)=>/^\d{4}-\d{2}-\d{2}$/.test(String(v||''))&&!Number.isNaN(Date.parse(String(v)+'T12:00:00Z'));
 async function managerOK(r){
-  const expected=process.env.GRAVITY_PILOT_MANAGER_KEY||'';const got=bearer(r);
+  const expected=Netlify.env.get('GRAVITY_PILOT_MANAGER_KEY')||'';const got=bearer(r);
   if(!expected||!got)return {ok:false,locked:false};
   const rawIp=clean(r.headers.get('x-nf-client-connection-ip')||r.headers.get('x-forwarded-for')||'unknown',160).split(',')[0].trim()||'unknown';
   const ipHash=hash(rawIp);
@@ -29,9 +28,6 @@ async function byToken(t){if(!t)return null;const rows=await db.sql`SELECT * FRO
 const pub=(p)=>({id:p.id,name:p.display_name,email:p.email,role:p.role,restaurantType:p.restaurant_type,issueArea:p.issue_area,status:p.status,qualifyingContribution:p.qualifying_contribution,finalVersionAwarded:p.final_version_awarded,lifetimeLibraryAwarded:p.lifetime_library_awarded,createdAt:p.created_at});
 const managerKey=(r)=>managerOK(r);
 export default async function handler(request){
-  const origin=request.headers.get('origin')||'';
-  if(origin&&!ALLOWED.has(origin)&&!/^https:\/\/[a-z0-9-]+--gravity-leadership-system\.netlify\.app$/i.test(origin))return json({error:'Origin not allowed.'},403);
-  if(request.method==='OPTIONS')return new Response(null,{status:204,headers:{'Access-Control-Allow-Origin':origin||'*','Access-Control-Allow-Headers':'content-type,authorization,x-gravity-pilot-token','Access-Control-Allow-Methods':'GET,POST,OPTIONS','Cache-Control':'no-store'}});
   const path=new URL(request.url).pathname.replace(/^\/pilot-room\/api\/?/,'');
   try{
     if(request.method==='POST'&&path==='join'){
