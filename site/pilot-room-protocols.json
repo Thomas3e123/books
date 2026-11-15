@@ -1,5 +1,5 @@
 {
-  "version": "1.1",
+  "version": "1.2",
   "title": "Gravity Tool and Process Test Protocols",
   "instructions": "Use fictional restaurant data. For every case, record Pass, Fail, Blocked, or Not tested. If the expected result is unclear, mark Blocked or Not tested and describe what needs clarification. Do not enter private employee, guest, payroll, payment, or exact financial records. For tool names in the readiness catalog, first check whether the tool is currently available in Gravity Assist. If not, mark Blocked and stop; do not assume a feature or invent a route. Analytics and conversion measurement checks require manager access to the live analytics account and production browser diagnostics.",
   "suites": [
@@ -1095,30 +1095,37 @@
       "purpose": "Verify whether production analytics tags, consent behavior, and the key conversion actions are actually configured. This requires a Gravity manager or someone with access to GA4/Tag Assistant; a public tester alone cannot confirm event receipt.",
       "cases": [
         [
-          "ANALYTICS-READINESS-01",
-          "Check whether it is available",
-          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
-          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
+          "ANA-01",
+          "Confirm a vendor actually loads",
+          "Open the production home page and one conversion page. Use Google Tag Assistant or the browser Network panel to identify whether GA4, Google Tag Manager, or Netlify Analytics actually loads. Record the vendor and property/container name without copying secrets.",
+          "Pass only when the expected production vendor is visibly connected and receives the visit. A policy mention, code comment, CTA attribute, or network request to a library by itself is not proof of reporting."
         ],
         [
-          "ANALYTICS-READINESS-02",
-          "Read the first-use instructions",
-          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
-          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
+          "ANA-02",
+          "Check the consent choice",
+          "If a consent layer is present, test Reject/necessary-only, then Accept/analytics. Use the Network panel to compare analytics requests. If there is no consent layer, record that as a gap for policy/legal review rather than assuming consent behavior.",
+          "Requests follow the published consent choice. No analytics identifier or event is stored/sent before permitted consent where required. The choice is clear and can be changed."
         ],
         [
-          "ANALYTICS-READINESS-03",
-          "Complete one fictional task",
-          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
-          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
+          "ANA-03",
+          "Verify each important conversion",
+          "With a safe test account or sandbox only, follow the primary visitor actions: pilot enrollment, book/sample registration, download or reader access, and any enabled purchase/donation flow. Inspect GA4 DebugView or the equivalent event receiver after each completed step.",
+          "Each completed action produces one named event at the actual success point. Button clicks, failed submits, and page views are not counted as completed conversions."
         ],
         [
-          "ANALYTICS-READINESS-04",
-          "Check save, export, and recovery",
-          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
-          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
+          "ANA-04",
+          "Check event details and duplicates",
+          "Review the received event names and parameters for one path on desktop and phone. Reload once, use browser Back/Forward, and check for repeat submissions. Confirm that event data does not contain names, email addresses, payment data, passwords, or exact private restaurant figures.",
+          "Events use consistent names, avoid personal data, and do not duplicate from one completed action. Record the event name and non-sensitive parameter names only."
+        ],
+        [
+          "ANA-05",
+          "Separate production from preview traffic",
+          "Repeat one safe path on the production site and, if available, a deploy preview. Check which property receives each visit and confirm that internal test traffic can be identified or excluded from product decision reports.",
+          "Production events reach the production property once. Preview/internal testing is clearly separated or excluded; testers’ activity is not mistaken for customer behavior."
         ]
-      ]
+      ],
+      "setup": "This is a manager-only verification. You need access to the live Gravity site, a browser Network panel or Google Tag Assistant, and the GA4 property/DebugView. Do not submit a real order, donation, or personal details. If the vendor/property or consent setting is unavailable, mark the relevant case Blocked; a page view alone does not prove measurement is working."
     },
     {
       "id": "pilot-recruitment",
