@@ -1,34 +1,37 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-19",
-  "note": "Core-feature parity evidence, not publication approval or complete website-shell parity. Every listed hash and build run is independently verified.",
+  "updated_at": "2026-11-15",
+  "note": "web_sha256 records the last Windows-tested source revision. A current Windows parity claim requires the current_web_sha256 to match after rebuilding and retesting the candidate.",
   "components": [
     {
       "web_source": "site/assets/js/gravity-shift-lab.js",
       "web_sha256": "52d6b37c3ccb086fd3ad96ddf1922d65d609fae7a7ad1b6cc1cb6210b036520d",
-      "windows_status": "verified",
+      "windows_status": "needs_sync_and_retest",
       "windows_build_sha": "3f616df565674c5ebe6804adde29365aad295c6c",
       "windows_test_evidence": "https://github.com/Thomas3e123/books/actions/runs/39213278484",
       "parity_scope": "scheduling-business-logic",
-      "notes": "Tested synced Windows candidate; physical customer-device QA pending."
+      "notes": "Tested synced Windows candidate; physical customer-device QA pending. Current website source differs from the source used by the recorded Windows build; rebuild and retest this Windows candidate before claiming parity.",
+      "current_web_sha256": "80820855724efcf86ba343d5359b2bbe2f64b7e3d6250be4fd099bd1c2f1062d"
     },
     {
       "web_source": "site/assets/js/gravity-shift-first-schedule-tour-v1.js",
       "web_sha256": "08ab14e89d7e67e17bb6b33e7ee874626f99a06b741c05924d5a5a92e172c76f",
-      "windows_status": "verified",
+      "windows_status": "needs_sync_and_retest",
       "windows_build_sha": "3f616df565674c5ebe6804adde29365aad295c6c",
       "windows_test_evidence": "https://github.com/Thomas3e123/books/actions/runs/39213278484",
       "parity_scope": "first-schedule-walkthrough",
-      "notes": "Tested synced Windows candidate; physical customer-device QA pending."
+      "notes": "Tested synced Windows candidate; physical customer-device QA pending. Current website source differs from the source used by the recorded Windows build; rebuild and retest this Windows candidate before claiming parity.",
+      "current_web_sha256": "d788100e3173fca4a710313b63a432c0c8d05e811556330683c3b33d3e437400"
     },
     {
       "web_source": "site/gravity-work-study-lab.html",
       "web_sha256": "ac50e1413f4e3150fac863e15291d56393df3cf17ef7b733d1d2a4d63ecd410d",
-      "windows_status": "verified_core",
+      "windows_status": "needs_sync_and_retest",
       "windows_build_sha": "9b0cbd99c8b3f6f27c1ed5f7d28735eb3e7fc3c8",
       "windows_test_evidence": "https://github.com/Thomas3e123/books/actions/runs/39253896178",
       "parity_scope": "shared-expert-engine-and-guarded-bootstrap",
-      "notes": "59 website expert scripts included; Guided guard/entry order, Cedar HTTPS audio and evidence persistence tested. Website page shell and Windows UI differ. Physical customer-device QA pending. October 19 page-shell change adds preview installer download links only; no changes to the shared expert scripts. Preview copy improved without changes to runtime features or expert source. October 19 manuals link added to public page; no expert-engine changes."
+      "notes": "59 website expert scripts included; Guided guard/entry order, Cedar HTTPS audio and evidence persistence tested. Website page shell and Windows UI differ. Physical customer-device QA pending. October 19 page-shell change adds preview installer download links only; no changes to the shared expert scripts. Preview copy improved without changes to runtime features or expert source. October 19 manuals link added to public page; no expert-engine changes. Current website source differs from the source used by the recorded Windows build; rebuild and retest this Windows candidate before claiming parity.",
+      "current_web_sha256": "4239c70036501c0a918550356ed763542e174decf0084462c809d10f4609b6d4"
     }
   ]
 }

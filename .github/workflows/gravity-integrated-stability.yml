@@ -90,3 +90,5 @@ jobs:
           assert.match(home, /assets\/css\/styles\.css\?v=[a-f0-9]{16}/);
           console.log('Four final-output asset version checks passed.');
           NODE
+      - name: Check every internal link in final production output
+        run: GRAVITY_AUDIT_DIR=build/gravity-production node scripts/audit-gravity-launch-links.cjs --strict

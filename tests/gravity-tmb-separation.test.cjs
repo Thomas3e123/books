@@ -67,10 +67,12 @@ test('New Inventory Windows builds reject publisher-site links in packaged app H
  assert.doesNotMatch(manualGenerator,/author='Thomas Monroe Books'/);
 });
 
-test('Windows downloads disclose that old installers are legacy and direct normal users to Gravity Assist',()=>{
+test('Windows page removes stale October downloads and directs ordinary work to Gravity Assist',()=>{
  const html=read('site/windows-programs.html');
  assert.ok(html.includes('Windows download advisory — November 2026'));
- assert.ok(html.includes('not corrected production releases'));
+ assert.ok(html.includes('Older October Windows downloads have been removed from this page'));
+ assert.ok(html.includes('current November previews below are optional unsigned test builds'));
+ assert.ok(!html.includes('releases/download/windows-beta-2026-10-13/'));
  assert.ok(html.includes('href="/gravity-assist"'));
  assert.ok(html.includes('https://gravityleadershipsystem.com/windows-programs'));
 });
