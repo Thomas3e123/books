@@ -1,7 +1,7 @@
 {
-  "version": "1.2",
+  "version": "1.3",
   "title": "Gravity Tool and Process Test Protocols",
-  "instructions": "Use fictional restaurant data. For every case, record Pass, Fail, Blocked, or Not tested. If the expected result is unclear, mark Blocked or Not tested and describe what needs clarification. Do not enter private employee, guest, payroll, payment, or exact financial records. For tool names in the readiness catalog, first check whether the tool is currently available in Gravity Assist. If not, mark Blocked and stop; do not assume a feature or invent a route. Analytics and conversion measurement checks require manager access to the live analytics account and production browser diagnostics.",
+  "instructions": "This catalog is limited to tools and processes linked from Gravity’s public pages at the time it was prepared. If a listed link no longer opens, record the failing URL and mark that case Blocked. Use fictional restaurant data. For every case, record Pass, Fail, Blocked, Not tested, or Not applicable. If the expected result is unclear, mark Blocked or Not tested and describe what needs clarification. Do not enter private employee, guest, payroll, payment, or exact financial records. Analytics and conversion checks require a manager with access to the live analytics account and production diagnostics.",
   "suites": [
     {
       "id": "site-navigation",
@@ -433,74 +433,85 @@
       ]
     },
     {
-      "id": "forms-docs",
-      "title": "Forms Personalizer and Document Studio",
-      "url": "/gravity-assist",
-      "purpose": "Test guided document creation, required fields, preview, editable outputs, and official-form boundaries.",
-      "cases": [
-        [
-          "DOC-01",
-          "Complete one guided builder",
-          "Choose a sample builder, enter fictional values, save, and continue to the next section.",
-          "Progress is clear; saved answers remain after moving between sections."
-        ],
-        [
-          "DOC-02",
-          "Required and optional fields",
-          "Leave one required field blank and skip one optional field.",
-          "The missing required item is named. Optional fields can be skipped without blocking completion."
-        ],
-        [
-          "DOC-03",
-          "Preview and output",
-          "Review the full preview, then download or print the generated document if offered.",
-          "The preview matches the entered data and the exported document is readable and complete."
-        ],
-        [
-          "DOC-04",
-          "Edit and restart",
-          "Return to an earlier section, change one answer, and start a new document.",
-          "The revised answer appears in the preview. Starting over does not mix the prior sample into the new file."
-        ],
-        [
-          "DOC-05",
-          "Official forms and source links",
-          "Follow any links for official legal or government forms and inspect their destination.",
-          "Official forms remain linked to their issuing agency and are not misrepresented as Gravity-created legal forms."
-        ]
-      ]
-    },
-    {
       "id": "quick-qr",
       "title": "Quick Tools and QR Code Maker",
-      "url": "/qr-code-generator",
-      "purpose": "Test quick calculators and scannable links from creation through phone use.",
+      "url": "/gravity-quick-tools",
+      "purpose": "Test the twelve quick utilities currently listed from Gravity Assist using simple fictional inputs; never use live payroll, tips, food-safety decisions, or private restaurant records.",
       "cases": [
         [
-          "QR-01",
-          "Create a QR code",
-          "Generate a QR for a harmless public Gravity page and download the result.",
-          "The code downloads in the offered format and encodes the exact intended URL."
+          "QCK-01",
+          "Recipe Scaler",
+          "Enter original yield 4, new yield 8, and one ingredient line “1 lb cheese”. Select Scale recipe.",
+          "The scaled yield is 8 and the ingredient quantity doubles to 2 lb; item and unit stay intact."
         ],
         [
-          "QR-02",
-          "Scan on a phone",
-          "Scan the downloaded code on a phone camera and follow the destination.",
-          "The code scans at normal print size and opens the intended page without changing domains unexpectedly."
+          "QCK-02",
+          "Label Maker",
+          "Enter fictional item “Pilot Test Sauce”, a prepared/opened time, an arbitrary sample use-by date, and initials “PT”. Use Print.",
+          "The preview/print contains the entered label fields. The tool does not present the entered date as an approved safety limit."
         ],
         [
-          "QR-03",
-          "Input validation",
-          "Try a blank destination, malformed URL, and a valid URL.",
-          "The tool explains invalid entries and does not silently create a misleading code."
+          "QCK-03",
+          "Unit Conversion",
+          "Choose a listed conversion that converts 1 US gallon to quarts and enter 1.",
+          "The result is 4 quarts, with the selected units shown clearly."
         ],
         [
-          "QR-04",
-          "Print and readability",
-          "Place the code on a sample page and test print/scan at its intended size.",
-          "The printed code remains readable and has a plain-text destination or label where appropriate."
+          "QCK-04",
+          "Shift Duration",
+          "Enter clock-in 10:00 AM, clock-out 6:30 PM, and an unpaid break of 30 minutes.",
+          "The result is 8.00 paid hours (or an equivalent clear display)."
+        ],
+        [
+          "QCK-05",
+          "Time to Decimal Hours",
+          "Enter 7 hours and 30 minutes.",
+          "The result is 7.50 decimal hours."
+        ],
+        [
+          "QCK-06",
+          "Tip Splitter",
+          "Enter a fictional $120 pool and three lines: Ava, 1 point; Ben, 1 point; Chris, 2 points.",
+          "The split is $30, $30, and $60 respectively; the shares total $120."
+        ],
+        [
+          "QCK-07",
+          "Cash Drawer Counter",
+          "Enter three $10 bills, two $5 bills, five $1 bills, and $1.00 in coins. Leave other denominations at zero.",
+          "The total is $46.00 and changing a denomination updates the total."
+        ],
+        [
+          "QCK-08",
+          "Case / Each Converter",
+          "Enter 3 cases, 12 each per case, and 4 loose each.",
+          "The result is 40 each."
+        ],
+        [
+          "QCK-09",
+          "Use-By Date Helper",
+          "Enter a fictional start date of November 1, 2026 and an interval of 7 days. Compare the displayed date with adding seven calendar days.",
+          "The date calculation is consistent and easy to read. The page’s warning makes clear the tool does not set an approved food-safety interval."
+        ],
+        [
+          "QCK-10",
+          "Percent Change",
+          "Calculate old value 80 to new value 100, then old value 100 to new value 80.",
+          "The results show a 25% increase and a 20% decrease with direction clear."
+        ],
+        [
+          "QCK-11",
+          "Section Rotation Maker",
+          "Enter three fictional servers/stations, choose a starting position, and build a rotation.",
+          "Every entered name/station appears once in a clear rotation; no entry is silently dropped or duplicated."
+        ],
+        [
+          "QCK-12",
+          "Gravity QR Code Maker",
+          "Create a QR code for https://gravityleadershipsystem.com/start-here, download it, and scan it with a phone.",
+          "The code is readable and opens the exact intended Gravity URL."
         ]
-      ]
+      ],
+      "setup": "Use the sample values in each case. These checks verify arithmetic and output behavior; the Use-By Date Helper does not determine safe storage time. Use your approved recipe, food-safety plan, manufacturer instructions, and local requirements for real operations."
     },
     {
       "id": "books-reader",
@@ -737,358 +748,6 @@
       ]
     },
     {
-      "id": "people-planner",
-      "title": "People Planner",
-      "url": "/gravity-assist",
-      "purpose": "Check whether People Planner is available and whether a manager can understand its intended people-planning workflow without entering employee personal data.",
-      "cases": [
-        [
-          "PEOPLE-PLANNER-01",
-          "Check whether it is available",
-          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
-          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
-        ],
-        [
-          "PEOPLE-PLANNER-02",
-          "Read the first-use instructions",
-          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
-          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
-        ],
-        [
-          "PEOPLE-PLANNER-03",
-          "Complete one fictional task",
-          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
-          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
-        ],
-        [
-          "PEOPLE-PLANNER-04",
-          "Check save, export, and recovery",
-          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
-          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
-        ]
-      ]
-    },
-    {
-      "id": "service-shaper",
-      "title": "Service Shaper",
-      "url": "/gravity-assist",
-      "purpose": "Check availability and the visible service-design workflow using a fictional guest-service example only.",
-      "cases": [
-        [
-          "SERVICE-SHAPER-01",
-          "Check whether it is available",
-          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
-          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
-        ],
-        [
-          "SERVICE-SHAPER-02",
-          "Read the first-use instructions",
-          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
-          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
-        ],
-        [
-          "SERVICE-SHAPER-03",
-          "Complete one fictional task",
-          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
-          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
-        ],
-        [
-          "SERVICE-SHAPER-04",
-          "Check save, export, and recovery",
-          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
-          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
-        ]
-      ]
-    },
-    {
-      "id": "maintenance-center",
-      "title": "Maintenance Center",
-      "url": "/gravity-assist",
-      "purpose": "Check availability and visible maintenance-reporting workflow with a fictional piece of equipment; do not enter real vendor or safety incident details.",
-      "cases": [
-        [
-          "MAINTENANCE-CENTER-01",
-          "Check whether it is available",
-          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
-          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
-        ],
-        [
-          "MAINTENANCE-CENTER-02",
-          "Read the first-use instructions",
-          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
-          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
-        ],
-        [
-          "MAINTENANCE-CENTER-03",
-          "Complete one fictional task",
-          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
-          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
-        ],
-        [
-          "MAINTENANCE-CENTER-04",
-          "Check save, export, and recovery",
-          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
-          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
-        ]
-      ]
-    },
-    {
-      "id": "guest-recovery",
-      "title": "Guest Recovery & Retention",
-      "url": "/gravity-assist",
-      "purpose": "Check availability and the visible guest-recovery workflow with a fictional guest and issue; never enter real guest information.",
-      "cases": [
-        [
-          "GUEST-RECOVERY-01",
-          "Check whether it is available",
-          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
-          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
-        ],
-        [
-          "GUEST-RECOVERY-02",
-          "Read the first-use instructions",
-          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
-          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
-        ],
-        [
-          "GUEST-RECOVERY-03",
-          "Complete one fictional task",
-          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
-          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
-        ],
-        [
-          "GUEST-RECOVERY-04",
-          "Check save, export, and recovery",
-          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
-          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
-        ]
-      ]
-    },
-    {
-      "id": "purchase-vendor",
-      "title": "Purchase & Vendor Insights",
-      "url": "/gravity-assist",
-      "purpose": "Check availability and visible purchase/vendor workflow using fictional items and prices only.",
-      "cases": [
-        [
-          "PURCHASE-VENDOR-01",
-          "Check whether it is available",
-          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
-          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
-        ],
-        [
-          "PURCHASE-VENDOR-02",
-          "Read the first-use instructions",
-          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
-          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
-        ],
-        [
-          "PURCHASE-VENDOR-03",
-          "Complete one fictional task",
-          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
-          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
-        ],
-        [
-          "PURCHASE-VENDOR-04",
-          "Check save, export, and recovery",
-          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
-          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
-        ]
-      ]
-    },
-    {
-      "id": "safety-inspection",
-      "title": "Safety & Inspection",
-      "url": "/gravity-assist",
-      "purpose": "Check availability and visible inspection workflow with a fictional checklist; do not record an actual safety event as test data.",
-      "cases": [
-        [
-          "SAFETY-INSPECTION-01",
-          "Check whether it is available",
-          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
-          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
-        ],
-        [
-          "SAFETY-INSPECTION-02",
-          "Read the first-use instructions",
-          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
-          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
-        ],
-        [
-          "SAFETY-INSPECTION-03",
-          "Complete one fictional task",
-          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
-          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
-        ],
-        [
-          "SAFETY-INSPECTION-04",
-          "Check save, export, and recovery",
-          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
-          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
-        ]
-      ]
-    },
-    {
-      "id": "growth-training",
-      "title": "Growth Training Center",
-      "url": "/gravity-assist",
-      "purpose": "Check availability and visible training workflow using fictional roles or sample material; do not enter real employee records.",
-      "cases": [
-        [
-          "GROWTH-TRAINING-01",
-          "Check whether it is available",
-          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
-          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
-        ],
-        [
-          "GROWTH-TRAINING-02",
-          "Read the first-use instructions",
-          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
-          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
-        ],
-        [
-          "GROWTH-TRAINING-03",
-          "Complete one fictional task",
-          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
-          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
-        ],
-        [
-          "GROWTH-TRAINING-04",
-          "Check save, export, and recovery",
-          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
-          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
-        ]
-      ]
-    },
-    {
-      "id": "menu-control",
-      "title": "Menu Creation & Control",
-      "url": "/gravity-assist",
-      "purpose": "Check availability and visible menu workflow using fictional item names and sample prices only.",
-      "cases": [
-        [
-          "MENU-CONTROL-01",
-          "Check whether it is available",
-          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
-          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
-        ],
-        [
-          "MENU-CONTROL-02",
-          "Read the first-use instructions",
-          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
-          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
-        ],
-        [
-          "MENU-CONTROL-03",
-          "Complete one fictional task",
-          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
-          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
-        ],
-        [
-          "MENU-CONTROL-04",
-          "Check save, export, and recovery",
-          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
-          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
-        ]
-      ]
-    },
-    {
-      "id": "sales-forecaster",
-      "title": "Sales Forecaster",
-      "url": "/gravity-assist",
-      "purpose": "Check availability and visible forecasting workflow using invented example inputs only.",
-      "cases": [
-        [
-          "SALES-FORECASTER-01",
-          "Check whether it is available",
-          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
-          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
-        ],
-        [
-          "SALES-FORECASTER-02",
-          "Read the first-use instructions",
-          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
-          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
-        ],
-        [
-          "SALES-FORECASTER-03",
-          "Complete one fictional task",
-          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
-          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
-        ],
-        [
-          "SALES-FORECASTER-04",
-          "Check save, export, and recovery",
-          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
-          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
-        ]
-      ]
-    },
-    {
-      "id": "risk-continuity",
-      "title": "Risk & Continuity",
-      "url": "/gravity-assist",
-      "purpose": "Check availability and visible risk or continuity workflow using a fictional scenario; do not enter sensitive security or emergency details.",
-      "cases": [
-        [
-          "RISK-CONTINUITY-01",
-          "Check whether it is available",
-          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
-          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
-        ],
-        [
-          "RISK-CONTINUITY-02",
-          "Read the first-use instructions",
-          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
-          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
-        ],
-        [
-          "RISK-CONTINUITY-03",
-          "Complete one fictional task",
-          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
-          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
-        ],
-        [
-          "RISK-CONTINUITY-04",
-          "Check save, export, and recovery",
-          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
-          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
-        ]
-      ]
-    },
-    {
-      "id": "quality-assurance",
-      "title": "Quality Assurance",
-      "url": "/gravity-assist",
-      "purpose": "Check availability and visible quality review workflow using fictional observations only.",
-      "cases": [
-        [
-          "QUALITY-ASSURANCE-01",
-          "Check whether it is available",
-          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
-          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
-        ],
-        [
-          "QUALITY-ASSURANCE-02",
-          "Read the first-use instructions",
-          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
-          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
-        ],
-        [
-          "QUALITY-ASSURANCE-03",
-          "Complete one fictional task",
-          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
-          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
-        ],
-        [
-          "QUALITY-ASSURANCE-04",
-          "Check save, export, and recovery",
-          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
-          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
-        ]
-      ]
-    },
-    {
       "id": "analytics-readiness",
       "title": "Analytics and conversion measurement",
       "url": "/gravity-assist",
@@ -1220,6 +879,158 @@
           "Record the outcome stage",
           "Manager records invitation sent, room visit, enrollment, plan saved, first test/review, and completed pilot as separate stages.",
           "The record does not infer later stages from earlier clicks, and there is a date and source for each observed stage."
+        ]
+      ]
+    },
+    {
+      "id": "forms-personalizer",
+      "title": "Forms Personalizer",
+      "url": "/gravity-forms-personalizer",
+      "purpose": "Test the live path for customizing an existing Gravity form with fictional restaurant details.",
+      "cases": [
+        [
+          "FPR-01",
+          "Open a Gravity master",
+          "Open Forms Personalizer from Gravity Assist and choose one available Gravity form or approved sample.",
+          "The selected form is identified and the tool explains what can be changed."
+        ],
+        [
+          "FPR-02",
+          "Personalize restaurant details",
+          "Enter a fictional restaurant name, location, and manager role. Change one allowed field or instruction.",
+          "The preview shows only the intended changes; the source master remains identifiable and is not silently overwritten."
+        ],
+        [
+          "FPR-03",
+          "Review and produce the form",
+          "Review every page, then use the available print, save, or download action.",
+          "The output is complete, readable, and contains the entered sample details without missing sections."
+        ],
+        [
+          "FPR-04",
+          "Change, reset, and repeat",
+          "Return to the editor, revise one answer, then start a new sample if offered.",
+          "The changed output reflects the revision, and a new sample does not carry forward unintended information."
+        ]
+      ]
+    },
+    {
+      "id": "document-studio",
+      "title": "Document Studio",
+      "url": "/gravity-document-studio",
+      "purpose": "Test the live guided builder for creating a new restaurant form or document using fictional data.",
+      "cases": [
+        [
+          "DST-01",
+          "Start a new document",
+          "Open Document Studio from Gravity Assist and choose a document type offered by the page.",
+          "The selected document type and purpose are clear before entering information."
+        ],
+        [
+          "DST-02",
+          "Complete and skip fields",
+          "Enter fictional restaurant details, leave one required field blank, and skip one optional field.",
+          "The tool identifies a missing required item; optional information can be skipped where the page allows it."
+        ],
+        [
+          "DST-03",
+          "Preview and produce output",
+          "Review the completed document and use the available print, save, or download action.",
+          "The result matches the entries, is readable, and includes all expected sections."
+        ],
+        [
+          "DST-04",
+          "Revise and start clean",
+          "Edit an earlier answer and inspect the output; then use the offered new-document/reset action.",
+          "The preview updates and the new document does not contain data from the prior sample."
+        ],
+        [
+          "DST-05",
+          "Check source and legal links",
+          "If the document links to an official or legal source, follow the link and confirm its publisher.",
+          "Official source materials remain clearly identified and are not presented as Gravity-created legal advice."
+        ]
+      ]
+    },
+    {
+      "id": "handbook-creator",
+      "title": "Employee Handbook Creator",
+      "url": "/handbook-creator/",
+      "purpose": "Test the accessible web handbook builder from Gravity Assist with fictional company information.",
+      "cases": [
+        [
+          "HBC-01",
+          "Open and check access",
+          "Open Handbook Creator from Gravity Assist, wait for its access check, then create a new sample handbook.",
+          "The access state resolves, a new project can be started, and the page explains where projects are saved."
+        ],
+        [
+          "HBC-02",
+          "Choose interview level",
+          "Select Basic, Extended, and Full in turn. Check that the displayed question set changes and previously entered sample answers remain.",
+          "The level and topic choices behave as the on-screen guide describes without deleting saved answers."
+        ],
+        [
+          "HBC-03",
+          "Answer, skip, and review",
+          "Answer one fictional policy question, postpone one, skip one altogether, then open Review & postponed questions.",
+          "Answers and skip choices are distinguishable and can be reviewed or restored as the guide explains."
+        ],
+        [
+          "HBC-04",
+          "Choose and preview a design",
+          "Set a fictional company name, choose a design, and open Preview only.",
+          "The preview reflects the selected design and sample company details without starting a download."
+        ],
+        [
+          "HBC-05",
+          "Save and restore a project backup",
+          "Save a project backup, open it as a restored copy, and verify the original sample remains.",
+          "The backup reopens as a separate project with its sample answers and design; the original is not overwritten."
+        ],
+        [
+          "HBC-06",
+          "Download PDF and editable Word",
+          "Use Preview & download and save both offered formats. Open each file.",
+          "Both files open, contain the sample handbook, and are clearly distinguishable from the editable project backup."
+        ],
+        [
+          "HBC-07",
+          "Repeat on a phone",
+          "Open the page on a phone, navigate a few questions, and locate the backup and download controls.",
+          "The controls remain usable on a small screen; the page makes clear that projects are stored on that device/browser."
+        ]
+      ]
+    },
+    {
+      "id": "ask-gravity",
+      "title": "Ask Gravity Guide",
+      "url": "/gravity-assist",
+      "purpose": "Check whether Ask Gravity helps visitors find published material and keeps answers grounded in the current Gravity site.",
+      "cases": [
+        [
+          "ASK-01",
+          "Open the guide",
+          "Open Ask Gravity from a live Gravity page and ask a simple question about a published resource.",
+          "The guide opens, accepts the question, and provides a clear response or route."
+        ],
+        [
+          "ASK-02",
+          "Check linked answers",
+          "Follow one answer link, then return and try a question whose answer is not clearly present on the page.",
+          "Links open the named resource; unsupported answers are identified as unknown or directed to help rather than invented."
+        ],
+        [
+          "ASK-03",
+          "Test phone and keyboard use",
+          "Repeat a short question on a phone and navigate the guide with keyboard controls.",
+          "The text, close/reopen controls, and input are usable without losing the current page."
+        ],
+        [
+          "ASK-04",
+          "Protect private information",
+          "Use only a public, non-sensitive question. Review the privacy notice and do not enter employee, guest, payroll, payment, or confidential restaurant details.",
+          "The guide’s stated data handling is understandable and no private test information is required."
         ]
       ]
     }
