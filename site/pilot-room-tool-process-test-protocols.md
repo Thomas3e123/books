@@ -1,16 +1,16 @@
 # Gravity Tool and Process Test Protocols
 
-Version 1.2 · 33 guides · 159 individual checks
+Version 1.3 · 25 guides · 138 individual checks
 
-Use fictional restaurant data. For every case, record Pass, Fail, Blocked, or Not tested. If the expected result is unclear, mark Blocked or Not tested and describe what needs clarification. Do not enter private employee, guest, payroll, payment, or exact financial records. For tool names in the readiness catalog, first check whether the tool is currently available in Gravity Assist. If not, mark Blocked and stop; do not assume a feature or invent a route. Analytics and conversion measurement checks require manager access to the live analytics account and production browser diagnostics.
+This catalog is limited to tools and processes linked from Gravity’s public pages at the time it was prepared. If a listed link no longer opens, record the failing URL and mark that case Blocked. Use fictional restaurant data. For every case, record Pass, Fail, Blocked, Not tested, or Not applicable. If the expected result is unclear, mark Blocked or Not tested and describe what needs clarification. Do not enter private employee, guest, payroll, payment, or exact financial records. Analytics and conversion checks require a manager with access to the live analytics account and production diagnostics.
 
 ## How to use these guides
 
-1. Choose one guide that matches the tool or process you are working on.
-2. Read its purpose and sample setup. Open the listed page or use Gravity Assist to find the tool.
-3. Follow each case in order. Record Pass only when the expected result actually occurs; use Fail, Blocked, Not tested, or Not applicable honestly.
-4. Use fictional data unless a restaurant pilot explicitly asks you to compare a measure in your own records. Keep exact figures, employee data, guest details, payment information, and passwords out of these reports.
-5. If a tool is not available, mark Blocked and stop. Do not invent features or routes.
+1. Choose one guide for a tool or process linked from Gravity’s current public pages.
+2. Read its purpose and sample setup. Open the listed page or follow the link from Gravity Assist.
+3. Follow each case. Record Pass only when the expected result actually occurs; use Fail, Blocked, Not tested, or Not applicable honestly.
+4. Use fictional data. Keep exact figures, employee data, guest details, payment information, and passwords out of these reports.
+5. If a listed public link fails, record the URL and the action that failed. Do not infer that an unlisted tool is available.
 
 ## Test guides
 
@@ -297,51 +297,59 @@ Use fictional restaurant data. For every case, record Pass, Fail, Blocked, or No
 **Do this:** Save, reopen, and print/export the sample recipe.
 **Expected:** The saved version remains intact and print output shows ingredients, quantities, units, and yield.
 
-### Forms Personalizer and Document Studio
-
-**Purpose:** Test guided document creation, required fields, preview, editable outputs, and official-form boundaries.
-**Starting page:** `/gravity-assist`
-
-#### DOC-01 — Complete one guided builder
-**Do this:** Choose a sample builder, enter fictional values, save, and continue to the next section.
-**Expected:** Progress is clear; saved answers remain after moving between sections.
-
-#### DOC-02 — Required and optional fields
-**Do this:** Leave one required field blank and skip one optional field.
-**Expected:** The missing required item is named. Optional fields can be skipped without blocking completion.
-
-#### DOC-03 — Preview and output
-**Do this:** Review the full preview, then download or print the generated document if offered.
-**Expected:** The preview matches the entered data and the exported document is readable and complete.
-
-#### DOC-04 — Edit and restart
-**Do this:** Return to an earlier section, change one answer, and start a new document.
-**Expected:** The revised answer appears in the preview. Starting over does not mix the prior sample into the new file.
-
-#### DOC-05 — Official forms and source links
-**Do this:** Follow any links for official legal or government forms and inspect their destination.
-**Expected:** Official forms remain linked to their issuing agency and are not misrepresented as Gravity-created legal forms.
-
 ### Quick Tools and QR Code Maker
 
-**Purpose:** Test quick calculators and scannable links from creation through phone use.
-**Starting page:** `/qr-code-generator`
+**Purpose:** Test the twelve quick utilities currently listed from Gravity Assist using simple fictional inputs; never use live payroll, tips, food-safety decisions, or private restaurant records.
+**Starting page:** `/gravity-quick-tools`
+**Sample setup:** Use the sample values in each case. These checks verify arithmetic and output behavior; the Use-By Date Helper does not determine safe storage time. Use your approved recipe, food-safety plan, manufacturer instructions, and local requirements for real operations.
 
-#### QR-01 — Create a QR code
-**Do this:** Generate a QR for a harmless public Gravity page and download the result.
-**Expected:** The code downloads in the offered format and encodes the exact intended URL.
+#### QCK-01 — Recipe Scaler
+**Do this:** Enter original yield 4, new yield 8, and one ingredient line “1 lb cheese”. Select Scale recipe.
+**Expected:** The scaled yield is 8 and the ingredient quantity doubles to 2 lb; item and unit stay intact.
 
-#### QR-02 — Scan on a phone
-**Do this:** Scan the downloaded code on a phone camera and follow the destination.
-**Expected:** The code scans at normal print size and opens the intended page without changing domains unexpectedly.
+#### QCK-02 — Label Maker
+**Do this:** Enter fictional item “Pilot Test Sauce”, a prepared/opened time, an arbitrary sample use-by date, and initials “PT”. Use Print.
+**Expected:** The preview/print contains the entered label fields. The tool does not present the entered date as an approved safety limit.
 
-#### QR-03 — Input validation
-**Do this:** Try a blank destination, malformed URL, and a valid URL.
-**Expected:** The tool explains invalid entries and does not silently create a misleading code.
+#### QCK-03 — Unit Conversion
+**Do this:** Choose a listed conversion that converts 1 US gallon to quarts and enter 1.
+**Expected:** The result is 4 quarts, with the selected units shown clearly.
 
-#### QR-04 — Print and readability
-**Do this:** Place the code on a sample page and test print/scan at its intended size.
-**Expected:** The printed code remains readable and has a plain-text destination or label where appropriate.
+#### QCK-04 — Shift Duration
+**Do this:** Enter clock-in 10:00 AM, clock-out 6:30 PM, and an unpaid break of 30 minutes.
+**Expected:** The result is 8.00 paid hours (or an equivalent clear display).
+
+#### QCK-05 — Time to Decimal Hours
+**Do this:** Enter 7 hours and 30 minutes.
+**Expected:** The result is 7.50 decimal hours.
+
+#### QCK-06 — Tip Splitter
+**Do this:** Enter a fictional $120 pool and three lines: Ava, 1 point; Ben, 1 point; Chris, 2 points.
+**Expected:** The split is $30, $30, and $60 respectively; the shares total $120.
+
+#### QCK-07 — Cash Drawer Counter
+**Do this:** Enter three $10 bills, two $5 bills, five $1 bills, and $1.00 in coins. Leave other denominations at zero.
+**Expected:** The total is $46.00 and changing a denomination updates the total.
+
+#### QCK-08 — Case / Each Converter
+**Do this:** Enter 3 cases, 12 each per case, and 4 loose each.
+**Expected:** The result is 40 each.
+
+#### QCK-09 — Use-By Date Helper
+**Do this:** Enter a fictional start date of November 1, 2026 and an interval of 7 days. Compare the displayed date with adding seven calendar days.
+**Expected:** The date calculation is consistent and easy to read. The page’s warning makes clear the tool does not set an approved food-safety interval.
+
+#### QCK-10 — Percent Change
+**Do this:** Calculate old value 80 to new value 100, then old value 100 to new value 80.
+**Expected:** The results show a 25% increase and a 20% decrease with direction clear.
+
+#### QCK-11 — Section Rotation Maker
+**Do this:** Enter three fictional servers/stations, choose a starting position, and build a rotation.
+**Expected:** Every entered name/station appears once in a clear rotation; no entry is silently dropped or duplicated.
+
+#### QCK-12 — Gravity QR Code Maker
+**Do this:** Create a QR code for https://gravityleadershipsystem.com/start-here, download it, and scan it with a phone.
+**Expected:** The code is readable and opens the exact intended Gravity URL.
 
 ### Books, registration, downloads, and Reader
 
@@ -497,237 +505,6 @@ Use fictional restaurant data. For every case, record Pass, Fail, Blocked, or No
 **Do this:** Mark a sample material contribution and record the reward decision in manager view.
 **Expected:** The reward record is attributable to the contribution and cannot be confused with sign-up or praise alone.
 
-### People Planner
-
-**Purpose:** Check whether People Planner is available and whether a manager can understand its intended people-planning workflow without entering employee personal data.
-**Starting page:** `/gravity-assist`
-
-#### PEOPLE-PLANNER-01 — Check whether it is available
-**Do this:** Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.
-**Expected:** The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device.
-
-#### PEOPLE-PLANNER-02 — Read the first-use instructions
-**Do this:** If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.
-**Expected:** A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap.
-
-#### PEOPLE-PLANNER-03 — Complete one fictional task
-**Do this:** Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.
-**Expected:** The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure.
-
-#### PEOPLE-PLANNER-04 — Check save, export, and recovery
-**Do this:** If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.
-**Expected:** The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action.
-
-### Service Shaper
-
-**Purpose:** Check availability and the visible service-design workflow using a fictional guest-service example only.
-**Starting page:** `/gravity-assist`
-
-#### SERVICE-SHAPER-01 — Check whether it is available
-**Do this:** Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.
-**Expected:** The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device.
-
-#### SERVICE-SHAPER-02 — Read the first-use instructions
-**Do this:** If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.
-**Expected:** A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap.
-
-#### SERVICE-SHAPER-03 — Complete one fictional task
-**Do this:** Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.
-**Expected:** The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure.
-
-#### SERVICE-SHAPER-04 — Check save, export, and recovery
-**Do this:** If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.
-**Expected:** The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action.
-
-### Maintenance Center
-
-**Purpose:** Check availability and visible maintenance-reporting workflow with a fictional piece of equipment; do not enter real vendor or safety incident details.
-**Starting page:** `/gravity-assist`
-
-#### MAINTENANCE-CENTER-01 — Check whether it is available
-**Do this:** Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.
-**Expected:** The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device.
-
-#### MAINTENANCE-CENTER-02 — Read the first-use instructions
-**Do this:** If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.
-**Expected:** A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap.
-
-#### MAINTENANCE-CENTER-03 — Complete one fictional task
-**Do this:** Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.
-**Expected:** The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure.
-
-#### MAINTENANCE-CENTER-04 — Check save, export, and recovery
-**Do this:** If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.
-**Expected:** The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action.
-
-### Guest Recovery & Retention
-
-**Purpose:** Check availability and the visible guest-recovery workflow with a fictional guest and issue; never enter real guest information.
-**Starting page:** `/gravity-assist`
-
-#### GUEST-RECOVERY-01 — Check whether it is available
-**Do this:** Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.
-**Expected:** The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device.
-
-#### GUEST-RECOVERY-02 — Read the first-use instructions
-**Do this:** If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.
-**Expected:** A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap.
-
-#### GUEST-RECOVERY-03 — Complete one fictional task
-**Do this:** Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.
-**Expected:** The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure.
-
-#### GUEST-RECOVERY-04 — Check save, export, and recovery
-**Do this:** If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.
-**Expected:** The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action.
-
-### Purchase & Vendor Insights
-
-**Purpose:** Check availability and visible purchase/vendor workflow using fictional items and prices only.
-**Starting page:** `/gravity-assist`
-
-#### PURCHASE-VENDOR-01 — Check whether it is available
-**Do this:** Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.
-**Expected:** The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device.
-
-#### PURCHASE-VENDOR-02 — Read the first-use instructions
-**Do this:** If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.
-**Expected:** A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap.
-
-#### PURCHASE-VENDOR-03 — Complete one fictional task
-**Do this:** Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.
-**Expected:** The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure.
-
-#### PURCHASE-VENDOR-04 — Check save, export, and recovery
-**Do this:** If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.
-**Expected:** The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action.
-
-### Safety & Inspection
-
-**Purpose:** Check availability and visible inspection workflow with a fictional checklist; do not record an actual safety event as test data.
-**Starting page:** `/gravity-assist`
-
-#### SAFETY-INSPECTION-01 — Check whether it is available
-**Do this:** Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.
-**Expected:** The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device.
-
-#### SAFETY-INSPECTION-02 — Read the first-use instructions
-**Do this:** If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.
-**Expected:** A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap.
-
-#### SAFETY-INSPECTION-03 — Complete one fictional task
-**Do this:** Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.
-**Expected:** The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure.
-
-#### SAFETY-INSPECTION-04 — Check save, export, and recovery
-**Do this:** If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.
-**Expected:** The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action.
-
-### Growth Training Center
-
-**Purpose:** Check availability and visible training workflow using fictional roles or sample material; do not enter real employee records.
-**Starting page:** `/gravity-assist`
-
-#### GROWTH-TRAINING-01 — Check whether it is available
-**Do this:** Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.
-**Expected:** The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device.
-
-#### GROWTH-TRAINING-02 — Read the first-use instructions
-**Do this:** If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.
-**Expected:** A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap.
-
-#### GROWTH-TRAINING-03 — Complete one fictional task
-**Do this:** Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.
-**Expected:** The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure.
-
-#### GROWTH-TRAINING-04 — Check save, export, and recovery
-**Do this:** If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.
-**Expected:** The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action.
-
-### Menu Creation & Control
-
-**Purpose:** Check availability and visible menu workflow using fictional item names and sample prices only.
-**Starting page:** `/gravity-assist`
-
-#### MENU-CONTROL-01 — Check whether it is available
-**Do this:** Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.
-**Expected:** The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device.
-
-#### MENU-CONTROL-02 — Read the first-use instructions
-**Do this:** If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.
-**Expected:** A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap.
-
-#### MENU-CONTROL-03 — Complete one fictional task
-**Do this:** Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.
-**Expected:** The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure.
-
-#### MENU-CONTROL-04 — Check save, export, and recovery
-**Do this:** If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.
-**Expected:** The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action.
-
-### Sales Forecaster
-
-**Purpose:** Check availability and visible forecasting workflow using invented example inputs only.
-**Starting page:** `/gravity-assist`
-
-#### SALES-FORECASTER-01 — Check whether it is available
-**Do this:** Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.
-**Expected:** The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device.
-
-#### SALES-FORECASTER-02 — Read the first-use instructions
-**Do this:** If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.
-**Expected:** A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap.
-
-#### SALES-FORECASTER-03 — Complete one fictional task
-**Do this:** Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.
-**Expected:** The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure.
-
-#### SALES-FORECASTER-04 — Check save, export, and recovery
-**Do this:** If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.
-**Expected:** The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action.
-
-### Risk & Continuity
-
-**Purpose:** Check availability and visible risk or continuity workflow using a fictional scenario; do not enter sensitive security or emergency details.
-**Starting page:** `/gravity-assist`
-
-#### RISK-CONTINUITY-01 — Check whether it is available
-**Do this:** Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.
-**Expected:** The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device.
-
-#### RISK-CONTINUITY-02 — Read the first-use instructions
-**Do this:** If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.
-**Expected:** A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap.
-
-#### RISK-CONTINUITY-03 — Complete one fictional task
-**Do this:** Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.
-**Expected:** The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure.
-
-#### RISK-CONTINUITY-04 — Check save, export, and recovery
-**Do this:** If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.
-**Expected:** The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action.
-
-### Quality Assurance
-
-**Purpose:** Check availability and visible quality review workflow using fictional observations only.
-**Starting page:** `/gravity-assist`
-
-#### QUALITY-ASSURANCE-01 — Check whether it is available
-**Do this:** Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.
-**Expected:** The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device.
-
-#### QUALITY-ASSURANCE-02 — Read the first-use instructions
-**Do this:** If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.
-**Expected:** A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap.
-
-#### QUALITY-ASSURANCE-03 — Complete one fictional task
-**Do this:** Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.
-**Expected:** The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure.
-
-#### QUALITY-ASSURANCE-04 — Check save, export, and recovery
-**Do this:** If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.
-**Expected:** The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action.
-
 ### Analytics and conversion measurement
 
 **Purpose:** Verify whether production analytics tags, consent behavior, and the key conversion actions are actually configured. This requires a Gravity manager or someone with access to GA4/Tag Assistant; a public tester alone cannot confirm event receipt.
@@ -816,3 +593,103 @@ Use fictional restaurant data. For every case, record Pass, Fail, Blocked, or No
 #### CVJ-04 — Record the outcome stage
 **Do this:** Manager records invitation sent, room visit, enrollment, plan saved, first test/review, and completed pilot as separate stages.
 **Expected:** The record does not infer later stages from earlier clicks, and there is a date and source for each observed stage.
+
+### Forms Personalizer
+
+**Purpose:** Test the live path for customizing an existing Gravity form with fictional restaurant details.
+**Starting page:** `/gravity-forms-personalizer`
+
+#### FPR-01 — Open a Gravity master
+**Do this:** Open Forms Personalizer from Gravity Assist and choose one available Gravity form or approved sample.
+**Expected:** The selected form is identified and the tool explains what can be changed.
+
+#### FPR-02 — Personalize restaurant details
+**Do this:** Enter a fictional restaurant name, location, and manager role. Change one allowed field or instruction.
+**Expected:** The preview shows only the intended changes; the source master remains identifiable and is not silently overwritten.
+
+#### FPR-03 — Review and produce the form
+**Do this:** Review every page, then use the available print, save, or download action.
+**Expected:** The output is complete, readable, and contains the entered sample details without missing sections.
+
+#### FPR-04 — Change, reset, and repeat
+**Do this:** Return to the editor, revise one answer, then start a new sample if offered.
+**Expected:** The changed output reflects the revision, and a new sample does not carry forward unintended information.
+
+### Document Studio
+
+**Purpose:** Test the live guided builder for creating a new restaurant form or document using fictional data.
+**Starting page:** `/gravity-document-studio`
+
+#### DST-01 — Start a new document
+**Do this:** Open Document Studio from Gravity Assist and choose a document type offered by the page.
+**Expected:** The selected document type and purpose are clear before entering information.
+
+#### DST-02 — Complete and skip fields
+**Do this:** Enter fictional restaurant details, leave one required field blank, and skip one optional field.
+**Expected:** The tool identifies a missing required item; optional information can be skipped where the page allows it.
+
+#### DST-03 — Preview and produce output
+**Do this:** Review the completed document and use the available print, save, or download action.
+**Expected:** The result matches the entries, is readable, and includes all expected sections.
+
+#### DST-04 — Revise and start clean
+**Do this:** Edit an earlier answer and inspect the output; then use the offered new-document/reset action.
+**Expected:** The preview updates and the new document does not contain data from the prior sample.
+
+#### DST-05 — Check source and legal links
+**Do this:** If the document links to an official or legal source, follow the link and confirm its publisher.
+**Expected:** Official source materials remain clearly identified and are not presented as Gravity-created legal advice.
+
+### Employee Handbook Creator
+
+**Purpose:** Test the accessible web handbook builder from Gravity Assist with fictional company information.
+**Starting page:** `/handbook-creator/`
+
+#### HBC-01 — Open and check access
+**Do this:** Open Handbook Creator from Gravity Assist, wait for its access check, then create a new sample handbook.
+**Expected:** The access state resolves, a new project can be started, and the page explains where projects are saved.
+
+#### HBC-02 — Choose interview level
+**Do this:** Select Basic, Extended, and Full in turn. Check that the displayed question set changes and previously entered sample answers remain.
+**Expected:** The level and topic choices behave as the on-screen guide describes without deleting saved answers.
+
+#### HBC-03 — Answer, skip, and review
+**Do this:** Answer one fictional policy question, postpone one, skip one altogether, then open Review & postponed questions.
+**Expected:** Answers and skip choices are distinguishable and can be reviewed or restored as the guide explains.
+
+#### HBC-04 — Choose and preview a design
+**Do this:** Set a fictional company name, choose a design, and open Preview only.
+**Expected:** The preview reflects the selected design and sample company details without starting a download.
+
+#### HBC-05 — Save and restore a project backup
+**Do this:** Save a project backup, open it as a restored copy, and verify the original sample remains.
+**Expected:** The backup reopens as a separate project with its sample answers and design; the original is not overwritten.
+
+#### HBC-06 — Download PDF and editable Word
+**Do this:** Use Preview & download and save both offered formats. Open each file.
+**Expected:** Both files open, contain the sample handbook, and are clearly distinguishable from the editable project backup.
+
+#### HBC-07 — Repeat on a phone
+**Do this:** Open the page on a phone, navigate a few questions, and locate the backup and download controls.
+**Expected:** The controls remain usable on a small screen; the page makes clear that projects are stored on that device/browser.
+
+### Ask Gravity Guide
+
+**Purpose:** Check whether Ask Gravity helps visitors find published material and keeps answers grounded in the current Gravity site.
+**Starting page:** `/gravity-assist`
+
+#### ASK-01 — Open the guide
+**Do this:** Open Ask Gravity from a live Gravity page and ask a simple question about a published resource.
+**Expected:** The guide opens, accepts the question, and provides a clear response or route.
+
+#### ASK-02 — Check linked answers
+**Do this:** Follow one answer link, then return and try a question whose answer is not clearly present on the page.
+**Expected:** Links open the named resource; unsupported answers are identified as unknown or directed to help rather than invented.
+
+#### ASK-03 — Test phone and keyboard use
+**Do this:** Repeat a short question on a phone and navigate the guide with keyboard controls.
+**Expected:** The text, close/reopen controls, and input are usable without losing the current page.
+
+#### ASK-04 — Protect private information
+**Do this:** Use only a public, non-sensitive question. Review the privacy notice and do not enter employee, guest, payroll, payment, or confidential restaurant details.
+**Expected:** The guide’s stated data handling is understandable and no private test information is required.
