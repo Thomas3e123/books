@@ -12,6 +12,9 @@ assert(home.includes('gravity-report-reading.css'),'Catalog CSS missing');
 assert(home.includes('gravity-report-reading.js'),'Catalog script missing');
 assert(home.includes('id="report-search"'),'Search input missing');
 assert(home.includes('id="report-category-filter"'),'Topic filter missing');
+const glossaryStoryLinks=[...home.matchAll(/<a href="([^"]+)"[^>]*>Read Issue \d+<\/a>/g)].map(match=>match[1]);
+assert.equal(glossaryStoryLinks.length,15,'All 15 glossary story references must remain available');
+assert(glossaryStoryLinks.every(href=>/^\/gravity-report\/[a-z0-9-]+$/.test(href)),'Glossary stories must use permanent article routes, not fragile issue-card fragments');
 assert(home.includes('Search the article text for a problem or phrase'),'Full-article search is not explained');
 assert(js.includes('search_text')&&js.includes('terms.every'),'Catalog search must match each word against full article text');
 assert(js.includes('cardsByIssue.set(issue,card)'),'New schedule entries must create cards dynamically');
@@ -80,6 +83,10 @@ async function at(iso,path){
  try{return handler(new Request(url+path),{})}finally{globalThis.Date=RealDate}
 }
 async function page(iso,slug){const resp=await at(iso,'/gravity-report/'+slug);return {resp,html:await resp.text()}}
+for(const href of new Set(glossaryStoryLinks)){
+ const response=await at('2026-11-15T23:59:00Z',href);
+ assert.equal(response.status,200,'Glossary must link to a published article: '+href);
+}
 const slug1='why-do-my-restaurant-managers-keep-making-excuses';
 const slug6='how-do-i-lower-restaurant-labor-costs-without-hurting-service';
 let a=await page('2026-10-28T15:00:00Z',slug1);

@@ -5,15 +5,30 @@ const aliases=[
  'https://gravity-release-review--gravity-leadership-system.netlify.app'
 ];
 const canonical='https://gravityleadershipsystem.com';
-const initial=inventory.articles.slice(0,5);
+const special={slug:'gravity-has-a-new-home',release_date:'2026-10-27',release_time:'00:00'};
 async function get(url){
  const res=await fetch(url,{headers:{'user-agent':'Gravity-Release-Audit/1.0'},signal:AbortSignal.timeout(20000)});
  const body=await res.text();
  return {res,body};
 }
+function isReleased(issue,asOf){return asOf>=issue.release_date+'T'+issue.release_time;}
 for(const host of aliases){
+ const scheduleResponse=await get(host+'/gravity-report/articles.json');
+ assert.equal(scheduleResponse.res.status,200);
+ const schedule=JSON.parse(scheduleResponse.body);
+ assert.equal(schedule.articles.length,inventory.articles.length,'Live schedule and approved inventory counts differ');
+ for(const issue of inventory.articles){
+  const live=schedule.articles.find(x=>x.slug===issue.slug);
+  assert(live,'Scheduled article missing from live schedule: '+issue.slug);
+  assert.equal(live.title,issue.title,'Scheduled title differs: '+issue.slug);
+  assert.equal(live.release_date,issue.release_date,'Release date differs: '+issue.slug);
+  assert.equal(live.released,isReleased(issue,schedule.as_of_central),'Release state does not match approved date/time: '+issue.slug);
+  if(!live.released){assert.equal(live.summary,null,'Future summary leaked: '+issue.slug);assert.equal(live.search_text,null,'Future search text leaked: '+issue.slug);}
+ }
+ const published=inventory.articles.filter(issue=>isReleased(issue,schedule.as_of_central));
+ assert(published.length>0,'No approved articles are published');
  let checked=0;
- for(const issue of initial){
+ for(const issue of published){
   const path='/gravity-report/'+issue.slug;
   const {res,body}=await get(host+path);
   assert.equal(res.status,200,'Published article unavailable at '+host+path);
@@ -27,20 +42,20 @@ for(const host of aliases){
  const feed=await get(host+'/gravity-report/feed.xml');
  assert.equal(feed.res.status,200);
  assert.match(feed.res.headers.get('content-type')||'',/application\/rss\+xml/);
- assert.equal((feed.body.match(/<item>/g)||[]).length,5,'RSS must have 5 published article entries');
+ const expectedItems=published.length+(isReleased(special,schedule.as_of_central)?1:0);
+ assert.equal((feed.body.match(/<item>/g)||[]).length,expectedItems,'RSS count must match released schedule plus the separate move announcement');
  assert(feed.body.includes(canonical+'/gravity-report/'),'RSS points to wrong host');
  assert(!feed.body.includes('https://thomasmonroebooks.com'),'RSS includes old hostname');
  assert.match(feed.res.headers.get('x-robots-tag')||'',/noindex/i);
  const map=await get(host+'/gravity-report/sitemap.xml');
  assert.equal(map.res.status,200);
- assert.equal((map.body.match(/<lastmod>/g)||[]).length,5);
+ assert.equal((map.body.match(/<loc>/g)||[]).length,expectedItems,'Article sitemap count must match released schedule plus the separate move announcement');
  assert(map.body.includes(canonical+'/gravity-report/'));
- const future=await get(host+'/gravity-report/'+inventory.articles[5].slug);
- assert.equal(future.res.status,404,'Scheduled article made public before release');
- assert.match(future.res.headers.get('x-robots-tag')||'',/noindex/i);
- const schedule=await get(host+'/gravity-report/articles.json');
- assert.equal(schedule.res.status,200);
- const published=JSON.parse(schedule.body).articles.filter(x=>x.released);
- assert.equal(published.length,5);
- console.log('GRAVITY_REPORT_LIVE_PASS '+JSON.stringify({host,publishedArticles:checked,rssItems:5,articleSitemapItems:5,embargo:'PASS',canonicals:'PASS',noindex:'PASS'}));
+ const next=inventory.articles.find(issue=>!isReleased(issue,schedule.as_of_central));
+ if(next){
+  const future=await get(host+'/gravity-report/'+next.slug);
+  assert.equal(future.res.status,404,'Scheduled article made public before release');
+  assert.match(future.res.headers.get('x-robots-tag')||'',/noindex/i);
+ }
+ console.log('GRAVITY_REPORT_LIVE_PASS '+JSON.stringify({host,asOfCentral:schedule.as_of_central,scheduledArticles:schedule.articles.length,publishedArticles:checked,rssItems:expectedItems,articleSitemapItems:expectedItems,embargo:'PASS',canonicals:'PASS',noindex:'PASS'}));
 }

@@ -46,16 +46,57 @@ function normalizeCurrentCopy(html){
    throw Error('Old current AI prompt count remains in built page');
  return html;
 }
+function attr(tag,name){
+ const match=tag&&tag.match(new RegExp("\\b"+name+"\\s*=\\s*([\"'])(.*?)\\1","i"));
+ return match?match[2].replaceAll('&amp;','&').replaceAll('&quot;','"').replaceAll('&#39;',"'"):'';
+}
+function plainText(value){
+ return String(value||'').replace(/<[^>]*>/g,'').replace(/&(#x[\da-f]+|#\d+|amp|quot|apos|lt|gt|nbsp|rsquo|lsquo|rdquo|ldquo|ndash|mdash);/gi,(_,entity)=>{
+  if(entity[0]==='#'){
+   const code=entity[1].toLowerCase()==='x'?parseInt(entity.slice(2),16):parseInt(entity.slice(1),10);
+   return Number.isFinite(code)?String.fromCodePoint(code):'';
+  }
+  return ({amp:'&',quot:'"',apos:"'",lt:'<',gt:'>',nbsp:' ',rsquo:'’',lsquo:'‘',rdquo:'”',ldquo:'“',ndash:'–',mdash:'—'})[entity.toLowerCase()]||'';
+ }).replace(/\s+/g,' ').trim();
+}
+function normalizedWords(value){
+ return plainText(value).toLowerCase().replace(/&/g,' and ').replace(/[^a-z0-9]+/g,' ').trim();
+}
+function validateArticleMetadata(html,rel){
+ const canonicalTag=html.match(/<link\b(?=[^>]*\brel=["']canonical["'])[^>]*>/i);
+ const canonical=attr(canonicalTag&&canonicalTag[0],'href');
+ const ogUrlTag=html.match(/<meta\b(?=[^>]*\bproperty=["']og:url["'])[^>]*>/i);
+ const ogUrl=attr(ogUrlTag&&ogUrlTag[0],'content');
+ if(ogUrl&&(!canonical||ogUrl!==canonical))throw Error('Open Graph URL must match canonical URL in '+rel);
+ const descriptionTag=html.match(/<meta\b(?=[^>]*\bname=["']description["'])[^>]*>/i);
+ const description=attr(descriptionTag&&descriptionTag[0],'content');
+ const h1Tag=html.match(/<h1\b[^>]*>(.*?)<\/h1>/is);
+ const h1=normalizedWords(h1Tag&&h1Tag[1]);
+ const scripts=html.matchAll(/<script\b(?=[^>]*\btype=["']application\/ld\+json["'])[^>]*>(.*?)<\/script>/gis);
+ for(const script of scripts){
+  let data;try{data=JSON.parse(script[1]);}catch{continue;}
+  const objects=Array.isArray(data)?data:(Array.isArray(data['@graph'])?data['@graph']:[data]);
+  for(const item of objects){
+   if(!item||typeof item!=='object'||item['@type']!=='Article')continue;
+   const articleUrl=typeof item.mainEntityOfPage==='string'?item.mainEntityOfPage:item.mainEntityOfPage&&item.mainEntityOfPage['@id'];
+   const headline=normalizedWords(item.headline);
+   if(!canonical||articleUrl!==canonical)throw Error('Article schema URL must match canonical URL in '+rel);
+   if(!description||item.description!==description)throw Error('Article schema description must match page description in '+rel);
+   if(!h1||!headline||!(headline===h1||headline.startsWith(h1+' ')||h1.startsWith(headline+' ')))throw Error('Article schema headline must match the page heading in '+rel);
+  }
+ }
+}
 let pages=0;
 function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){
  const p=path.join(dir,e.name);if(e.isDirectory()){walk(p);continue;}
  if(!/\.(html|xml|txt)$/.test(e.name))continue;
  let s=fs.readFileSync(p,'utf8').replaceAll('https://gravity-leadership-system.netlify.app',origin).replaceAll('https://gravity-migration--gravity-leadership-system.netlify.app',origin);
  if(e.name.endsWith('.html')){
+  const rel=path.relative(out,p).split(path.sep).join('/');
   s=normalizeCurrentCopy(s);
+  validateArticleMetadata(s,rel);
   // Rewrite every *local* HTML JavaScript or stylesheet URL to its content hash.
   // Leave unrelated, missing, dynamic and third-party assets untouched.
-  const rel=path.relative(out,p).split(path.sep).join('/');
   s=s.replace(/(\b(?:src|href)=["'])(\/?assets\/((?:js|css)\/[^"'?#]+))(\?[^"'#]*)?(#[^"']*)?(["'])/gi,
     (whole,prefix,url,assetPath,query,fragment,quote)=>{
       // Root-relative /assets loads shared files; relative assets/ loads in the page's directory.
