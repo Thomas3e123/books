@@ -22,9 +22,9 @@ A source scan finding is not automatically a live customer defect. An old failed
 - Four uncommitted files relate to the separate Brevo newsletter setup (`site/_redirects`, `site/gravity-report-thanks.html`, `functions/gravity-report-brevo.mjs`, `site/gravity-report-confirmed.html`). Keep them out of unrelated repair commits and do not call the email flow complete until its records, sender, delivery and consent path are verified.
 - Before release, the exact Netlify build sequence (`npm run build` followed by the production packager) verified all 664 source-manifest hashes, generated the Handbook Creator assets, built 153 production pages, and passed the strict internal-link scan, focused Gravity Report and Handbook Creator checks, and 67 integrated stability regressions. The comprehensive source sweep found zero high-, medium-, or low-severity source findings. The separate Brevo draft was excluded. These are source/build checks, not proof of hosted integrations or physical-device behavior.
 - No signup, payment, or customer-data workflow was triggered during release verification. Current direct page retrieval is unavailable through the web lookup path, so findings below distinguish routes already smoke-checked from repairs only known to be in the ready production build. That lookup limitation is not evidence that the site is down.
-- The production Report schedule currently shows 11 of 30 numbered issues released; the RSS and article sitemap each contain those 11 plus the separate Gravity-move announcement. The old live-QA script still expected only five issues, so its checks would falsely fail as the schedule advanced. The script now derives release state and expected feed/sitemap counts from the approved schedule and publication timestamp.
+- The production Report schedule showed 11 of 30 numbered issues released in the smoke check. RSS contained 12 entries (11 articles plus the move announcement); the article sitemap contained 13 locations (those 12 plus the Report landing page). The corrected QA script now accounts for this distinction.
 
-## Confirmed current-live defect
+## Confirmed current-live findings
 
 | ID | Area | Live behavior | Repair state | Next step |
 |---|---|---|---|---|
@@ -76,7 +76,7 @@ Targets are based on the current known queue and assume no new production defect
 
 | Target | Goal | What counts as complete |
 |---|---|---|
-| **Nov 15 — complete** | Publish the verified repair batch and confirm it is live | PR #138 merged; Netlify deploy `6afa203f477940c78aec4b3c` is ready. Production smoke checks passed for the report glossary routes, confirmation metadata, Handbook Creator assets, schedule, RSS, and sitemap. |
+| **Nov 15 — complete** | Publish the verified repair batch and confirm it is live | PR #138 and tracker/QA follow-up PR #139 merged. Latest Netlify deploy `6afa21bbd34110213f5c2341` is ready. Production smoke checks passed for the report glossary routes, confirmation metadata, Handbook Creator assets, schedule, RSS, and sitemap. |
 | **Nov 16–17** | Reconcile remaining known repairs against the new live version | Run focused live checks for the prior source repairs (navigation/search, downloads, responsive layout, metadata, old-host links, accessible labels); update each register item to fixed-live, still-open, or unverified based on evidence. |
 | **Nov 18–20** | Check highest-impact customer journeys in an isolated environment | Exercise Gravity Report discovery/search/article links, registration and downloads, Inventory/Recipe/Foundry save and recovery, and service-backed flows where safe credentials exist. Mark blocked integrations as unverified, not broken. |
 | **Nov 20–21** | Complete short device-dependent checks | Phone layout and QR scan, plus one representative PDF/print check. Provide Thomas one compact checklist for only the steps that require his device or account. |
@@ -86,7 +86,7 @@ Targets are based on the current known queue and assume no new production defect
 
 ## Release and reporting sequence
 
-1. **Reconcile live version.** This release is complete: PR #138 is merged; Netlify deploy `6afa203f477940c78aec4b3c` serves commit `6c72a105136c282082fb623634fdf467d55282af`. Keep this comparison current before the next release.
+1. **Reconcile live version.** This release is complete: PR #138 is merged; latest Netlify deploy `6afa21bbd34110213f5c2341` serves commit `a55050e35f607368a3f72cbee07511e4bc0539fe`. Keep this comparison current before the next release.
 2. **Dedupe and prioritize.** Keep one issue ID per defect family/affected path. Prioritize customer access/data loss, then core flows/downloads, navigation/search, then presentation/accessibility.
 3. **Repair by batch.** Group related changes. Each confirmed defect gets reproduction, fix, focused regression evidence, and a production smoke step.
 4. **Separate blockers from checks.** Never describe an unverified integration or physical-device task as a bug unless it fails.
