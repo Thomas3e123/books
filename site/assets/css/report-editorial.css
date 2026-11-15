@@ -78,3 +78,37 @@ body.report-catalog .report-top .hero-actions a{padding:10px 14px}
   body.report-catalog .report-top h1{font-size:1.85rem}
   body.report-catalog .report-top .hero-actions a{padding:9px 11px}
 }
+
+
+/* The reader glossary stays compact until opened and remains searchable on mobile. */
+.report-glossary{margin:30px 0;padding:0;background:#fffdf6;border:1px solid #d9c9aa;border-radius:14px;box-shadow:0 7px 25px #1b191322;color:#232429}
+.report-glossary>summary{display:grid;gap:5px;padding:19px 22px;cursor:pointer;list-style:none}
+.report-glossary>summary::-webkit-details-marker{display:none}
+.report-glossary>summary::after{content:"Open glossary +";color:#891923;font-weight:750;font-size:.9rem}
+.report-glossary[open]>summary::after{content:"Close glossary −"}
+.report-glossary>summary strong{font:700 1.35rem/1.25 Georgia,serif;color:#232429}
+.report-glossary>summary>span:last-of-type,.report-glossary-content>p{color:#495861;line-height:1.6}
+.report-glossary-content{padding:0 22px 22px}
+.report-glossary-search{display:grid;gap:6px;max-width:460px;font-weight:700;color:#27373b}
+.report-glossary-search input{width:100%;box-sizing:border-box;padding:11px 13px;border:1px solid #b9aa91;border-radius:8px;background:#fff;color:#222;font:inherit}
+.report-glossary-count{font-size:.88rem;color:#536069}
+.report-glossary-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0 0}
+.report-glossary-entry{padding:15px 16px;background:#fff;border:1px solid #e1d7c8;border-radius:10px}
+.report-glossary-entry[hidden]{display:none!important}
+.report-glossary-entry dt{font-weight:800;color:#222;font-size:1.02rem}
+.report-glossary-entry dd{margin:7px 0 0;color:#495861;line-height:1.6}
+.report-glossary-entry a{display:inline-block;margin-top:8px;color:#891923;font-weight:750}
+.report-glossary-jump a{color:#891923;font-weight:750}
+@media(max-width:680px){.report-glossary-list{grid-template-columns:1fr}.report-glossary>summary,.report-glossary-content{padding-left:16px;padding-right:16px}}
+
+/* Related reading provides a short, release-safe path through the article archive. */
+.report-related{margin:34px 0;padding:22px;border:1px solid #d9c9aa;border-radius:12px;background:#f8f3e9}
+.report-related>h2{margin:0 0 7px;color:#232429;font-size:1.35rem}
+.report-related>p{margin:0 0 14px;color:#495861;font-size:.95rem}
+.report-related-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.report-related-card{padding:15px;background:#fffdf8;border:1px solid #e1d7c8;border-radius:9px}
+.report-related-card>span{font-size:.73rem;letter-spacing:.04em;text-transform:uppercase;font-weight:750;color:#715b32}
+.report-related-card h3{margin:7px 0;font-size:1.05rem;line-height:1.35}
+.report-related-card h3 a{color:#891923}
+.report-related-card>p{margin:0;color:#495861;font-size:.92rem;line-height:1.55}
+@media(max-width:620px){.report-related{padding:16px}.report-related-grid{grid-template-columns:1fr}}

@@ -44,7 +44,11 @@ let r=await at('2026-10-20T18:30:00Z','/gravity-report/articles.json');
 let schedule=await r.json();
 assert.equal(schedule.articles.length,30);
 assert.equal(schedule.articles.filter(x=>x.released).length,5);
-assert(schedule.articles.filter(x=>!x.released).every(x=>x.summary===null),'Unpublished summary leaked');
+assert(schedule.articles.filter(x=>!x.released).every(x=>x.summary===null&&x.search_text===null),'Unpublished summary or article text leaked');
+const firstParagraph=firstTen.articles[0].article_html.match(/<p>(.*?)<\/p>/)?.[1].replace(/&#39;/g,"'");
+assert(firstParagraph&&schedule.articles[0].search_text.includes(firstParagraph),'Released article body is missing from the searchable catalog');
+assert(!schedule.articles[0].search_text.includes('<p>'),'Search text should be plain text, not HTML markup');
+assert(!schedule.articles[0].search_text.includes('&#39;'),'Search text should decode apostrophe entities');
 for(let i=0;i<5;i++)assert.equal(schedule.articles[i].release_date,'2026-10-20');
 // Verify all five preserved, originally approved full articles are already
 // retrievable on their published dates and point to the NEW Gravity domain.

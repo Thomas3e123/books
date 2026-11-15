@@ -11,6 +11,11 @@ assert(home.includes('class="gravity-knowledge report-catalog"'),'Catalog body c
 assert(home.includes('gravity-report-reading.css'),'Catalog CSS missing');
 assert(home.includes('gravity-report-reading.js'),'Catalog script missing');
 assert(home.includes('id="report-search"'),'Search input missing');
+assert(home.includes('id="report-category-filter"'),'Topic filter missing');
+assert(home.includes('Search the article text for a problem or phrase'),'Full-article search is not explained');
+assert(js.includes('search_text')&&js.includes('terms.every'),'Catalog search must match each word against full article text');
+assert(js.includes('cardsByIssue.set(issue,card)'),'New schedule entries must create cards dynamically');
+assert(css.includes('.report-catalog-tools select{'),'Topic filter must match the search field styling');
 
 assert(home.includes('id="report-field-sheets"'),'Visible Field Sheet explainer missing');
 assert(home.includes('Gravity already took the notes.'),'Article notes promise is not clear');
@@ -26,7 +31,8 @@ assert.equal((home.match(/id="report-field-sheets"/g)||[]).length,1,'Field Sheet
 
 assert(home.includes('class="report-upcoming-group"'),'Upcoming schedule expandable section missing');
 assert(home.includes('data-report-upcoming'),'Scheduled issue container missing');
-assert.equal((home.match(/<article class="report-card"/g)||[]).length,30,'All 30 issues must remain in the HTML');
+assert.equal((home.match(/<article class="report-card"/g)||[]).length,30,'The initial 30 scheduled cards must remain available without JavaScript');
+assert(js.includes('cardsByIssue.set(issue,card)'),'The live catalog must extend beyond its initial scheduled cards');
 assert(home.indexOf('id="report-search"')<home.indexOf('gravity-new-home-report'),'Published catalog must precede long editorial notes');
 assert(home.includes('data-netlify="true"')&&home.includes('newsletter-consent'),'Newsletter form must be preserved');
 assert(!home.includes('Five full articles are available now.'),'Hard-coded outdated issue count in hero');
@@ -39,7 +45,7 @@ assert(css.includes('@media print'),'Print-friendly article view missing');
 assert(css.includes('max-width:68ch'),'Readable text measure missing');
 
 assert(home.includes('The stories behind restaurant life. The systems that make it better.'),'Editorial magazine promise missing');
-assert(home.includes('Interesting enough to read. Useful enough to keep.'),'Reader-facing identity missing');
+assert(home.includes('Interesting enough to read. Useful enough to share.'),'Reader-facing identity missing');
 for(const id of ['report-feature','report-series','report-field-sheets','report-community','report-working-side']){
  assert(home.includes('id="'+id+'"'),'Magazine navigation target missing: '+id);
 }
@@ -81,7 +87,7 @@ assert.equal(a.resp.status,200);
 for(const item of ['class="report-article"','class="report-body"','class="report-toc"','data-report-font="increase"','data-report-font="decrease"','class="report-reading-progress"','gravity-report-reading.css','gravity-report-reading.js','Skip to article']){
  assert(a.html.includes(item),'Missing reader element '+item);
 }
-assert(a.html.includes('Publisher and Editor of The Gravity Report'),'Publisher credit lost');
+assert(a.html.includes('The Gravity Report is written by Thomas Butler and published and edited by Thomas Monroe Books.'),'Publisher credit lost');
 
 // Article and Field Sheet are separate resources with adjacent catalog links.
 // Preserve five public downloads while never linking a future issue prematurely.
@@ -108,9 +114,12 @@ assert.equal(issue2.resp.status,200);
 for(const [slug,sheet] of [['how-do-i-get-restaurant-managers-to-follow-through','gravity-field-sheet-03-manager-follow-through.pdf'],['how-do-i-stop-restaurant-food-waste','gravity-field-sheet-04-food-waste.pdf'],['why-cant-i-keep-good-restaurant-employees','gravity-field-sheet-05-employee-retention.pdf']]){
  const article=await page('2026-10-28T15:00:00Z',slug);
  assert.equal(article.resp.status,200,'Matching published article unavailable: '+slug);
- assert(!article.html.includes(sheet),'Field Sheet belongs beside the story in the catalog, not in article: '+sheet);
+ assert(article.html.includes('class="report-field-companion"')&&article.html.includes(sheet),'Matching Field Sheet should be a separate companion on its article page: '+sheet);
+ const body=article.html.split('<div class="report-body">')[1]?.split('</div>')[0]||'';
+ assert(!body.includes(sheet),'Field Sheet PDF must remain separate from the article body: '+sheet);
 }
-assert(!a.html.includes('report-field-callout')&&!a.html.includes('gravity-field-sheet-01-manager-excuses.pdf'),'Field Sheet should not be embedded in the story');
+assert(a.html.includes('class="report-field-companion"')&&a.html.includes('gravity-field-sheet-01-manager-excuses.pdf'),'Issue 01 should offer its separate companion Field Sheet');
+assert(!(a.html.split('<div class="report-body">')[1]?.split('</div>')[0]||'').includes('gravity-field-sheet-01-manager-excuses.pdf'),'Field Sheet PDF must remain separate from the article body');
 
 assert(a.html.includes('data-report-share="post"'),'Article has no copy Facebook post button');
 assert(a.html.includes('data-report-share="full"'),'Article has no copy full article button');

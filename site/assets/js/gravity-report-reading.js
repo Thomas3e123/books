@@ -124,8 +124,9 @@ var CATALOG_FIELD_SHEETS={
 };
 function catalog(){
  var host=$('[data-report-cards]');if(!host)return;
- var cards=all('.report-card[data-report-issue]',host);
- var availability=$('#report-availability'),input=$('#report-search'),count=$('#report-search-count');
+ var cards=all('.report-card[data-report-issue]',host),searchText=new Map();
+ var cardsByIssue=new Map(cards.map(function(card){return [Number(card.getAttribute('data-report-issue')),card]}));
+ var availability=$('#report-availability'),input=$('#report-search'),categoryFilter=$('#report-category-filter'),count=$('#report-search-count');
  var liveHeading=$('.report-available-heading'),future=$('.report-upcoming-group'),futureList=$('[data-report-upcoming]');
  var futureSummary=$('.report-upcoming-count'),empty=$('.report-search-empty');
  if(!future||!futureList)return;
@@ -174,21 +175,74 @@ function catalog(){
  action.appendChild(tools);
  var status=node('span','report-share-status');status.setAttribute('role','status');status.setAttribute('aria-live','polite');action.appendChild(status);
 }
+ function cardFor(a){
+  var issue=Number(a.issue),card=cardsByIssue.get(issue);
+  if(card)return card;
+  card=node('article','report-card');card.id='report-'+issue;card.setAttribute('data-report-issue',String(issue));
+  card.appendChild(node('div','report-meta'));
+  card.appendChild(node('h3'));
+  card.appendChild(node('p','report-upcoming')).setAttribute('data-report-state','');
+  var action=node('div');action.setAttribute('data-report-action','');card.appendChild(action);
+  cardsByIssue.set(issue,card);cards.push(card);host.appendChild(card);return card;
+ }
+ function formatDate(value){
+  var date=new Date(String(value||'')+'T12:00:00Z');
+  return Number.isNaN(date.valueOf())?String(value||''):new Intl.DateTimeFormat('en-US',{dateStyle:'long',timeZone:'UTC'}).format(date);
+ }
+ function categoryLabel(value){
+  return String(value||'').toLowerCase().replace(/\b[a-z]/g,function(c){return c.toUpperCase()}).replace(/\bSops\b/g,'SOPs');
+ }
  function setCard(card,a){
+  var meta=$('.report-meta',card),heading=$('h3',card),id=Number(a.issue);
+  if(meta)meta.textContent='Issue '+String(id).padStart(2,'0')+(a.category?' · '+a.category:'');
+  if(heading)heading.textContent=a.title;
+  card.setAttribute('data-report-category',a.category||'');
+  searchText.set(card,String(a.search_text||''));
+  var summary=$('.report-card-summary',card);
+  if(a.released&&a.summary){if(!summary){summary=node('p','report-card-summary');var stateTarget=$('[data-report-state]',card);if(stateTarget)card.insertBefore(summary,stateTarget);else card.appendChild(summary)}summary.textContent=a.summary}
+  else if(summary)summary.remove();
   var state=$('[data-report-state]',card);
-  if(a.released){if(state)state.textContent='Published '+a.release_date;addLink(card,a);host.appendChild(card)}
-  else{if(state)state.textContent='Scheduled for '+a.release_date;var action=$('[data-report-action]',card);if(action)action.textContent='';futureList.appendChild(card)}
+  if(a.released){if(state)state.textContent='Published '+formatDate(a.release_date);addLink(card,a);host.appendChild(card)}
+  else{if(state)state.textContent='Scheduled for '+formatDate(a.release_date);var action=$('[data-report-action]',card);if(action)action.textContent='';futureList.appendChild(card)}
  }
  function filter(){
-  var q=(input&&input.value||'').trim().toLowerCase();var shown=0,hiddenFuture=0;
-  cards.forEach(function(card){var found=card.textContent.toLowerCase().includes(q);card.hidden=!found;if(found){shown++;if(card.parentNode===futureList)hiddenFuture++}});
-  if(future){future.hidden=Boolean(q)&&hiddenFuture===0;if(q&&hiddenFuture>0)future.open=true}
+  var q=(input&&input.value||'').trim().toLowerCase(),terms=q.split(/\s+/).filter(Boolean);
+  var selected=categoryFilter&&categoryFilter.value||'',shown=0,hiddenFuture=0;
+  cards.forEach(function(card){
+   var searchable=(card.textContent+' '+(searchText.get(card)||'')).toLowerCase();
+   var textMatch=terms.every(function(term){return searchable.includes(term)});
+   var categoryMatch=!selected||card.getAttribute('data-report-category')===selected;
+   var found=textMatch&&categoryMatch;card.hidden=!found;
+   if(found){shown++;if(card.parentNode===futureList)hiddenFuture++}
+  });
+  var hasFilter=Boolean(q||selected);
+  if(future){
+   var hasUpcoming=cards.some(function(card){return card.parentNode===futureList});
+   future.hidden=!hasUpcoming||(hasFilter&&hiddenFuture===0);
+   if(hasFilter&&hiddenFuture>0)future.open=true;
+  }
   if(empty){empty.hidden=shown!==0}
-  if(count)count.textContent=shown+' issue'+(shown===1?'':'s')+(q?' match your search.':' in the series.');
+  if(count){
+   var resultText=shown+' article'+(shown===1?'':'s');
+   if(q)resultText+=' match your search';
+   if(selected)resultText+=' in '+categoryLabel(selected);
+   if(!q&&!selected)resultText+=' in the library';
+   count.textContent=resultText+'.';
+  }
  }
  function group(schedule){
-  var byIssue=new Map(schedule.map(function(a){return [Number(a.issue),a]}));
-  cards.forEach(function(card){var id=Number(card.getAttribute('data-report-issue')),a=byIssue.get(id);if(a)setCard(card,a)});
+  var seen=new Set(),categories=new Set();
+  schedule.forEach(function(a){
+   if(!Number.isInteger(Number(a.issue))||!a.title||!a.slug||!a.release_date)throw Error('Issue catalog entry is incomplete');
+   var id=Number(a.issue),card=cardFor(a);seen.add(id);if(a.category)categories.add(a.category);setCard(card,a);
+  });
+  cards.slice().forEach(function(card){var id=Number(card.getAttribute('data-report-issue'));if(!seen.has(id)){cardsByIssue.delete(id);searchText.delete(card);card.remove();cards=cards.filter(function(x){return x!==card})}});
+  if(categoryFilter){
+   var current=categoryFilter.value;categoryFilter.replaceChildren(node('option',null,'All topics'));
+   categoryFilter.options[0].value='';
+   Array.from(categories).sort().forEach(function(category){var option=node('option',null,categoryLabel(category));option.value=category;categoryFilter.appendChild(option)});
+   if(categories.has(current))categoryFilter.value=current;
+  }
   var released=schedule.filter(function(a){return a.released}).length;
   var forthcoming=schedule.length-released;
   if(liveHeading)liveHeading.textContent='Read now · '+released+' published article'+(released===1?'':'s');
@@ -199,7 +253,7 @@ function catalog(){
  }
  // Render five prelinked articles without JS; fetch controls the actual publication gate.
  fetch('/gravity-report/articles.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('Issue list unavailable');return r.json()}).then(function(d){
-  if(!Array.isArray(d.articles)||d.articles.length!==cards.length)throw Error('Issue list incomplete');
+  if(!Array.isArray(d.articles)||!d.articles.length)throw Error('Issue list incomplete');
   group(d.articles);
  }).catch(function(){
   if(availability)availability.textContent='Current issue schedule could not be loaded. Published articles remain linked below; try again shortly.';
@@ -209,7 +263,18 @@ function catalog(){
   cards.forEach(function(c){c.hidden=false});
  });
  if(input)input.addEventListener('input',filter);
+ if(categoryFilter)categoryFilter.addEventListener('change',filter);
+}
+function glossary(){
+ var input=$('#report-glossary-search'),count=$('#report-glossary-count'),entries=all('[data-glossary-entry]');
+ if(!input||!entries.length)return;
+ function filter(){
+  var q=(input.value||'').trim().toLowerCase(),shown=0;
+  entries.forEach(function(entry){var found=entry.textContent.toLowerCase().includes(q);entry.hidden=!found;if(found)shown++});
+  if(count)count.textContent=shown+' term'+(shown===1?'':'s')+(q?' match your search.':' in the reader glossary.');
+ }
+ input.addEventListener('input',filter);filter();
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
-function start(){shareActions();article();catalog()}
+function start(){shareActions();article();catalog();glossary()}
 })();
