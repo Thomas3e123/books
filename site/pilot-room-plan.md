@@ -98,6 +98,6 @@ A low response rate is still a finding. It means the invitation, audience, timin
 
 ## Test catalog inside the Pilot Room
 
-The room includes step-by-step guides for website navigation, Start Here/installation, Gravity Aware, Gravity Assist, Inventory Center, Shift Lab, SOP Foundry and hosted employee materials, Work Study Lab, Numbers Lab, Recipe Works, Forms Personalizer, Document Studio, quick tools and QR Code Maker, books/Reader/downloads, Windows programs, saving/export/backup/recovery, support/contact, privacy/accessibility/security, Analytics readiness, visitor-to-pilot conversion, recruitment/enrollment, follow-up, and the named Gravity tools that first need availability confirmation.
+The room includes step-by-step guides for the publicly linked Gravity Assist workspaces: Forms Personalizer, Document Studio, Shift Lab, SOP Foundry and hosted employee materials, Numbers Lab, Work Study Lab, Inventory Center, Recipe Works, Handbook Creator, and Gravity Assist; the QR Code Maker and the eleven other Quick Tools; Gravity Aware; Ask Gravity; books, registration, downloads, and Book Reader; Windows programs; saving/export/backup/recovery; support/contact; privacy/accessibility/security; Analytics readiness; visitor-to-pilot conversion; recruitment/enrollment; and pilot follow-up.
 
 If a tool is missing from the published entry point, mark its guide Blocked and stop. The purpose is to reveal what is ready for real use, not to pretend an unfinished tool is available.
