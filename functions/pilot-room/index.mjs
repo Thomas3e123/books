@@ -15,7 +15,7 @@ async function managerOK(r){
   const expected=Netlify.env.get('GRAVITY_PILOT_MANAGER_KEY')||'';const got=bearer(r);
   if(!expected||!got)return {ok:false,locked:false};
   const rawIp=clean(r.headers.get('x-nf-client-connection-ip')||r.headers.get('x-forwarded-for')||'unknown',160).split(',')[0].trim()||'unknown';
-  const ipHash=hash(rawIp);
+  const ipHash=crypto.createHmac('sha256',expected).update(rawIp).digest('hex');
   const attempt=(await db.sql`SELECT failed_count,locked_until FROM gravity_pilot_manager_attempts WHERE ip_hash=${ipHash} LIMIT 1`)[0];
   if(attempt?.locked_until&&new Date(attempt.locked_until).getTime()>Date.now())return {ok:false,locked:true};
   const a=Buffer.from(expected),b=Buffer.from(got);const valid=a.length===b.length&&crypto.timingSafeEqual(a,b);
