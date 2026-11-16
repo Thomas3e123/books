@@ -10,7 +10,7 @@
     },
     {
       "path": "site/_redirects",
-      "sha256": "0e3175b03ec38ce710870880e6248e138afd9991936201f5e6c324cde5575533"
+      "sha256": "94fa58aaafe9a76da6091a4352f9b907d305d061a7cb81c4ea618f12c45144f5"
     },
     {
       "path": "site/about.html",
@@ -2137,8 +2137,28 @@
       "sha256": "3ba15ae4e9fe2590b5ba3c577936c9d40653eb0dae5be07efc86f61116f5d924"
     },
     {
+      "path": "site/pilot-room-manager.html",
+      "sha256": "0b20937b83711be77530e9b48ad2428be99c0510fe2981a4a34ec50d52dc77c0"
+    },
+    {
+      "path": "site/pilot-room-plan.md",
+      "sha256": "20e6da54b4e7265b86e07b4ba6d9e4e5b2b8d56552fdebbdc4917e2c4c156308"
+    },
+    {
+      "path": "site/pilot-room-protocols.json",
+      "sha256": "8bec1d2e616cf049760a92450bb44218a65f31bce46bf3f305580bed8bf5ab03"
+    },
+    {
+      "path": "site/pilot-room-tool-process-test-protocols.md",
+      "sha256": "534240c9a606168317ca023656fda19f208e944382777fe4a028e641a80747f8"
+    },
+    {
+      "path": "site/pilot-room.html",
+      "sha256": "99e839d1d716fdb986896993ad4ef7613f887df0812f862f88cd2aa967a6b1d9"
+    },
+    {
       "path": "site/privacy.html",
-      "sha256": "56c91358ae4388e468aa47ea1f6d7ededfc6bd9f5012bdd82fe4e4c0aa73d9fa"
+      "sha256": "6a3b3dd9e6b573cfa328547edf8017212595275c4b3f82219f53d5baccc5d6dd"
     },
     {
       "path": "site/qr-code-generator.html",
@@ -2462,7 +2482,7 @@
     },
     {
       "path": "site/testing-room.html",
-      "sha256": "e93680f21915090ff9c7530f268cc01cce5f588a9792d3add64fc302aaf1c83c"
+      "sha256": "5b37ccafc6d71b8d6f85e285d02c219bfcf8179ce95b65767f0f869721805905"
     },
     {
       "path": "site/the-owners-chair.html",
@@ -2547,6 +2567,10 @@
     {
       "path": "functions/identity.mjs",
       "sha256": "28b0fd83c554fee253f71843c03d03c32003146169fbbc3aa552f88fc410e429"
+    },
+    {
+      "path": "functions/pilot-room/index.mjs",
+      "sha256": "5070f489b470eac860a81cf5030c4181efa0753794000a759e98f3bf2f1d2def"
     },
     {
       "path": "functions/testing-room/index.mjs",
@@ -2643,6 +2667,10 @@
     {
       "path": "netlify/database/migrations/20261030213000_gravity_customer_encrypted_backups.sql",
       "sha256": "bf43be408ab095a8634a03bfc2135c4127460d67981370d37b8fcdf65a65522d"
+    },
+    {
+      "path": "netlify/database/migrations/20261115170000_gravity_pilot_room.sql",
+      "sha256": "e2719e938cff331fea7bd6dd5581c280afaed2636bf73590e143deaabeda2570"
     },
     {
       "path": "netlify.toml",
