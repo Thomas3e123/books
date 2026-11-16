@@ -1762,7 +1762,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "2e7f3cf8628164158903147e77a4daeb4ca46ba6ea600a328db0e02c5d6b955f"
+      "sha256": "dd33ee72dc377331d37b8c8c39a4d398adb07d873eccb821d534520b458e486b"
     },
     {
       "path": "site/assets/js/testing-room.js",
@@ -2110,7 +2110,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "67427e2a8978b83a27748655e5bdf5ee8258eb4be79cec31cd90b20adceda397"
+      "sha256": "155a4559550e12fda0a594f01e0285675c2dcd91109858cdec7a8a6bd3fadb3d"
     },
     {
       "path": "site/installation-improvement.html",
