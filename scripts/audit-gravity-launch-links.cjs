@@ -16,7 +16,7 @@ const knownReportSlugs=new Set(editorial.articles.map(a=>a.slug));
 // The one-time October 27 move announcement is an unnumbered dynamic article.
 // Only admit it when the actual server handler exposes the corresponding slug.
 if(reportModule.includes('gravity-has-a-new-home'))knownReportSlugs.add('gravity-has-a-new-home');
-for(const chunk of ['issues-11-15.json','issues-16-20.json','issues-21-25.json','issues-26-30.json']){
+for(const chunk of ['issues-11-15.json','issues-16-20.json','issues-21-25.json','issues-26-30.json','issues-31-36.json']){
  const file=path.join(root,'functions','gravity-report',chunk);
  if(!fs.existsSync(file))continue;
  for(const draft of JSON.parse(fs.readFileSync(file,'utf8')))

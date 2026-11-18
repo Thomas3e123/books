@@ -3,6 +3,7 @@ import volume11 from './issues-11-15.json' with {type:'json'};
 import volume16 from './issues-16-20.json' with {type:'json'};
 import volume21 from './issues-21-25.json' with {type:'json'};
 import volume26 from './issues-26-30.json' with {type:'json'};
+import bonus31 from './issues-31-36.json' with {type:'json'};
 // This function is copied from the original TMB publication; keep publisher credit,
 // but point article canonicals, RSS GUIDs and article sitemap at Gravity's permanent domain.
 const SITE='https://gravityleadershipsystem.com';
@@ -26,7 +27,12 @@ function fromEditorialDraft(d){
  const article_html='<p>'+esc(d.lead)+'</p>'+d.sections.map(([title,paragraphs])=>'<h2>'+esc(title)+'</h2>'+paragraphs.map(p=>'<p>'+esc(p)+'</p>').join('')).join('');
  return {issue:d.issue,title:d.title,slug:slugify(d.title),category:d.category,release_date:extraReleaseDate(d.issue),release_time:'09:00',summary:d.lead,article_html};
 }
-const ALL_ARTICLES=[...data.articles,...[...volume11,...volume16,...volume21,...volume26].map(fromEditorialDraft)];
+function fromBonusDraft(d){
+ if(!Number.isInteger(d.issue)||d.issue<31||d.sections?.length!==5||!/^\d{4}-\d{2}-\d{2}$/.test(d.release_date)||!/^\d{2}:\d{2}$/.test(d.release_time))throw Error('Invalid bonus issue in Gravity Report editorial collection');
+ const article_html='<p>'+esc(d.lead)+'</p>'+d.sections.map(([title,paragraphs])=>'<h2>'+esc(title)+'</h2>'+paragraphs.map(p=>'<p>'+esc(p)+'</p>').join('')).join('');
+ return {issue:d.issue,title:d.title,slug:slugify(d.title),category:d.category,release_date:d.release_date,release_time:d.release_time,summary:d.lead,article_html};
+}
+const ALL_ARTICLES=[...data.articles,...[...volume11,...volume16,...volume21,...volume26].map(fromEditorialDraft),...bonus31.map(fromBonusDraft)];
 if(ALL_ARTICLES.length<30 || new Set(ALL_ARTICLES.map(a=>a.slug)).size!==ALL_ARTICLES.length ||
  ALL_ARTICLES.some((a,i)=>a.issue!==i+1))throw Error('Gravity Report publication inventory invalid');
 function articleSearchText(a){
@@ -74,7 +80,8 @@ const RELATED_ISSUES_BY_ISSUE=Object.freeze({
  1:[3,9],2:[4,11],3:[1,9],4:[2,12],5:[8,10],6:[8,12],7:[10,11],8:[6,10],
  9:[3,8],10:[7,11],11:[7,10],12:[2,4],13:[5,9],14:[3,7],15:[1,3],
  16:[4,30],17:[1,5],18:[7,10],19:[1,3],20:[2,4],21:[10,11],22:[6,8],
- 23:[3,9],24:[3,9],25:[3,9],26:[6,8],27:[7,10],28:[7,10],29:[3,20],30:[2,4]
+ 23:[3,9],24:[3,9],25:[3,9],26:[6,8],27:[7,10],28:[7,10],29:[3,20],30:[2,4],
+ 31:[32,34],32:[35,36],33:[31,35],34:[31,33],35:[32,33],36:[33,34]
 });
 function relatedStories(a,published){
  const issue=Number(a.issue);if(!Number.isInteger(issue))return '';

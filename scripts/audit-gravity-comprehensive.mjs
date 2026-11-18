@@ -68,8 +68,8 @@ if(!hdr.includes('Content-Security-Policy'))flag('high','security','_headers','C
 const manager=fs.readFileSync('functions/testing-room/index.mjs','utf8');
 if(!manager.includes('timingSafeEqual')||!manager.includes('if(!managerOK(request))'))flag('high','security','functions/testing-room/index.mjs','Missing manager key verification');
 const articleSource=JSON.parse(fs.readFileSync('functions/gravity-report/articles.json','utf8'));
-const articles=[...(Array.isArray(articleSource.articles)?articleSource.articles:[]),...['issues-11-15.json','issues-16-20.json','issues-21-25.json','issues-26-30.json'].flatMap(name=>JSON.parse(fs.readFileSync(path.join(root,'functions/gravity-report',name),'utf8')))];
-if(articles.length!==30)flag('high','editorial','articles.json','Expected original 30 articles; found '+articles.length);
+const articles=[...(Array.isArray(articleSource.articles)?articleSource.articles:[]),...['issues-11-15.json','issues-16-20.json','issues-21-25.json','issues-26-30.json','issues-31-36.json'].flatMap(name=>JSON.parse(fs.readFileSync(path.join(root,'functions/gravity-report',name),'utf8')))];
+if(articles.length!==36)flag('high','editorial','articles.json','Expected original 30 plus six bonus articles; found '+articles.length);
 const pdfs=['gravity-field-sheet-01-manager-excuses.pdf','gravity-field-sheet-02-food-cost.pdf','gravity-field-sheet-03-manager-follow-through.pdf','gravity-field-sheet-04-food-waste.pdf','gravity-field-sheet-05-employee-retention.pdf'];
 for(const filename of pdfs){const p=path.join(site,'assets/downloads',filename);if(!fs.existsSync(p))flag('high','download',filename,'Expected Field Sheet PDF missing')}
 const levels=['high','medium','low'];
