@@ -129,7 +129,7 @@ function catalog(){
  var availability=$('#report-availability'),input=$('#report-search'),categoryFilter=$('#report-category-filter'),count=$('#report-search-count');
  var liveHeading=$('.report-available-heading'),future=$('.report-upcoming-group'),futureList=$('[data-report-upcoming]');
  var futureSummary=$('.report-upcoming-count'),empty=$('.report-search-empty');
- var alphaList=$('[data-report-article-index]'),alphaStatus=$('#report-alpha-index-status');
+ var alphaList=$('[data-report-article-index]'),alphaStatus=$('#report-alpha-index-status'),alphaSort=$('#report-alpha-index-sort'),alphaArticles=[];
  if(!future||!futureList)return;
  function addLink(card,a){
  var action=$('[data-report-action]',card);if(!action)return;action.textContent='';
@@ -233,13 +233,33 @@ function catalog(){
  }
  function renderArticleIndex(schedule){
   if(!alphaList)return;
-  var published=schedule.filter(function(a){return a.released}).map(function(a){return {title:a.title,slug:a.slug}});
-  published.push({title:'Gravity Has a New Home',slug:'gravity-has-a-new-home'});
-  published.sort(function(a,b){return a.title.localeCompare(b.title,'en',{sensitivity:'base'})});
+  if(schedule) {
+   alphaArticles=schedule.filter(function(a){return a.released}).map(function(a){return {title:a.title,slug:a.slug,release_date:a.release_date,issue:Number(a.issue),category:a.category||''}});
+   alphaArticles.push({title:'Gravity Has a New Home',slug:'gravity-has-a-new-home',release_date:'2026-10-27',issue:null,category:'Special update'});
+   if(alphaSort)alphaSort.disabled=false;
+  }
+  var mode=alphaSort&&alphaSort.value||'title',published=alphaArticles.slice();
+  function compareTitle(a,b){return a.title.localeCompare(b.title,'en',{sensitivity:'base'})}
+  published.sort(function(a,b){
+   if(mode==='date-newest'||mode==='date-oldest'){
+    var dateOrder=a.release_date.localeCompare(b.release_date);
+    if(mode==='date-newest')dateOrder=-dateOrder;
+    return dateOrder||compareTitle(a,b);
+   }
+   if(mode==='topic')return (a.category||'Special update').localeCompare(b.category||'Special update','en',{sensitivity:'base'})||compareTitle(a,b);
+   if(mode==='issue'){
+    if(a.issue===null&&b.issue!==null)return 1;
+    if(b.issue===null&&a.issue!==null)return -1;
+    if(a.issue!==b.issue)return (a.issue||0)-(b.issue||0);
+   }
+   return compareTitle(a,b);
+  });
   alphaList.replaceChildren();
-  published.forEach(function(article){var item=node('li'),link=node('a',null,article.title);link.href='/gravity-report/'+encodeURIComponent(article.slug);item.appendChild(link);alphaList.appendChild(item)});
-  if(alphaStatus)alphaStatus.textContent='Published articles and special updates, sorted alphabetically.';
+  published.forEach(function(article){var item=node('li'),link=node('a',null,article.title);link.href='/gravity-report/'+encodeURIComponent(article.slug);item.appendChild(link);var detail='';if(mode==='date-newest'||mode==='date-oldest')detail='Published '+formatDate(article.release_date);else if(mode==='topic')detail=article.category||'Special update';else if(mode==='issue')detail=article.issue===null?'Special update':'Issue '+String(article.issue).padStart(2,'0');if(detail)item.appendChild(node('span','report-alpha-index-meta',' · '+detail));alphaList.appendChild(item)});
+  var descriptions={title:'Published articles and special updates, sorted by title A–Z.', 'date-newest':'Published articles and special updates, sorted by publication date, newest first.', 'date-oldest':'Published articles and special updates, sorted by publication date, oldest first.', topic:'Published articles and special updates, sorted by topic and then title.', issue:'Published articles and special updates, sorted by issue number; the special update appears last.'};
+  if(alphaStatus)alphaStatus.textContent=descriptions[mode]||descriptions.title;
  }
+ if(alphaSort)alphaSort.addEventListener('change',function(){renderArticleIndex()});
  function group(schedule){
   var seen=new Set(),categories=new Set();
   schedule.forEach(function(a){
