@@ -10,7 +10,7 @@
     },
     {
       "path": "site/_redirects",
-      "sha256": "94fa58aaafe9a76da6091a4352f9b907d305d061a7cb81c4ea618f12c45144f5"
+      "sha256": "98d0f3e37f37a524bb8574f50f73f875670f777b9e94875a4dda30ceda6f0091"
     },
     {
       "path": "site/about.html",
@@ -2029,12 +2029,16 @@
       "sha256": "a0dc23b7e75497c3d54f8cff38152684abf361dbe722a6c8b7eca458f8ed7089"
     },
     {
+      "path": "site/gravity-report-confirmed.html",
+      "sha256": "928b3c9e108445ada6d65245eefac8caae81e33ed268e89135b0f389b1341daf"
+    },
+    {
       "path": "site/gravity-report-guests.html",
       "sha256": "9453dcba09fa14cb4007dfb0598fbf6e365c4a661b3e274380907205ecb4f8de"
     },
     {
       "path": "site/gravity-report-thanks.html",
-      "sha256": "3ef6b7fbc2b6e8f4b2a5568958e398b1c4fc3614e53a190eb59615e2b5db7db5"
+      "sha256": "2f0216895cbbefed804126534a39c968bf0215251854a955b5946dc5532c17a8"
     },
     {
       "path": "site/gravity-report.html",
@@ -2158,7 +2162,7 @@
     },
     {
       "path": "site/privacy.html",
-      "sha256": "6a3b3dd9e6b573cfa328547edf8017212595275c4b3f82219f53d5baccc5d6dd"
+      "sha256": "546467e805fde7908904d5b7c931533f868c3f9ba4b0bb758c83db81591122a5"
     },
     {
       "path": "site/qr-code-generator.html",
@@ -2547,6 +2551,10 @@
     {
       "path": "functions/gravity-report/issues-26-30.json",
       "sha256": "a765119af4deceb383ad4097e17eaa65b73cc7bec25904a11cbd5d827716f8df"
+    },
+    {
+      "path": "functions/gravity-report-brevo.mjs",
+      "sha256": "7c4d5730ef481226261e2456e67c7477ea0130c1e3407a2830cda1c6b742ec90"
     },
     {
       "path": "functions/gravity-tts/core.cjs",
