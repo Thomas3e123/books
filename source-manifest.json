@@ -2042,7 +2042,7 @@
     },
     {
       "path": "site/gravity-report.html",
-      "sha256": "cc17e7403dd786099dfd80cb86adfd973d050dac3a2cb062b36415f2e3653e0b"
+      "sha256": "481649949acb1d61c7fd3c0f0311c469e902e52cccf99869d74636a2c05140f0"
     },
     {
       "path": "site/gravity-shift-lab-sw.js",
@@ -2534,7 +2534,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "2d9d3a3e1856cfaac4e5d8e07fa04e4235ac5aea5a5e2f7f63cbe45383b1a461"
+      "sha256": "723f4088cfe9c752ebd24038804943558352cb309b3773f16056aa2f8ad89ac4"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",
@@ -2554,7 +2554,7 @@
     },
     {
       "path": "functions/gravity-report/issues-31-36.json",
-      "sha256": "46b381cab1e9f4b1d2f0ab36e5fd2aad54f2c1fbe3ae8bcdc3435aa0a899a618"
+      "sha256": "ed7ed7baf08ce6e28daf0234ffd78eeb12d25d66fa731ad0cec5cb725c3b063f"
     },
     {
       "path": "functions/gravity-report-brevo.mjs",
