@@ -33,6 +33,8 @@ A source scan finding is not automatically a live customer defect. An old failed
 
 ## Source repairs: status after the November 18 production deploy
 
+| SRC-17 | Restaurant AI workbook links | Start Here advertised the current 350-prompt workbook but linked to the archived 215-prompt files; the release archive also used generic download labels for those archived files. | **Fixed in source; live check pending.** Start Here now links to the 350-prompt Word/PDF editions. The September milestone is explicitly labeled as the archived 215-prompt edition and links to the current edition from that section. | After deployment, confirm both Start Here downloads resolve to the 350-prompt filenames and archive labels remain clear. |
+
 | ID | Area | Repair recorded | Current status | Evidence / next check |
 |---|---|---|---|---|
 | SRC-01 | Production indexing and canonical URLs | Production-only packaging corrects robots, noindex, sitemap origin and canonical metadata while preserving preview restrictions. | **Unverified live.** Included in the ready production build; robots, sitemap origin, and representative page headers have not been re-fetched from production in this pass. | Check `robots.txt`, main sitemap and representative page canonical/noindex headers when direct live retrieval is available. |
@@ -70,7 +72,7 @@ The October 30 Recipe Works report recorded a replacement-confirmation failure a
 | QA-06 | Payments | Sandbox checkout and protected file delivery, including failure/refund states; no live charge. | Assistant only after sandbox credentials/config are available. |
 | QA-07 | Physical device coverage | Representative phone layout/flows, QR scan, and printer output. | Thomas supplies observations; assistant prepares a short checklist and fixes reproducible issues. |
 | QA-08 | Windows applications | Installer/ZIP install, update, printing and source parity. | Held per current direction until the rest of Gravity is reconciled. |
-| QA-09 | Gravity browser regression suite | The PR #144 browser workflow reported 8 failures in public-navigation-edge and visitor-first-workflow while 220 tests passed. Failures include a menu-link count mismatch and older expected Start Here copy. These are outside the Report change and have not been confirmed as live defects. | Assistant | Reconcile assertions with current source and verify the affected live paths before opening site defects. |
+| QA-09 | Gravity browser regression suite | The previous workflow failures came from stale expectations: the live public menu has 10 links, and Start Here now uses “Help Me Choose a Starting Point” plus current download wording. The live path from Start Here through Gravity Assist to Shift Lab was verified. PR #151 updates those expectations; its first CI run passed, and CI will rerun with SRC-17. | Assistant | Close after the combined PR checks pass. |
 
 These entries mean “not yet proven,” not “confirmed broken.”
 
