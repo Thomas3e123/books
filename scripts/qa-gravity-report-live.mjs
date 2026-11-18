@@ -1,5 +1,18 @@
 import assert from 'node:assert/strict';
-import inventory from '../functions/gravity-report/articles.json' with {type:'json'};
+import firstTen from '../functions/gravity-report/articles.json' with {type:'json'};
+import a11 from '../functions/gravity-report/issues-11-15.json' with {type:'json'};
+import a16 from '../functions/gravity-report/issues-16-20.json' with {type:'json'};
+import a21 from '../functions/gravity-report/issues-21-25.json' with {type:'json'};
+import a26 from '../functions/gravity-report/issues-26-30.json' with {type:'json'};
+import bonuses from '../functions/gravity-report/issues-31-36.json' with {type:'json'};
+const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const slugify=t=>t.toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+function editorial(d,bonus=false){
+ const date=bonus?d.release_date:new Date(Date.UTC(2026,10,13+Math.floor((d.issue-11)/2)*7+((d.issue-11)%2)*4)).toISOString().slice(0,10);
+ const article_html='<p>'+escapeHtml(d.lead)+'</p>'+d.sections.map(([title,paragraphs])=>'<h2>'+escapeHtml(title)+'</h2>'+paragraphs.map(p=>'<p>'+escapeHtml(p)+'</p>').join('')).join('');
+ return {issue:d.issue,title:d.title,slug:slugify(d.title),category:d.category,release_date:date,release_time:bonus?d.release_time:'09:00',summary:d.lead,article_html};
+}
+const inventory={articles:[...firstTen.articles,...[...a11,...a16,...a21,...a26].map(d=>editorial(d)),...bonuses.map(d=>editorial(d,true))]};
 const aliases=[
  'https://gravity-migration--gravity-leadership-system.netlify.app',
  'https://gravity-release-review--gravity-leadership-system.netlify.app'

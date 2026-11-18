@@ -1,6 +1,6 @@
 # Gravity master repair register
 
-**Snapshot date:** November 15, 2026  
+**Snapshot date:** November 18, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
 ## Status rules
@@ -16,13 +16,13 @@ A source scan finding is not automatically a live customer defect. An old failed
 
 ## Current position
 
-- The local audit branch is `fix/report-glossary-published-coverage-20261115` and includes the source repairs recorded below.
+- The original audit branch is `fix/report-glossary-published-coverage-20261115`; the quiet Gravity Report bonus-story proposal is isolated on `fix/gravity-report-human-interest-bonuses-20261118` pending review and release checks.
 - The verified repair batch was merged in PR [#138](https://github.com/Thomas3e123/books/pull/138). The tracker and QA-script follow-up was merged in PR [#139](https://github.com/Thomas3e123/books/pull/139). Netlify's latest production deploy `6afa21bbd34110213f5c2341`, commit `a55050e35f607368a3f72cbee07511e4bc0539fe`, is ready and serves `https://gravityleadershipsystem.com`.
 - The post-deploy smoke check confirmed the deployed homepage and Gravity Report load; all 15 glossary links lead to permanent article routes; 11 unique published article targets and the report confirmation page return 200 with correct canonical metadata; Handbook Creator CSS/JS return 200; the schedule/feed counts are current; and no future issue was exposed. This is evidence for those routes and checks, not certification of every workflow or device.
 - Four uncommitted files relate to the separate Brevo newsletter setup (`site/_redirects`, `site/gravity-report-thanks.html`, `functions/gravity-report-brevo.mjs`, `site/gravity-report-confirmed.html`). Keep them out of unrelated repair commits and do not call the email flow complete until its records, sender, delivery and consent path are verified.
 - Before release, the exact Netlify build sequence (`npm run build` followed by the production packager) verified all 664 source-manifest hashes, generated the Handbook Creator assets, built 153 production pages, and passed the strict internal-link scan, focused Gravity Report and Handbook Creator checks, and 67 integrated stability regressions. The comprehensive source sweep found zero high-, medium-, or low-severity source findings. The separate Brevo draft was excluded. These are source/build checks, not proof of hosted integrations or physical-device behavior.
 - No signup, payment, or customer-data workflow was triggered during release verification. Current direct page retrieval is unavailable through the web lookup path, so findings below distinguish routes already smoke-checked from repairs only known to be in the ready production build. That lookup limitation is not evidence that the site is down.
-- The production Report schedule showed 11 of 30 numbered issues released in the smoke check. RSS contained 12 entries (11 articles plus the move announcement); the article sitemap contained 13 locations (those 12 plus the Report landing page). The corrected QA script now accounts for this distinction.
+- The latest live Report catalog check showed 12 of the original 30 numbered issues published and 18 scheduled; RSS contained 13 entries (12 articles plus the move announcement). Six additional fictional, illustrative business stories are drafted on a separate branch and are not yet live. They are excluded from the weekly email builder, do not change the existing issue dates, and have not been announced or emailed. The article sitemap count includes the landing page as well as published article locations.
 
 ## Confirmed current-live findings
 

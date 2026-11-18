@@ -2534,7 +2534,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "028fc079e6e17aa3ad99300e0fff351f827370afdcc928c39a4a2de50c0f21d0"
+      "sha256": "2d9d3a3e1856cfaac4e5d8e07fa04e4235ac5aea5a5e2f7f63cbe45383b1a461"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",
@@ -2551,6 +2551,10 @@
     {
       "path": "functions/gravity-report/issues-26-30.json",
       "sha256": "a765119af4deceb383ad4097e17eaa65b73cc7bec25904a11cbd5d827716f8df"
+    },
+    {
+      "path": "functions/gravity-report/issues-31-36.json",
+      "sha256": "46b381cab1e9f4b1d2f0ab36e5fd2aad54f2c1fbe3ae8bcdc3435aa0a899a618"
     },
     {
       "path": "functions/gravity-report-brevo.mjs",
