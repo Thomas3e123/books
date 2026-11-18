@@ -7,7 +7,7 @@ test('First visitor can go from homepage through Start Here and Gravity Assist, 
   if(await enter.isVisible())await enter.click();
   await page.locator('a.btn[href="/start-here"]').first().click();
   await expect(page).toHaveURL(/\/start-here$/);
-  const open=page.getByRole('link',{name:'Choose My First Tool — Open Gravity Assist'});
+  const open=page.getByRole('link',{name:'Help Me Choose a Starting Point'});
   await expect(open).toBeVisible();
   await open.click();
   await expect(page).toHaveURL(/\/gravity-assist$/);
@@ -44,5 +44,5 @@ test('Start Here offers a tool-first path without removing approved free downloa
   await expect(actions.nth(1)).toHaveAttribute('download');
   await expect(actions.nth(2)).toHaveAttribute('download');
   await expect(page.getByRole('link',{name:'Download PDF'}).first()).toHaveAttribute('href',/Gravity_System_Overview_v1\.8_2026-10-10\.pdf$/);
-  await expect(hero).toContainText('without installing a program');
+  await expect(hero).toContainText('You do not need to download a program');
 });
