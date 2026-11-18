@@ -1954,7 +1954,7 @@
     },
     {
       "path": "site/books.html",
-      "sha256": "7ee1c240a6cdecd744c4f2c2a454f497ebee023b3120a30b8d38c532a6d7f4ae"
+      "sha256": "2ba90dd47f5071f89cb5c1d4a14dcf8b1f8a4dff88d24e6062360461f240a56b"
     },
     {
       "path": "site/contact.html",
@@ -1966,7 +1966,7 @@
     },
     {
       "path": "site/free-resources.html",
-      "sha256": "d912a6b76317726db5c35a6b53c85881746c4dff85d9f7d09f3d05334e9448bd"
+      "sha256": "1f34387757f906e5c7c08c8f7bbc9c0c6218b06d56e67ba61c3b34e50e48e6c5"
     },
     {
       "path": "site/gravity-assist.html",
@@ -2114,7 +2114,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "8ec62bcaebeea7aa67d88861067564dae51b3c70378ff028a9e9004273f6fc28"
+      "sha256": "31f835b519e9fb7f27911d65516939de5985003e088e5739e3eb706d90f5980f"
     },
     {
       "path": "site/installation-improvement.html",
@@ -2494,7 +2494,7 @@
     },
     {
       "path": "site/toolkit.html",
-      "sha256": "91f07ffa0ab6c7a41a25da60722d7df9dad71a3b7cfec7f41b2240fb6e7da00d"
+      "sha256": "5a48e9cbaa28c82e4bc96c2a3c858cda436efbab0f22b8dedac0d37d5cb09b82"
     },
     {
       "path": "site/windows-programs.html",
