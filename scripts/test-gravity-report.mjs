@@ -22,6 +22,8 @@ assert.equal(bonuses.length,6,'Six bonus human-interest articles are expected');
 assert.deepEqual(bonuses.map(x=>x.issue),Array.from({length:6},(_,i)=>i+31));
 assert(bonuses.every(a=>a.sections.length===5&&a.sections.every(x=>x.length===2&&x[1].length===2)));
 assert(bonuses.every(a=>leadWords(a)>=350),'A bonus article is too short for release');
+assert(bonuses.every(a=>a.illustrative_scenario===true),'Invented bonus stories must be identified as illustrative scenarios');
+assert(front.includes('Restaurant stories · Real-world business lessons'),'Report positioning must not claim fictional scenarios are real reporting');
 assert(new Set([...firstTen.articles,...drafts,...bonuses].map(x=>slug(x.title))).size===36,'Duplicate article titles');
 assert.equal((front.match(/<article class="report-card"/g)||[]).length,30);
 assert.equal((front.match(/<div class="report-field-download">/g)||[]).length,5,'Exactly five downloadable Field Sheets on report landing');
@@ -100,6 +102,7 @@ for(const bonus of bonuses){
  const html=await response.text();
  assert(html.includes(bonus.title)&&html.includes('<link rel="canonical" href="'+ORIGIN+path+'">'),'Bonus article metadata missing: '+bonus.title);
  assert(html.includes(bonus.lead),'Bonus article body missing: '+bonus.title);
+ assert(html.includes('Illustrative scenario · Issue '+String(bonus.issue).padStart(2,'0'))&&html.includes('Fictional, illustrative scenario'),'Bonus story disclosure missing: '+bonus.title);
 }
 r=await at('2026-10-20T18:30:00Z','/gravity-report/feed.xml');
 const initialRss=await r.text();
