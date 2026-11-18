@@ -24,6 +24,7 @@ assert(bonuses.every(a=>a.sections.length===5&&a.sections.every(x=>x.length===2&
 assert(bonuses.every(a=>leadWords(a)>=350),'A bonus article is too short for release');
 assert(bonuses.every(a=>a.illustrative_scenario===true),'Invented bonus stories must be identified as illustrative scenarios');
 assert(front.includes('Restaurant stories · Real-world business lessons'),'Report positioning must not claim fictional scenarios are real reporting');
+assert(!front.includes('New human-interest stories, Field Notes and guest perspectives are in development'),'Report schedule copy must not describe already-published content as in development');
 assert(new Set([...firstTen.articles,...drafts,...bonuses].map(x=>slug(x.title))).size===36,'Duplicate article titles');
 assert.equal((front.match(/<article class="report-card"/g)||[]).length,30);
 assert.equal((front.match(/<div class="report-field-download">/g)||[]).length,5,'Exactly five downloadable Field Sheets on report landing');
