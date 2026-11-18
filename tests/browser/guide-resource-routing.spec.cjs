@@ -6,14 +6,14 @@ test('Guide registry routes all published Gravity resources to valid same-site d
   await page.goto('/gravity-aware');
   const registry=await page.evaluate(()=>window.__GRAVITY_GUIDE_REGISTRY__);
   expect(registry).toBeTruthy();
-  expect(registry.resources.length).toBe(214);
+  expect(registry.resources.length).toBe(216);
   const site=path.resolve(__dirname,'../../site');
   const redirects=fs.readFileSync(path.join(site,'_redirects'),'utf8').split(/\r?\n/);
   const validRedirects=new Set(redirects.map(line=>line.trim().split(/\s+/)).filter(parts=>parts.length>=3&&!parts[0].includes('*')&&/^(200|301|302)!?$/.test(parts[2])).map(parts=>parts[0]));
   const standaloneResponse=await page.request.get('/gravity-guide-registry-v2.json');
   expect(standaloneResponse.ok()).toBe(true);
   const standalone=await standaloneResponse.json();
-  expect(standalone.resources).toHaveLength(214);
+  expect(standalone.resources).toHaveLength(216);
   for(const item of standalone.resources){
     expect(item.url,'Standalone registry must use same-origin Gravity paths: '+item.id).toMatch(/^\/(?!\/)/);
     expect(item.url).not.toContain('thomasmonroebooks.com');

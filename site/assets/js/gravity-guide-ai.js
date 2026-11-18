@@ -24,6 +24,8 @@ function add(role,text,actions=[]){
   box.appendChild(n);const body=n.closest('.gg-body');requestAnimationFrame(()=>{if(body)body.scrollTop=body.scrollHeight});return n;
 }
 const direct=[
+  [/\b(?:gravity\s*report|articles?|article library|report issues?)\b/i,'Browse The Gravity Report article library','/gravity-report'],
+  [/\b(?:owner pilot|pilot program|50[ -]?owner pilot|pilot room)\b/i,'Open the Gravity Owner Pilot Room','/pilot-room'],
   [/\bprivacy(?:\s+(?:policy|notice|statement))?\b|\bpersonal data policy\b/i,'Read the Privacy Policy','/privacy'],
   [/\b(?:terms of (?:service|use)|site terms)\b/i,'Read Terms of Use','/terms'],
   [/\b(?:employees?|staff|team members?)\b.{0,80}\b(?:sign[ -]?in|log[ -]?in|login|access|pin|library)\b|\b(?:sign[ -]?in|log[ -]?in|login)\b.{0,80}\b(?:employees?|staff|team members?)\b/i,'Open Employee Access','/e'],
