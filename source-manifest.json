@@ -1482,7 +1482,7 @@
     },
     {
       "path": "site/assets/js/gravity-report-reading.js",
-      "sha256": "044f934d3525c8f6c91eb0aafb8dd4e495083e64f28635f44429e8d0d8eb2eda"
+      "sha256": "2955de8b4598ac7ef76616c69267e250dd1916200e9143f7cca75ac706d32e31"
     },
     {
       "path": "site/assets/js/gravity-shift-first-schedule-tour-v1.js",
@@ -2042,7 +2042,7 @@
     },
     {
       "path": "site/gravity-report.html",
-      "sha256": "7d3aec1171f031584c8ea79cf2075d53f67b9c41aa977f3575509cdd3932ad3e"
+      "sha256": "e64fc4af203bea0b280517245230ad289117f383ef8adfc043e1a1d442907c40"
     },
     {
       "path": "site/gravity-shift-lab-sw.js",
