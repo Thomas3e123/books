@@ -7,7 +7,7 @@ test.describe('Public Gravity menu at Edge-like high zoom',()=>{
   await page.goto('/start-here');
   const nav=page.locator('header.site-header #site-nav');
   const toggle=page.locator('header.site-header [data-menu-toggle]');
-  await expect(nav.locator('a[href]')).toHaveCount(9);
+  await expect(nav.locator('a[href]')).toHaveCount(10);
   await expect(nav.locator('a.btn-red')).toHaveCount(0);
   await toggle.click();
   await expect(nav).toBeVisible();
@@ -34,7 +34,7 @@ test.describe('Public Gravity menu at Edge-like high zoom',()=>{
   });
   await expect(nav.locator('a[href]')).toHaveCount(2);
   await page.locator('header.site-header [data-menu-toggle]').click();
-  await expect(nav.locator('a[href]')).toHaveCount(9);
+  await expect(nav.locator('a[href]')).toHaveCount(10);
   await expect(nav.locator('a[href="/start-here"]')).toHaveCount(1);
   await page.keyboard.press('Escape');
   await expect(nav).toBeHidden();
