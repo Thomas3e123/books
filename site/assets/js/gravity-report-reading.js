@@ -129,6 +129,7 @@ function catalog(){
  var availability=$('#report-availability'),input=$('#report-search'),categoryFilter=$('#report-category-filter'),count=$('#report-search-count');
  var liveHeading=$('.report-available-heading'),future=$('.report-upcoming-group'),futureList=$('[data-report-upcoming]');
  var futureSummary=$('.report-upcoming-count'),empty=$('.report-search-empty');
+ var alphaList=$('[data-report-article-index]'),alphaStatus=$('#report-alpha-index-status');
  if(!future||!futureList)return;
  function addLink(card,a){
  var action=$('[data-report-action]',card);if(!action)return;action.textContent='';
@@ -230,6 +231,15 @@ function catalog(){
    count.textContent=resultText+'.';
   }
  }
+ function renderArticleIndex(schedule){
+  if(!alphaList)return;
+  var published=schedule.filter(function(a){return a.released}).map(function(a){return {title:a.title,slug:a.slug}});
+  published.push({title:'Gravity Has a New Home',slug:'gravity-has-a-new-home'});
+  published.sort(function(a,b){return a.title.localeCompare(b.title,'en',{sensitivity:'base'})});
+  alphaList.replaceChildren();
+  published.forEach(function(article){var item=node('li'),link=node('a',null,article.title);link.href='/gravity-report/'+encodeURIComponent(article.slug);item.appendChild(link);alphaList.appendChild(item)});
+  if(alphaStatus)alphaStatus.textContent='Published articles and special updates, sorted alphabetically.';
+ }
  function group(schedule){
   var seen=new Set(),categories=new Set();
   schedule.forEach(function(a){
@@ -237,6 +247,7 @@ function catalog(){
    var id=Number(a.issue),card=cardFor(a);seen.add(id);if(a.category)categories.add(a.category);setCard(card,a);
   });
   cards.slice().forEach(function(card){var id=Number(card.getAttribute('data-report-issue'));if(!seen.has(id)){cardsByIssue.delete(id);searchText.delete(card);card.remove();cards=cards.filter(function(x){return x!==card})}});
+  renderArticleIndex(schedule);
   if(categoryFilter){
    var current=categoryFilter.value;categoryFilter.replaceChildren(node('option',null,'All topics'));
    categoryFilter.options[0].value='';
@@ -260,6 +271,7 @@ function catalog(){
   if(liveHeading)liveHeading.textContent='Browse all issues';
   if(future)future.hidden=true;
   if(count)count.textContent='Search the available issue titles.';
+  if(alphaStatus)alphaStatus.textContent='The alphabetical list could not be loaded. Use the article cards below.';
   cards.forEach(function(c){c.hidden=false});
  });
  if(input)input.addEventListener('input',filter);
