@@ -182,7 +182,7 @@
     },
     {
       "path": "site/apps/sop-foundry/import-export.js",
-      "sha256": "a9726b36385566ffb7f8838b74ae71e8012cb84ddd6575d30bea33de6e6b6f8e"
+      "sha256": "65c734a4109e32798998f928d5368f425b9470d3a9fc4f4b374c049fea072522"
     },
     {
       "path": "site/apps/sop-foundry/manager-inbox.html",
