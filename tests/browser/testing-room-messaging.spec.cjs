@@ -38,11 +38,21 @@ test('Testing Room refreshes once and keeps a returning tester conversation usab
 });
 
 test('Testing Room manager can read and reply to a synthetic tester thread',async({page})=>{
+  let savedStatus;
+  let failFirstSave=true;
   const messages=[{id:'synthetic-msg',sender:'tester',body:'Synthetic tester question',created_at:'2026-11-10T10:00:00Z'}];
   await page.route('**/testing-room/**',async route=>{
     const req=route.request(),endpoint=new URL(req.url()).pathname.replace(/^\/testing-room\//,'');
     if(endpoint==='manager/testers')return route.fulfill({contentType:'application/json',body:JSON.stringify({testers:[{id:'synthetic-tester',display_name:'Synthetic Tester',email:'synthetic@example.invalid',interests:['Website'],status:'active',helpful_level:0,updated_at:'2026-11-10T10:00:00Z',unread:1}]})});
     if(endpoint==='manager/thread/synthetic-tester')return route.fulfill({contentType:'application/json',body:JSON.stringify({messages})});
+    if(endpoint==='manager/status' && req.method()==='POST'){
+      if(failFirstSave){
+        failFirstSave=false;
+        return route.fulfill({status:503,contentType:'application/json',body:'{"error":"Temporarily unavailable"}'});
+      }
+      savedStatus=req.postDataJSON();
+      return route.fulfill({contentType:'application/json',body:'{"ok":true}'});
+    }
     if(endpoint==='manager/reply'&&req.method()==='POST'){
       const body=JSON.parse(req.postData()||'{}');
       if(req.headers().authorization!=='Bearer synthetic-manager-key'||body.testerId!=='synthetic-tester')return route.fulfill({status:401,contentType:'application/json',body:'{"error":"Unauthorized synthetic request"}'});
@@ -59,10 +69,20 @@ test('Testing Room manager can read and reply to a synthetic tester thread',asyn
   await expect(page.locator('#app')).toBeVisible();
   await page.locator('#tester-list button').first().click();
   await expect(page.locator('#thread')).toContainText('Synthetic tester question');
-  const status=page.getByRole('combobox',{name:'Filter testers by status'});
+  const status=page.getByRole('combobox',{name:'Tester status'});
+  await status.selectOption('helpful');
   await status.focus();
   await page.keyboard.press('Tab');
-  await expect(page.getByRole('combobox',{name:'Filter testers by helpfulness level'})).toBeFocused();
+  const helpful=page.getByRole('combobox',{name:'Helpfulness level'});
+  await expect(helpful).toBeFocused();
+  await helpful.selectOption('3');
+  expect(savedStatus).toBeUndefined();
+  await page.getByRole('button',{name:'Save tester changes'}).press('Enter');
+  await expect(page.locator('#reply-status')).toContainText('Could not confirm the save.');
+  expect(savedStatus).toBeUndefined();
+  await page.getByRole('button',{name:'Save tester changes'}).press('Enter');
+  await expect(page.locator('#reply-status')).toHaveText('Tester changes saved.');
+  expect(savedStatus).toEqual({testerId:'synthetic-tester',status:'helpful',helpfulLevel:3});
   await page.getByRole('textbox',{name:'Reply to the selected tester or group'}).fill('Synthetic manager confirmation');
   await page.locator('#reply-btn').click();
   await expect(page.locator('#thread')).toContainText('Synthetic manager confirmation');
