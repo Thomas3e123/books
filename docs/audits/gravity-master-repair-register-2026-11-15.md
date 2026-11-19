@@ -3,6 +3,16 @@
 **Snapshot date:** November 19, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## First-visit walkthrough, November 19
+
+Started at the first-visit welcome and followed both the short diagnostic and a known restaurant problem. The local release candidate sends an undecided visitor directly to five questions. Each answer control now carries its question as its accessible name. The welcome moves keyboard focus inside on entry, wraps at both ends, and returns focus to the homepage heading on dismissal.
+
+A single food-cost concern now opens the Food Cost, Inventory & Purchasing section. Leadership, training and guest-service recommendations open their respective sections. The Food-Cost Leak Finder and 30-Day Install Plan also link to the applicable resources. When the short check cannot identify a priority, the next link explicitly opens the full owner assessment.
+
+The live sitemap contained 134 distinct public pages. All 134 loaded at the expected address with a page title. Work Study Lab renders its main heading through its application script. These HTTP checks establish reachability only.
+
+The production build verified 674 source hashes. Its source sweep checked 156 pages, 7,180 link references and 1,057 asset references with zero flagged findings after building Handbook Creator. All 132 Node tests passed. A separate handler test exercised 734 answer combinations across the four diagnostics and resolved all eight distinct destinations, including fragments. The welcome's keyboard handler passed entry, wrapping and Escape checks. New desktop/mobile browser regression cases are present but have not run against this local repair. The isolated Orca run stopped before it established a spoken result. SRC-09 remains open for actual screen-reader speech and the restricted controls. Production publication is pending.
+
 ## November 19 closeout
 
 [PR #152](https://github.com/Thomas3e123/books/pull/152) passed all five GitHub checks and shipped in production deploy `6afebd3bb4341b16f956ec93` at merge `532aae59`. SRC-01, SRC-05 and SRC-18–20 are closed on live verification. The public sitemap links 115 static URLs and 20 Report URLs through two child sitemaps. Five restricted or confirmation routes have noindex and are absent from the static list. All four guide pages have their expected sharing metadata. Live Numbers Lab returned 25.00% for $250 labor and 1,000 sales, prompted for missing actual sales, and returned a $125 difference for a zero forecast. The browser saved the CSV and the file contained the checked results. The production build verified 674 source hashes and generated 156 HTML pages. All 88 selected functional tests passed. Two test fixtures now correctly check fragment destinations and persist Foundry test state.
