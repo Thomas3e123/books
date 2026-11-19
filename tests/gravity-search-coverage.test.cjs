@@ -11,5 +11,10 @@ test('public site search finds each primary workspace and quick utility',()=>{
   const matches=ctx.catalog.filter(p=>(p[0]+' '+p[2]).toLowerCase().includes(query)).slice(0,10);
   assert(matches.some(p=>p[1]===url),query+' must find '+url);
  }
- for(const [,url] of ctx.catalog) assert(fs.existsSync('site'+url+'.html'),url+' destination exists');
+ for(const [,url] of ctx.catalog){
+  const {pathname,hash}=new URL(url,'https://gravityleadershipsystem.com');
+  const file='site'+(pathname==='/'?'/index':pathname)+'.html';
+  assert(fs.existsSync(file),url+' destination page exists');
+  if(hash) assert(fs.readFileSync(file,'utf8').includes('id="'+decodeURIComponent(hash.slice(1))+'"'),url+' destination section exists');
+ }
 });

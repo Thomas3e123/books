@@ -20,6 +20,21 @@ test('Production indexing changes do not remove preview safeguards',()=>{
  assert.match(fs.readFileSync('build/gravity-production/testing-room-manager.html','utf8'),/name="robots" content="noindex,nofollow"/);
 });
 
+test('Production sitemaps advertise published Report content and omit private routes',()=>{
+ const output='build/gravity-production/';
+ const read=name=>fs.readFileSync(output+name,'utf8');
+ const map=read('sitemap.xml');
+ assert(map.includes('<sitemapindex '));
+ for(const child of ['/site-pages.xml','/gravity-report/sitemap.xml']){
+  assert(map.includes('<loc>https://gravityleadershipsystem.com'+child+'</loc>'));
+ }
+ const pages=read('site-pages.xml');
+ assert(pages.includes('<loc>https://gravityleadershipsystem.com/start-here</loc>'));
+ for(const name of ['register','testing-room','pilot-room','pilot-room-manager','gravity-report-confirmed']){
+  if(fs.existsSync(output+name+'.html')) assert(read(name+'.html').includes('name="robots" content="noindex,nofollow"'));
+  assert(!pages.includes('/'+name+'</loc>'));
+ }
+});
 test('Production Guide URL changes with the actual script content',()=>{
  const hash=require('node:crypto').createHash('sha256').update(fs.readFileSync('site/assets/js/gravity-guide-ai.js')).digest('hex').slice(0,16);
  assert(fs.readFileSync('build/gravity-production/index.html','utf8').includes('gravity-guide-ai.js?v='+hash));
