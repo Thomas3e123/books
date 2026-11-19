@@ -1674,11 +1674,11 @@
     },
     {
       "path": "site/assets/js/gravity-work-study-recorded-observation-v1.js",
-      "sha256": "ec993090c294946528f287f76002b746f0192799205074391b30e252ff08f1ca"
+      "sha256": "abbcc969d31b0ed7c34dca1563dfa5f45ba15ff869f316452d8002d720b9374a"
     },
     {
       "path": "site/assets/js/gravity-work-study-recording-review-v1.js",
-      "sha256": "f6c09f6795b30df890f6545f74b41c39262fd4a2aba129e5d6a09613a94373bc"
+      "sha256": "4dce6b754c0536cb6d221ded612016f777b2fd01008a19cd6f82473d62db7000"
     },
     {
       "path": "site/assets/js/gravity-work-study-repeatability-expert-v14.js",
