@@ -25,7 +25,13 @@ async function get(url){
  return {res,body};
 }
 function isReleased(issue,asOf){return asOf>=issue.release_date+'T'+issue.release_time;}
-for(const host of aliases){
+const targets = process.argv.includes('--previews') ? aliases : [canonical];
+function verifyIndexing(response, host) {
+ const tag = response.headers.get('x-robots-tag') || '';
+ if (host === canonical) assert.doesNotMatch(tag, /noindex|\bnone\b/i, 'Production content blocked from indexing');
+ else assert.match(tag, /noindex/i, 'Preview missing noindex');
+}
+for(const host of targets){
  const scheduleResponse=await get(host+'/gravity-report/articles.json');
  assert.equal(scheduleResponse.res.status,200);
  const schedule=JSON.parse(scheduleResponse.body);
@@ -49,7 +55,7 @@ for(const host of aliases){
   assert(body.includes(issue.article_html),'Approved article body missing: '+issue.slug);
   assert(body.includes('rel="canonical" href="'+canonical+path+'"'),'Gravity canonical incorrect: '+issue.slug);
   assert(!body.includes('rel="canonical" href="https://thomasmonroebooks.com'),'Old domain in canonical');
-  assert.match(res.headers.get('x-robots-tag')||'',/noindex/i,'Preview article missing X-Robots-Tag');
+  verifyIndexing(res, host);
   checked++;
  }
  const feed=await get(host+'/gravity-report/feed.xml');
@@ -59,7 +65,7 @@ for(const host of aliases){
  assert.equal((feed.body.match(/<item>/g)||[]).length,expectedItems,'RSS count must match released schedule plus the separate move announcement');
  assert(feed.body.includes(canonical+'/gravity-report/'),'RSS points to wrong host');
  assert(!feed.body.includes('https://thomasmonroebooks.com'),'RSS includes old hostname');
- assert.match(feed.res.headers.get('x-robots-tag')||'',/noindex/i);
+ verifyIndexing(feed.res, host);
  const map=await get(host+'/gravity-report/sitemap.xml');
  assert.equal(map.res.status,200);
  assert.equal((map.body.match(/<loc>/g)||[]).length,expectedItems+1,'Article sitemap must include released schedule entries, the separate move announcement, and the Gravity Report landing page');
@@ -70,5 +76,5 @@ for(const host of aliases){
   assert.equal(future.res.status,404,'Scheduled article made public before release');
   assert.match(future.res.headers.get('x-robots-tag')||'',/noindex/i);
  }
- console.log('GRAVITY_REPORT_LIVE_PASS '+JSON.stringify({host,asOfCentral:schedule.as_of_central,scheduledArticles:schedule.articles.length,publishedArticles:checked,rssItems:expectedItems,articleSitemapItems:expectedItems+1,embargo:'PASS',canonicals:'PASS',noindex:'PASS'}));
+ console.log('GRAVITY_REPORT_LIVE_PASS '+JSON.stringify({host,asOfCentral:schedule.as_of_central,scheduledArticles:schedule.articles.length,publishedArticles:checked,rssItems:expectedItems,articleSitemapItems:expectedItems+1,embargo:'PASS',canonicals:'PASS',indexing:'PASS'}));
 }
