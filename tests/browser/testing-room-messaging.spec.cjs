@@ -18,7 +18,8 @@ test('Testing Room refreshes once and keeps a returning tester conversation usab
       reads++;
       return route.fulfill({contentType:'application/json',body:JSON.stringify({messages})});
     }
-    if(endpoint==='groups')return route.fulfill({contentType:'application/json',body:JSON.stringify({groups:[]})});
+    if(endpoint==='groups')return route.fulfill({contentType:'application/json',body:JSON.stringify({groups:[{id:'fixture-group',name:'Training group',members:2,join_code:'FIXTURE'}]})});
+    if(endpoint==='group/thread/fixture-group')return route.fulfill({contentType:'application/json',body:'{"messages":[]}'});
     if(endpoint==='message'&&req.method()==='POST'){
       const body=JSON.parse(req.postData()||'{}');
       messages.push({id:'synthetic-2',sender:'tester',body:body.body,created_at:'2026-11-10T10:01:00Z'});
@@ -35,6 +36,11 @@ test('Testing Room refreshes once and keeps a returning tester conversation usab
   await expect(page.locator('#thread')).toContainText('Synthetic tester follow-up');
   await expect(page.locator('#send-status')).toContainText('Sent.');
   expect(reads).toBeGreaterThanOrEqual(2);
+  await page.getByRole('button',{name:'Open group chat'}).press('Enter');
+  const groupMessage=page.getByRole('textbox',{name:'Message the tester group'});
+  await groupMessage.fill('Synthetic group draft');
+  await page.keyboard.press('Tab');
+  await expect(page.locator('#group-send')).toBeFocused();
 });
 
 test('Testing Room manager can read and reply to a synthetic tester thread',async({page})=>{
@@ -78,7 +84,7 @@ test('Testing Room manager can read and reply to a synthetic tester thread',asyn
   await helpful.selectOption('3');
   expect(savedStatus).toBeUndefined();
   await page.getByRole('button',{name:'Save tester changes'}).press('Enter');
-  await expect(page.locator('#reply-status')).toContainText('Could not confirm the save.');
+  await expect(page.getByRole('status').filter({hasText:'Could not confirm the save.'})).toBeVisible();
   expect(savedStatus).toBeUndefined();
   await page.getByRole('button',{name:'Save tester changes'}).press('Enter');
   await expect(page.locator('#reply-status')).toHaveText('Tester changes saved.');
