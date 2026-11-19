@@ -1674,11 +1674,11 @@
     },
     {
       "path": "site/assets/js/gravity-work-study-recorded-observation-v1.js",
-      "sha256": "ec993090c294946528f287f76002b746f0192799205074391b30e252ff08f1ca"
+      "sha256": "abbcc969d31b0ed7c34dca1563dfa5f45ba15ff869f316452d8002d720b9374a"
     },
     {
       "path": "site/assets/js/gravity-work-study-recording-review-v1.js",
-      "sha256": "a1910204962d84c24c047f9fc6fceacc6b611294f1980fbf4914cfefd16d16ca"
+      "sha256": "4dce6b754c0536cb6d221ded612016f777b2fd01008a19cd6f82473d62db7000"
     },
     {
       "path": "site/assets/js/gravity-work-study-repeatability-expert-v14.js",
@@ -2526,7 +2526,7 @@
     },
     {
       "path": "functions/gravity-guide/guide-core.mjs",
-      "sha256": "0d59eaeabc302080c820ad831b46b0348f60f154f087046a50ccf3166173d5dd"
+      "sha256": "e987fffe8b7f3cd3e0fcde69c0256cc88776cb4afea9c9c9f9f16d4dca140185"
     },
     {
       "path": "functions/gravity-report/articles.json",
