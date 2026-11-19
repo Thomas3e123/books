@@ -31,7 +31,7 @@ jobs:
               await p.goto('http://localhost:8765/apps/inventory-center/index.html');
               const restore=p.getByRole('button',{name:'Restore Backup',exact:true});
               const open=p.locator('#open-import');
-              await open.focus(); await open.press('Shift+Tab');
+              await p.locator('#print-view').focus(); const tabOrder=[]; for(let i=0;i<30;i++){await p.keyboard.press('Tab');const id=await p.evaluate(()=>document.activeElement.id);tabOrder.push(id);if(id==='restore-json')break;}console.log('Observed tab order',tabOrder);
               if(!await restore.evaluate(el=>el===document.activeElement)) throw Error('Unexpected restore focus order');
               await p.waitForTimeout(1600);
               async function choose(btn,id){
