@@ -26,6 +26,8 @@ test('Five-question audit explains when all controls are unknown and avoids rank
   await page.getByRole('button',{name:'Generate next steps'}).click();
   await expect(page.locator('#gravity-quick-result')).toContainText('Evidence is insufficient');
   await expect(page.locator('#gravity-quick-result')).toContainText('No weakest system can be established');
+  await page.getByRole('link',{name:'Continue to the 20-question owner check'}).click();
+  await expect(page).toHaveURL(/#awareness-check$/);
 });
 
 test('A single concern produces the relevant control and clear evidence-first guidance',async({page})=>{
@@ -35,7 +37,7 @@ test('A single concern produces the relevant control and clear evidence-first gu
   await page.getByRole('button',{name:'Generate next steps'}).click();
   await expect(page.locator('#gravity-quick-result')).toContainText('Priority: Food cost');
   await expect(page.locator('#gravity-quick-result')).toContainText('prove the cause');
-  await expect(page.locator('#gravity-quick-result a')).toHaveAttribute('href','/operating-systems#system-finder');
+  await expect(page.locator('#gravity-quick-result a')).toHaveAttribute('href','/operating-systems#food-cost-inventory');
 });
 
 test('The native 30-day plan presents a provisional plan rather than a verified solution',async({page})=>{
@@ -47,4 +49,22 @@ test('The native 30-day plan presents a provisional plan rather than a verified 
   await expect(page.locator('#gravity-quick-result')).toContainText('not yet validated');
   await expect(page.locator('#gravity-quick-result')).toContainText('measurable proof');
   await expect(page.locator('#gravity-quick-result a')).toHaveAttribute('href','/gravity-sop-foundry');
+});
+
+test('First visit keeps keyboard choices in the welcome and opens the short check',async({page})=>{
+  await page.goto('/');
+  const welcome=page.locator('#gravity-first-visit');
+  await expect(welcome.locator('h2')).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(welcome.locator('[data-welcome-path="registration"]')).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(welcome.locator('[data-welcome-path="labor"]')).toBeFocused();
+  await welcome.getByRole('link',{name:/five-question check/}).click();
+  await expect(page.locator('#gravity-quick-form select')).toHaveCount(5);
+  await expect(page.getByRole('combobox',{name:'Do managers complete and review shift handoffs?'})).toBeVisible();
+  await page.goto('/');
+  await expect(welcome).toBeHidden();
+  await page.goto('/?welcome=1');
+  await page.keyboard.press('Escape');
+  await expect(page.locator('main h1')).toBeFocused();
 });

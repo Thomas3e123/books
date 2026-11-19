@@ -400,6 +400,11 @@
     storageSet(WELCOME_KEY, '1');
     welcome.hidden = true;
     document.body.classList.remove('gravity-welcome-open');
+    var homeHeading = document.querySelector('main h1');
+    if (homeHeading) {
+      homeHeading.tabIndex = -1;
+      homeHeading.focus();
+    }
     send('first_visit_welcome_complete', { completion_action: reason || 'enter_site' });
   }
   if (welcome && isHome) {
@@ -407,6 +412,7 @@
       if (!gravityIsKnownBrowser) sessionSet('gravity_first_visit_flow_v1', '1');
       welcome.hidden = false;
       document.body.classList.add('gravity-welcome-open');
+      document.getElementById('gravity-welcome-title').focus();
       send('first_visit_welcome_view', { visit_type: gravityIsKnownBrowser ? 'reopened' : 'first_browser_visit' });
     } else {
       send('returning_home_view', { visit_type: 'returning_browser' });
@@ -423,7 +429,21 @@
         send('first_visit_path_selection', { welcome_destination: cleanSlug(a.getAttribute('data-welcome-path') || ''), link_text_clean: cleanText(a.textContent) });
       });
     });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !welcome.hidden) closeWelcome('escape'); });
+    document.addEventListener('keydown', function (e) {
+      if (welcome.hidden) return;
+      if (e.key === 'Escape') return closeWelcome('escape');
+      if (e.key !== 'Tab') return;
+      var choices = welcome.querySelectorAll('a[href], button:not([disabled])');
+      var first = choices[0], last = choices[choices.length - 1];
+      var active = document.activeElement;
+      if (e.shiftKey && (active === first || active.id === 'gravity-welcome-title' || !welcome.contains(active))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && (active === last || !welcome.contains(active))) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
   }
 
   // Registration attribution fields: capture source without placing email or form text in analytics.
