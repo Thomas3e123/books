@@ -1,11 +1,18 @@
 const { test, expect } = require('@playwright/test');
 
-test.use({
-  permissions: ['microphone'],
-  launchOptions: { args: ['--use-fake-device-for-media-stream'] }
-});
-
 test('Work Study saves a recording and marker, exports them and checks the transcription limit', async ({ page }) => {
+  // Supply a real audio track without depending on a CI runner's microphone.
+  await page.addInitScript(() => {
+    navigator.mediaDevices.getUserMedia = async () => {
+      const context = new AudioContext();
+      const tone = context.createOscillator();
+      const destination = context.createMediaStreamDestination();
+      tone.connect(destination);
+      tone.start();
+      await context.resume();
+      return destination.stream;
+    };
+  });
   await page.goto('/gravity-work-study-lab.html');
   await page.locator('#wsrec-start').click();
   await expect(page.locator('#wsrec-status')).toContainText('Recording.');
