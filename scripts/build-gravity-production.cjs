@@ -14,7 +14,7 @@ function assetVersion(rel){
   assetVersions.set(rel,version);
   return version;
 }
-const privatePage=/^(apps\/|handbook-creator\/|testing-room-manager\.html$|register\.html$|registration-thanks\.html$|gravity-report-thanks\.html$|review-thanks\.html$)/;
+const privatePage=/^(apps\/|handbook-creator\/|404\.html$|(?:testing-room|pilot-room)(?:-manager)?\.html$|gravity-report-confirmed\.html$|register\.html$|registration-thanks\.html$|gravity-report-thanks\.html$|review-thanks\.html$)/;
 fs.rmSync(out,{recursive:true,force:true});fs.mkdirSync(out,{recursive:true});fs.cpSync(source,out,{recursive:true});
 // Correct CURRENT customer-facing claims in production without rewriting historical
 // milestone counts (e.g. September's 215-prompt release). The controlled current
@@ -86,6 +86,24 @@ function validateArticleMetadata(html,rel){
   }
  }
 }
+const publicUrls = new Set();
+function recordPublicPage(html, file) {
+ if (privatePage.test(file) || file.includes('/')) return;
+ const route = file === 'index.html' ? '/' : '/' + file.replace(/\.html$/, '');
+ const tag = html.match(/<link\b(?=[^>]*\brel=["']canonical["'])[^>]*>/i);
+ const canonical = attr(tag && tag[0], 'href');
+ if (canonical === origin + route) publicUrls.add(canonical);
+}
+function writeProductionSitemaps() {
+ const header = '<?xml version="1.0" encoding="UTF-8"?>\n';
+ const namespace = 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"';
+ const pages = [...publicUrls].sort().map(url => '  <url><loc>' + url + '</loc></url>');
+ fs.writeFileSync(path.join(out, 'site-pages.xml'), header + '<urlset ' + namespace + '>\n' + pages.join('\n') + '\n</urlset>\n');
+ // The Report generates its sitemap at request time using its publication schedule.
+ const maps = ['/site-pages.xml', '/gravity-report/sitemap.xml'].map(route =>
+  '  <sitemap><loc>' + origin + route + '</loc></sitemap>');
+ fs.writeFileSync(path.join(out, 'sitemap.xml'), header + '<sitemapindex ' + namespace + '>\n' + maps.join('\n') + '\n</sitemapindex>\n');
+}
 let pages=0;
 function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){
  const p=path.join(dir,e.name);if(e.isDirectory()){walk(p);continue;}
@@ -95,6 +113,7 @@ function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){
   const rel=path.relative(out,p).split(path.sep).join('/');
   s=normalizeCurrentCopy(s);
   validateArticleMetadata(s,rel);
+  recordPublicPage(s,rel);
   // Rewrite every *local* HTML JavaScript or stylesheet URL to its content hash.
   // Leave unrelated, missing, dynamic and third-party assets untouched.
   s=s.replace(/(\b(?:src|href)=["'])(\/?assets\/((?:js|css)\/[^"'?#]+))(\?[^"'#]*)?(#[^"']*)?(["'])/gi,
@@ -113,6 +132,7 @@ function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){
  fs.writeFileSync(p,s);
 }}
 walk(out);
+writeProductionSitemaps();
 fs.writeFileSync(path.join(out,'robots.txt'),'User-agent: *\nAllow: /\nSitemap: '+origin+'/sitemap.xml\n');
 const hp=path.join(out,'_headers');fs.writeFileSync(hp,fs.readFileSync(hp,'utf8').replace(/^\s*X-Robots-Tag: noindex, nofollow\r?\n/gm,''));
 if(pages<100)throw Error('Incomplete production output');

@@ -10,7 +10,7 @@ function workspace(){
  const source=fs.readFileSync('site/apps/sop-foundry/web-api-shim.js','utf8');
  const context={window,URL,Response,Request,Blob,crypto,structuredClone,location:{origin:'https://audit.test',href:'https://audit.test/apps/sop-foundry/workroom.html'},sessionStorage:{getItem:()=> 'build'},localStorage:{getItem:()=>null},testState:state};
  // Replace persistence only; exercise the real workroom and publish handlers.
- vm.runInNewContext(source.replace(/\}\)\(\);\s*$/, 'statePromise=Promise.resolve(testState);save=async s=>s;})();'),context);
+ vm.runInNewContext(source.replace(/\}\)\(\);\s*$/, 'statePromise=Promise.resolve(testState);save=async next=>{Object.assign(testState,structuredClone(next));return testState};})();'),context);
  const request=async(path,method,data)=>{const r=await window.fetch(path,{method,body:JSON.stringify(data)});return {status:r.status,body:await r.json()}};
  return {state,request};
 }
