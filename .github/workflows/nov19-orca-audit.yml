@@ -30,7 +30,7 @@ jobs:
               const p=await b.newPage();
               await p.goto('http://localhost:8765/apps/inventory-center/index.html');
               const restore=p.getByRole('button',{name:'Restore Backup',exact:true});
-              const open=p.getByRole('button',{name:'Import Items',exact:true});
+              const open=p.locator('#open-import');
               await open.focus(); await open.press('Shift+Tab');
               if(!await restore.evaluate(el=>el===document.activeElement)) throw Error('Unexpected restore focus order');
               await p.waitForTimeout(1600);
@@ -47,6 +47,14 @@ jobs:
               await p.goto('http://localhost:8765/apps/sop-foundry/import-export.html');
               const paste=p.getByRole('textbox',{name:'Paste the complete SOP'});
               if(await paste.isVisible()){await paste.focus();await p.waitForTimeout(2000);}
+              const fs=require('node:fs');
+              const controls=[];
+              for(const [file,ids] of Object.entries({'testing-room-manager.html':['tester-status','helpful-level','reply'],'testing-room.html':['group-msg'],'apps/sop-foundry/import-export.html':['pasteText']})){
+                const html=fs.readFileSync('site/'+file,'utf8');
+                controls.push(...await p.evaluate(({html,ids})=>{const doc=new DOMParser().parseFromString(html,'text/html');return ids.map(id=>doc.getElementById(id).outerHTML);},{html,ids}));
+              }
+              await p.setContent('<main>'+controls.join('')+'</main>');
+              for(const el of await p.locator('main [aria-label]').all()){await el.focus();await p.waitForTimeout(1800);}
             } finally {await b.close();}
           })().catch(e=>{console.error(e);process.exitCode=1;});
           JS
@@ -55,18 +63,19 @@ jobs:
             export NO_AT_BRIDGE=0 GTK_MODULES=gail:atk-bridge ACCESSIBILITY_ENABLED=1
             gsettings set org.gnome.desktop.interface toolkit-accessibility true
             pulseaudio --start
-            orca --debug-file="$RUNNER_TEMP/orca.log" >"$RUNNER_TEMP/orca-console" 2>&1 &
+            orca --debug --debug-file="$RUNNER_TEMP/orca.log" >"$RUNNER_TEMP/orca-console" 2>&1 &
             sleep 5
-            node "$RUNNER_TEMP/check.cjs"
+            node "$RUNNER_TEMP/check.cjs" || { tail -20 "$RUNNER_TEMP/orca-console"; exit 1; }
             python3 - <<PY
           import pathlib,os,re
           source=pathlib.Path(os.environ["RUNNER_TEMP"],"orca.log")
           if not source.exists(): raise SystemExit("Orca debug log missing")
           lines=source.read_text(errors="replace").splitlines()
           speech=[line for line in lines if re.search(r"SPEECH OUTPUT|SPEECH DISPATCHER: Speaking|SPEECH: Speaking",line,re.I)]
-          for target in ("Restore Backup","Choose CSV File","Private Testing Room manager key","Paste the complete SOP"):
+          for target in ("Restore Backup","Choose CSV File","Private Testing Room manager key","Paste the complete SOP","Filter testers by status","Filter testers by helpfulness level","Reply to the selected tester or group","Message the tester group"):
               hits=[line for line in speech if target.lower() in line.lower()]
               print("Spoken:",target, hits[:1])
           print("Speech log records:",len(speech))
+          if not speech: print("Diagnostics:", [line[:250] for line in lines if "speech" in line.lower()][-20:])
           PY
           '
