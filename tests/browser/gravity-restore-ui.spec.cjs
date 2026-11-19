@@ -144,3 +144,25 @@ test('Shift Lab browser-storage write failure restores original profile and sche
   }));
   expect(after).toEqual({profile:prior.profile,schedules:prior.schedules});
 });
+
+test('Inventory keyboard actions open the matching backup and CSV pickers',async({page})=>{
+  await page.goto('/apps/inventory-center/index.html');
+  const restore=page.getByRole('button',{name:'Restore Backup',exact:true});
+  await page.locator('#backup-json').focus();
+  await page.keyboard.press('Tab');
+  await expect(restore).toBeFocused();
+
+  async function verifyPicker(inputId){
+    const event=page.waitForEvent('filechooser');
+    await page.keyboard.press('Enter');
+    const chooser=await event;
+    expect(await chooser.element().getAttribute('id')).toBe(inputId);
+    await chooser.setFiles([]);
+  }
+  await verifyPicker('web-restore-input');
+  await page.locator('#open-import').press('Enter');
+  const csv=page.getByRole('button',{name:'Choose CSV File',exact:true});
+  await csv.focus();
+  await expect(csv).toBeFocused();
+  await verifyPicker('web-import-input');
+});
