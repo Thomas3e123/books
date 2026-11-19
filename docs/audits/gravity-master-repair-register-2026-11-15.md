@@ -16,9 +16,11 @@
 | Downloads and QR (QA-03/07) | The exported Start Here QR image decoded to the correct Gravity Start Here URL. | Browser CSV verified after deployment. Phone camera scan and physical print remain open. |
 | Account and device checks | Brevo is closed on the owner's successful signup. | Backup recovery/deletion needs isolated test accounts and storage. Square checkout/delivery/refund needs sandbox access. Screen-reader and keyboard checks remain open (SRC-09). Windows installer remains deferred (QA-08). |
 
-## Work Study follow-up
+## Work Study and Guide follow-up
 
 The production transcription service returned a timestamped, unverified draft for a short synthetic WAV. It misheard one word, confirming why the manager review step matters. The service accepts recordings through 4 MiB. The web client and Windows source previously accepted 8 MiB and are being aligned with the service. The browser regression covers capture, marker persistence, portable export, and rejection of an oversized transcription before upload. Windows installer certification is still deferred.
+
+A live scheduling question correctly linked to Shift Lab. A live employee-handbook question sent the visitor to Document Studio. The Guide reference now identifies the dedicated Handbook Creator and its direct URL. Verify the same question after release.
 
 ## Status rules
 
