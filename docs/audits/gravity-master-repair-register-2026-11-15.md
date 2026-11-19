@@ -3,6 +3,12 @@
 **Snapshot date:** November 19, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## SOP Foundry import review, November 19
+
+[PR #161](https://github.com/Thomas3e123/books/pull/161) fixed duplicate handling that reset the manager's choice after another item entered the review queue. Skipping all duplicates now issues no workroom write and reports the actual count. A failed save preserves the queue for retry. Pasted training requirements and the role and training columns from Gravity's own exports now survive import.
+
+Desktop and mobile Chromium completed the Build Room sign-in, keyboard paste, draft save, reload and duplicate skip on fictional data. All 236 browser tests and 135 Node tests passed. Production deploy `6aff334adc16e4fbacc5906d` served the tested import script byte for byte. Spoken announcements inside the room remain unverified.
+
 ## Download, Report and Testing Room verification, November 19
 
 The Gravity Report release check now defaults to the canonical domain. The November 19 run matched all 36 schedule records, all 18 published stories and their canonical URLs. RSS included 19 entries with the move announcement and the Report sitemap listed 20 URLs including its landing page. A separate exact-set comparison confirmed there were no missing, extra or duplicate entries. The next scheduled story returned 404 with noindex. The optional `--previews` run retains the preview noindex checks.
