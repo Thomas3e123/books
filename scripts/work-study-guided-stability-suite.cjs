@@ -28,5 +28,5 @@ must(preload.includes("requestTts:payload=>ipcRenderer.invoke('tts:request',payl
 must(main.includes("ipcMain.handle('evidence:save'"),'Windows main process must persist evidence packages.');
 must(main.includes("ipcMain.handle('evidence:latest'"),'Windows main process must restore latest evidence package.');
 must(main.includes("ipcMain.handle('tts:request'"),'Windows main process must own the Cedar TTS request.');
-must(main.includes('https://thomasmonroebooks.com/.netlify/functions/gravity-tts'),'Windows Cedar TTS must use the hosted HTTPS endpoint, never a site-relative file URL.');
+must(main.includes('https://gravityleadershipsystem.com/.netlify/functions/gravity-tts'),'Windows Cedar TTS must use the hosted HTTPS endpoint, never a site-relative file URL.');
 console.log('Work Study Guided stability suite PASS');
