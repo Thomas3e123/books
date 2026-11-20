@@ -1,7 +1,15 @@
 # Gravity master repair register
 
-**Snapshot date:** November 19, 2026
+**Snapshot date:** November 20, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
+
+## November 20 first-visit and restaurant profile checks
+
+All 11 choices in the live homepage welcome panel reached their destinations, including the specified sections. All 136 URLs across the live sitemaps opened at their listed addresses, had a page title and matching canonical URL, and returned no explicit noindex directive in the checked metadata or headers. All 97 distinct PDF links in the production HTML returned a PDF signature. The optional Start Here guide contained six pages.
+
+A scan across 156 built HTML pages checked 583 links to sections in resolved HTML destinations. The SOP Foundry new-SOP link opens its editor through script. The other checked section links had matching targets.
+
+The restaurant profile controls in 12 workspaces previously reported success even if the browser refused a save or clear. [PR #166](https://github.com/Thomas3e123/books/pull/166) verifies the write before applying the profile, preserves entered details on failure and lets the manager retry. Desktop and mobile Chromium covered failed save, failed clear, retry and reload, plus the path from the homepage through Start Here and Gravity Assist to saving and backing up a Shift Lab week and returning. All 238 browser tests, 135 Node tests and six PR workflows passed. Production deploy `6b007193527fc5ba7f7dee8c` served the tested shared script byte for byte through the verified profile routes.
 
 ## November 20 scheduled release and Ask Gravity
 
