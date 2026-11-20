@@ -175,6 +175,13 @@ export default async function handler(req){
   if(!a||!released(a,t))return new Response('Article not yet published',{status:404,headers:{...common,'Content-Type':'text/plain; charset=utf-8','X-Robots-Tag':'noindex'}});
   return new Response(req.method==='HEAD'?null:narrationText(a),{headers:{...common,'Content-Type':'text/plain; charset=utf-8','X-Robots-Tag':'noindex, noarchive'}});
  }
+ if(p==='/gravity-report/articles.json' && new URL(req.url).searchParams.get('view')==='links'){
+  const published=ready.slice();
+  if(released(SPECIAL_MOVE,t)) published.push(SPECIAL_MOVE);
+  published.sort((a,b)=>a.title.localeCompare(b.title,'en',{sensitivity:'base'}));
+  const links=published.map(a=>'<li><a href="/gravity-report/'+encodeURIComponent(a.slug)+'">'+esc(a.title)+'</a></li>');
+  return new Response(req.method==='HEAD'?null:'<ol data-report-article-index>'+links.join('')+'</ol>',{headers:{...common,'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store','X-Robots-Tag':'noindex'}});
+ }
  if(p==='/gravity-report/articles.json'){const schedule=ALL_ARTICLES.map(a=>{const isReleased=released(a,t);return {issue:a.issue,title:a.title,slug:a.slug,release_date:a.release_date,category:a.category,released:isReleased,summary:isReleased?a.summary:null,search_text:isReleased?articleSearchText(a):null}});return new Response(JSON.stringify({as_of_central:t,articles:schedule}),{headers:{...common,'Content-Type':'application/json; charset=utf-8'}});}
  if(p==='/gravity-report/feed.xml')return new Response(rss(released(SPECIAL_MOVE,t)?[SPECIAL_MOVE,...ready]:ready),{headers:{...common,'Content-Type':'application/rss+xml; charset=utf-8'}});
  if(p==='/gravity-report/sitemap.xml')return new Response(sitemap(released(SPECIAL_MOVE,t)?[SPECIAL_MOVE,...ready]:ready),{headers:{...common,'Content-Type':'application/xml; charset=utf-8'}});
