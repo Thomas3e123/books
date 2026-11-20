@@ -89,7 +89,7 @@ if(!redirects.includes('/* /404.html 404'))throw Error('Publisher fallback routi
 redirects=redirects.replace('/* /404.html 404',sampleRules+'\n/* /404.html 404');
 fs.writeFileSync(redirectFile,redirects);
 const sitemap=['<?xml version="1.0" encoding="utf-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'];
-for(const page of ['','books','about','publishing','contact','privacy','terms','purchase-complete']){
+for(const page of ['','books','about','publishing','contact','privacy','terms']){
  sitemap.push('<url><loc>https://thomasmonroebooks.com/'+page+'</loc></url>');
 }
 for(const book of BOOKS)sitemap.push('<url><loc>https://thomasmonroebooks.com/samples/'+book.id+'</loc></url>');
