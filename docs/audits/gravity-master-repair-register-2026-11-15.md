@@ -5,7 +5,7 @@
 
 ## November 20 search discovery repairs
 
-[Audit and measurement plan](gravity-google-search-discovery-2026-11-20.md). The release adds a second Search Console verification tag, direct release-gated links in the Report's existing alphabetical index, a Start Here link to Installation & Improvement, and worked examples on the handoff, food-cost and training sign-off pages. Search Console ownership and the live response require a post-deployment check. Rankings require a later comparison.
+[PR #169](https://github.com/Thomas3e123/books/pull/169) passed five checks and shipped in production deploy `6b008501f6984904dd06561a`. The canonical Report page served all 20 published links in the initial HTML, with and without a trailing slash. The two sitemaps listed 135 distinct addresses with no overlap. The three worked examples and their companion links passed live checks. Both Google verification tags are present. Google confirmed ownership of the canonical HTTPS URL-prefix property and reported that the submitted sitemap index was processed successfully. Performance and indexing reports are still processing. [Audit and measurement plan](gravity-google-search-discovery-2026-11-20.md).
 
 ## November 20 print, QR and Reader follow-up
 
