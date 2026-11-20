@@ -3,6 +3,12 @@
 **Snapshot date:** November 19, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 20 scheduled release and Ask Gravity
+
+The canonical Report release check passed after Issue 13 opened on schedule. The catalog contained 19 published numbered stories out of 36, the RSS feed contained 20 entries including the separate announcement, and the Report sitemap contained 21 URLs. The next scheduled issue returned 404.
+
+The live Guide initially answered the count correctly but could not identify the November 20 issue. [PR #164](https://github.com/Thomas3e123/books/pull/164) supplied the release dates and issue numbers for published entries. The production Guide then answered with 19 published stories and Issue 13, “Why Do Restaurant Managers Avoid Difficult Employee Conversations?” A separate test confirmed the Guide receives no scheduled titles through this lookup. All 135 Node tests and three PR checks passed. Production deploy `6b006da01959e48c9b104338`.
+
 ## SOP Foundry import review, November 19
 
 [PR #161](https://github.com/Thomas3e123/books/pull/161) fixed duplicate handling that reset the manager's choice after another item entered the review queue. Skipping all duplicates now issues no workroom write and reports the actual count. A failed save preserves the queue for retry. Pasted training requirements and the role and training columns from Gravity's own exports now survive import.
