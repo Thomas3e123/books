@@ -27,8 +27,11 @@ async function currentReportCatalogFacts(){
     if(!articles.length)throw new Error('Report catalog empty');
     const published=articles.filter(article=>article.released===true);
     const scheduled=articles.filter(article=>article.released!==true);
-    const titles=published.map(article=>article.title).filter(Boolean);
-    return `\nLIVE GRAVITY REPORT CATALOG (this current catalog supersedes older count wording): ${published.length} numbered articles are published; ${scheduled.length} numbered issues remain scheduled. The separate “Gravity Has a New Home” update is also published and is not a numbered article. Published article titles: ${titles.join('; ')}. Use /gravity-report for the live list. Never count scheduled issues as published.`;
+    const entries=published.filter(article=>article.title).map(article=>{
+      const label=[article.issue && 'Issue '+article.issue, article.release_date].filter(Boolean).join(', ');
+      return label ? label+' — '+article.title : article.title;
+    });
+    return `\nLIVE GRAVITY REPORT CATALOG (this current catalog supersedes older count wording): ${published.length} numbered articles are published; ${scheduled.length} numbered issues remain scheduled. The separate “Gravity Has a New Home” update is also published and is not a numbered article. Published issues and release dates: ${entries.join('; ')}. Use /gravity-report for the live list. Never count scheduled issues as published.`;
   }catch{
     return '\nLIVE GRAVITY REPORT CATALOG: unavailable for this request. Do not guess a published-article count; direct the visitor to /gravity-report for the current list.';
   }
