@@ -3,6 +3,14 @@
 **Snapshot date:** November 20, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 20 print, QR and Reader follow-up
+
+All five live Field Sheets rendered as single US Letter pages. The clickable article addresses on sheets 01 and 02 extended into a quarter-inch bottom printer margin at full size. Raised both footers and their clickable areas by 12 points. All words now fit inside the simulated printable area on all five sheets. The two revised sheets preserve the original text and article destinations. A paper proof on an actual printer remains open.
+
+An existing Start Here PNG export decoded to the correct HTTPS address at original size, at 150 pixels square, rotated 12 degrees, and with reduced contrast plus mild blur. Physical camera scanning remains open.
+
+In the live public Reader, Issue 01 played with Cedar narration, paused, advanced 15 seconds and restored Part 1 at exactly 0:27 after reload and reselecting the article. Physical phone lock and resume remain open. Work Study recording and export previously passed with synthetic audio. For physical playback, use Export Recording + Markers and open the audio file in the device player. Hosted cloud recovery still requires an isolated verified customer account.
+
 ## November 20 first-visit and restaurant profile checks
 
 All 11 choices in the live homepage welcome panel reached their destinations, including the specified sections. All 136 URLs across the live sitemaps opened at their listed addresses, had a page title and matching canonical URL, and returned no explicit noindex directive in the checked metadata or headers. All 97 distinct PDF links in the production HTML returned a PDF signature. The optional Start Here guide contained six pages.
