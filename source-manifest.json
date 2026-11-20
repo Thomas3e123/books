@@ -2526,7 +2526,7 @@
     },
     {
       "path": "functions/gravity-guide/guide-core.mjs",
-      "sha256": "e987fffe8b7f3cd3e0fcde69c0256cc88776cb4afea9c9c9f9f16d4dca140185"
+      "sha256": "bef75c2d81ec354dd9ced414c4bb38de1c5b22b2159eb7385259299af8659cff"
     },
     {
       "path": "functions/gravity-report/articles.json",
