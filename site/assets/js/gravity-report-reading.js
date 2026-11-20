@@ -291,7 +291,7 @@ function catalog(){
   if(liveHeading)liveHeading.textContent='Browse all issues';
   if(future)future.hidden=true;
   if(count)count.textContent='Search the available issue titles.';
-  if(alphaStatus)alphaStatus.textContent='The alphabetical list could not be loaded. Use the article cards below.';
+  if(alphaStatus)alphaStatus.textContent=alphaList?.children.length?'Published articles sorted by title. Additional sorting is temporarily unavailable.':'The alphabetical list could not be loaded. Use the article cards below.';
   cards.forEach(function(c){c.hidden=false});
  });
  if(input)input.addEventListener('input',filter);

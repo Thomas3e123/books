@@ -3,6 +3,10 @@
 **Snapshot date:** November 20, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 20 search discovery repairs
+
+[Audit and measurement plan](gravity-google-search-discovery-2026-11-20.md). The release adds a second Search Console verification tag, direct release-gated links in the Report's existing alphabetical index, a Start Here link to Installation & Improvement, and worked examples on the handoff, food-cost and training sign-off pages. Search Console ownership and the live response require a post-deployment check. Rankings require a later comparison.
+
 ## November 20 print, QR and Reader follow-up
 
 All five live Field Sheets rendered as single US Letter pages. The clickable article addresses on sheets 01 and 02 extended into a quarter-inch bottom printer margin at full size. Raised both footers and their clickable areas by 12 points. All words now fit inside the simulated printable area on all five sheets. The two revised sheets preserve the original text and article destinations. A paper proof on an actual printer remains open.

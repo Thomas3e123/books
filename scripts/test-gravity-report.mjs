@@ -40,7 +40,7 @@ assert.equal((front.match(/<a href="\/gravity-report\/[^"]+">Read full article â
 assert(front.includes('data-netlify="true"')&&front.includes('name="newsletter-consent"'));
 assert(config.path.includes('/gravity-report/:slug'));
 for(const a of firstTen.articles.slice(0,5))assert(front.includes('href="'+url(a)+'"'),'Live article missing clickable link');
-for(const a of [...firstTen.articles.slice(5),...drafts,...bonuses])assert(!front.includes('href="'+url(a)+'"'),'Dynamic article linked in no-JavaScript fallback');
+assert(front.includes('<ol data-report-article-index></ol>'),'Missing insertion point for the date-aware HTML index');
 for(const a of drafts)assert(front.includes('data-report-issue="'+a.issue+'"'),'Future article missing on index page');
 const RealDate=globalThis.Date;
 async function at(iso,path){
@@ -83,6 +83,11 @@ for(const a of projected){
  const before=new RealDate(moment+(9-offset)*3600000-60000).toISOString();
  const after=new RealDate(moment+(9-offset)*3600000).toISOString();
  const path='/gravity-report/'+a.slug;
+ const beforeIndex=await at(before,'/gravity-report/articles.json?view=links');
+ const afterIndex=await at(after,'/gravity-report/articles.json?view=links');
+ assert(!(await beforeIndex.text()).includes('href="'+path+'"'));
+ assert((await afterIndex.text()).includes('href="'+path+'"'));
+ assert.equal(afterIndex.headers.get('Cache-Control'),'no-store');
  r=await at(before,path);
  assert.equal(r.status,404,'Future article leaked before release: '+a.issue);
  assert.equal(r.headers.get('X-Robots-Tag'),'noindex');
@@ -102,7 +107,7 @@ for(const bonus of bonuses){
  assert.equal(response.status,200,'Bonus article did not publish: '+bonus.title);
  const html=await response.text();
  assert(html.includes(bonus.title)&&html.includes('<link rel="canonical" href="'+ORIGIN+path+'">'),'Bonus article metadata missing: '+bonus.title);
- assert(html.includes(bonus.lead),'Bonus article body missing: '+bonus.title);
+ assert(html.includes(bonus.lead.replaceAll('&','&amp;').replaceAll("'",'&#39;').replaceAll('"','&quot;')),'Bonus article body missing: '+bonus.title);
  assert(html.includes('Illustrative scenario Â· Issue '+String(bonus.issue).padStart(2,'0'))&&html.includes('Fictional, illustrative scenario'),'Bonus story disclosure missing: '+bonus.title);
 }
 r=await at('2026-10-20T18:30:00Z','/gravity-report/feed.xml');

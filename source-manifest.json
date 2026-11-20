@@ -1482,7 +1482,7 @@
     },
     {
       "path": "site/assets/js/gravity-report-reading.js",
-      "sha256": "2955de8b4598ac7ef76616c69267e250dd1916200e9143f7cca75ac706d32e31"
+      "sha256": "1ad42adcc4956e2703c4ba88ce29c1f77220d36e200341812057354bb64be2dd"
     },
     {
       "path": "site/assets/js/gravity-restaurant-profile.js",
@@ -2046,7 +2046,7 @@
     },
     {
       "path": "site/gravity-report.html",
-      "sha256": "cfcc2c8ab8b678393f3927af426b3754a37e727998c61f59b680fff65c2a3196"
+      "sha256": "ee2551dd31fd923b5b0e606eeb5a718d8e8c7f351658e54f58a593358a14bc80"
     },
     {
       "path": "site/gravity-shift-lab-sw.js",
@@ -2118,7 +2118,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "5096dde383a8e1fae37d7e24adde9157dd1413996e4f209ffa26cd20970b4dae"
+      "sha256": "2da277cd1f30547ad33cf42b7e3df4da4492ff86911568994ea8ce49c463a503"
     },
     {
       "path": "site/installation-improvement.html",
@@ -2254,7 +2254,7 @@
     },
     {
       "path": "site/restaurant-food-cost-calculator.html",
-      "sha256": "d0c609e340d9ddd2ce36bdef6bc023a5ea90cdcd8f21a923cc5925ace171b2b7"
+      "sha256": "626c029267de4000272cd4bb6fb140bee2058fb752bf80a4d87db58bc595a231"
     },
     {
       "path": "site/restaurant-food-cost-control.html",
@@ -2338,7 +2338,7 @@
     },
     {
       "path": "site/restaurant-manager-log-shift-handoff.html",
-      "sha256": "7e939c94e32f963490fb6429038eae41aafb2d7ad17f93f0f041f5a0e0b42566"
+      "sha256": "fdce4b4477ffb691025d78ff62a4f6baa9eafa5771637daec86fd3a53d06d6af"
     },
     {
       "path": "site/restaurant-manager-training-program.html",
@@ -2390,7 +2390,7 @@
     },
     {
       "path": "site/restaurant-shift-handoff-checklist.html",
-      "sha256": "2232358289bfc9acd7923a2b8a72057addc14b151e73b64799d1d183e6ce0231"
+      "sha256": "cbb4f2e4c6ba16bd831680b81fb9ae0d578bc233b99870695647ddbc605c1093"
     },
     {
       "path": "site/restaurant-shift-manager-checklist.html",
@@ -2418,7 +2418,7 @@
     },
     {
       "path": "site/restaurant-station-training-checklist.html",
-      "sha256": "7a4d56990c4cafee2a27ac2d5a2e86633f28966a254d1646a5284c871c07fb4f"
+      "sha256": "6c0ecdf320ac5cfead727fd6ff140672e9098b209a423a6192de282f24573c87"
     },
     {
       "path": "site/restaurant-training-matrix-guide.html",
@@ -2426,7 +2426,7 @@
     },
     {
       "path": "site/restaurant-training-sign-off-checklist.html",
-      "sha256": "91070458582c73aceec38c48d995d9b421aa36e9ff5027efca10782b195c4a27"
+      "sha256": "eae752fb02eb9a1e58d184e2e1ceeccbaaadfb860d8bcec89217f87a44d6f1ba"
     },
     {
       "path": "site/restaurant-waste-spill-comp-log.html",
@@ -2466,7 +2466,7 @@
     },
     {
       "path": "site/start-here.html",
-      "sha256": "2d6ecc98a81266e3e185d15c510179b44b158929c8bd626455e04d7bd9b3451f"
+      "sha256": "d3d806d59077d2c0215cb8096016bbbadcd54a0c26a309bf77e85256ea4ae5c9"
     },
     {
       "path": "site/support.html",
@@ -2538,7 +2538,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "c896ad6efc2ffe0dcfcfac8da65d4741220194e84c445bee555638f275ea88b5"
+      "sha256": "c9d7c7b151401b43c0c0877010015712cc8908ad73cd66903c20ff47e50a42ec"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",
@@ -2687,6 +2687,10 @@
     {
       "path": "netlify/database/migrations/20261115170000_gravity_pilot_room.sql",
       "sha256": "e2719e938cff331fea7bd6dd5581c280afaed2636bf73590e143deaabeda2570"
+    },
+    {
+      "path": "netlify/edge-functions/report-index.js",
+      "sha256": "46d8d690970dfc5d6f89b3b51be69581c4ba1632aa9814243b099e5ae1ec8fd0"
     },
     {
       "path": "netlify.toml",

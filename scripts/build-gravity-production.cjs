@@ -88,7 +88,7 @@ function validateArticleMetadata(html,rel){
 }
 const publicUrls = new Set();
 function recordPublicPage(html, file) {
- if (privatePage.test(file) || file.includes('/')) return;
+ if (file === 'gravity-report.html' || privatePage.test(file) || file.includes('/')) return;
  const route = file === 'index.html' ? '/' : '/' + file.replace(/\.html$/, '');
  const tag = html.match(/<link\b(?=[^>]*\brel=["']canonical["'])[^>]*>/i);
  const canonical = attr(tag && tag[0], 'href');
