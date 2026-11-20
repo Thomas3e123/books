@@ -1485,6 +1485,10 @@
       "sha256": "2955de8b4598ac7ef76616c69267e250dd1916200e9143f7cca75ac706d32e31"
     },
     {
+      "path": "site/assets/js/gravity-restaurant-profile.js",
+      "sha256": "7e7cbb5331d41bc2fe2445e0a0926ed51f4345f821f7382baabce594fd9ae017"
+    },
+    {
       "path": "site/assets/js/gravity-shift-first-schedule-tour-v1.js",
       "sha256": "d788100e3173fca4a710313b63a432c0c8d05e811556330683c3b33d3e437400"
     },
@@ -1970,7 +1974,7 @@
     },
     {
       "path": "site/gravity-assist.html",
-      "sha256": "777d2849742d1322281a55bf8dc68f22fc700b88272a9acac621cd7068cc84fa"
+      "sha256": "3a5b82fa2c0f21c9194aa187a848fa5dc3131855016540183de135cc5ed407ca"
     },
     {
       "path": "site/gravity-aware.html",
@@ -1982,11 +1986,11 @@
     },
     {
       "path": "site/gravity-document-studio.html",
-      "sha256": "99583538c1ddd1ecbba798a5e7bc0c4f772e0f538f0da325104d1fe5b94ba952"
+      "sha256": "d7e18fcce461213df0fa2ca3225f1b66a9d1b2b443477ce13f1e23fe8b0d6030"
     },
     {
       "path": "site/gravity-forms-personalizer.html",
-      "sha256": "50676543bcabc40ccf388ead5c63b92c3fcef20a5eaca9a8da3131b993215e08"
+      "sha256": "47ff330e94631416c9697e5c06c1286923388bc10f411c32e44380d72bcb9a78"
     },
     {
       "path": "site/gravity-fulfillment-center.html",
@@ -1994,7 +1998,7 @@
     },
     {
       "path": "site/gravity-fulfillment-personalizer.html",
-      "sha256": "3ea9c933b6029af5a36cd7139ba9015b3790644877b047f9e9a6100dd6120922"
+      "sha256": "66954588740e5c4e2e4ee84a502816e00bda8fb5db5ada424cbbf5b24cf2f3ad"
     },
     {
       "path": "site/gravity-guide-registry-v2.json",
@@ -2014,19 +2018,19 @@
     },
     {
       "path": "site/gravity-inventory-center.html",
-      "sha256": "ad1271e8b85c8ac54e0153dbfe5f493f6ebe2819f881654d81b4582cfa1c74ba"
+      "sha256": "779eb8000c9aae21ed04c500dda9a590265090329746a5604d23f1fca9980a46"
     },
     {
       "path": "site/gravity-numbers-lab.html",
-      "sha256": "25e9366edea89e2602dbb8a75982d5ce7303c2dbd9740f9880a8045d6014ee20"
+      "sha256": "2d34d3cd19fac3374a7ad0ede399710630e0ff355cb1689a74ff0a45bdae1aed"
     },
     {
       "path": "site/gravity-quick-tools.html",
-      "sha256": "3dc984e99837a9a02c5a7a84a189801973ca70ee57ce122f68feb9d9670514f7"
+      "sha256": "50cf67340de8cd8a19d0b32da389f70012f80fb32f6cf9e6010e8ccf417f5ef0"
     },
     {
       "path": "site/gravity-recipe-works.html",
-      "sha256": "cc3e129a02cc9012ab1a5483f7156732103de62f5c699b8a0cddb53da854e0be"
+      "sha256": "c82d24e831a10843c61f4b4c0b02c7240c9be4e2cbc52cb4c4571aab5cd58d4e"
     },
     {
       "path": "site/gravity-report-confirmed.html",
@@ -2050,7 +2054,7 @@
     },
     {
       "path": "site/gravity-shift-lab.html",
-      "sha256": "7b30c1fae9a63811da17507c7040af672b60a3dd1d29f98148a7838860172cfa"
+      "sha256": "c6eeb37830be3b78100cb35266440d10cc0f6409a2e8b085e1c31b8f302baea3"
     },
     {
       "path": "site/gravity-shift-lab.webmanifest",
@@ -2062,7 +2066,7 @@
     },
     {
       "path": "site/gravity-sop-foundry.html",
-      "sha256": "2541b948eaf09ef9d5e3f7f6b4de17cf8442aadf4dbcd581948572b7e03dcc0e"
+      "sha256": "74bb53f47def554a11607cf0f7b8a609280cc1be8d18006d90a0f3fa7303c7bc"
     },
     {
       "path": "site/gravity-sop-library-set.html",
@@ -2086,7 +2090,7 @@
     },
     {
       "path": "site/gravity-work-study-lab.html",
-      "sha256": "c17e066fb9602a55f6e74610bdf16ac4d00a64fb7b3d251cd7eebb125ebbdb82"
+      "sha256": "0df384e11d51b9f9b41d4a4705dd23381863de3aa494562801b8d847babad64c"
     },
     {
       "path": "site/guest-service-complaints-recovery-workbook.html",
@@ -2166,7 +2170,7 @@
     },
     {
       "path": "site/qr-code-generator.html",
-      "sha256": "e60068c1f45a263400fd59f329f6b746ce901d9f4b1bb84ab082fbb0c42092fb"
+      "sha256": "bd03533a27c152680e662adff6d54b8733d41ef9968570d9210e85671d3a3fc2"
     },
     {
       "path": "site/quiet-gravity.html",

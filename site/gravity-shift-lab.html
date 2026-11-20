@@ -137,7 +137,7 @@ body .gravity-program-footer-links a:focus-visible{outline:2px solid #8b691c;out
 <a data-ga-path="gravity-assist" href="/gravity-assist">Assist Home</a><a data-ga-path="gravity-forms-personalizer" href="/gravity-forms-personalizer">Forms Personalizer</a><a data-ga-path="gravity-document-studio" href="/gravity-document-studio">Document Studio</a><a data-ga-path="gravity-shift-lab" href="/gravity-shift-lab">Shift Lab</a><a data-ga-path="gravity-sop-foundry" href="/gravity-sop-foundry">SOP Foundry</a><a data-ga-path="gravity-numbers-lab" href="/gravity-numbers-lab">Numbers Lab</a><a data-ga-path="gravity-work-study-lab" href="/gravity-work-study-lab">Work Study Lab</a><a data-ga-path="gravity-inventory-center" href="/gravity-inventory-center">Inventory Center</a><a data-ga-path="gravity-recipe-works" href="/gravity-recipe-works">Recipe Works</a><a data-ga-path="gravity-quick-tools" href="/gravity-quick-tools">Quick Tools</a>
 </nav>
 <div class="ga-profilebar">
-<div class="ga-profile-summary"><div><strong>Restaurant Profile</strong><div class="ga-profile-status" id="ga-profile-status">Set it once. Gravity Assist can carry the restaurant and location into supported workspaces.</div></div><div class="ga-profile-actions"><button class="ga-mini-btn" id="ga-profile-edit" type="button">Edit profile</button><button class="ga-mini-btn ga-primary" id="ga-profile-apply" type="button">Apply to this workspace</button></div></div>
+<div class="ga-profile-summary"><div><strong>Restaurant Profile</strong><div class="ga-profile-status" id="ga-profile-status" role="status">Set it once. Gravity Assist can carry the restaurant and location into supported workspaces.</div></div><div class="ga-profile-actions"><button class="ga-mini-btn" id="ga-profile-edit" type="button">Edit profile</button><button class="ga-mini-btn ga-primary" id="ga-profile-apply" type="button">Apply to this workspace</button></div></div>
 <div class="ga-profile-fields ga-hidden" id="ga-profile-fields">
 <label>Restaurant name<input autocomplete="organization" id="ga-prof-name" placeholder="Example: The River"/></label>
 <label>Store / location #<input id="ga-prof-store" placeholder="Example: 104" title="Use the store, unit, or location number your company uses to distinguish locations."/></label>
@@ -208,31 +208,12 @@ launch.onclick=open;close.onclick=shut;reset.onclick=restart;form.onsubmit=e=>{e
 if(!db){add('guide','Gravity Guide is temporarily unavailable. Use Start Here, Gravity Assist, the Operating Systems, Forms & Tools, Books, or the Help Center.');}
 })();
 </script>
+<script src="/assets/js/gravity-restaurant-profile.js"></script>
 <script id="gravity-assist-shared-js">
 (function(){
- const KEY='gravityAssistRestaurantProfileV1';
  const $=id=>document.getElementById(id);
  const cur=(location.pathname.split('/').filter(Boolean).pop()||'gravity-assist').replace(/\.html$/,'');
  document.querySelectorAll('[data-ga-path]').forEach(a=>{if(a.dataset.gaPath===cur || (cur==='qr-code-generator'&&a.dataset.gaPath==='gravity-quick-tools'))a.setAttribute('aria-current','page')});
- let profile={name:'',store:'',city:'',state:''};
- try{profile=Object.assign(profile,JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){}
- function textLoc(){return [profile.city,profile.state].filter(Boolean).join(', ')}
- function status(){let bits=[profile.name,profile.store?('Store '+profile.store):'',textLoc()].filter(Boolean);$('ga-profile-status').textContent=bits.length?('Active: '+bits.join(' · ')):'Set it once. Gravity Assist can carry the restaurant and location into supported workspaces.'}
- function load(){if(!$('ga-prof-name'))return;$('ga-prof-name').value=profile.name||'';$('ga-prof-store').value=profile.store||'';$('ga-prof-city').value=profile.city||'';$('ga-prof-state').value=profile.state||'';status()}
- function save(){profile={name:$('ga-prof-name').value.trim(),store:$('ga-prof-store').value.trim(),city:$('ga-prof-city').value.trim(),state:$('ga-prof-state').value.trim()};try{localStorage.setItem(KEY,JSON.stringify(profile))}catch(e){};status();apply(true);$('ga-profile-fields').classList.add('ga-hidden')}
- function setIf(id,val,force){let el=$(id);if(el&&val&&(force||!String(el.value||'').trim())){el.value=val;el.dispatchEvent(new Event('input',{bubbles:true}));el.dispatchEvent(new Event('change',{bubbles:true}))}}
- function apply(force){let loc=[profile.city,profile.state].filter(Boolean).join(', ');let storeLoc=profile.store?('Store '+profile.store):'';
-   setIf('cust-restaurant',profile.name,force); setIf('cust-location',[storeLoc,loc].filter(Boolean).join(' · '),force);
-   setIf('studio-restaurant',profile.name,force); setIf('studio-location',storeLoc,force); if(loc)setIf('studio-address',loc,false);
-   setIf('lab-restaurant',profile.name,force); setIf('lab-store',storeLoc||profile.store,force);
-   setIf('ws-restaurant',profile.name,force); setIf('ws-store',storeLoc||profile.store,force);
-   setIf('pf-restaurantName',profile.name,force); setIf('pf-storeNumber',profile.store,force); setIf('pf-location',loc,force);
-   if(force && $('ga-profile-status')){$('ga-profile-status').textContent=(profile.name||profile.store||loc)?('Applied to this workspace · '+[profile.name,storeLoc,loc].filter(Boolean).join(' · ')):'Profile is blank.';setTimeout(status,1800)}
- }
- $('ga-profile-edit')?.addEventListener('click',()=>{$('ga-profile-fields').classList.toggle('ga-hidden')});
- $('ga-profile-save')?.addEventListener('click',save); $('ga-profile-apply')?.addEventListener('click',()=>apply(true));
- $('ga-profile-clear')?.addEventListener('click',()=>{profile={name:'',store:'',city:'',state:''};try{localStorage.removeItem(KEY)}catch(e){};load()});
- load(); apply(false);
  // Forms Personalizer: simple fast path versus full path.
  if(cur==='gravity-forms-personalizer'){
    const panel=[...document.querySelectorAll('.customizer-panel')].find(x=>/Build your proof/i.test(x.textContent||''));
