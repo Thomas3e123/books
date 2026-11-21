@@ -92,14 +92,23 @@ await test('Second browser decrypts verified account cloud backup with explicit 
  const c=await context();
  try{
   const p=await c.newPage();await p.goto(origin+'/gravity-shift-lab',{waitUntil:'domcontentloaded'});
+  await p.route('**/gravity-cloud-backup/shift?history=1',route=>route.fulfill({
+   status:503,contentType:'application/json',body:JSON.stringify({error:'Temporary interruption'})
+  }),{times:1});
   await p.locator('#gravity-cloud-passphrase').fill(phrase);
   await p.locator('#gravity-cloud-unlock').click();
   await p.locator('#gravity-cloud-controls').waitFor({state:'visible',timeout:9000}).catch(async error=>{
    const debug=await p.evaluate(()=>({msg:document.getElementById('gravity-cloud-message')?.textContent,controls:document.getElementById('gravity-cloud-controls')?.outerHTML.slice(0,200),input:document.getElementById('gravity-cloud-passphrase')?.value.length,hasAccount:document.querySelector('#gravity-cloud-backup')?.textContent.slice(0,100),localKeys:Object.keys(localStorage)}));
    throw Error('Encrypted cloud unlock failed: '+JSON.stringify(debug)+'; '+error.message);
   });
+  const retry=p.locator('#gravity-cloud-history-retry');
+  await retry.waitFor({state:'visible'});
+  assert.match(await p.locator('#gravity-cloud-history-notice').innerText(),/could not be loaded/);
+  assert.equal(await p.locator('#gravity-cloud-restore').isDisabled(),true);
   const m=await p.locator('#gravity-cloud-message').innerText();
   assert.match(m,/PAUSED/);
+  await retry.click();
+  await retry.waitFor({state:'hidden'});
   await p.locator('#gravity-cloud-revisions').waitFor({state:'visible',timeout:8000});
   assert.equal(await p.locator('#gravity-cloud-revisions').inputValue(),'1');
   let confirmations=0;

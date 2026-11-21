@@ -119,8 +119,10 @@ async function upload(force){
   await refreshHistory();
  }catch(e){
   if(e.status===429){
-   report('Cloud backup was rate-limited. Automatic backup will retry shortly; the local workspace is unchanged.',true);
-   if(auto&&connected&&passphrase){clearTimers();timer=setTimeout(()=>upload(force),16000)}
+   if(auto&&connected&&passphrase){
+    report('Cloud backup was rate-limited. Automatic backup will retry shortly.',true);
+    clearTimers();timer=setTimeout(()=>{if(auto)upload(force)},16000);
+   }else report('Cloud backup was rate-limited. Wait briefly, then choose Save Encrypted Cloud Copy Now to try again.',true);
   }else if(e.status===409){
    auto=false;report('Cloud backup paused because another device changed the saved version. Review and recover the latest cloud copy before saving again.',true);
   }else report('Cloud backup did not save: '+e.message+' Your local work remains on this computer.',true);
@@ -129,6 +131,8 @@ async function upload(force){
 async function refreshHistory(){
  const chooser=$('gravity-cloud-revisions');
  if(!chooser||!connected)return;
+ const recover=$('gravity-cloud-restore'),retry=$('gravity-cloud-history-retry'),notice=$('gravity-cloud-history-notice');
+ chooser.disabled=true;recover.disabled=true;retry.disabled=true;
  try{
   const result=await fetchJSON(API+tool+'?history=1');
   const selected=chooser.value;
@@ -140,9 +144,14 @@ async function refreshHistory(){
   }
   if(selected&&[...chooser.options].some(o=>o.value===selected))chooser.value=selected;
   chooser.disabled=!chooser.options.length;
+  recover.disabled=chooser.disabled;
+  notice.textContent='';retry.hidden=true;
  }catch(error){
-  chooser.disabled=true;
-  report('Recovery history could not be loaded: '+error.message+'. Download a local backup before making changes.',true);
+  chooser.replaceChildren();
+  notice.textContent='Recovery history could not be loaded. Use Retry Recovery History to check again.';
+  retry.hidden=false;
+ }finally{
+  retry.disabled=false;
  }
 }
 async function restore(){
@@ -223,7 +232,7 @@ function toolUI(){
  const anchor=$('gravity-local-recovery-status')||$('lab-restore')||$('restore-json');
  if(!anchor)return;
  const el=document.createElement('section');el.id='gravity-cloud-backup';el.style.cssText='margin:18px 0;padding:14px;border:2px solid #a1b9b1;border-radius:12px;background:#f6f8f6;color:#1d3437;font:14px/1.5 system-ui,sans-serif';
- el.innerHTML='<h3 style="margin:0 0 8px;color:#164c4a">Encrypted Cloud Backup (Optional)</h3><p>Verified account + private recovery passphrase. Runs only while this tab is open and unlocked. <a href="/gravity-cloud-vault">Account & instructions</a>.</p><label for="gravity-cloud-passphrase">Recovery passphrase (16+ characters; never your login password)</label><input id="gravity-cloud-passphrase" type="password" autocomplete="off" minlength="16" style="width:100%;padding:10px;border-radius:7px;border:1px solid #7e9a93"><button type="button" id="gravity-cloud-unlock">Unlock Cloud Backup</button><div id="gravity-cloud-controls" hidden><button type="button" id="gravity-cloud-now">Save Encrypted Cloud Copy Now</button><label for="gravity-cloud-revisions">Choose a dated recovery copy (up to five)</label><select id="gravity-cloud-revisions" aria-label="Encrypted cloud recovery version" disabled style="width:100%;padding:8px;border-radius:6px;margin:5px 0 10px"></select><button type="button" id="gravity-cloud-restore">Recover Selected Cloud Copy</button><button type="button" id="gravity-cloud-disconnect">Disconnect This Tab</button><p>Cloud versions do not publish schedules or employee SOPs. A manual download is always recommended before replacing data.</p></div><p id="gravity-cloud-message" role="status" style="margin:10px 0"></p>';
+ el.innerHTML='<h3 style="margin:0 0 8px;color:#164c4a">Encrypted Cloud Backup (Optional)</h3><p>Verified account + private recovery passphrase. Runs only while this tab is open and unlocked. <a href="/gravity-cloud-vault">Account & instructions</a>.</p><label for="gravity-cloud-passphrase">Recovery passphrase (16+ characters; never your login password)</label><input id="gravity-cloud-passphrase" type="password" autocomplete="off" minlength="16" style="width:100%;padding:10px;border-radius:7px;border:1px solid #7e9a93"><button type="button" id="gravity-cloud-unlock">Unlock Cloud Backup</button><div id="gravity-cloud-controls" hidden><button type="button" id="gravity-cloud-now">Save Encrypted Cloud Copy Now</button><label for="gravity-cloud-revisions">Choose a dated recovery copy (up to five)</label><select id="gravity-cloud-revisions" aria-label="Encrypted cloud recovery version" disabled style="width:100%;padding:8px;border-radius:6px;margin:5px 0 10px"></select><button type="button" id="gravity-cloud-restore" disabled>Recover Selected Cloud Copy</button><span id="gravity-cloud-history-notice" role="status"></span><button type="button" id="gravity-cloud-history-retry" hidden>Retry Recovery History</button><button type="button" id="gravity-cloud-disconnect">Disconnect This Tab</button><p>Cloud versions do not publish schedules or employee SOPs. A manual download is always recommended before replacing data.</p></div><p id="gravity-cloud-message" role="status" style="margin:10px 0"></p>';
  anchor.insertAdjacentElement('afterend',el);ui=$('gravity-cloud-message');
  $('gravity-cloud-unlock').onclick=()=>unlock().catch(e=>report('Cloud authentication failed: '+e.message,true));
  $('gravity-cloud-now').onclick=()=>{
@@ -231,6 +240,7 @@ function toolUI(){
   upload(true);
  };
  $('gravity-cloud-restore').onclick=restore;
+ $('gravity-cloud-history-retry').onclick=refreshHistory;
  $('gravity-cloud-disconnect').onclick=()=>{
   passphrase='';verifiedLockHash=null;auto=false;connected=false;clearTimers();$('gravity-cloud-controls').hidden=true;report('Cloud backup disconnected for this tab. Your local data is unchanged.');
  };
