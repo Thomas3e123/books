@@ -9,6 +9,10 @@
 
 **SRC-09 follow-up.** Keyboard activation in Inventory Center opened the correct named JSON restore and CSV import pickers. Targeted browser checks on six routes found no violations in the seven rules checked for input, select and button names, ARIA attributes, focusable hidden content, and nested controls. Synthetic manager and tester sessions are isolated from live messages. Actual speech from an assistive-technology device remains unverified.
 
+[PR #175](https://github.com/Thomas3e123/books/pull/175) passed all four hosted checks and shipped in Gravity [production deploy 6b01f304313583e7556b0f84](https://app.netlify.com/projects/gravity-leadership-system/deploys/6b01f304313583e7556b0f84) at `94322a48`. Both canonical pages served the repaired forms. Browser checks using that released HTML and synthetic service responses verified failed entry, keyboard retry, correct focus and exactly one request per attempt. SRC-24 is closed for these behaviors. The 156-page production build, 5,519 internal references, 136 Node tests and 244 desktop/mobile browser tests passed.
+
+**QA-04 microphone follow-up.** Two additional browser runs simulated denied microphone permission, verified the visible error, retried with a synthetic audio track, and successfully recorded, marked, saved and exported the recording. Physical phone audio quality and playback remain open.
+
 ## November 21 backup recovery follow-up
 
 **SRC-23 — recovery history and retry feedback.** In Shift Lab and Inventory Center, unlocking could replace the recovery-history error with a success message. A manual save attempted while automatic backups were paused could also announce a retry that was never scheduled. The deployed repair preserves the recovery-history notice independently, clears stale choices, disables recovery until a copy is available, and offers a history-only retry. A rate-limited manual save now tells the manager when to try again.
