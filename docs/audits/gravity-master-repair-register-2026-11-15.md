@@ -5,9 +5,11 @@
 
 ## November 21 backup recovery follow-up
 
-**SRC-23 — recovery history and retry feedback.** In Shift Lab and Inventory Center, unlocking could replace the recovery-history error with a success message. A manual save attempted while automatic backups were paused could also announce a retry that was never scheduled. The candidate preserves the recovery-history notice independently, clears stale choices, disables recovery until a copy is available, and offers a history-only retry. A rate-limited manual save now tells the manager when to try again.
+**SRC-23 — recovery history and retry feedback.** In Shift Lab and Inventory Center, unlocking could replace the recovery-history error with a success message. A manual save attempted while automatic backups were paused could also announce a retry that was never scheduled. The deployed repair preserves the recovery-history notice independently, clears stale choices, disables recovery until a copy is available, and offers a history-only retry. A rate-limited manual save now tells the manager when to try again.
 
 The production build and 136 Node tests passed. All ten backup API contract checks and five isolated browser workflows passed, including an interrupted history request followed by retry and recovery in a second browser. Browser tests used synthetic identity and storage. QA-01 still needs a disposable, email-confirmed test account for hosted verification.
+
+[PR #173](https://github.com/Thomas3e123/books/pull/173) passed all four hosted workflows and shipped as Gravity production commit `89642332` in [deploy 6b01da5edbdb57aeb8cc603a](https://app.netlify.com/projects/gravity-leadership-system/deploys/6b01da5edbdb57aeb8cc603a). The canonical Shift Lab, Inventory Center and account pages each referenced the new asset version and returned the tested JavaScript byte for byte. The additional eight isolated account onboarding checks passed. SRC-23 is closed.
 
 ## November 21 site sweep and Report feed
 
