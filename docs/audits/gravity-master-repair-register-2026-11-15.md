@@ -3,6 +3,12 @@
 **Snapshot date:** November 21, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 21 manager keyboard access and file pickers
+
+**SRC-24 — manager sign-in and retry.** Testing Room did not submit from the key field on Enter. Both manager pages fetched the initial list twice, hid the sign-in controls before the second fetch completed, and left keyboard focus outside the opened workspace. Use a native form and a single roster request, keep errors visible in a status region, and move focus to Testers or the pilot status filter on success. Synthetic desktop browser regressions failed before the repair and passed after it, including retry after temporary service failure.
+
+**SRC-09 follow-up.** Keyboard activation in Inventory Center opened the correct named JSON restore and CSV import pickers. Targeted browser checks on six routes found no violations in the seven rules checked for input, select and button names, ARIA attributes, focusable hidden content, and nested controls. Synthetic manager and tester sessions are isolated from live messages. Actual speech from an assistive-technology device remains unverified.
+
 ## November 21 backup recovery follow-up
 
 **SRC-23 — recovery history and retry feedback.** In Shift Lab and Inventory Center, unlocking could replace the recovery-history error with a success message. A manual save attempted while automatic backups were paused could also announce a retry that was never scheduled. The deployed repair preserves the recovery-history notice independently, clears stale choices, disables recovery until a copy is available, and offers a history-only retry. A rate-limited manual save now tells the manager when to try again.

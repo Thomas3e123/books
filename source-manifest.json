@@ -2146,7 +2146,7 @@
     },
     {
       "path": "site/pilot-room-manager.html",
-      "sha256": "0b20937b83711be77530e9b48ad2428be99c0510fe2981a4a34ec50d52dc77c0"
+      "sha256": "9927010fb45952b00deb22a810bf1e2f5af084378f7a16cc8e5350199ce98228"
     },
     {
       "path": "site/pilot-room-plan.md",
@@ -2486,7 +2486,7 @@
     },
     {
       "path": "site/testing-room-manager.html",
-      "sha256": "531c877c333701a1fd381c25ab2566c8352cfd50073b4c85e8d0cecf1f02d453"
+      "sha256": "f620311aa5806fda704dc59deaa59d3ec05e6608fc33dd4632800f403f72fa3b"
     },
     {
       "path": "site/testing-room.html",
