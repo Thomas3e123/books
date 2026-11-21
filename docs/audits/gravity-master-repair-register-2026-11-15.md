@@ -1,7 +1,15 @@
 # Gravity master repair register
 
-**Snapshot date:** November 20, 2026
+**Snapshot date:** November 21, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
+
+## November 21 site sweep and Report feed
+
+- **Website baseline.** Gravity production deploy `6b008501f6984904dd06561a` serves `0f616bd`. Thomas Monroe Books is separately published from main, deploy `6b006c24656dd2371e2d26d7`.
+- **SRC-21 — RSS publication order.** The November 21 feed contained 20 items but led with the October move announcement. Fixed in candidate source. The date-based regression failed before the repair and passed afterward. Sorting the feed by Central publication date and time keeps the latest article first and preserves the release gate, full catalog, and item identifiers.
+- **QA-10 — site link checker.** The static checker reported 34 missing links across 156 pages because it checked the filesystem for Report function routes. It now runs the Report handler locally for those destinations. A deliberately nonexistent story still failed. The clean sweep examined 629 files and 156 HTML pages and returned zero errors or warnings. The production build, all 135 Node regressions and the Report release checks passed. All 238 existing desktop/mobile browser tests passed using headless Chromium. The production link audit found zero broken destinations across 5,519 references. All 135 distinct live sitemap addresses opened with matching canonicals, a title and indexable page metadata. All 149 unique PDF, Office and ZIP downloads linked from the production HTML matched release files byte for byte.
+- **SRC-22 — narrow phone layout.** At 360 pixels the review form and the Foundry HTML manual widened the page. At 320 pixels Windows Programs, Privacy, Releases and Cloud Vault also overflowed. Fixed in candidate source by allowing form fields to shrink, long text to wrap, and Vault cards to fit the available width. A dedicated browser regression checks all six destinations at 320 pixels.
+- **Owner confirmations.** Thomas confirmed the phone QR scan, Reader playback with the phone locked, and account signup, email confirmation and login. Encrypted backup/restore, physical print output and phone microphone capture still need independent evidence. Windows remains deferred.
 
 ## November 20 search discovery repairs
 

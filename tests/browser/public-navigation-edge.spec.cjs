@@ -46,3 +46,13 @@ test('The Gravity Report retains the independent publication masthead',async({pa
  await expect(page.locator('.report-masthead')).toHaveCount(1);
  await expect(page.locator('header.site-header #site-nav .gravity-nav-close')).toHaveCount(0);
 });
+
+test('Review, Cloud Vault, release notes and Windows guidance fit a narrow phone',async({page})=>{
+ await page.setViewportSize({width:320,height:800});
+ for(const path of ['/review','/gravity-cloud-vault','/releases','/privacy','/windows-programs','/assets/downloads/windows/manuals/current/Gravity_SOP_Foundry_Windows_User_Manual.html']){
+  const response=await page.goto(path);
+  expect(response.status(),path).toBe(200);
+  const width=await page.evaluate(()=>document.documentElement.scrollWidth);
+  expect(width,path).toBeLessThanOrEqual(320);
+ }
+});
