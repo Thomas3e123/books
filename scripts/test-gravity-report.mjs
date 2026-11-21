@@ -117,6 +117,10 @@ assert(initialRss.includes(ORIGIN+'/gravity-report/'),'RSS links must resolve to
 assert(!initialRss.includes('https://thomasmonroebooks.com'),'RSS must not point to old TMB');
 r=await at('2026-11-13T15:00:00Z','/gravity-report/feed.xml');
 assert.equal(((await r.text()).match(/<item>/g)||[]).length,12);
+r=await at('2026-11-21T12:00:00Z','/gravity-report/feed.xml');
+const feedDates=Array.from((await r.text()).matchAll(/<pubDate>([^<]+)<\/pubDate>/g),match=>Date.parse(match[1]));
+assert.equal(feedDates.length,20);
+assert.deepEqual(feedDates,[...feedDates].sort((a,b)=>b-a),'RSS subscribers should see the latest publication first');
 r=await at('2027-01-19T15:00:00Z','/gravity-report/feed.xml');
 assert.equal(((await r.text()).match(/<item>/g)||[]).length,37);
 r=await at('2026-10-20T18:30:00Z','/gravity-report/sitemap.xml');

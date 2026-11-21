@@ -7,13 +7,27 @@ const existsRoute=u=>{let p=u.split(/[?#]/)[0];if(!p||p==='/')return fs.existsSy
 const errors=[],warnings=[];const add=(a,f,m)=>a.push(`${f}: ${m}`);
 const redirects=fs.readFileSync(path.join(site,'_redirects'),'utf8').split(/\r?\n/).map(x=>x.trim()).filter(x=>x&&!x.startsWith('#')).map(x=>x.split(/\s+/)[0]);
 function routeExists(u){if(existsRoute(u))return true;const p=u.split(/[?#]/)[0];return redirects.includes(p)||redirects.includes(p.replace(/\/$/,''));}
+async function runAudit(){
+const {default: reportHandler}=await import('../functions/gravity-report/index.mjs');
+const reportStatus=new Map();
+async function publicRouteExists(url){
+ if(routeExists(url))return true;
+ const target=new URL(url,'https://gravityleadershipsystem.com');
+ if(!/^\/gravity-report\/[^/]+\/?$/.test(target.pathname))return false;
+ target.hash='';
+ if(!reportStatus.has(target.href)){
+  const response=await reportHandler(new Request(target,{method:'HEAD'}));
+  reportStatus.set(target.href,response.ok);
+ }
+ return reportStatus.get(target.href);
+}
 for(const f of htmlFiles){const r=rel(f),s=fs.readFileSync(f,'utf8'),isInternal=/^(apps\/|assets\/downloads\/)/.test(r),isNoindex=/name=["']robots["'][^>]*noindex|noindex[^>]*name=["']robots["']/i.test(s);
  if(!/<title>[^<]+<\/title>/i.test(s))add(errors,r,'missing title');
  if(!isInternal&&!isNoindex&&!/<meta[^>]+name=["']description["'][^>]+content=["'][^"']+/i.test(s)&&!isInternal&&!isNoindex&&!/<meta[^>]+content=["'][^"']+["'][^>]+name=["']description["']/i.test(s))add(warnings,r,'missing meta description');
  if(!isInternal&&!isNoindex&&!/<link[^>]+rel=["']canonical["']/i.test(s)&&!/(testing-room-manager|registration-thanks|review-thanks)/.test(r))add(warnings,r,'missing canonical');
  const h1=(s.match(/<h1\b/gi)||[]).length;if(h1!==1&&!isInternal&&!isNoindex&&!/(testing-room-manager|registration-thanks|review-thanks)/.test(r))add(warnings,r,`H1 count ${h1}`);
  const ids=[...s.matchAll(/\bid=["']([^"']+)["']/gi)].map(m=>m[1]).filter(x=>!x.includes('${'));const dup=[...new Set(ids.filter((x,i)=>ids.indexOf(x)!==i))];if(dup.length)add(errors,r,`duplicate IDs: ${dup.slice(0,8).join(', ')}`);
- for(const m of s.matchAll(/\b(?:href|src)=["']([^"']+)["']/gi)){let u=m[1];if(!u||u.includes('${')||/^(?:https?:|mailto:|tel:|data:|javascript:|#)/i.test(u))continue;if(u.startsWith('//'))continue; if(u.startsWith('/')){if(!routeExists(u)&&!u.startsWith('/.netlify/')&&!u.startsWith('/testing-room/'))add(errors,r,`broken local target ${u}`);}else{const clean=u.split(/[?#]/)[0];if(!clean)continue;const target=path.resolve(path.dirname(f),clean);if(!fs.existsSync(target))add(errors,r,`missing relative asset ${u}`);}}
+ for(const m of s.matchAll(/\b(?:href|src)=["']([^"']+)["']/gi)){let u=m[1];if(!u||u.includes('${')||/^(?:https?:|mailto:|tel:|data:|javascript:|#)/i.test(u))continue;if(u.startsWith('//'))continue; if(u.startsWith('/')){if(!await publicRouteExists(u)&&!u.startsWith('/.netlify/')&&!u.startsWith('/testing-room/'))add(errors,r,`broken local target ${u}`);}else{const clean=u.split(/[?#]/)[0];if(!clean)continue;const target=path.resolve(path.dirname(f),clean);if(!fs.existsSync(target))add(errors,r,`missing relative asset ${u}`);}}
  if(/\b350\s+(?:current\s+)?(?:Gravity\s+)?SOP/i.test(s))add(warnings,r,'contains stale 350-SOP current wording');
  if(/\b189\s+(?:AI\s+)?prompts?/i.test(s))add(warnings,r,'contains stale 189-prompt wording');
  if(/Search\s+215\s+Prompts|Search all 215|215-prompt Gravity digital workbook|215 controlled prompts|Loading the 215-prompt/i.test(s))add(warnings,r,'contains stale 215-prompt current wording');
@@ -29,3 +43,5 @@ const testingFn=path.join(root,'functions/testing-room/index.mjs');if(fs.existsS
 console.log(`AUDIT_HTML_PAGES=${htmlFiles.length}`);console.log(`AUDIT_FILES=${files.length}`);console.log(`ERRORS=${errors.length}`);errors.forEach(x=>console.log('ERROR '+x));console.log(`WARNINGS=${warnings.length}`);warnings.forEach(x=>console.log('WARN '+x));
 fs.writeFileSync(path.join(root,'site-audit-report.txt'),[`HTML pages: ${htmlFiles.length}`,`Site files: ${files.length}`,`Errors: ${errors.length}`,...errors.map(x=>'ERROR '+x),`Warnings: ${warnings.length}`,...warnings.map(x=>'WARN '+x),''].join('\n'));
 process.exitCode=errors.length?2:0;
+}
+runAudit().catch(error=>{console.error(error);process.exitCode=1;});

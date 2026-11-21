@@ -159,7 +159,9 @@ function publicationUtc(a){
  const [hour,minute]=a.release_time.split(':').map(Number);
  return new Date(Date.UTC(year,month-1,day,hour-hours,minute));
 }
-function rss(items){return '<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>The Gravity Report</title><link>'+SITE+'/gravity-report</link><description>Restaurant leadership by Thomas Butler</description>'+items.map(a=>'<item><title>'+esc(a.title)+'</title><link>'+SITE+'/gravity-report/'+a.slug+'</link><guid>'+SITE+'/gravity-report/'+a.slug+'</guid><description>'+esc(a.summary)+'</description><pubDate>'+publicationUtc(a).toUTCString()+'</pubDate></item>').join('')+'</channel></rss>';}
+function rss(items){
+ const byNewest=items.slice().sort((a,b)=>b.release_date.localeCompare(a.release_date)||b.release_time.localeCompare(a.release_time));
+ return '<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>The Gravity Report</title><link>'+SITE+'/gravity-report</link><description>Restaurant leadership by Thomas Butler</description>'+byNewest.map(a=>'<item><title>'+esc(a.title)+'</title><link>'+SITE+'/gravity-report/'+a.slug+'</link><guid>'+SITE+'/gravity-report/'+a.slug+'</guid><description>'+esc(a.summary)+'</description><pubDate>'+publicationUtc(a).toUTCString()+'</pubDate></item>').join('')+'</channel></rss>';}
 function sitemap(items){return '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>'+SITE+'/gravity-report</loc></url>'+items.map(a=>'<url><loc>'+SITE+'/gravity-report/'+a.slug+'</loc><lastmod>'+a.release_date+'</lastmod></url>').join('')+'</urlset>';}
 export default async function handler(req){
  if(!['GET','HEAD'].includes(req.method))return new Response('Method not allowed',{status:405,headers:{Allow:'GET, HEAD'}});

@@ -2538,7 +2538,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "c9d7c7b151401b43c0c0877010015712cc8908ad73cd66903c20ff47e50a42ec"
+      "sha256": "7eac824ad903cee1c00832881c80c0141b1e6b56ed1c83c62804c49da54998ce"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",
