@@ -378,7 +378,7 @@
     },
     {
       "path": "site/assets/css/styles.css",
-      "sha256": "0b8cf146c4f9efb3f98af61934769d9fecb9011c674d0d93e1671b6ba970cba2"
+      "sha256": "e9a5d9d39a8b38c91faf90fabc9e82806ede10597ddb6c54efa4fd6015dade74"
     },
     {
       "path": "site/assets/css/testing-room-home.css",
@@ -778,7 +778,7 @@
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_SOP_Foundry_Windows_User_Manual.html",
-      "sha256": "1802d806e4f76001648d1a4ea87928b6847ef22190e9bd51778c93524aa0bc9c"
+      "sha256": "9a3c7f1eaab115756884bcd1995162fa928d3a33eb823b172777e6f47a73cb5d"
     },
     {
       "path": "site/assets/downloads/windows/manuals/current/Gravity_SOP_Foundry_Windows_User_Manual.pdf",
@@ -1982,7 +1982,7 @@
     },
     {
       "path": "site/gravity-cloud-vault.html",
-      "sha256": "507bf6ec51b7b7e1cae5f3a6d248ff6eee2a4ff799e8bf7abd97befbeb94f919"
+      "sha256": "8cfc20ff0990a6065fb429b3376bd901f09bafe6bad42fb60f0fffc0a37397e0"
     },
     {
       "path": "site/gravity-document-studio.html",
