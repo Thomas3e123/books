@@ -3,6 +3,12 @@
 **Snapshot date:** November 21, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 21 backup recovery follow-up
+
+**SRC-23 — recovery history and retry feedback.** In Shift Lab and Inventory Center, unlocking could replace the recovery-history error with a success message. A manual save attempted while automatic backups were paused could also announce a retry that was never scheduled. The candidate preserves the recovery-history notice independently, clears stale choices, disables recovery until a copy is available, and offers a history-only retry. A rate-limited manual save now tells the manager when to try again.
+
+The production build and 136 Node tests passed. All ten backup API contract checks and five isolated browser workflows passed, including an interrupted history request followed by retry and recovery in a second browser. Browser tests used synthetic identity and storage. QA-01 still needs a disposable, email-confirmed test account for hosted verification.
+
 ## November 21 site sweep and Report feed
 
 - **Production closeout.** [PR #171](https://github.com/Thomas3e123/books/pull/171) passed all five hosted checks. Netlify published Gravity commit `70790e45` in [deploy 6b0187d57f7636fabd5480fe](https://app.netlify.com/projects/gravity-leadership-system/deploys/6b0187d57f7636fabd5480fe). The canonical feed returned all 20 distinct items newest first, led by Issue 13 dated November 20. All six repaired routes served the tested styles. All 156 local pages fit at both 320 and 360 pixels, and the final desktop/mobile suite passed all 240 tests. Thomas Monroe Books still serves its previous production deploy.

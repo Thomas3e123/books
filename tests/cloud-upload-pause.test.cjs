@@ -4,3 +4,14 @@ const upload=source.slice(source.indexOf('async function upload(force){'),source
 function setup(){const calls=[],messages=[];const ctx={connected:true,passphrase:'synthetic-test',busy:false,auto:false,revision:2,lastDigest:'',tool:'inventory',API:'/',clearTimers(){},currentData:()=>['test'],valid:()=>true,digest:async()=> 'changed',fetchJSON:async(url,opts)=>{calls.push({url,opts});return {revision:2,envelope:{}}},decrypt:async()=>{throw Error('wrong key')},report:m=>messages.push(m)};vm.runInNewContext(upload,ctx);return{ctx,calls,messages}}
 test('a queued automatic upload respects the paused state',async()=>{const r=setup();await r.ctx.upload(false);assert.equal(r.calls.length,0);assert.equal(r.ctx.auto,false);assert.equal(r.ctx.busy,false)});
 test('manual replace keeps pause until the existing backup is verified',async()=>{const r=setup();let action;const handler=source.slice(source.indexOf("$('gravity-cloud-now').onclick="),source.indexOf("$('gravity-cloud-restore').onclick="));r.ctx.$=()=>({set onclick(fn){action=fn}});r.ctx.confirm=()=>true;vm.runInNewContext(handler,r.ctx);action();while(r.ctx.busy)await new Promise(resolve=>setImmediate(resolve));assert.equal(r.calls.length,1);assert.equal(r.calls[0].opts,undefined);assert.equal(r.ctx.auto,false);assert.match(r.messages.at(-1),/does not unlock/)});
+
+test('a rate-limited manual save while paused asks the manager to retry',async()=>{
+ const {ctx,messages}=setup();
+ ctx.fetchJSON=async()=>{throw Object.assign(new Error('Temporary limit'),{status:429})};
+ let timers=0;
+ ctx.setTimeout=()=>{timers++};
+ await ctx.upload(true);
+ assert.equal(timers,0);
+ assert.match(messages.at(-1),/Save Encrypted Cloud Copy Now/);
+ assert.doesNotMatch(messages.at(-1),/will retry/);
+});
