@@ -1,0 +1,31 @@
+name: Gravity real-phone menu check
+on:
+  workflow_dispatch:
+  push:
+    branches: [qa/gravity-real-phone]
+permissions:
+  contents: read
+concurrency: gravity-browserstack-phone
+jobs:
+  phone:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Check account connection before reserving a phone
+        env:
+          BS_USER: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+        run: |
+          if [ -z "$BS_USER" ] || [ -z "$BS_KEY" ]; then
+            echo "::error::BrowserStack username or access key is missing from repository secrets."
+            exit 1
+          fi
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: python -m pip install 'selenium==4.29.0'
+      - name: Tap through the public Gravity menu on Android
+        env:
+          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+        run: python scripts/qa-gravity-real-phone.py
