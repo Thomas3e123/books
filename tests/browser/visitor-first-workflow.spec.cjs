@@ -3,8 +3,7 @@ const fs=require('node:fs');
 
 test('First visitor can go from homepage through Start Here and Gravity Assist, save work, and return',async({page})=>{
   await page.goto('/');
-  const enter=page.locator('button[data-welcome-enter]');
-  if(await enter.isVisible())await enter.click();
+  await expect(page.locator('#gravity-first-visit')).toBeHidden();
   await page.locator('a.btn[href="/start-here"]').first().click();
   await expect(page).toHaveURL(/\/start-here$/);
   const open=page.getByRole('link',{name:'Help Me Choose a Starting Point'});

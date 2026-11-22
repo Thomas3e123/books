@@ -89,6 +89,7 @@
       e.stopPropagation();
       setMenu(!nav.classList.contains('open'));
     });
+    if (publicSiteHeader) publicSiteHeader.setAttribute('data-menu-ready', '');
     nav.addEventListener('click', function (e) {
       if (e.target.closest('a')) setMenu(false);
     });
@@ -408,13 +409,13 @@
     send('first_visit_welcome_complete', { completion_action: reason || 'enter_site' });
   }
   if (welcome && isHome) {
-    if (!gravityIsKnownBrowser || forceWelcome) {
+    if (forceWelcome) {
       if (!gravityIsKnownBrowser) sessionSet('gravity_first_visit_flow_v1', '1');
       welcome.hidden = false;
       document.body.classList.add('gravity-welcome-open');
       document.getElementById('gravity-welcome-title').focus();
       send('first_visit_welcome_view', { visit_type: gravityIsKnownBrowser ? 'reopened' : 'first_browser_visit' });
-    } else {
+    } else if (gravityIsKnownBrowser) {
       send('returning_home_view', { visit_type: 'returning_browser' });
     }
     welcome.querySelectorAll('[data-welcome-enter]').forEach(function (el) {

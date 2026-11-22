@@ -3,6 +3,10 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 first-visit homepage and mobile menu
+
+**SRC-35.** A fresh homepage visit opened the full-screen guide over the header. The guide now opens only via the explicit welcome link and includes a close button at the top. A separate dependency affected public mobile navigation: before the shared script registered its tap handler, CSS hid the links and displayed an inert button. The compact header now exposes the links until the button works. Browser regressions cover two consecutive tap-throughs, navigation with the script blocked, and opening and dismissing the optional guide. Physical handset verification is pending.
+
 ## November 22 homepage buyer question
 
 Added “Why choose Gravity over alternatives?” immediately after the homepage introduction. A closing-shift example explains how a manager can use the standard, training, assignment and follow-up together. The heading and two sentences ship in the page HTML.

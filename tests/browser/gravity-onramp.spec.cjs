@@ -51,14 +51,16 @@ test('The native 30-day plan presents a provisional plan rather than a verified 
   await expect(page.locator('#gravity-quick-result a')).toHaveAttribute('href','/gravity-sop-foundry');
 });
 
-test('First visit keeps keyboard choices in the welcome and opens the short check',async({page})=>{
+test('The first visit shows the homepage and visitors can open the guide on demand',async({page})=>{
   await page.goto('/');
   const welcome=page.locator('#gravity-first-visit');
+  await expect(welcome).toBeHidden();
+  await page.getByRole('link',{name:'New here? See how Gravity works'}).click();
   await expect(welcome.locator('h2')).toBeFocused();
   await page.keyboard.press('Shift+Tab');
   await expect(welcome.locator('[data-welcome-path="registration"]')).toBeFocused();
   await page.keyboard.press('Tab');
-  await expect(welcome.locator('[data-welcome-path="labor"]')).toBeFocused();
+  await expect(welcome.getByRole('button',{name:'Close guide'})).toBeFocused();
   await welcome.getByRole('link',{name:/five-question check/}).click();
   await expect(page.locator('#gravity-quick-form select')).toHaveCount(5);
   await expect(page.getByRole('combobox',{name:'Do managers complete and review shift handoffs?'})).toBeVisible();

@@ -3081,3 +3081,21 @@ header.site-header #site-nav .gravity-nav-close{display:none}
 @media (max-width:400px){
   main p{overflow-wrap:anywhere}
 }
+
+/* Keep public destinations reachable while the menu script is loading. */
+@media (max-width: 1180px) {
+  header.site-header:not([data-menu-ready]) .header-inner { flex-wrap: wrap; }
+  header.site-header:not([data-menu-ready]) .menu-toggle { display: none; }
+  header.site-header:not([data-menu-ready]) #site-nav {
+    display: flex;
+    position: static;
+    flex: 1 1 100%;
+    flex-flow: row nowrap;
+    gap: .75rem;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: .5rem;
+  }
+  header.site-header:not([data-menu-ready]) #site-nav a { flex: none; }
+}

@@ -378,7 +378,7 @@
     },
     {
       "path": "site/assets/css/styles.css",
-      "sha256": "e9a5d9d39a8b38c91faf90fabc9e82806ede10597ddb6c54efa4fd6015dade74"
+      "sha256": "288dc8254b11704136c20e4c750feb60ca4ab7effb3ef5a47c4cbc38d3bfc22a"
     },
     {
       "path": "site/assets/css/testing-room-home.css",
@@ -1766,7 +1766,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "1a3f901f2f627cdf390f1fbb9f191fb1b7176aa4d508e1658d3be19e4e3e5265"
+      "sha256": "6062ed5bfc816d579048e9b10a0db49bfb3df4a20a8aa832885628cbd23980af"
     },
     {
       "path": "site/assets/js/testing-room.js",
@@ -2118,7 +2118,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "75c060c5d583da29c02f074bf99f9f64c7d045cf03541d156eb5cec734e7de57"
+      "sha256": "785eee46f08fc25e904999d64bbe106526520a93068ea81c4936d5f149858c30"
     },
     {
       "path": "site/installation-improvement.html",
