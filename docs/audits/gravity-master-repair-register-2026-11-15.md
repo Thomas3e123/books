@@ -3,6 +3,10 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 homepage buyer question
+
+Added “Why choose Gravity over alternatives?” immediately after the homepage introduction. A closing-shift example explains how a manager can use the standard, training, assignment and follow-up together. The heading and two sentences ship in the page HTML.
+
 ## November 22 grouped release verification
 
 **SRC-33 and SRC-34 verified on production.** [Gravity deployment](https://app.netlify.com/projects/gravity-leadership-system/deploys/6b035bd4831658707c2bd9d8) published commit `6b1a4ad3` after all four hosted checks passed on [PR #196](https://github.com/Thomas3e123/books/pull/196). The first link on each of the three public pages targets a unique, focusable main landmark. Both the public Shift Lab service worker and the versioned labor calculator matched the tested build byte for byte. Offline fallback was tested with simulated network loss. Before deployment, all 156 audited Gravity URLs returned HTTP 200 on the Gravity host, and the 584 section links in the returned pages resolved to static targets or the Workroom’s Blank SOP handler.
