@@ -1,0 +1,25 @@
+name: Prepare and verify corrected Gravity publications
+on:
+  push:
+    branches: [audit/build-gravity-publications-20261121]
+    paths: ['.github/workflows/prepare-gravity-pdf-references.yml']
+permissions:
+  contents: write
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install PyMuPDF==1.26.6
+      - run: python scripts/refresh-gravity-publication-links.py
+      - run: python scripts/validate-gravity-pdf.py
+      - run: node scripts/update-manifest.cjs && node scripts/verify-source.cjs
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -u site source-manifest.json
+          git commit -m 'Stage verified Gravity PDF and package repairs [skip netlify]'
+          git push origin HEAD
