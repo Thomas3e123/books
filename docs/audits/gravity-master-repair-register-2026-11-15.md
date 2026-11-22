@@ -3,6 +3,10 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 Overview workbook count
+
+**SRC-45.** Page 6 now dates the expansion to 350 prompts to November 2026. Verified the count against the current Word workbook and the 350-entry searchable index. Compared the PDF structure tree, all link destinations, extracted text and rendered pages with the tagged edition. Only the revised line changed. Queue for the next Gravity deployment.
+
 ## November 22 keyboard focus and accessible Overview PDF
 
 **SRC-43.** Public pages use the measured header height for the document’s scroll padding. Keyboard focus in main content gets a visibility check if the browser leaves it underneath the header. The catalog reverse-Tab regression covers a control without its own ID.
