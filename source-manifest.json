@@ -890,7 +890,7 @@
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-I_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "250188d4ee528ece61442cd6a80bf149288d73936ed4e22f24c509d0a014484d"
+      "sha256": "0af5e70cd6a1ff83ff10e412d26c22e4d985fdad35c001e4af83127a3d3c5482"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-LP_SYSTEM_RELEASE_1.1_2026-08-22.zip",
@@ -898,7 +898,7 @@
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-M_SYSTEM_RELEASE_1.2_2026-08-22.zip",
-      "sha256": "4ed4a601ec2925464ffe6907ffd537e77ff24f4cdfba086128ad9d46fa549673"
+      "sha256": "18c50a2c2c9eadde4ea873490e1b28f12cf5a685b55a8a49489619241fc2e7fb"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-P_SYSTEM_RELEASE_1.1_2026-08-22.zip",
@@ -906,7 +906,7 @@
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-RC_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "8fd11b7dc0bcdb6410ce247f571bb5e49d4be4f3d2a00f2fcfe5a1bdb9b282e2"
+      "sha256": "ad7e8008c3f7916a1512041abb0bdd9b1f4ad2c506cd604243fa4f1f9ab76b85"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-R_SYSTEM_RELEASE_1.1_2026-08-22.zip",
@@ -1838,7 +1838,7 @@
     },
     {
       "path": "site/assets/samples/the-complete-gravity-system-one-page-ad.pdf",
-      "sha256": "313497fa5c76eae5b8215acabb411fcae459556d01ca062395b2b7da3100d0df"
+      "sha256": "6bc010adb4fdf2d017ae2ed10a679092f8f457ac4b5417b060638dd17e51de1c"
     },
     {
       "path": "site/assets/system-previews/cash-loss-prevention-forms.pdf",
@@ -1918,7 +1918,7 @@
     },
     {
       "path": "site/assets/system-previews/manager-development-manual.pdf",
-      "sha256": "57e209d3aa6aa21d1072cb8ad14e314c15ed31acc896e822c4fe4043246791e5"
+      "sha256": "a009f26a8ce264fe839ad151a7dab641c36c0114a48a37e182bdb08d250e036d"
     },
     {
       "path": "site/assets/system-previews/performance-profitability-forms.pdf",
@@ -1934,7 +1934,7 @@
     },
     {
       "path": "site/assets/system-previews/risk-continuity-manual.pdf",
-      "sha256": "7d16d2d8aa56d777f6af71b632a2b4416835731d08dab7a62ec217baa7284915"
+      "sha256": "d96a081cb267ac75e62f36387a81d4997433ccb4e6d3b67db4a9e075c33b115d"
     },
     {
       "path": "site/assets/system-previews/standards-intelligence-forms.pdf",
@@ -1942,7 +1942,7 @@
     },
     {
       "path": "site/assets/system-previews/standards-intelligence-manual.pdf",
-      "sha256": "99c75dce89a85b8cbd1bb67d2ea2fbb9a2392584d6b80ad28b3db8f5559f0dd0"
+      "sha256": "087cc10b81871b8554f30f334047263ed20eb3d1c564379f46379972032b40c7"
     },
     {
       "path": "site/assets/system-previews/training-certification-forms.pdf",

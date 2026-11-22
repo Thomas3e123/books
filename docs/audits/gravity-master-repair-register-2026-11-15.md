@@ -3,6 +3,12 @@
 **Snapshot date:** November 21, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 21 downloadable overview and PDF references
+
+**SRC-25 — public overview and moved sources.** The public one-page overview printed the Gravity address without a clickable annotation and advertised 13 books and 215 AI prompts. The Reader catalog lists 15 books and the published workbook contains 350 prompts. Corrected both counts and linked the printed address. Replaced two confirmed 404 destinations with the same official [CDC article](https://www.cdc.gov/niosh/bulletin/2021/supportive-leaders.html) and [FDA Food Code page](https://www.fda.gov/food/retail-food-protection/fda-food-code). The corrections cover three standalone manual previews and the corresponding manager development, standards and intelligence, and risk and continuity packages, including affected editable source references.
+
+The 102 standalone PDFs contained 318 web links to 112 distinct URLs and 317 internal page links. All internal links pointed within their documents. Of the web destinations, 91 initially returned 200, two returned 404, and 19 blocked or rate-limited automated requests (FEMA, Ready.gov, FCC, CISA and Google). The two replacement URLs returned 200. The 19 restricted URLs remain unverified. Validation compared PDF page sizes and extracted words, checked unrelated link destinations, and verified ZIP integrity, member lists, changed Office XML, and updated package checksums.
+
 ## November 21 manager keyboard access and file pickers
 
 **SRC-24 — manager sign-in and retry.** Testing Room did not submit from the key field on Enter. Both manager pages fetched the initial list twice, hid the sign-in controls before the second fetch completed, and left keyboard focus outside the opened workspace. Use a native form and a single roster request, keep errors visible in a status region, and move focus to Testers or the pilot status filter on success. Synthetic desktop browser regressions failed before the repair and passed after it, including retry after temporary service failure.
