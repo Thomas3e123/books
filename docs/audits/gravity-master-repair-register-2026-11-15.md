@@ -3,6 +3,20 @@
 **Snapshot date:** November 21, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 21 external PDF reference follow-up
+
+Of the 19 previously restricted addresses, 12 are now verified. All three exact Google Business Profile Help addresses opened with the intended content (local ranking, the Help Center, and customer reviews). A separate [read-only check](https://github.com/Thomas3e123/books/actions/runs/44991123286) retrieved all six Ready.gov pages and all three CISA pages at the cited addresses with HTTP 200 and matching page titles.
+
+Seven exact URLs still returned HTTP 403 from the independent runner. These remain unverified. A related publication or indexed search result is insufficient to close an exact link. No new broken link was confirmed and no PDF replacement or website deployment was needed.
+
+- https://www.fema.gov/national-disaster-recovery-framework
+- https://www.fema.gov/about/glossary/incident-command-system
+- https://www.fema.gov/emergency-managers/nims/components
+- https://www.fema.gov/emergency-managers/national-preparedness/continuity/documents
+- https://www.fema.gov/emergency-managers/national-preparedness/continuity
+- https://www.fcc.gov/consumers/guides/stop-unwanted-robocalls-and-texts
+- https://www.fcc.gov/general/telemarketing
+
 ## November 21 downloadable overview and PDF references
 
 **SRC-25 — public overview and moved sources.** The public one-page overview printed the Gravity address without a clickable annotation and advertised 13 books and 215 AI prompts. The Reader catalog lists 15 books and the published workbook contains 350 prompts. Corrected both counts and linked the printed address. Replaced two confirmed 404 destinations with the same official [CDC article](https://www.cdc.gov/niosh/bulletin/2021/supportive-leaders.html) and [FDA Food Code page](https://www.fda.gov/food/retail-food-protection/fda-food-code). The corrections cover three standalone manual previews and the corresponding manager development, standards and intelligence, and risk and continuity packages, including affected editable source references.
