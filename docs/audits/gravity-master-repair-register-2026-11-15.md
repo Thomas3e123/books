@@ -3,6 +3,10 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 missing-page recovery
+
+**SRC-32 — nested missing URLs lost their styling, logo and navigation scripts.** A live request for a missing page inside a directory returned the correct 404 status, but five distinct asset URLs inherited the missing directory and also returned 404. Changed the six affected stylesheet, logo and script references to root-relative URLs. Added a regression test for nested URL resolution. Verified 12 distinct internal main-content links from Contact and Help Center, including the report-problem and FAQ destinations. No forms were submitted. The production build, internal link audit and 137 regression tests passed.
+
 ## November 22 published Quick Tools calculations
 
 Fetched the public Quick Tools HTML and executed its calculator handlers against synthetic input controls. All 12 existing validation cases passed, covering fractional recipe scaling, malformed ingredients, overnight shifts and breaks, decimal hours, bill and coin counts, weighted tips, case conversions, leap dates, percent changes, rotations and unit conversions. An additional 396 tip-pool scenarios tested eleven totals and 36 weight combinations. The individual shares always summed to the pool and differed from each exact proportional share by less than one cent. A 10 p.m.–6 a.m. shift with a 30-minute break returned 7.50 paid hours. Two twenties plus $1.25 returned $41.25. These checks cover the deployed calculation logic using simulated controls. All 136 repository regression tests also passed. No repair or site deployment was needed for this check.
