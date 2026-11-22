@@ -1,0 +1,27 @@
+name: Check exact public reference URLs
+on:
+  push:
+    branches: [audit/gravity-external-reference-results-nov21]
+permissions: {}
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Read public reference pages
+        run: |
+          python - <<'PY'
+          import concurrent.futures, html, re, urllib.request, urllib.error
+          urls = ["https://www.fema.gov/national-disaster-recovery-framework","https://www.fema.gov/about/glossary/incident-command-system","https://www.fema.gov/emergency-managers/nims/components","https://www.fema.gov/emergency-managers/national-preparedness/continuity/documents","https://www.fema.gov/emergency-managers/national-preparedness/continuity","https://www.ready.gov/business/emergency-plans/recovery-plan","https://www.ready.gov/business/emergency-plans/crisis-communications-plans","https://www.ready.gov/business/emergency-plans/emergency-response-plan","https://www.ready.gov/business/emergency-plans/continuity-planning","https://www.ready.gov/business/emergency-plans","https://www.ready.gov/business","https://www.cisa.gov/stopransomware/ransomware-guide","https://www.cisa.gov/audiences/small-and-medium-businesses/secure-your-business/back-up-business-data","https://www.fcc.gov/consumers/guides/stop-unwanted-robocalls-and-texts","https://www.cisa.gov/cybersecurity-performance-goals-2-0-cpg-2-0","https://www.fcc.gov/general/telemarketing"]
+          def check(url):
+              try:
+                  with urllib.request.urlopen(url, timeout=15) as response:
+                      body=response.read(150000).decode('utf-8','replace')
+                      title=re.search(r'<title[^>]*>(.*?)</title>',body,re.I|re.S)
+                      return [response.status, response.geturl(), html.unescape(title.group(1)).strip()[:150] if title else '']
+              except Exception as exc:
+                  return [getattr(exc,'code',0),str(exc)]
+          with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
+              for url,result in zip(urls,pool.map(check,urls)):
+                  print('LINK_RESULT',url,result)
+          PY
