@@ -2118,7 +2118,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "2772232b181a92be927142a8777ff49acf9217c247238dcabfe02a1a343abbae"
+      "sha256": "fe690e7172a17f43f5e2bbddc535de760cd1e010d513e430e0f94469afcd8b10"
     },
     {
       "path": "site/installation-improvement.html",
@@ -2687,6 +2687,10 @@
     {
       "path": "netlify/database/migrations/20261115170000_gravity_pilot_room.sql",
       "sha256": "e2719e938cff331fea7bd6dd5581c280afaed2636bf73590e143deaabeda2570"
+    },
+    {
+      "path": "netlify/edge-functions/home-welcome-description.js",
+      "sha256": "24709a6d116c899ffc4dddcc2ce05d8c2fcd9eb34d2aef1897c9c9a11528c20b"
     },
     {
       "path": "netlify/edge-functions/report-index.js",

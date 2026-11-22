@@ -3,6 +3,10 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 homepage and welcome descriptions
+
+**SRC-38.** The normal homepage summarizes Gravity’s operating systems, procedures and tools. Requests to the explicit welcome view receive a description of the problem picker and its suggested resources. Both descriptions are in the server response and match their respective social descriptions. The homepage stays canonical.
+
 ## November 22 homepage SEO title
 
 **SRC-37.** Shortened the homepage title to “The Gravity System | Restaurant Leadership & Operations” and aligned the matching social title metadata. Release with the queued SRC-36 invitation change.
