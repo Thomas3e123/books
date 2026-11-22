@@ -1,7 +1,11 @@
 # Gravity master repair register
 
-**Snapshot date:** November 21, 2026
+**Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
+
+## November 22 QR destination audit
+
+**SRC-26 — downloadable Foundry QR.** The public image at `/assets/images/gravity-sop-foundry-qr.png` encoded the old Thomas Monroe Books host. Replaced its destination with the canonical Gravity SOP Foundry page, preserving the filename and 185 × 185 dimensions. The new code decoded at original size, at 150 pixels, rotated 12 degrees and with mild blur. The Gravity destination returned HTTP 200. No HTML reference to this static image was found in the site source. This repair applies to newly fetched copies.
 
 ## November 21 external PDF reference follow-up
 
