@@ -3,6 +3,10 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 homepage SEO title
+
+**SRC-37.** Shortened the homepage title to “The Gravity System | Restaurant Leadership & Operations” and aligned the matching social title metadata. Release with the queued SRC-36 invitation change.
+
 ## November 22 homepage Windows testing invitation
 
 **SRC-36.** Moved the existing Windows beta invitation and all three links into the homepage HTML. Its heading, both paragraphs, and destinations are available before scripts load. Removed the two script additions that previously built this section. No changes to Windows packages or installer status.
