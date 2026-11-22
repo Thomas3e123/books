@@ -3,6 +3,36 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 public navigation and help entry points
+
+**SRC-48.** The Help Center opens with one primary action, Browse Common Questions, and a secondary Report a Problem link. Getting Started remains in the next help section.
+
+**SRC-49.** A request to a missing production URL returned HTTP 404 with the Gravity logo, visible business branding and recovery links. The branded page already exists.
+
+**SRC-50.** Confirmed the homepage, support and other standard public headers shipped different links before JavaScript loaded. The Gravity build now publishes the same nine links in the same order as the enhanced menu. This supersedes the longer initial menu described in SRC-47. The Report and tool-specific navigation retain their own controls.
+
+**SRC-51.** Standard public-page action buttons and compact book actions use a red primary style and a white, outlined secondary style. Layout, interactions and specialized application controls retain their existing behavior.
+
+**SRC-52.** Reduced the enhanced menu from ten links to nine. Pilot enrollment remains on the homepage and beside Help in standard footers. Detailed resources remain accessible through the public hubs.
+
+**SRC-53.** Added a general access and deletion request section at the top of the privacy policy, with the established Gravity support email. Updated the support-field disclosure to match the shorter form.
+
+**SRC-54–56.** Added a cookie policy, first-party analytics consent for public pages and standalone browser tools, and a linked inquiry notice beside Prepare Email. The email inquiry has no marketing enrollment. Cookie preference lasts 180 days; authentication uses session cookies. Retention text distinguishes access expiry, local storage, account and submission records, and third-party settings. Exact provider and mailbox retention settings require account-level verification.
+
+**SRC-57.** No approved third-party endorsement marks identified. Leave homepage logo endorsements out unless the relationship and usage rights are documented.
+
+**SRC-58.** Reviewed twenty public entry and product pages. Shortened dense introductory, comparison and instruction paragraphs on fourteen. Kept factual counts, editions, access limits, and distinctions about employee access. The scanner did not identify its sample or scoring method; no sitewide grade is claimed.
+
+**SRC-59–62.** Linked a named alternatives comparison from the homepage. The old welcome query now redirects permanently to the homepage guide fragment. Consolidated repeated kit details while retaining individual release statuses. Added FAQ topic headings and ordered instructions, grouped historical release notes, and published the 26-page guest retention manual as searchable HTML alongside its printable PDF. The packaged manual heading differs from the corrected printable preview; the web edition follows the actual 90-day schedule. Other PDF equivalents still require individual content checks.
+
+## November 22 first-visit menu labels
+
+**SRC-47.** The standard menu names the tool finder and restaurant systems directly. The initial HTML also identifies the checkup, procedure-writing workspace and resource kits beside their product names. The last two were selected after inspecting the public menu and destination pages because the audit named only three of its five labels. Destinations, order, and separate workroom and Report navigation are preserved.
+
+## November 22 shorter Help Center form
+
+**SRC-46.** Reduced 14 visitor-facing support fields to optional name, reply email and message. Only email and message are required. Kept the existing Netlify form identity and submission field names, reference and timestamp, spam trap, retry handling and email fallback. The separate Ask Gravity tool is unaffected.
+
 ## November 22 Overview workbook count
 
 **SRC-45.** Page 6 now dates the expansion to 350 prompts to November 2026. Verified the count against the current Word workbook and the 350-entry searchable index. Compared the PDF structure tree, all link destinations, extracted text and rendered pages with the tagged edition. Only the revised line changed. Queue for the next Gravity deployment.
@@ -40,6 +70,20 @@
 ## November 22 homepage Windows testing invitation
 
 **SRC-36.** Moved the existing Windows beta invitation and all three links into the homepage HTML. Its heading, both paragraphs, and destinations are available before scripts load. Removed the two script additions that previously built this section. No changes to Windows packages or installer status.
+
+**SRC-51.** Standard public-page action buttons and compact book actions use a red primary style and a white, outlined secondary style. Layout, interactions and specialized application controls retain their existing behavior.
+
+**SRC-52.** Reduced the enhanced menu from ten links to nine. Pilot enrollment remains on the homepage and beside Help in standard footers. Detailed resources remain accessible through the public hubs.
+
+**SRC-53.** Added a general access and deletion request section at the top of the privacy policy, with the established Gravity support email. Updated the support-field disclosure to match the shorter form.
+
+**SRC-54–56.** Added a cookie policy, first-party analytics consent for public pages and standalone browser tools, and a linked inquiry notice beside Prepare Email. The email inquiry has no marketing enrollment. Cookie preference lasts 180 days; authentication uses session cookies. Retention text distinguishes access expiry, local storage, account and submission records, and third-party settings. Exact provider and mailbox retention settings require account-level verification.
+
+**SRC-57.** No approved third-party endorsement marks identified. Leave homepage logo endorsements out unless the relationship and usage rights are documented.
+
+**SRC-58.** Reviewed twenty public entry and product pages. Shortened dense introductory, comparison and instruction paragraphs on fourteen. Kept factual counts, editions, access limits, and distinctions about employee access. The scanner did not identify its sample or scoring method; no sitewide grade is claimed.
+
+**SRC-59–62.** Linked a named alternatives comparison from the homepage. The old welcome query now redirects permanently to the homepage guide fragment. Consolidated repeated kit details while retaining individual release statuses. Added FAQ topic headings and ordered instructions, grouped historical release notes, and published the 26-page guest retention manual as searchable HTML alongside its printable PDF. The packaged manual heading differs from the corrected printable preview; the web edition follows the actual 90-day schedule. Other PDF equivalents still require individual content checks.
 
 ## November 22 first-visit homepage and mobile menu
 

@@ -4,14 +4,7 @@ async function completeSupportForm(page){
   const form=page.locator('#gravity-support-request');
   await form.locator('[name="name"]').fill('Synthetic Customer');
   await form.locator('[name="email"]').fill('synthetic@example.invalid');
-  await form.locator('[name="issue_type"]').selectOption('tool');
-  await form.locator('[name="product_or_file"]').fill('Shift Lab');
-  await form.locator('[name="device_os"]').fill('Windows 11 desktop');
-  await form.locator('[name="browser_version"]').fill('Chromium');
-  await form.locator('[name="intended_action"]').fill('Save a shift schedule.');
-  await form.locator('[name="steps_to_reproduce"]').fill('Open Shift Lab, enter a shift, then select Save.');
   await form.locator('[name="actual_result"]').fill('The example shift disappeared after a reload.');
-  await form.locator('[name="expected_result"]').fill('The example shift should still be visible.');
   return form;
 }
 
@@ -28,6 +21,9 @@ test('Contact routes technical problems to Help while keeping general inquiries 
 test('Support form is present in built HTML for Netlify detection, with matching field names and honeypot',async({page})=>{
   await page.goto('/help-center');
   const form=page.locator('#gravity-support-request');
+  await expect(form.locator('input:visible, select:visible, textarea:visible')).toHaveCount(3);
+  await expect(form.locator('[required]')).toHaveCount(2);
+  await expect(form.locator('#support-name')).not.toHaveAttribute('required', /.*/);
   await expect(form).toHaveAttribute('name','gravity-support-request');
   await expect(form).toHaveAttribute('data-netlify','true');
   await expect(form).toHaveAttribute('netlify-honeypot','bot-field');
@@ -48,7 +44,7 @@ test('Invalid support form is not posted',async({page})=>{
   });
   await page.goto('/help-center');
   await page.locator('#support-submit').click();
-  await expect(page.locator('#support-name')).toBeFocused();
+  await expect(page.locator('#support-email')).toBeFocused();
   expect(posts).toBe(0);
 });
 
@@ -69,9 +65,8 @@ test('Success requires an HTTP success, sends structured fields, saves reference
   expect(received).toHaveLength(1);
   const body=received[0];
   expect(body.get('form-name')).toBe('gravity-support-request');
-  expect(body.get('issue_type')).toBe('tool');
-  expect(body.get('product_or_file')).toBe('Shift Lab');
-  expect(body.get('steps_to_reproduce')).toContain('Open Shift Lab');
+  expect(body.get('email')).toBe('synthetic@example.invalid');
+  expect(body.get('actual_result')).toBe('The example shift disappeared after a reload.');
   expect(body.get('bot-field')).toBe('');
   expect(body.get('submitted_at_utc')).toMatch(/^\d{4}-\d\d-\d\dT/);
   const ref=body.get('case_reference');
@@ -106,7 +101,7 @@ test('Non-2xx failure preserves entries and retry reuses the same reference, wit
   await expect(page.locator('#support-submission-status')).toContainText('could not be confirmed');
   await expect(page.locator('#support-submission-status')).not.toContainText('successful submission response');
   await expect(page.locator('#support-submit')).toBeEnabled();
-  await expect(page.locator('#support-product')).toHaveValue('Shift Lab');
+  await expect(page.locator('#support-actual')).toHaveValue('The example shift disappeared after a reload.');
   await page.locator('#support-submit').click();
   await expect(page.locator('#support-submission-status')).toContainText('successful submission response');
   expect(refs).toHaveLength(2);

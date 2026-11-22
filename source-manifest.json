@@ -345,8 +345,12 @@
       "sha256": "9c8992f3dc4830ef3480ed4263fa9960ea9aae9135d156fed62e305d3c9004ca"
     },
     {
+      "path": "site/assets/css/gravity-cookie-choice.css",
+      "sha256": "4e8e0be20ecc7da4328581b67dd24485a244dcfe834f5b007f546a782de4ffce"
+    },
+    {
       "path": "site/assets/css/gravity-refinement.css",
-      "sha256": "38b264e51db352484979051d654229db08a966de17d26342ab2b980ab5c7c1fa"
+      "sha256": "e3eaf1872cb4f79c4e31cf8076bd87e2627678926352ddf32cd7f3c331848e51"
     },
     {
       "path": "site/assets/css/gravity-report-reading.css",
@@ -1441,6 +1445,10 @@
       "sha256": "b57de4dab1b4fe9660f2279b05b41b928ea95128e40d864d5b67675312c8426a"
     },
     {
+      "path": "site/assets/js/gravity-cookie-choice.js",
+      "sha256": "f86dd15d2983e7b5aacd01d34405cde41ca8e1eebf65c885e3d328b45135ae96"
+    },
+    {
       "path": "site/assets/js/gravity-document-studio.js",
       "sha256": "da5ff34511cf4c97a7bebe34b95bac5b8265ab2e44a7cf6d8ecd9ee0aafb15b9"
     },
@@ -1758,7 +1766,7 @@
     },
     {
       "path": "site/assets/js/product-analytics.js",
-      "sha256": "22e92e8feb0fe7233104874fab0c18b3b47e7dfed4b2deb4a24414096bc7f07b"
+      "sha256": "04c341351921a13b6ae347343d068a4941691916c66181e20c5bc8b856d52367"
     },
     {
       "path": "site/assets/js/registration-identity.js",
@@ -1766,7 +1774,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "730728c09480e4f54ff0893b06f5c4b4505abb6ab74174ff0f0837b1654ec755"
+      "sha256": "52a34535efc2f836b92c3153fa8bd6499eac3b9d6a9dbd31407114346cc114fe"
     },
     {
       "path": "site/assets/js/testing-room.js",
@@ -1962,7 +1970,11 @@
     },
     {
       "path": "site/contact.html",
-      "sha256": "4b21fae2606882a6340bd7c207255779750b5ab9e3bd14ca7a71bd448bc0c940"
+      "sha256": "0d20f34407718c533add939ce1867b409b4c4ae4ef728d4866e87d957f556bcb"
+    },
+    {
+      "path": "site/cookies.html",
+      "sha256": "01c429ddaae24f498f5206180587ead3e715ae46f4f529ecb63ce3c18d089cc9"
     },
     {
       "path": "site/customer-resources.html",
@@ -1970,15 +1982,15 @@
     },
     {
       "path": "site/free-resources.html",
-      "sha256": "82eafd0c259fb2c01c9e825a8673394c93c58c0413bfc69d68361d74e75506a9"
+      "sha256": "9e3bb0da92c97ade9b9ed0fdba716b637a3433641d641ed958117de62d0b5a3f"
     },
     {
       "path": "site/gravity-assist.html",
-      "sha256": "b56d3b670e11e91b6f3f68b3ea5f7ddf041db434d44be4932bc6d048b5df3c6a"
+      "sha256": "35093203cb42b5e45f0909e4737f84d848889202f6d91689e6535f703d9db00d"
     },
     {
       "path": "site/gravity-aware.html",
-      "sha256": "dbf8a920c8c7070bf5494bdf99b2af6c7f55baaacd0f90b1e003505ffd2bed15"
+      "sha256": "0fe3e9363c4772b39ecdf194fa03429488c43ef3aeb33ac2cd7af82bf811dddf"
     },
     {
       "path": "site/gravity-cloud-vault.html",
@@ -1986,7 +1998,7 @@
     },
     {
       "path": "site/gravity-document-studio.html",
-      "sha256": "d7e18fcce461213df0fa2ca3225f1b66a9d1b2b443477ce13f1e23fe8b0d6030"
+      "sha256": "eb18cadbd40309c69eaaef06ed12dc05212a1c77ddb2f4d024c79c38368f4038"
     },
     {
       "path": "site/gravity-forms-personalizer.html",
@@ -2054,7 +2066,7 @@
     },
     {
       "path": "site/gravity-shift-lab.html",
-      "sha256": "c6eeb37830be3b78100cb35266440d10cc0f6409a2e8b085e1c31b8f302baea3"
+      "sha256": "f6ae7e9169a26bbc91f87303f4a8aab3abadb815edfd283a24c26a2b10e32c97"
     },
     {
       "path": "site/gravity-shift-lab.webmanifest",
@@ -2066,7 +2078,7 @@
     },
     {
       "path": "site/gravity-sop-foundry.html",
-      "sha256": "74bb53f47def554a11607cf0f7b8a609280cc1be8d18006d90a0f3fa7303c7bc"
+      "sha256": "5c5fba961b72dbfa27cc43436f1e6f218e98d33f6a7151caab3e46ac889c4ace"
     },
     {
       "path": "site/gravity-sop-library-set.html",
@@ -2089,8 +2101,16 @@
       "sha256": "f26b3c4c12ab8f5ea7106cf70b100936c8245615c65b0632a9ec985729aa3b25"
     },
     {
+      "path": "site/gravity-vs-7shifts-and-restaurantowner.html",
+      "sha256": "e291e5e74cd662f14eb50db0dd2cd6d6b8402223246e3567018e5a18447c2ef7"
+    },
+    {
       "path": "site/gravity-work-study-lab.html",
-      "sha256": "0df384e11d51b9f9b41d4a4705dd23381863de3aa494562801b8d847babad64c"
+      "sha256": "f0842c5cf2a1bfadfc34fd5fea967053e0e082e430a59d9956c2fc58118c36ef"
+    },
+    {
+      "path": "site/guest-relationship-retention-manual.html",
+      "sha256": "914f0c2e6ae6a04c6213a2355ca042455d72147fea47627693d28d6472fb79f8"
     },
     {
       "path": "site/guest-service-complaints-recovery-workbook.html",
@@ -2106,7 +2126,7 @@
     },
     {
       "path": "site/help-center.html",
-      "sha256": "90a88aad7c94511f13e203b7189e2966a3ec0fae14ed6ee22e14e0abb7e042e0"
+      "sha256": "e3c666096b657adcd0691c93553f2f11c93a98ddecbcd57cc0a3e1248fc4f865"
     },
     {
       "path": "site/hiring-interviewing-employee-retention-tracker.html",
@@ -2118,7 +2138,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "fe690e7172a17f43f5e2bbddc535de760cd1e010d513e430e0f94469afcd8b10"
+      "sha256": "31248d487e3b74fa5fe79022cbd219308508fa0399aa13375dd872ffdc35ca55"
     },
     {
       "path": "site/installation-improvement.html",
@@ -2138,7 +2158,7 @@
     },
     {
       "path": "site/operating-systems.html",
-      "sha256": "90d168cdcaa9e53c24cdb676c364f0b0d0d23ff0217fecf8a5753501b32f7891"
+      "sha256": "f4bde657958ea891a7379b2ccd7bef0c2f2f76c50a658edc2e74290d176517f4"
     },
     {
       "path": "site/owner-gm-governance-agreement-pack.html",
@@ -2166,7 +2186,7 @@
     },
     {
       "path": "site/privacy.html",
-      "sha256": "46f81a0b4a79efa6fea41236f5815eb788be046b8c352553d452f51a298610e7"
+      "sha256": "42b0cb34753786694b80956326f9537cd5c883a21b81177cdfdfd636999d27c7"
     },
     {
       "path": "site/qr-code-generator.html",
@@ -2194,7 +2214,7 @@
     },
     {
       "path": "site/releases.html",
-      "sha256": "4c82e5cc476e3e73a4f816e8fc3b26d9efa74c763efc2260915d5dba0fcbe0ae"
+      "sha256": "4a1275aff3cba429c613a75dfa742bc3495904cb894b7e766332a2cb6b32ae6c"
     },
     {
       "path": "site/restaurant-ai-prompt-search.html",
@@ -2458,7 +2478,7 @@
     },
     {
       "path": "site/standards-library.html",
-      "sha256": "242169a4ee8706e2b3660f79119739d53d73c4ca3562c23851f1b0b3de4e661f"
+      "sha256": "f16963a49c1723b99cddb774cdc2bd34e2b89687eb177be9831d321d0dc878d5"
     },
     {
       "path": "site/standards.html",
@@ -2466,11 +2486,11 @@
     },
     {
       "path": "site/start-here.html",
-      "sha256": "d3d806d59077d2c0215cb8096016bbbadcd54a0c26a309bf77e85256ea4ae5c9"
+      "sha256": "591be16a091ce74f2198db93740212f85187eb9c54ae3f40519ae97bb06d85ee"
     },
     {
       "path": "site/support.html",
-      "sha256": "977faa9d1704566dfd771f5e0bbf4808ed468dff6384c89a2b46e166c9df3795"
+      "sha256": "a9556055689a2da6a9ecef588854280d5d4fbb7e94c6f0c6bc4adba37d057a70"
     },
     {
       "path": "site/system.html",
@@ -2538,7 +2558,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "7eac824ad903cee1c00832881c80c0141b1e6b56ed1c83c62804c49da54998ce"
+      "sha256": "2c54ff5f40633516b3d80d541b374fa5a7adee65864040eaa2f5fb2574380429"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",
@@ -2690,7 +2710,7 @@
     },
     {
       "path": "netlify/edge-functions/home-welcome-description.js",
-      "sha256": "24709a6d116c899ffc4dddcc2ce05d8c2fcd9eb34d2aef1897c9c9a11528c20b"
+      "sha256": "dbc3e879c678644b5a7a389d6e3544449513388e683cfb70a0d04fcaa56557d9"
     },
     {
       "path": "netlify/edge-functions/report-index.js",

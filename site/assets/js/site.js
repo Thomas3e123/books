@@ -15,13 +15,12 @@
   var primaryMenu = [
     ['/', 'Home'],
     ['/start-here', 'Start Here'],
-    ['/gravity-assist', 'Gravity Assist'],
-    ['/operating-systems', 'The Gravity System'],
+    ['/gravity-assist', 'Find Tools (Gravity Assist)'],
+    ['/operating-systems', 'Restaurant Systems'],
     ['/books', 'Books & Reader'],
     ['/gravity-report', 'The Gravity Report'],
     ['/free-resources', 'Free Resources'],
     ['/help-center', 'Help'],
-    ['/pilot-room', 'Pilot Room'],
     ['/windows-programs', 'Windows Programs']
   ];
   var publicSiteHeader = nav && nav.id === 'site-nav' ? nav.closest('header.site-header') : null;
@@ -196,7 +195,7 @@
     catch (_) { return ''; }
   }
   function send(name, params) {
-    if (!analyticsEnabled || typeof window.gtag !== 'function') return;
+    if (!analyticsEnabled || (analyticsHost && !window.gravityAllowsAnalytics?.()) || typeof window.gtag !== 'function') return;
     var base = { page_category: pageCategory(), page_path_clean: location.pathname || '/', gravity_site: SITE_NAME };
     Object.keys(params || {}).forEach(function (k) { base[k] = params[k]; });
     window.gtag('event', name, base);
@@ -243,7 +242,10 @@
     return '';
   }
 
-  if (analyticsEnabled) {
+  var analyticsStarted = false;
+  function startAnalytics() {
+    if (!analyticsEnabled || analyticsStarted || (analyticsHost && !window.gravityAllowsAnalytics?.())) return;
+    analyticsStarted = true;
     window.dataLayer = window.dataLayer || [];
     window.gtag = function(){ window.dataLayer.push(arguments); };
     window.gtag('js', new Date());
@@ -271,6 +273,9 @@
       send('gravity_product_open', {product_slug: openedProduct, product_surface: 'web'});
     }
   }
+
+  startAnalytics();
+  window.addEventListener('gravity-analytics-allowed', startAnalytics);
 
   // Count only generic control interaction on known product pages.
   // Never read control labels, field values, or document content.
@@ -395,11 +400,12 @@
 
   var welcome = document.getElementById('gravity-first-visit');
   var isHome = (location.pathname === '/' || /\/index\.html$/i.test(location.pathname));
-  var forceWelcome = queryValue('welcome') === '1';
+  var forceWelcome = location.hash === '#welcome' || queryValue('welcome') === '1';
   function closeWelcome(reason) {
     if (!welcome) return;
     storageSet(WELCOME_KEY, '1');
     welcome.hidden = true;
+    if (location.hash === '#welcome') history.replaceState(null, '', location.pathname + location.search);
     document.body.classList.remove('gravity-welcome-open');
     var homeHeading = document.querySelector('main h1');
     if (homeHeading) {
@@ -409,13 +415,19 @@
     send('first_visit_welcome_complete', { completion_action: reason || 'enter_site' });
   }
   if (welcome && isHome) {
-    if (forceWelcome) {
+    function openWelcome() {
       if (!gravityIsKnownBrowser) sessionSet('gravity_first_visit_flow_v1', '1');
       welcome.hidden = false;
       document.body.classList.add('gravity-welcome-open');
       document.getElementById('gravity-welcome-title').focus();
       send('first_visit_welcome_view', { visit_type: gravityIsKnownBrowser ? 'reopened' : 'first_browser_visit' });
-    } else if (gravityIsKnownBrowser) {
+    }
+    window.addEventListener('hashchange', function () {
+      if (location.hash === '#welcome') openWelcome();
+      else if (!welcome.hidden) closeWelcome('back');
+    });
+    if (forceWelcome) openWelcome();
+    else if (gravityIsKnownBrowser) {
       send('returning_home_view', { visit_type: 'returning_browser' });
     }
     welcome.querySelectorAll('[data-welcome-enter]').forEach(function (el) {

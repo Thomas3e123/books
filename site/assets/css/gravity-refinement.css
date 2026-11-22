@@ -44,3 +44,23 @@
  body[data-workspace="windows"] .header-inner:focus-within .nav{display:flex!important}
  body[data-workspace="windows"] .menu-toggle:focus + .nav{display:flex!important}
 }
+
+/* Public calls to action share the same hierarchy on light and dark surfaces. */
+body:has(header.site-header #site-nav) main :is(a, button):is(.btn-primary, .btn-red, .mini-btn.primary) {
+  background: #922f37;
+  color: #fff;
+  border: 2px solid #e0a1a5;
+  border-radius: 999px;
+  box-shadow: none;
+}
+body:has(header.site-header #site-nav) main :is(a, button):is(.btn-outline, .btn-dark, .mini-btn:not(.primary)) {
+  background: #fff;
+  color: #172337;
+  border: 2px solid #706556;
+  border-radius: 999px;
+  box-shadow: none;
+}
+body:has(header.site-header #site-nav) main :is(.btn, .mini-btn):is(a[href], button:enabled):hover {
+  text-decoration: underline;
+  text-underline-offset: .15em;
+}

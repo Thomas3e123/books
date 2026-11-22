@@ -46,6 +46,32 @@ function normalizeCurrentCopy(html){
    throw Error('Old current AI prompt count remains in built page');
  return html;
 }
+// Publish the compact public menu in the initial HTML, including on nested URLs.
+const publicMenu = [
+    ['/', 'Home'],
+    ['/start-here', 'Start Here'],
+    ['/gravity-assist', 'Find Tools (Gravity Assist)'],
+    ['/operating-systems', 'Restaurant Systems'],
+    ['/books', 'Books & Reader'],
+    ['/gravity-report', 'The Gravity Report'],
+    ['/free-resources', 'Free Resources'],
+    ['/help-center', 'Help'],
+    ['/windows-programs', 'Windows Programs']
+  ];
+function labelPublicNavigation(html, rel) {
+ const route = '/' + rel.replace(/(?:^|\/)index\.html$/, '').replace(/\.html$/, '');
+ const links = publicMenu.map(([href, label]) => {
+  const current = href === route ? ' aria-current="page"' : '';
+  return '<a href="' + href + '"' + current + '>' + label.replaceAll('&', '&amp;') + '</a>';
+ }).join('');
+ if (!/\bid=["']site-nav["']/.test(html)) return html;
+ html = html.replace(/<footer\b[^>]*>[\s\S]*?<\/footer>/gi, footer => {
+  footer = footer.replace(/(<a\b[^>]*href=["']\/privacy["'][^>]*>[\s\S]*?<\/a>)/i, '$1 <a href="/cookies#analytics-settings">Cookie settings</a>');
+  if (/href=["']\/pilot-room["']/.test(footer)) return footer;
+  return footer.replace(/(<a\b[^>]*href=["']\/help-center["'][^>]*>[\s\S]*?<\/a>)/i, '$1 <a href="/pilot-room">Pilot Room</a>');
+ });
+ return html.replace(/(<nav\b(?=[^>]*\bid=["']site-nav["'])[^>]*>)[\s\S]*?<\/nav>/gi, (_, opening) => opening + links + '</nav>');
+}
 function attr(tag,name){
  const match=tag&&tag.match(new RegExp("\\b"+name+"\\s*=\\s*([\"'])(.*?)\\1","i"));
  return match?match[2].replaceAll('&amp;','&').replaceAll('&quot;','"').replaceAll('&#39;',"'"):'';
@@ -111,7 +137,10 @@ function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){
  let s=fs.readFileSync(p,'utf8').replaceAll('https://gravity-leadership-system.netlify.app',origin).replaceAll('https://gravity-migration--gravity-leadership-system.netlify.app',origin);
  if(e.name.endsWith('.html')){
   const rel=path.relative(out,p).split(path.sep).join('/');
-  s=normalizeCurrentCopy(s);
+  s=labelPublicNavigation(normalizeCurrentCopy(s),rel);
+  if (/src=["'][^"']*assets\/js\/(?:site|product-analytics)\.js[?"']/.test(s)) {
+   s=s.replace(/<head\b[^>]*>/i, head => head + '<script defer src="/assets/js/gravity-cookie-choice.js"></script><link rel="stylesheet" href="/assets/css/gravity-cookie-choice.css">');
+  }
   validateArticleMetadata(s,rel);
   recordPublicPage(s,rel);
   // Rewrite every *local* HTML JavaScript or stylesheet URL to its content hash.
