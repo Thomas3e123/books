@@ -2,10 +2,10 @@
  * NEVER intercept/cache identity, authenticated API, encrypted cloud backup,
  * hosted employee activity, or unrelated restaurant tools.
  */
-const CACHE='gravity-shift-lab-v9-static-only-cloud-safe';
+const CACHE='gravity-shift-lab-v10-static-only-cloud-safe';
 const CORE=[
  '/gravity-shift-lab','/gravity-shift-lab.html','/gravity-shift-lab.webmanifest',
- '/assets/js/gravity-shift-lab.js','/assets/js/gravity-qr.js','/assets/js/site.js',
+ '/assets/js/gravity-labor-cost-engine.js','/assets/js/gravity-shift-lab.js','/assets/js/gravity-qr.js','/assets/js/site.js',
  '/assets/js/gravity-local-recovery-v1.js','/assets/js/gravity-cloud-vault-v1.js',
  '/assets/css/styles.css','/assets/css/shift-lab-web-sync.css',
  '/assets/images/gravity-system-mark.svg','/assets/images/shift-lab-icon-192.png','/assets/images/shift-lab-icon-512.png'
