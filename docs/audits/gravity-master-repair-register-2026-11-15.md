@@ -13,6 +13,8 @@ The corrected FDA page and the DOI registration both returned HTTP 200. A second
 
 The Reader catalog and its embedded fallback now carry matching character counts for all 15 published text files. This reconciled the changed book and 12 previously stale counts. The fallback catalog also had the old 325-prompt title for the published 350-prompt workbook. All fallback records now match the primary catalog.
 
+**Verified live.** [PR #182](https://github.com/Thomas3e123/books/pull/182) passed all four hosted regression workflows. [Gravity production deploy 6b031487fde51239f0aadda9](https://app.netlify.com/projects/gravity-leadership-system/deploys/6b031487fde51239f0aadda9) published commit `665ab27e`. All 21 public files matched the tested production output byte for byte, including the four downloads, both Reader catalog sources and all 15 book texts. SRC-27 is closed.
+
 ## November 22 QR destination audit
 
 **SRC-26 — downloadable Foundry QR.** The public image at `/assets/images/gravity-sop-foundry-qr.png` encoded the old Thomas Monroe Books host. Replaced its destination with the canonical Gravity SOP Foundry page, preserving the filename and 185 × 185 dimensions. The new code decoded at original size, at 150 pixels, rotated 12 degrees and with mild blur. The Gravity destination returned HTTP 200. No HTML reference to this static image was found in the site source. This repair applies to newly fetched copies.
