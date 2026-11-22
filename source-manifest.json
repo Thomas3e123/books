@@ -662,11 +662,11 @@
     },
     {
       "path": "site/assets/downloads/quiet-gravity-gravity-elite-2026-09-11-155-pages.pdf",
-      "sha256": "00cf60f644efa6f3ad28e5b60bb69be359851fa2fb386540bf9ecb154e2d03e9"
+      "sha256": "f7646b1e92ed60a7d90edefd2151587af01e537132570f94e528db126a18cfb9"
     },
     {
       "path": "site/assets/downloads/quiet-gravity-gravity-elite-2026-09-11.docx",
-      "sha256": "62a68c095b01baa8b5c150516f3ed84df58ca0de8b2fa404f0a1ded89511467b"
+      "sha256": "5730164f51a2b1539868caf9002cb6602d50b07fd7009f0f298466c6361e92fa"
     },
     {
       "path": "site/assets/downloads/restaurant-hiring-interview-guide-elite-v1.0.docx",
@@ -918,7 +918,7 @@
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-T_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "b6a38fbbeb36ea41f950380a7a55add811d1ed4c6fc9aa8c420eec0d78937962"
+      "sha256": "a98c73cdf6ac79fb31c2ca400c489cdb9d6bf206a88529075b2a612afe8e01a5"
     },
     {
       "path": "site/assets/free-resources/sales-intelligence-forecasting/Gravity_Sales_Intelligence_and_Forecasting_System_File_Guide.txt",
@@ -1814,7 +1814,7 @@
     },
     {
       "path": "site/assets/reader/quiet-gravity.txt",
-      "sha256": "c87949d51215f00e20b7f0d98e3eb334de5275adbf30622eb45a876916405048"
+      "sha256": "dd21a9cf15fe54a45973acb9d0903de60e5bcfcfe9c40de42fddd6fe7cece114"
     },
     {
       "path": "site/assets/reader/sop-library-v1.txt",
@@ -1950,7 +1950,7 @@
     },
     {
       "path": "site/assets/system-previews/training-certification-manual.pdf",
-      "sha256": "f763fef480c12eb022d7052475d157e8c8d1893fa17f10b3792d5b22482fe25e"
+      "sha256": "9b8a4e964edc572090e6dc409f9686af6b6619690d5b85dfe080e4eca2395d6c"
     },
     {
       "path": "site/book-reader.html",
