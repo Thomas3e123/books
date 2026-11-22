@@ -3,15 +3,19 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 grouped release verification
+
+**SRC-33 and SRC-34 verified on production.** [Gravity deployment](https://app.netlify.com/projects/gravity-leadership-system/deploys/6b035bd4831658707c2bd9d8) published commit `6b1a4ad3` after all four hosted checks passed on [PR #196](https://github.com/Thomas3e123/books/pull/196). The first link on each of the three public pages targets a unique, focusable main landmark. Both the public Shift Lab service worker and the versioned labor calculator matched the tested build byte for byte. Offline fallback was tested with simulated network loss. Before deployment, all 156 audited Gravity URLs returned HTTP 200 on the Gravity host, and the 584 section links in the returned pages resolved to static targets or the Workroom’s Blank SOP handler.
+
 ## November 22 Shift Lab offline labor calculations
 
-**SRC-34 — Shift Lab omitted the labor calculator from its offline cache.** The live worker matched the source and the live scheduler calls the calculator when updating shift totals. With the network unavailable, the old worker passed the calculator request through. Added the public calculator script to the existing cache list and incremented the cache version. A service-worker regression test now installs the cache, simulates a network failure and checks the returned script for a versioned request. It failed before the repair and passed afterward. All 138 Node tests, source verification, the production build and strict link audit passed. Group with SRC-33 and verify both after publication.
+**SRC-34 — Shift Lab omitted the labor calculator from its offline cache.** The live worker matched the source and the live scheduler calls the calculator when updating shift totals. With the network unavailable, the old worker passed the calculator request through. Added the public calculator script to the existing cache list and incremented the cache version. A service-worker regression test now installs the cache, simulates a network failure and checks the returned script for a versioned request. It failed before the repair and passed afterward. All 138 Node tests, source verification, the production build and strict link audit passed. Published together with SRC-33.
 
 **Section navigation audit.** Checked 587 same-site fragment links on 129 pages in the 156-page production build. Of 293 distinct destinations, 292 were static targets. The remaining destination, Blank SOP, has an explicit form-opening handler in the live Workroom. All 156 built pages had unique element IDs and alternative-text attributes on their static images.
 
 ## November 22 keyboard navigation
 
-**SRC-33 — Handbook Creator, SOP Library Volume 3 and Testing Room Manager.** Each live page had 11–15 navigation links before the content and lacked a skip link. Added a first-tab “Skip to content” link and a focusable main landmark on all three pages. The production build already had 121 skip links with unique targets. The new browser regression checks that Tab focuses the link and Enter moves focus to main on each repaired page. Pending live verification with the next Gravity deployment.
+**SRC-33 — Handbook Creator, SOP Library Volume 3 and Testing Room Manager.** Each live page had 11–15 navigation links before the content and lacked a skip link. Added a first-tab “Skip to content” link and a focusable main landmark on all three pages. The production build already had 121 skip links with unique targets. The new browser regression checks that Tab focuses the link and Enter moves focus to main on each repaired page. Verified on the public pages in the deployment recorded above.
 
 ## November 22 missing-page recovery
 
