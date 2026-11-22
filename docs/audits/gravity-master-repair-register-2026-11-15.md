@@ -3,6 +3,10 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 live catalog and Reader download verification
+
+All 15 PDF URLs in the live Book Reader catalog are reachable from the public Books catalog. Thirteen downloads appear on Books itself. SOP Library volumes 1 and 2 are linked through the SOP Library set page. Fetched and opened every PDF from its public URL. All matched the reviewed release files byte for byte and contained 3,889 pages in total. All 2,024 embedded bookmarks in the six PDFs that contain them point within their respective books. This verifies the downloadable editions and bookmark page bounds. The 676 source hashes and 136 Node regression tests passed. No catalog repair or production deployment was necessary. The SRC-30 preview changes remain queued for live verification with the next deployment.
+
 ## November 22 book preview audit
 
 **SRC-30 — book preview accuracy.** All 44 thumbnails and larger images on 11 public book pages opened. Each gallery's images corresponded to the correct book and appeared in increasing PDF page order. The 160 responsive variants with explicit width descriptors decoded at their declared widths. One image showed an earlier revision of the correct page. The Station Operations Builder contents preview used the older library name and omitted the Gravity SOP Test entry visible in the current PDF. Regenerated that one preview directly from page 3 of the linked PDF at the existing 1100 × 1424 dimensions. The Quiet Gravity contents continue onto page 8, whereas its single-page preview shows page 7. Updated the caption, alternative text, and accessible link name to identify it as the first contents page.
