@@ -21,6 +21,10 @@
 
 **SRC-57.** No approved third-party endorsement marks identified. Leave homepage logo endorsements out unless the relationship and usage rights are documented.
 
+**SRC-58.** Reviewed twenty public entry and product pages. Shortened dense introductory, comparison and instruction paragraphs on fourteen. Kept factual counts, editions, access limits, and distinctions about employee access. The scanner did not identify its sample or scoring method; no sitewide grade is claimed.
+
+**SRC-59–62.** Linked a named alternatives comparison from the homepage. The old welcome query now redirects permanently to the homepage guide fragment. Consolidated repeated kit details while retaining individual release statuses. Added FAQ topic headings and ordered instructions, grouped historical release notes, and published the 26-page guest retention manual as searchable HTML alongside its printable PDF. The packaged manual heading differs from the corrected printable preview; the web edition follows the actual 90-day schedule. Other PDF equivalents still require individual content checks.
+
 ## November 22 first-visit menu labels
 
 **SRC-47.** The standard menu names the tool finder and restaurant systems directly. The initial HTML also identifies the checkup, procedure-writing workspace and resource kits beside their product names. The last two were selected after inspecting the public menu and destination pages because the audit named only three of its five labels. Destinations, order, and separate workroom and Report navigation are preserved.
@@ -76,6 +80,10 @@
 **SRC-54–56.** Added a cookie policy, first-party analytics consent for public pages and standalone browser tools, and a linked inquiry notice beside Prepare Email. The email inquiry has no marketing enrollment. Cookie preference lasts 180 days; authentication uses session cookies. Retention text distinguishes access expiry, local storage, account and submission records, and third-party settings. Exact provider and mailbox retention settings require account-level verification.
 
 **SRC-57.** No approved third-party endorsement marks identified. Leave homepage logo endorsements out unless the relationship and usage rights are documented.
+
+**SRC-58.** Reviewed twenty public entry and product pages. Shortened dense introductory, comparison and instruction paragraphs on fourteen. Kept factual counts, editions, access limits, and distinctions about employee access. The scanner did not identify its sample or scoring method; no sitewide grade is claimed.
+
+**SRC-59–62.** Linked a named alternatives comparison from the homepage. The old welcome query now redirects permanently to the homepage guide fragment. Consolidated repeated kit details while retaining individual release statuses. Added FAQ topic headings and ordered instructions, grouped historical release notes, and published the 26-page guest retention manual as searchable HTML alongside its printable PDF. The packaged manual heading differs from the corrected printable preview; the web edition follows the actual 90-day schedule. Other PDF equivalents still require individual content checks.
 
 ## November 22 first-visit homepage and mobile menu
 
