@@ -3,6 +3,12 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 book preview audit
+
+**SRC-30 — book preview accuracy.** All 44 thumbnails and larger images on 11 public book pages opened. Each gallery's images corresponded to the correct book and appeared in increasing PDF page order. The 160 responsive variants with explicit width descriptors decoded at their declared widths. One image showed an earlier revision of the correct page. The Station Operations Builder contents preview used the older library name and omitted the Gravity SOP Test entry visible in the current PDF. Regenerated that one preview directly from page 3 of the linked PDF at the existing 1100 × 1424 dimensions. The Quiet Gravity contents continue onto page 8, whereas its single-page preview shows page 7. Updated the caption, alternative text, and accessible link name to identify it as the first contents page.
+
+**Source repair, pending next production release.** Verified the updated Builder preview contains the current SOP Test entry and the built Quiet Gravity page contains all three corrected labels. The 156-page build, 676 source hashes, internal link audit and 136 regression tests passed. Batch the repairs with the next Gravity deployment. After publication, compare the live Builder image with the repaired file, verify the responsive thumbnail and confirm the new Quiet Gravity labels.
+
 ## November 22 system package downloads and verification
 
 **SRC-29 — Customer Resources download directions.** The card for all 15 systems promised a master manifest, checksum and validation record. Its button landed above the release history, while the individual package links were farther down the page. Updated the card to describe the material provided and point directly to the clearly labeled system downloads table. The separate release-history link retains its original destination.
