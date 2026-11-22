@@ -15,8 +15,8 @@
   var primaryMenu = [
     ['/', 'Home'],
     ['/start-here', 'Start Here'],
-    ['/gravity-assist', 'Gravity Assist'],
-    ['/operating-systems', 'The Gravity System'],
+    ['/gravity-assist', 'Find Tools (Gravity Assist)'],
+    ['/operating-systems', 'Restaurant Systems'],
     ['/books', 'Books & Reader'],
     ['/gravity-report', 'The Gravity Report'],
     ['/free-resources', 'Free Resources'],

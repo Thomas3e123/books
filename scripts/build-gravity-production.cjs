@@ -46,6 +46,22 @@ function normalizeCurrentCopy(html){
    throw Error('Old current AI prompt count remains in built page');
  return html;
 }
+// The unenhanced public menu also serves visitors while site.js is loading.
+const publicMenuLabels = new Map([
+ ['/gravity-assist', 'Find Tools (Gravity Assist)'],
+ ['/operating-systems', 'Restaurant Systems'],
+ ['/gravity-aware', 'Restaurant Checkup (Gravity Aware)'],
+ ['/gravity-sop-foundry', 'Write Procedures (SOP Foundry)'],
+ ['/gravity-fulfillment-center', 'Resource Kits (Fulfillment Center)']
+]);
+function labelPublicNavigation(html) {
+ return html.replace(/<nav\b(?=[^>]*\bid=["']site-nav["'])[^>]*>[\s\S]*?<\/nav>/gi, nav =>
+  nav.replace(/(<a\b[^>]*>)([^<>]*)(<\/a>)/gi, (link, opening, label, closing) => {
+   const replacement = publicMenuLabels.get(attr(opening, 'href'));
+   return replacement ? opening + replacement + closing : link;
+  })
+ );
+}
 function attr(tag,name){
  const match=tag&&tag.match(new RegExp("\\b"+name+"\\s*=\\s*([\"'])(.*?)\\1","i"));
  return match?match[2].replaceAll('&amp;','&').replaceAll('&quot;','"').replaceAll('&#39;',"'"):'';
@@ -111,7 +127,7 @@ function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){
  let s=fs.readFileSync(p,'utf8').replaceAll('https://gravity-leadership-system.netlify.app',origin).replaceAll('https://gravity-migration--gravity-leadership-system.netlify.app',origin);
  if(e.name.endsWith('.html')){
   const rel=path.relative(out,p).split(path.sep).join('/');
-  s=normalizeCurrentCopy(s);
+  s=labelPublicNavigation(normalizeCurrentCopy(s));
   validateArticleMetadata(s,rel);
   recordPublicPage(s,rel);
   // Rewrite every *local* HTML JavaScript or stylesheet URL to its content hash.

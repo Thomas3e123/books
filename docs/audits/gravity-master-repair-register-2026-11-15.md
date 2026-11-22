@@ -3,6 +3,10 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 first-visit menu labels
+
+**SRC-47.** The standard menu names the tool finder and restaurant systems directly. The initial HTML also identifies the checkup, procedure-writing workspace and resource kits beside their product names. The last two were selected after inspecting the public menu and destination pages because the audit named only three of its five labels. Destinations, order, and separate workroom and Report navigation are preserved.
+
 ## November 22 shorter Help Center form
 
 **SRC-46.** Reduced 14 visitor-facing support fields to optional name, reply email and message. Only email and message are required. Kept the existing Netlify form identity and submission field names, reference and timestamp, spam trap, retry handling and email fallback. The separate Ask Gravity tool is unaffected.
