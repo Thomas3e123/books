@@ -378,7 +378,7 @@
     },
     {
       "path": "site/assets/css/styles.css",
-      "sha256": "288dc8254b11704136c20e4c750feb60ca4ab7effb3ef5a47c4cbc38d3bfc22a"
+      "sha256": "731375e710950b10439cf0915a6290f0e8f07bf2c75de674bf82e016deed8b63"
     },
     {
       "path": "site/assets/css/testing-room-home.css",
@@ -394,7 +394,7 @@
     },
     {
       "path": "site/assets/customer-resources/current/Gravity_System_Overview_v1.8_2026-10-10.pdf",
-      "sha256": "08e9aac68c67f9153405698a3851d5de85210494e53e20d09568e9c0765f0455"
+      "sha256": "74bbf87acc45f03ccb74de9b6a73db78b9d82da145925d102bf737c0caed05b3"
     },
     {
       "path": "site/assets/customer-resources/master/Gravity_Operational_Validation_and_Release_Readiness_Report.docx",
@@ -1754,7 +1754,7 @@
     },
     {
       "path": "site/assets/js/page-search.js",
-      "sha256": "91a04f5bd21b49593cfa8be1f0e5f5a7867af131f9143d6df30fab856171ae40"
+      "sha256": "c8eaa0983f8a9c6a89327bc7982c773c1f16a21bbef47fef672ebc0dced80874"
     },
     {
       "path": "site/assets/js/product-analytics.js",
@@ -1766,7 +1766,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "05bc3319313ea1a52c94fe8fe83ea82db330180d0f1063a5c667220d28ef41ff"
+      "sha256": "730728c09480e4f54ff0893b06f5c4b4505abb6ab74174ff0f0837b1654ec755"
     },
     {
       "path": "site/assets/js/testing-room.js",
@@ -1958,7 +1958,7 @@
     },
     {
       "path": "site/books.html",
-      "sha256": "c7c2d09771e3c198680c3e52a9415e4bd69282dba01f445cf30823a033763adc"
+      "sha256": "feeb2c43a3d5fa66715d5577b0a9955a9d977d4d6b391299a0ff1b396f20a42d"
     },
     {
       "path": "site/contact.html",
@@ -1970,11 +1970,11 @@
     },
     {
       "path": "site/free-resources.html",
-      "sha256": "f4be2cce8068043e728ef29346a20f1f6fdf430a791fc28ee4daedcb1575a691"
+      "sha256": "82eafd0c259fb2c01c9e825a8673394c93c58c0413bfc69d68361d74e75506a9"
     },
     {
       "path": "site/gravity-assist.html",
-      "sha256": "3a5b82fa2c0f21c9194aa187a848fa5dc3131855016540183de135cc5ed407ca"
+      "sha256": "b56d3b670e11e91b6f3f68b3ea5f7ddf041db434d44be4932bc6d048b5df3c6a"
     },
     {
       "path": "site/gravity-aware.html",
@@ -2118,7 +2118,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "2772232b181a92be927142a8777ff49acf9217c247238dcabfe02a1a343abbae"
+      "sha256": "fe690e7172a17f43f5e2bbddc535de760cd1e010d513e430e0f94469afcd8b10"
     },
     {
       "path": "site/installation-improvement.html",
@@ -2162,7 +2162,7 @@
     },
     {
       "path": "site/pilot-room.html",
-      "sha256": "a343aa30f7b2f92806523f42aa038fdaeeed8c360eec8d84aa627504542bf785"
+      "sha256": "bfb2b1de4ec8ed2f13938fb7aa1ce70995d696d3aedf2116a1194c31efdd5246"
     },
     {
       "path": "site/privacy.html",
@@ -2182,7 +2182,7 @@
     },
     {
       "path": "site/register.html",
-      "sha256": "12cb48869a5a1b0ffd31b6890e4308c218419c62a33c6a95e7a372c36f0e2dfa"
+      "sha256": "4d541a89a2bce7fcdb31abcb7ab74f2187d6b3220416be6457ca601fc20918cb"
     },
     {
       "path": "site/registration-thanks.html",
@@ -2194,7 +2194,7 @@
     },
     {
       "path": "site/releases.html",
-      "sha256": "c73166141fa9a18dab025aa02b346e787509bede179482ed2922d70e95e44d28"
+      "sha256": "4c82e5cc476e3e73a4f816e8fc3b26d9efa74c763efc2260915d5dba0fcbe0ae"
     },
     {
       "path": "site/restaurant-ai-prompt-search.html",
@@ -2442,7 +2442,7 @@
     },
     {
       "path": "site/review.html",
-      "sha256": "a853887ea4e3d76fb9a38bd9cf8f8f4704545b94701b8ba67b25cf779520fd4a"
+      "sha256": "994cef0074bda202bdbbae4826a66a5d32e1e4893a5e8f6fe1aa39b3d06e436a"
     },
     {
       "path": "site/robots.txt",
@@ -2490,7 +2490,7 @@
     },
     {
       "path": "site/testing-room.html",
-      "sha256": "5b37ccafc6d71b8d6f85e285d02c219bfcf8179ce95b65767f0f869721805905"
+      "sha256": "693cdb319e71e39308c9cc8874e79bf515fef645658aba25955b0f589c253f35"
     },
     {
       "path": "site/the-owners-chair.html",
@@ -2498,7 +2498,7 @@
     },
     {
       "path": "site/toolkit.html",
-      "sha256": "28f675c6a77966bbcc92f06fb55a413936278d40e8cff4daf1ac96f359556861"
+      "sha256": "d2e667be799af323c2410b879fd65f834a471fb9669760ce1ce05c3fc75c2ccc"
     },
     {
       "path": "site/windows-programs.html",
@@ -2687,6 +2687,10 @@
     {
       "path": "netlify/database/migrations/20261115170000_gravity_pilot_room.sql",
       "sha256": "e2719e938cff331fea7bd6dd5581c280afaed2636bf73590e143deaabeda2570"
+    },
+    {
+      "path": "netlify/edge-functions/home-welcome-description.js",
+      "sha256": "24709a6d116c899ffc4dddcc2ce05d8c2fcd9eb34d2aef1897c9c9a11528c20b"
     },
     {
       "path": "netlify/edge-functions/report-index.js",

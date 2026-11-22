@@ -909,7 +909,27 @@
  ['wheel','touchstart','pointerdown','keydown'].forEach(type=>window.addEventListener(type,()=>{userMoved=true},{passive:true,once:true}));
  const header=document.querySelector('.site-header');
  function setOffset(){const style=header?getComputedStyle(header):null;const height=style&&['sticky','fixed'].includes(style.position)?header.getBoundingClientRect().height:0;document.documentElement.style.setProperty('--gravity-anchor-offset',(Math.ceil(height)+18)+'px');const menu=document.querySelector('[data-menu]');if(menu&&window.innerWidth<=1180){const top=Math.max(0,menu.getBoundingClientRect().top||header?.getBoundingClientRect().bottom||0);menu.style.maxHeight=Math.max(120,window.innerHeight-top-16)+'px';menu.style.overflowY='auto'}else if(menu){menu.style.removeProperty('max-height');menu.style.removeProperty('overflow-y')}}
- const style=document.createElement('style');style.textContent='[id]{scroll-margin-top:var(--gravity-anchor-offset,100px)}';document.head.appendChild(style);
+ if (header) {
+   document.documentElement.style.scrollPaddingTop = 'var(--gravity-anchor-offset)';
+   document.documentElement.style.setProperty('--gravity-target-margin', '0px');
+   // Some browsers leave focus stationary if the element is already inside the viewport.
+   document.addEventListener('focusin', event => {
+     const target = event.target;
+     if (!target.matches(':focus-visible') || !target.closest('main') || target.closest('dialog,[role="dialog"]')) return;
+     requestAnimationFrame(() => {
+       if (document.activeElement !== target || !['sticky', 'fixed'].includes(getComputedStyle(header).position)) return;
+       const rect = target.getBoundingClientRect();
+       const bar = header.getBoundingClientRect();
+       if (rect.height && rect.top >= 0 && rect.top < bar.bottom && rect.right > bar.left && rect.left < bar.right) {
+         window.scrollBy({top: rect.top - bar.bottom - 8, behavior: 'instant'});
+       }
+     });
+   });
+ } else {
+   const style = document.createElement('style');
+   style.textContent = '[id]{scroll-margin-top:var(--gravity-anchor-offset,18px)}';
+   document.head.appendChild(style);
+ }
  function guide(){document.querySelector('#gravity-guide-launcher')?.click();}
  function land(){setOffset();if(location.hash==='#gravity-guide-root'){guide();return}if(location.hash){let id;try{id=decodeURIComponent(location.hash.slice(1))}catch(e){return}const target=document.getElementById(id);if(target){let node=target;while(node){if(node.tagName==='DETAILS')node.open=true;node=node.parentElement;}target.querySelector(':scope > .container > details.gravity-more')?.setAttribute('open','');target.scrollIntoView({block:'start',behavior:'instant'});}}else window.scrollTo({top:0,left:0,behavior:'instant'});}
  window.addEventListener('pageshow',e=>{if(!e.persisted&&!backForward&&!userMoved)requestAnimationFrame(land)});

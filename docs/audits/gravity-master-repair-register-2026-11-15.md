@@ -3,6 +3,32 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 keyboard focus and accessible Overview PDF
+
+**SRC-43.** Public pages use the measured header height for the document’s scroll padding. Keyboard focus in main content gets a visibility check if the browser leaves it underneath the header. The catalog reverse-Tab regression covers a control without its own ID.
+
+**SRC-44.** Added a document structure tree to the eight-page Overview, with heading levels, paragraphs, lists, reading order and all 14 link annotations. Marked repeating footers and decorations as artifacts. Rendered all eight before/after page pairs at 108 dpi and compared pixels, text and URLs. All were identical. This was a structure repair to the dated October edition. Its 215-prompt reference predates the current 350-prompt workbook.
+
+## November 22 control boundaries
+
+**SRC-42.** Confirmed low-contrast input borders on the light Registration/Review, Contact, Testing Room and Pilot Room forms. Darkened these borders and the standard light-background outline button edge. The mobile Menu button uses its light text color for the border on the dark header. The original audit did not identify its 1.06:1 control.
+
+## November 22 visitor form autofill
+
+**SRC-41.** Added field-specific autofill hints to eight visitor controls in Registration, Review, Pilot Room and Testing Room. Testing Room sends a phone number only for a phone appointment. Registration already marked its email address for autofill. Its optional email consent checkbox stays unchecked and requires a visitor choice.
+
+## November 22 descriptive catalog links
+
+**SRC-40.** Replaced 28 generic Details and View Details labels with visible destination names on Books (12), Toolkit (11), Free Resources (4) and Releases (1). Checked all 14 destination pages against their main headings. The links retain their original URLs.
+
+## November 22 Gravity Assist section headings
+
+**SRC-39.** The output-options card and footer directory both used “Gravity Assist” as their heading. Renamed them “Print, save, or download your work” and “Gravity Assist tools” to describe their contents.
+
+## November 22 homepage and welcome descriptions
+
+**SRC-38.** The normal homepage summarizes Gravity’s operating systems, procedures and tools. Requests to the explicit welcome view receive a description of the problem picker and its suggested resources. Both descriptions are in the server response and match their respective social descriptions. The homepage stays canonical.
+
 ## November 22 homepage SEO title
 
 **SRC-37.** Shortened the homepage title to “The Gravity System | Restaurant Leadership & Operations” and aligned the matching social title metadata. Release with the queued SRC-36 invitation change.
