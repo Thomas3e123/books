@@ -378,7 +378,7 @@
     },
     {
       "path": "site/assets/css/styles.css",
-      "sha256": "288dc8254b11704136c20e4c750feb60ca4ab7effb3ef5a47c4cbc38d3bfc22a"
+      "sha256": "3b53517d1604bbdc8cfc24989582ce5d9e04b9e5efab431de57bdb141d3d5c80"
     },
     {
       "path": "site/assets/css/testing-room-home.css",
@@ -2162,7 +2162,7 @@
     },
     {
       "path": "site/pilot-room.html",
-      "sha256": "a343aa30f7b2f92806523f42aa038fdaeeed8c360eec8d84aa627504542bf785"
+      "sha256": "bfb2b1de4ec8ed2f13938fb7aa1ce70995d696d3aedf2116a1194c31efdd5246"
     },
     {
       "path": "site/privacy.html",
@@ -2182,7 +2182,7 @@
     },
     {
       "path": "site/register.html",
-      "sha256": "12cb48869a5a1b0ffd31b6890e4308c218419c62a33c6a95e7a372c36f0e2dfa"
+      "sha256": "4d541a89a2bce7fcdb31abcb7ab74f2187d6b3220416be6457ca601fc20918cb"
     },
     {
       "path": "site/registration-thanks.html",
@@ -2442,7 +2442,7 @@
     },
     {
       "path": "site/review.html",
-      "sha256": "a853887ea4e3d76fb9a38bd9cf8f8f4704545b94701b8ba67b25cf779520fd4a"
+      "sha256": "994cef0074bda202bdbbae4826a66a5d32e1e4893a5e8f6fe1aa39b3d06e436a"
     },
     {
       "path": "site/robots.txt",
@@ -2490,7 +2490,7 @@
     },
     {
       "path": "site/testing-room.html",
-      "sha256": "5b37ccafc6d71b8d6f85e285d02c219bfcf8179ce95b65767f0f869721805905"
+      "sha256": "693cdb319e71e39308c9cc8874e79bf515fef645658aba25955b0f589c253f35"
     },
     {
       "path": "site/the-owners-chair.html",

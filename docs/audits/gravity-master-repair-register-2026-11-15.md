@@ -3,6 +3,14 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 control boundaries
+
+**SRC-42.** Confirmed low-contrast input borders on the light Registration/Review, Contact, Testing Room and Pilot Room forms. Darkened these borders and the standard light-background outline button edge. The mobile Menu button uses its light text color for the border on the dark header. The original audit did not identify its 1.06:1 control.
+
+## November 22 visitor form autofill
+
+**SRC-41.** Added field-specific autofill hints to eight visitor controls in Registration, Review, Pilot Room and Testing Room. Testing Room sends a phone number only for a phone appointment. Registration already marked its email address for autofill. Its optional email consent checkbox stays unchecked and requires a visitor choice.
+
 ## November 22 descriptive catalog links
 
 **SRC-40.** Replaced 28 generic Details and View Details labels with visible destination names on Books (12), Toolkit (11), Free Resources (4) and Releases (1). Checked all 14 destination pages against their main headings. The links retain their original URLs.
