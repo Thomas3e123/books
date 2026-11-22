@@ -3,6 +3,10 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 keyboard navigation
+
+**SRC-33 — Handbook Creator, SOP Library Volume 3 and Testing Room Manager.** Each live page had 11–15 navigation links before the content and lacked a skip link. Added a first-tab “Skip to content” link and a focusable main landmark on all three pages. The production build already had 121 skip links with unique targets. The new browser regression checks that Tab focuses the link and Enter moves focus to main on each repaired page. Pending live verification with the next Gravity deployment.
+
 ## November 22 missing-page recovery
 
 **SRC-32 — nested missing URLs lost their styling, logo and navigation scripts.** A live request for a missing page inside a directory returned the correct 404 status, but five distinct asset URLs inherited the missing directory and also returned 404. Changed the six affected stylesheet, logo and script references to root-relative URLs. Added a regression test for nested URL resolution. Verified 12 distinct internal main-content links from Contact and Help Center, including the report-problem and FAQ destinations. No forms were submitted. The production build, internal link audit and 137 regression tests passed.
