@@ -3,6 +3,10 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 published Quick Tools calculations
+
+Fetched the public Quick Tools HTML and executed its calculator handlers against synthetic input controls. All 12 existing validation cases passed, covering fractional recipe scaling, malformed ingredients, overnight shifts and breaks, decimal hours, bill and coin counts, weighted tips, case conversions, leap dates, percent changes, rotations and unit conversions. An additional 396 tip-pool scenarios tested eleven totals and 36 weight combinations. The individual shares always summed to the pool and differed from each exact proportional share by less than one cent. A 10 p.m.–6 a.m. shift with a 30-minute break returned 7.50 paid hours. Two twenties plus $1.25 returned $41.25. These checks cover the deployed calculation logic using simulated controls. All 136 repository regression tests also passed. No repair or site deployment was needed for this check.
+
 ## November 22 tool routes and resource page titles
 
 **SRC-31 — Gravity resource browser titles.** A live sweep of the 22 main-content links on Start Here and 31 on Gravity Assist reached all 39 distinct destinations. The linked downloads matched the source files. All 11 Quick Tools fragment links resolved to a single section with the corresponding tool heading. The Overview Booklet and Owner–GM Governance & Agreement Pack were the two pages in the production build whose browser title identified the separate publisher as the site. Updated the browser titles to identify Gravity while retaining the publisher attribution in the page content. Corrected the article preceding “8-page” in the overview metadata. Group this with SRC-30 and verify both source repairs after publication.
