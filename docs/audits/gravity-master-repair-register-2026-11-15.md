@@ -3,6 +3,10 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 tool routes and resource page titles
+
+**SRC-31 — Gravity resource browser titles.** A live sweep of the 22 main-content links on Start Here and 31 on Gravity Assist reached all 39 distinct destinations. The linked downloads matched the source files. All 11 Quick Tools fragment links resolved to a single section with the corresponding tool heading. The Overview Booklet and Owner–GM Governance & Agreement Pack were the two pages in the production build whose browser title identified the separate publisher as the site. Updated the browser titles to identify Gravity while retaining the publisher attribution in the page content. Corrected the article preceding “8-page” in the overview metadata. Group this with SRC-30 and verify both source repairs after publication.
+
 ## November 22 live catalog and Reader download verification
 
 All 15 PDF URLs in the live Book Reader catalog are reachable from the public Books catalog. Thirteen downloads appear on Books itself. SOP Library volumes 1 and 2 are linked through the SOP Library set page. Fetched and opened every PDF from its public URL. All matched the reviewed release files byte for byte and contained 3,889 pages in total. All 2,024 embedded bookmarks in the six PDFs that contain them point within their respective books. This verifies the downloadable editions and bookmark page bounds. The 676 source hashes and 136 Node regression tests passed. No catalog repair or production deployment was necessary. The SRC-30 preview changes remain queued for live verification with the next deployment.
