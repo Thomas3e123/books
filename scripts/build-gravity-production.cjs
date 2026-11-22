@@ -66,6 +66,7 @@ function labelPublicNavigation(html, rel) {
  }).join('');
  if (!/\bid=["']site-nav["']/.test(html)) return html;
  html = html.replace(/<footer\b[^>]*>[\s\S]*?<\/footer>/gi, footer => {
+  footer = footer.replace(/(<a\b[^>]*href=["']\/privacy["'][^>]*>[\s\S]*?<\/a>)/i, '$1 <a href="/cookies#analytics-settings">Cookie settings</a>');
   if (/href=["']\/pilot-room["']/.test(footer)) return footer;
   return footer.replace(/(<a\b[^>]*href=["']\/help-center["'][^>]*>[\s\S]*?<\/a>)/i, '$1 <a href="/pilot-room">Pilot Room</a>');
  });
@@ -137,6 +138,9 @@ function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){
  if(e.name.endsWith('.html')){
   const rel=path.relative(out,p).split(path.sep).join('/');
   s=labelPublicNavigation(normalizeCurrentCopy(s),rel);
+  if (/src=["'][^"']*assets\/js\/(?:site|product-analytics)\.js[?"']/.test(s)) {
+   s=s.replace(/<head\b[^>]*>/i, head => head + '<script defer src="/assets/js/gravity-cookie-choice.js"></script><link rel="stylesheet" href="/assets/css/gravity-cookie-choice.css">');
+  }
   validateArticleMetadata(s,rel);
   recordPublicPage(s,rel);
   // Rewrite every *local* HTML JavaScript or stylesheet URL to its content hash.

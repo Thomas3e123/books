@@ -195,7 +195,7 @@
     catch (_) { return ''; }
   }
   function send(name, params) {
-    if (!analyticsEnabled || typeof window.gtag !== 'function') return;
+    if (!analyticsEnabled || (analyticsHost && !window.gravityAllowsAnalytics?.()) || typeof window.gtag !== 'function') return;
     var base = { page_category: pageCategory(), page_path_clean: location.pathname || '/', gravity_site: SITE_NAME };
     Object.keys(params || {}).forEach(function (k) { base[k] = params[k]; });
     window.gtag('event', name, base);
@@ -242,7 +242,10 @@
     return '';
   }
 
-  if (analyticsEnabled) {
+  var analyticsStarted = false;
+  function startAnalytics() {
+    if (!analyticsEnabled || analyticsStarted || (analyticsHost && !window.gravityAllowsAnalytics?.())) return;
+    analyticsStarted = true;
     window.dataLayer = window.dataLayer || [];
     window.gtag = function(){ window.dataLayer.push(arguments); };
     window.gtag('js', new Date());
@@ -270,6 +273,9 @@
       send('gravity_product_open', {product_slug: openedProduct, product_surface: 'web'});
     }
   }
+
+  startAnalytics();
+  window.addEventListener('gravity-analytics-allowed', startAnalytics);
 
   // Count only generic control interaction on known product pages.
   // Never read control labels, field values, or document content.

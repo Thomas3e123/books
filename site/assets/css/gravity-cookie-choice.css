@@ -1,0 +1,5 @@
+.gravity-cookie-choice { box-sizing: border-box; padding: .75rem max(1rem, 4vw); background: #fff; color: #172337; border-block: 1px solid #706556; font: 1rem/1.5 system-ui, sans-serif; }
+.gravity-cookie-choice p { margin: 0 0 .4rem; color: #172337; }
+.gravity-cookie-choice p:empty { display: none; }
+.gravity-cookie-choice a { color: #76202a; text-decoration: underline; }
+.gravity-cookie-choice button { padding: .5rem .8rem; border: 1px solid #706556; border-radius: .4rem; color: #172337; background: #fff; cursor: pointer; font: inherit; }

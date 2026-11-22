@@ -25,6 +25,12 @@
   var doNotTrack = navigator.doNotTrack === '1' || window.doNotTrack === '1';
   if (doNotTrack) return;
 
+  if (analyticsHost && !window.gravityAllowsAnalytics?.()) {
+    window.addEventListener('gravity-analytics-allowed', start, {once:true});
+    return;
+  }
+  start();
+  function start() {
   var measurementId = 'G-M98MZFED33';
   var pathOnly = location.pathname || '/';
   window.dataLayer = window.dataLayer || [];
@@ -38,6 +44,7 @@
   });
 
   function send(name, interactionType) {
+    if (analyticsHost && !window.gravityAllowsAnalytics?.()) return;
     window.gtag('event', name, {
       page_category: 'Gravity Product',
       page_path_clean: pathOnly,
@@ -65,5 +72,6 @@
     tag.async = true;
     tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId);
     document.head.appendChild(tag);
+  }
   }
 })();

@@ -345,6 +345,10 @@
       "sha256": "9c8992f3dc4830ef3480ed4263fa9960ea9aae9135d156fed62e305d3c9004ca"
     },
     {
+      "path": "site/assets/css/gravity-cookie-choice.css",
+      "sha256": "4e8e0be20ecc7da4328581b67dd24485a244dcfe834f5b007f546a782de4ffce"
+    },
+    {
       "path": "site/assets/css/gravity-refinement.css",
       "sha256": "e3eaf1872cb4f79c4e31cf8076bd87e2627678926352ddf32cd7f3c331848e51"
     },
@@ -1441,6 +1445,10 @@
       "sha256": "b57de4dab1b4fe9660f2279b05b41b928ea95128e40d864d5b67675312c8426a"
     },
     {
+      "path": "site/assets/js/gravity-cookie-choice.js",
+      "sha256": "f86dd15d2983e7b5aacd01d34405cde41ca8e1eebf65c885e3d328b45135ae96"
+    },
+    {
       "path": "site/assets/js/gravity-document-studio.js",
       "sha256": "da5ff34511cf4c97a7bebe34b95bac5b8265ab2e44a7cf6d8ecd9ee0aafb15b9"
     },
@@ -1758,7 +1766,7 @@
     },
     {
       "path": "site/assets/js/product-analytics.js",
-      "sha256": "22e92e8feb0fe7233104874fab0c18b3b47e7dfed4b2deb4a24414096bc7f07b"
+      "sha256": "04c341351921a13b6ae347343d068a4941691916c66181e20c5bc8b856d52367"
     },
     {
       "path": "site/assets/js/registration-identity.js",
@@ -1766,7 +1774,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "40d83308741a8ce81c3afd9ab60bfc25cb0d6615da45a85b9e8bdf1370efae4c"
+      "sha256": "1d9e6f65c3610246301fd9f641ca89683f099bd04f2458dc29ba8d33fcd9abdc"
     },
     {
       "path": "site/assets/js/testing-room.js",
@@ -1962,7 +1970,11 @@
     },
     {
       "path": "site/contact.html",
-      "sha256": "4b21fae2606882a6340bd7c207255779750b5ab9e3bd14ca7a71bd448bc0c940"
+      "sha256": "83da98b9ba5075b3ce4f0c62771266790773aec0286dc6a456fa745fef9bd8a1"
+    },
+    {
+      "path": "site/cookies.html",
+      "sha256": "01c429ddaae24f498f5206180587ead3e715ae46f4f529ecb63ce3c18d089cc9"
     },
     {
       "path": "site/customer-resources.html",
@@ -2166,7 +2178,7 @@
     },
     {
       "path": "site/privacy.html",
-      "sha256": "46f81a0b4a79efa6fea41236f5815eb788be046b8c352553d452f51a298610e7"
+      "sha256": "42b0cb34753786694b80956326f9537cd5c883a21b81177cdfdfd636999d27c7"
     },
     {
       "path": "site/qr-code-generator.html",
@@ -2538,7 +2550,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "7eac824ad903cee1c00832881c80c0141b1e6b56ed1c83c62804c49da54998ce"
+      "sha256": "2c54ff5f40633516b3d80d541b374fa5a7adee65864040eaa2f5fb2574380429"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",

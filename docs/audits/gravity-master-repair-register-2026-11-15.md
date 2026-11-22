@@ -15,6 +15,12 @@
 
 **SRC-52.** Reduced the enhanced menu from ten links to nine. Pilot enrollment remains on the homepage and beside Help in standard footers. Detailed resources remain accessible through the public hubs.
 
+**SRC-53.** Added a general access and deletion request section at the top of the privacy policy, with the established Gravity support email. Updated the support-field disclosure to match the shorter form.
+
+**SRC-54–56.** Added a cookie policy, first-party analytics consent for public pages and standalone browser tools, and a linked inquiry notice beside Prepare Email. The email inquiry has no marketing enrollment. Cookie preference lasts 180 days; authentication uses session cookies. Retention text distinguishes access expiry, local storage, account and submission records, and third-party settings. Exact provider and mailbox retention settings require account-level verification.
+
+**SRC-57.** No approved third-party endorsement marks identified. Leave homepage logo endorsements out unless the relationship and usage rights are documented.
+
 ## November 22 first-visit menu labels
 
 **SRC-47.** The standard menu names the tool finder and restaurant systems directly. The initial HTML also identifies the checkup, procedure-writing workspace and resource kits beside their product names. The last two were selected after inspecting the public menu and destination pages because the audit named only three of its five labels. Destinations, order, and separate workroom and Report navigation are preserved.
@@ -64,6 +70,12 @@
 **SRC-51.** Standard public-page action buttons and compact book actions use a red primary style and a white, outlined secondary style. Layout, interactions and specialized application controls retain their existing behavior.
 
 **SRC-52.** Reduced the enhanced menu from ten links to nine. Pilot enrollment remains on the homepage and beside Help in standard footers. Detailed resources remain accessible through the public hubs.
+
+**SRC-53.** Added a general access and deletion request section at the top of the privacy policy, with the established Gravity support email. Updated the support-field disclosure to match the shorter form.
+
+**SRC-54–56.** Added a cookie policy, first-party analytics consent for public pages and standalone browser tools, and a linked inquiry notice beside Prepare Email. The email inquiry has no marketing enrollment. Cookie preference lasts 180 days; authentication uses session cookies. Retention text distinguishes access expiry, local storage, account and submission records, and third-party settings. Exact provider and mailbox retention settings require account-level verification.
+
+**SRC-57.** No approved third-party endorsement marks identified. Leave homepage logo endorsements out unless the relationship and usage rights are documented.
 
 ## November 22 first-visit homepage and mobile menu
 
