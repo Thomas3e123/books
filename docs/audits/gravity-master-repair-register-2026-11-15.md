@@ -3,6 +3,10 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 Gravity Assist section headings
+
+**SRC-39.** The output-options card and footer directory both used “Gravity Assist” as their heading. Renamed them “Print, save, or download your work” and “Gravity Assist tools” to describe their contents.
+
 ## November 22 homepage and welcome descriptions
 
 **SRC-38.** The normal homepage summarizes Gravity’s operating systems, procedures and tools. Requests to the explicit welcome view receive a description of the problem picker and its suggested resources. Both descriptions are in the server response and match their respective social descriptions. The homepage stays canonical.
