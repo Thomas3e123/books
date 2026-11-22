@@ -21,7 +21,6 @@
     ['/gravity-report', 'The Gravity Report'],
     ['/free-resources', 'Free Resources'],
     ['/help-center', 'Help'],
-    ['/pilot-room', 'Pilot Room'],
     ['/windows-programs', 'Windows Programs']
   ];
   var publicSiteHeader = nav && nav.id === 'site-nav' ? nav.closest('header.site-header') : null;

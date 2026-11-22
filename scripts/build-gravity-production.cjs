@@ -46,21 +46,30 @@ function normalizeCurrentCopy(html){
    throw Error('Old current AI prompt count remains in built page');
  return html;
 }
-// The unenhanced public menu also serves visitors while site.js is loading.
-const publicMenuLabels = new Map([
- ['/gravity-assist', 'Find Tools (Gravity Assist)'],
- ['/operating-systems', 'Restaurant Systems'],
- ['/gravity-aware', 'Restaurant Checkup (Gravity Aware)'],
- ['/gravity-sop-foundry', 'Write Procedures (SOP Foundry)'],
- ['/gravity-fulfillment-center', 'Resource Kits (Fulfillment Center)']
-]);
-function labelPublicNavigation(html) {
- return html.replace(/<nav\b(?=[^>]*\bid=["']site-nav["'])[^>]*>[\s\S]*?<\/nav>/gi, nav =>
-  nav.replace(/(<a\b[^>]*>)([^<>]*)(<\/a>)/gi, (link, opening, label, closing) => {
-   const replacement = publicMenuLabels.get(attr(opening, 'href'));
-   return replacement ? opening + replacement + closing : link;
-  })
- );
+// Publish the compact public menu in the initial HTML, including on nested URLs.
+const publicMenu = [
+    ['/', 'Home'],
+    ['/start-here', 'Start Here'],
+    ['/gravity-assist', 'Find Tools (Gravity Assist)'],
+    ['/operating-systems', 'Restaurant Systems'],
+    ['/books', 'Books & Reader'],
+    ['/gravity-report', 'The Gravity Report'],
+    ['/free-resources', 'Free Resources'],
+    ['/help-center', 'Help'],
+    ['/windows-programs', 'Windows Programs']
+  ];
+function labelPublicNavigation(html, rel) {
+ const route = '/' + rel.replace(/(?:^|\/)index\.html$/, '').replace(/\.html$/, '');
+ const links = publicMenu.map(([href, label]) => {
+  const current = href === route ? ' aria-current="page"' : '';
+  return '<a href="' + href + '"' + current + '>' + label.replaceAll('&', '&amp;') + '</a>';
+ }).join('');
+ if (!/\bid=["']site-nav["']/.test(html)) return html;
+ html = html.replace(/<footer\b[^>]*>[\s\S]*?<\/footer>/gi, footer => {
+  if (/href=["']\/pilot-room["']/.test(footer)) return footer;
+  return footer.replace(/(<a\b[^>]*href=["']\/help-center["'][^>]*>[\s\S]*?<\/a>)/i, '$1 <a href="/pilot-room">Pilot Room</a>');
+ });
+ return html.replace(/(<nav\b(?=[^>]*\bid=["']site-nav["'])[^>]*>)[\s\S]*?<\/nav>/gi, (_, opening) => opening + links + '</nav>');
 }
 function attr(tag,name){
  const match=tag&&tag.match(new RegExp("\\b"+name+"\\s*=\\s*([\"'])(.*?)\\1","i"));
@@ -127,7 +136,7 @@ function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){
  let s=fs.readFileSync(p,'utf8').replaceAll('https://gravity-leadership-system.netlify.app',origin).replaceAll('https://gravity-migration--gravity-leadership-system.netlify.app',origin);
  if(e.name.endsWith('.html')){
   const rel=path.relative(out,p).split(path.sep).join('/');
-  s=labelPublicNavigation(normalizeCurrentCopy(s));
+  s=labelPublicNavigation(normalizeCurrentCopy(s),rel);
   validateArticleMetadata(s,rel);
   recordPublicPage(s,rel);
   // Rewrite every *local* HTML JavaScript or stylesheet URL to its content hash.

@@ -346,7 +346,7 @@
     },
     {
       "path": "site/assets/css/gravity-refinement.css",
-      "sha256": "38b264e51db352484979051d654229db08a966de17d26342ab2b980ab5c7c1fa"
+      "sha256": "e3eaf1872cb4f79c4e31cf8076bd87e2627678926352ddf32cd7f3c331848e51"
     },
     {
       "path": "site/assets/css/gravity-report-reading.css",
@@ -1766,7 +1766,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "84e5a8974e63c3fb225145b4902448fbd72e52249f45f696b16799cd1b1cdf61"
+      "sha256": "40d83308741a8ce81c3afd9ab60bfc25cb0d6615da45a85b9e8bdf1370efae4c"
     },
     {
       "path": "site/assets/js/testing-room.js",
@@ -2106,7 +2106,7 @@
     },
     {
       "path": "site/help-center.html",
-      "sha256": "a43ac4afe7322a0594605fc0fac904fc1785cc0a89d9e43732c2aa70655eb186"
+      "sha256": "25a833eea8d3e80eda19a80cfad93751c18918d5b9602ab20b6d480767ab43fa"
     },
     {
       "path": "site/hiring-interviewing-employee-retention-tracker.html",

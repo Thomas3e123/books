@@ -3,6 +3,18 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 public navigation and help entry points
+
+**SRC-48.** The Help Center opens with one primary action, Browse Common Questions, and a secondary Report a Problem link. Getting Started remains in the next help section.
+
+**SRC-49.** A request to a missing production URL returned HTTP 404 with the Gravity logo, visible business branding and recovery links. The branded page already exists.
+
+**SRC-50.** Confirmed the homepage, support and other standard public headers shipped different links before JavaScript loaded. The Gravity build now publishes the same nine links in the same order as the enhanced menu. This supersedes the longer initial menu described in SRC-47. The Report and tool-specific navigation retain their own controls.
+
+**SRC-51.** Standard public-page action buttons and compact book actions use a red primary style and a white, outlined secondary style. Layout, interactions and specialized application controls retain their existing behavior.
+
+**SRC-52.** Reduced the enhanced menu from ten links to nine. Pilot enrollment remains on the homepage and beside Help in standard footers. Detailed resources remain accessible through the public hubs.
+
 ## November 22 first-visit menu labels
 
 **SRC-47.** The standard menu names the tool finder and restaurant systems directly. The initial HTML also identifies the checkup, procedure-writing workspace and resource kits beside their product names. The last two were selected after inspecting the public menu and destination pages because the audit named only three of its five labels. Destinations, order, and separate workroom and Report navigation are preserved.
@@ -48,6 +60,10 @@
 ## November 22 homepage Windows testing invitation
 
 **SRC-36.** Moved the existing Windows beta invitation and all three links into the homepage HTML. Its heading, both paragraphs, and destinations are available before scripts load. Removed the two script additions that previously built this section. No changes to Windows packages or installer status.
+
+**SRC-51.** Standard public-page action buttons and compact book actions use a red primary style and a white, outlined secondary style. Layout, interactions and specialized application controls retain their existing behavior.
+
+**SRC-52.** Reduced the enhanced menu from ten links to nine. Pilot enrollment remains on the homepage and beside Help in standard footers. Detailed resources remain accessible through the public hubs.
 
 ## November 22 first-visit homepage and mobile menu
 
