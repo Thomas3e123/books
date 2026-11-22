@@ -7,6 +7,10 @@
 
 **SRC-26 — downloadable Foundry QR.** The public image at `/assets/images/gravity-sop-foundry-qr.png` encoded the old Thomas Monroe Books host. Replaced its destination with the canonical Gravity SOP Foundry page, preserving the filename and 185 × 185 dimensions. The new code decoded at original size, at 150 pixels, rotated 12 degrees and with mild blur. The Gravity destination returned HTTP 200. No HTML reference to this static image was found in the site source. This repair applies to newly fetched copies.
 
+[PR #180](https://github.com/Thomas3e123/books/pull/180) passed all four hosted workflows. The 156-page production build and 136 local Node tests passed. [Gravity production deploy 6b02976fc528d3f775cbdfd6](https://app.netlify.com/projects/gravity-leadership-system/deploys/6b02976fc528d3f775cbdfd6) published commit `c293f5e6`. The image downloaded from the public Gravity domain matched the reviewed file byte for byte and decoded directly to the Foundry page, which returned HTTP 200 with the correct title. The old printed destination also redirected to that page during the audit. SRC-26 is closed for the downloadable image.
+
+Automated decoding covered 9,293 rendered pages in 249 standalone and archived PDFs, plus 282 distinct images. No former-host QR was detected inside the PDFs. The Gravity contact and review destinations and the Square support checkout opened successfully. The corrected Foundry image was verified digitally. Physical print quality remains open under QA-07.
+
 ## November 21 external PDF reference follow-up
 
 Of the 19 previously restricted addresses, 12 are now verified. All three exact Google Business Profile Help addresses opened with the intended content (local ranking, the Help Center, and customer reviews). A separate [read-only check](https://github.com/Thomas3e123/books/actions/runs/44991123286) retrieved all six Ready.gov pages and all three CISA pages at the cited addresses with HTTP 200 and matching page titles.
