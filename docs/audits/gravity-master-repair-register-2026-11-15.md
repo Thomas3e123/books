@@ -3,6 +3,10 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 descriptive catalog links
+
+**SRC-40.** Replaced 28 generic Details and View Details labels with visible destination names on Books (12), Toolkit (11), Free Resources (4) and Releases (1). Checked all 14 destination pages against their main headings. The links retain their original URLs.
+
 ## November 22 Gravity Assist section headings
 
 **SRC-39.** The output-options card and footer directory both used “Gravity Assist” as their heading. Renamed them “Print, save, or download your work” and “Gravity Assist tools” to describe their contents.

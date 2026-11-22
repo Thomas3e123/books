@@ -1958,7 +1958,7 @@
     },
     {
       "path": "site/books.html",
-      "sha256": "c7c2d09771e3c198680c3e52a9415e4bd69282dba01f445cf30823a033763adc"
+      "sha256": "feeb2c43a3d5fa66715d5577b0a9955a9d977d4d6b391299a0ff1b396f20a42d"
     },
     {
       "path": "site/contact.html",
@@ -1970,7 +1970,7 @@
     },
     {
       "path": "site/free-resources.html",
-      "sha256": "f4be2cce8068043e728ef29346a20f1f6fdf430a791fc28ee4daedcb1575a691"
+      "sha256": "82eafd0c259fb2c01c9e825a8673394c93c58c0413bfc69d68361d74e75506a9"
     },
     {
       "path": "site/gravity-assist.html",
@@ -2194,7 +2194,7 @@
     },
     {
       "path": "site/releases.html",
-      "sha256": "c73166141fa9a18dab025aa02b346e787509bede179482ed2922d70e95e44d28"
+      "sha256": "4c82e5cc476e3e73a4f816e8fc3b26d9efa74c763efc2260915d5dba0fcbe0ae"
     },
     {
       "path": "site/restaurant-ai-prompt-search.html",
@@ -2498,7 +2498,7 @@
     },
     {
       "path": "site/toolkit.html",
-      "sha256": "28f675c6a77966bbcc92f06fb55a413936278d40e8cff4daf1ac96f359556861"
+      "sha256": "d2e667be799af323c2410b879fd65f834a471fb9669760ce1ce05c3fc75c2ccc"
     },
     {
       "path": "site/windows-programs.html",
