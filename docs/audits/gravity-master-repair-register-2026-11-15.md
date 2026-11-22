@@ -9,6 +9,8 @@
 
 The 102 standalone PDFs contained 318 web links to 112 distinct URLs and 317 internal page links. All internal links pointed within their documents. Of the web destinations, 91 initially returned 200, two returned 404, and 19 blocked or rate-limited automated requests (FEMA, Ready.gov, FCC, CISA and Google). The two replacement URLs returned 200. The 19 restricted URLs remain unverified. Validation compared PDF page sizes and extracted words, checked unrelated link destinations, and verified ZIP integrity, member lists, changed Office XML, and updated package checksums.
 
+[PR #177](https://github.com/Thomas3e123/books/pull/177) passed all four hosted checks and shipped in [Gravity production deploy 6b027972c586c564cae526d7](https://app.netlify.com/projects/gravity-leadership-system/deploys/6b027972c586c564cae526d7) at `84efce2a`. All seven public downloads matched the verified artifacts byte for byte. The production build, 136 Node tests and 5,519 internal references passed. SRC-25 is closed for the corrected overview and two moved sources.
+
 ## November 21 manager keyboard access and file pickers
 
 **SRC-24 — manager sign-in and retry.** Testing Room did not submit from the key field on Enter. Both manager pages fetched the initial list twice, hid the sign-in controls before the second fetch completed, and left keyboard focus outside the opened workspace. Use a native form and a single roster request, keep errors visible in a status region, and move focus to Testers or the pilot status filter on success. Synthetic desktop browser regressions failed before the repair and passed after it, including retry after temporary service failure.
