@@ -11,6 +11,8 @@ Checked 107 Office file copies (98 distinct files), including standalone and pac
 
 The corrected FDA page and the DOI registration both returned HTTP 200. A second text scan of standalone and packaged PDFs found zero remaining occurrences of either obsolete address. The production build's internal link audit reported zero missing paths.
 
+The Reader catalog and its embedded fallback now carry matching character counts for all 15 published text files. This reconciled the changed book and 12 previously stale counts.
+
 ## November 22 QR destination audit
 
 **SRC-26 — downloadable Foundry QR.** The public image at `/assets/images/gravity-sop-foundry-qr.png` encoded the old Thomas Monroe Books host. Replaced its destination with the canonical Gravity SOP Foundry page, preserving the filename and 185 × 185 dimensions. The new code decoded at original size, at 150 pixels, rotated 12 degrees and with mild blur. The Gravity destination returned HTTP 200. No HTML reference to this static image was found in the site source. This repair applies to newly fetched copies.

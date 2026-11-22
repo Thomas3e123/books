@@ -1426,7 +1426,7 @@
     },
     {
       "path": "site/assets/js/book-reader.js",
-      "sha256": "b727fb397cc8e3a35e8979eecea8801b9ff0f8345af71bdb41fd5dfc2a96dd51"
+      "sha256": "7110171366dbf830632880a0568dc6a0d75ca3390d0be2d49191d2dd95d36943"
     },
     {
       "path": "site/assets/js/gravity-aware-study.js",
@@ -1786,7 +1786,7 @@
     },
     {
       "path": "site/assets/reader/catalog.json",
-      "sha256": "0d927937d7673a296deb5adc1e8321764cd16210cc5829da81e8f7f403eddf74"
+      "sha256": "19d40ac71d7704bd8f5d7a3c8c735fa4694c79f7ba5aab61ec3155b38fce919c"
     },
     {
       "path": "site/assets/reader/employee-training-sop-tracker.txt",
