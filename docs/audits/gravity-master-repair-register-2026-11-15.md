@@ -3,6 +3,16 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 Office download references
+
+**SRC-27 — incorrect printed references.** Quiet Gravity cited Kristin Neff's 2003 article with an incorrect DOI. The Employee Training and Certification system listed an FDA training address that returned 404. Corrected the book's Word, PDF and Reader editions, the public training manual preview, and the manual and slides in both editable and PDF formats inside the system package. The journal confirms DOI `10.1080/15298860309032`. The FDA lists its training resource under `/food/retail-food-protection/retail-food-industryregulatory-assistance-training`.
+
+Checked 107 Office file copies (98 distinct files), including standalone and packaged downloads. All 3,529 internal package relationships, 268 Word bookmark links and the target sheet for 12 spreadsheet glossary links resolved. None of the external hyperlink targets pointed to Thomas Monroe Books. Of 73 distinct web hyperlink destinations, 54 returned 200 and 19 limited automated access. Checking additional URLs printed as text revealed the two 404s above. Rebuilt the training package checksums. PDF checks preserved page counts and surrounding words and confirmed the corrected citation text. The 156-page Gravity build, 676 source hashes and 136 Node tests passed.
+
+The corrected FDA page and the DOI registration both returned HTTP 200. A second text scan of standalone and packaged PDFs found zero remaining occurrences of either obsolete address. The production build's internal link audit reported zero missing paths.
+
+The Reader catalog and its embedded fallback now carry matching character counts for all 15 published text files. This reconciled the changed book and 12 previously stale counts. The fallback catalog also had the old 325-prompt title for the published 350-prompt workbook. All fallback records now match the primary catalog.
+
 ## November 22 QR destination audit
 
 **SRC-26 — downloadable Foundry QR.** The public image at `/assets/images/gravity-sop-foundry-qr.png` encoded the old Thomas Monroe Books host. Replaced its destination with the canonical Gravity SOP Foundry page, preserving the filename and 185 × 185 dimensions. The new code decoded at original size, at 150 pixels, rotated 12 degrees and with mild blur. The Gravity destination returned HTTP 200. No HTML reference to this static image was found in the site source. This repair applies to newly fetched copies.
