@@ -3,6 +3,12 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 system package downloads and verification
+
+**SRC-29 — Customer Resources download directions.** The card for all 15 systems promised a master manifest, checksum and validation record. Its button landed above the release history, while the individual package links were farther down the page. Updated the card to describe the material provided and point directly to the clearly labeled system downloads table. The separate release-history link retains its original destination.
+
+All 25 ZIPs downloaded from the public Gravity site matched source byte for byte. ZIP integrity checks passed for all 277 archive members. All 139 entries in the 14 included SHA-256 lists matched their named files. Those dated lists cover selected release files. They omit the later feedback insert, and the Facilities list also omits its validation report. The Manager Development ZIP contains no separate checksum list. The public table contains 15 unique system ZIPs. The production build, 676 source hashes, internal links and 136 Node tests passed.
+
 ## November 22 downloadable workbook calculations
 
 **SRC-28 — blank forecasts.** In both the standalone and packaged Sales Intelligence and Forecasting workbooks, each unused Daily Forecast row showed `#VALUE!` for its low and high estimates. Recalculating all 18 distinct published workbooks reproduced 200 errors per affected workbook. The other 16 recalculated without error cells. Both repaired editions leave the estimates blank until a date is entered and preserve the existing confidence-factor calculation. Test copies recalculated with zero error cells. A zero-dollar forecast returned zero for both bounds. A $1,200 forecast with low confidence returned $960 and $1,440.

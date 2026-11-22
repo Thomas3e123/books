@@ -1966,7 +1966,7 @@
     },
     {
       "path": "site/customer-resources.html",
-      "sha256": "b2ea81ca3767a3f013f392059410adc3b43ce1b38aad6e2d7e043dd201ce9c7e"
+      "sha256": "852e02550ebf7c4d9c8711c3bbf03771371bfde800cda69dde008346d60ac5b6"
     },
     {
       "path": "site/free-resources.html",
@@ -2194,7 +2194,7 @@
     },
     {
       "path": "site/releases.html",
-      "sha256": "a9679cc2fa0172516741f2a9fb716e129ee65606ddb40124495023cc577eef80"
+      "sha256": "c73166141fa9a18dab025aa02b346e787509bede179482ed2922d70e95e44d28"
     },
     {
       "path": "site/restaurant-ai-prompt-search.html",
