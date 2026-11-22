@@ -3,6 +3,10 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 shorter Help Center form
+
+**SRC-46.** Reduced 14 visitor-facing support fields to optional name, reply email and message. Only email and message are required. Kept the existing Netlify form identity and submission field names, reference and timestamp, spam trap, retry handling and email fallback. The separate Ask Gravity tool is unaffected.
+
 ## November 22 Overview workbook count
 
 **SRC-45.** Page 6 now dates the expansion to 350 prompts to November 2026. Verified the count against the current Word workbook and the 350-entry searchable index. Compared the PDF structure tree, all link destinations, extracted text and rendered pages with the tagged edition. Only the revised line changed. Queue for the next Gravity deployment.
