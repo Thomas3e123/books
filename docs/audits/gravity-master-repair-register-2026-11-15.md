@@ -9,6 +9,8 @@
 
 All 19 live downloads containing workbooks matched source before repair. Across 336 worksheets, 38,483 formulas were screened for invalid sheet references. All 505 dropdown definitions had usable inline lists and target ranges. A Daily Journal test with $1,200 in sales, 60 guests and 12 labor hours calculated $20 per check, $100 in sales per labor hour and five guests per labor hour. These are structural and calculation checks in LibreOffice. Interactive Excel and physical printing remain separate. The updated package passed its checksum manifest. The 156-page production build, 676 source hashes, 136 Node tests and internal link checks passed.
 
+**Verified live.** [PR #184](https://github.com/Thomas3e123/books/pull/184) passed all four hosted checks. Gravity [production deploy 6b0326469da66f85d924fc8b](https://app.netlify.com/projects/gravity-leadership-system/deploys/6b0326469da66f85d924fc8b) published commit `116c8083`. Both public downloads matched the tested files byte for byte after publication. SRC-28 is closed.
+
 ## November 22 Office download references
 
 **SRC-27 — incorrect printed references.** Quiet Gravity cited Kristin Neff's 2003 article with an incorrect DOI. The Employee Training and Certification system listed an FDA training address that returned 404. Corrected the book's Word, PDF and Reader editions, the public training manual preview, and the manual and slides in both editable and PDF formats inside the system package. The journal confirms DOI `10.1080/15298860309032`. The FDA lists its training resource under `/food/retail-food-protection/retail-food-industryregulatory-assistance-training`.
