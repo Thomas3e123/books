@@ -11,7 +11,7 @@ Checked 107 Office file copies (98 distinct files), including standalone and pac
 
 The corrected FDA page and the DOI registration both returned HTTP 200. A second text scan of standalone and packaged PDFs found zero remaining occurrences of either obsolete address. The production build's internal link audit reported zero missing paths.
 
-The Reader catalog and its embedded fallback now carry matching character counts for all 15 published text files. This reconciled the changed book and 12 previously stale counts.
+The Reader catalog and its embedded fallback now carry matching character counts for all 15 published text files. This reconciled the changed book and 12 previously stale counts. The fallback catalog also had the old 325-prompt title for the published 350-prompt workbook. All fallback records now match the primary catalog.
 
 ## November 22 QR destination audit
 
