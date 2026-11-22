@@ -1766,7 +1766,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "6062ed5bfc816d579048e9b10a0db49bfb3df4a20a8aa832885628cbd23980af"
+      "sha256": "05bc3319313ea1a52c94fe8fe83ea82db330180d0f1063a5c667220d28ef41ff"
     },
     {
       "path": "site/assets/js/testing-room.js",
@@ -2118,7 +2118,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "785eee46f08fc25e904999d64bbe106526520a93068ea81c4936d5f149858c30"
+      "sha256": "15da74ac2a73541056cfe8b1bfaf04f6209bac3522c87cac8cb72a575a32d45c"
     },
     {
       "path": "site/installation-improvement.html",
