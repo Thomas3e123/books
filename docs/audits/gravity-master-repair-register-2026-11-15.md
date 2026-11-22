@@ -3,6 +3,12 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 keyboard focus and accessible Overview PDF
+
+**SRC-43.** Public pages use the measured header height for the document’s scroll padding. Keyboard focus in main content gets a visibility check if the browser leaves it underneath the header. The catalog reverse-Tab regression covers a control without its own ID.
+
+**SRC-44.** Added a document structure tree to the eight-page Overview, with heading levels, paragraphs, lists, reading order and all 14 link annotations. Marked repeating footers and decorations as artifacts. Rendered all eight before/after page pairs at 108 dpi and compared pixels, text and URLs. All were identical. This was a structure repair to the dated October edition. Its 215-prompt reference predates the current 350-prompt workbook.
+
 ## November 22 control boundaries
 
 **SRC-42.** Confirmed low-contrast input borders on the light Registration/Review, Contact, Testing Room and Pilot Room forms. Darkened these borders and the standard light-background outline button edge. The mobile Menu button uses its light text color for the border on the dark header. The original audit did not identify its 1.06:1 control.

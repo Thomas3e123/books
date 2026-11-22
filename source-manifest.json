@@ -378,7 +378,7 @@
     },
     {
       "path": "site/assets/css/styles.css",
-      "sha256": "3b53517d1604bbdc8cfc24989582ce5d9e04b9e5efab431de57bdb141d3d5c80"
+      "sha256": "731375e710950b10439cf0915a6290f0e8f07bf2c75de674bf82e016deed8b63"
     },
     {
       "path": "site/assets/css/testing-room-home.css",
@@ -394,7 +394,7 @@
     },
     {
       "path": "site/assets/customer-resources/current/Gravity_System_Overview_v1.8_2026-10-10.pdf",
-      "sha256": "08e9aac68c67f9153405698a3851d5de85210494e53e20d09568e9c0765f0455"
+      "sha256": "74bbf87acc45f03ccb74de9b6a73db78b9d82da145925d102bf737c0caed05b3"
     },
     {
       "path": "site/assets/customer-resources/master/Gravity_Operational_Validation_and_Release_Readiness_Report.docx",
@@ -1754,7 +1754,7 @@
     },
     {
       "path": "site/assets/js/page-search.js",
-      "sha256": "91a04f5bd21b49593cfa8be1f0e5f5a7867af131f9143d6df30fab856171ae40"
+      "sha256": "c8eaa0983f8a9c6a89327bc7982c773c1f16a21bbef47fef672ebc0dced80874"
     },
     {
       "path": "site/assets/js/product-analytics.js",
@@ -1766,7 +1766,7 @@
     },
     {
       "path": "site/assets/js/site.js",
-      "sha256": "05bc3319313ea1a52c94fe8fe83ea82db330180d0f1063a5c667220d28ef41ff"
+      "sha256": "730728c09480e4f54ff0893b06f5c4b4505abb6ab74174ff0f0837b1654ec755"
     },
     {
       "path": "site/assets/js/testing-room.js",

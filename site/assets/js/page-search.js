@@ -131,7 +131,7 @@
         button.addEventListener('click', function () {
           var node=entry.el;while(node){if(node.tagName==='DETAILS')node.open=true;node=node.parentElement;}
           entry.el.querySelector(':scope > .container > details.gravity-more')?.setAttribute('open','');
-          entry.el.style.scrollMarginTop='var(--gravity-anchor-offset,100px)';
+          entry.el.style.scrollMarginTop='var(--gravity-target-margin,var(--gravity-anchor-offset,100px))';
           entry.el.scrollIntoView({ behavior: 'smooth', block: 'start' });
           entry.el.classList.add('page-search-hit');
           window.setTimeout(function () { entry.el.classList.remove('page-search-hit'); }, 2200);
