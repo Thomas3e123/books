@@ -9,6 +9,8 @@
 
 All 25 ZIPs downloaded from the public Gravity site matched source byte for byte. ZIP integrity checks passed for all 277 archive members. All 139 entries in the 14 included SHA-256 lists matched their named files. Those dated lists cover selected release files. They omit the later feedback insert, and the Facilities list also omits its validation report. The Manager Development ZIP contains no separate checksum list. The public table contains 15 unique system ZIPs. The production build, 676 source hashes, internal links and 136 Node tests passed.
 
+**Verified live.** [PR #186](https://github.com/Thomas3e123/books/pull/186) passed all four hosted workflows. [Gravity production deploy 6b03284cd4e487aa319b36ff](https://app.netlify.com/projects/gravity-leadership-system/deploys/6b03284cd4e487aa319b36ff) published commit `a2b390bc`. The public Customer Resources button targets `/releases#current-system-downloads`. That heading exists once on the live release page and its table links to all 15 verified current system packages. SRC-29 is closed.
+
 ## November 22 downloadable workbook calculations
 
 **SRC-28 — blank forecasts.** In both the standalone and packaged Sales Intelligence and Forecasting workbooks, each unused Daily Forecast row showed `#VALUE!` for its low and high estimates. Recalculating all 18 distinct published workbooks reproduced 200 errors per affected workbook. The other 16 recalculated without error cells. Both repaired editions leave the estimates blank until a date is entered and preserve the existing confidence-factor calculation. Test copies recalculated with zero error cells. A zero-dollar forecast returned zero for both bounds. A $1,200 forecast with low confidence returned $960 and $1,440.
