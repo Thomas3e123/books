@@ -1,7 +1,11 @@
 # Gravity master repair register
 
-**Snapshot date:** November 22, 2026
+**Snapshot date:** November 23, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
+
+## November 23 Gravity Report article caching
+
+**SRC-67 — fixed in source.** Article pages used hand-set versions for seven stylesheets and scripts with one-year browser caching. The article renderer now uses the content hashes from the verified source manifest. The regression renders a regular article and the migration announcement and compares each asset URL with the actual file bytes. Production smoke check: compare the served assets with the hashes in both article pages.
 
 ## Mobile homepage and visitor entry points
 
