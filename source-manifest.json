@@ -866,7 +866,7 @@
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-C_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "bcced5860ca7f27d62dcd93c9d2ce7471d5ca3221d490bdebbf7d46177180759"
+      "sha256": "3297edf6d95446bc19013de6b85e3f5864fcc09dc27ded4648192598de95d80d"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-FM_SYSTEM_RELEASE_1.1_2026-08-22.zip",
@@ -878,15 +878,15 @@
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-F_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "65fe66ad3a11e8ee2a632564b3d1b29dee4d7ec40bb5fc33868bf9952bee2622"
+      "sha256": "2012b2a5e4d680b800fb033575628e28c5dd158b575bd5021739660953ac3481"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-G_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "1d440c808c34cb8091eeedaf524415072c7bb5c53d57730b7e47181fdf7938f0"
+      "sha256": "085e8e8e49bd836754c425298d5a12f411ae63d24e0f2b5cecd5ba9f7f3f3093"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-HR_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "09f1d5322f436128c8ae8ad7c189f691b94e8b10d5e0f00a65070d458d461a8f"
+      "sha256": "7f7dc668b395fcd6df2e82badfee0c64ffa39ce21d8033470640c4cf2eb46b9a"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-IV_SYSTEM_RELEASE_1.2_2026-08-22.zip",
@@ -898,7 +898,7 @@
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-LP_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "4af3320d6d668d0d5c882fccc1a0a240ae80100d1a3c05264ec29dcc366f6ecc"
+      "sha256": "4347eddfae8039c3145cd2766ac4fe896ab2fd7d5a7b56fdd379f4f7b2ee4d07"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-M_SYSTEM_RELEASE_1.2_2026-08-22.zip",
@@ -906,7 +906,7 @@
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-P_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "2dc2e303fa32d2e40667126ad44dfc07dda2f3361c056da846f3ac29be7b9103"
+      "sha256": "dbbe233a1db29917f48973f0dbe9af0f511020925d5a5798a17c0c472f1c7f93"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-RC_SYSTEM_RELEASE_1.1_2026-08-22.zip",
@@ -914,7 +914,7 @@
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-R_SYSTEM_RELEASE_1.1_2026-08-22.zip",
-      "sha256": "7286fbb8925c26273fde0c22e426a745bab3bf1c324dc42b586cb2dda773d6a7"
+      "sha256": "17d6f7f0b4218413e3ced88638cf5c1e5c5499f516ce2ae50d391e62136a52a1"
     },
     {
       "path": "site/assets/free-resources/packages/current/GRV-SF_SYSTEM_RELEASE_1.3_2026-08-22.zip",
@@ -2158,11 +2158,15 @@
     },
     {
       "path": "site/operating-systems.html",
-      "sha256": "f4bde657958ea891a7379b2ccd7bef0c2f2f76c50a658edc2e74290d176517f4"
+      "sha256": "2d10f031fe8e667e351b34b96f28ed2b463354d6d2f8978a7fd44e0f972a1c37"
     },
     {
       "path": "site/owner-gm-governance-agreement-pack.html",
       "sha256": "bb2467e492cfbc73a86ebebf870f6a3381df8df3973f8d1ba474fa84ba574601"
+    },
+    {
+      "path": "site/performance-profitability-manual.html",
+      "sha256": "238e8001a4be9a70c55930c385aba16442180e7f5f5f3f3ec8304cb3bbb0a4e7"
     },
     {
       "path": "site/pilot-room-manager.html",
@@ -2475,6 +2479,10 @@
     {
       "path": "site/sitemap.xml",
       "sha256": "044ccd2d1e3d5b4c29a758c96bf3d5aaafc2146ca0c5a681ca28057100a33c4a"
+    },
+    {
+      "path": "site/standards-intelligence-manual.html",
+      "sha256": "3bda294b53e517d92391a7ea181698778759b127bccd30c53df65bb53fb9231c"
     },
     {
       "path": "site/standards-library.html",

@@ -3,6 +3,12 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## November 22 operating manual downloads and web editions
+
+**SRC-63.** Checked the current system packages for the known installation-plan heading. Seven mislabeled manuals cover days 1–90. Corrected the Word headings for Guest Relationship, Performance, Labor, Food Cost, Growth, Hiring, and Cash. Replaced each packaged manual PDF with the corresponding published printable edition and refreshed its internal checksum list. Verified archive membership, every listed checksum, and that no other component changed. Separate 30- and 60-day programs retain their existing schedules.
+
+**SRC-64.** Published full web editions of Performance and Profitability and Standards and Intelligence, alongside the guest retention web edition. Each has linked contents, a glossary, all 30 tool IDs, and the printable PDF. Added direct links to the two system cards. The other PDF files have not all been converted. Physical-phone testing remains pending.
+
 ## November 22 public navigation and help entry points
 
 **SRC-48.** The Help Center opens with one primary action, Browse Common Questions, and a secondary Report a Problem link. Getting Started remains in the next help section.
