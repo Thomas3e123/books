@@ -350,7 +350,7 @@
     },
     {
       "path": "site/assets/css/gravity-refinement.css",
-      "sha256": "e3eaf1872cb4f79c4e31cf8076bd87e2627678926352ddf32cd7f3c331848e51"
+      "sha256": "569dd12fa9f0cd3c55dea34eb5f379dce48fd77455950fe39b65cc0241a2f0f2"
     },
     {
       "path": "site/assets/css/gravity-report-reading.css",
@@ -2110,7 +2110,7 @@
     },
     {
       "path": "site/guest-relationship-retention-manual.html",
-      "sha256": "914f0c2e6ae6a04c6213a2355ca042455d72147fea47627693d28d6472fb79f8"
+      "sha256": "9790b6e872c471386e0513eed72afc777f85737dc1a7fc65f7412d13b839f941"
     },
     {
       "path": "site/guest-service-complaints-recovery-workbook.html",
@@ -2166,7 +2166,7 @@
     },
     {
       "path": "site/performance-profitability-manual.html",
-      "sha256": "238e8001a4be9a70c55930c385aba16442180e7f5f5f3f3ec8304cb3bbb0a4e7"
+      "sha256": "6b3c009cef07dcb7789f3928f456172721d163051823846aa8eca743f12b5a37"
     },
     {
       "path": "site/pilot-room-manager.html",
@@ -2482,7 +2482,7 @@
     },
     {
       "path": "site/standards-intelligence-manual.html",
-      "sha256": "3bda294b53e517d92391a7ea181698778759b127bccd30c53df65bb53fb9231c"
+      "sha256": "b91dc439d3ca330750a5e021f55f36efdf85f2713d1eeaa6fc81d0e905b2be1b"
     },
     {
       "path": "site/standards-library.html",

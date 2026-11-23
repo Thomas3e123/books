@@ -64,3 +64,8 @@ body:has(header.site-header #site-nav) main :is(.btn, .mini-btn):is(a[href], but
   text-decoration: underline;
   text-underline-offset: .15em;
 }
+
+/* Keep manual paragraphs and reference tables readable on small screens. */
+.gravity-web-manual .section > .container { max-width: 76ch; }
+.gravity-web-manual table { width: 100%; border-collapse: collapse; margin-block: 1rem; }
+.gravity-web-manual th, .gravity-web-manual td { padding: .5rem; text-align: left; vertical-align: top; border-bottom: 1px solid #c9c1b7; overflow-wrap: anywhere; }
