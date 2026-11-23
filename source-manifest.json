@@ -2566,7 +2566,7 @@
     },
     {
       "path": "functions/gravity-report/index.mjs",
-      "sha256": "2c54ff5f40633516b3d80d541b374fa5a7adee65864040eaa2f5fb2574380429"
+      "sha256": "a716c49416a9bdc22c6240236ee6f887afffebccb5bc7011885cebdc8a29f985"
     },
     {
       "path": "functions/gravity-report/issues-11-15.json",

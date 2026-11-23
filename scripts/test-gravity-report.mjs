@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {createHash} from 'node:crypto';
 import handler,{config} from '../functions/gravity-report/index.mjs';
 import firstTen from '../functions/gravity-report/articles.json' with {type:'json'};
 import a11 from '../functions/gravity-report/issues-11-15.json' with {type:'json'};
@@ -47,6 +48,17 @@ async function at(iso,path){
  const m=new RealDate(iso);
  globalThis.Date=class MockDate extends RealDate{constructor(...args){super(...(args.length?args:[m.toISOString()]));}static now(){return m.valueOf();}};
  try{return await handler(new Request(ORIGIN+path),{});}finally{globalThis.Date=RealDate;}
+}
+for (const path of [url(firstTen.articles[0]), '/gravity-report/gravity-has-a-new-home']) {
+ const response = await at('2026-11-23T18:00:00Z', path);
+ assert.equal(response.status, 200);
+ const html = await response.text();
+ const assets = [...html.matchAll(/(?:href|src)="(\/assets\/(?:js|css)\/[^"?]+)([^"]*)"/g)];
+ assert(assets.some(([, file]) => file === '/assets/js/site.js'));
+ for (const [, file, query] of assets) {
+  const hash = createHash('sha256').update(fs.readFileSync('site' + file)).digest('hex');
+  assert.equal(query, '?v=' + hash.slice(0, 16), path + ' references an outdated ' + file);
+ }
 }
 let r=await at('2026-10-20T18:30:00Z','/gravity-report/articles.json');
 let schedule=await r.json();
