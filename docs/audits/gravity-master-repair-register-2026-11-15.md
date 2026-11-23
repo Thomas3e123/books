@@ -3,6 +3,12 @@
 **Snapshot date:** November 22, 2026
 **Purpose:** One working queue for the Gravity site audit. New findings must be added here, deduplicated, prioritized, and given an evidence/status label before they are reported as another “new error.”
 
+## Mobile homepage and visitor entry points
+
+**SRC-65.** Lead with the restaurant problem and the five-question check. Place the October migration announcement below the hero. Test the first screen at 390 × 844 with the cookie choice present and follow the primary link. Physical handset testing is still open.
+
+**SRC-66.** Give Start Here one primary action and retain both setup downloads below. Group optional restaurant profile fields in a disclosure, keep the registration and consent flow intact, and finish the comparison page with a prominent tool-finder link. Shorten the Document Studio title and identify Gravity’s official logo in the homepage Organization record.
+
 ## November 22 operating manual downloads and web editions
 
 **SRC-63.** Checked the current system packages for the known installation-plan heading. Seven mislabeled manuals cover days 1–90. Corrected the Word headings for Guest Relationship, Performance, Labor, Food Cost, Growth, Hiring, and Cash. Replaced each packaged manual PDF with the corresponding published printable edition and refreshed its internal checksum list. Verified archive membership, every listed checksum, and that no other component changed. Separate 30- and 60-day programs retain their existing schedules.

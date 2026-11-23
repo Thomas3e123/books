@@ -1998,7 +1998,7 @@
     },
     {
       "path": "site/gravity-document-studio.html",
-      "sha256": "eb18cadbd40309c69eaaef06ed12dc05212a1c77ddb2f4d024c79c38368f4038"
+      "sha256": "28a41be1242ba53d8c9ab67556e6a543fd5b19f8c234dbf7c9486f95dae97f42"
     },
     {
       "path": "site/gravity-forms-personalizer.html",
@@ -2102,7 +2102,7 @@
     },
     {
       "path": "site/gravity-vs-7shifts-and-restaurantowner.html",
-      "sha256": "e291e5e74cd662f14eb50db0dd2cd6d6b8402223246e3567018e5a18447c2ef7"
+      "sha256": "836ef926d0c1c6a9cf08cb77429c3de76dc11a94070be0484d175c3c388a270b"
     },
     {
       "path": "site/gravity-work-study-lab.html",
@@ -2138,7 +2138,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "31248d487e3b74fa5fe79022cbd219308508fa0399aa13375dd872ffdc35ca55"
+      "sha256": "8665c0d24f63911e67ad7c4056b70b74781803896e4b973bc8eb305d99ebf096"
     },
     {
       "path": "site/installation-improvement.html",
@@ -2206,7 +2206,7 @@
     },
     {
       "path": "site/register.html",
-      "sha256": "4d541a89a2bce7fcdb31abcb7ab74f2187d6b3220416be6457ca601fc20918cb"
+      "sha256": "3fc0be45e2fed5945190ad8721cc01d46b73c80c2d4ced3a1877fd837b480f5a"
     },
     {
       "path": "site/registration-thanks.html",
@@ -2494,7 +2494,7 @@
     },
     {
       "path": "site/start-here.html",
-      "sha256": "591be16a091ce74f2198db93740212f85187eb9c54ae3f40519ae97bb06d85ee"
+      "sha256": "6fc0dd1584f1a3838f765da3d21e22548270183da3560478c3ff2543a7a17ef0"
     },
     {
       "path": "site/support.html",
