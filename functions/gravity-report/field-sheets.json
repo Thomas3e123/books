@@ -1,0 +1,450 @@
+{
+  "how-do-i-lower-restaurant-labor-costs-without-hurting-service": {
+    "title": "Protect service while correcting labor",
+    "steps": [
+      "Compare forecast and actual sales for one daypart. Record scheduled hours, worked hours and overtime.",
+      "Mark the opening, prep and closing work that still needs qualified coverage.",
+      "Test one start-time adjustment on comparable shifts. Name the manager who will observe it."
+    ],
+    "watch": "A slow sales hour can raise the labor percentage even when payroll stays flat.",
+    "proof": "Compare labor dollars alongside ticket waits, missed prep and overtime. Reverse a change that moves the cost elsewhere.",
+    "records": [
+      "Daypart and adjustment",
+      "Labor and service results"
+    ]
+  },
+  "why-are-restaurant-employees-ignoring-procedures": {
+    "title": "Find why a procedure gets skipped",
+    "steps": [
+      "Watch one employee do the task during normal service and during a rush.",
+      "Ask them to show the current instructions, tools and time available at the station.",
+      "Correct the observed obstacle and have a second employee demonstrate the revised setup."
+    ],
+    "watch": "Two copies with different steps can look like an employee ignoring a rule.",
+    "proof": "Watch the next busy service. Record which step held and where the employee still needed help.",
+    "records": [
+      "Procedure and obstacle",
+      "Observed retest"
+    ]
+  },
+  "why-is-my-restaurant-always-short-staffed": {
+    "title": "Map the coverage gap",
+    "steps": [
+      "Pick a shift that felt short and mark when orders or guests arrived.",
+      "List who was scheduled, who arrived and who could independently cover each station.",
+      "Name one trained backup and the signal that tells the shift lead to move them."
+    ],
+    "watch": "A full roster can hide a missing skill or a ten-minute surge.",
+    "proof": "On a comparable shift record uncovered minutes, queues and whether the backup left another station exposed.",
+    "records": [
+      "Station and gap",
+      "Backup and result"
+    ]
+  },
+  "why-does-my-restaurant-fall-apart-when-im-not-there": {
+    "title": "Run a manager absence drill",
+    "steps": [
+      "List the last three decisions that came back to the off-duty manager.",
+      "Give the shift lead one routine decision, its limits and the condition for calling for help.",
+      "Run a supervised shift with the manager observing. Save the decision and handoff in the usual log."
+    ],
+    "watch": "Watch for missing information only the absent manager knows.",
+    "proof": "Can the next lead explain who decided, what happened and what remains open without calling the owner?",
+    "records": [
+      "Decision and limit",
+      "Handoff evidence"
+    ]
+  },
+  "how-do-i-train-restaurant-employees-faster-without-cutting-corners": {
+    "title": "Qualify one task faster",
+    "steps": [
+      "Choose one task and describe what a good finished result looks like.",
+      "Have the trainer demonstrate it once, then watch the learner do it with the usual tools.",
+      "Record the point where help was needed and practice that step again."
+    ],
+    "watch": "A fast trainer demonstration can hide decisions a new employee has never seen.",
+    "proof": "On a later shift, observe an independent attempt and check the finished result before signing off.",
+    "records": [
+      "Task and standard",
+      "Independent result"
+    ]
+  },
+  "why-does-restaurant-training-stop-working-after-the-first-week": {
+    "title": "Check the skill after week one",
+    "steps": [
+      "Pick a task already signed off. Ask the employee to demonstrate it unaided.",
+      "At the one-, seven- and thirty-day checks, record the result and any prompt needed.",
+      "If performance slips, check tools, shift pressure and trainer instructions before assigning practice."
+    ],
+    "watch": "A signature can survive long after a skill has slipped.",
+    "proof": "Ask a different manager to observe the same task using your written standard. Compare observations.",
+    "records": [
+      "Task and check date",
+      "Prompt or proof"
+    ]
+  },
+  "why-do-restaurant-inventory-counts-never-match": {
+    "title": "Reconcile one inventory item",
+    "steps": [
+      "Choose one item with a repeating variance. Count it at the same point in the shift.",
+      "Convert deliveries, transfers, prep and waste into the same unit as the count.",
+      "Compare expected stock with the shelf and trace the first unexplained difference."
+    ],
+    "watch": "An open case counted as a full case or a delivery posted late can mimic loss.",
+    "proof": "Repeat the count with a second person and the same cutoff. Record any variance still unexplained.",
+    "records": [
+      "Item, unit and cutoff",
+      "Expected and counted"
+    ]
+  },
+  "why-do-restaurant-managers-avoid-difficult-employee-conversations": {
+    "title": "Prepare a fair conversation",
+    "steps": [
+      "Write the observed behavior, when it happened and the standard that applied.",
+      "In private, describe the observation and ask what got in the way. Record the employee's account.",
+      "Agree on the next observable action, available support and a follow-up date."
+    ],
+    "watch": "Labels such as poor attitude give the employee little they can act on.",
+    "proof": "At follow-up, check the agreed behavior during a real opportunity and document the outcome privately.",
+    "records": [
+      "Behavior and standard",
+      "Next observation date"
+    ]
+  },
+  "why-do-restaurant-closing-checklists-keep-failing": {
+    "title": "Connect the close to the open",
+    "steps": [
+      "Watch a real close. Pick one checked item the opener still has to redo.",
+      "Write what the closer must leave ready and what evidence the opener can check.",
+      "Move the work to a feasible point in the shift and assign a person to verify it."
+    ],
+    "watch": "A tick beside station ready cannot show what was actually checked.",
+    "proof": "Ask the next opener to record readiness and minutes of rework for the same item.",
+    "records": [
+      "Closing item and owner",
+      "Opening result"
+    ]
+  },
+  "why-does-restaurant-corrective-action-fail-to-change-behavior": {
+    "title": "Match corrective action to the cause",
+    "steps": [
+      "Describe one observable behavior and the standard the employee was taught.",
+      "Check whether the person had the skill, time, authority and equipment to meet it.",
+      "Agree on one correction and schedule a review after real opportunities to practice."
+    ],
+    "watch": "Repeating the same warning can leave a broken process untouched.",
+    "proof": "Watch the next few opportunities. Record whether the behavior changed and what support was used.",
+    "records": [
+      "Observed cause",
+      "Follow-up evidence"
+    ]
+  },
+  "how-much-restaurant-prep-should-be-done-before-service": {
+    "title": "Set a daypart prep target",
+    "steps": [
+      "Estimate portions needed for one item using comparable dayparts and known events.",
+      "Count usable portions already on hand and check the batch yield against the current recipe.",
+      "Choose an initial batch and a replenishment trigger within approved holding and quality limits."
+    ],
+    "watch": "A full container can hide a low usable yield or stock too old for the planned service.",
+    "proof": "Record portions sold, discarded and unavailable. Use those numbers for the next comparable daypart.",
+    "records": [
+      "Item, forecast and usable portions",
+      "Waste and stockouts"
+    ]
+  },
+  "why-do-restaurant-employees-stop-reporting-problems": {
+    "title": "Close the reporting loop",
+    "steps": [
+      "Trace one recent report from the first person told through to the final decision.",
+      "Check that employees know the immediate route for urgent issues and the routine route for others.",
+      "Name who follows up and tell the reporter what was done or when to expect an update."
+    ],
+    "watch": "A report can be logged correctly and still disappear from the employee's point of view.",
+    "proof": "Ask whether the reporter received a response. Record time to acknowledgment and any open action.",
+    "records": [
+      "Issue and owner",
+      "Response and follow-up"
+    ]
+  },
+  "why-do-restaurant-sops-fail-during-the-rush": {
+    "title": "Rush-test one procedure",
+    "steps": [
+      "Watch one station through a rush and record exactly where the sequence breaks.",
+      "Identify the protection that must hold and the tool, placement or timing that caused the delay.",
+      "Test one approved change, mark the current revision and remove conflicting instructions."
+    ],
+    "watch": "A shortcut can look faster while pushing errors onto expo or the guest.",
+    "proof": "Across the next three rushes, record whether the step held and what happened to waits or rework.",
+    "records": [
+      "Station and failed step",
+      "Three-rush result"
+    ]
+  },
+  "why-do-restaurant-managers-keep-changing-the-rules": {
+    "title": "Settle a conflicting rule",
+    "steps": [
+      "Write down the two instructions employees received for the same situation.",
+      "Ask the person authorized to approve the standard to choose the current rule and any exception.",
+      "Brief all shift leads, replace the old copy and ask each lead to explain what changed."
+    ],
+    "watch": "Employees may follow the last manager they saw when both versions look official.",
+    "proof": "Check two different shifts. Can people give the same answer and find the current instruction?",
+    "records": [
+      "Conflicting instructions",
+      "Approved rule and owner"
+    ]
+  },
+  "why-does-restaurant-food-waste-return-after-you-fix-it": {
+    "title": "Keep a waste correction working",
+    "steps": [
+      "Select a waste item that improved and then returned. Find the original change.",
+      "Compare current demand, batch sizes and recorded waste causes with the original test period.",
+      "Restore or revise one control and assign someone to check it after the first improvement."
+    ],
+    "watch": "A lower total may hide more stockouts or a change in the number of meals served.",
+    "proof": "Compare waste per comparable service, availability and quality now and again in thirty days.",
+    "records": [
+      "Waste cause and control",
+      "Review date and result"
+    ]
+  },
+  "how-do-you-train-a-new-restaurant-manager-properly": {
+    "title": "Qualify a new shift manager",
+    "steps": [
+      "Choose a decision the trainee will have authority to make and define its limits.",
+      "Use a real shift scenario. Ask the trainee what evidence they need and when to escalate.",
+      "Observe the trainee lead that part of a supervised shift and give specific feedback."
+    ],
+    "watch": "Knowing the rule in a quiet room does not prove judgment under pressure.",
+    "proof": "Record the decision, its effect and whether the trainee handled the handoff independently.",
+    "records": [
+      "Decision and authority",
+      "Evidence for sign-off"
+    ]
+  },
+  "how-do-you-measure-restaurant-productivity-without-rushing-employees": {
+    "title": "Measure output fairly",
+    "steps": [
+      "Define one completed unit of work, including the checks that make it usable.",
+      "Observe the whole cycle under several realistic workloads. Record waiting and rework separately.",
+      "Change one condition such as tool placement, then repeat the observations."
+    ],
+    "watch": "Counting speed alone rewards unfinished work and shifts cleanup to someone else.",
+    "proof": "Compare accepted output, errors and workload under similar conditions before setting a standard.",
+    "records": [
+      "Output and conditions",
+      "Quality and time"
+    ]
+  },
+  "what-should-restaurant-owners-review-every-week": {
+    "title": "Turn a weekly review into decisions",
+    "steps": [
+      "Choose one exception in the weekly figures and ask what decision it requires.",
+      "Have the manager show the source, likely cause and one proposed correction.",
+      "Enter the action, responsible person, due date and evidence needed in the open-action register."
+    ],
+    "watch": "A meeting can end with agreement and nobody assigned to act.",
+    "proof": "At the next review, inspect the result and close, revise or carry forward the item.",
+    "records": [
+      "Exception and decision",
+      "Owner and proof due"
+    ]
+  },
+  "how-do-you-fix-poor-restaurant-shift-handoffs": {
+    "title": "Close the shift handoff",
+    "steps": [
+      "Pick one unresolved item that could affect the incoming team.",
+      "Record its current state, next action, owner and latest safe decision time.",
+      "Have the incoming lead repeat back the action and confirm they can access what they need."
+    ],
+    "watch": "A sent message does not show that someone accepted the work.",
+    "proof": "At the next handoff, check what actually happened and whether the same issue had to be rediscovered.",
+    "records": [
+      "Open item and deadline",
+      "Receiving lead and result"
+    ]
+  },
+  "how-do-you-delegate-restaurant-decisions-without-losing-control": {
+    "title": "Delegate one recurring decision",
+    "steps": [
+      "Name a decision that repeatedly waits for the owner and gather two recent examples.",
+      "Write what the lead can decide, the limit of that authority and when to escalate.",
+      "Practice both examples, then let the lead make one real decision within the agreed limits."
+    ],
+    "watch": "If every reasonable choice gets reversed, employees learn to wait for permission.",
+    "proof": "Review the reasoning and outcome together. Adjust the boundary if the real case exposed a gap.",
+    "records": [
+      "Decision and limit",
+      "Outcome and review"
+    ]
+  },
+  "why-does-restaurant-labor-stay-high-when-sales-increase": {
+    "title": "Find the hours behind rising sales",
+    "steps": [
+      "Compare sales, paid hours and wage dollars by daypart across similar shifts.",
+      "Separate fixed coverage from demand-driven work and mark when guests actually arrived.",
+      "Test one targeted overlap or start-time change while protecting required station skills."
+    ],
+    "watch": "Higher sales for the day can hide extra hours spent before or after the rush.",
+    "proof": "Compare hours, overtime, queues and service completion for the same demand pattern.",
+    "records": [
+      "Daypart and demand",
+      "Hours and service result"
+    ]
+  },
+  "how-do-you-keep-restaurant-training-consistent-across-trainers": {
+    "title": "Calibrate two trainers",
+    "steps": [
+      "Choose one task and define the finished result both trainers should accept.",
+      "Have each trainer demonstrate it with the same equipment. Record where the methods diverge.",
+      "Agree on one method and have the other trainer observe a learner using it."
+    ],
+    "watch": "A trainer may quietly redo a step, making a learner appear qualified.",
+    "proof": "Ask both trainers to judge the same independent attempt and explain any disagreement.",
+    "records": [
+      "Task and disputed step",
+      "Shared sign-off evidence"
+    ]
+  },
+  "how-do-you-reduce-restaurant-order-mistakes": {
+    "title": "Trace an incorrect order",
+    "steps": [
+      "Pick one incorrect order and record what the guest requested and what arrived.",
+      "Follow the ticket from order entry through preparation, expo and handoff.",
+      "Correct the first point where the order changed and test that handoff on similar tickets."
+    ],
+    "watch": "The person who catches an error may be several steps from where it started.",
+    "proof": "Track remakes and corrections alongside final complaints so hidden rework stays visible.",
+    "records": [
+      "First mismatch",
+      "Change and remake count"
+    ]
+  },
+  "why-do-restaurant-improvement-plans-fail-after-two-weeks": {
+    "title": "Keep a two-week improvement alive",
+    "steps": [
+      "Choose one correction that faded and state the result the team originally wanted.",
+      "Identify the check that stopped, who owned it and what displaced it in normal work.",
+      "Assign a short hold check on the regular schedule and set a thirty-day review."
+    ],
+    "watch": "A first good week can depend on the owner personally watching every shift.",
+    "proof": "Compare the original measure, unintended costs and independent results at the thirty-day review.",
+    "records": [
+      "Correction and hold check",
+      "Review result"
+    ]
+  },
+  "why-do-restaurant-recipes-change-from-cook-to-cook": {
+    "title": "Verify a recipe across cooks",
+    "steps": [
+      "Give two cooks the same current recipe, utensils and ingredients.",
+      "Measure portions and finished yield independently. Note any step each cook had to interpret.",
+      "Clarify one ambiguous instruction, label the approved revision and repeat the comparison."
+    ],
+    "watch": "A scoop name or pan size may mean different things at different stations.",
+    "proof": "Compare finished samples without naming the cook. Check yield, portion and consistency.",
+    "records": [
+      "Recipe and ambiguous step",
+      "Retest yield and portion"
+    ]
+  },
+  "the-friday-soup-that-changed-the-forecast": {
+    "title": "Test a Friday soup forecast",
+    "steps": [
+      "Choose one soup and list portions sold, leftover portions and the time it ran out on comparable Fridays.",
+      "Ask the service team what regular guests requested after the soup was gone.",
+      "Test one modest batch adjustment on a similar Friday and record unusual events separately."
+    ],
+    "watch": "Sales stop counting demand the moment a special sells out.",
+    "proof": "Compare requests, leftovers and sellout times before changing the regular forecast.",
+    "records": [
+      "Friday and starting portions",
+      "Requests after sellout"
+    ]
+  },
+  "the-dishwasher-who-saw-the-broken-system": {
+    "title": "Trace the dish pile backward",
+    "steps": [
+      "Stand beside the dish return during a rush and ask the dishwasher where the pile starts.",
+      "Follow one tray from drop-off to storage. Mark sorting delays, blocked space or missing racks.",
+      "Test one agreed change to the return flow while keeping cleaning and handling standards intact."
+    ],
+    "watch": "A fast machine can sit idle while someone searches for rack space.",
+    "proof": "Compare backlog and clean-item shortages on a similar shift. Ask the dishwasher what changed.",
+    "records": [
+      "First obstruction",
+      "Backlog after the test"
+    ]
+  },
+  "the-new-manager-who-ran-out-of-chairs": {
+    "title": "Give a new lead room to decide",
+    "steps": [
+      "List the questions that pulled the new manager away during a busy shift.",
+      "Choose one that a station lead could answer and define the limit and escalation point.",
+      "Brief the team before service and observe whether the station can decide within that limit."
+    ],
+    "watch": "A helpful manager can become the queue every small decision waits in.",
+    "proof": "Count interruptions and review one independent decision for quality after the shift.",
+    "records": [
+      "Recurring interruption",
+      "Decision and outcome"
+    ]
+  },
+  "when-the-price-tag-reached-the-table": {
+    "title": "Check a price change at the table",
+    "steps": [
+      "Pick one menu item and record its current price, cost, sales mix and guest expectations.",
+      "Prepare a clear explanation for servers and update every place a guest sees the price.",
+      "Test the approved change over comparable services and record questions in guests' own words."
+    ],
+    "watch": "One loud complaint or one strong sales night can distort the decision.",
+    "proof": "Review contribution, units sold, substitutions and recurring guest concerns together.",
+    "records": [
+      "Item and starting figures",
+      "Guest response and sales mix"
+    ]
+  },
+  "the-recipe-card-that-saved-sunday": {
+    "title": "Capture a special before Sunday",
+    "steps": [
+      "Have the experienced cook make the special while a second person records quantities, yield and visual cues.",
+      "Ask the cook to check the written sequence, including what they judge by sight or feel.",
+      "Have a second cook prepare it from the card with normal equipment and record each question."
+    ],
+    "watch": "An instruction like cook until ready can hide the cue that makes the dish repeatable.",
+    "proof": "Compare both batches for portion, yield and quality. Credit the contributor and date the approved card.",
+    "records": [
+      "Missing cue or measurement",
+      "Second cook's result"
+    ]
+  },
+  "the-last-table-and-the-lost-hour": {
+    "title": "Account for the last table",
+    "steps": [
+      "For one close, note the last seating, last order, final departure and time closing work ended.",
+      "List the jobs that must wait for guests to leave and the work that can start earlier without affecting service.",
+      "Test one scheduling or sequencing adjustment and tell both closing leads what to watch."
+    ],
+    "watch": "A posted closing hour can hide a full hour of paid work after the dining room empties.",
+    "proof": "Compare paid closing time, guest experience and opening readiness on comparable nights.",
+    "records": [
+      "Last seating and departure",
+      "Final task and finish time"
+    ]
+  },
+  "gravity-has-a-new-home": {
+    "title": "Update the team's Gravity shortcuts",
+    "steps": [
+      "Open Gravity at gravityleadershipsystem.com and choose a resource your team actually uses.",
+      "Replace an old bookmark or station shortcut and label it with the task it opens.",
+      "Ask the next shift lead to open the shortcut from their usual device and find that resource."
+    ],
+    "watch": "A publisher credit on a book can stay the same even after the operating resource moves.",
+    "proof": "Record the working destination and who tested it. Check shared devices as well as your own.",
+    "records": [
+      "Resource and shortcut location",
+      "Verified destination and date"
+    ]
+  }
+}

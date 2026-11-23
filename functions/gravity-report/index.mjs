@@ -1,3 +1,4 @@
+import sheets from './field-sheets.json' with {type:'json'};
 import manifest from '../../source-manifest.json' with {type:'json'};
 import data from './articles.json' with {type:'json'};
 import volume11 from './issues-11-15.json' with {type:'json'};
@@ -28,6 +29,9 @@ const FIELD_SHEET_BY_SLUG=Object.freeze({
 'how-do-i-stop-restaurant-food-waste':'/assets/downloads/gravity-field-sheet-04-food-waste.pdf',
 'why-cant-i-keep-good-restaurant-employees':'/assets/downloads/gravity-field-sheet-05-employee-retention.pdf'
 });
+function fieldSheetUrl(a) {
+ return FIELD_SHEET_BY_SLUG[a.slug] || '/gravity-report/' + a.slug + '?download=field-sheet';
+}
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const slugify=t=>t.toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 function extraReleaseDate(issue){
@@ -152,8 +156,10 @@ function articlePage(a){
  const previous=current>0?published[current-1]:null;
  const next=current>=0&&current<published.length-1?published[current+1]:null;
  const adjacent=[previous?'<a rel="prev" href="/gravity-report/'+esc(previous.slug)+'">← Previous issue</a>':'',next?'<a rel="next" href="/gravity-report/'+esc(next.slug)+'">Next issue →</a>':''].filter(Boolean).join('');
- const fieldSheetHref=FIELD_SHEET_BY_SLUG[a.slug]||'';
- const fieldSheetBox=fieldSheetHref?`<aside class="report-field-companion" aria-label="Companion Field Sheet"><strong>We took the notes. You put them to work.</strong><p>This article has a separate, one-page Gravity Field Sheet.</p><a href="${fieldSheetHref}" data-no-registration-gate download>Download the matching Field Sheet · PDF</a></aside>`:'';
+ const fieldSheetHref=fieldSheetUrl(a);
+ const sheet=sheets[a.slug];
+ const sheetText=sheet ? `<details><summary>Read the Field Sheet on this page</summary><h3>${esc(sheet.title)}</h3><ol>${sheet.steps.map(step=>'<li>'+esc(step)+'</li>').join('')}</ol><p><strong>What to watch for</strong> ${esc(sheet.watch)}</p><p><strong>How to tell if it helped</strong> ${esc(sheet.proof)}</p></details>` : '';
+ const fieldSheetBox=fieldSheetHref?`<aside class="report-field-companion" aria-label="Companion Field Sheet"><strong>We took the notes. You put them to work.</strong><p>This article has a separate, one-page Gravity Field Sheet.</p><a href="${fieldSheetHref}" data-no-registration-gate download>Download the matching Field Sheet · PDF</a>${sheetText}</aside>`:'';
  const related=relatedStories(a,published);
  const schema=JSON.stringify({'@context':'https://schema.org','@type':'Article',headline:a.title,description,datePublished:a.release_date,author:{'@type':'Person',name:'Thomas Butler'},publisher:{'@type':'Organization',name:'Thomas Monroe Books'},mainEntityOfPage:url}).replace(/</g,'\\u003c');
  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(a.title)} | The Gravity Report</title><meta name="description" content="${esc(description)}"><meta property="og:type" content="article"><meta property="og:title" content="${esc(a.title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${url}"><meta property="og:site_name" content="The Gravity Report"><meta property="og:image" content="${SITE}/assets/images/report-social-preview.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(a.title)}"><meta name="twitter:description" content="${esc(description)}"><meta name="twitter:image" content="${SITE}/assets/images/report-social-preview.jpg"><link rel="canonical" href="${url}"><link rel="icon" href="/assets/images/report-favicon-96.png" type="image/png"><link rel="stylesheet" href="${assetUrl('/assets/css/styles.css')}"><script type="application/ld+json">${schema}</script><style>
@@ -197,11 +203,17 @@ export default async function handler(req){
   const links=published.map(a=>'<li><a href="/gravity-report/'+encodeURIComponent(a.slug)+'">'+esc(a.title)+'</a></li>');
   return new Response(req.method==='HEAD'?null:'<ol data-report-article-index>'+links.join('')+'</ol>',{headers:{...common,'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store','X-Robots-Tag':'noindex'}});
  }
- if(p==='/gravity-report/articles.json'){const schedule=ALL_ARTICLES.map(a=>{const isReleased=released(a,t);return {issue:a.issue,title:a.title,slug:a.slug,release_date:a.release_date,category:a.category,released:isReleased,summary:isReleased?a.summary:null,search_text:isReleased?articleSearchText(a):null}});return new Response(JSON.stringify({as_of_central:t,articles:schedule}),{headers:{...common,'Content-Type':'application/json; charset=utf-8'}});}
+ if(p==='/gravity-report/articles.json'){const schedule=ALL_ARTICLES.map(a=>{const isReleased=released(a,t);return {issue:a.issue,title:a.title,slug:a.slug,release_date:a.release_date,category:a.category,released:isReleased,field_sheet_url:isReleased?fieldSheetUrl(a):null,summary:isReleased?a.summary:null,search_text:isReleased?articleSearchText(a):null}});return new Response(JSON.stringify({as_of_central:t,articles:schedule}),{headers:{...common,'Content-Type':'application/json; charset=utf-8'}});}
  if(p==='/gravity-report/feed.xml')return new Response(rss(released(SPECIAL_MOVE,t)?[SPECIAL_MOVE,...ready]:ready),{headers:{...common,'Content-Type':'application/rss+xml; charset=utf-8'}});
  if(p==='/gravity-report/sitemap.xml')return new Response(sitemap(released(SPECIAL_MOVE,t)?[SPECIAL_MOVE,...ready]:ready),{headers:{...common,'Content-Type':'application/xml; charset=utf-8'}});
  const a=p==='/gravity-report/'+SPECIAL_MOVE.slug?SPECIAL_MOVE:ALL_ARTICLES.find(x=>x.slug===p.split('/').at(-1));
  if(!a||!released(a,t))return new Response('<!doctype html><html><head><meta name="robots" content="noindex"></head><body><h1>Article not available yet</h1><a href="/gravity-report">The Gravity Report</a></body></html>',{status:404,headers:{...common,'Content-Type':'text/html; charset=utf-8','X-Robots-Tag':'noindex'}});
+ if(new URL(req.url).searchParams.get('download')==='field-sheet'){
+  if(FIELD_SHEET_BY_SLUG[a.slug]) return Response.redirect(new URL(FIELD_SHEET_BY_SLUG[a.slug],req.url),302);
+  const {renderFieldSheet}=await import('./field-sheet.mjs');
+  const headers={...common,'Content-Type':'application/pdf','Content-Disposition':'attachment; filename="gravity-field-sheet-'+a.slug+'.pdf"','X-Robots-Tag':'noindex'};
+  return new Response(req.method==='HEAD'?null:renderFieldSheet(a,sheets[a.slug],SITE),{headers});
+ }
  return new Response(req.method==='HEAD'?null:articlePage(a),{headers:{...common,'Content-Type':'text/html; charset=utf-8'}});
 }
 export const config={path:['/gravity-report/articles.json','/gravity-report/reader-text','/gravity-report/feed.xml','/gravity-report/sitemap.xml','/gravity-report/:slug']};
