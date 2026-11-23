@@ -60,6 +60,30 @@ for (const path of [url(firstTen.articles[0]), '/gravity-report/gravity-has-a-ne
   assert.equal(query, '?v=' + hash.slice(0, 16), path + ' references an outdated ' + file);
  }
 }
+// Check every catalog entry at a pre-publication date and after the last release.
+const catalogAt = async date => (await (await at(date,'/gravity-report/articles.json')).json()).articles;
+const early = '2026-01-01T12:00:00Z', late = '2030-01-01T12:00:00Z';
+assert((await catalogAt(early)).every(a => !a.released && a.field_sheet_url === null));
+const entries = await catalogAt(late);
+entries.push({slug:'gravity-has-a-new-home',field_sheet_url:'/gravity-report/gravity-has-a-new-home?download=field-sheet'});
+const downloads = new Set();
+for (const a of entries) {
+ const route = '/gravity-report/' + a.slug;
+ assert.equal((await at(early,route + '?download=field-sheet')).status,404);
+ const html = await (await at(late,route)).text();
+ assert(html.includes('href="' + a.field_sheet_url + '" data-no-registration-gate download'),route);
+ assert(!downloads.has(a.field_sheet_url),'Duplicate sheet: ' + route);
+ downloads.add(a.field_sheet_url);
+ if (a.field_sheet_url.startsWith('/assets/')) {
+  assert(fs.existsSync('site' + a.field_sheet_url));
+ } else {
+  const response = await at(late,a.field_sheet_url);
+  assert.equal(response.headers.get('content-type'),'application/pdf',route);
+  const pdf = Buffer.from(await response.arrayBuffer()).toString('latin1');
+  assert(pdf.startsWith('%PDF-') && pdf.includes('%%EOF') && /\/Count 1\b/.test(pdf),route);
+  assert(pdf.includes(ORIGIN + route) && pdf.includes(ORIGIN + '/)'),route);
+ }
+}
 let r=await at('2026-10-20T18:30:00Z','/gravity-report/articles.json');
 let schedule=await r.json();
 assert.equal(schedule.articles.length,36);

@@ -56,7 +56,7 @@ assert(home.includes('A new series in development')&&home.includes('These articl
 assert(home.includes('/gravity-report/why-cant-i-keep-good-restaurant-employees'),'Published human-interest lead story must link to actual article');
 assert(home.includes('/gravity-report/why-is-my-restaurant-food-cost-so-high'),'Working Side must have a verified existing article');
 assert(home.includes('https://gravityleadershipsystem.com/gravity-report'),'Magazine canonical URL must use the permanent Gravity domain');
-assert(home.includes('Gravity Field Sheets')&&home.includes('Five Field Sheets are available below.')&&home.includes('not every article has a download yet'),'Show five verified downloads without claiming every issue has a Field Sheet');
+assert(home.includes('Gravity Field Sheets')&&home.includes('Every published story has a matching one-page Field Sheet.'),'Explain where readers can find their article companion');
 assert(home.includes('Guest Voices')&&home.includes('/gravity-report-guests'),'Guest contribution path must be preserved');
 assert(css.includes('.report-feature-grid')&&css.includes('.report-series-preview')&&css.includes('.report-utility-grid'),'Magazine responsive layout missing');
 assert(js.includes('The same excuse. The same problem.')&&js.includes('The food cost number is a warning light'),'Social copy should be specific rather than generic');
@@ -109,13 +109,13 @@ for(const [num,filename] of [
  assert(card,'Missing story card for Field Sheet '+num);
  assert(card.includes('Read full article →'),'Story link missing from card '+num);
  assert(card.includes('class="report-card-field-sheet"')&&card.includes(filename),'Matching PDF must sit beside story '+num);
- assert(js.includes("'"+filename+"'"),'Catalog refresh must preserve companion PDF '+num);
+ assert(js.includes("a.field_sheet_url"),'Catalog refresh must preserve companion PDF '+num);
 }
 assert(js.includes('if(sheet)')&&js.includes('if(a.released)'),'Only published stories with a completed PDF get a Field Sheet button');
 const card6Start=home.indexOf('id="report-6"');
 const card6End=home.indexOf('</article>',card6Start);
 assert(card6Start>=0&&card6End>card6Start,'Issue 06 story card not found');
-assert(!home.slice(card6Start,card6End).includes('report-card-field-sheet'),'Unfinished Issue 06 PDF must not be linked');
+assert(!home.slice(card6Start,card6End).includes('report-card-field-sheet'),'Static schedule must defer Issue 06 downloads to the release gate');
 const issue2=await page('2026-10-28T15:00:00Z','why-is-my-restaurant-food-cost-so-high');
 assert.equal(issue2.resp.status,200);
 for(const [slug,sheet] of [['how-do-i-get-restaurant-managers-to-follow-through','gravity-field-sheet-03-manager-follow-through.pdf'],['how-do-i-stop-restaurant-food-waste','gravity-field-sheet-04-food-waste.pdf'],['why-cant-i-keep-good-restaurant-employees','gravity-field-sheet-05-employee-retention.pdf']]){
@@ -146,7 +146,7 @@ assert(a.html.includes('rel="next"'),'Published next article link missing');
 assert(!a.html.includes('rel="prev"'),'Issue one must not have a predecessor');
 a=await page('2026-10-28T15:00:00Z',slug6);
 assert.equal(a.resp.status,200,'Issue six should be published by 28 Oct');
-assert(!a.html.includes('class="report-field-callout"'),'Issue six should not suggest a Field Sheet that does not exist');
+assert(a.html.includes(slug6+'?download=field-sheet'),'Published Issue 06 needs its Field Sheet');
 assert(a.html.includes('rel="prev"'),'Issue six should have published previous');
 assert(!a.html.includes('rel="next"'),'Issue seven must remain unlinked before Oct 30');
 a=await page('2026-10-30T14:01:00Z',slug6);
