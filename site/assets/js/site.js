@@ -321,7 +321,7 @@
 
     var launchedProduct = productForPath(path);
     if (launchedProduct) {
-      send('gravity_product_launch', {product_slug: launchedProduct, product_surface: 'web'});
+      send('gravity_product_launch', {product_slug: launchedProduct, product_surface: 'web', source_page: location.pathname || '/'});
     }
 
     if (path === '/start-here') {
