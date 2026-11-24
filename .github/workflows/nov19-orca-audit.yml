@@ -1,0 +1,81 @@
+name: Gravity disposable Orca verification
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/nov19-orca-audit.yml'
+permissions:
+  contents: read
+jobs:
+  spoken-controls:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Prepare temporary accessibility desktop
+        run: |
+          sudo apt-get -qq update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install -y orca dbus-x11 xvfb pulseaudio speech-dispatcher xdotool
+          npm install --no-save --no-package-lock --ignore-scripts playwright-core@1.56.1
+      - name: Verify browser file selection and screen reader speech
+        shell: bash
+        run: |
+          cat > "$RUNNER_TEMP/check.cjs" <<'JS'
+          const {chromium}=require(process.cwd()+'/node_modules/playwright-core');
+          (async()=>{
+            const b=await chromium.launch({channel:'chrome',headless:false,args:['--force-renderer-accessibility','--no-sandbox']});
+            try {
+              const p=await b.newPage();
+              await p.goto('http://localhost:8765/apps/inventory-center/index.html');
+              const restore=p.getByRole('button',{name:'Restore Backup',exact:true});
+              const open=p.locator('#open-import');
+              await p.locator('#print-view').focus(); const tabOrder=[]; for(let i=0;i<30;i++){await p.keyboard.press('Tab');const id=await p.evaluate(()=>document.activeElement.id);tabOrder.push(id);if(id==='restore-json')break;}console.log('Observed tab order',tabOrder);
+              if(!await restore.evaluate(el=>el===document.activeElement)) throw Error('Unexpected restore focus order');
+              await p.waitForTimeout(1600);
+              async function choose(btn,id){
+                const wait=p.waitForEvent('filechooser',{timeout:8000});await btn.press('Enter');
+                const chooser=await wait;if(await chooser.element().getAttribute('id')!==id)throw Error('Wrong picker');await chooser.setFiles([]);
+              }
+              await choose(restore,'web-restore-input');
+              await open.press('Enter');
+              const csv=p.getByRole('button',{name:'Choose CSV File'});await csv.focus();await p.waitForTimeout(1600);
+              await choose(csv,'web-import-input');console.log('KEYBOARD PASS: restore and CSV controls open their respective pickers.');
+              await p.goto('http://localhost:8765/testing-room-manager');
+              await p.getByLabel('Private Testing Room manager key').focus();await p.waitForTimeout(2000);
+              await p.goto('http://localhost:8765/apps/sop-foundry/import-export.html');
+              const paste=p.getByRole('textbox',{name:'Paste the complete SOP'});
+              if(await paste.isVisible()){await paste.focus();await p.waitForTimeout(2000);}
+              const fs=require('node:fs');
+              const controls=[];
+              for(const [file,ids] of Object.entries({'testing-room-manager.html':['tester-status','helpful-level','reply'],'testing-room.html':['group-msg'],'apps/sop-foundry/import-export.html':['pasteText']})){
+                const html=fs.readFileSync('site/'+file,'utf8');
+                controls.push(...await p.evaluate(({html,ids})=>{const doc=new DOMParser().parseFromString(html,'text/html');return ids.map(id=>doc.getElementById(id).outerHTML);},{html,ids}));
+              }
+              await p.setContent('<main>'+controls.join('')+'</main>');
+              for(const el of await p.locator('main [aria-label]').all()){await el.focus();await p.waitForTimeout(1800);}
+            } finally {await b.close();}
+          })().catch(e=>{console.error(e);process.exitCode=1;});
+          JS
+          node scripts/serve-playwright.cjs &
+          xvfb-run -a dbus-run-session -- bash -euc '
+            export NO_AT_BRIDGE=0 GTK_MODULES=gail:atk-bridge ACCESSIBILITY_ENABLED=1
+            gsettings set org.gnome.desktop.interface toolkit-accessibility true
+            pulseaudio --start
+            orca --debug --debug-file="$RUNNER_TEMP/orca.log" >"$RUNNER_TEMP/orca-console" 2>&1 &
+            sleep 5
+            node "$RUNNER_TEMP/check.cjs" || { tail -20 "$RUNNER_TEMP/orca-console"; exit 1; }
+            python3 - <<PY
+          import pathlib,os,re
+          source=pathlib.Path(os.environ["RUNNER_TEMP"],"orca.log")
+          if not source.exists(): raise SystemExit("Orca debug log missing")
+          lines=source.read_text(errors="replace").splitlines()
+          speech=[line for line in lines if re.search(r"SPEECH OUTPUT|SPEECH DISPATCHER: Speaking|SPEECH: Speaking",line,re.I)]
+          for target in ("Restore Backup","Choose CSV File","Private Testing Room manager key","Paste the complete SOP","Filter testers by status","Filter testers by helpfulness level","Reply to the selected tester or group","Message the tester group"):
+              hits=[line for line in speech if target.lower() in line.lower()]
+              print("Spoken:",target, hits[:1])
+          print("Speech log records:",len(speech))
+          if not speech: print("Diagnostics:", [line[:250] for line in lines if "speech" in line.lower()][-20:])
+          PY
+          '
