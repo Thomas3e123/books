@@ -188,6 +188,10 @@
 /pilot-room /pilot-room.html 200
 /pilot-room-manager /pilot-room-manager.html 200
 
+# Restore observed legacy visitor and browser requests.
+/assets/samples/gravity-restaurant-sop-library-volume-2-sample.pdf /gravity-sop-library-volume-2 301!
+/favicon.ico /assets/images/gravity-system-mark.svg 301!
+
 /*                                     /404.html                                  404
 
 
