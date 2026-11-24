@@ -1982,11 +1982,11 @@
     },
     {
       "path": "site/free-resources.html",
-      "sha256": "9e3bb0da92c97ade9b9ed0fdba716b637a3433641d641ed958117de62d0b5a3f"
+      "sha256": "676b786d2305c772d5858adb9a9f884a5973c63dd9d1f2af80804c33bdc2ba92"
     },
     {
       "path": "site/gravity-assist.html",
-      "sha256": "35093203cb42b5e45f0909e4737f84d848889202f6d91689e6535f703d9db00d"
+      "sha256": "399cef8790c403041e13e921dc2f32c313aa0f525db86137dfefcea06531b4be"
     },
     {
       "path": "site/gravity-aware.html",
@@ -2158,7 +2158,7 @@
     },
     {
       "path": "site/operating-systems.html",
-      "sha256": "2d10f031fe8e667e351b34b96f28ed2b463354d6d2f8978a7fd44e0f972a1c37"
+      "sha256": "d2c6b32dbf33fad70bc2be795259d0a3f552a9aa30c795d5ecd488b41fa3cea2"
     },
     {
       "path": "site/owner-gm-governance-agreement-pack.html",
