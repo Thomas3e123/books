@@ -1,0 +1,31 @@
+name: Gravity all-product manuals, directions and description audit (read-only)
+on:
+  pull_request:
+    branches: ['feature/gravity-migration-phase1-2026-10-22']
+    paths:
+      - 'scripts/audit-all-product-docs.py'
+      - '.github/workflows/gravity-all-product-docs-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit-all-public-documentation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install document readers
+        run: python -m pip install --disable-pip-version-check 'beautifulsoup4==4.12.3' 'pypdf==6.1.1' 'python-docx==1.2.0'
+      - name: Audit every committed Gravity site page, PDF, Word document, and text manual
+        run: python scripts/audit-all-product-docs.py
+      - name: Retain private documentation evidence for review only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gravity-product-documentation-audit
+          path: gravity-all-product-docs-audit.json
+          if-no-files-found: warn
+# Does not publish, merge, build new installers, access customer data, or update manuals.
