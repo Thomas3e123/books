@@ -1982,11 +1982,11 @@
     },
     {
       "path": "site/free-resources.html",
-      "sha256": "676b786d2305c772d5858adb9a9f884a5973c63dd9d1f2af80804c33bdc2ba92"
+      "sha256": "82b61e0edc1413263111dd6f4d6b6bd3e84efaf5ebfde5a8e11fbcd0eaa1e6b2"
     },
     {
       "path": "site/gravity-assist.html",
-      "sha256": "399cef8790c403041e13e921dc2f32c313aa0f525db86137dfefcea06531b4be"
+      "sha256": "3fa8f65683993f5a17b95cd26632cfc91a1dfae149514129610ec7ae7c8b5f5a"
     },
     {
       "path": "site/gravity-aware.html",
