@@ -57,6 +57,8 @@
 /gravity-recipe-works https://gravityleadershipsystem.com/gravity-recipe-works 301!
 /gravity-recipe-works.html https://gravityleadershipsystem.com/gravity-recipe-works.html 301!
 /gravity-report https://gravityleadershipsystem.com/gravity-report 301!
+# Preserve nested article, feed and sitemap links from the original domain.
+/gravity-report/* https://gravityleadershipsystem.com/gravity-report/:splat 301!
 /gravity-report-thanks https://gravityleadershipsystem.com/gravity-report-thanks 301!
 /gravity-report-thanks.html https://gravityleadershipsystem.com/gravity-report-thanks.html 301!
 /gravity-report.html https://gravityleadershipsystem.com/gravity-report.html 301!
