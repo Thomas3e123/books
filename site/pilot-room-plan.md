@@ -34,7 +34,7 @@ A participant may do both tracks. Keep software usability findings separate from
 
 ## Step 2 — Enroll and orient
 
-1. The participant enters their name, email, role, optional restaurant type, and one issue area.
+1. The participant chooses a tool test or restaurant improvement, then enters their name, email, role, and optional restaurant type. Only restaurant improvement participants choose an initial issue area.
 2. They read the privacy note and agree to pilot contact and storage before creating a private record.
 3. The room displays a private return link. The participant copies or bookmarks it and keeps it private.
 4. Tell the participant not to share that link. It opens their own pilot record.
