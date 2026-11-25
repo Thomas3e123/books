@@ -2174,7 +2174,7 @@
     },
     {
       "path": "site/pilot-room-plan.md",
-      "sha256": "20e6da54b4e7265b86e07b4ba6d9e4e5b2b8d56552fdebbdc4917e2c4c156308"
+      "sha256": "7c82ae8efc24efa59c5d06526f8ba2f28b8c7083f3fef166288cb79e05222874"
     },
     {
       "path": "site/pilot-room-protocols.json",
@@ -2186,7 +2186,7 @@
     },
     {
       "path": "site/pilot-room.html",
-      "sha256": "0f9f4af6187a460334972a9acbb4b214e20643ff7fc2c937a7f8570ecd038149"
+      "sha256": "77e79af114a4fca58de68057c320e2a1bc6fdd10a2d7639c1756c97cdabbd2a4"
     },
     {
       "path": "site/privacy.html",
