@@ -1,0 +1,29 @@
+name: Gravity Pilot Room readiness
+on:
+  pull_request:
+    paths:
+      - 'site/pilot-room*'
+      - 'site/assets/video/pilot/**'
+      - 'functions/pilot-room/**'
+      - 'tests/pilot-readiness.test.cjs'
+      - 'scripts/test-pilot-room-browser.cjs'
+      - '.github/workflows/gravity-pilot-readiness.yml'
+jobs:
+  isolated-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install test browser
+        run: |
+          npm install --no-save --package-lock=false playwright
+          npx playwright install --with-deps chromium
+      - name: Verify source and isolated API regressions
+        run: |
+          node scripts/verify-source.cjs
+          node --test tests/pilot-readiness.test.cjs
+      - name: Exercise participant and manager UI with disposable records
+        run: node scripts/test-pilot-room-browser.cjs

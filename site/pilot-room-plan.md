@@ -75,7 +75,7 @@ A participant may do both tracks. Keep software usability findings separate from
 
 ## Step 5 — Reward record
 
-The pilot manager dashboard includes the qualifying-contribution and award fields so the same approved reward standard can be applied across tool testing and restaurant pilot work. Mark a contribution qualifying only when the participant’s evidence resulted in a material, verified improvement to Gravity. Record when any promised access or final relevant version is actually delivered. Do not count an enrollment or unverified suggestion as a qualifying contribution.
+The ten most helpful verified contributors across both tracks receive lifetime access to the standard Gravity digital library. Enrollment alone does not qualify. The pilot manager dashboard includes the qualifying-contribution and award fields so the same approved reward standard can be applied across tool testing and restaurant pilot work. Mark a contribution qualifying only when the participant’s evidence resulted in a material, verified improvement to Gravity. Record when any promised access or final relevant version is actually delivered. Do not count an enrollment or unverified suggestion as a qualifying contribution.
 
 ## What counts as a useful pilot outcome
 
