@@ -36,7 +36,11 @@ const server=http.createServer(async(req,res)=>{
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  console.log('Manager selection race, reply record association, mobile layout: PASS');
  await page.goto(origin+'/pilot-room');const decline=page.getByRole('button',{name:'Decline analytics'});if(await decline.isVisible())await decline.click();
- await page.locator('#join-track').selectOption('tool');await page.locator('#join-name').fill('Synthetic Alpha');await page.locator('#join-email').fill('a@example.invalid');await page.locator('#join-role').selectOption({label:'Owner'});await page.locator('#join-consent').check();await page.locator('#join-btn').click();
+ await page.locator('#join-btn').click();await page.getByText('Choose whether you want to test a tool or try a restaurant improvement.').waitFor();assert.equal(writes.filter(x=>x.path.endsWith('/join')).length,0);
+ await page.locator('#join-track').selectOption('tool');await page.locator('#join-name').fill('Synthetic Alpha');await page.locator('#join-email').fill('a@example.invalid');
+ await page.locator('#join-btn').click();await page.getByText('Choose your role.').waitFor();assert.equal(writes.filter(x=>x.path.endsWith('/join')).length,0);
+ await page.locator('#join-role').selectOption({label:'Owner'});await page.locator('#join-btn').click();await page.getByText('Please accept the pilot follow-up and data storage notice.').waitFor();assert.equal(writes.filter(x=>x.path.endsWith('/join')).length,0);
+ await page.locator('#join-consent').check();await page.locator('#join-btn').click();
  await page.locator('#welcome-title').filter({hasText:'Synthetic Alpha'}).waitFor();
  await page.locator('#tab-protocol').click();await page.locator('#protocol-suite').selectOption('inventory');assert.equal(await page.locator('#protocol-video video').getAttribute('src'),'/assets/video/pilot/inventory.mp4');await page.locator('.protocol-result').first().selectOption({label:'Pass'});await page.locator('#save-protocol').click();
  await page.getByText('Test report saved to your private pilot record.',{exact:false}).waitFor();assert.ok(writes.some(x=>x.path.endsWith('/feedback')));
