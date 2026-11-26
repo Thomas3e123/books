@@ -47,6 +47,7 @@ export default async function handler(request){
     }
     if(request.method==='POST'&&path==='plan'){
       const p=await byToken(participantToken(request));if(!p)return json({error:'Pilot return link not found.'},404);const b=await body(request);
+      if(['complete','closed','paused','midpoint_reviewed'].includes(p.status))return json({error:'This plan cannot be replaced at its current stage. Contact Gravity for assistance.'},409);
       const issue=clean(b.issueArea,120),problem=clean(b.problemStatement,1500),owner=clean(b.systemOwner,120),measure=clean(b.baselineMeasure,300),pace=Number(b.paceDays),start=String(b.startDate||'');
       const tools=Array.isArray(b.selectedTools)?[...new Set(b.selectedTools.map(x=>clean(x,100)).filter(Boolean))].slice(0,5):[];
       const d1=String(b.firstReviewDate||''),d2=String(b.midpointDate||''),d3=String(b.targetEndDate||'');
@@ -59,15 +60,23 @@ export default async function handler(request){
     if(request.method==='POST'&&['weekly-checkin','midpoint-review','final-review','issue-report','feedback'].includes(path)){
       const p=await byToken(participantToken(request));if(!p)return json({error:'Pilot return link not found.'},404);const b=await body(request);
       const types={'weekly-checkin':'weekly_checkin','midpoint-review':'midpoint_review','final-review':'final_review','issue-report':'issue_report',feedback:'feedback'};const type=types[path];
+      const review=['weekly_checkin','midpoint_review','final_review'].includes(type);
+      if(review){
+        const plan=(await db.sql`SELECT status FROM gravity_pilot_plans WHERE participant_id=${p.id} LIMIT 1`)[0];
+        if(!plan)return json({error:'Save an improvement plan before submitting a review.'},400);
+        if(['complete','closed','paused'].includes(p.status)||plan.status==='complete')return json({error:'This plan is not active. Contact Gravity before submitting another review.'},409);
+        if(type==='midpoint_review'&&!['active','midpoint_reviewed'].includes(p.status))return json({error:'Save a weekly review before your midpoint review.'},400);
+        if(type==='final_review'&&p.status!=='midpoint_reviewed')return json({error:'Save your midpoint review before completing your plan.'},400);
+      }
       const title=clean(b.title||({weekly_checkin:'Weekly progress check-in',midpoint_review:'Midpoint review',final_review:'Final review',issue_report:'Issue report',feedback:'Pilot feedback'}[type]),150);
-      const details={};for(const [k,v] of Object.entries(b)){if(k==='title')continue;if(typeof v==='string')details[clean(k,60)]=clean(v,1800);else if(typeof v==='boolean'||typeof v==='number')details[clean(k,60)]=v;else if(Array.isArray(v))details[clean(k,60)]=v.map(x=>clean(x,100)).slice(0,12)}
+      const details={};for(const [k,v] of Object.entries(b)){if(k==='title')continue;if(typeof v==='string'){const limit=type==='feedback'&&k==='protocol_report'?25000:1800;if(v.length>limit)return json({error:'Your response is too long to save. Shorten it and try again; nothing was saved.'},400);details[clean(k,60)]=v.trim()}else if(typeof v==='boolean'||typeof v==='number')details[clean(k,60)]=v;else if(Array.isArray(v))details[clean(k,60)]=v.map(x=>clean(x,100)).slice(0,12)}
       const filled=Object.values(details).some(v=>typeof v==='string'?Boolean(v.trim()):Array.isArray(v)?v.length>0:v!==null&&v!==undefined);
       if(!filled)return json({error:'Add a short update before saving.'},400);
       if(type==='midpoint_review'&&!clean(details.decision,100))return json({error:'Choose a midpoint decision before saving.'},400);
       if(type==='final_review'&&!clean(details.standard_holding,100))return json({error:'Choose whether the standard held before saving.'},400);
       if(type==='issue_report'&&!clean(details.expected,1200)&&!clean(details.actual,1800))return json({error:'Describe what you expected or what happened.'},400);
       const eid=id('entry');const row=await db.sql`INSERT INTO gravity_pilot_entries (id,participant_id,entry_type,title,details) VALUES (${eid},${p.id},${type},${title},${JSON.stringify(details)}::jsonb) RETURNING id,entry_type,title,details,created_at`;
-      const status=type==='final_review'?'complete':(type==='midpoint_review'?'midpoint_reviewed':(type==='weekly_checkin'?'active':p.status));
+      const status=type==='final_review'?'complete':(type==='midpoint_review'?'midpoint_reviewed':(type==='weekly_checkin'&&p.status!=='midpoint_reviewed'?'active':(type==='feedback'&&p.status==='enrolled'?'active':p.status)));
       await db.sql`UPDATE gravity_pilot_participants SET status=${status},updated_at=NOW() WHERE id=${p.id}`;
       if(type==='final_review')await db.sql`UPDATE gravity_pilot_plans SET status='complete',updated_at=NOW() WHERE participant_id=${p.id}`;
       return json({entry:row[0]},201);
@@ -95,6 +104,15 @@ export default async function handler(request){
       }
       if(request.method==='POST'&&path==='manager/reply'){
         const b=await body(request),pid=clean(b.participantId,100),text=clean(b.body,4000);if(!text)return json({error:'Write a reply first.'},400);const mid=id('msg');await db.sql`INSERT INTO gravity_pilot_messages (id,participant_id,sender,body) VALUES (${mid},${pid},'manager',${text})`;await db.sql`UPDATE gravity_pilot_participants SET updated_at=NOW() WHERE id=${pid}`;return json({ok:true,id:mid},201);
+      }
+      if(request.method==='POST'&&path==='manager/reissue-return-link'){
+        const b=await body(request),pid=clean(b.participantId,100);
+        const p=(await db.sql`SELECT id,email FROM gravity_pilot_participants WHERE id=${pid} LIMIT 1`)[0];
+        if(!p)return json({error:'Pilot not found.'},404);
+        if(b.identityVerified!==true||clean(b.confirmEmail,254).toLowerCase()!==p.email.toLowerCase())return json({error:'Independently verify the participant through their registered email before reissuing access.'},400);
+        const t=token();
+        await db.sql`UPDATE gravity_pilot_participants SET token_hash=${hash(t)},updated_at=NOW() WHERE id=${pid}`;
+        return json({token:t});
       }
     }
     return json({error:'Not found.'},404);

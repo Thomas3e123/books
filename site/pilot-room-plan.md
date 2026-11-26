@@ -34,7 +34,7 @@ A participant may do both tracks. Keep software usability findings separate from
 
 ## Step 2 — Enroll and orient
 
-1. The participant enters their name, email, role, optional restaurant type, and one issue area.
+1. The participant chooses a tool test or restaurant improvement, then enters their name, email, role, and optional restaurant type. Only restaurant improvement participants choose an initial issue area.
 2. They read the privacy note and agree to pilot contact and storage before creating a private record.
 3. The room displays a private return link. The participant copies or bookmarks it and keeps it private.
 4. Tell the participant not to share that link. It opens their own pilot record.
@@ -75,7 +75,7 @@ A participant may do both tracks. Keep software usability findings separate from
 
 ## Step 5 — Reward record
 
-The pilot manager dashboard includes the qualifying-contribution and award fields so the same approved reward standard can be applied across tool testing and restaurant pilot work. Mark a contribution qualifying only when the participant’s evidence resulted in a material, verified improvement to Gravity. Record when any promised access or final relevant version is actually delivered. Do not count an enrollment or unverified suggestion as a qualifying contribution.
+The ten most helpful verified contributors across both tracks receive lifetime access to the standard Gravity digital library. Enrollment alone does not qualify. The pilot manager dashboard includes the qualifying-contribution and award fields so the same approved reward standard can be applied across tool testing and restaurant pilot work. Mark a contribution qualifying only when the participant’s evidence resulted in a material, verified improvement to Gravity. Record when any promised access or final relevant version is actually delivered. Do not count an enrollment or unverified suggestion as a qualifying contribution.
 
 ## What counts as a useful pilot outcome
 

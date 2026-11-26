@@ -1961,6 +1961,42 @@
       "sha256": "9b8a4e964edc572090e6dc409f9686af6b6619690d5b85dfe080e4eca2395d6c"
     },
     {
+      "path": "site/assets/video/pilot/foundry-part-00.mp4",
+      "sha256": "34c4bbd5804a313b8e43c906b2e33e789d638c7c17024b4972da0d011131d3bc"
+    },
+    {
+      "path": "site/assets/video/pilot/foundry-part-01.mp4",
+      "sha256": "f998c30ee1db26e6eca6192f00e4a3fbd484d946d47d73766f97acdda1e5684a"
+    },
+    {
+      "path": "site/assets/video/pilot/foundry-part-02.mp4",
+      "sha256": "6dd30e0431b588841b4da031892397319c8e6d786dfdce5e60835e68e20c9871"
+    },
+    {
+      "path": "site/assets/video/pilot/foundry-part-03.mp4",
+      "sha256": "d6b241f8cf15bbf30e205ba53267f002072174527c545c809fa5933d76ac6f70"
+    },
+    {
+      "path": "site/assets/video/pilot/handbook-creator.mp4",
+      "sha256": "3ec97f380256f6ae70bee2ab86e8ad738f4a16d82548895437320877a48e0a50"
+    },
+    {
+      "path": "site/assets/video/pilot/inventory.mp4",
+      "sha256": "bb10041b7e4df61ab6a98293d0fa3c3aa5d13fd49a0f82f31d27f832a0da63d9"
+    },
+    {
+      "path": "site/assets/video/pilot/recipes.mp4",
+      "sha256": "a7b8f0d3aa3b7a7bb226bd9f36797c4bd5ebe883a6a692df734a49bce9c49781"
+    },
+    {
+      "path": "site/assets/video/pilot/shift.mp4",
+      "sha256": "1b4f05a2b7da35281c3351e30a02346f5c8ad5dad9a76f6f4a7009f76ed782a8"
+    },
+    {
+      "path": "site/assets/video/pilot/workstudy.mp4",
+      "sha256": "c03aa2f1573e07037eded5a883d13c4683f07ee84d4d92e14880fbd3aec75a64"
+    },
+    {
       "path": "site/book-reader.html",
       "sha256": "5d0ecf796dd65e1e5445d08678e259b05e61bf78b761d8d23669c4c3de6e8bd0"
     },
@@ -2138,7 +2174,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "2011d70d5da4b3914ad22dbdc80ad48dab8f02e00df79a67b12c932818152369"
+      "sha256": "a67302b57f5d1b753f378e7db6f62cb33e9d2981dc57feaf8cf76162b8e330bb"
     },
     {
       "path": "site/installation-improvement.html",
@@ -2170,23 +2206,23 @@
     },
     {
       "path": "site/pilot-room-manager.html",
-      "sha256": "9927010fb45952b00deb22a810bf1e2f5af084378f7a16cc8e5350199ce98228"
+      "sha256": "302fad477f5f9378dabfd220f1704ddeb8dab2b450c9e13517d564c525ab7652"
     },
     {
       "path": "site/pilot-room-plan.md",
-      "sha256": "20e6da54b4e7265b86e07b4ba6d9e4e5b2b8d56552fdebbdc4917e2c4c156308"
+      "sha256": "28b4c13f022ddc6e840dbfaf923fe96c8e68983918bc08159d123da5f4bfee68"
     },
     {
       "path": "site/pilot-room-protocols.json",
-      "sha256": "8bec1d2e616cf049760a92450bb44218a65f31bce46bf3f305580bed8bf5ab03"
+      "sha256": "65962036b72c4a79bcca75d6f44d72057655092d1b3d782e2a32a2e6352233e3"
     },
     {
       "path": "site/pilot-room-tool-process-test-protocols.md",
-      "sha256": "534240c9a606168317ca023656fda19f208e944382777fe4a028e641a80747f8"
+      "sha256": "65e19e74c2726cda4ec4ae94178d372e502f5c64cdcaffca8db7557bfad3a603"
     },
     {
       "path": "site/pilot-room.html",
-      "sha256": "bfb2b1de4ec8ed2f13938fb7aa1ce70995d696d3aedf2116a1194c31efdd5246"
+      "sha256": "e881e0ee5c144408769dc8ce4b4f80df5a008ea8f1d78e103490094eb71787f3"
     },
     {
       "path": "site/privacy.html",
@@ -2622,7 +2658,7 @@
     },
     {
       "path": "functions/pilot-room/index.mjs",
-      "sha256": "5070f489b470eac860a81cf5030c4181efa0753794000a759e98f3bf2f1d2def"
+      "sha256": "fa6d359afaa85235f8dbb63003599bfeafdd00aafe0ea4a99410e32f260385fa"
     },
     {
       "path": "functions/testing-room/index.mjs",

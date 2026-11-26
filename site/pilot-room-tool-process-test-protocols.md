@@ -250,7 +250,7 @@ This catalog is limited to tools and processes linked from Gravity’s public pa
 ### Numbers Lab and calculators
 
 **Purpose:** Check calculator inputs, units, formula boundaries, explanations, and output consistency.
-**Starting page:** `/gravity-assist`
+**Starting page:** `/gravity-numbers-lab`
 
 #### NUM-01 — Known-answer calculation
 **Do this:** Choose a calculator with a simple formula. Enter fictional values with a result you calculate separately.
@@ -275,7 +275,7 @@ This catalog is limited to tools and processes linked from Gravity’s public pa
 ### Recipe Works
 
 **Purpose:** Test recipe entry, yield, unit conversions, portion scaling, costing, fractions, and printable output with a fictional recipe.
-**Starting page:** `/gravity-assist`
+**Starting page:** `/gravity-recipe-works`
 
 #### REC-01 — Create a sample recipe
 **Do this:** Enter a fictional recipe with ingredients, amounts, units, yield, and portion size.
@@ -482,7 +482,7 @@ This catalog is limited to tools and processes linked from Gravity’s public pa
 **Starting page:** `/pilot-room`
 
 #### PIL-01 — Create and preserve a pilot record
-**Do this:** Join with fictional test details, save the private return link, close/reopen the browser, and return.
+**Do this:** Only in an authorized disposable environment, enroll with fictional test details, save the private return link, close/reopen the browser, and return. Do not create fictional participants in production.
 **Expected:** The participant can reopen only their own workspace. The manager can identify the participant and selected track.
 
 #### PIL-02 — Run a tool protocol
@@ -534,44 +534,44 @@ This catalog is limited to tools and processes linked from Gravity’s public pa
 ### Pilot invitation and enrollment process
 
 **Purpose:** Check that an invited operator can understand the offer, reach the Pilot Room, enroll, and get a usable private return link.
-**Starting page:** `/gravity-assist`
+**Starting page:** `/pilot-room`
 
-#### PILOT-RECRUITMENT-01 — Check whether it is available
-**Do this:** Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.
-**Expected:** The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device.
+#### PILOT-RECRUITMENT-01 — Open the participant entry page
+**Do this:** Follow the public invitation to the Pilot Room. Read both participation choices and the reward information.
+**Expected:** The invitation opens the correct room and explains the choices and rewards.
 
-#### PILOT-RECRUITMENT-02 — Read the first-use instructions
-**Do this:** If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.
-**Expected:** A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap.
+#### PILOT-RECRUITMENT-02 — Review enrollment instructions
+**Do this:** Inspect the name, email, role, track and consent fields. Do not submit fictional details on production.
+**Expected:** The required information and the difference between tracks are clear.
 
-#### PILOT-RECRUITMENT-03 — Complete one fictional task
-**Do this:** Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.
-**Expected:** The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure.
+#### PILOT-RECRUITMENT-03 — Enroll in an isolated test environment
+**Do this:** Only in an authorized disposable environment, enroll a fictional participant and confirm the private workspace opens.
+**Expected:** The saved record appears in the manager dashboard with the correct details.
 
-#### PILOT-RECRUITMENT-04 — Check save, export, and recovery
-**Do this:** If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.
-**Expected:** The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action.
+#### PILOT-RECRUITMENT-04 — Preserve return access
+**Do this:** In the isolated environment copy the private return link, reopen it in a fresh session and confirm the same record.
+**Expected:** The original record reopens without duplicate enrollment.
 
 ### Pilot review and manager follow-up
 
 **Purpose:** Check that weekly, midpoint, final, and issue entries reach the manager, receive a response, and produce an accurate final record.
-**Starting page:** `/gravity-assist`
+**Starting page:** `/pilot-room-manager`
 
-#### PILOT-FOLLOWUP-01 — Check whether it is available
-**Do this:** Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.
-**Expected:** The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device.
+#### PILOT-FOLLOWUP-01 — Open the manager dashboard
+**Do this:** Use authorized manager access in a disposable test environment. Do not modify real records.
+**Expected:** The manager dashboard shows the test participant and correct plan.
 
-#### PILOT-FOLLOWUP-02 — Read the first-use instructions
-**Do this:** If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.
-**Expected:** A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap.
+#### PILOT-FOLLOWUP-02 — Review saved records
+**Do this:** In the disposable environment submit weekly, midpoint and final reviews in order and check the manager view.
+**Expected:** The reviews are present and progress reflects completed milestones.
 
-#### PILOT-FOLLOWUP-03 — Complete one fictional task
-**Do this:** Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.
-**Expected:** The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure.
+#### PILOT-FOLLOWUP-03 — Check issue and message follow-up
+**Do this:** Submit a fictional issue and message in the isolated environment. Reply from the manager dashboard.
+**Expected:** The issue and reply appear in the correct test record.
 
-#### PILOT-FOLLOWUP-04 — Check save, export, and recovery
-**Do this:** If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.
-**Expected:** The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action.
+#### PILOT-FOLLOWUP-04 — Verify final record
+**Do this:** Review the final result, contribution evidence and reward decision in the disposable manager workspace.
+**Expected:** The final record reflects the verified contribution and actual reward decision.
 
 ### Visitor-to-pilot conversion journey
 

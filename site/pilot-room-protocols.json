@@ -359,7 +359,7 @@
     {
       "id": "numbers",
       "title": "Numbers Lab and calculators",
-      "url": "/gravity-assist",
+      "url": "/gravity-numbers-lab",
       "purpose": "Check calculator inputs, units, formula boundaries, explanations, and output consistency.",
       "cases": [
         [
@@ -397,7 +397,7 @@
     {
       "id": "recipes",
       "title": "Recipe Works",
-      "url": "/gravity-assist",
+      "url": "/gravity-recipe-works",
       "purpose": "Test recipe entry, yield, unit conversions, portion scaling, costing, fractions, and printable output with a fictional recipe.",
       "cases": [
         [
@@ -712,7 +712,7 @@
         [
           "PIL-01",
           "Create and preserve a pilot record",
-          "Join with fictional test details, save the private return link, close/reopen the browser, and return.",
+          "Only in an authorized disposable environment, enroll with fictional test details, save the private return link, close/reopen the browser, and return. Do not create fictional participants in production.",
           "The participant can reopen only their own workspace. The manager can identify the participant and selected track."
         ],
         [
@@ -789,64 +789,64 @@
     {
       "id": "pilot-recruitment",
       "title": "Pilot invitation and enrollment process",
-      "url": "/gravity-assist",
+      "url": "/pilot-room",
       "purpose": "Check that an invited operator can understand the offer, reach the Pilot Room, enroll, and get a usable private return link.",
       "cases": [
         [
           "PILOT-RECRUITMENT-01",
-          "Check whether it is available",
-          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
-          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
+          "Open the participant entry page",
+          "Follow the public invitation to the Pilot Room. Read both participation choices and the reward information.",
+          "The invitation opens the correct room and explains the choices and rewards."
         ],
         [
           "PILOT-RECRUITMENT-02",
-          "Read the first-use instructions",
-          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
-          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
+          "Review enrollment instructions",
+          "Inspect the name, email, role, track and consent fields. Do not submit fictional details on production.",
+          "The required information and the difference between tracks are clear."
         ],
         [
           "PILOT-RECRUITMENT-03",
-          "Complete one fictional task",
-          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
-          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
+          "Enroll in an isolated test environment",
+          "Only in an authorized disposable environment, enroll a fictional participant and confirm the private workspace opens.",
+          "The saved record appears in the manager dashboard with the correct details."
         ],
         [
           "PILOT-RECRUITMENT-04",
-          "Check save, export, and recovery",
-          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
-          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
+          "Preserve return access",
+          "In the isolated environment copy the private return link, reopen it in a fresh session and confirm the same record.",
+          "The original record reopens without duplicate enrollment."
         ]
       ]
     },
     {
       "id": "pilot-followup",
       "title": "Pilot review and manager follow-up",
-      "url": "/gravity-assist",
+      "url": "/pilot-room-manager",
       "purpose": "Check that weekly, midpoint, final, and issue entries reach the manager, receive a response, and produce an accurate final record.",
       "cases": [
         [
           "PILOT-FOLLOWUP-01",
-          "Check whether it is available",
-          "Open Gravity Assist and look for this named tool. If it is listed, open it. If it is missing or unavailable, stop and record Blocked; do not substitute a different tool or guess its address.",
-          "The tool opens from its published Gravity entry point, or its absence is recorded as Blocked with the date and device."
+          "Open the manager dashboard",
+          "Use authorized manager access in a disposable test environment. Do not modify real records.",
+          "The manager dashboard shows the test participant and correct plan."
         ],
         [
           "PILOT-FOLLOWUP-02",
-          "Read the first-use instructions",
-          "If the tool opens, read its visible purpose, instructions, and any sample. Note any word or step that is unclear before entering information.",
-          "A first-time tester can explain what the tool is for, what to enter, and what it will produce. Missing instructions are reported as a usability gap."
+          "Review saved records",
+          "In the disposable environment submit weekly, midpoint and final reviews in order and check the manager view.",
+          "The reviews are present and progress reflects completed milestones."
         ],
         [
           "PILOT-FOLLOWUP-03",
-          "Complete one fictional task",
-          "Use fictional restaurant information only. Follow the task the tool itself presents. If there is no usable task or a required feature is not present, mark Blocked or Not applicable and explain.",
-          "The tool completes the task it actually offers, and its result matches the on-screen instructions. Do not treat an undocumented feature as a failure."
+          "Check issue and message follow-up",
+          "Submit a fictional issue and message in the isolated environment. Reply from the manager dashboard.",
+          "The issue and reply appear in the correct test record."
         ],
         [
           "PILOT-FOLLOWUP-04",
-          "Check save, export, and recovery",
-          "If the tool offers save, export, print, or backup, use one offered control. Refresh or reopen only if the instructions say work should persist. If no such control is offered, mark Not applicable.",
-          "The offered control behaves as described and the resulting copy can be found. A missing or misleading control is recorded with the exact screen and action."
+          "Verify final record",
+          "Review the final result, contribution evidence and reward decision in the disposable manager workspace.",
+          "The final record reflects the verified contribution and actual reward decision."
         ]
       ]
     },
