@@ -2222,7 +2222,7 @@
     },
     {
       "path": "site/pilot-room.html",
-      "sha256": "2829beafe249b33f2f535d89a16f0df810460718e3ef18020256bc2195a8e2df"
+      "sha256": "e881e0ee5c144408769dc8ce4b4f80df5a008ea8f1d78e103490094eb71787f3"
     },
     {
       "path": "site/privacy.html",
@@ -2658,7 +2658,7 @@
     },
     {
       "path": "functions/pilot-room/index.mjs",
-      "sha256": "d70b193847c7947ff0bb4794dfc8c178611c9d04ae911604e2f78cb501871b63"
+      "sha256": "fa6d359afaa85235f8dbb63003599bfeafdd00aafe0ea4a99410e32f260385fa"
     },
     {
       "path": "functions/testing-room/index.mjs",

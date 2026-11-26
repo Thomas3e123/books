@@ -76,7 +76,7 @@ export default async function handler(request){
       if(type==='final_review'&&!clean(details.standard_holding,100))return json({error:'Choose whether the standard held before saving.'},400);
       if(type==='issue_report'&&!clean(details.expected,1200)&&!clean(details.actual,1800))return json({error:'Describe what you expected or what happened.'},400);
       const eid=id('entry');const row=await db.sql`INSERT INTO gravity_pilot_entries (id,participant_id,entry_type,title,details) VALUES (${eid},${p.id},${type},${title},${JSON.stringify(details)}::jsonb) RETURNING id,entry_type,title,details,created_at`;
-      const status=type==='final_review'?'complete':(type==='midpoint_review'?'midpoint_reviewed':(type==='weekly_checkin'&&p.status!=='midpoint_reviewed'?'active':p.status));
+      const status=type==='final_review'?'complete':(type==='midpoint_review'?'midpoint_reviewed':(type==='weekly_checkin'&&p.status!=='midpoint_reviewed'?'active':(type==='feedback'&&p.status==='enrolled'?'active':p.status)));
       await db.sql`UPDATE gravity_pilot_participants SET status=${status},updated_at=NOW() WHERE id=${p.id}`;
       if(type==='final_review')await db.sql`UPDATE gravity_pilot_plans SET status='complete',updated_at=NOW() WHERE participant_id=${p.id}`;
       return json({entry:row[0]},201);
