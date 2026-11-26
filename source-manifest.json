@@ -2214,15 +2214,15 @@
     },
     {
       "path": "site/pilot-room-protocols.json",
-      "sha256": "65962036b72c4a79bcca75d6f44d72057655092d1b3d782e2a32a2e6352233e3"
+      "sha256": "4a5b5a6f7f81ed9575c5474756bd6c266839ca7161a75739da42e927ac1c07ac"
     },
     {
       "path": "site/pilot-room-tool-process-test-protocols.md",
-      "sha256": "65e19e74c2726cda4ec4ae94178d372e502f5c64cdcaffca8db7557bfad3a603"
+      "sha256": "4fe11da5bd819405156dca3555e90839de3b81089ed941152323384deec11982"
     },
     {
       "path": "site/pilot-room.html",
-      "sha256": "e881e0ee5c144408769dc8ce4b4f80df5a008ea8f1d78e103490094eb71787f3"
+      "sha256": "fa2f475ba341a2b5eb7f02ed30698f9537096da4a442618659a4acaebe618d24"
     },
     {
       "path": "site/privacy.html",

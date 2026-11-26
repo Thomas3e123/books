@@ -110,7 +110,7 @@ This catalog is limited to tools and processes linked from Gravity’s public pa
 
 **Purpose:** Test setup, counts, receiving, movement, waste, costing, history, export, and recovery with sample inventory only.
 **Starting page:** `/gravity-inventory-center`
-**Sample setup:** Use a disposable fictional restaurant named Pilot Kitchen. Create these sample items only if the tool offers item setup: Canola Oil (base unit bottle; purchase unit case of 12; fictional cost $36 per case; starting count 2 cases/24 bottles), Mozzarella (base unit pound; case of 10 pounds; fictional cost $42 per case; starting count 30 pounds), and Tomato Sauce (base unit can; case of 6; fictional cost $24 per case; starting count 3 cases/18 cans). Test receiving one oil case (+12 bottles), wasting two bottles (-2 bottles), and counting the remaining 34 bottles. Do not require the system to use these exact fields if its documented setup differs; record an unavailable feature as Blocked or Not applicable, not as a guessed failure. Use an available reset, disposable workspace, or export backup before testing destructive edits.
+**Sample setup:** Use a disposable fictional restaurant named Pilot Kitchen. Create these sample items only if the tool offers item setup: Canola Oil (base unit bottle; purchase unit case of 12; fictional cost $36 per case; starting count 2 cases/24 bottles), Mozzarella (base unit pound; case of 10 pounds; fictional cost $42 per case; starting count 30 pounds), and Tomato Sauce (base unit can; case of 6; fictional cost $24 per case; starting count 3 cases/18 cans). The intended oil sequence is: receive one case (+12 bottles), record two bottles as waste (-2 bottles), then count the remaining 34 bottles. INV-04 and INV-05 use separate sample states; reset the oil count to 36 bottles or use a fresh disposable copy before INV-05. Do not require the system to use these exact fields if its documented setup differs; record an unavailable feature as Blocked or Not applicable, not as a guessed failure. Use an available reset, disposable workspace, or export backup before testing destructive edits.
 
 #### INV-01 — Set up sample items
 **Do this:** Create the fictional Pilot Kitchen workspace if needed. Add Canola Oil (bottle; case of 12), Mozzarella (pound; case of 10 pounds), and Tomato Sauce (can; case of 6). Set the sample starting counts listed in this guide if those fields are available. Then search for each item.
@@ -125,11 +125,11 @@ This catalog is limited to tools and processes linked from Gravity’s public pa
 **Expected:** The final saved quantity and cost match the sample entry, and the system shows what was changed.
 
 #### INV-04 — Count and variance
-**Do this:** After the one-case receipt, the sample oil total is 36 bottles. Record a count of 34 bottles and review the variance from the expected quantity. Then change the count by one bottle and review whether the history shows the change.
+**Do this:** After the one-case receipt, the sample oil total is 36 bottles. Record a count of 34 bottles and review the variance from the expected quantity. Then change the count to 35 bottles and review whether the history shows the change. Reset to 36 bottles or use a fresh disposable copy before the waste test in INV-05.
 **Expected:** The variance uses the entered units and count date. A missing count is not presented as a zero count.
 
 #### INV-05 — Waste or spoilage
-**Do this:** Record two bottles of fictional Canola Oil as waste/spoilage with a reason. Starting from 36 bottles after receipt, the expected remaining quantity is 34 bottles if waste is recorded as an on-hand reduction. If the tool defines waste differently, follow its published instructions and record the difference.
+**Do this:** Start from a fresh/reset sample state with 36 Canola Oil bottles after the one-case receipt; do not reuse the 34-bottle count from INV-04. Record two bottles as waste/spoilage with a reason. The expected remaining quantity is 34 bottles if waste is recorded as an on-hand reduction. If the tool defines waste differently, follow its published instructions and record the difference.
 **Expected:** On-hand quantity and cost movement reflect the sample entry, and the record is visible in history.
 
 #### INV-06 — Cost or source update
