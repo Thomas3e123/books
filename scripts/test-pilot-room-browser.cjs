@@ -41,7 +41,7 @@ const server=http.createServer(async(req,res)=>{
  await page.locator('#join-btn').click();await page.getByText('Choose your role.').waitFor();assert.equal(writes.filter(x=>x.path.endsWith('/join')).length,0);
  await page.locator('#join-role').selectOption({label:'Owner'});await page.locator('#join-btn').click();await page.getByText('Please accept the pilot follow-up and data storage notice.').waitFor();assert.equal(writes.filter(x=>x.path.endsWith('/join')).length,0);
  await page.locator('#join-consent').check();await page.locator('#join-btn').click();
- await page.locator('#welcome-title').filter({hasText:'Synthetic Alpha'}).waitFor();
+ await page.locator('#welcome-title').filter({hasText:'Synthetic Alpha'}).waitFor();assert.equal(await page.locator('#start-tool,#start-plan').count(),0);assert.ok(await page.locator('#print-plan').evaluate(x=>x.classList.contains('pr-hidden')));
  await page.locator('#tab-protocol').click();await page.locator('#protocol-suite').selectOption('inventory');assert.equal(await page.locator('#protocol-video video').getAttribute('src'),'/assets/video/pilot/inventory.mp4');await page.locator('.protocol-result').first().selectOption({label:'Pass'});await page.locator('#save-protocol').click();
  await page.getByText('Test report saved to your private pilot record.',{exact:false}).waitFor();assert.ok(writes.some(x=>x.path.endsWith('/feedback')));
  console.log('Synthetic enrollment and tool report browser path: PASS');
