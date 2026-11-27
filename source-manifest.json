@@ -2222,11 +2222,11 @@
     },
     {
       "path": "site/pilot-room-protocols.json",
-      "sha256": "7c9892f978e3b823395a694d2f8a0476388e958cf1b8f20e44c9c9f7fca81cd8"
+      "sha256": "8573ad85dfa1550e1300ef03e92f4aae5758df7c2e20b4a7e77e6753a786dc7a"
     },
     {
       "path": "site/pilot-room-tool-process-test-protocols.md",
-      "sha256": "8484d0c4373d79ab1859ccc0d1cdc7ba09787c383dd6bbb5508059e4540c943e"
+      "sha256": "3b3359c9f8db66de70dcae67013a7c4d21905c6e077e8aadc780af8bcfc874b1"
     },
     {
       "path": "site/pilot-room.html",
