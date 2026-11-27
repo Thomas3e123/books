@@ -1961,6 +1961,14 @@
       "sha256": "9b8a4e964edc572090e6dc409f9686af6b6619690d5b85dfe080e4eca2395d6c"
     },
     {
+      "path": "site/assets/video/gravity-promo-poster.jpg",
+      "sha256": "deed44752351725845ed719cf57719d6c146967c62c36193318d9f20d6131f47"
+    },
+    {
+      "path": "site/assets/video/gravity-promo.mp4",
+      "sha256": "fea31eb3f9aa9bc04338e8a4b9cb9e0ec7bc334f69df6604edd51006d9ad90a2"
+    },
+    {
       "path": "site/assets/video/pilot/foundry-part-00.mp4",
       "sha256": "34c4bbd5804a313b8e43c906b2e33e789d638c7c17024b4972da0d011131d3bc"
     },
@@ -2174,7 +2182,7 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "a67302b57f5d1b753f378e7db6f62cb33e9d2981dc57feaf8cf76162b8e330bb"
+      "sha256": "0f31e04dd04cbd80599f2426bdb7097f593143e91fc68e42b7f76099db0590fb"
     },
     {
       "path": "site/installation-improvement.html",
@@ -2222,7 +2230,7 @@
     },
     {
       "path": "site/pilot-room.html",
-      "sha256": "d4e82f2db9b2cd1b75a073e6e73e8531c49c097fc611262d33b1464c9c846e8e"
+      "sha256": "7db27f7e19fb7838c582e2bb6c4b70bc62e80a7a5301ea63ff4e562fd4f59637"
     },
     {
       "path": "site/privacy.html",
