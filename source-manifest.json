@@ -1961,6 +1961,10 @@
       "sha256": "9b8a4e964edc572090e6dc409f9686af6b6619690d5b85dfe080e4eca2395d6c"
     },
     {
+      "path": "site/assets/video/gravity-full-overview.mp4",
+      "sha256": "a7a0d5eef57ba9feca465769f83743d8b589c692683a75d8d9f77b5bc8fe925e"
+    },
+    {
       "path": "site/assets/video/gravity-promo-poster.jpg",
       "sha256": "deed44752351725845ed719cf57719d6c146967c62c36193318d9f20d6131f47"
     },
@@ -2230,7 +2234,7 @@
     },
     {
       "path": "site/pilot-room.html",
-      "sha256": "ba8e392ebf5fd69e5d7721c3ed0ee5e485897845685e777ece7ddbac82c5a91d"
+      "sha256": "a940cc199a263fd9ce285fdefdc3d284fbbe3a40a934e39333f5d6e79a658689"
     },
     {
       "path": "site/privacy.html",
@@ -2538,7 +2542,7 @@
     },
     {
       "path": "site/start-here.html",
-      "sha256": "6fc0dd1584f1a3838f765da3d21e22548270183da3560478c3ff2543a7a17ef0"
+      "sha256": "5cb82e2853f45a17177a10dcfdbbe68b5c92cd24a6f2f30e4ce9af4d0d27f1ab"
     },
     {
       "path": "site/support.html",
