@@ -2222,11 +2222,11 @@
     },
     {
       "path": "site/pilot-room-protocols.json",
-      "sha256": "27ae7cee8d70549472855cda6f4401d09c3f803b85e8b24d3280bd69249d768e"
+      "sha256": "ad85e1a660465067dca1f4fa9bcecaacf48ce71bda2101f6a8fed1104733e903"
     },
     {
       "path": "site/pilot-room-tool-process-test-protocols.md",
-      "sha256": "8484d0c4373d79ab1859ccc0d1cdc7ba09787c383dd6bbb5508059e4540c943e"
+      "sha256": "9d2e11f67fbc0a565a0d9ccef9ad4012cbbeedb864253758ad5005906c87bf4a"
     },
     {
       "path": "site/pilot-room.html",
@@ -2666,7 +2666,7 @@
     },
     {
       "path": "functions/pilot-room/index.mjs",
-      "sha256": "d5740d1cf91e39b1af1c332a087f8205c538faa32b8ee88eedaa0e058a4f7410"
+      "sha256": "ca518be83d325ba1b8a0ab38fb1f2a3a3ddc3614dd65bf302d8e7c332c44b915"
     },
     {
       "path": "functions/testing-room/index.mjs",
