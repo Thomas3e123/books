@@ -14,8 +14,8 @@ const server=http.createServer(async(req,res)=>{
   const send=(data,status=200)=>{res.writeHead(status,{'Content-Type':'application/json'});res.end(JSON.stringify(data))};
   if(p.endsWith('/manager/participants'))return send({participants:people.map(x=>({id:x.id,display_name:x.name,email:x.email,status:x.status,issue_area:x.issueArea}))});
   if(p.includes('/manager/participant/')){const id=p.split('/').pop();if(id==='a')await new Promise(r=>setTimeout(r,400));return send({participant:people.find(x=>x.id===id),plan:null,entries:[],messages:[]})}
-  if(req.method==='POST'){writes.push({path:p,body:JSON.parse(body)});if(p.endsWith('/join'))return send({participant:people[0],token:'synthetic-local-token'},201);return send({ok:true},201)}
-  if(p.endsWith('/me'))return send({participant:people[0],plan:null,entries:[],messages:[]});
+  if(req.method==='POST'){const payload=JSON.parse(body);writes.push({path:p,body:payload});if(p.endsWith('/join')){const participant=people.find(x=>x.name===payload.name)||people[0];return send({participant,token:'synthetic-'+participant.id+'-token'},201)}return send({ok:true},201)}
+  if(p.endsWith('/me')){const participant=(req.headers['x-gravity-pilot-token']||'').includes('-b-')?people[1]:people[0];return send({participant,plan:null,entries:[],messages:[]})}
   return send({},404);
  }
  const rel=p==='/'?'index.html':p==='/pilot-room'?'pilot-room.html':p==='/pilot-room-manager'?'pilot-room-manager.html':p.slice(1);
@@ -41,8 +41,12 @@ const server=http.createServer(async(req,res)=>{
  await page.locator('#join-btn').click();await page.getByText('Choose your role.').waitFor();assert.equal(writes.filter(x=>x.path.endsWith('/join')).length,0);
  await page.locator('#join-role').selectOption({label:'Owner'});await page.locator('#join-btn').click();await page.getByText('Please accept the pilot follow-up and data storage notice.').waitFor();assert.equal(writes.filter(x=>x.path.endsWith('/join')).length,0);
  await page.locator('#join-consent').check();await page.locator('#join-btn').click();
- await page.locator('#welcome-title').filter({hasText:'Synthetic Alpha'}).waitFor();assert.equal(await page.locator('#start-tool,#start-plan').count(),0);assert.ok(await page.locator('#print-plan').evaluate(x=>x.classList.contains('pr-hidden')));
- await page.locator('#tab-protocol').click();await page.locator('#protocol-suite').selectOption('inventory');assert.equal(await page.locator('#protocol-video video').getAttribute('src'),'/assets/video/pilot/inventory.mp4');await page.locator('.protocol-result').first().selectOption({label:'Pass'});await page.locator('#save-protocol').click();
+ await page.locator('#welcome-title').filter({hasText:'Synthetic Alpha'}).waitFor();assert.equal(await page.locator('#start-tool,#start-plan').count(),0);assert.ok(await page.locator('#print-plan').evaluate(x=>x.classList.contains('pr-hidden')));assert.equal(await page.locator('#tab-protocol').getAttribute('aria-selected'),'true');
+ await page.locator('#protocol-suite').selectOption('inventory');assert.equal(await page.locator('#protocol-video video').getAttribute('src'),'/assets/video/pilot/inventory.mp4');await page.locator('.protocol-result').first().selectOption({label:'Pass'});await page.locator('#save-protocol').click();
  await page.getByText('Test report saved to your private pilot record.',{exact:false}).waitFor();assert.ok(writes.some(x=>x.path.endsWith('/feedback')));
  console.log('Synthetic enrollment and tool report browser path: PASS');
+ const improvement=await browser.newPage({viewport:{width:390,height:844}});await improvement.goto(origin+'/pilot-room');const consent=improvement.getByRole('button',{name:'Decline analytics'});if(await consent.isVisible())await consent.click();
+ await improvement.locator('#join-track').selectOption('improvement');await improvement.locator('#join-name').fill('Synthetic Bravo');await improvement.locator('#join-email').fill('b@example.invalid');await improvement.locator('#join-role').selectOption({label:'Owner'});await improvement.locator('#join-issue').selectOption({label:'Food cost, waste, or inventory'});await improvement.locator('#join-consent').check();await improvement.locator('#join-btn').click();
+ await improvement.locator('#welcome-title').filter({hasText:'Synthetic Bravo'}).waitFor();assert.equal(await improvement.locator('#tab-plan').getAttribute('aria-selected'),'true');assert.equal(await improvement.locator('#start-tool,#start-plan').count(),0);assert.ok(await improvement.locator('#print-plan').evaluate(x=>x.classList.contains('pr-hidden')));assert.ok(await improvement.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+ await improvement.close();console.log('Synthetic improvement enrollment opens directly to plan; mobile layout: PASS');
 }finally{await browser?.close();server.close()}})().catch(e=>{console.error(e);process.exitCode=1});
