@@ -102,10 +102,13 @@ export default async function handler(request){
       }
       if(request.method==='POST'&&path==='manager/update'){
         const b=await body(request),pid=clean(b.participantId,100);const status=['enrolled','plan_ready','active','midpoint_reviewed','paused','complete','closed'].includes(b.status)?b.status:'active';
-        await db.sql`UPDATE gravity_pilot_participants SET status=${status},qualifying_contribution=${Boolean(b.qualifyingContribution)},final_version_awarded=${Boolean(b.finalVersionAwarded)},lifetime_library_awarded=${Boolean(b.lifetimeLibraryAwarded)},manager_notes=${clean(b.managerNotes,2500)},updated_at=NOW() WHERE id=${pid}`;return json({ok:true});
+        const updated=await db.sql`UPDATE gravity_pilot_participants SET status=${status},qualifying_contribution=${Boolean(b.qualifyingContribution)},final_version_awarded=${Boolean(b.finalVersionAwarded)},lifetime_library_awarded=${Boolean(b.lifetimeLibraryAwarded)},manager_notes=${clean(b.managerNotes,2500)},updated_at=NOW() WHERE id=${pid} RETURNING id`;
+        if(!updated.length)return json({error:'Participant record no longer exists. Refresh the participant list.'},404);return json({ok:true});
       }
       if(request.method==='POST'&&path==='manager/reply'){
-        const b=await body(request),pid=clean(b.participantId,100),text=clean(b.body,4000);if(!text)return json({error:'Write a reply first.'},400);const mid=id('msg');await db.sql`INSERT INTO gravity_pilot_messages (id,participant_id,sender,body) VALUES (${mid},${pid},'manager',${text})`;await db.sql`UPDATE gravity_pilot_participants SET updated_at=NOW() WHERE id=${pid}`;return json({ok:true,id:mid},201);
+        const b=await body(request),pid=clean(b.participantId,100),text=clean(b.body,4000);if(!text)return json({error:'Write a reply first.'},400);const mid=id('msg');
+        const sent=await db.sql`INSERT INTO gravity_pilot_messages (id,participant_id,sender,body) SELECT ${mid},id,'manager',${text} FROM gravity_pilot_participants WHERE id=${pid} RETURNING id`;
+        if(!sent.length)return json({error:'Participant record no longer exists. Refresh the participant list.'},404);await db.sql`UPDATE gravity_pilot_participants SET updated_at=NOW() WHERE id=${pid}`;return json({ok:true,id:mid},201);
       }
       if(request.method==='POST'&&path==='manager/reissue-return-link'){
         const b=await body(request),pid=clean(b.participantId,100);

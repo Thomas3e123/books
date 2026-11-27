@@ -2666,7 +2666,7 @@
     },
     {
       "path": "functions/pilot-room/index.mjs",
-      "sha256": "ca518be83d325ba1b8a0ab38fb1f2a3a3ddc3614dd65bf302d8e7c332c44b915"
+      "sha256": "a619873c1ed252b8cdc4802c96edb6dcfef576d70ffe3bdc1f53b51012996907"
     },
     {
       "path": "functions/testing-room/index.mjs",

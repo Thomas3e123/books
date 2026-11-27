@@ -7,13 +7,16 @@ const path=require('node:path');
 const root=path.join(__dirname,'..');
 const source=fs.readFileSync(path.join(root,'functions/pilot-room/index.mjs'),'utf8');
 function fixture(){
-  const p={id:'synthetic',email:'tester@example.invalid',status:'enrolled'}, entries=[];
+  const p={id:'synthetic',email:'tester@example.invalid',status:'enrolled'}, entries=[],messages=[];
   let plan=null,rotated=false,created=[];
   const sql=async(strings,...values)=>{
     const q=strings.join('?');
     if(q.includes('WHERE token_hash='))return [p];
     if(q.includes('SELECT status FROM gravity_pilot_plans'))return plan?[plan]:[];
     if(q.includes('INSERT INTO gravity_pilot_entries')){const row={id:values[0],entry_type:values[2],details:JSON.parse(values[4])};entries.push(row);return [row]}
+    if(q.includes('qualifying_contribution=')&&q.includes('RETURNING id')){if(values[5]!==p.id)return [];p.status=values[0];p.qualifying_contribution=values[1];p.manager_notes=values[4];return [{id:p.id}]}
+    if(q.includes('INSERT INTO gravity_pilot_messages')&&q.includes('RETURNING id')){if(values[2]!==p.id)return [];messages.push({id:values[0],body:values[1]});return [{id:values[0]}]}
+    if(q.includes('UPDATE gravity_pilot_participants SET updated_at=NOW()'))return [];
     if(q.includes('UPDATE gravity_pilot_participants SET status=')){p.status=values[0];return []}
     if(q.includes("UPDATE gravity_pilot_plans SET status='complete'")){plan.status='complete';return []}
     if(q.includes('SELECT failed_count,locked_until'))return [];
@@ -27,7 +30,7 @@ function fixture(){
   const script=source.replace(/^import .*;\n/gm,'').replace('export default async function handler','async function handler').replace('export const config','const config')+'\nhandler;';
   const handler=vm.runInNewContext(script,context);
   const send=(route,data,manager=false)=>handler(new Request('https://test.invalid/pilot-room/api/'+route,{method:'POST',headers:manager?{authorization:'Bearer test-only-manager-key'}:{'x-gravity-pilot-token':'synthetic'},body:JSON.stringify(data)}));
-  return {p,entries,send,setPlan:()=>{plan={status:'active'};p.status='plan_ready'},rotated:()=>rotated,created};
+  return {p,entries,messages,send,setPlan:()=>{plan={status:'active'};p.status='plan_ready'},rotated:()=>rotated,created};
 }
 test('enrollment requires consent and records its version',async()=>{const f=fixture();const payload={name:'Synthetic',email:'synthetic@example.invalid',role:'Owner',issueArea:'Tool testing'};assert.equal((await f.send('join',payload)).status,400);assert.equal(f.created.length,0);const res=await f.send('join',{...payload,consentAccepted:true});assert.equal(res.status,201);assert.equal(f.created.length,1);assert.match(f.created[0].query,/consent_version,consent_accepted_at/);assert.match(f.created[0].query,/NOW\(\)/);assert.equal(f.created[0].values[7],'pilot-room-consent-v1-2026-11-26')});
 test('long protocol feedback preserves every permitted character',async()=>{const f=fixture();const report='case results\n'+'x'.repeat(12000);const res=await f.send('feedback',{title:'Test',protocol_report:report});assert.equal(res.status,201);assert.equal(f.entries[0].details.protocol_report,report);assert.equal((await f.send('feedback',{protocol_report:'x'.repeat(25001)})).status,400);assert.equal(f.entries.length,1)});
@@ -36,3 +39,4 @@ test('return-link reissue requires manager and identity verification',async()=>{
 test('all 142 test cases agree with the printable guide',()=>{const j=JSON.parse(fs.readFileSync(path.join(root,'site/pilot-room-protocols.json')));const md=fs.readFileSync(path.join(root,'site/pilot-room-tool-process-test-protocols.md'),'utf8');const cases=j.suites.flatMap(s=>s.cases);assert.equal(cases.length,142);assert.equal(new Set(cases.map(x=>x[0])).size,142);for(const c of cases)for(const text of c)assert.ok(md.includes(text),c[0]);});
 
 test('pilot API has shared-network headroom for the first ten participants',()=>{assert.match(source,/windowLimit:100,windowSize:60,aggregateBy:\['ip','domain'\]/)});
+test('manager records and replies report success only for an existing participant',async()=>{const f=fixture();const update={participantId:'synthetic',status:'active',qualifyingContribution:true,managerNotes:'Verified contribution'};assert.equal((await f.send('manager/update',update,true)).status,200);assert.equal(f.p.manager_notes,'Verified contribution');assert.equal(f.p.qualifying_contribution,true);assert.equal((await f.send('manager/update',{...update,participantId:'removed'},true)).status,404);assert.equal((await f.send('manager/reply',{participantId:'synthetic',body:'Thank you'},true)).status,201);assert.equal(f.messages[0].body,'Thank you');assert.equal((await f.send('manager/reply',{participantId:'removed',body:'Thank you'},true)).status,404);assert.equal(f.messages.length,1)});
