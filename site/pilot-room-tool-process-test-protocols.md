@@ -1,6 +1,6 @@
 # Gravity Tool and Process Test Protocols
 
-Version 1.3 · 25 guides · 138 individual checks
+Version 1.4 · 25 guides · 141 individual checks
 
 This catalog is limited to tools and processes linked from Gravity’s public pages at the time it was prepared. If a listed link no longer opens, record the failing URL and mark that case Blocked. Use fictional restaurant data. For every case, record Pass, Fail, Blocked, Not tested, or Not applicable. If the expected result is unclear, mark Blocked or Not tested and describe what needs clarification. Do not enter private employee, guest, payroll, payment, or exact financial records. Analytics and conversion checks require a manager with access to the live analytics account and production diagnostics.
 
@@ -84,6 +84,11 @@ This catalog is limited to tools and processes linked from Gravity’s public pa
 #### AWR-04 — Answer privacy and restart
 **Do this:** Use fictional answers, close/reopen the page, and use its clear/restart option if offered. Check the current privacy notice.
 **Expected:** Observed storage and submission behavior match the page's privacy explanation. Record any mismatch as a privacy issue.
+
+
+#### AWR-05 — Test the quick diagnostics
+**Do this:** Run the five-question system check, Food-Cost Leak Finder, Which SOP First, and 30-Day Install Plan with fictional answers. Follow each result link or next step. Do not enter actual food-cost values or private restaurant data.
+**Expected:** Each diagnostic completes, gives a usable next step, and remains clearly labeled as a structured starting point rather than a verified diagnosis. Links reach the named resource; answers remain in the browser as the privacy notice says.
 
 ### Gravity Assist and profile handoff
 
@@ -247,6 +252,11 @@ This catalog is limited to tools and processes linked from Gravity’s public pa
 **Do this:** Save, close/reopen, and use the documented backup/recovery route.
 **Expected:** The study is retained and a restored copy contains the same observation set.
 
+
+#### WST-06 — Recorded observation and transcription consent
+**Do this:** Use only a short non-identifying test clip or your own neutral test recording. Add an event marker, stop and save, then inspect the recording list and export/import a portable copy. Do not record employees, guests, live service, payroll, payment, or confidential workplace audio for this pilot. Check whether Analyze Recording is blocked or clearly requests the separate upload consent when that box is unchecked; do not upload unless you deliberately accept the on-screen notice.
+**Expected:** Local capture and export do not silently upload audio; markers remain aligned with the saved recording. Cloud transcription happens only after the separate explicit consent and Analyze action, is identified as a draft, and does not replace a verified study. If a safe test recording is unavailable, mark this case Not tested or Blocked.
+
 ### Numbers Lab and calculators
 
 **Purpose:** Check calculator inputs, units, formula boundaries, explanations, and output consistency.
@@ -296,6 +306,11 @@ This catalog is limited to tools and processes linked from Gravity’s public pa
 #### REC-05 — Save and print
 **Do this:** Save, reopen, and print/export the sample recipe.
 **Expected:** The saved version remains intact and print output shows ingredients, quantities, units, and yield.
+
+
+#### REC-06 — Revision governance and location adoption
+**Do this:** With a fictional recipe, submit a revision for review, inspect the approval controls, approve a test version if the interface allows it, then check Revision History and Location Adoption. Do not treat a saved or submitted draft as approved; do not use a live restaurant recipe.
+**Expected:** The status distinguishes draft, submitted, approved, and adopted states as the page describes. Prior revisions remain identifiable, and location adoption shows which version is in effect without silently replacing another location’s recipe.
 
 ### Quick Tools and QR Code Maker
 
