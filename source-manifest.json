@@ -2773,6 +2773,10 @@
       "sha256": "385fd84a366280c2133a021e2ae8f320560b6297afceb6dda8f99d6caedae97f"
     },
     {
+      "path": "netlify/database/migrations/20261127035500_delete_owner_test_pilot_records.sql",
+      "sha256": "b6e07983b047337dc0abc59bd323e174b86dd6324be55ceb94ee3e30b89f1933"
+    },
+    {
       "path": "netlify/edge-functions/home-welcome-description.js",
       "sha256": "dbc3e879c678644b5a7a389d6e3544449513388e683cfb70a0d04fcaa56557d9"
     },
