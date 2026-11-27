@@ -14,8 +14,8 @@ const server=http.createServer(async(req,res)=>{
   let body='';for await(const chunk of req)body+=chunk;
   const send=(data,status=200)=>{res.writeHead(status,{'Content-Type':'application/json'});res.end(JSON.stringify(data))};
   if(p.endsWith('/manager/participants'))return send({participants:people.map(x=>({id:x.id,display_name:x.name,email:x.email,status:x.status,issue_area:x.issueArea}))});
-  if(p.includes('/manager/participant/')){const id=p.split('/').pop();if(id==='a')await new Promise(r=>setTimeout(r,400));return send({participant:people.find(x=>x.id===id),plan:null,entries:[],messages:[]})}
-  if(req.method==='POST'){const payload=JSON.parse(body);writes.push({path:p,body:payload});if(p.endsWith('/join')){const participant=people.find(x=>x.name===payload.name)||people[0];issues[participant.id]=payload.issueArea;return send({participant:{...participant,issueArea:payload.issueArea},token:'synthetic-'+participant.id+'-token'},201)}return send({ok:true},201)}
+  if(p.includes('/manager/participant/')){const id=p.split('/').pop();if(id==='a')await new Promise(r=>setTimeout(r,400));return send({participant:{...people.find(x=>x.id===id),consentVersion:'pilot-room-consent-v1-2026-11-26',consentAcceptedAt:'2026-11-26T12:00:00Z'},plan:null,entries:[],messages:[]})}
+  if(req.method==='POST'){const payload=JSON.parse(body);writes.push({path:p,body:payload});if(p.endsWith('/join')){if(payload.consentAccepted!==true)return send({error:'Please accept the pilot follow-up and data storage notice.'},400);const participant=people.find(x=>x.name===payload.name)||people[0];issues[participant.id]=payload.issueArea;return send({participant:{...participant,issueArea:payload.issueArea},token:'synthetic-'+participant.id+'-token'},201)}return send({ok:true},201)}
   if(p.endsWith('/me')){const auth=req.headers['x-gravity-pilot-token']||'';if(auth==='synthetic-invalid-token')return send({error:'Pilot return link not found.'},404);const participant=auth.includes('-b-')?people[1]:people[0];return send({participant:{...participant,issueArea:issues[participant.id]||participant.issueArea},plan:null,entries:[],messages:[]})}
   return send({},404);
  }
@@ -31,6 +31,7 @@ const server=http.createServer(async(req,res)=>{
  await page.getByRole('button',{name:/Synthetic Alpha/}).click();await page.getByRole('button',{name:/Synthetic Bravo/}).click();
  await page.locator('#person-name').filter({hasText:'Synthetic Bravo'}).waitFor();await page.waitForTimeout(500);
  assert.equal(await page.locator('#person-name').textContent(),'Synthetic Bravo');
+ assert.match(await page.locator('#person-meta').textContent(),/Consent: recorded/);
  await page.locator('#reply').fill('Synthetic response');await page.locator('#send-reply').click();
  await page.waitForFunction(()=>document.querySelector('#reply-status').textContent==='Reply sent.');
  assert.equal(writes.find(x=>x.path.endsWith('/manager/reply')).body.participantId,'b');
@@ -43,7 +44,7 @@ const server=http.createServer(async(req,res)=>{
  await page.locator('#join-btn').click();await page.getByText('Choose your role.').waitFor();assert.equal(writes.filter(x=>x.path.endsWith('/join')).length,0);
  await page.locator('#join-role').selectOption({label:'Owner'});await page.locator('#join-btn').click();await page.getByText('Please accept the pilot follow-up and data storage notice.').waitFor();assert.equal(writes.filter(x=>x.path.endsWith('/join')).length,0);
  await page.locator('#join-consent').check();await page.locator('#join-btn').click();
- await page.locator('#welcome-title').filter({hasText:'Synthetic Alpha'}).waitFor();assert.equal(await page.locator('#start-tool,#start-plan').count(),0);assert.ok(await page.locator('#print-plan').evaluate(x=>x.classList.contains('pr-hidden')));assert.equal(await page.locator('#tab-protocol').getAttribute('aria-selected'),'true');assert.ok(await page.locator('#pilot-directions').evaluate(x=>x.classList.contains('pr-hidden')));assert.equal(await page.locator('#resource-links').count(),0);assert.match(await page.locator('#pilot-intro').textContent(),/Your private workspace is below/);
+ await page.locator('#welcome-title').filter({hasText:'Synthetic Alpha'}).waitFor();assert.equal(writes.find(x=>x.path.endsWith('/join')).body.consentAccepted,true);assert.equal(await page.locator('#start-tool,#start-plan').count(),0);assert.ok(await page.locator('#print-plan').evaluate(x=>x.classList.contains('pr-hidden')));assert.equal(await page.locator('#tab-protocol').getAttribute('aria-selected'),'true');assert.ok(await page.locator('#pilot-directions').evaluate(x=>x.classList.contains('pr-hidden')));assert.equal(await page.locator('#resource-links').count(),0);assert.match(await page.locator('#pilot-intro').textContent(),/Your private workspace is below/);
  await page.locator('#protocol-suite').selectOption('inventory');assert.equal(await page.locator('#protocol-video video').getAttribute('src'),'/assets/video/pilot/inventory.mp4');await page.locator('.protocol-result').first().selectOption({label:'Pass'});await page.locator('#save-protocol').click();
  await page.getByText('Test report saved to your private pilot record.',{exact:false}).waitFor();assert.ok(writes.some(x=>x.path.endsWith('/feedback')));
  console.log('Synthetic enrollment and tool report browser path: PASS');

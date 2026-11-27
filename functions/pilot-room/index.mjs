@@ -7,6 +7,7 @@ const clean=(v,n=3000)=>String(v??'').trim().slice(0,n);
 const id=(p)=>p+'_'+crypto.randomUUID().replaceAll('-','');
 const token=()=>crypto.randomBytes(32).toString('base64url');
 const hash=(v)=>crypto.createHash('sha256').update(String(v||'')).digest('hex');
+const CONSENT_VERSION='pilot-room-consent-v1-2026-11-26';
 const bearer=(r)=>String(r.headers.get('authorization')||'').replace(/^Bearer\s+/i,'').trim();
 const participantToken=(r)=>clean(r.headers.get('x-gravity-pilot-token')||bearer(r),200);
 const emailOk=(v)=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean(v,254));
@@ -33,8 +34,9 @@ export default async function handler(request){
     if(request.method==='POST'&&path==='join'){
       const b=await body(request);const name=clean(b.name,80),email=clean(b.email,254).toLowerCase(),role=clean(b.role,80),issue=clean(b.issueArea,120);
       if(!name||!emailOk(email)||!role||!issue)return json({error:'Add your name, valid email, role, and first issue.'},400);
+      if(b.consentAccepted!==true)return json({error:'Please accept the pilot follow-up and data storage notice.'},400);
       const t=token(),pid=id('pilot');
-      await db.sql`INSERT INTO gravity_pilot_participants (id,token_hash,display_name,email,role,restaurant_type,issue_area) VALUES (${pid},${hash(t)},${name},${email},${role},${clean(b.restaurantType,120)},${issue})`;
+      await db.sql`INSERT INTO gravity_pilot_participants (id,token_hash,display_name,email,role,restaurant_type,issue_area,consent_version,consent_accepted_at) VALUES (${pid},${hash(t)},${name},${email},${role},${clean(b.restaurantType,120)},${issue},${CONSENT_VERSION},NOW())`;
       return json({participant:{id:pid,name,email,role,restaurantType:clean(b.restaurantType,120),issueArea:issue,status:'enrolled'},token:t},201);
     }
     if(request.method==='GET'&&path==='me'){
@@ -88,7 +90,7 @@ export default async function handler(request){
     if(path.startsWith('manager/')){
       const auth=await managerKey(request);if(!auth.ok)return json({error:auth.locked?'Too many failed passkey attempts. Access is locked for 24 hours.':'Manager access required.'},auth.locked?429:401);
       if(request.method==='GET'&&path==='manager/participants'){
-        const rows=await db.sql`SELECT p.id,p.display_name,p.email,p.role,p.restaurant_type,p.issue_area,p.status,p.qualifying_contribution,p.final_version_awarded,p.lifetime_library_awarded,p.created_at,p.updated_at,pl.pace_days,pl.start_date,pl.first_review_date,pl.midpoint_date,pl.target_end_date,pl.baseline_recorded,(SELECT COUNT(*)::int FROM gravity_pilot_entries e WHERE e.participant_id=p.id) entry_count,(SELECT COUNT(*)::int FROM gravity_pilot_messages m WHERE m.participant_id=p.id AND m.sender='participant' AND m.read_by_manager=FALSE) unread FROM gravity_pilot_participants p LEFT JOIN gravity_pilot_plans pl ON pl.participant_id=p.id ORDER BY p.updated_at DESC LIMIT 500`;
+        const rows=await db.sql`SELECT p.id,p.display_name,p.email,p.role,p.restaurant_type,p.issue_area,p.status,p.qualifying_contribution,p.final_version_awarded,p.lifetime_library_awarded,p.consent_version,p.consent_accepted_at,p.created_at,p.updated_at,pl.pace_days,pl.start_date,pl.first_review_date,pl.midpoint_date,pl.target_end_date,pl.baseline_recorded,(SELECT COUNT(*)::int FROM gravity_pilot_entries e WHERE e.participant_id=p.id) entry_count,(SELECT COUNT(*)::int FROM gravity_pilot_messages m WHERE m.participant_id=p.id AND m.sender='participant' AND m.read_by_manager=FALSE) unread FROM gravity_pilot_participants p LEFT JOIN gravity_pilot_plans pl ON pl.participant_id=p.id ORDER BY p.updated_at DESC LIMIT 500`;
         return json({participants:rows});
       }
       if(request.method==='GET'&&path.startsWith('manager/participant/')){
@@ -96,7 +98,7 @@ export default async function handler(request){
         const plan=(await db.sql`SELECT * FROM gravity_pilot_plans WHERE participant_id=${pid} LIMIT 1`)[0]||null;
         const entries=await db.sql`SELECT id,entry_type,title,details,created_at FROM gravity_pilot_entries WHERE participant_id=${pid} ORDER BY created_at DESC LIMIT 200`;
         const messages=await db.sql`SELECT id,sender,body,created_at FROM gravity_pilot_messages WHERE participant_id=${pid} ORDER BY created_at ASC LIMIT 500`;await db.sql`UPDATE gravity_pilot_messages SET read_by_manager=TRUE WHERE participant_id=${pid} AND sender='participant'`;
-        return json({participant:{...pub(p),managerNotes:p.manager_notes||''},plan,entries,messages});
+        return json({participant:{...pub(p),managerNotes:p.manager_notes||'',consentVersion:p.consent_version||'',consentAcceptedAt:p.consent_accepted_at||null},plan,entries,messages});
       }
       if(request.method==='POST'&&path==='manager/update'){
         const b=await body(request),pid=clean(b.participantId,100);const status=['enrolled','plan_ready','active','midpoint_reviewed','paused','complete','closed'].includes(b.status)?b.status:'active';

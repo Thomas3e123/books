@@ -5,12 +5,13 @@ if(connection!=='postgresql://pilotqa:pilotqa@127.0.0.1:5432/pilotqa')throw Erro
 const client=new Client({connectionString:connection});
 const testKey='pilot-local-qa-only';
 (async()=>{await client.connect();try{
- const migration=fs.readFileSync(path.join(root,'netlify/database/migrations/20261115170000_gravity_pilot_room.sql'),'utf8');await client.query(migration);
+ const migration=fs.readFileSync(path.join(root,'netlify/database/migrations/20261115170000_gravity_pilot_room.sql'),'utf8');await client.query(migration);const consentMigration=fs.readFileSync(path.join(root,'netlify/database/migrations/20261127013000_gravity_pilot_consent_evidence.sql'),'utf8');await client.query(consentMigration);
  const sql=async(parts,...values)=>(await client.query(parts.reduce((s,p,i)=>s+(i?'$'+i:'')+p,''),values)).rows;
  const source=fs.readFileSync(path.join(root,'functions/pilot-room/index.mjs'),'utf8').replace(/^import .*;\n/gm,'').replace('export default async function handler','async function handler').replace('export const config','const config')+'\nhandler;';
  const handler=vm.runInNewContext(source,{getDatabase:()=>({sql}),crypto,Response,Request,URL,Buffer,Netlify:{env:{get:()=>testKey}},console});
  async function request(route,{method='GET',data,token,manager=false,expected=200}={}){const headers={};if(token)headers['x-gravity-pilot-token']=token;if(manager)headers.authorization='Bearer '+testKey;const r=await handler(new Request('https://local.invalid/pilot-room/api/'+route,{method,headers,...(data?{body:JSON.stringify(data)}:{})}));assert.equal(r.status,expected,route);return r.json()}
- const join=async(name,issue)=>request('join',{method:'POST',data:{name,email:name.toLowerCase()+'@example.invalid',role:'Owner',issueArea:issue},expected:201});
+ const join=async(name,issue)=>request('join',{method:'POST',data:{name,email:name.toLowerCase()+'@example.invalid',role:'Owner',issueArea:issue,consentAccepted:true},expected:201});
+ await request('join',{method:'POST',data:{name:'SyntheticNoConsent',email:'nobody@example.invalid',role:'Owner',issueArea:'Gravity tool testing'},expected:400});
  const a=await join('SyntheticAlpha','Shift communication and handoffs'),b=await join('SyntheticBravo','Gravity tool testing');
  const plan={issueArea:'Shift communication and handoffs',problemStatement:'Fictional misplaced list',systemOwner:'Shift lead',baselineMeasure:'Number of misses',baselineSource:'Fictional log',baselineRecorded:true,selectedTools:['Gravity Assist','Start Here Guide and Installation Package','Labor Scheduling Tools'],paceDays:30,startDate:'2026-11-26',firstReviewDate:'2026-12-03',midpointDate:'2026-12-11',targetEndDate:'2026-12-26'};
  await request('plan',{method:'POST',token:a.token,data:plan});
@@ -21,8 +22,8 @@ const testKey='pilot-local-qa-only';
  const full='Synthetic long protocol report. '+ 'x'.repeat(12000);await request('feedback',{method:'POST',token:b.token,data:{title:'Tool test: Inventory Center',protocol_report:full},expected:201});
  await request('issue-report',{method:'POST',token:b.token,data:{area:'Gravity tool',expected:'Synthetic expected',actual:'Synthetic actual'},expected:201});
  await request('message',{method:'POST',token:b.token,data:{body:'Synthetic participant message'},expected:201});
- const list=await request('manager/participants',{manager:true});assert.equal(list.participants.length,2);
- const ad=await request('manager/participant/'+a.participant.id,{manager:true});assert.equal(ad.participant.status,'complete');assert.equal(ad.plan.status,'complete');assert.equal(ad.entries.length,3);
+ const list=await request('manager/participants',{manager:true});assert.equal(list.participants.length,2);assert.ok(list.participants.every(p=>p.consent_version==='pilot-room-consent-v1-2026-11-26'&&p.consent_accepted_at));
+ const ad=await request('manager/participant/'+a.participant.id,{manager:true});assert.equal(ad.participant.consentVersion,'pilot-room-consent-v1-2026-11-26');assert.ok(ad.participant.consentAcceptedAt);assert.equal(ad.participant.status,'complete');assert.equal(ad.plan.status,'complete');assert.equal(ad.entries.length,3);
  const bd=await request('manager/participant/'+b.participant.id,{manager:true});assert.equal(bd.entries.find(e=>e.entry_type==='feedback').details.protocol_report,full);assert.equal(bd.messages[0].body,'Synthetic participant message');
  await request('manager/reply',{method:'POST',manager:true,data:{participantId:b.participant.id,body:'Synthetic manager reply'},expected:201});
  const seen=await request('me',{token:b.token});assert.ok(seen.messages.some(m=>m.sender==='manager'&&m.body==='Synthetic manager reply'));assert.equal(seen.entries.length,2);
