@@ -120,4 +120,4 @@ export default async function handler(request){
     return json({error:'Not found.'},404);
   }catch(e){console.error('Pilot Room request failed',e?.name||'unknown');return json({error:e?.status===413?'Request too large.':'Pilot Room is temporarily unavailable.'},e?.status||500)}
 }
-export const config={path:'/pilot-room/api/*',rateLimit:{action:'rate_limit',windowLimit:45,windowSize:60,aggregateBy:['ip','domain']}};
+export const config={path:'/pilot-room/api/*',rateLimit:{action:'rate_limit',windowLimit:100,windowSize:60,aggregateBy:['ip','domain']}};
