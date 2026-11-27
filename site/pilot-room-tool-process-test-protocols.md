@@ -1,6 +1,6 @@
 # Gravity Tool and Process Test Protocols
 
-Version 1.4 · 25 guides · 141 individual checks
+Version 1.5 · 25 guides · 142 individual checks
 
 This catalog is limited to tools and processes linked from Gravity’s public pages at the time it was prepared. If a listed link no longer opens, record the failing URL and mark that case Blocked. Use fictional restaurant data. For every case, record Pass, Fail, Blocked, Not tested, or Not applicable. If the expected result is unclear, mark Blocked or Not tested and describe what needs clarification. Do not enter private employee, guest, payroll, payment, or exact financial records. Analytics and conversion checks require a manager with access to the live analytics account and production diagnostics.
 
@@ -519,6 +519,10 @@ This catalog is limited to tools and processes linked from Gravity’s public pa
 #### PIL-06 — Reward decision record
 **Do this:** Mark a sample material contribution and record the reward decision in manager view.
 **Expected:** The reward record is attributable to the contribution and cannot be confused with sign-up or praise alone.
+
+#### PIL-07 — Ten-participant shared-network check
+**Do this:** Manager-only. In an authorized disposable test environment or deploy preview, start ten synthetic sessions from one shared test IP. Have each enroll and open the workspace, then submit one sample tool report or plan. Capture HTTP status and timing for each API call. Do not use production or real participant details.
+**Expected:** The intended calls complete without 429 responses for this sequence and each saved response is associated with the correct synthetic session. Verify the Netlify edge limiter in the preview; if the test bypasses that layer, mark it Blocked or Not tested. Never infer capacity from visible controls.
 
 ### Analytics and conversion measurement
 
