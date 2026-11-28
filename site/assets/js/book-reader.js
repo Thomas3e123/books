@@ -6,7 +6,7 @@ const EMBEDDED_CATALOG=[{"id": "quiet-gravity", "title": "Quiet Gravity", "text"
 let catalog=[],reportArticles=[],chunks=[],idx=0,current='',loadToken=0;
 let audioCtx=null,sourceNode=null,activeResolve=null,loopActive=false,playing=false,paused=false,runToken=0,mode='';
 let gainNode=null,bassNode=null,trebleNode=null,decodedBuffer=null,decodedForPart=-1,playedSeconds=0,sourceStartedAt=0,sourceOffset=0,partDuration=0;
-let contentPart=0,sleepAt=0,savingAllowed=false;
+let contentPart=0,sleepAt=0,savingAllowed=false,articleAudioExporting=false,articleExportToken=0,articleDownloadUrl=null,articleDownloadName='';
 let wakeSentinel=null,wakeRequestGeneration=0;
 const LASTBOOK='gravity_reader_last_book_v2', PREFS='gravity_reader_preferences_v2';
 const progressKey=id=>'gravity_reader_checkpoint_v2_'+id;
@@ -115,13 +115,19 @@ const $=id=>document.getElementById(id);
 const status=t=>{const el=$('reader-status');if(el)el.textContent=t;};
 // Dedicated Pause control: the Play button never turns into a second Pause.
 function updateTransport(){
- const play=$('reader-play'),pauseButton=$('reader-pause');
+ const play=$('reader-play'),pauseButton=$('reader-pause'),download=$('reader-download-audio'),ready=$('reader-download-ready');
  if(play){
    play.textContent=paused?'Resume':playing?'Playing…':'Play';
    play.disabled=playing||!chunks.length;
    play.setAttribute('aria-label',paused?'Resume book narration':playing?'Narration playing':'Play book narration');
  }
  if(pauseButton)pauseButton.disabled=!playing;
+ if(download){
+   const isReport=!!catalog.find(book=>book.id===current&&book.kind==='report');
+   download.hidden=!isReport;
+   download.disabled=!isReport||!chunks.length||playing||paused||articleAudioExporting;
+ }
+ if(ready){ready.hidden=!catalog.find(book=>book.id===current&&book.kind==='report')||!articleDownloadUrl;}
 }
 
 function isReaderBoilerplate(t){
@@ -249,6 +255,67 @@ async function neural(text,token){
  }
  return playDecodedAudio(buffer,token);
 }
+async function requestArticleAudio(text,voice,speed){
+ const key=await hash(voice+'|'+speed+'|'+text);
+ const cacheRequest=new Request(location.origin+'/__gravity_voice_cache__/'+key+'.mp3');
+ let blob=null,cache=null;
+ if('caches' in window){
+  try{cache=await caches.open('gravity-neural-voice-v2');const hit=await cache.match(cacheRequest);if(hit)blob=await hit.blob();}catch(_){cache=null;}
+ }
+ if(!blob){
+  const response=await fetch('/.netlify/functions/gravity-tts',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text,voice,speed})});
+  if(!response.ok){let detail='';try{detail=(await response.json()).error||''}catch(_){detail=''}throw new Error(detail||'Gravity narration is temporarily unavailable.');}
+  const contentType=(response.headers.get('content-type')||'').toLowerCase();
+  if(!contentType.includes('audio'))throw new Error('Gravity Reader did not return audio.');
+  blob=await response.blob();
+  if(cache){try{await cache.put(cacheRequest,new Response(blob,{headers:{'Content-Type':'audio/mpeg'}}));}catch(_){}}
+ }
+ return blob;
+}
+function mp3Frames(bytes){
+ let start=0,end=bytes.length;
+ if(bytes.length>=10&&bytes[0]===0x49&&bytes[1]===0x44&&bytes[2]===0x33){
+  const size=((bytes[6]&0x7f)<<21)|((bytes[7]&0x7f)<<14)|((bytes[8]&0x7f)<<7)|(bytes[9]&0x7f);
+  start=Math.min(bytes.length,10+size+((bytes[5]&0x10)?10:0));
+ }
+ if(end-start>=128&&bytes[end-128]===0x54&&bytes[end-127]===0x41&&bytes[end-126]===0x47)end-=128;
+ return bytes.subarray(start,end);
+}
+async function downloadArticleAudio(){
+ if(articleAudioExporting||playing||paused)return;
+ const article=catalog.find(book=>book.id===current&&book.kind==='report');
+ if(!article||!chunks.length)return;
+ const token=++articleExportToken,bookId=current;
+ const voice=$('reader-voice').value||'cedar',speed=Number($('reader-speed').value)||.98;
+ articleAudioExporting=true;updateTransport();
+ const frames=[];
+ try{
+  for(let part=0;part<chunks.length;part++){
+   status('Preparing article audio · part '+(part+1)+' of '+chunks.length+'…');
+   const audio=await requestArticleAudio(chunks[part],voice,speed);
+   if(token!==articleExportToken||current!==bookId)return;
+   const data=mp3Frames(new Uint8Array(await audio.arrayBuffer()));
+   if(!data.length)throw new Error('A narration segment was empty.');
+   frames.push(data);
+  }
+  const file=new Blob(frames,{type:'audio/mpeg'});
+  if(!file.size)throw new Error('No narration audio was created.');
+  const baseName=article.title.replace(/^Issue\s+\d+\s*[·•-]\s*/,'').normalize('NFKD').replace(/[^a-zA-Z0-9\s-]/g,'').trim().replace(/\s+/g,'-').toLowerCase().slice(0,80)||'article';
+  articleDownloadName='Gravity-Report-'+baseName+'-'+voice+'.mp3';
+  if(articleDownloadUrl)URL.revokeObjectURL(articleDownloadUrl);
+  articleDownloadUrl=URL.createObjectURL(file);
+  const ready=$('reader-download-ready');
+  ready.href=articleDownloadUrl;ready.download=articleDownloadName;ready.hidden=false;
+  // Attempt the one-click download. The visible link remains as a reliable fallback
+  // in browsers that do not allow downloads after asynchronous generation.
+  ready.click();
+  status('Article narration is ready as an MP3. If it did not download automatically, use the Download MP3 link below.');
+ }catch(error){
+  if(token===articleExportToken)status('Audio download failed. '+(error?.message||'Please try again.'));
+ }finally{
+  if(token===articleExportToken){articleAudioExporting=false;updateTransport();}
+ }
+}
 function paint(){
  const book=catalog.find(x=>x.id===current);
  $('reader-book-title').textContent=book?.title||'Choose a book';
@@ -279,6 +346,8 @@ function applyPart(part,seconds=0){
  paint();saveCheckpoint();
 }
 async function loadBook(id){
+ articleExportToken++;articleAudioExporting=false;
+ if(articleDownloadUrl){URL.revokeObjectURL(articleDownloadUrl);articleDownloadUrl=null;articleDownloadName='';}
  hardStop();
  const token=++loadToken;
  savingAllowed=false;current=id;chunks=[];idx=0;playedSeconds=0;partDuration=0;contentPart=0;decodedBuffer=null;decodedForPart=-1;
@@ -506,6 +575,7 @@ async function init(){
    }
  };
  updateLevels();
+ $('reader-download-audio').onclick=downloadArticleAudio;
  sel.onchange=async()=>{await loadBook(sel.value);updateBookButtons();};
  $('reader-voice').onchange=()=>{
    hardStop('Voice changed. Press Play to continue.');

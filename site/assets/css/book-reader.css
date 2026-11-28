@@ -45,3 +45,8 @@
 .reader-awake p{margin:0;color:#294b46;font:500 12px/1.45 system-ui,sans-serif}
 .reader-awake .reader-check{cursor:pointer}
 .reader-awake input[type="checkbox"]{cursor:pointer}
+
+.reader-article-download{display:grid;gap:6px}
+.reader-article-download button,.reader-article-download a{min-height:46px;white-space:normal;text-align:center}
+.reader-article-download p{margin:0;color:#506173;font:500 12px/1.45 system-ui,sans-serif}
+.reader-article-download button[hidden],.reader-article-download a[hidden]{display:none!important}
