@@ -342,7 +342,7 @@
     },
     {
       "path": "site/assets/css/book-reader.css",
-      "sha256": "9c8992f3dc4830ef3480ed4263fa9960ea9aae9135d156fed62e305d3c9004ca"
+      "sha256": "8cf265b7a5e8bfc439e7dee89cf44de697255dba5e2a39a686406bec01eab57a"
     },
     {
       "path": "site/assets/css/gravity-cookie-choice.css",
@@ -1430,7 +1430,7 @@
     },
     {
       "path": "site/assets/js/book-reader.js",
-      "sha256": "c3e8d1445f45adfdb2e810a2fa6acf8d8611672534c8e47e5008818b6fbf2f1a"
+      "sha256": "152666fc6a5d0c80b09a124c51d376fbc5392a1f62bbbdc8fa8acb4b822a8904"
     },
     {
       "path": "site/assets/js/gravity-aware-study.js",
@@ -2010,7 +2010,7 @@
     },
     {
       "path": "site/book-reader.html",
-      "sha256": "5d0ecf796dd65e1e5445d08678e259b05e61bf78b761d8d23669c4c3de6e8bd0"
+      "sha256": "2d40e6a67c0248b3446171efbc20048d1c7c752ed874585933c56da9305e1a4c"
     },
     {
       "path": "site/books.html",
